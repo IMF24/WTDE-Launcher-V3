@@ -17,6 +17,9 @@
     will also be visually polished to make it look the best it possibly can!
     
 ----------------------------------------------------------------------------------------------- */
+// Various required imports.
+using System.Diagnostics;
+
 // Main namespace for the program is WTDE_Launcher_V3.
 namespace WTDE_Launcher_V3
 {
@@ -28,6 +31,18 @@ namespace WTDE_Launcher_V3
         public int BGIndex = 0;
         public int ActiveTab = 1;
         public bool TabBarActive = false;
+
+        /// <summary>
+        ///  Opens a specific website. This handles all the complicated stuff to do this.
+        /// </summary>
+        /// <param name="site"></param>
+        public static void OpenSiteURL(string site) {
+            var url = site;
+            var psi = new System.Diagnostics.ProcessStartInfo();
+            psi.UseShellExecute = true;
+            psi.FileName = url;
+            System.Diagnostics.Process.Start(psi);
+        }
 
         /// <summary>
         ///  Main entry point of the V3 launcher Form.
@@ -116,15 +131,25 @@ namespace WTDE_Launcher_V3
         /// <param name="e"></param>
         private void VersionInfoLabel_Click(object sender, EventArgs e)
         {
-            // Are we at the end of the BG cycle?
-            if (BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGIndex = 0;
-            else BGIndex++;
+            // Which mouse button did we push?
+            MouseEventArgs me = (MouseEventArgs) e;
 
-            // Update the background image.
-            this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGIndex];
+            // Left triggers the background to swap.
+            if (me.Button == MouseButtons.Left) {
+                // Are we at the end of the BG cycle?
+                if (BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGIndex = 0;
+                else BGIndex++;
 
-            // Update the version info.
-            VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGIndex]}";
+                // Update the background image.
+                this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGIndex];
+
+                // Update the version info.
+                VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGIndex]}";
+
+            // And right opens the social link for that person.
+            } else if (me.Button == MouseButtons.Right) {
+                OpenSiteURL(BGConstants.V3LauncherSocials[BGIndex]);
+            }
         }
     }
 }
