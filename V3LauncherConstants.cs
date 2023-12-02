@@ -26,12 +26,12 @@ namespace WTDE_Launcher_V3 {
         /// <summary>
         ///  Where is GHWTDE.ini located?
         /// </summary>
-        public string WTDEConfigDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/GHWTDE.ini";
+        public static string WTDEConfigDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/GHWTDE.ini";
 
         /// <summary>
         ///  Where is AspyrConfig.xml located?
         /// </summary>
-        public string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";
+        public static string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";
 
         /// <summary>
         ///  Random window titles that will show in the title bar on startup.
@@ -184,6 +184,10 @@ namespace WTDE_Launcher_V3 {
             "It isn't a silent night in Times Square on 12/31",
             "12/24 is 1/2, simplify your fractions!",
             "I could use some hot chocolate right about now"
+        };
+
+        public static Object[] INIOptionsBank = {
+            
         };
     }
 }

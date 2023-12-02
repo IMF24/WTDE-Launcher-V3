@@ -333,6 +333,26 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap white_overlay_d {
+            get {
+                object obj = ResourceManager.GetObject("white_overlay_d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_overlay_d_l {
+            get {
+                object obj = ResourceManager.GetObject("white_overlay_d_l", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wtde_logo_hw {
             get {
                 object obj = ResourceManager.GetObject("wtde_logo_hw", resourceCulture);

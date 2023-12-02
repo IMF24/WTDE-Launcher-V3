@@ -1,11 +1,41 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "MadMilkman.Ini/1.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/net20/MadMilkman.Ini.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/MadMilkman.Ini.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MadMilkman.Ini/1.0.6": {
+      "sha512": "Tf33gAofTNNg65O/yJTJ9tF0101KFm0hJjGUnj6plsWOmn8sCYSZg+d7Sw/HoulB7zrNfKtLy+Zeqo7JHQb8yQ==",
+      "type": "package",
+      "path": "madmilkman.ini/1.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/MadMilkman.Ini.dll",
+        "lib/net20/MadMilkman.Ini.xml",
+        "madmilkman.ini.1.0.6.nupkg.sha512",
+        "madmilkman.ini.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "MadMilkman.Ini >= 1.0.6"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\ifire\\.nuget\\packages\\": {},
@@ -50,6 +80,12 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "MadMilkman.Ini": {
+            "target": "Package",
+            "version": "[1.0.6, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -72,5 +108,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MadMilkman.Ini 1.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MadMilkman.Ini",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

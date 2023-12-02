@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------------------- */
 // Various required imports.
 using System.Diagnostics;
+using MadMilkman.Ini;
 
 // Main namespace for the program is WTDE_Launcher_V3.
 namespace WTDE_Launcher_V3
@@ -28,9 +29,37 @@ namespace WTDE_Launcher_V3
     /// </summary>
     public partial class Main : Form
     {
+        /// <summary>
+        ///  The current background index.
+        /// </summary>
         public int BGIndex = 0;
-        public int ActiveTab = 1;
+
+        /// <summary>
+        /// Is the settings tab bar active? OFF by default, we'll show the
+        /// MOTD first, then the user can trigger the settings pane.
+        /// </summary>
         public bool TabBarActive = false;
+
+        /// <summary>
+        ///  Load all configuration data from GHWTDE.ini.
+        /// </summary>
+        public void LoadINISettings()
+        {
+
+            TabGeneralGroup.Hide();
+
+            IniFile file = new IniFile(new IniOptions());
+
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+
+            foreach (var section in file.Sections)
+            {
+                foreach (var key in section.Keys)
+                {
+                    if (key.Name == "RichPresence") RichPresence.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(key.Value));
+                }
+            }
+        }
 
         /// <summary>
         ///  Opens a specific website. This handles all the complicated stuff to do this.
@@ -53,20 +82,15 @@ namespace WTDE_Launcher_V3
             // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
             InitializeComponent();
 
-            // This ID number indicates which tab we're on.
-            /* TAB NUMBERS:
-             *   1 - General
-             *   2 - Input
-             *   ...
-             */
-            // Is the settings tab bar active? OFF by default, we'll show the
-            // MOTD first, then the user can trigger the settings pane.
-            // DEBUG: Set this true for now. When we ship this, turn it back to false.
+            
 
             // Update window title with random splash and actual version number.
             // The object `random` is used for the random splash picker.
             Random random = new Random();
             string[] requiredSplashList = { };
+
+            // Pull latest version from website.
+            VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: Fox (FoxJudy)\nWTDE Latest Version: {V3LauncherCore.GetLatestVersion()}";
 
             // What month is it? This determines both what splash bank to pull
             // from, and also how the background needs to be stylized.
@@ -107,8 +131,11 @@ namespace WTDE_Launcher_V3
             WhiteOverlay.Visible = TabBarActive;
             TabButtonGroup.Visible = TabBarActive;
 
-            MOTDPanel.Visible = !TabBarActive;
+            MOTDDarkOverlay.Visible = !TabBarActive;
             MOTDLabel.Text = TabHandler.GetMOTDText();
+
+            // Load our INI settings.
+            LoadINISettings();
 
             // Just for the sake of debugging, we'll change our working directory to where
             // GHWT is installed. This path is defined in the `wtde_path.txt` file.
@@ -150,7 +177,7 @@ namespace WTDE_Launcher_V3
                 this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGIndex];
 
                 // Update the version info.
-                VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGIndex]}";
+                VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGIndex]}\nWTDE Latest Version: {V3LauncherCore.GetLatestVersion()}";
 
                 // And right opens the social link for that person.
             }
@@ -176,7 +203,7 @@ namespace WTDE_Launcher_V3
             TabButtonGroup.Enabled = TabBarActive;
             TabButtonGroup.Visible = TabBarActive;
 
-            MOTDPanel.Visible = !TabBarActive;
+            MOTDDarkOverlay.Visible = !TabBarActive;
         }
 
         /// <summary>
@@ -198,6 +225,12 @@ namespace WTDE_Launcher_V3
         private void CheckForUpdates_Click(object sender, EventArgs e)
         {
             V3LauncherCore.CheckForUpdates();
+        }
+
+        private void TabButtonGeneral_Click(object sender, EventArgs e)
+        {
+            TabGeneralGroup.Show();
+            
         }
     }
 }

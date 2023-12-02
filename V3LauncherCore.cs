@@ -88,5 +88,27 @@ namespace WTDE_Launcher_V3 {
 
             return true;
         }
+
+        /// <summary>
+        ///  Get the latest version of WTDE from the public Git repository.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetLatestVersion() {
+            try {
+                using (WebClient client = new WebClient()) {
+                    // We have the hash list string, let's split it at the newlines and find tb.pab.xen in the list.
+                    string downloadString = client.DownloadString("https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat");
+                    string[] downloadLines = downloadString.Split(new char[] { '\r', '\n' });
+
+                    return downloadLines[1];
+                }
+            // If the user is not connected to the internet, show error message.
+            } catch {
+                // MessageBox.Show("No internet connection was found!", "Can't Update!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "??? (connect to internet)";
+
+
+            }
+        }
     }
 }
