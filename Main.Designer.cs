@@ -30,16 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             LeftDarkOverlay = new PictureBox();
-            label1 = new Label();
+            VersionInfoLabel = new Label();
             TabButtonGroup = new Panel();
-            TabButtonGeneral = new PictureBox();
             MainEditorPane = new Panel();
             LogoContainer = new PictureBox();
+            TabButtonGeneral = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)TabButtonGeneral).BeginInit();
             MainEditorPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoContainer).BeginInit();
+            TabButtonGeneral.SuspendLayout();
             SuspendLayout();
             // 
             // LeftDarkOverlay
@@ -53,17 +54,17 @@
             LeftDarkOverlay.TabIndex = 0;
             LeftDarkOverlay.TabStop = false;
             // 
-            // label1
+            // VersionInfoLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.ForeColor = Color.White;
-            label1.Image = Properties.Resources.dark_overlay_l;
-            label1.Location = new Point(12, 705);
-            label1.Name = "label1";
-            label1.Size = new Size(265, 15);
-            label1.TabIndex = 4;
-            label1.Text = "GHWT: Definitive Edition Launcher V3.0 by IMF24\r\n";
+            VersionInfoLabel.AutoSize = true;
+            VersionInfoLabel.BackColor = Color.Transparent;
+            VersionInfoLabel.ForeColor = Color.White;
+            VersionInfoLabel.Image = Properties.Resources.dark_overlay_l;
+            VersionInfoLabel.Location = new Point(12, 705);
+            VersionInfoLabel.Name = "VersionInfoLabel";
+            VersionInfoLabel.Size = new Size(265, 15);
+            VersionInfoLabel.TabIndex = 4;
+            VersionInfoLabel.Text = "GHWT: Definitive Edition Launcher V3.0 by IMF24\r\n";
             // 
             // TabButtonGroup
             // 
@@ -74,16 +75,6 @@
             TabButtonGroup.Name = "TabButtonGroup";
             TabButtonGroup.Size = new Size(702, 66);
             TabButtonGroup.TabIndex = 5;
-            // 
-            // TabButtonGeneral
-            // 
-            TabButtonGeneral.Image = Properties.Resources.button_plain;
-            TabButtonGeneral.Location = new Point(6, 9);
-            TabButtonGeneral.Name = "TabButtonGeneral";
-            TabButtonGeneral.Size = new Size(104, 50);
-            TabButtonGeneral.SizeMode = PictureBoxSizeMode.StretchImage;
-            TabButtonGeneral.TabIndex = 0;
-            TabButtonGeneral.TabStop = false;
             // 
             // MainEditorPane
             // 
@@ -108,6 +99,28 @@
             LogoContainer.TabIndex = 7;
             LogoContainer.TabStop = false;
             // 
+            // TabButtonGeneral
+            // 
+            TabButtonGeneral.BackgroundImage = Properties.Resources.button_plain;
+            TabButtonGeneral.BackgroundImageLayout = ImageLayout.Stretch;
+            TabButtonGeneral.Controls.Add(label1);
+            TabButtonGeneral.Location = new Point(7, 5);
+            TabButtonGeneral.Name = "TabButtonGeneral";
+            TabButtonGeneral.Size = new Size(103, 53);
+            TabButtonGeneral.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Lexend", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(15, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(72, 25);
+            label1.TabIndex = 0;
+            label1.Text = "General";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -116,7 +129,7 @@
             ClientSize = new Size(1008, 729);
             Controls.Add(LogoContainer);
             Controls.Add(MainEditorPane);
-            Controls.Add(label1);
+            Controls.Add(VersionInfoLabel);
             Controls.Add(LeftDarkOverlay);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -125,9 +138,10 @@
             Text = "GHWT: Definitive Edition Launcher V3.0";
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).EndInit();
             TabButtonGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)TabButtonGeneral).EndInit();
             MainEditorPane.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)LogoContainer).EndInit();
+            TabButtonGeneral.ResumeLayout(false);
+            TabButtonGeneral.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -135,10 +149,11 @@
         #endregion
 
         private PictureBox LeftDarkOverlay;
-        private Label label1;
+        private Label VersionInfoLabel;
         private Panel TabButtonGroup;
-        private PictureBox TabButtonGeneral;
         private Panel MainEditorPane;
         private PictureBox LogoContainer;
+        private Panel TabButtonGeneral;
+        private Label label1;
     }
 }
