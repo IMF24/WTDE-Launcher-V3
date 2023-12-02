@@ -83,9 +83,29 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_light {
+            get {
+                object obj = ResourceManager.GetObject("button_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_plain {
             get {
                 object obj = ResourceManager.GetObject("button_plain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_plain_long {
+            get {
+                object obj = ResourceManager.GetObject("button_plain_long", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap light_overlay {
             get {
                 object obj = ResourceManager.GetObject("light_overlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_fretworks {
+            get {
+                object obj = ResourceManager.GetObject("logo_fretworks", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

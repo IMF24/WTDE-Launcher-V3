@@ -76,6 +76,24 @@ namespace WTDE_Launcher_V3
             // Main editing area is located at (313, -3).
             // That's where we need to move the MOTD container to.
             MainEditorPane.Visible = tabBarActive;
+
+            // Just for the sake of debugging, we'll change our working directory to where
+            // GHWT is installed. This path is defined in the `wtde_path.txt` file.
+            // DEBUG: Read `wtde_path.txt` and change working directory there.
+            Directory.SetCurrentDirectory(File.ReadAllText("../../../wtde_path.txt"));
+        }
+
+        /// <summary>
+        ///  When this button is clicked, start GHWT: DE.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RunWTDE_Click(object sender, EventArgs e)
+        {
+            if (File.Exists("GHWT_Definitive.exe"))
+            {
+                System.Diagnostics.Process.Start("GHWT_Definitive.exe");
+            }
         }
     }
 }
