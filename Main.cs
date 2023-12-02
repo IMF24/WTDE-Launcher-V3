@@ -36,7 +36,8 @@ namespace WTDE_Launcher_V3
         ///  Opens a specific website. This handles all the complicated stuff to do this.
         /// </summary>
         /// <param name="site"></param>
-        public static void OpenSiteURL(string site) {
+        public static void OpenSiteURL(string site)
+        {
             var url = site;
             var psi = new System.Diagnostics.ProcessStartInfo();
             psi.UseShellExecute = true;
@@ -71,17 +72,23 @@ namespace WTDE_Launcher_V3
             // from, and also how the background needs to be stylized.
             switch (DateTime.Now.Month)
             {
-                // Halloween title splashes
+                // Halloween holiday stuff
                 case 10:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitlesHW;
+                    LogoWTDE.Image = Properties.Resources.wtde_logo_hw;
+                    this.BackgroundImage = Properties.Resources.bg_1_hw;
+                    BGConstants.V3LauncherBackgrounds[1] = Properties.Resources.bg_1_hw;
                     break;
 
-                // Christmas title splashes
+                // Christmas holiday stuff
                 case 12:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitlesXM;
+                    LogoWTDE.Image = Properties.Resources.wtde_logo_xmas;
+                    this.BackgroundImage = Properties.Resources.bg_1_xm;
+                    BGConstants.V3LauncherBackgrounds[1] = Properties.Resources.bg_1_xm;
                     break;
 
-                // Normal title splashes
+                // Normal title splashes, nothing different
                 default:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitles;
                     break;
@@ -92,11 +99,14 @@ namespace WTDE_Launcher_V3
 
             // Main editing area is located at (391, -4).
             // That's where we need to move the MOTD container to.
-            MOTDPanel.Location = new Point(391, -4);
+            //~ MOTDPanel.Location = new Point(391, -4);
 
             // Make MOTD visible, hide editing area (for now).
-            MainEditorPane.Enabled = TabBarActive;
-            MainEditorPane.Visible = TabBarActive;
+            WhiteOverlay.Enabled = TabBarActive;
+            TabButtonGroup.Enabled = TabBarActive;
+            WhiteOverlay.Visible = TabBarActive;
+            TabButtonGroup.Visible = TabBarActive;
+
             MOTDPanel.Visible = !TabBarActive;
             MOTDLabel.Text = TabHandler.GetMOTDText();
 
@@ -120,26 +130,18 @@ namespace WTDE_Launcher_V3
         }
 
         /// <summary>
-        ///  Nothing happens.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MOTDLabel_Click(object sender, EventArgs e)
-        {
-            // Dummy function, we don't use this...
-        }
-
-        /// <summary>
         ///  When the version label is clicked, change the background. This is pulled from the BGConstants class.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void VersionInfoLabel_Click(object sender, EventArgs e) {
+        private void VersionInfoLabel_Click(object sender, EventArgs e)
+        {
             // Which mouse button did we push?
-            MouseEventArgs me = (MouseEventArgs) e;
+            MouseEventArgs me = (MouseEventArgs)e;
 
             // Left triggers the background to swap.
-            if (me.Button == MouseButtons.Left) {
+            if (me.Button == MouseButtons.Left)
+            {
                 // Are we at the end of the BG cycle?
                 if (BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGIndex = 0;
                 else BGIndex++;
@@ -150,8 +152,10 @@ namespace WTDE_Launcher_V3
                 // Update the version info.
                 VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGIndex]}";
 
-            // And right opens the social link for that person.
-            } else if (me.Button == MouseButtons.Right) {
+                // And right opens the social link for that person.
+            }
+            else if (me.Button == MouseButtons.Right)
+            {
                 OpenSiteURL(BGConstants.V3LauncherSocials[BGIndex]);
             }
         }
@@ -166,8 +170,12 @@ namespace WTDE_Launcher_V3
             // Invert the status of TabBarActive.
             TabBarActive = !TabBarActive;
 
-            MainEditorPane.Enabled = TabBarActive;
-            MainEditorPane.Visible = TabBarActive;
+            WhiteOverlay.Enabled = TabBarActive;
+            WhiteOverlay.Visible = TabBarActive;
+
+            TabButtonGroup.Enabled = TabBarActive;
+            TabButtonGroup.Visible = TabBarActive;
+
             MOTDPanel.Visible = !TabBarActive;
         }
 
@@ -178,8 +186,18 @@ namespace WTDE_Launcher_V3
         /// <param name="e"></param>
         private void OpenMods_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine($"cwd: {Directory.GetCurrentDirectory()}");
+            //~ Debug.WriteLine($"cwd: {Directory.GetCurrentDirectory()}");
             System.Diagnostics.Process.Start("explorer.exe", "DATA\\MODS");
+        }
+
+        /// <summary>
+        ///  When the user clicks this, run the update checker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CheckForUpdates_Click(object sender, EventArgs e)
+        {
+            V3LauncherCore.CheckForUpdates();
         }
     }
 }

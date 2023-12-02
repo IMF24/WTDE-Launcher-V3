@@ -33,7 +33,8 @@ namespace WTDE_Launcher_V3 {
             Properties.Resources.bg_8,
             Properties.Resources.bg_9,
             Properties.Resources.bg_10,
-            Properties.Resources.bg_11
+            Properties.Resources.bg_11,
+            Properties.Resources.bg_12
         };
 
         /// <summary>
@@ -50,7 +51,8 @@ namespace WTDE_Launcher_V3 {
             "Hex",
             "DanRock",
             "StrangerX-01",
-            "Raccoon_333"
+            "Raccoon_333",
+            "Derpytron84"
         };
 
         /// <summary>
@@ -67,7 +69,8 @@ namespace WTDE_Launcher_V3 {
             "https://www.youtube.com/@hex21510",
             "https://youtube.com/@DanRockProductions",
             "https://youtube.com/@strangerxo1591",
-            "https://youtube.com/@raccoon_333"
+            "https://youtube.com/@raccoon_333",
+            "https://youtube.com/@DerpyTheShreddingProto"
         };
     }
 }
