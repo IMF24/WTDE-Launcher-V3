@@ -34,17 +34,19 @@
             this.VersionInfoLabel = new System.Windows.Forms.Label();
             this.TabButtonGroup = new System.Windows.Forms.Panel();
             this.MainEditorPane = new System.Windows.Forms.Panel();
+            this.MOTDPanel = new System.Windows.Forms.Panel();
+            this.MOTDLabel = new System.Windows.Forms.Label();
             this.LogoWTDE = new System.Windows.Forms.PictureBox();
             this.RunWTDE = new System.Windows.Forms.Button();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.AdjustSettings = new System.Windows.Forms.Button();
+            this.OpenMods = new System.Windows.Forms.Button();
             this.LogoFretworks = new System.Windows.Forms.PictureBox();
-            this.MOTDPanel = new System.Windows.Forms.Panel();
-            this.MOTDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LeftDarkOverlay)).BeginInit();
             this.MainEditorPane.SuspendLayout();
+            this.MOTDPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoWTDE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoFretworks)).BeginInit();
-            this.MOTDPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // LeftDarkOverlay
@@ -96,6 +98,32 @@
             this.MainEditorPane.Size = new System.Drawing.Size(876, 921);
             this.MainEditorPane.TabIndex = 6;
             // 
+            // MOTDPanel
+            // 
+            this.MOTDPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MOTDPanel.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m;
+            this.MOTDPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MOTDPanel.Controls.Add(this.MOTDLabel);
+            this.MOTDPanel.Location = new System.Drawing.Point(318, 665);
+            this.MOTDPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.MOTDPanel.Name = "MOTDPanel";
+            this.MOTDPanel.Size = new System.Drawing.Size(876, 921);
+            this.MOTDPanel.TabIndex = 7;
+            // 
+            // MOTDLabel
+            // 
+            this.MOTDLabel.AutoSize = true;
+            this.MOTDLabel.Font = new System.Drawing.Font("Lexend", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MOTDLabel.ForeColor = System.Drawing.Color.White;
+            this.MOTDLabel.Location = new System.Drawing.Point(18, 14);
+            this.MOTDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MOTDLabel.Name = "MOTDLabel";
+            this.MOTDLabel.Size = new System.Drawing.Size(660, 72);
+            this.MOTDLabel.TabIndex = 0;
+            this.MOTDLabel.Text = "MOTD not found, call IMF!\r\n\r\nIf you\'re seeing this, it means we probably couldn\'t" +
+    " establish a connection to the internet.";
+            this.MOTDLabel.Click += new System.EventHandler(this.MOTDLabel_Click);
+            // 
             // LogoWTDE
             // 
             this.LogoWTDE.BackColor = System.Drawing.Color.Transparent;
@@ -131,6 +159,52 @@
             this.ToolTipMain.SetToolTip(this.RunWTDE, "Save your configuration settings and launch WTDE.");
             this.RunWTDE.UseVisualStyleBackColor = false;
             // 
+            // AdjustSettings
+            // 
+            this.AdjustSettings.BackColor = System.Drawing.Color.Transparent;
+            this.AdjustSettings.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_d;
+            this.AdjustSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdjustSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdjustSettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.AdjustSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.AdjustSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.AdjustSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdjustSettings.Font = new System.Drawing.Font("Lexend", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AdjustSettings.ForeColor = System.Drawing.Color.White;
+            this.AdjustSettings.Location = new System.Drawing.Point(15, 347);
+            this.AdjustSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.AdjustSettings.Name = "AdjustSettings";
+            this.AdjustSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AdjustSettings.Size = new System.Drawing.Size(355, 68);
+            this.AdjustSettings.TabIndex = 9;
+            this.AdjustSettings.Text = "Adjust Settings";
+            this.ToolTipMain.SetToolTip(this.AdjustSettings, "Adjust your configuration settings for the mod.");
+            this.AdjustSettings.UseVisualStyleBackColor = false;
+            this.AdjustSettings.Click += new System.EventHandler(this.AdjustSettings_Click);
+            // 
+            // OpenMods
+            // 
+            this.OpenMods.BackColor = System.Drawing.Color.Transparent;
+            this.OpenMods.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_d;
+            this.OpenMods.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenMods.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenMods.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.OpenMods.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.OpenMods.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.OpenMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenMods.Font = new System.Drawing.Font("Lexend", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OpenMods.ForeColor = System.Drawing.Color.White;
+            this.OpenMods.Location = new System.Drawing.Point(15, 436);
+            this.OpenMods.Margin = new System.Windows.Forms.Padding(4);
+            this.OpenMods.Name = "OpenMods";
+            this.OpenMods.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.OpenMods.Size = new System.Drawing.Size(355, 68);
+            this.OpenMods.TabIndex = 10;
+            this.OpenMods.Text = "Open Mods Folder";
+            this.ToolTipMain.SetToolTip(this.OpenMods, "Open your mods folder.");
+            this.OpenMods.UseVisualStyleBackColor = false;
+            this.OpenMods.Click += new System.EventHandler(this.OpenMods_Click);
+            // 
             // LogoFretworks
             // 
             this.LogoFretworks.BackColor = System.Drawing.Color.Transparent;
@@ -145,32 +219,6 @@
             this.LogoFretworks.TabIndex = 8;
             this.LogoFretworks.TabStop = false;
             // 
-            // MOTDPanel
-            // 
-            this.MOTDPanel.BackColor = System.Drawing.Color.Transparent;
-            this.MOTDPanel.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m;
-            this.MOTDPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MOTDPanel.Controls.Add(this.MOTDLabel);
-            this.MOTDPanel.Location = new System.Drawing.Point(196, 591);
-            this.MOTDPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.MOTDPanel.Name = "MOTDPanel";
-            this.MOTDPanel.Size = new System.Drawing.Size(876, 921);
-            this.MOTDPanel.TabIndex = 7;
-            // 
-            // MOTDLabel
-            // 
-            this.MOTDLabel.AutoSize = true;
-            this.MOTDLabel.Font = new System.Drawing.Font("Lexend", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MOTDLabel.ForeColor = System.Drawing.Color.White;
-            this.MOTDLabel.Location = new System.Drawing.Point(18, 14);
-            this.MOTDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MOTDLabel.Name = "MOTDLabel";
-            this.MOTDLabel.Size = new System.Drawing.Size(660, 72);
-            this.MOTDLabel.TabIndex = 0;
-            this.MOTDLabel.Text = "MOTD not found, call IMF!\r\n\r\nIf you\'re seeing this, it means we probably couldn\'t" +
-    " establish a connection to the internet.";
-            this.MOTDLabel.Click += new System.EventHandler(this.MOTDLabel_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -178,7 +226,9 @@
             this.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.bg_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1260, 911);
+            this.Controls.Add(this.OpenMods);
             this.Controls.Add(this.MOTDPanel);
+            this.Controls.Add(this.AdjustSettings);
             this.Controls.Add(this.VersionInfoLabel);
             this.Controls.Add(this.LogoFretworks);
             this.Controls.Add(this.RunWTDE);
@@ -193,10 +243,10 @@
             this.Text = "GHWT: Definitive Edition Launcher V3.0";
             ((System.ComponentModel.ISupportInitialize)(this.LeftDarkOverlay)).EndInit();
             this.MainEditorPane.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoWTDE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoFretworks)).EndInit();
             this.MOTDPanel.ResumeLayout(false);
             this.MOTDPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoWTDE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoFretworks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +264,7 @@
         private PictureBox LogoFretworks;
         private Panel MOTDPanel;
         private Label MOTDLabel;
+        private Button AdjustSettings;
+        private Button OpenMods;
     }
 }

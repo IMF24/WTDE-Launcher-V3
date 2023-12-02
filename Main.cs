@@ -95,9 +95,9 @@ namespace WTDE_Launcher_V3
             MOTDPanel.Location = new Point(391, -4);
 
             // Make MOTD visible, hide editing area (for now).
+            MainEditorPane.Enabled = TabBarActive;
             MainEditorPane.Visible = TabBarActive;
             MOTDPanel.Visible = !TabBarActive;
-
             MOTDLabel.Text = TabHandler.GetMOTDText();
 
             // Just for the sake of debugging, we'll change our working directory to where
@@ -119,9 +119,14 @@ namespace WTDE_Launcher_V3
             }
         }
 
+        /// <summary>
+        ///  Nothing happens.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MOTDLabel_Click(object sender, EventArgs e)
         {
-
+            // Dummy function, we don't use this...
         }
 
         /// <summary>
@@ -129,8 +134,7 @@ namespace WTDE_Launcher_V3
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void VersionInfoLabel_Click(object sender, EventArgs e)
-        {
+        private void VersionInfoLabel_Click(object sender, EventArgs e) {
             // Which mouse button did we push?
             MouseEventArgs me = (MouseEventArgs) e;
 
@@ -150,6 +154,32 @@ namespace WTDE_Launcher_V3
             } else if (me.Button == MouseButtons.Right) {
                 OpenSiteURL(BGConstants.V3LauncherSocials[BGIndex]);
             }
+        }
+
+        /// <summary>
+        ///  When clicked, enable the user's ability to edit their config file(s) settings.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AdjustSettings_Click(object sender, EventArgs e)
+        {
+            // Invert the status of TabBarActive.
+            TabBarActive = !TabBarActive;
+
+            MainEditorPane.Enabled = TabBarActive;
+            MainEditorPane.Visible = TabBarActive;
+            MOTDPanel.Visible = !TabBarActive;
+        }
+
+        /// <summary>
+        ///  Open the user's mods folder for GHWT: DE in DATA\MODS.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenMods_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine($"cwd: {Directory.GetCurrentDirectory()}");
+            System.Diagnostics.Process.Start("explorer.exe", "DATA\\MODS");
         }
     }
 }

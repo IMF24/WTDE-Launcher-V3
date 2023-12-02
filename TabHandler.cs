@@ -23,7 +23,7 @@ namespace WTDE_Launcher_V3 {
         public static string GetMOTDText() {
             try {
                 using (WebClient client = new WebClient()) {
-                    string downloadString = client.DownloadString("https://ghwt.de/meta/motd_full.txt");
+                    string downloadString = client.DownloadString("https://ghwt.de/meta/motd.txt");
                     return downloadString;
                 }
             } catch {
