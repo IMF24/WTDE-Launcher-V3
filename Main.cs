@@ -42,6 +42,7 @@ namespace WTDE_Launcher_V3
             int activeTab = 1;
             // Is the settings tab bar active? OFF by default, we'll show the
             // MOTD first, then the user can trigger the settings pane.
+            // DEBUG: Set this true for now. When we ship this, turn it back to false.
             bool tabBarActive = true;
 
             // Update window title with random splash and actual version number.
@@ -72,6 +73,8 @@ namespace WTDE_Launcher_V3
             int splashID = random.Next(0, requiredSplashList.Length);
             this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {requiredSplashList[splashID]}";
 
+            // Main editing area is located at (313, -3).
+            // That's where we need to move the MOTD container to.
             MainEditorPane.Visible = tabBarActive;
         }
     }
