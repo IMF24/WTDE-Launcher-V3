@@ -30,11 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             LeftDarkOverlay = new PictureBox();
-            MainEditorLightBG = new PictureBox();
             label1 = new Label();
             TabButtonGroup = new Panel();
+            TabButtonGeneral = new PictureBox();
+            MainEditorPane = new Panel();
+            LogoContainer = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)MainEditorLightBG).BeginInit();
+            TabButtonGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TabButtonGeneral).BeginInit();
+            MainEditorPane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)LogoContainer).BeginInit();
             SuspendLayout();
             // 
             // LeftDarkOverlay
@@ -47,17 +52,6 @@
             LeftDarkOverlay.SizeMode = PictureBoxSizeMode.StretchImage;
             LeftDarkOverlay.TabIndex = 0;
             LeftDarkOverlay.TabStop = false;
-            // 
-            // MainEditorLightBG
-            // 
-            MainEditorLightBG.BackColor = Color.Transparent;
-            MainEditorLightBG.Image = Properties.Resources.light_overlay;
-            MainEditorLightBG.Location = new Point(308, -5);
-            MainEditorLightBG.Name = "MainEditorLightBG";
-            MainEditorLightBG.Size = new Size(708, 765);
-            MainEditorLightBG.SizeMode = PictureBoxSizeMode.StretchImage;
-            MainEditorLightBG.TabIndex = 3;
-            MainEditorLightBG.TabStop = false;
             // 
             // label1
             // 
@@ -75,10 +69,44 @@
             // 
             TabButtonGroup.BackColor = Color.Transparent;
             TabButtonGroup.BackgroundImage = Properties.Resources.dark_overlay_l;
-            TabButtonGroup.Location = new Point(314, -3);
+            TabButtonGroup.Controls.Add(TabButtonGeneral);
+            TabButtonGroup.Location = new Point(0, 3);
             TabButtonGroup.Name = "TabButtonGroup";
             TabButtonGroup.Size = new Size(702, 66);
             TabButtonGroup.TabIndex = 5;
+            // 
+            // TabButtonGeneral
+            // 
+            TabButtonGeneral.Image = Properties.Resources.button_plain;
+            TabButtonGeneral.Location = new Point(6, 9);
+            TabButtonGeneral.Name = "TabButtonGeneral";
+            TabButtonGeneral.Size = new Size(104, 50);
+            TabButtonGeneral.SizeMode = PictureBoxSizeMode.StretchImage;
+            TabButtonGeneral.TabIndex = 0;
+            TabButtonGeneral.TabStop = false;
+            // 
+            // MainEditorPane
+            // 
+            MainEditorPane.BackColor = Color.Transparent;
+            MainEditorPane.BackgroundImage = Properties.Resources.light_overlay;
+            MainEditorPane.BackgroundImageLayout = ImageLayout.Stretch;
+            MainEditorPane.Controls.Add(TabButtonGroup);
+            MainEditorPane.Location = new Point(313, -3);
+            MainEditorPane.Name = "MainEditorPane";
+            MainEditorPane.Size = new Size(701, 737);
+            MainEditorPane.TabIndex = 6;
+            // 
+            // LogoContainer
+            // 
+            LogoContainer.BackColor = Color.Transparent;
+            LogoContainer.BackgroundImage = Properties.Resources.dark_overlay;
+            LogoContainer.Image = Properties.Resources.wtde_logo_normal;
+            LogoContainer.Location = new Point(55, 0);
+            LogoContainer.Name = "LogoContainer";
+            LogoContainer.Size = new Size(200, 200);
+            LogoContainer.SizeMode = PictureBoxSizeMode.StretchImage;
+            LogoContainer.TabIndex = 7;
+            LogoContainer.TabStop = false;
             // 
             // Main
             // 
@@ -86,17 +114,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.bg_1_s;
             ClientSize = new Size(1008, 729);
-            Controls.Add(TabButtonGroup);
+            Controls.Add(LogoContainer);
+            Controls.Add(MainEditorPane);
             Controls.Add(label1);
             Controls.Add(LeftDarkOverlay);
-            Controls.Add(MainEditorLightBG);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Main";
             Text = "GHWT: Definitive Edition Launcher V3.0";
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).EndInit();
-            ((System.ComponentModel.ISupportInitialize)MainEditorLightBG).EndInit();
+            TabButtonGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)TabButtonGeneral).EndInit();
+            MainEditorPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)LogoContainer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -104,8 +135,10 @@
         #endregion
 
         private PictureBox LeftDarkOverlay;
-        private PictureBox MainEditorLightBG;
         private Label label1;
         private Panel TabButtonGroup;
+        private PictureBox TabButtonGeneral;
+        private Panel MainEditorPane;
+        private PictureBox LogoContainer;
     }
 }

@@ -33,6 +33,17 @@ namespace WTDE_Launcher_V3
             // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
             InitializeComponent();
 
+            // This ID number indicates which tab we're on.
+            /* TAB NUMBERS:
+             *   1 - General
+             *   2 - Input
+             *   ...
+             */
+            int activeTab = 1;
+            // Is the settings tab bar active? OFF by default, we'll show the
+            // MOTD first, then the user can trigger the settings pane.
+            bool tabBarActive = true;
+
             // Update window title with random splash and actual version number.
             // The object `random` is used for the random splash picker.
             Random random = new Random();
@@ -60,6 +71,8 @@ namespace WTDE_Launcher_V3
             // Now pick a random one, and update the window title!
             int splashID = random.Next(0, requiredSplashList.Length);
             this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {requiredSplashList[splashID]}";
+
+            MainEditorPane.Visible = tabBarActive;
         }
     }
 }
