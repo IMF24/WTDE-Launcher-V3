@@ -121,17 +121,8 @@
   <data name="wtde_logo_xmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v2_logo_christmas_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\icon\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bg_1_s" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\bg_1_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dark_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dark_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wtde_logo_hw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v2_logo_halloween_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,10 +142,67 @@
   <data name="button_plain_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\button_plain_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logo_fretworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\fretworks_banner_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_1_hw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1_hw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_1_vd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1_vd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_1_xm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1_xm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_overlay_d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_overlay_d_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_d_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dark_overlay_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\dark_overlay_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo_fretworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\fretworks_banner_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dark_overlay_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_overlay_m_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_m_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

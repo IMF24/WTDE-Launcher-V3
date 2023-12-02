@@ -25,6 +25,10 @@ namespace WTDE_Launcher_V3
     /// </summary>
     public partial class Main : Form
     {
+        public int BGIndex = 0;
+        public int ActiveTab = 1;
+        public bool TabBarActive = false;
+
         /// <summary>
         ///  Main entry point of the V3 launcher Form.
         /// </summary>
@@ -39,11 +43,9 @@ namespace WTDE_Launcher_V3
              *   2 - Input
              *   ...
              */
-            int activeTab = 1;
             // Is the settings tab bar active? OFF by default, we'll show the
             // MOTD first, then the user can trigger the settings pane.
             // DEBUG: Set this true for now. When we ship this, turn it back to false.
-            bool tabBarActive = true;
 
             // Update window title with random splash and actual version number.
             // The object `random` is used for the random splash picker.
@@ -73,9 +75,15 @@ namespace WTDE_Launcher_V3
             int splashID = random.Next(0, requiredSplashList.Length);
             this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {requiredSplashList[splashID]}";
 
-            // Main editing area is located at (313, -3).
+            // Main editing area is located at (391, -4).
             // That's where we need to move the MOTD container to.
-            MainEditorPane.Visible = tabBarActive;
+            MOTDPanel.Location = new Point(391, -4);
+
+            // Make MOTD visible, hide editing area (for now).
+            MainEditorPane.Visible = TabBarActive;
+            MOTDPanel.Visible = !TabBarActive;
+
+            MOTDLabel.Text = TabHandler.GetMOTDText();
 
             // Just for the sake of debugging, we'll change our working directory to where
             // GHWT is installed. This path is defined in the `wtde_path.txt` file.
@@ -94,6 +102,29 @@ namespace WTDE_Launcher_V3
             {
                 System.Diagnostics.Process.Start("GHWT_Definitive.exe");
             }
+        }
+
+        private void MOTDLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        ///  When the version label is clicked, change the background. This is pulled from the BGConstants class.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VersionInfoLabel_Click(object sender, EventArgs e)
+        {
+            // Are we at the end of the BG cycle?
+            if (BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGIndex = 0;
+            else BGIndex++;
+
+            // Update the background image.
+            this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGIndex];
+
+            // Update the version info.
+            VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGIndex]}";
         }
     }
 }
