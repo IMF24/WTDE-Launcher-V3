@@ -18,15 +18,18 @@
     
 ----------------------------------------------------------------------------------------------- */
 // Main namespace for the program is WTDE_Launcher_V3.
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3
+{
     /// <summary>
     ///  Main class for the V3 launcher.
     /// </summary>
-    public partial class Main : Form {
+    public partial class Main : Form
+    {
         /// <summary>
         ///  Main entry point of the V3 launcher Form.
         /// </summary>
-        public Main() {
+        public Main()
+        {
             // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
             InitializeComponent();
 
@@ -37,21 +40,22 @@ namespace WTDE_Launcher_V3 {
 
             // What month is it? This determines both what splash bank to pull
             // from, and also how the background needs to be stylized.
-            switch (DateTime.Now.Month) {
+            switch (DateTime.Now.Month)
+            {
                 // Halloween title splashes
                 case 10:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitlesHW;
-                break;
+                    break;
 
                 // Christmas title splashes
                 case 12:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitlesXM;
-                break;
+                    break;
 
                 // Normal title splashes
                 default:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitles;
-                break;
+                    break;
             }
             // Now pick a random one, and update the window title!
             int splashID = random.Next(0, requiredSplashList.Length);

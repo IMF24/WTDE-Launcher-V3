@@ -30,47 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             LeftDarkOverlay = new PictureBox();
-            pictureBox2 = new PictureBox();
-            TabBarDarkOverlay = new PictureBox();
             MainEditorLightBG = new PictureBox();
+            label1 = new Label();
+            TabButtonGroup = new Panel();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)TabBarDarkOverlay).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MainEditorLightBG).BeginInit();
             SuspendLayout();
             // 
             // LeftDarkOverlay
             // 
             LeftDarkOverlay.BackColor = Color.Transparent;
-            LeftDarkOverlay.Image = Properties.Resources.dark_overlay;
+            LeftDarkOverlay.Image = Properties.Resources.dark_overlay_l;
             LeftDarkOverlay.Location = new Point(-4, -5);
             LeftDarkOverlay.Name = "LeftDarkOverlay";
             LeftDarkOverlay.Size = new Size(318, 741);
             LeftDarkOverlay.SizeMode = PictureBoxSizeMode.StretchImage;
             LeftDarkOverlay.TabIndex = 0;
             LeftDarkOverlay.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(320, 5);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(106, 47);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
-            // 
-            // TabBarDarkOverlay
-            // 
-            TabBarDarkOverlay.BackColor = Color.Transparent;
-            TabBarDarkOverlay.Image = Properties.Resources.dark_overlay;
-            TabBarDarkOverlay.Location = new Point(308, -5);
-            TabBarDarkOverlay.Name = "TabBarDarkOverlay";
-            TabBarDarkOverlay.Size = new Size(708, 64);
-            TabBarDarkOverlay.SizeMode = PictureBoxSizeMode.StretchImage;
-            TabBarDarkOverlay.TabIndex = 2;
-            TabBarDarkOverlay.TabStop = false;
             // 
             // MainEditorLightBG
             // 
@@ -83,15 +59,36 @@
             MainEditorLightBG.TabIndex = 3;
             MainEditorLightBG.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = Color.White;
+            label1.Image = Properties.Resources.dark_overlay_l;
+            label1.Location = new Point(12, 705);
+            label1.Name = "label1";
+            label1.Size = new Size(265, 15);
+            label1.TabIndex = 4;
+            label1.Text = "GHWT: Definitive Edition Launcher V3.0 by IMF24\r\n";
+            // 
+            // TabButtonGroup
+            // 
+            TabButtonGroup.BackColor = Color.Transparent;
+            TabButtonGroup.BackgroundImage = Properties.Resources.dark_overlay_l;
+            TabButtonGroup.Location = new Point(314, -3);
+            TabButtonGroup.Name = "TabButtonGroup";
+            TabButtonGroup.Size = new Size(702, 66);
+            TabButtonGroup.TabIndex = 5;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.bg_1_s;
             ClientSize = new Size(1008, 729);
-            Controls.Add(pictureBox2);
+            Controls.Add(TabButtonGroup);
+            Controls.Add(label1);
             Controls.Add(LeftDarkOverlay);
-            Controls.Add(TabBarDarkOverlay);
             Controls.Add(MainEditorLightBG);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -99,17 +96,16 @@
             Name = "Main";
             Text = "GHWT: Definitive Edition Launcher V3.0";
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)TabBarDarkOverlay).EndInit();
             ((System.ComponentModel.ISupportInitialize)MainEditorLightBG).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox LeftDarkOverlay;
-        private PictureBox pictureBox2;
-        private PictureBox TabBarDarkOverlay;
         private PictureBox MainEditorLightBG;
+        private Label label1;
+        private Panel TabButtonGroup;
     }
 }
