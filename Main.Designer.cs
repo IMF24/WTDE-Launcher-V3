@@ -41,7 +41,6 @@
             AdjustSettings = new Button();
             OpenMods = new Button();
             CheckForUpdates = new Button();
-            SaveConfig = new Button();
             LogoFretworks = new PictureBox();
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
@@ -209,7 +208,7 @@
             OpenMods.FlatStyle = FlatStyle.Flat;
             OpenMods.Font = new Font("Lexend", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             OpenMods.ForeColor = Color.White;
-            OpenMods.Location = new Point(15, 418);
+            OpenMods.Location = new Point(15, 348);
             OpenMods.Name = "OpenMods";
             OpenMods.RightToLeft = RightToLeft.No;
             OpenMods.Size = new Size(284, 54);
@@ -231,7 +230,7 @@
             CheckForUpdates.FlatStyle = FlatStyle.Flat;
             CheckForUpdates.Font = new Font("Lexend", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             CheckForUpdates.ForeColor = Color.White;
-            CheckForUpdates.Location = new Point(15, 489);
+            CheckForUpdates.Location = new Point(15, 419);
             CheckForUpdates.Name = "CheckForUpdates";
             CheckForUpdates.RightToLeft = RightToLeft.No;
             CheckForUpdates.Size = new Size(284, 54);
@@ -240,28 +239,6 @@
             ToolTipMain.SetToolTip(CheckForUpdates, "Check for updates to GHWT: DE and verify your installation's integrity.");
             CheckForUpdates.UseVisualStyleBackColor = false;
             CheckForUpdates.Click += CheckForUpdates_Click;
-            // 
-            // SaveConfig
-            // 
-            SaveConfig.BackColor = Color.Transparent;
-            SaveConfig.BackgroundImage = Properties.Resources.dark_overlay_d;
-            SaveConfig.BackgroundImageLayout = ImageLayout.Stretch;
-            SaveConfig.Cursor = Cursors.Hand;
-            SaveConfig.FlatAppearance.BorderColor = Color.White;
-            SaveConfig.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            SaveConfig.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            SaveConfig.FlatStyle = FlatStyle.Flat;
-            SaveConfig.Font = new Font("Lexend", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            SaveConfig.ForeColor = Color.White;
-            SaveConfig.Location = new Point(15, 348);
-            SaveConfig.Name = "SaveConfig";
-            SaveConfig.RightToLeft = RightToLeft.No;
-            SaveConfig.Size = new Size(284, 54);
-            SaveConfig.TabIndex = 15;
-            SaveConfig.Text = "Save Configuration";
-            ToolTipMain.SetToolTip(SaveConfig, "Open your mods folder.");
-            SaveConfig.UseVisualStyleBackColor = false;
-            SaveConfig.Click += SaveConfig_Click;
             // 
             // LogoFretworks
             // 
@@ -333,6 +310,7 @@
             DefaultQPODifficulty.Name = "DefaultQPODifficulty";
             DefaultQPODifficulty.Size = new Size(106, 23);
             DefaultQPODifficulty.TabIndex = 15;
+            DefaultQPODifficulty.SelectedIndexChanged += DefaultQPODifficulty_SelectedIndexChanged;
             // 
             // DefaultQPODifficultyLabel
             // 
@@ -353,6 +331,7 @@
             StatusHandler.TabIndex = 13;
             StatusHandler.Text = "Write Streamer Files";
             StatusHandler.UseVisualStyleBackColor = true;
+            StatusHandler.CheckedChanged += StatusHandler_CheckedChanged;
             // 
             // UseQuitOption
             // 
@@ -364,6 +343,7 @@
             UseQuitOption.TabIndex = 12;
             UseQuitOption.Text = "Exit";
             UseQuitOption.UseVisualStyleBackColor = true;
+            UseQuitOption.CheckedChanged += UseQuitOption_CheckedChanged;
             // 
             // UseOptionsOption
             // 
@@ -375,6 +355,7 @@
             UseOptionsOption.TabIndex = 11;
             UseOptionsOption.Text = "Options";
             UseOptionsOption.UseVisualStyleBackColor = true;
+            UseOptionsOption.CheckedChanged += UseOptionsOption_CheckedChanged;
             // 
             // UseCAROption
             // 
@@ -386,6 +367,7 @@
             UseCAROption.TabIndex = 10;
             UseCAROption.Text = "Rock Star Creator";
             UseCAROption.UseVisualStyleBackColor = true;
+            UseCAROption.CheckedChanged += UseCAROption_CheckedChanged;
             // 
             // UseMusicStudioOption
             // 
@@ -397,6 +379,7 @@
             UseMusicStudioOption.TabIndex = 9;
             UseMusicStudioOption.Text = "Music Studio";
             UseMusicStudioOption.UseVisualStyleBackColor = true;
+            UseMusicStudioOption.CheckedChanged += UseMusicStudioOption_CheckedChanged;
             // 
             // UseOnlineOption
             // 
@@ -408,6 +391,7 @@
             UseOnlineOption.TabIndex = 8;
             UseOnlineOption.Text = "Online";
             UseOnlineOption.UseVisualStyleBackColor = true;
+            UseOnlineOption.CheckedChanged += UseOnlineOption_CheckedChanged;
             // 
             // UseHeadToHeadOption
             // 
@@ -419,6 +403,7 @@
             UseHeadToHeadOption.TabIndex = 7;
             UseHeadToHeadOption.Text = "Head to Head";
             UseHeadToHeadOption.UseVisualStyleBackColor = true;
+            UseHeadToHeadOption.CheckedChanged += UseHeadToHeadOption_CheckedChanged;
             // 
             // UseQuickplayOption
             // 
@@ -430,6 +415,7 @@
             UseQuickplayOption.TabIndex = 6;
             UseQuickplayOption.Text = "Quickplay";
             UseQuickplayOption.UseVisualStyleBackColor = true;
+            UseQuickplayOption.CheckedChanged += UseQuickplayOption_CheckedChanged;
             // 
             // UseCareerOption
             // 
@@ -441,6 +427,7 @@
             UseCareerOption.TabIndex = 5;
             UseCareerOption.Text = "Career";
             UseCareerOption.UseVisualStyleBackColor = true;
+            UseCareerOption.CheckedChanged += UseCareerOption_CheckedChanged;
             // 
             // WhammyPitchShift
             // 
@@ -452,6 +439,7 @@
             WhammyPitchShift.TabIndex = 4;
             WhammyPitchShift.Text = "Whammy Pitch Shift";
             WhammyPitchShift.UseVisualStyleBackColor = true;
+            WhammyPitchShift.CheckedChanged += WhammyPitchShift_CheckedChanged;
             // 
             // MuteStreams
             // 
@@ -463,6 +451,7 @@
             MuteStreams.TabIndex = 3;
             MuteStreams.Text = "Mute Split Tracks Upon Miss";
             MuteStreams.UseVisualStyleBackColor = true;
+            MuteStreams.CheckedChanged += MuteStreams_CheckedChanged;
             // 
             // AllowHolidays
             // 
@@ -474,6 +463,7 @@
             AllowHolidays.TabIndex = 2;
             AllowHolidays.Text = "Use Holiday Themes";
             AllowHolidays.UseVisualStyleBackColor = true;
+            AllowHolidays.CheckedChanged += AllowHolidays_CheckedChanged;
             // 
             // RichPresence
             // 
@@ -485,6 +475,7 @@
             RichPresence.TabIndex = 1;
             RichPresence.Text = "Use Discord Rich Presence";
             RichPresence.UseVisualStyleBackColor = true;
+            RichPresence.CheckedChanged += RichPresence_CheckedChanged;
             // 
             // TabGeneralMMOHeader
             // 
@@ -503,7 +494,6 @@
             BackgroundImage = Properties.Resources.bg_1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1008, 729);
-            Controls.Add(SaveConfig);
             Controls.Add(TabGeneralGroup);
             Controls.Add(CheckForUpdates);
             Controls.Add(OpenMods);
@@ -567,6 +557,5 @@
         private CheckBox StatusHandler;
         private ComboBox DefaultQPODifficulty;
         private Label DefaultQPODifficultyLabel;
-        private Button SaveConfig;
     }
 }

@@ -37,6 +37,25 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
+        ///  Convert a boolean value to a 1 or 0 string.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static string BoolToString(bool b)
+        {
+            return (b ? "1" : "0");
+        }
+
+        /// <summary>
+        ///  Inverse of BoolToString, returns a 1 or 0 string, but with the inverse boolean.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static string BoolToStringInverserse(bool b) { 
+            return (b ? "0" : "1");
+        }
+
+        /// <summary>
         ///  In GHWTDE.ini, pulls a specific value from a specific section in the INI file.
         /// </summary>
         /// <param name="sect">
@@ -76,6 +95,26 @@ namespace WTDE_Launcher_V3 {
             file.Sections[sect].Keys[opt].Value = fallback;
             file.Save(V3LauncherConstants.WTDEConfigDir);
             return fallback.ToString();
+        }
+
+        /// <summary>
+        ///  Saves a value to GHWTDE.ini.
+        /// </summary>
+        /// <param name="section">
+        ///  INI section this option is under.
+        /// </param>
+        /// <param name="key">
+        ///  Name of the option in the given section.
+        /// </param>
+        /// <param name="value">
+        ///  Value to assign to this option.
+        /// </param>
+        public static void SaveINIValue(string section, string key, string value)
+        {
+            IniFile file = new IniFile();
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+            file.Sections[section].Keys[key].Value = value;
+            file.Save(V3LauncherConstants.WTDEConfigDir);
         }
 
         /// <summary>

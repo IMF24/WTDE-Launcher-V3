@@ -324,9 +324,74 @@ namespace WTDE_Launcher_V3
 
         }
 
-        private void SaveConfig_Click(object sender, EventArgs e)
+        private void RichPresence_CheckedChanged(object sender, EventArgs e)
         {
-            SaveINISettings();
+            INIFunctions.SaveINIValue("Config", "RichPresence", INIFunctions.BoolToString(RichPresence.Checked));
+        }
+
+        private void AllowHolidays_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "AllowHolidays", INIFunctions.BoolToString(AllowHolidays.Checked));
+        }
+
+        private void MuteStreams_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Audio", "MuteStreams", INIFunctions.BoolToString(MuteStreams.Checked));
+        }
+
+        private void WhammyPitchShift_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Audio", "WhammyPitchShift", INIFunctions.BoolToString(WhammyPitchShift.Checked));
+        }
+
+        private void StatusHandler_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "StatusHandler", INIFunctions.BoolToString(StatusHandler.Checked));
+        }
+
+        private void DefaultQPODifficulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "DefaultQPODifficulty", INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text, INIFunctions.QPODifficultiesNames, INIFunctions.QPODifficulties));
+        }
+
+        private void UseCareerOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseCareerOption", INIFunctions.BoolToString(UseCareerOption.Checked));
+        }
+
+        private void UseQuickplayOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseQuickplayOption", INIFunctions.BoolToString(UseQuickplayOption.Checked));
+        }
+
+        private void UseHeadToHeadOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseHeadToHeadOption", INIFunctions.BoolToString(UseHeadToHeadOption.Checked));
+        }
+
+        private void UseOnlineOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseOnlineOption", INIFunctions.BoolToString(UseOnlineOption.Checked));
+        }
+
+        private void UseMusicStudioOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseMusicStudioOption", INIFunctions.BoolToString(UseMusicStudioOption.Checked));
+        }
+
+        private void UseCAROption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseCAROption", INIFunctions.BoolToString(UseCAROption.Checked));
+        }
+
+        private void UseOptionsOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseOptionsOption", INIFunctions.BoolToString(UseOptionsOption.Checked));
+        }
+
+        private void UseQuitOption_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Config", "UseQuitOption", INIFunctions.BoolToString(UseQuitOption.Checked));
         }
     }
 }
