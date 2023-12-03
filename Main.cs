@@ -35,8 +35,8 @@ namespace WTDE_Launcher_V3
         public int BGIndex = 0;
 
         /// <summary>
-        /// Is the settings tab bar active? OFF by default, we'll show the
-        /// MOTD first, then the user can trigger the settings pane.
+        ///  Is the settings tab bar active? OFF by default, we'll show the
+        ///  MOTD first, then the user can trigger the settings pane.
         /// </summary>
         public bool TabBarActive = false;
 
@@ -45,20 +45,20 @@ namespace WTDE_Launcher_V3
         /// </summary>
         public void LoadINISettings()
         {
+            // ---------------------------
+            // General Tab
+            // ---------------------------
+            RichPresence.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "RichPresence")));
+            AllowHolidays.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "AllowHolidays")));
+            MuteStreams.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "MuteStreams")));
+        }
 
+        /// <summary>
+        ///  When moving out of Adjust Settings, hide all settings tabs and panes.
+        /// </summary>
+        public void HideAllTabs()
+        {
             TabGeneralGroup.Hide();
-
-            IniFile file = new IniFile(new IniOptions());
-
-            file.Load(V3LauncherConstants.WTDEConfigDir);
-
-            foreach (var section in file.Sections)
-            {
-                foreach (var key in section.Keys)
-                {
-                    if (key.Name == "RichPresence") RichPresence.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(key.Value));
-                }
-            }
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace WTDE_Launcher_V3
             // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
             InitializeComponent();
 
-            
+
 
             // Update window title with random splash and actual version number.
             // The object `random` is used for the random splash picker.
@@ -96,20 +96,28 @@ namespace WTDE_Launcher_V3
             // from, and also how the background needs to be stylized.
             switch (DateTime.Now.Month)
             {
+                // Valentine's Day stuff (for sake of testing)
+                case 2:
+                    this.BackgroundImage = Properties.Resources.bg_13_d;
+                    break;
+
                 // Halloween holiday stuff
                 case 10:
                     requiredSplashList = V3LauncherConstants.RandomWindowTitlesHW;
                     LogoWTDE.Image = Properties.Resources.wtde_logo_hw;
                     this.BackgroundImage = Properties.Resources.bg_1_hw;
-                    BGConstants.V3LauncherBackgrounds[1] = Properties.Resources.bg_1_hw;
+                    BGConstants.V3LauncherBackgrounds[0] = Properties.Resources.bg_1_hw;
                     break;
 
                 // Christmas holiday stuff
                 case 12:
-                    requiredSplashList = V3LauncherConstants.RandomWindowTitlesXM;
-                    LogoWTDE.Image = Properties.Resources.wtde_logo_xmas;
-                    this.BackgroundImage = Properties.Resources.bg_1_xm;
-                    BGConstants.V3LauncherBackgrounds[1] = Properties.Resources.bg_1_xm;
+                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25)
+                    {
+                        requiredSplashList = V3LauncherConstants.RandomWindowTitlesXM;
+                        LogoWTDE.Image = Properties.Resources.wtde_logo_xmas;
+                        this.BackgroundImage = Properties.Resources.bg_1_xm;
+                        BGConstants.V3LauncherBackgrounds[0] = Properties.Resources.bg_1_xm;
+                    }
                     break;
 
                 // Normal title splashes, nothing different
@@ -134,7 +142,8 @@ namespace WTDE_Launcher_V3
             MOTDDarkOverlay.Visible = !TabBarActive;
             MOTDLabel.Text = TabHandler.GetMOTDText();
 
-            // Load our INI settings.
+            // Hide all tabs and load our INI settings.
+            HideAllTabs();
             LoadINISettings();
 
             // Just for the sake of debugging, we'll change our working directory to where
@@ -200,10 +209,13 @@ namespace WTDE_Launcher_V3
             WhiteOverlay.Enabled = TabBarActive;
             WhiteOverlay.Visible = TabBarActive;
 
+            if (TabBarActive == false) HideAllTabs();
+
             TabButtonGroup.Enabled = TabBarActive;
             TabButtonGroup.Visible = TabBarActive;
 
             MOTDDarkOverlay.Visible = !TabBarActive;
+
         }
 
         /// <summary>
@@ -230,7 +242,7 @@ namespace WTDE_Launcher_V3
         private void TabButtonGeneral_Click(object sender, EventArgs e)
         {
             TabGeneralGroup.Show();
-            
+
         }
     }
 }

@@ -44,10 +44,11 @@
             LogoFretworks = new PictureBox();
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
-            process1 = new System.Diagnostics.Process();
             TabGeneralGroup = new GroupBox();
-            TabGeneralSocialHeader = new Label();
+            AllowHolidays = new CheckBox();
             RichPresence = new CheckBox();
+            TabGeneralMMOHeader = new Label();
+            MuteStreams = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoWTDE).BeginInit();
@@ -117,14 +118,13 @@
             // 
             // MOTDLabel
             // 
-            MOTDLabel.AutoSize = true;
             MOTDLabel.BackColor = Color.Transparent;
             MOTDLabel.Font = new Font("Lexend", 9F, FontStyle.Regular, GraphicsUnit.Point);
             MOTDLabel.ForeColor = Color.White;
             MOTDLabel.Image = Properties.Resources.dark_overlay_m_l;
             MOTDLabel.Location = new Point(327, 15);
             MOTDLabel.Name = "MOTDLabel";
-            MOTDLabel.Size = new Size(525, 57);
+            MOTDLabel.Size = new Size(669, 702);
             MOTDLabel.TabIndex = 0;
             MOTDLabel.Text = "MOTD not found, call IMF!\r\n\r\nIf you're seeing this, it means we probably couldn't establish a connection to the internet.";
             // 
@@ -261,49 +261,62 @@
             MOTDDarkOverlay.TabIndex = 13;
             MOTDDarkOverlay.TabStop = false;
             // 
-            // process1
-            // 
-            process1.StartInfo.Domain = "";
-            process1.StartInfo.LoadUserProfile = false;
-            process1.StartInfo.Password = null;
-            process1.StartInfo.StandardErrorEncoding = null;
-            process1.StartInfo.StandardInputEncoding = null;
-            process1.StartInfo.StandardOutputEncoding = null;
-            process1.StartInfo.UserName = "";
-            process1.SynchronizingObject = this;
-            // 
             // TabGeneralGroup
             // 
             TabGeneralGroup.BackColor = Color.Transparent;
             TabGeneralGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabGeneralGroup.Controls.Add(MuteStreams);
+            TabGeneralGroup.Controls.Add(AllowHolidays);
             TabGeneralGroup.Controls.Add(RichPresence);
-            TabGeneralGroup.Controls.Add(TabGeneralSocialHeader);
+            TabGeneralGroup.Controls.Add(TabGeneralMMOHeader);
             TabGeneralGroup.Location = new Point(327, 75);
             TabGeneralGroup.Name = "TabGeneralGroup";
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
             TabGeneralGroup.TabStop = false;
             // 
-            // TabGeneralSocialHeader
+            // AllowHolidays
             // 
-            TabGeneralSocialHeader.AutoSize = true;
-            TabGeneralSocialHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            TabGeneralSocialHeader.Location = new Point(12, 16);
-            TabGeneralSocialHeader.Name = "TabGeneralSocialHeader";
-            TabGeneralSocialHeader.Size = new Size(127, 25);
-            TabGeneralSocialHeader.TabIndex = 0;
-            TabGeneralSocialHeader.Text = "Social Config";
+            AllowHolidays.AutoSize = true;
+            AllowHolidays.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AllowHolidays.Location = new Point(24, 51);
+            AllowHolidays.Name = "AllowHolidays";
+            AllowHolidays.Size = new Size(168, 26);
+            AllowHolidays.TabIndex = 2;
+            AllowHolidays.Text = "Use Holiday Themes";
+            AllowHolidays.UseVisualStyleBackColor = true;
             // 
             // RichPresence
             // 
             RichPresence.AutoSize = true;
             RichPresence.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            RichPresence.Location = new Point(24, 47);
+            RichPresence.Location = new Point(24, 19);
             RichPresence.Name = "RichPresence";
             RichPresence.Size = new Size(208, 26);
             RichPresence.TabIndex = 1;
             RichPresence.Text = "Use Discord Rich Presence";
             RichPresence.UseVisualStyleBackColor = true;
+            // 
+            // TabGeneralMMOHeader
+            // 
+            TabGeneralMMOHeader.AutoSize = true;
+            TabGeneralMMOHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabGeneralMMOHeader.Location = new Point(337, 19);
+            TabGeneralMMOHeader.Name = "TabGeneralMMOHeader";
+            TabGeneralMMOHeader.Size = new Size(184, 25);
+            TabGeneralMMOHeader.TabIndex = 0;
+            TabGeneralMMOHeader.Text = "Main Menu Options:";
+            // 
+            // MuteStreams
+            // 
+            MuteStreams.AutoSize = true;
+            MuteStreams.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MuteStreams.Location = new Point(24, 83);
+            MuteStreams.Name = "MuteStreams";
+            MuteStreams.Size = new Size(219, 26);
+            MuteStreams.TabIndex = 3;
+            MuteStreams.Text = "Mute Split Tracks Upon Miss";
+            MuteStreams.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -313,7 +326,6 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1008, 729);
             Controls.Add(TabGeneralGroup);
-            Controls.Add(TabButtonGroup);
             Controls.Add(CheckForUpdates);
             Controls.Add(OpenMods);
             Controls.Add(AdjustSettings);
@@ -322,9 +334,10 @@
             Controls.Add(RunWTDE);
             Controls.Add(LogoWTDE);
             Controls.Add(WhiteOverlay);
+            Controls.Add(LeftDarkOverlay);
+            Controls.Add(TabButtonGroup);
             Controls.Add(MOTDLabel);
             Controls.Add(MOTDDarkOverlay);
-            Controls.Add(LeftDarkOverlay);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -358,9 +371,10 @@
         private Button CheckForUpdates;
         private Button TabButtonGeneral;
         private PictureBox MOTDDarkOverlay;
-        private System.Diagnostics.Process process1;
         private GroupBox TabGeneralGroup;
-        private Label TabGeneralSocialHeader;
+        private Label TabGeneralMMOHeader;
         private CheckBox RichPresence;
+        private CheckBox AllowHolidays;
+        private CheckBox MuteStreams;
     }
 }

@@ -127,7 +127,7 @@ namespace WTDE_Launcher_V3 {
             "WE KNOW YOUR CONTROLLER WORKS IN CH",
             "Where's the KFC?",
             "Who eats waffles? Jimmy does",
-            $"It's not {DateTime.Now.ToString("MM")}fest, it's Oktoberfest",
+            (DateTime.Now.Month == 10) ? "It's not--Oh wait, it is Oktoberfest!" : $"It's not {DateTime.Now.ToString("MM")}fest, it's Oktoberfest",
             "IMF is not the International Monetary Fund",
             "\"A PS2 ISO is not going to work, pal\" -Yopsito",
             "\"By using this pristine launcher you immediately become a Dodymensional being, put that to good use\" -Dody",
@@ -146,7 +146,7 @@ namespace WTDE_Launcher_V3 {
             "\"Have CARs? Ask Fox, you'll be stuck for hours hearing his OC's backstory\" -Fox",
             "Now featuring functional HOPO and tap chords!",
             "\"What?! It's me!--I'm in Guitar Hero, guys\" -DanRock",
-            "\"YOU DID NOT\" -Hex"
+            "\"YOU DID NOT\" -Hex",
         };
 
         /// <summary>
@@ -179,15 +179,16 @@ namespace WTDE_Launcher_V3 {
             "Cue the 1960s clay animations",
             "1964: Rudolph the Red-Nosed Reindeer",
             "1969: Frosty the Snowman",
+            "1988: Die Hard",
             "10... 9... 8... Oh wait, that's New Year's",
-            "\"Baby, it's cold outside!\" Well... Not if you're in Australia",
+            "\"Baby, it's cold outside!\" Well... Not if you're in the southern hemisphere",
             "It isn't a silent night in Times Square on 12/31",
             "12/24 is 1/2, simplify your fractions!",
             "I could use some hot chocolate right about now"
         };
 
         public static Object[] INIOptionsBank = {
-            
+
         };
     }
 }

@@ -35,5 +35,39 @@ namespace WTDE_Launcher_V3 {
         {
             return (s == "1") ? false : true;
         }
+
+        /// <summary>
+        ///  In GHWTDE.ini, pulls a specific value from a specific section in the INI file.
+        /// </summary>
+        /// <param name="sect">
+        ///  Section in GHWTDE.ini to pull data from.
+        /// </param>
+        /// <param name="opt">
+        ///  Option/Key name in the section to look for.
+        /// </param>
+        /// <returns>
+        ///  Returns the requested value as a string. Returns a string of "0" when not found.
+        /// </returns>
+        public static string GetINIValue(string sect, string opt)
+        {
+            IniFile file = new IniFile();
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+
+            foreach (var section in file.Sections)
+            {
+                if (section.Name == sect)
+                {
+                    foreach (var key in section.Keys)
+                    {
+                        if (key.Name == opt)
+                        {
+                            return key.Value.ToString();
+                        }
+                    }
+                }
+            }
+
+            return "0";
+        }
     }
 }
