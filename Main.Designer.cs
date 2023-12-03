@@ -41,6 +41,7 @@
             AdjustSettings = new Button();
             OpenMods = new Button();
             CheckForUpdates = new Button();
+            RichPresence = new CheckBox();
             LogoFretworks = new PictureBox();
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
@@ -61,7 +62,6 @@
             WhammyPitchShift = new CheckBox();
             MuteStreams = new CheckBox();
             AllowHolidays = new CheckBox();
-            RichPresence = new CheckBox();
             TabGeneralMMOHeader = new Label();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
@@ -242,6 +242,19 @@
             CheckForUpdates.UseVisualStyleBackColor = false;
             CheckForUpdates.Click += CheckForUpdates_Click;
             // 
+            // RichPresence
+            // 
+            RichPresence.AutoSize = true;
+            RichPresence.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            RichPresence.Location = new Point(24, 19);
+            RichPresence.Name = "RichPresence";
+            RichPresence.Size = new Size(208, 26);
+            RichPresence.TabIndex = 1;
+            RichPresence.Text = "Use Discord Rich Presence";
+            ToolTipMain.SetToolTip(RichPresence, resources.GetString("RichPresence.ToolTip"));
+            RichPresence.UseVisualStyleBackColor = true;
+            RichPresence.CheckedChanged += RichPresence_CheckedChanged;
+            // 
             // LogoFretworks
             // 
             LogoFretworks.BackColor = Color.Transparent;
@@ -318,7 +331,7 @@
             // 
             AutoCheckForUpdates.AutoSize = true;
             AutoCheckForUpdates.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoCheckForUpdates.Location = new Point(39, 433);
+            AutoCheckForUpdates.Location = new Point(39, 437);
             AutoCheckForUpdates.Name = "AutoCheckForUpdates";
             AutoCheckForUpdates.Size = new Size(194, 26);
             AutoCheckForUpdates.TabIndex = 16;
@@ -490,18 +503,6 @@
             AllowHolidays.Text = "Use Holiday Themes";
             AllowHolidays.UseVisualStyleBackColor = true;
             AllowHolidays.CheckedChanged += AllowHolidays_CheckedChanged;
-            // 
-            // RichPresence
-            // 
-            RichPresence.AutoSize = true;
-            RichPresence.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            RichPresence.Location = new Point(24, 19);
-            RichPresence.Name = "RichPresence";
-            RichPresence.Size = new Size(208, 26);
-            RichPresence.TabIndex = 1;
-            RichPresence.Text = "Use Discord Rich Presence";
-            RichPresence.UseVisualStyleBackColor = true;
-            RichPresence.CheckedChanged += RichPresence_CheckedChanged;
             // 
             // TabGeneralMMOHeader
             // 

@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
+using System.Windows.Forms;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -92,6 +94,9 @@ namespace WTDE_Launcher_V3 {
             }
 
             // If option doesn't exist, write it as a fallback.
+            if (!file.Sections.Contains(sect)) file.Sections.Add(sect);
+            if (!file.Sections[sect].Keys.Contains(opt)) file.Sections[sect].Keys.Add(opt);
+
             file.Sections[sect].Keys[opt].Value = fallback;
             file.Save(V3LauncherConstants.WTDEConfigDir);
             return fallback.ToString();
@@ -113,6 +118,10 @@ namespace WTDE_Launcher_V3 {
         {
             IniFile file = new IniFile();
             file.Load(V3LauncherConstants.WTDEConfigDir);
+
+            if (!file.Sections.Contains(section)) file.Sections.Add(section);
+            if (!file.Sections[section].Keys.Contains(key)) file.Sections[section].Keys.Add(key);
+
             file.Sections[section].Keys[key].Value = value;
             file.Save(V3LauncherConstants.WTDEConfigDir);
         }

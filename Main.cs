@@ -95,7 +95,7 @@ namespace WTDE_Launcher_V3
             UseQuitOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuitOption")));
 
             // -- LAUNCHER OPTIONS ---------------------------
-            AutoCheckForUpdates.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates")));
+            AutoCheckForUpdates.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1")));
         }
 
         /// <summary>
