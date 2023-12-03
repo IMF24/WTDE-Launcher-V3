@@ -41,10 +41,14 @@
             AdjustSettings = new Button();
             OpenMods = new Button();
             CheckForUpdates = new Button();
+            SaveConfig = new Button();
             LogoFretworks = new PictureBox();
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
             TabGeneralGroup = new GroupBox();
+            DefaultQPODifficulty = new ComboBox();
+            DefaultQPODifficultyLabel = new Label();
+            StatusHandler = new CheckBox();
             UseQuitOption = new CheckBox();
             UseOptionsOption = new CheckBox();
             UseCAROption = new CheckBox();
@@ -58,7 +62,6 @@
             AllowHolidays = new CheckBox();
             RichPresence = new CheckBox();
             TabGeneralMMOHeader = new Label();
-            StatusHandler = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoWTDE).BeginInit();
@@ -206,7 +209,7 @@
             OpenMods.FlatStyle = FlatStyle.Flat;
             OpenMods.Font = new Font("Lexend", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             OpenMods.ForeColor = Color.White;
-            OpenMods.Location = new Point(15, 348);
+            OpenMods.Location = new Point(15, 418);
             OpenMods.Name = "OpenMods";
             OpenMods.RightToLeft = RightToLeft.No;
             OpenMods.Size = new Size(284, 54);
@@ -228,7 +231,7 @@
             CheckForUpdates.FlatStyle = FlatStyle.Flat;
             CheckForUpdates.Font = new Font("Lexend", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             CheckForUpdates.ForeColor = Color.White;
-            CheckForUpdates.Location = new Point(15, 419);
+            CheckForUpdates.Location = new Point(15, 489);
             CheckForUpdates.Name = "CheckForUpdates";
             CheckForUpdates.RightToLeft = RightToLeft.No;
             CheckForUpdates.Size = new Size(284, 54);
@@ -237,6 +240,28 @@
             ToolTipMain.SetToolTip(CheckForUpdates, "Check for updates to GHWT: DE and verify your installation's integrity.");
             CheckForUpdates.UseVisualStyleBackColor = false;
             CheckForUpdates.Click += CheckForUpdates_Click;
+            // 
+            // SaveConfig
+            // 
+            SaveConfig.BackColor = Color.Transparent;
+            SaveConfig.BackgroundImage = Properties.Resources.dark_overlay_d;
+            SaveConfig.BackgroundImageLayout = ImageLayout.Stretch;
+            SaveConfig.Cursor = Cursors.Hand;
+            SaveConfig.FlatAppearance.BorderColor = Color.White;
+            SaveConfig.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            SaveConfig.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            SaveConfig.FlatStyle = FlatStyle.Flat;
+            SaveConfig.Font = new Font("Lexend", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            SaveConfig.ForeColor = Color.White;
+            SaveConfig.Location = new Point(15, 348);
+            SaveConfig.Name = "SaveConfig";
+            SaveConfig.RightToLeft = RightToLeft.No;
+            SaveConfig.Size = new Size(284, 54);
+            SaveConfig.TabIndex = 15;
+            SaveConfig.Text = "Save Configuration";
+            ToolTipMain.SetToolTip(SaveConfig, "Open your mods folder.");
+            SaveConfig.UseVisualStyleBackColor = false;
+            SaveConfig.Click += SaveConfig_Click;
             // 
             // LogoFretworks
             // 
@@ -275,6 +300,8 @@
             // 
             TabGeneralGroup.BackColor = Color.Transparent;
             TabGeneralGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabGeneralGroup.Controls.Add(DefaultQPODifficulty);
+            TabGeneralGroup.Controls.Add(DefaultQPODifficultyLabel);
             TabGeneralGroup.Controls.Add(StatusHandler);
             TabGeneralGroup.Controls.Add(UseQuitOption);
             TabGeneralGroup.Controls.Add(UseOptionsOption);
@@ -289,11 +316,43 @@
             TabGeneralGroup.Controls.Add(AllowHolidays);
             TabGeneralGroup.Controls.Add(RichPresence);
             TabGeneralGroup.Controls.Add(TabGeneralMMOHeader);
+            TabGeneralGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
             TabGeneralGroup.Location = new Point(327, 75);
             TabGeneralGroup.Name = "TabGeneralGroup";
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
             TabGeneralGroup.TabStop = false;
+            // 
+            // DefaultQPODifficulty
+            // 
+            DefaultQPODifficulty.DropDownStyle = ComboBoxStyle.DropDownList;
+            DefaultQPODifficulty.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            DefaultQPODifficulty.FormattingEnabled = true;
+            DefaultQPODifficulty.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+            DefaultQPODifficulty.Location = new Point(234, 184);
+            DefaultQPODifficulty.Name = "DefaultQPODifficulty";
+            DefaultQPODifficulty.Size = new Size(106, 23);
+            DefaultQPODifficulty.TabIndex = 15;
+            // 
+            // DefaultQPODifficultyLabel
+            // 
+            DefaultQPODifficultyLabel.AutoSize = true;
+            DefaultQPODifficultyLabel.Location = new Point(24, 183);
+            DefaultQPODifficultyLabel.Name = "DefaultQPODifficultyLabel";
+            DefaultQPODifficultyLabel.Size = new Size(204, 22);
+            DefaultQPODifficultyLabel.TabIndex = 14;
+            DefaultQPODifficultyLabel.Text = "Default Quickplay Difficulty: ";
+            // 
+            // StatusHandler
+            // 
+            StatusHandler.AutoSize = true;
+            StatusHandler.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            StatusHandler.Location = new Point(24, 147);
+            StatusHandler.Name = "StatusHandler";
+            StatusHandler.Size = new Size(169, 26);
+            StatusHandler.TabIndex = 13;
+            StatusHandler.Text = "Write Streamer Files";
+            StatusHandler.UseVisualStyleBackColor = true;
             // 
             // UseQuitOption
             // 
@@ -437,17 +496,6 @@
             TabGeneralMMOHeader.TabIndex = 0;
             TabGeneralMMOHeader.Text = "Main Menu Options:";
             // 
-            // StatusHandler
-            // 
-            StatusHandler.AutoSize = true;
-            StatusHandler.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            StatusHandler.Location = new Point(24, 147);
-            StatusHandler.Name = "StatusHandler";
-            StatusHandler.Size = new Size(169, 26);
-            StatusHandler.TabIndex = 13;
-            StatusHandler.Text = "Write Streamer Files";
-            StatusHandler.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -455,6 +503,7 @@
             BackgroundImage = Properties.Resources.bg_1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1008, 729);
+            Controls.Add(SaveConfig);
             Controls.Add(TabGeneralGroup);
             Controls.Add(CheckForUpdates);
             Controls.Add(OpenMods);
@@ -516,5 +565,8 @@
         private CheckBox UseOptionsOption;
         private CheckBox UseQuitOption;
         private CheckBox StatusHandler;
+        private ComboBox DefaultQPODifficulty;
+        private Label DefaultQPODifficultyLabel;
+        private Button SaveConfig;
     }
 }

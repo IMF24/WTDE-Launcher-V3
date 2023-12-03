@@ -41,6 +41,35 @@ namespace WTDE_Launcher_V3
         public bool TabBarActive = false;
 
         /// <summary>
+        ///  Makes flickering less obvious. (thanks Uzis)
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            // Double buffer to prevent flickering.
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
+        public void WriteDefaultINI()
+        {
+            if (!File.Exists(V3LauncherConstants.WTDEConfigDir))
+            {
+                using (StreamWriter sw = new StreamWriter(V3LauncherConstants.WTDEConfigDir, true))
+                {
+                    string[] defaultConfigLines = INIFunctions.DefaultINIContents.Split("\n");
+                    foreach (string line in defaultConfigLines)
+                    {
+                        sw.WriteLine(line);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         ///  Load all configuration data from GHWTDE.ini.
         /// </summary>
         public void LoadINISettings()
@@ -53,6 +82,7 @@ namespace WTDE_Launcher_V3
             MuteStreams.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "MuteStreams")));
             WhammyPitchShift.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "WhammyPitchShift")));
             StatusHandler.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "StatusHandler")));
+            DefaultQPODifficulty.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "DefaultQPODifficulty"), INIFunctions.QPODifficulties, INIFunctions.QPODifficultiesNames);
 
             // -- MAIN MENU TOGGLES ---------------------------
             UseCareerOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCareerOption")));
@@ -63,6 +93,38 @@ namespace WTDE_Launcher_V3
             UseCAROption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCAROption")));
             UseOptionsOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseOptionsOption")));
             UseQuitOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuitOption")));
+        }
+
+        /// <summary>
+        ///  Save all configured data into GHWTDE.ini.
+        /// </summary>
+        public void SaveINISettings()
+        {
+            // Set up IniFile. Pretty self-explanatory.
+            IniFile file = new IniFile();
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+
+            // ---------------------------
+            // General Tab
+            // ---------------------------
+            file.Sections["Config"].Keys["RichPresence"].Value = (RichPresence.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["AllowHolidays"].Value = (AllowHolidays.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Audio"].Keys["MuteStreams"].Value = (MuteStreams.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Audio"].Keys["WhammyPitchShift"].Value = (WhammyPitchShift.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["DefaultQPODifficulty"].Value = INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text, INIFunctions.QPODifficultiesNames, INIFunctions.QPODifficulties);
+
+            // -- MAIN MENU TOGGLES ---------------------------
+            file.Sections["Config"].Keys["UseCareerOption"].Value = (UseCareerOption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseQuickplayOption"].Value = (UseQuickplayOption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseHeadToHeadOption"].Value = (UseHeadToHeadOption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseOnlineOption"].Value = (UseOnlineOption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseMusicStudioOption"].Value = (UseMusicStudioOption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseCAROption"].Value = (UseCAROption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseOptionsOption"].Value = (UseOptionsOption.Checked.ToString() == "True") ? "1" : "0";
+            file.Sections["Config"].Keys["UseQuitOption"].Value = (UseQuitOption.Checked.ToString() == "True") ? "1" : "0";
+
+            // Save the config settings to GHWTDE.ini.
+            file.Save(V3LauncherConstants.WTDEConfigDir);
         }
 
         /// <summary>
@@ -154,7 +216,10 @@ namespace WTDE_Launcher_V3
 
             // Hide all tabs and load our INI settings.
             HideAllTabs();
+            WriteDefaultINI();
             LoadINISettings();
+
+            Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen")}");
 
             // Just for the sake of debugging, we'll change our working directory to where
             // GHWT is installed. This path is defined in the `wtde_path.txt` file.
@@ -219,7 +284,11 @@ namespace WTDE_Launcher_V3
             WhiteOverlay.Enabled = TabBarActive;
             WhiteOverlay.Visible = TabBarActive;
 
-            if (TabBarActive == false) HideAllTabs();
+            if (TabBarActive == false)
+            {
+                HideAllTabs();
+                SaveINISettings();
+            }
 
             TabButtonGroup.Enabled = TabBarActive;
             TabButtonGroup.Visible = TabBarActive;
@@ -253,6 +322,11 @@ namespace WTDE_Launcher_V3
         {
             TabGeneralGroup.Show();
 
+        }
+
+        private void SaveConfig_Click(object sender, EventArgs e)
+        {
+            SaveINISettings();
         }
     }
 }
