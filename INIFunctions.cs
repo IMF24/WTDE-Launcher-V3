@@ -45,14 +45,19 @@ namespace WTDE_Launcher_V3 {
         /// <param name="opt">
         ///  Option/Key name in the section to look for.
         /// </param>
+        /// <param name="fallback">
+        ///  Optional: Fallback value that will be returned. Default is "0".
+        /// </param>
         /// <returns>
         ///  Returns the requested value as a string. Returns a string of "0" when not found.
         /// </returns>
-        public static string GetINIValue(string sect, string opt)
+        public static string GetINIValue(string sect, string opt, string fallback = "0")
         {
+            // Initialize MadMilkman's INI library, load GHWTDE.ini.
             IniFile file = new IniFile();
             file.Load(V3LauncherConstants.WTDEConfigDir);
 
+            // Look for the option we specified in the arguments.
             foreach (var section in file.Sections)
             {
                 if (section.Name == sect)
@@ -67,7 +72,10 @@ namespace WTDE_Launcher_V3 {
                 }
             }
 
-            return "0";
+            // If option doesn't exist, write it as a fallback.
+            file.Sections[sect].Keys[opt].Value = fallback;
+            file.Save(V3LauncherConstants.WTDEConfigDir);
+            return fallback.ToString();
         }
     }
 }

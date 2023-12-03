@@ -51,6 +51,18 @@ namespace WTDE_Launcher_V3
             RichPresence.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "RichPresence")));
             AllowHolidays.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "AllowHolidays")));
             MuteStreams.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "MuteStreams")));
+            WhammyPitchShift.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "WhammyPitchShift")));
+            StatusHandler.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "StatusHandler")));
+
+            // -- MAIN MENU TOGGLES ---------------------------
+            UseCareerOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCareerOption")));
+            UseQuickplayOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuickplayOption")));
+            UseHeadToHeadOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseHeadToHeadOption")));
+            UseOnlineOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseOnlineOption")));
+            UseMusicStudioOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseMusicStudioOption")));
+            UseCAROption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCAROption")));
+            UseOptionsOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseOptionsOption")));
+            UseQuitOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuitOption")));
         }
 
         /// <summary>
@@ -81,8 +93,6 @@ namespace WTDE_Launcher_V3
         {
             // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
             InitializeComponent();
-
-
 
             // Update window title with random splash and actual version number.
             // The object `random` is used for the random splash picker.

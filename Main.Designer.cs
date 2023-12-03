@@ -45,10 +45,20 @@
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
             TabGeneralGroup = new GroupBox();
+            UseQuitOption = new CheckBox();
+            UseOptionsOption = new CheckBox();
+            UseCAROption = new CheckBox();
+            UseMusicStudioOption = new CheckBox();
+            UseOnlineOption = new CheckBox();
+            UseHeadToHeadOption = new CheckBox();
+            UseQuickplayOption = new CheckBox();
+            UseCareerOption = new CheckBox();
+            WhammyPitchShift = new CheckBox();
+            MuteStreams = new CheckBox();
             AllowHolidays = new CheckBox();
             RichPresence = new CheckBox();
             TabGeneralMMOHeader = new Label();
-            MuteStreams = new CheckBox();
+            StatusHandler = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoWTDE).BeginInit();
@@ -265,6 +275,16 @@
             // 
             TabGeneralGroup.BackColor = Color.Transparent;
             TabGeneralGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabGeneralGroup.Controls.Add(StatusHandler);
+            TabGeneralGroup.Controls.Add(UseQuitOption);
+            TabGeneralGroup.Controls.Add(UseOptionsOption);
+            TabGeneralGroup.Controls.Add(UseCAROption);
+            TabGeneralGroup.Controls.Add(UseMusicStudioOption);
+            TabGeneralGroup.Controls.Add(UseOnlineOption);
+            TabGeneralGroup.Controls.Add(UseHeadToHeadOption);
+            TabGeneralGroup.Controls.Add(UseQuickplayOption);
+            TabGeneralGroup.Controls.Add(UseCareerOption);
+            TabGeneralGroup.Controls.Add(WhammyPitchShift);
             TabGeneralGroup.Controls.Add(MuteStreams);
             TabGeneralGroup.Controls.Add(AllowHolidays);
             TabGeneralGroup.Controls.Add(RichPresence);
@@ -274,6 +294,116 @@
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
             TabGeneralGroup.TabStop = false;
+            // 
+            // UseQuitOption
+            // 
+            UseQuitOption.AutoSize = true;
+            UseQuitOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseQuitOption.Location = new Point(418, 273);
+            UseQuitOption.Name = "UseQuitOption";
+            UseQuitOption.Size = new Size(55, 26);
+            UseQuitOption.TabIndex = 12;
+            UseQuitOption.Text = "Exit";
+            UseQuitOption.UseVisualStyleBackColor = true;
+            // 
+            // UseOptionsOption
+            // 
+            UseOptionsOption.AutoSize = true;
+            UseOptionsOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseOptionsOption.Location = new Point(418, 243);
+            UseOptionsOption.Name = "UseOptionsOption";
+            UseOptionsOption.Size = new Size(82, 26);
+            UseOptionsOption.TabIndex = 11;
+            UseOptionsOption.Text = "Options";
+            UseOptionsOption.UseVisualStyleBackColor = true;
+            // 
+            // UseCAROption
+            // 
+            UseCAROption.AutoSize = true;
+            UseCAROption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseCAROption.Location = new Point(418, 211);
+            UseCAROption.Name = "UseCAROption";
+            UseCAROption.Size = new Size(153, 26);
+            UseCAROption.TabIndex = 10;
+            UseCAROption.Text = "Rock Star Creator";
+            UseCAROption.UseVisualStyleBackColor = true;
+            // 
+            // UseMusicStudioOption
+            // 
+            UseMusicStudioOption.AutoSize = true;
+            UseMusicStudioOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseMusicStudioOption.Location = new Point(418, 179);
+            UseMusicStudioOption.Name = "UseMusicStudioOption";
+            UseMusicStudioOption.Size = new Size(115, 26);
+            UseMusicStudioOption.TabIndex = 9;
+            UseMusicStudioOption.Text = "Music Studio";
+            UseMusicStudioOption.UseVisualStyleBackColor = true;
+            // 
+            // UseOnlineOption
+            // 
+            UseOnlineOption.AutoSize = true;
+            UseOnlineOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseOnlineOption.Location = new Point(418, 147);
+            UseOnlineOption.Name = "UseOnlineOption";
+            UseOnlineOption.Size = new Size(72, 26);
+            UseOnlineOption.TabIndex = 8;
+            UseOnlineOption.Text = "Online";
+            UseOnlineOption.UseVisualStyleBackColor = true;
+            // 
+            // UseHeadToHeadOption
+            // 
+            UseHeadToHeadOption.AutoSize = true;
+            UseHeadToHeadOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseHeadToHeadOption.Location = new Point(418, 115);
+            UseHeadToHeadOption.Name = "UseHeadToHeadOption";
+            UseHeadToHeadOption.Size = new Size(125, 26);
+            UseHeadToHeadOption.TabIndex = 7;
+            UseHeadToHeadOption.Text = "Head to Head";
+            UseHeadToHeadOption.UseVisualStyleBackColor = true;
+            // 
+            // UseQuickplayOption
+            // 
+            UseQuickplayOption.AutoSize = true;
+            UseQuickplayOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseQuickplayOption.Location = new Point(418, 83);
+            UseQuickplayOption.Name = "UseQuickplayOption";
+            UseQuickplayOption.Size = new Size(97, 26);
+            UseQuickplayOption.TabIndex = 6;
+            UseQuickplayOption.Text = "Quickplay";
+            UseQuickplayOption.UseVisualStyleBackColor = true;
+            // 
+            // UseCareerOption
+            // 
+            UseCareerOption.AutoSize = true;
+            UseCareerOption.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            UseCareerOption.Location = new Point(418, 51);
+            UseCareerOption.Name = "UseCareerOption";
+            UseCareerOption.Size = new Size(76, 26);
+            UseCareerOption.TabIndex = 5;
+            UseCareerOption.Text = "Career";
+            UseCareerOption.UseVisualStyleBackColor = true;
+            // 
+            // WhammyPitchShift
+            // 
+            WhammyPitchShift.AutoSize = true;
+            WhammyPitchShift.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            WhammyPitchShift.Location = new Point(24, 115);
+            WhammyPitchShift.Name = "WhammyPitchShift";
+            WhammyPitchShift.Size = new Size(167, 26);
+            WhammyPitchShift.TabIndex = 4;
+            WhammyPitchShift.Text = "Whammy Pitch Shift";
+            WhammyPitchShift.UseVisualStyleBackColor = true;
+            // 
+            // MuteStreams
+            // 
+            MuteStreams.AutoSize = true;
+            MuteStreams.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MuteStreams.Location = new Point(24, 83);
+            MuteStreams.Name = "MuteStreams";
+            MuteStreams.Size = new Size(219, 26);
+            MuteStreams.TabIndex = 3;
+            MuteStreams.Text = "Mute Split Tracks Upon Miss";
+            MuteStreams.UseVisualStyleBackColor = true;
             // 
             // AllowHolidays
             // 
@@ -301,22 +431,22 @@
             // 
             TabGeneralMMOHeader.AutoSize = true;
             TabGeneralMMOHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            TabGeneralMMOHeader.Location = new Point(337, 19);
+            TabGeneralMMOHeader.Location = new Point(398, 18);
             TabGeneralMMOHeader.Name = "TabGeneralMMOHeader";
             TabGeneralMMOHeader.Size = new Size(184, 25);
             TabGeneralMMOHeader.TabIndex = 0;
             TabGeneralMMOHeader.Text = "Main Menu Options:";
             // 
-            // MuteStreams
+            // StatusHandler
             // 
-            MuteStreams.AutoSize = true;
-            MuteStreams.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MuteStreams.Location = new Point(24, 83);
-            MuteStreams.Name = "MuteStreams";
-            MuteStreams.Size = new Size(219, 26);
-            MuteStreams.TabIndex = 3;
-            MuteStreams.Text = "Mute Split Tracks Upon Miss";
-            MuteStreams.UseVisualStyleBackColor = true;
+            StatusHandler.AutoSize = true;
+            StatusHandler.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            StatusHandler.Location = new Point(24, 147);
+            StatusHandler.Name = "StatusHandler";
+            StatusHandler.Size = new Size(169, 26);
+            StatusHandler.TabIndex = 13;
+            StatusHandler.Text = "Write Streamer Files";
+            StatusHandler.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -376,5 +506,15 @@
         private CheckBox RichPresence;
         private CheckBox AllowHolidays;
         private CheckBox MuteStreams;
+        private CheckBox WhammyPitchShift;
+        private CheckBox UseCareerOption;
+        private CheckBox UseQuickplayOption;
+        private CheckBox UseHeadToHeadOption;
+        private CheckBox UseOnlineOption;
+        private CheckBox UseMusicStudioOption;
+        private CheckBox UseCAROption;
+        private CheckBox UseOptionsOption;
+        private CheckBox UseQuitOption;
+        private CheckBox StatusHandler;
     }
 }
