@@ -82,7 +82,7 @@ namespace WTDE_Launcher_V3
             MuteStreams.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "MuteStreams")));
             WhammyPitchShift.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "WhammyPitchShift")));
             StatusHandler.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "StatusHandler")));
-            DefaultQPODifficulty.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "DefaultQPODifficulty"), INIFunctions.QPODifficulties, INIFunctions.QPODifficultiesNames);
+            DefaultQPODifficulty.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "DefaultQPODifficulty", "expert"), INIFunctions.QPODifficulties, INIFunctions.QPODifficultiesNames);
 
             // -- MAIN MENU TOGGLES ---------------------------
             UseCareerOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCareerOption")));
@@ -93,6 +93,9 @@ namespace WTDE_Launcher_V3
             UseCAROption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCAROption")));
             UseOptionsOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseOptionsOption")));
             UseQuitOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuitOption")));
+
+            // -- LAUNCHER OPTIONS ---------------------------
+            AutoCheckForUpdates.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates")));
         }
 
         /// <summary>
@@ -287,7 +290,7 @@ namespace WTDE_Launcher_V3
             if (TabBarActive == false)
             {
                 HideAllTabs();
-                SaveINISettings();
+                // SaveINISettings();
             }
 
             TabButtonGroup.Enabled = TabBarActive;
@@ -323,6 +326,11 @@ namespace WTDE_Launcher_V3
             TabGeneralGroup.Show();
 
         }
+
+        // ------------------------------------------------------
+        // GENERAL SETTINGS AUTO UPDATE
+        // ------------------------------------------------------
+        #region General Settings Auto Update
 
         private void RichPresence_CheckedChanged(object sender, EventArgs e)
         {
@@ -392,6 +400,13 @@ namespace WTDE_Launcher_V3
         private void UseQuitOption_CheckedChanged(object sender, EventArgs e)
         {
             INIFunctions.SaveINIValue("Config", "UseQuitOption", INIFunctions.BoolToString(UseQuitOption.Checked));
+        }
+
+        #endregion
+
+        private void AutoCheckForUpdates_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Launcher", "CheckForUpdates", INIFunctions.BoolToString(AutoCheckForUpdates.Checked));
         }
     }
 }

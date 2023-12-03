@@ -45,6 +45,8 @@
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
             TabGeneralGroup = new GroupBox();
+            TabGeneralLOHeader = new Label();
+            AutoCheckForUpdates = new CheckBox();
             DefaultQPODifficulty = new ComboBox();
             DefaultQPODifficultyLabel = new Label();
             StatusHandler = new CheckBox();
@@ -277,6 +279,8 @@
             // 
             TabGeneralGroup.BackColor = Color.Transparent;
             TabGeneralGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabGeneralGroup.Controls.Add(TabGeneralLOHeader);
+            TabGeneralGroup.Controls.Add(AutoCheckForUpdates);
             TabGeneralGroup.Controls.Add(DefaultQPODifficulty);
             TabGeneralGroup.Controls.Add(DefaultQPODifficultyLabel);
             TabGeneralGroup.Controls.Add(StatusHandler);
@@ -299,6 +303,28 @@
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
             TabGeneralGroup.TabStop = false;
+            // 
+            // TabGeneralLOHeader
+            // 
+            TabGeneralLOHeader.AutoSize = true;
+            TabGeneralLOHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabGeneralLOHeader.Location = new Point(24, 405);
+            TabGeneralLOHeader.Name = "TabGeneralLOHeader";
+            TabGeneralLOHeader.Size = new Size(172, 25);
+            TabGeneralLOHeader.TabIndex = 17;
+            TabGeneralLOHeader.Text = "Launcher Options:";
+            // 
+            // AutoCheckForUpdates
+            // 
+            AutoCheckForUpdates.AutoSize = true;
+            AutoCheckForUpdates.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoCheckForUpdates.Location = new Point(39, 433);
+            AutoCheckForUpdates.Name = "AutoCheckForUpdates";
+            AutoCheckForUpdates.Size = new Size(194, 26);
+            AutoCheckForUpdates.TabIndex = 16;
+            AutoCheckForUpdates.Text = "Auto Check For Updates";
+            AutoCheckForUpdates.UseVisualStyleBackColor = true;
+            AutoCheckForUpdates.CheckedChanged += AutoCheckForUpdates_CheckedChanged;
             // 
             // DefaultQPODifficulty
             // 
@@ -557,5 +583,7 @@
         private CheckBox StatusHandler;
         private ComboBox DefaultQPODifficulty;
         private Label DefaultQPODifficultyLabel;
+        private Label TabGeneralLOHeader;
+        private CheckBox AutoCheckForUpdates;
     }
 }
