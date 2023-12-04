@@ -135,7 +135,28 @@ namespace WTDE_Launcher_V3
         /// </summary>
         public void HideAllTabs()
         {
+            // No text on group boxes. That's just debug stuff.
+            TabGeneralGroup.Text = "";
+
+            TabAutoLaunchGroup.Text = "";
+
+            // Hide all group boxes, move them to their correct positions.
             TabGeneralGroup.Hide();
+            TabAutoLaunchGroup.Hide();
+        }
+
+        /// <summary>
+        ///  Move all tab groups to their correct locations. This should hopefully DPI scale.
+        /// </summary>
+        public void MoveAllTabGroups()
+        {
+            // Move all tab groups to their correct locations.
+            // (X, Y): (327, 75)
+            int PosX = 327;
+            int PosY = 75;
+
+            TabGeneralGroup.Location = new Point(PosX, PosY);
+            TabAutoLaunchGroup.Location = new Point(PosX, PosY);
         }
 
         /// <summary>
@@ -217,12 +238,15 @@ namespace WTDE_Launcher_V3
             MOTDDarkOverlay.Visible = !TabBarActive;
             MOTDLabel.Text = TabHandler.GetMOTDText();
 
-            // Hide all tabs and load our INI settings.
+            // Hide all tabs, move the group boxes, and load our INI settings.
             HideAllTabs();
+            MoveAllTabGroups();
             WriteDefaultINI();
             LoadINISettings();
 
-            Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen")}");
+            // Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen")}");
+
+
 
             // Just for the sake of debugging, we'll change our working directory to where
             // GHWT is installed. This path is defined in the `wtde_path.txt` file.
@@ -325,6 +349,7 @@ namespace WTDE_Launcher_V3
         {
             TabGeneralGroup.Show();
 
+            TabAutoLaunchGroup.Hide();
         }
 
         // ------------------------------------------------------
@@ -402,11 +427,18 @@ namespace WTDE_Launcher_V3
             INIFunctions.SaveINIValue("Config", "UseQuitOption", INIFunctions.BoolToString(UseQuitOption.Checked));
         }
 
-        #endregion
-
         private void AutoCheckForUpdates_CheckedChanged(object sender, EventArgs e)
         {
             INIFunctions.SaveINIValue("Launcher", "CheckForUpdates", INIFunctions.BoolToString(AutoCheckForUpdates.Checked));
+        }
+
+        #endregion
+
+        private void TabButtonAutoLaunch_Click(object sender, EventArgs e)
+        {
+            TabGeneralGroup.Hide();
+
+            TabAutoLaunchGroup.Show();
         }
     }
 }

@@ -127,14 +127,24 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
-        ///  Takes an input INI setting read from GHWTDE.ini, and interprets it into something displayable to the end user.
+        ///  Takes an input string, and interprets it into something displayable to the end user OR
+        ///  a string that can be written to GHWTDE.ini. Both input arrays MUST match in length.
+        ///  Raise Exception if input and output arrays do not match in length.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="inValues"></param>
-        /// <param name="outValues"></param>
+        /// <param name="value">
+        ///  Value string to interpret.
+        /// </param>
+        /// <param name="inValues">
+        ///  Values to match the input value against.
+        /// </param>
+        /// <param name="outValues">
+        ///  Values that will potentially be given back.
+        /// </param>
         /// <returns></returns>
         public static string InterpretINISetting(string value, string[] inValues, string[] outValues)
         {
+            if (inValues.Length != outValues.Length) throw new Exception("The input values and output values do not equal each other in length.");
+
             for (var i = 0; i < inValues.Length; i++)
             {
                 if (inValues[i] == value) {

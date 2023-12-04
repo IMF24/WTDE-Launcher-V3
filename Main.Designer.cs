@@ -33,6 +33,11 @@
             LeftDarkOverlay = new PictureBox();
             VersionInfoLabel = new Label();
             TabButtonGroup = new Panel();
+            TabButtonDebug = new Button();
+            TabButtonAutoLaunch = new Button();
+            TabButtonBand = new Button();
+            TabButtonGraphics = new Button();
+            TabButtonInput = new Button();
             TabButtonGeneral = new Button();
             MOTDLabel = new Label();
             LogoWTDE = new PictureBox();
@@ -42,15 +47,26 @@
             OpenMods = new Button();
             CheckForUpdates = new Button();
             RichPresence = new CheckBox();
+            AllowHolidays = new CheckBox();
+            MuteStreams = new CheckBox();
+            StatusHandler = new CheckBox();
+            WhammyPitchShift = new CheckBox();
+            AutoCheckForUpdates = new CheckBox();
+            DefaultQPODifficulty = new ComboBox();
+            AutoLaunchPlayers = new ComboBox();
+            AutoLaunchEncoreMode = new CheckBox();
+            AutoLaunchSongTime = new CheckBox();
+            EnableAutoLaunch = new CheckBox();
+            comboBox1 = new ComboBox();
+            AutoLaunchPart1 = new ComboBox();
+            AutoLaunchDifficulty1 = new ComboBox();
             LogoFretworks = new PictureBox();
             WhiteOverlay = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
             TabGeneralGroup = new GroupBox();
+            TabGeneralBSHeader = new Label();
             TabGeneralLOHeader = new Label();
-            AutoCheckForUpdates = new CheckBox();
-            DefaultQPODifficulty = new ComboBox();
             DefaultQPODifficultyLabel = new Label();
-            StatusHandler = new CheckBox();
             UseQuitOption = new CheckBox();
             UseOptionsOption = new CheckBox();
             UseCAROption = new CheckBox();
@@ -59,10 +75,33 @@
             UseHeadToHeadOption = new CheckBox();
             UseQuickplayOption = new CheckBox();
             UseCareerOption = new CheckBox();
-            WhammyPitchShift = new CheckBox();
-            MuteStreams = new CheckBox();
-            AllowHolidays = new CheckBox();
             TabGeneralMMOHeader = new Label();
+            TabAutoLaunchGroup = new GroupBox();
+            AutoLaunchDiffsLabel = new Label();
+            AutoLaunchPartsLabel = new Label();
+            AutoLaunchP1Label = new Label();
+            AutoLaunchVenueLabel = new Label();
+            textBox1 = new TextBox();
+            AutoLaunchSongLabel = new Label();
+            TabAutoLaunchALSHeader = new Label();
+            TabAutoLaunchPSHeader = new Label();
+            AutoLaunchPlayersLabel = new Label();
+            AutoLaunchRawLoad = new CheckBox();
+            AutoLaunchBot1 = new CheckBox();
+            AutoLaunchHideHUD = new CheckBox();
+            AutoLaunchDifficulty2 = new ComboBox();
+            AutoLaunchPart2 = new ComboBox();
+            AutoLaunchP2Label = new Label();
+            AutoLaunchBot2 = new CheckBox();
+            TabAutoLaunchASHeader = new Label();
+            AutoLaunchDifficulty3 = new ComboBox();
+            AutoLaunchPart3 = new ComboBox();
+            AutoLaunchP3Label = new Label();
+            AutoLaunchBot3 = new CheckBox();
+            AutoLaunchDifficulty4 = new ComboBox();
+            AutoLaunchPart4 = new ComboBox();
+            label1 = new Label();
+            AutoLaunchBot4 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoWTDE).BeginInit();
@@ -70,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)WhiteOverlay).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MOTDDarkOverlay).BeginInit();
             TabGeneralGroup.SuspendLayout();
+            TabAutoLaunchGroup.SuspendLayout();
             SuspendLayout();
             // 
             // LeftDarkOverlay
@@ -102,11 +142,122 @@
             // 
             TabButtonGroup.BackColor = Color.Transparent;
             TabButtonGroup.BackgroundImage = Properties.Resources.dark_overlay_m;
+            TabButtonGroup.Controls.Add(TabButtonDebug);
+            TabButtonGroup.Controls.Add(TabButtonAutoLaunch);
+            TabButtonGroup.Controls.Add(TabButtonBand);
+            TabButtonGroup.Controls.Add(TabButtonGraphics);
+            TabButtonGroup.Controls.Add(TabButtonInput);
             TabButtonGroup.Controls.Add(TabButtonGeneral);
             TabButtonGroup.Location = new Point(314, -1);
             TabButtonGroup.Name = "TabButtonGroup";
             TabButtonGroup.Size = new Size(701, 66);
             TabButtonGroup.TabIndex = 5;
+            // 
+            // TabButtonDebug
+            // 
+            TabButtonDebug.BackColor = Color.Transparent;
+            TabButtonDebug.BackgroundImage = Properties.Resources.dark_overlay_d;
+            TabButtonDebug.BackgroundImageLayout = ImageLayout.Stretch;
+            TabButtonDebug.Cursor = Cursors.Hand;
+            TabButtonDebug.FlatAppearance.BorderColor = Color.White;
+            TabButtonDebug.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            TabButtonDebug.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            TabButtonDebug.FlatStyle = FlatStyle.Flat;
+            TabButtonDebug.Font = new Font("Lexend", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TabButtonDebug.ForeColor = Color.White;
+            TabButtonDebug.Location = new Point(578, 10);
+            TabButtonDebug.Name = "TabButtonDebug";
+            TabButtonDebug.RightToLeft = RightToLeft.No;
+            TabButtonDebug.Size = new Size(107, 44);
+            TabButtonDebug.TabIndex = 18;
+            TabButtonDebug.Text = "Debug";
+            ToolTipMain.SetToolTip(TabButtonDebug, "Adjust general settings about WTDE.");
+            TabButtonDebug.UseVisualStyleBackColor = false;
+            // 
+            // TabButtonAutoLaunch
+            // 
+            TabButtonAutoLaunch.BackColor = Color.Transparent;
+            TabButtonAutoLaunch.BackgroundImage = Properties.Resources.dark_overlay_d;
+            TabButtonAutoLaunch.BackgroundImageLayout = ImageLayout.Stretch;
+            TabButtonAutoLaunch.Cursor = Cursors.Hand;
+            TabButtonAutoLaunch.FlatAppearance.BorderColor = Color.White;
+            TabButtonAutoLaunch.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            TabButtonAutoLaunch.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            TabButtonAutoLaunch.FlatStyle = FlatStyle.Flat;
+            TabButtonAutoLaunch.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            TabButtonAutoLaunch.ForeColor = Color.White;
+            TabButtonAutoLaunch.Location = new Point(465, 10);
+            TabButtonAutoLaunch.Name = "TabButtonAutoLaunch";
+            TabButtonAutoLaunch.RightToLeft = RightToLeft.No;
+            TabButtonAutoLaunch.Size = new Size(107, 44);
+            TabButtonAutoLaunch.TabIndex = 17;
+            TabButtonAutoLaunch.Text = "Auto Launch";
+            ToolTipMain.SetToolTip(TabButtonAutoLaunch, "Adjust general settings about WTDE.");
+            TabButtonAutoLaunch.UseVisualStyleBackColor = false;
+            TabButtonAutoLaunch.Click += TabButtonAutoLaunch_Click;
+            // 
+            // TabButtonBand
+            // 
+            TabButtonBand.BackColor = Color.Transparent;
+            TabButtonBand.BackgroundImage = Properties.Resources.dark_overlay_d;
+            TabButtonBand.BackgroundImageLayout = ImageLayout.Stretch;
+            TabButtonBand.Cursor = Cursors.Hand;
+            TabButtonBand.FlatAppearance.BorderColor = Color.White;
+            TabButtonBand.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            TabButtonBand.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            TabButtonBand.FlatStyle = FlatStyle.Flat;
+            TabButtonBand.Font = new Font("Lexend", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TabButtonBand.ForeColor = Color.White;
+            TabButtonBand.Location = new Point(352, 10);
+            TabButtonBand.Name = "TabButtonBand";
+            TabButtonBand.RightToLeft = RightToLeft.No;
+            TabButtonBand.Size = new Size(107, 44);
+            TabButtonBand.TabIndex = 16;
+            TabButtonBand.Text = "Band";
+            ToolTipMain.SetToolTip(TabButtonBand, "Adjust general settings about WTDE.");
+            TabButtonBand.UseVisualStyleBackColor = false;
+            // 
+            // TabButtonGraphics
+            // 
+            TabButtonGraphics.BackColor = Color.Transparent;
+            TabButtonGraphics.BackgroundImage = Properties.Resources.dark_overlay_d;
+            TabButtonGraphics.BackgroundImageLayout = ImageLayout.Stretch;
+            TabButtonGraphics.Cursor = Cursors.Hand;
+            TabButtonGraphics.FlatAppearance.BorderColor = Color.White;
+            TabButtonGraphics.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            TabButtonGraphics.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            TabButtonGraphics.FlatStyle = FlatStyle.Flat;
+            TabButtonGraphics.Font = new Font("Lexend", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TabButtonGraphics.ForeColor = Color.White;
+            TabButtonGraphics.Location = new Point(239, 10);
+            TabButtonGraphics.Name = "TabButtonGraphics";
+            TabButtonGraphics.RightToLeft = RightToLeft.No;
+            TabButtonGraphics.Size = new Size(107, 44);
+            TabButtonGraphics.TabIndex = 15;
+            TabButtonGraphics.Text = "Graphics";
+            ToolTipMain.SetToolTip(TabButtonGraphics, "Adjust general settings about WTDE.");
+            TabButtonGraphics.UseVisualStyleBackColor = false;
+            // 
+            // TabButtonInput
+            // 
+            TabButtonInput.BackColor = Color.Transparent;
+            TabButtonInput.BackgroundImage = Properties.Resources.dark_overlay_d;
+            TabButtonInput.BackgroundImageLayout = ImageLayout.Stretch;
+            TabButtonInput.Cursor = Cursors.Hand;
+            TabButtonInput.FlatAppearance.BorderColor = Color.White;
+            TabButtonInput.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            TabButtonInput.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            TabButtonInput.FlatStyle = FlatStyle.Flat;
+            TabButtonInput.Font = new Font("Lexend", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TabButtonInput.ForeColor = Color.White;
+            TabButtonInput.Location = new Point(126, 10);
+            TabButtonInput.Name = "TabButtonInput";
+            TabButtonInput.RightToLeft = RightToLeft.No;
+            TabButtonInput.Size = new Size(107, 44);
+            TabButtonInput.TabIndex = 14;
+            TabButtonInput.Text = "Input";
+            ToolTipMain.SetToolTip(TabButtonInput, "Adjust general settings about WTDE.");
+            TabButtonInput.UseVisualStyleBackColor = false;
             // 
             // TabButtonGeneral
             // 
@@ -246,7 +397,7 @@
             // 
             RichPresence.AutoSize = true;
             RichPresence.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            RichPresence.Location = new Point(24, 19);
+            RichPresence.Location = new Point(30, 51);
             RichPresence.Name = "RichPresence";
             RichPresence.Size = new Size(208, 26);
             RichPresence.TabIndex = 1;
@@ -254,6 +405,168 @@
             ToolTipMain.SetToolTip(RichPresence, resources.GetString("RichPresence.ToolTip"));
             RichPresence.UseVisualStyleBackColor = true;
             RichPresence.CheckedChanged += RichPresence_CheckedChanged;
+            // 
+            // AllowHolidays
+            // 
+            AllowHolidays.AutoSize = true;
+            AllowHolidays.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AllowHolidays.Location = new Point(30, 83);
+            AllowHolidays.Name = "AllowHolidays";
+            AllowHolidays.Size = new Size(168, 26);
+            AllowHolidays.TabIndex = 2;
+            AllowHolidays.Text = "Use Holiday Themes";
+            ToolTipMain.SetToolTip(AllowHolidays, resources.GetString("AllowHolidays.ToolTip"));
+            AllowHolidays.UseVisualStyleBackColor = true;
+            AllowHolidays.CheckedChanged += AllowHolidays_CheckedChanged;
+            // 
+            // MuteStreams
+            // 
+            MuteStreams.AutoSize = true;
+            MuteStreams.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MuteStreams.Location = new Point(30, 115);
+            MuteStreams.Name = "MuteStreams";
+            MuteStreams.Size = new Size(219, 26);
+            MuteStreams.TabIndex = 3;
+            MuteStreams.Text = "Mute Split Tracks Upon Miss";
+            ToolTipMain.SetToolTip(MuteStreams, "Turn ON or OFF muting of instrument tracks upon notes being missed. If enabled,\r\nwhen a note is missed, its respective track will be muted until another note is hit.");
+            MuteStreams.UseVisualStyleBackColor = true;
+            MuteStreams.CheckedChanged += MuteStreams_CheckedChanged;
+            // 
+            // StatusHandler
+            // 
+            StatusHandler.AutoSize = true;
+            StatusHandler.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            StatusHandler.Location = new Point(30, 179);
+            StatusHandler.Name = "StatusHandler";
+            StatusHandler.Size = new Size(169, 26);
+            StatusHandler.TabIndex = 13;
+            StatusHandler.Text = "Write Streamer Files";
+            ToolTipMain.SetToolTip(StatusHandler, "When enabled, this will export to the Logs folder various text files for streamers to use containing\r\nvarious information, such as the song currently playing, artist, venue, etc.");
+            StatusHandler.UseVisualStyleBackColor = true;
+            StatusHandler.CheckedChanged += StatusHandler_CheckedChanged;
+            // 
+            // WhammyPitchShift
+            // 
+            WhammyPitchShift.AutoSize = true;
+            WhammyPitchShift.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            WhammyPitchShift.Location = new Point(30, 147);
+            WhammyPitchShift.Name = "WhammyPitchShift";
+            WhammyPitchShift.Size = new Size(167, 26);
+            WhammyPitchShift.TabIndex = 4;
+            WhammyPitchShift.Text = "Whammy Pitch Shift";
+            ToolTipMain.SetToolTip(WhammyPitchShift, "Turn ON or OFF whammy effects. If this is OFF, audio distortion by whammy will be disabled.");
+            WhammyPitchShift.UseVisualStyleBackColor = true;
+            WhammyPitchShift.CheckedChanged += WhammyPitchShift_CheckedChanged;
+            // 
+            // AutoCheckForUpdates
+            // 
+            AutoCheckForUpdates.AutoSize = true;
+            AutoCheckForUpdates.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoCheckForUpdates.Location = new Point(30, 437);
+            AutoCheckForUpdates.Name = "AutoCheckForUpdates";
+            AutoCheckForUpdates.Size = new Size(194, 26);
+            AutoCheckForUpdates.TabIndex = 16;
+            AutoCheckForUpdates.Text = "Auto Check For Updates";
+            ToolTipMain.SetToolTip(AutoCheckForUpdates, "Enable or disable the functionality to check for updates to WTDE when the launcher starts up.\r\n");
+            AutoCheckForUpdates.UseVisualStyleBackColor = true;
+            AutoCheckForUpdates.CheckedChanged += AutoCheckForUpdates_CheckedChanged;
+            // 
+            // DefaultQPODifficulty
+            // 
+            DefaultQPODifficulty.DropDownStyle = ComboBoxStyle.DropDownList;
+            DefaultQPODifficulty.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            DefaultQPODifficulty.FormattingEnabled = true;
+            DefaultQPODifficulty.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+            DefaultQPODifficulty.Location = new Point(240, 216);
+            DefaultQPODifficulty.Name = "DefaultQPODifficulty";
+            DefaultQPODifficulty.Size = new Size(106, 23);
+            DefaultQPODifficulty.TabIndex = 15;
+            ToolTipMain.SetToolTip(DefaultQPODifficulty, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            DefaultQPODifficulty.SelectedIndexChanged += DefaultQPODifficulty_SelectedIndexChanged;
+            // 
+            // AutoLaunchPlayers
+            // 
+            AutoLaunchPlayers.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchPlayers.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchPlayers.FormattingEnabled = true;
+            AutoLaunchPlayers.Items.AddRange(new object[] { "1", "2", "3", "4" });
+            AutoLaunchPlayers.Location = new Point(100, 88);
+            AutoLaunchPlayers.Name = "AutoLaunchPlayers";
+            AutoLaunchPlayers.Size = new Size(48, 23);
+            AutoLaunchPlayers.TabIndex = 15;
+            ToolTipMain.SetToolTip(AutoLaunchPlayers, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchEncoreMode
+            // 
+            AutoLaunchEncoreMode.AutoSize = true;
+            AutoLaunchEncoreMode.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchEncoreMode.Location = new Point(30, 404);
+            AutoLaunchEncoreMode.Name = "AutoLaunchEncoreMode";
+            AutoLaunchEncoreMode.Size = new Size(148, 26);
+            AutoLaunchEncoreMode.TabIndex = 13;
+            AutoLaunchEncoreMode.Text = "Last Song Encore";
+            ToolTipMain.SetToolTip(AutoLaunchEncoreMode, "When enabled, this will export to the Logs folder various text files for streamers to use containing\r\nvarious information, such as the song currently playing, artist, venue, etc.");
+            AutoLaunchEncoreMode.UseVisualStyleBackColor = true;
+            // 
+            // AutoLaunchSongTime
+            // 
+            AutoLaunchSongTime.AutoSize = true;
+            AutoLaunchSongTime.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchSongTime.Location = new Point(182, 372);
+            AutoLaunchSongTime.Name = "AutoLaunchSongTime";
+            AutoLaunchSongTime.Size = new Size(142, 26);
+            AutoLaunchSongTime.TabIndex = 4;
+            AutoLaunchSongTime.Text = "Show Song Time";
+            ToolTipMain.SetToolTip(AutoLaunchSongTime, "Turn ON or OFF whammy effects. If this is OFF, audio distortion by whammy will be disabled.");
+            AutoLaunchSongTime.UseVisualStyleBackColor = true;
+            // 
+            // EnableAutoLaunch
+            // 
+            EnableAutoLaunch.AutoSize = true;
+            EnableAutoLaunch.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            EnableAutoLaunch.Location = new Point(15, 23);
+            EnableAutoLaunch.Name = "EnableAutoLaunch";
+            EnableAutoLaunch.Size = new Size(164, 26);
+            EnableAutoLaunch.TabIndex = 1;
+            EnableAutoLaunch.Text = "Enable Auto Launch";
+            ToolTipMain.SetToolTip(EnableAutoLaunch, resources.GetString("EnableAutoLaunch.ToolTip"));
+            EnableAutoLaunch.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "1", "2", "3", "4" });
+            comboBox1.Location = new Point(457, 88);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(171, 23);
+            comboBox1.TabIndex = 22;
+            ToolTipMain.SetToolTip(comboBox1, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchPart1
+            // 
+            AutoLaunchPart1.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchPart1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchPart1.FormattingEnabled = true;
+            AutoLaunchPart1.Items.AddRange(new object[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+            AutoLaunchPart1.Location = new Point(146, 183);
+            AutoLaunchPart1.Name = "AutoLaunchPart1";
+            AutoLaunchPart1.Size = new Size(171, 23);
+            AutoLaunchPart1.TabIndex = 25;
+            ToolTipMain.SetToolTip(AutoLaunchPart1, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchDifficulty1
+            // 
+            AutoLaunchDifficulty1.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchDifficulty1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchDifficulty1.FormattingEnabled = true;
+            AutoLaunchDifficulty1.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+            AutoLaunchDifficulty1.Location = new Point(368, 183);
+            AutoLaunchDifficulty1.Name = "AutoLaunchDifficulty1";
+            AutoLaunchDifficulty1.Size = new Size(105, 23);
+            AutoLaunchDifficulty1.TabIndex = 27;
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty1, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
             // 
             // LogoFretworks
             // 
@@ -292,6 +605,7 @@
             // 
             TabGeneralGroup.BackColor = Color.Transparent;
             TabGeneralGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabGeneralGroup.Controls.Add(TabGeneralBSHeader);
             TabGeneralGroup.Controls.Add(TabGeneralLOHeader);
             TabGeneralGroup.Controls.Add(AutoCheckForUpdates);
             TabGeneralGroup.Controls.Add(DefaultQPODifficulty);
@@ -311,66 +625,41 @@
             TabGeneralGroup.Controls.Add(RichPresence);
             TabGeneralGroup.Controls.Add(TabGeneralMMOHeader);
             TabGeneralGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TabGeneralGroup.Location = new Point(327, 75);
+            TabGeneralGroup.Location = new Point(853, 549);
             TabGeneralGroup.Name = "TabGeneralGroup";
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
             TabGeneralGroup.TabStop = false;
+            TabGeneralGroup.Text = "DEBUG: General Tab";
+            // 
+            // TabGeneralBSHeader
+            // 
+            TabGeneralBSHeader.AutoSize = true;
+            TabGeneralBSHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabGeneralBSHeader.Location = new Point(15, 18);
+            TabGeneralBSHeader.Name = "TabGeneralBSHeader";
+            TabGeneralBSHeader.Size = new Size(140, 25);
+            TabGeneralBSHeader.TabIndex = 18;
+            TabGeneralBSHeader.Text = "Basic Settings:";
             // 
             // TabGeneralLOHeader
             // 
             TabGeneralLOHeader.AutoSize = true;
             TabGeneralLOHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            TabGeneralLOHeader.Location = new Point(24, 405);
+            TabGeneralLOHeader.Location = new Point(15, 405);
             TabGeneralLOHeader.Name = "TabGeneralLOHeader";
             TabGeneralLOHeader.Size = new Size(172, 25);
             TabGeneralLOHeader.TabIndex = 17;
             TabGeneralLOHeader.Text = "Launcher Options:";
             // 
-            // AutoCheckForUpdates
-            // 
-            AutoCheckForUpdates.AutoSize = true;
-            AutoCheckForUpdates.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoCheckForUpdates.Location = new Point(39, 437);
-            AutoCheckForUpdates.Name = "AutoCheckForUpdates";
-            AutoCheckForUpdates.Size = new Size(194, 26);
-            AutoCheckForUpdates.TabIndex = 16;
-            AutoCheckForUpdates.Text = "Auto Check For Updates";
-            AutoCheckForUpdates.UseVisualStyleBackColor = true;
-            AutoCheckForUpdates.CheckedChanged += AutoCheckForUpdates_CheckedChanged;
-            // 
-            // DefaultQPODifficulty
-            // 
-            DefaultQPODifficulty.DropDownStyle = ComboBoxStyle.DropDownList;
-            DefaultQPODifficulty.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            DefaultQPODifficulty.FormattingEnabled = true;
-            DefaultQPODifficulty.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
-            DefaultQPODifficulty.Location = new Point(234, 184);
-            DefaultQPODifficulty.Name = "DefaultQPODifficulty";
-            DefaultQPODifficulty.Size = new Size(106, 23);
-            DefaultQPODifficulty.TabIndex = 15;
-            DefaultQPODifficulty.SelectedIndexChanged += DefaultQPODifficulty_SelectedIndexChanged;
-            // 
             // DefaultQPODifficultyLabel
             // 
             DefaultQPODifficultyLabel.AutoSize = true;
-            DefaultQPODifficultyLabel.Location = new Point(24, 183);
+            DefaultQPODifficultyLabel.Location = new Point(30, 215);
             DefaultQPODifficultyLabel.Name = "DefaultQPODifficultyLabel";
             DefaultQPODifficultyLabel.Size = new Size(204, 22);
             DefaultQPODifficultyLabel.TabIndex = 14;
             DefaultQPODifficultyLabel.Text = "Default Quickplay Difficulty: ";
-            // 
-            // StatusHandler
-            // 
-            StatusHandler.AutoSize = true;
-            StatusHandler.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            StatusHandler.Location = new Point(24, 147);
-            StatusHandler.Name = "StatusHandler";
-            StatusHandler.Size = new Size(169, 26);
-            StatusHandler.TabIndex = 13;
-            StatusHandler.Text = "Write Streamer Files";
-            StatusHandler.UseVisualStyleBackColor = true;
-            StatusHandler.CheckedChanged += StatusHandler_CheckedChanged;
             // 
             // UseQuitOption
             // 
@@ -468,42 +757,6 @@
             UseCareerOption.UseVisualStyleBackColor = true;
             UseCareerOption.CheckedChanged += UseCareerOption_CheckedChanged;
             // 
-            // WhammyPitchShift
-            // 
-            WhammyPitchShift.AutoSize = true;
-            WhammyPitchShift.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            WhammyPitchShift.Location = new Point(24, 115);
-            WhammyPitchShift.Name = "WhammyPitchShift";
-            WhammyPitchShift.Size = new Size(167, 26);
-            WhammyPitchShift.TabIndex = 4;
-            WhammyPitchShift.Text = "Whammy Pitch Shift";
-            WhammyPitchShift.UseVisualStyleBackColor = true;
-            WhammyPitchShift.CheckedChanged += WhammyPitchShift_CheckedChanged;
-            // 
-            // MuteStreams
-            // 
-            MuteStreams.AutoSize = true;
-            MuteStreams.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MuteStreams.Location = new Point(24, 83);
-            MuteStreams.Name = "MuteStreams";
-            MuteStreams.Size = new Size(219, 26);
-            MuteStreams.TabIndex = 3;
-            MuteStreams.Text = "Mute Split Tracks Upon Miss";
-            MuteStreams.UseVisualStyleBackColor = true;
-            MuteStreams.CheckedChanged += MuteStreams_CheckedChanged;
-            // 
-            // AllowHolidays
-            // 
-            AllowHolidays.AutoSize = true;
-            AllowHolidays.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AllowHolidays.Location = new Point(24, 51);
-            AllowHolidays.Name = "AllowHolidays";
-            AllowHolidays.Size = new Size(168, 26);
-            AllowHolidays.TabIndex = 2;
-            AllowHolidays.Text = "Use Holiday Themes";
-            AllowHolidays.UseVisualStyleBackColor = true;
-            AllowHolidays.CheckedChanged += AllowHolidays_CheckedChanged;
-            // 
             // TabGeneralMMOHeader
             // 
             TabGeneralMMOHeader.AutoSize = true;
@@ -514,6 +767,307 @@
             TabGeneralMMOHeader.TabIndex = 0;
             TabGeneralMMOHeader.Text = "Main Menu Options:";
             // 
+            // TabAutoLaunchGroup
+            // 
+            TabAutoLaunchGroup.BackColor = Color.Transparent;
+            TabAutoLaunchGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchDifficulty4);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPart4);
+            TabAutoLaunchGroup.Controls.Add(label1);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchBot4);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchDifficulty3);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPart3);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchP3Label);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchBot3);
+            TabAutoLaunchGroup.Controls.Add(TabAutoLaunchASHeader);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchDifficulty2);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPart2);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchP2Label);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchBot2);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchDifficulty1);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchDiffsLabel);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPart1);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPartsLabel);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchP1Label);
+            TabAutoLaunchGroup.Controls.Add(comboBox1);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchVenueLabel);
+            TabAutoLaunchGroup.Controls.Add(textBox1);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchSongLabel);
+            TabAutoLaunchGroup.Controls.Add(TabAutoLaunchALSHeader);
+            TabAutoLaunchGroup.Controls.Add(TabAutoLaunchPSHeader);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPlayers);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchPlayersLabel);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchEncoreMode);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchRawLoad);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchBot1);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchHideHUD);
+            TabAutoLaunchGroup.Controls.Add(AutoLaunchSongTime);
+            TabAutoLaunchGroup.Controls.Add(EnableAutoLaunch);
+            TabAutoLaunchGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            TabAutoLaunchGroup.Location = new Point(327, 80);
+            TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
+            TabAutoLaunchGroup.Size = new Size(669, 642);
+            TabAutoLaunchGroup.TabIndex = 15;
+            TabAutoLaunchGroup.TabStop = false;
+            TabAutoLaunchGroup.Text = "DEBUG: Auto Launch Tab";
+            // 
+            // AutoLaunchDiffsLabel
+            // 
+            AutoLaunchDiffsLabel.AutoSize = true;
+            AutoLaunchDiffsLabel.Location = new Point(360, 158);
+            AutoLaunchDiffsLabel.Name = "AutoLaunchDiffsLabel";
+            AutoLaunchDiffsLabel.Size = new Size(130, 22);
+            AutoLaunchDiffsLabel.TabIndex = 26;
+            AutoLaunchDiffsLabel.Text = "Player Difficulties";
+            // 
+            // AutoLaunchPartsLabel
+            // 
+            AutoLaunchPartsLabel.AutoSize = true;
+            AutoLaunchPartsLabel.Location = new Point(162, 158);
+            AutoLaunchPartsLabel.Name = "AutoLaunchPartsLabel";
+            AutoLaunchPartsLabel.Size = new Size(140, 22);
+            AutoLaunchPartsLabel.TabIndex = 24;
+            AutoLaunchPartsLabel.Text = "Player Instruments";
+            // 
+            // AutoLaunchP1Label
+            // 
+            AutoLaunchP1Label.AutoSize = true;
+            AutoLaunchP1Label.Location = new Point(30, 183);
+            AutoLaunchP1Label.Name = "AutoLaunchP1Label";
+            AutoLaunchP1Label.Size = new Size(68, 22);
+            AutoLaunchP1Label.TabIndex = 23;
+            AutoLaunchP1Label.Text = "Player 1:";
+            // 
+            // AutoLaunchVenueLabel
+            // 
+            AutoLaunchVenueLabel.AutoSize = true;
+            AutoLaunchVenueLabel.Location = new Point(398, 87);
+            AutoLaunchVenueLabel.Name = "AutoLaunchVenueLabel";
+            AutoLaunchVenueLabel.Size = new Size(54, 22);
+            AutoLaunchVenueLabel.TabIndex = 21;
+            AutoLaunchVenueLabel.Text = "Venue:";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(236, 88);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(133, 23);
+            textBox1.TabIndex = 20;
+            // 
+            // AutoLaunchSongLabel
+            // 
+            AutoLaunchSongLabel.AutoSize = true;
+            AutoLaunchSongLabel.Location = new Point(182, 87);
+            AutoLaunchSongLabel.Name = "AutoLaunchSongLabel";
+            AutoLaunchSongLabel.Size = new Size(48, 22);
+            AutoLaunchSongLabel.TabIndex = 19;
+            AutoLaunchSongLabel.Text = "Song:";
+            // 
+            // TabAutoLaunchALSHeader
+            // 
+            TabAutoLaunchALSHeader.AutoSize = true;
+            TabAutoLaunchALSHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabAutoLaunchALSHeader.Location = new Point(15, 55);
+            TabAutoLaunchALSHeader.Name = "TabAutoLaunchALSHeader";
+            TabAutoLaunchALSHeader.Size = new Size(204, 25);
+            TabAutoLaunchALSHeader.TabIndex = 18;
+            TabAutoLaunchALSHeader.Text = "Auto Launch Settings:";
+            // 
+            // TabAutoLaunchPSHeader
+            // 
+            TabAutoLaunchPSHeader.AutoSize = true;
+            TabAutoLaunchPSHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabAutoLaunchPSHeader.Location = new Point(15, 126);
+            TabAutoLaunchPSHeader.Name = "TabAutoLaunchPSHeader";
+            TabAutoLaunchPSHeader.Size = new Size(147, 25);
+            TabAutoLaunchPSHeader.TabIndex = 17;
+            TabAutoLaunchPSHeader.Text = "Player Settings:";
+            // 
+            // AutoLaunchPlayersLabel
+            // 
+            AutoLaunchPlayersLabel.AutoSize = true;
+            AutoLaunchPlayersLabel.Location = new Point(30, 87);
+            AutoLaunchPlayersLabel.Name = "AutoLaunchPlayersLabel";
+            AutoLaunchPlayersLabel.Size = new Size(64, 22);
+            AutoLaunchPlayersLabel.TabIndex = 14;
+            AutoLaunchPlayersLabel.Text = "Players:";
+            // 
+            // AutoLaunchRawLoad
+            // 
+            AutoLaunchRawLoad.AutoSize = true;
+            AutoLaunchRawLoad.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchRawLoad.Location = new Point(360, 372);
+            AutoLaunchRawLoad.Name = "AutoLaunchRawLoad";
+            AutoLaunchRawLoad.Size = new Size(225, 26);
+            AutoLaunchRawLoad.TabIndex = 10;
+            AutoLaunchRawLoad.Text = "Use Raw Venue PAK Loading";
+            AutoLaunchRawLoad.UseVisualStyleBackColor = true;
+            // 
+            // AutoLaunchBot1
+            // 
+            AutoLaunchBot1.AutoSize = true;
+            AutoLaunchBot1.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot1.Location = new Point(541, 180);
+            AutoLaunchBot1.Name = "AutoLaunchBot1";
+            AutoLaunchBot1.Size = new Size(89, 26);
+            AutoLaunchBot1.TabIndex = 9;
+            AutoLaunchBot1.Text = "Use Bot?";
+            AutoLaunchBot1.UseVisualStyleBackColor = true;
+            // 
+            // AutoLaunchHideHUD
+            // 
+            AutoLaunchHideHUD.AutoSize = true;
+            AutoLaunchHideHUD.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchHideHUD.Location = new Point(30, 372);
+            AutoLaunchHideHUD.Name = "AutoLaunchHideHUD";
+            AutoLaunchHideHUD.Size = new Size(96, 26);
+            AutoLaunchHideHUD.TabIndex = 6;
+            AutoLaunchHideHUD.Text = "Hide HUD";
+            AutoLaunchHideHUD.UseVisualStyleBackColor = true;
+            // 
+            // AutoLaunchDifficulty2
+            // 
+            AutoLaunchDifficulty2.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchDifficulty2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchDifficulty2.FormattingEnabled = true;
+            AutoLaunchDifficulty2.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+            AutoLaunchDifficulty2.Location = new Point(368, 218);
+            AutoLaunchDifficulty2.Name = "AutoLaunchDifficulty2";
+            AutoLaunchDifficulty2.Size = new Size(105, 23);
+            AutoLaunchDifficulty2.TabIndex = 31;
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty2, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchPart2
+            // 
+            AutoLaunchPart2.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchPart2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchPart2.FormattingEnabled = true;
+            AutoLaunchPart2.Items.AddRange(new object[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+            AutoLaunchPart2.Location = new Point(146, 218);
+            AutoLaunchPart2.Name = "AutoLaunchPart2";
+            AutoLaunchPart2.Size = new Size(171, 23);
+            AutoLaunchPart2.TabIndex = 30;
+            ToolTipMain.SetToolTip(AutoLaunchPart2, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchP2Label
+            // 
+            AutoLaunchP2Label.AutoSize = true;
+            AutoLaunchP2Label.Location = new Point(30, 218);
+            AutoLaunchP2Label.Name = "AutoLaunchP2Label";
+            AutoLaunchP2Label.Size = new Size(69, 22);
+            AutoLaunchP2Label.TabIndex = 29;
+            AutoLaunchP2Label.Text = "Player 2:";
+            // 
+            // AutoLaunchBot2
+            // 
+            AutoLaunchBot2.AutoSize = true;
+            AutoLaunchBot2.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot2.Location = new Point(541, 215);
+            AutoLaunchBot2.Name = "AutoLaunchBot2";
+            AutoLaunchBot2.Size = new Size(89, 26);
+            AutoLaunchBot2.TabIndex = 28;
+            AutoLaunchBot2.Text = "Use Bot?";
+            AutoLaunchBot2.UseVisualStyleBackColor = true;
+            // 
+            // TabAutoLaunchASHeader
+            // 
+            TabAutoLaunchASHeader.AutoSize = true;
+            TabAutoLaunchASHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabAutoLaunchASHeader.Location = new Point(15, 339);
+            TabAutoLaunchASHeader.Name = "TabAutoLaunchASHeader";
+            TabAutoLaunchASHeader.Size = new Size(179, 25);
+            TabAutoLaunchASHeader.TabIndex = 32;
+            TabAutoLaunchASHeader.Text = "Advanced Settings:";
+            // 
+            // AutoLaunchDifficulty3
+            // 
+            AutoLaunchDifficulty3.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchDifficulty3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchDifficulty3.FormattingEnabled = true;
+            AutoLaunchDifficulty3.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+            AutoLaunchDifficulty3.Location = new Point(368, 253);
+            AutoLaunchDifficulty3.Name = "AutoLaunchDifficulty3";
+            AutoLaunchDifficulty3.Size = new Size(105, 23);
+            AutoLaunchDifficulty3.TabIndex = 36;
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty3, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchPart3
+            // 
+            AutoLaunchPart3.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchPart3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchPart3.FormattingEnabled = true;
+            AutoLaunchPart3.Items.AddRange(new object[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+            AutoLaunchPart3.Location = new Point(146, 253);
+            AutoLaunchPart3.Name = "AutoLaunchPart3";
+            AutoLaunchPart3.Size = new Size(171, 23);
+            AutoLaunchPart3.TabIndex = 35;
+            ToolTipMain.SetToolTip(AutoLaunchPart3, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchP3Label
+            // 
+            AutoLaunchP3Label.AutoSize = true;
+            AutoLaunchP3Label.Location = new Point(30, 253);
+            AutoLaunchP3Label.Name = "AutoLaunchP3Label";
+            AutoLaunchP3Label.Size = new Size(68, 22);
+            AutoLaunchP3Label.TabIndex = 34;
+            AutoLaunchP3Label.Text = "Player 3:";
+            // 
+            // AutoLaunchBot3
+            // 
+            AutoLaunchBot3.AutoSize = true;
+            AutoLaunchBot3.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot3.Location = new Point(541, 250);
+            AutoLaunchBot3.Name = "AutoLaunchBot3";
+            AutoLaunchBot3.Size = new Size(89, 26);
+            AutoLaunchBot3.TabIndex = 33;
+            AutoLaunchBot3.Text = "Use Bot?";
+            AutoLaunchBot3.UseVisualStyleBackColor = true;
+            // 
+            // AutoLaunchDifficulty4
+            // 
+            AutoLaunchDifficulty4.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchDifficulty4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchDifficulty4.FormattingEnabled = true;
+            AutoLaunchDifficulty4.Items.AddRange(new object[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+            AutoLaunchDifficulty4.Location = new Point(368, 289);
+            AutoLaunchDifficulty4.Name = "AutoLaunchDifficulty4";
+            AutoLaunchDifficulty4.Size = new Size(105, 23);
+            AutoLaunchDifficulty4.TabIndex = 40;
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty4, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // AutoLaunchPart4
+            // 
+            AutoLaunchPart4.DropDownStyle = ComboBoxStyle.DropDownList;
+            AutoLaunchPart4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchPart4.FormattingEnabled = true;
+            AutoLaunchPart4.Items.AddRange(new object[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+            AutoLaunchPart4.Location = new Point(146, 289);
+            AutoLaunchPart4.Name = "AutoLaunchPart4";
+            AutoLaunchPart4.Size = new Size(171, 23);
+            AutoLaunchPart4.TabIndex = 39;
+            ToolTipMain.SetToolTip(AutoLaunchPart4, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(30, 289);
+            label1.Name = "label1";
+            label1.Size = new Size(70, 22);
+            label1.TabIndex = 38;
+            label1.Text = "Player 4:";
+            // 
+            // AutoLaunchBot4
+            // 
+            AutoLaunchBot4.AutoSize = true;
+            AutoLaunchBot4.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot4.Location = new Point(541, 286);
+            AutoLaunchBot4.Name = "AutoLaunchBot4";
+            AutoLaunchBot4.Size = new Size(89, 26);
+            AutoLaunchBot4.TabIndex = 37;
+            AutoLaunchBot4.Text = "Use Bot?";
+            AutoLaunchBot4.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -521,6 +1075,7 @@
             BackgroundImage = Properties.Resources.bg_1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1008, 729);
+            Controls.Add(TabAutoLaunchGroup);
             Controls.Add(TabGeneralGroup);
             Controls.Add(CheckForUpdates);
             Controls.Add(OpenMods);
@@ -547,6 +1102,8 @@
             ((System.ComponentModel.ISupportInitialize)MOTDDarkOverlay).EndInit();
             TabGeneralGroup.ResumeLayout(false);
             TabGeneralGroup.PerformLayout();
+            TabAutoLaunchGroup.ResumeLayout(false);
+            TabAutoLaunchGroup.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -586,5 +1143,44 @@
         private Label DefaultQPODifficultyLabel;
         private Label TabGeneralLOHeader;
         private CheckBox AutoCheckForUpdates;
+        private Label TabGeneralBSHeader;
+        private Button TabButtonDebug;
+        private Button TabButtonAutoLaunch;
+        private Button TabButtonBand;
+        private Button TabButtonGraphics;
+        private Button TabButtonInput;
+        private GroupBox TabAutoLaunchGroup;
+        private Label TabAutoLaunchALSHeader;
+        private Label TabAutoLaunchPSHeader;
+        private ComboBox AutoLaunchPlayers;
+        private Label AutoLaunchPlayersLabel;
+        private CheckBox AutoLaunchEncoreMode;
+        private CheckBox AutoLaunchRawLoad;
+        private CheckBox AutoLaunchBot1;
+        private CheckBox AutoLaunchHideHUD;
+        private CheckBox AutoLaunchSongTime;
+        private CheckBox EnableAutoLaunch;
+        private Label AutoLaunchSongLabel;
+        private TextBox textBox1;
+        private ComboBox comboBox1;
+        private Label AutoLaunchVenueLabel;
+        private ComboBox AutoLaunchDifficulty1;
+        private Label AutoLaunchDiffsLabel;
+        private ComboBox AutoLaunchPart1;
+        private Label AutoLaunchPartsLabel;
+        private Label AutoLaunchP1Label;
+        private Label TabAutoLaunchASHeader;
+        private ComboBox AutoLaunchDifficulty2;
+        private ComboBox AutoLaunchPart2;
+        private Label AutoLaunchP2Label;
+        private CheckBox AutoLaunchBot2;
+        private ComboBox AutoLaunchDifficulty4;
+        private ComboBox AutoLaunchPart4;
+        private Label label1;
+        private CheckBox AutoLaunchBot4;
+        private ComboBox AutoLaunchDifficulty3;
+        private ComboBox AutoLaunchPart3;
+        private Label AutoLaunchP3Label;
+        private CheckBox AutoLaunchBot3;
     }
 }
