@@ -141,6 +141,7 @@ namespace WTDE_Launcher_V3
             TabAutoLaunchGroup.Text = "";
 
             // Hide all group boxes, move them to their correct positions.
+            TabParentContainer.Hide();
             TabGeneralGroup.Hide();
             TabAutoLaunchGroup.Hide();
         }
@@ -151,12 +152,15 @@ namespace WTDE_Launcher_V3
         public void MoveAllTabGroups()
         {
             // Move all tab groups to their correct locations.
-            // (X, Y): (327, 75)
-            int PosX = 327;
-            int PosY = 75;
+            // First, parent these tabs to the main panel.
+            // This is a workaround so we don't have to dock things.
+            TabGeneralGroup.Parent = TabParentContainer;
+            TabAutoLaunchGroup.Parent = TabParentContainer;
 
-            TabGeneralGroup.Location = new Point(PosX, PosY);
-            TabAutoLaunchGroup.Location = new Point(PosX, PosY);
+            // Top left corner of this panel, but padded 16 px left and 12 px down.
+            Point location = new Point(16, 12);
+            TabGeneralGroup.Location = location;
+            TabAutoLaunchGroup.Location = location;
         }
 
         /// <summary>
@@ -165,11 +169,11 @@ namespace WTDE_Launcher_V3
         /// <param name="site"></param>
         public static void OpenSiteURL(string site)
         {
-            var url = site;
-            var psi = new System.Diagnostics.ProcessStartInfo();
-            psi.UseShellExecute = true;
-            psi.FileName = url;
-            System.Diagnostics.Process.Start(psi);
+        var url = site;
+        var psi = new System.Diagnostics.ProcessStartInfo();
+        psi.UseShellExecute = true;
+        psi.FileName = url;
+        System.Diagnostics.Process.Start(psi);
         }
 
         /// <summary>
@@ -230,9 +234,10 @@ namespace WTDE_Launcher_V3
             //~ MOTDPanel.Location = new Point(391, -4);
 
             // Make MOTD visible, hide editing area (for now).
-            WhiteOverlay.Enabled = TabBarActive;
+            TabParentContainer.Enabled = TabBarActive;
             TabButtonGroup.Enabled = TabBarActive;
-            WhiteOverlay.Visible = TabBarActive;
+
+            TabParentContainer.Visible = TabBarActive;
             TabButtonGroup.Visible = TabBarActive;
 
             MOTDDarkOverlay.Visible = !TabBarActive;
@@ -308,8 +313,8 @@ namespace WTDE_Launcher_V3
             // Invert the status of TabBarActive.
             TabBarActive = !TabBarActive;
 
-            WhiteOverlay.Enabled = TabBarActive;
-            WhiteOverlay.Visible = TabBarActive;
+            TabParentContainer.Enabled = TabBarActive;
+            TabParentContainer.Visible = TabBarActive;
 
             if (TabBarActive == false)
             {

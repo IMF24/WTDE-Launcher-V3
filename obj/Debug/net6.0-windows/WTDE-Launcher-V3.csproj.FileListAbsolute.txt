@@ -37,3 +37,6 @@ C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\net6.0-windows\ref\WTDE-Lau
 D:\WTDE-Launcher-V3\bin\Debug\net6.0-windows\MadMilkman.Ini.dll
 D:\WTDE-Launcher-V3\obj\Debug\net6.0-windows\WTDE-Launcher-V3.csproj.CopyComplete
 D:\WTDE-Launcher-V3\bin\Debug\net6.0-windows\WTDE-Launcher-V3.dll.config
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\bin\Debug\net6.0-windows\WTDE-Launcher-V3.dll.config
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\bin\Debug\net6.0-windows\MadMilkman.Ini.dll
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\net6.0-windows\WTDE-Launcher-V3.csproj.CopyComplete
