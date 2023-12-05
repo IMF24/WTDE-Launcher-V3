@@ -87,7 +87,10 @@ namespace WTDE_Launcher_V3 {
                     {
                         if (key.Name == opt)
                         {
-                            return key.Value.ToString();
+                            string retnValue = key.Value.ToString();
+                            file = null;
+                            GC.Collect();
+                            return retnValue;
                         }
                     }
                 }

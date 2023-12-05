@@ -30,6 +30,93 @@ namespace WTDE_Launcher_V3
     public partial class Main : Form
     {
         /// <summary>
+        ///  Main entry point of the V3 launcher Form.
+        /// </summary>
+        public Main()
+        {
+            // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
+            InitializeComponent();
+
+            // Temporary patchwork fix for severe lag...
+            // We need to sort out a better fix, though, hmm...
+            this.DoubleBuffered = true;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+
+            // Update window title with random splash and actual version number.
+            // The object `random` is used for the random splash picker.
+            Random random = new Random();
+            string[] requiredSplashList = { };
+
+            // What month is it? This determines both what splash bank to pull
+            // from, and also how the background needs to be stylized.
+            switch (DateTime.Now.Month)
+            {
+                // Valentine's Day stuff (for sake of testing)
+                case 2:
+                    this.BackgroundImage = Properties.Resources.bg_13_d;
+                    break;
+
+                // Halloween holiday stuff
+                case 10:
+                    requiredSplashList = V3LauncherConstants.RandomWindowTitlesHW;
+                    LogoWTDE.Image = Properties.Resources.wtde_logo_hw;
+                    this.BackgroundImage = Properties.Resources.bg_1_hw;
+                    BGConstants.V3LauncherBackgrounds[0] = Properties.Resources.bg_1_hw;
+                    break;
+
+                // Christmas holiday stuff
+                case 12:
+                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25)
+                    {
+                        requiredSplashList = V3LauncherConstants.RandomWindowTitlesXM;
+                        LogoWTDE.Image = Properties.Resources.wtde_logo_xmas;
+                        this.BackgroundImage = Properties.Resources.bg_1_xm;
+                        BGConstants.V3LauncherBackgrounds[0] = Properties.Resources.bg_1_xm;
+                    }
+                    break;
+
+                // Normal title splashes, nothing different
+                default:
+                    requiredSplashList = V3LauncherConstants.RandomWindowTitles;
+                    break;
+            }
+            // Now pick a random one, and update the window title!
+            int splashID = random.Next(0, requiredSplashList.Length);
+            this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {requiredSplashList[splashID]}";
+
+            // Pull latest version from website.
+            VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: Fox (FoxJudy)\nWTDE Latest Version: {V3LauncherCore.GetLatestVersion()}";
+
+            // Main editing area is located at (391, -4).
+            // That's where we need to move the MOTD container to.
+            //~ MOTDPanel.Location = new Point(391, -4);
+
+            // Make MOTD visible, hide editing area (for now).
+            TabParentContainer.Enabled = TabBarActive;
+            TabButtonGroup.Enabled = TabBarActive;
+
+            TabParentContainer.Visible = TabBarActive;
+            TabButtonGroup.Visible = TabBarActive;
+
+            MOTDDarkOverlay.Visible = !TabBarActive;
+            MOTDLabel.Text = TabHandler.GetMOTDText();
+
+            // Hide all tabs, move the group boxes, and load our INI settings.
+            HideAllTabs();
+            MoveAllTabGroups();
+            WriteDefaultINI();
+            LoadINISettings();
+
+            // Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen")}");
+
+            // Just for the sake of debugging, we'll change our working directory to where
+            // GHWT is installed. This path is defined in the `wtde_path.txt` file.
+            // DEBUG: Read `wtde_path.txt` and change working directory there.
+            Directory.SetCurrentDirectory(File.ReadAllText("../../../wtde_path.txt"));
+        }
+
+        /// <summary>
         ///  The current background index.
         /// </summary>
         public int BGIndex = 0;
@@ -40,6 +127,7 @@ namespace WTDE_Launcher_V3
         /// </summary>
         public bool TabBarActive = false;
 
+        /*
         /// <summary>
         ///  Makes flickering less obvious. (thanks Uzis)
         /// </summary>
@@ -53,6 +141,7 @@ namespace WTDE_Launcher_V3
                 return cp;
             }
         }
+        */
 
         /// <summary>
         ///  If the user has no INI file, this will create one for them. Pulled from our internal resources.
@@ -79,6 +168,7 @@ namespace WTDE_Launcher_V3
                     {
                         sw.WriteLine(line);
                     }
+                    sw.Close();
                 }
             }
         }
@@ -125,38 +215,6 @@ namespace WTDE_Launcher_V3
         }
 
         /// <summary>
-        ///  Save all configured data into GHWTDE.ini.
-        /// </summary>
-        public void SaveINISettings()
-        {
-            // Set up IniFile. Pretty self-explanatory.
-            IniFile file = new IniFile();
-            file.Load(V3LauncherConstants.WTDEConfigDir);
-
-            // ---------------------------
-            // General Tab
-            // ---------------------------
-            file.Sections["Config"].Keys["RichPresence"].Value = (RichPresence.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["AllowHolidays"].Value = (AllowHolidays.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Audio"].Keys["MuteStreams"].Value = (MuteStreams.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Audio"].Keys["WhammyPitchShift"].Value = (WhammyPitchShift.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["DefaultQPODifficulty"].Value = INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text, INIFunctions.QPODifficulties[0], INIFunctions.QPODifficulties[1]);
-
-            // -- MAIN MENU TOGGLES ---------------------------
-            file.Sections["Config"].Keys["UseCareerOption"].Value = (UseCareerOption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseQuickplayOption"].Value = (UseQuickplayOption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseHeadToHeadOption"].Value = (UseHeadToHeadOption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseOnlineOption"].Value = (UseOnlineOption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseMusicStudioOption"].Value = (UseMusicStudioOption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseCAROption"].Value = (UseCAROption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseOptionsOption"].Value = (UseOptionsOption.Checked.ToString() == "True") ? "1" : "0";
-            file.Sections["Config"].Keys["UseQuitOption"].Value = (UseQuitOption.Checked.ToString() == "True") ? "1" : "0";
-
-            // Save the config settings to GHWTDE.ini.
-            file.Save(V3LauncherConstants.WTDEConfigDir);
-        }
-
-        /// <summary>
         ///  When moving out of Adjust Settings, hide all settings tabs and panes.
         /// </summary>
         public void HideAllTabs()
@@ -195,94 +253,11 @@ namespace WTDE_Launcher_V3
         /// <param name="site"></param>
         public static void OpenSiteURL(string site)
         {
-        var url = site;
-        var psi = new System.Diagnostics.ProcessStartInfo();
-        psi.UseShellExecute = true;
-        psi.FileName = url;
-        System.Diagnostics.Process.Start(psi);
-        }
-
-        /// <summary>
-        ///  Main entry point of the V3 launcher Form.
-        /// </summary>
-        public Main()
-        {
-            // Initialize Windows Form. We need this. DON'T EDIT OR DELETE IT!
-            InitializeComponent();
-
-            // Update window title with random splash and actual version number.
-            // The object `random` is used for the random splash picker.
-            Random random = new Random();
-            string[] requiredSplashList = { };
-
-            // Pull latest version from website.
-            VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: Fox (FoxJudy)\nWTDE Latest Version: {V3LauncherCore.GetLatestVersion()}";
-
-            // What month is it? This determines both what splash bank to pull
-            // from, and also how the background needs to be stylized.
-            switch (DateTime.Now.Month)
-            {
-                // Valentine's Day stuff (for sake of testing)
-                case 2:
-                    this.BackgroundImage = Properties.Resources.bg_13_d;
-                    break;
-
-                // Halloween holiday stuff
-                case 10:
-                    requiredSplashList = V3LauncherConstants.RandomWindowTitlesHW;
-                    LogoWTDE.Image = Properties.Resources.wtde_logo_hw;
-                    this.BackgroundImage = Properties.Resources.bg_1_hw;
-                    BGConstants.V3LauncherBackgrounds[0] = Properties.Resources.bg_1_hw;
-                    break;
-
-                // Christmas holiday stuff
-                case 12:
-                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25)
-                    {
-                        requiredSplashList = V3LauncherConstants.RandomWindowTitlesXM;
-                        LogoWTDE.Image = Properties.Resources.wtde_logo_xmas;
-                        this.BackgroundImage = Properties.Resources.bg_1_xm;
-                        BGConstants.V3LauncherBackgrounds[0] = Properties.Resources.bg_1_xm;
-                    }
-                    break;
-
-                // Normal title splashes, nothing different
-                default:
-                    requiredSplashList = V3LauncherConstants.RandomWindowTitles;
-                    break;
-            }
-            // Now pick a random one, and update the window title!
-            int splashID = random.Next(0, requiredSplashList.Length);
-            this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {requiredSplashList[splashID]}";
-
-            // Main editing area is located at (391, -4).
-            // That's where we need to move the MOTD container to.
-            //~ MOTDPanel.Location = new Point(391, -4);
-
-            // Make MOTD visible, hide editing area (for now).
-            TabParentContainer.Enabled = TabBarActive;
-            TabButtonGroup.Enabled = TabBarActive;
-
-            TabParentContainer.Visible = TabBarActive;
-            TabButtonGroup.Visible = TabBarActive;
-
-            MOTDDarkOverlay.Visible = !TabBarActive;
-            MOTDLabel.Text = TabHandler.GetMOTDText();
-
-            // Hide all tabs, move the group boxes, and load our INI settings.
-            HideAllTabs();
-            MoveAllTabGroups();
-            WriteDefaultINI();
-            LoadINISettings();
-
-            // Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen")}");
-
-
-
-            // Just for the sake of debugging, we'll change our working directory to where
-            // GHWT is installed. This path is defined in the `wtde_path.txt` file.
-            // DEBUG: Read `wtde_path.txt` and change working directory there.
-            Directory.SetCurrentDirectory(File.ReadAllText("../../../wtde_path.txt"));
+            var url = site;
+            var psi = new System.Diagnostics.ProcessStartInfo();
+            psi.UseShellExecute = true;
+            psi.FileName = url;
+            System.Diagnostics.Process.Start(psi);
         }
 
         /// <summary>
@@ -306,7 +281,7 @@ namespace WTDE_Launcher_V3
         private void VersionInfoLabel_Click(object sender, EventArgs e)
         {
             // Which mouse button did we push?
-            MouseEventArgs me = (MouseEventArgs)e;
+            MouseEventArgs me = (MouseEventArgs) e;
 
             // Left triggers the background to swap.
             if (me.Button == MouseButtons.Left)
@@ -379,7 +354,11 @@ namespace WTDE_Launcher_V3
         private void TabButtonGeneral_Click(object sender, EventArgs e)
         {
             TabGeneralGroup.Show();
+            TabGeneralGroup.Visible = true;
+            TabGeneralGroup.Enabled = true;
 
+            TabAutoLaunchGroup.Visible = false;
+            TabAutoLaunchGroup.Enabled = false;
             TabAutoLaunchGroup.Hide();
         }
 
@@ -467,9 +446,13 @@ namespace WTDE_Launcher_V3
 
         private void TabButtonAutoLaunch_Click(object sender, EventArgs e)
         {
-            Tab
+            TabGeneralGroup.Hide();
+            TabGeneralGroup.Visible = false;
+            TabGeneralGroup.Enabled = false;
 
             TabAutoLaunchGroup.Show();
+            TabAutoLaunchGroup.Enabled = true;
+            TabAutoLaunchGroup.Visible = true;
         }
 
         private void EnableAutoLaunch_CheckedChanged(object sender, EventArgs e)

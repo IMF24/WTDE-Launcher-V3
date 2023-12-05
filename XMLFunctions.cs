@@ -18,9 +18,6 @@ namespace WTDE_Launcher_V3 {
     ///  Various functions for dealing with XML files.
     /// </summary>
     internal class XMLFunctions {
-        public static string AspyrGetString(string value)
-        {
-            return "";
-        }
+
     }
 }
