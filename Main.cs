@@ -312,7 +312,7 @@ namespace WTDE_Launcher_V3
         private void VersionInfoLabel_Click(object sender, EventArgs e)
         {
             // Which mouse button did we push?
-            MouseEventArgs me = (MouseEventArgs) e;
+            MouseEventArgs me = (MouseEventArgs)e;
 
             // Left triggers the background to swap.
             if (me.Button == MouseButtons.Left)
@@ -490,6 +490,101 @@ namespace WTDE_Launcher_V3
         {
             INIFunctions.SaveINIValue("AutoLaunch", "Enabled", INIFunctions.BoolToString(EnableAutoLaunch.Checked));
             TabALEditorPanel.Enabled = EnableAutoLaunch.Checked;
+        }
+
+        private void AutoLaunchVenue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Venue", INIFunctions.InterpretINISetting(AutoLaunchVenue.Text, V3LauncherConstants.VenueIDs[0], V3LauncherConstants.VenueIDs[1]));
+        }
+
+        private void AutoLaunchSong_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Song", AutoLaunchSong.Text);
+        }
+
+        private void AutoLaunchPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Players", AutoLaunchPlayers.Text);
+        }
+
+        private void AutoLaunchPart1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part", INIFunctions.InterpretINISetting(AutoLaunchPart1.Text, V3LauncherConstants.AutoLaunchParts[0], V3LauncherConstants.AutoLaunchParts[1]));
+        }
+
+        private void AutoLaunchPart2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part2", INIFunctions.InterpretINISetting(AutoLaunchPart2.Text, V3LauncherConstants.AutoLaunchParts[0], V3LauncherConstants.AutoLaunchParts[1]));
+        }
+
+        private void AutoLaunchPart3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part3", INIFunctions.InterpretINISetting(AutoLaunchPart3.Text, V3LauncherConstants.AutoLaunchParts[0], V3LauncherConstants.AutoLaunchParts[1]));
+        }
+
+        private void AutoLaunchPart4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part4", INIFunctions.InterpretINISetting(AutoLaunchPart4.Text, V3LauncherConstants.AutoLaunchParts[0], V3LauncherConstants.AutoLaunchParts[1]));
+        }
+
+        private void AutoLaunchDifficulty1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty", INIFunctions.InterpretINISetting(AutoLaunchDifficulty1.Text, V3LauncherConstants.AutoLaunchDifficulties[0], V3LauncherConstants.AutoLaunchDifficulties[1]));
+        }
+
+        private void AutoLaunchDifficulty2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty2", INIFunctions.InterpretINISetting(AutoLaunchDifficulty2.Text, V3LauncherConstants.AutoLaunchDifficulties[0], V3LauncherConstants.AutoLaunchDifficulties[1]));
+        }
+
+        private void AutoLaunchDifficulty3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty3", INIFunctions.InterpretINISetting(AutoLaunchDifficulty3.Text, V3LauncherConstants.AutoLaunchDifficulties[0], V3LauncherConstants.AutoLaunchDifficulties[1]));
+        }
+
+        private void AutoLaunchDifficulty4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty4", INIFunctions.InterpretINISetting(AutoLaunchDifficulty4.Text, V3LauncherConstants.AutoLaunchDifficulties[0], V3LauncherConstants.AutoLaunchDifficulties[1]));
+        }
+
+        private void AutoLaunchBot1_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot", INIFunctions.BoolToString(AutoLaunchBot1.Checked));
+        }
+
+        private void AutoLaunchBot2_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot2", INIFunctions.BoolToString(AutoLaunchBot2.Checked));
+        }
+
+        private void AutoLaunchBot3_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot3", INIFunctions.BoolToString(AutoLaunchBot3.Checked));
+        }
+
+        private void AutoLaunchBot4_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot4", INIFunctions.BoolToString(AutoLaunchBot4.Checked));
+        }
+
+        private void AutoLaunchHideHUD_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "HideHUD", INIFunctions.BoolToString(AutoLaunchHideHUD.Checked));
+        }
+
+        private void AutoLaunchSongTime_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "SongTime", INIFunctions.BoolToString(AutoLaunchSongTime.Checked));
+        }
+
+        private void AutoLaunchRawLoad_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "RawLoad", INIFunctions.BoolToString(AutoLaunchRawLoad.Checked));
+        }
+
+        private void AutoLaunchEncoreMode_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked, "last_song", "none"));
         }
     }
 }

@@ -38,19 +38,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ifire\\.nuget\\packages\\": {}
+    "C:\\Users\\ifire\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ifire\\Desktop\\WTDE-Launcher-V3-CS\\WTDE-Launcher-V3.csproj",
+      "projectUniqueName": "D:\\WTDE-Launcher-V3\\WTDE-Launcher-V3.csproj",
       "projectName": "WTDE-Launcher-V3",
-      "projectPath": "C:\\Users\\ifire\\Desktop\\WTDE-Launcher-V3-CS\\WTDE-Launcher-V3.csproj",
+      "projectPath": "D:\\WTDE-Launcher-V3\\WTDE-Launcher-V3.csproj",
       "packagesPath": "C:\\Users\\ifire\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ifire\\Desktop\\WTDE-Launcher-V3-CS\\obj\\",
+      "outputPath": "D:\\WTDE-Launcher-V3\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\ifire\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -100,7 +105,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },
