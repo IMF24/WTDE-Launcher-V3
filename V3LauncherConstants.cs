@@ -186,9 +186,5 @@ namespace WTDE_Launcher_V3 {
             "12/24 is 1/2, simplify your fractions!",
             "I could use some hot chocolate right about now"
         };
-
-        public static Object[] INIOptionsBank = {
-
-        };
     }
 }

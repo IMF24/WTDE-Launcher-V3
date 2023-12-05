@@ -81,12 +81,12 @@ following themes:
 •  Christmas Theme</value>
   </data>
   <data name="EnableAutoLaunch.ToolTip" xml:space="preserve">
-    <value>Use Discord Rich Presence.
+    <value>Enable or disable auto launch.
 
-If Discord is installed on this device, when this is enabled it will show
-a detailed summary about what you are currently doing in-game,
-such as what mode you're playing, your instrument, what song you
-are currently in, time until it's over, and more!</value>
+Using this, you can set up WTDE to automatically load into a song of your choosing.
+You can even set it up to autoplay, too!
+
+Be warned! This may erase your save data, so make sure to back it up first!</value>
   </data>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
