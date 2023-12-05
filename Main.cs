@@ -41,6 +41,7 @@ namespace WTDE_Launcher_V3
             // We need to sort out a better fix, though, hmm...
             this.DoubleBuffered = true;
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
             // Update window title with random splash and actual version number.
@@ -113,7 +114,7 @@ namespace WTDE_Launcher_V3
             // Just for the sake of debugging, we'll change our working directory to where
             // GHWT is installed. This path is defined in the `wtde_path.txt` file.
             // DEBUG: Read `wtde_path.txt` and change working directory there.
-            Directory.SetCurrentDirectory(File.ReadAllText("../../../wtde_path.txt"));
+            // Directory.SetCurrentDirectory(File.ReadAllText("../../../wtde_path.txt"));
         }
 
         /// <summary>
@@ -210,6 +211,10 @@ namespace WTDE_Launcher_V3
             #region General Tab
             EnableAutoLaunch.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Enabled")));
             TabALEditorPanel.Enabled = EnableAutoLaunch.Checked;
+
+            AutoLaunchPlayers.Text = Convert.ToString(INIFunctions.GetINIValue("AutoLaunch", "Players", "1"));
+            AutoLaunchSong.Text = INIFunctions.GetINIValue("AutoLaunch", "Song", "random");
+            AutoLaunchVenue.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Venue", "z_frathouse"), V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
 
             #endregion
         }
