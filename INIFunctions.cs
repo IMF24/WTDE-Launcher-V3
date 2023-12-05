@@ -38,6 +38,11 @@ namespace WTDE_Launcher_V3 {
             return (s == "1") ? false : true;
         }
 
+        public static bool GetBooleanCustomString(string s, string t)
+        {
+            return (s == t) ? true : false;
+        }
+
         /// <summary>
         ///  Convert a boolean value to a 1 or 0 string.
         /// </summary>
@@ -53,8 +58,20 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static string BoolToStringInverserse(bool b) { 
+        public static string BoolToStringInverse(bool b) { 
             return (b ? "0" : "1");
+        }
+
+        /// <summary>
+        ///  Allows a custom string to be assigned between a true and false variable.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="t"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
+        public static string BoolToStringCustom(bool b, string t, string f)
+        {
+            return (b ? t : f);
         }
 
         /// <summary>

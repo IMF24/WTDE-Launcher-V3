@@ -317,5 +317,21 @@ namespace WTDE_Launcher_V3 {
                 "z_hell"
             }
         };
+
+        /// <summary>
+        ///  List of instruments and instrument IDs. | Index 0: Instrument part names | Index 1: Internal referents
+        /// </summary>
+        public static string[][] AutoLaunchParts = {
+            new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" },
+            new string[] { "guitar", "bass", "drum", "vocals" }
+        };
+
+        /// <summary>
+        ///  List of difficulties and difficulty IDs. | Index 0: Difficulty names | Index 1: Internal referents
+        /// </summary>
+        public static string[][] AutoLaunchDifficulties = {
+            new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
+            new string[] { "beginner", "easy", "medium", "hard", "expert" }
+        };
     }
 }

@@ -208,13 +208,39 @@ namespace WTDE_Launcher_V3
             // ---------------------------
             // Auto Launch Tab
             // ---------------------------
-            #region General Tab
+            #region Auto Launch Tab
             EnableAutoLaunch.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Enabled")));
             TabALEditorPanel.Enabled = EnableAutoLaunch.Checked;
 
             AutoLaunchPlayers.Text = Convert.ToString(INIFunctions.GetINIValue("AutoLaunch", "Players", "1"));
             AutoLaunchSong.Text = INIFunctions.GetINIValue("AutoLaunch", "Song", "random");
             AutoLaunchVenue.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Venue", "z_frathouse"), V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
+
+            // -- PLAYER 1 ---------------------------
+            AutoLaunchPart1.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part", "guitar"), V3LauncherConstants.AutoLaunchParts[1], V3LauncherConstants.AutoLaunchParts[0]);
+            AutoLaunchDifficulty1.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty", "easy"), V3LauncherConstants.AutoLaunchDifficulties[1], V3LauncherConstants.AutoLaunchDifficulties[0]);
+            AutoLaunchBot1.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot", "0")));
+
+            // -- PLAYER 2 ---------------------------
+            AutoLaunchPart2.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part2", "bass"), V3LauncherConstants.AutoLaunchParts[1], V3LauncherConstants.AutoLaunchParts[0]);
+            AutoLaunchDifficulty2.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty2", "easy"), V3LauncherConstants.AutoLaunchDifficulties[1], V3LauncherConstants.AutoLaunchDifficulties[0]);
+            AutoLaunchBot2.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot2", "0")));
+
+            // -- PLAYER 3 ---------------------------
+            AutoLaunchPart3.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part3", "drum"), V3LauncherConstants.AutoLaunchParts[1], V3LauncherConstants.AutoLaunchParts[0]);
+            AutoLaunchDifficulty3.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty3", "easy"), V3LauncherConstants.AutoLaunchDifficulties[1], V3LauncherConstants.AutoLaunchDifficulties[0]);
+            AutoLaunchBot3.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot3", "0")));
+
+            // -- PLAYER 4 ---------------------------
+            AutoLaunchPart4.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part4", "vocals"), V3LauncherConstants.AutoLaunchParts[1], V3LauncherConstants.AutoLaunchParts[0]);
+            AutoLaunchDifficulty4.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty4", "easy"), V3LauncherConstants.AutoLaunchDifficulties[1], V3LauncherConstants.AutoLaunchDifficulties[0]);
+            AutoLaunchBot4.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot4", "0")));
+
+            // -- ADVANCED SETTINGS ---------------------------
+            AutoLaunchHideHUD.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "HideHUD")));
+            AutoLaunchSongTime.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "SongTime")));
+            AutoLaunchRawLoad.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "RawLoad")));
+            AutoLaunchEncoreMode.Checked = Convert.ToBoolean(INIFunctions.GetBooleanCustomString(INIFunctions.GetINIValue("AutoLaunch", "EncoreMode", "none"), "last_song"));
 
             #endregion
         }
