@@ -29,6 +29,11 @@ namespace WTDE_Launcher_V3 {
         public static string WTDEConfigDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/GHWTDE.ini";
 
         /// <summary>
+        ///  Where is GHWTDE.sav located?
+        /// </summary>
+        public static string WTDESaveDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/GHWTDE.sav";
+
+        /// <summary>
         ///  Where is AspyrConfig.xml located?
         /// </summary>
         public static string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";

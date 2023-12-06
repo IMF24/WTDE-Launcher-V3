@@ -67,6 +67,12 @@
             AutoLaunchDifficulty4 = new ComboBox();
             AutoLaunchPart4 = new ComboBox();
             AutoLaunchSong = new TextBox();
+            AutoLaunchHideHUD = new CheckBox();
+            AutoLaunchBot4 = new CheckBox();
+            AutoLaunchBot1 = new CheckBox();
+            AutoLaunchRawLoad = new CheckBox();
+            AutoLaunchBot3 = new CheckBox();
+            AutoLaunchBot2 = new CheckBox();
             LogoFretworks = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
             TabGeneralGroup = new GroupBox();
@@ -89,21 +95,39 @@
             AutoLaunchPartsLabel = new Label();
             TabAutoLaunchALSHeader = new Label();
             label1 = new Label();
-            AutoLaunchHideHUD = new CheckBox();
-            AutoLaunchBot4 = new CheckBox();
-            AutoLaunchBot1 = new CheckBox();
-            AutoLaunchRawLoad = new CheckBox();
             AutoLaunchP3Label = new Label();
             AutoLaunchPlayersLabel = new Label();
-            AutoLaunchBot3 = new CheckBox();
             TabAutoLaunchASHeader = new Label();
             TabAutoLaunchPSHeader = new Label();
             AutoLaunchSongLabel = new Label();
             AutoLaunchP2Label = new Label();
             AutoLaunchVenueLabel = new Label();
-            AutoLaunchBot2 = new CheckBox();
             AutoLaunchP1Label = new Label();
             TabParentContainer = new Panel();
+            TabBandGroup = new GroupBox();
+            PrefDrmHwySelectHwy = new Button();
+            PreferredDrummerHighway = new TextBox();
+            PrefDrumsHwyLabel = new Label();
+            PrefBasHwySelectHwy = new Button();
+            PreferredBassistHighway = new TextBox();
+            PrefBassHwyLabel = new Label();
+            PrefGtrHwySelectHwy = new Button();
+            PreferredGuitaristHighway = new TextBox();
+            PrefGuitarHwyLabel = new Label();
+            label3 = new Label();
+            PrefSingerSelectChar = new Button();
+            PreferredSinger = new TextBox();
+            PreferredSingerLabel = new Label();
+            PrefDrumsSelectChar = new Button();
+            PreferredDrummer = new TextBox();
+            PreferredDrummerLabel = new Label();
+            PrefBassSelectChar = new Button();
+            PreferredBassist = new TextBox();
+            PreferredBassistLabel = new Label();
+            PrefGuitarSelectChar = new Button();
+            PreferredGuitarist = new TextBox();
+            label2 = new Label();
+            PreferredGuitaristLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoWTDE).BeginInit();
@@ -113,6 +137,7 @@
             TabAutoLaunchGroup.SuspendLayout();
             TabALEditorPanel.SuspendLayout();
             TabParentContainer.SuspendLayout();
+            TabBandGroup.SuspendLayout();
             SuspendLayout();
             // 
             // LeftDarkOverlay
@@ -196,7 +221,7 @@
             TabButtonAutoLaunch.Size = new Size(107, 44);
             TabButtonAutoLaunch.TabIndex = 17;
             TabButtonAutoLaunch.Text = "Auto Launch";
-            ToolTipMain.SetToolTip(TabButtonAutoLaunch, "Adjust general settings about WTDE.");
+            ToolTipMain.SetToolTip(TabButtonAutoLaunch, "Set up WTDE to automatically boot into a song of your choice.");
             TabButtonAutoLaunch.UseVisualStyleBackColor = false;
             TabButtonAutoLaunch.Click += TabButtonAutoLaunch_Click;
             // 
@@ -218,8 +243,9 @@
             TabButtonBand.Size = new Size(107, 44);
             TabButtonBand.TabIndex = 16;
             TabButtonBand.Text = "Band";
-            ToolTipMain.SetToolTip(TabButtonBand, "Adjust general settings about WTDE.");
+            ToolTipMain.SetToolTip(TabButtonBand, "Adjust your preferred band lineup.");
             TabButtonBand.UseVisualStyleBackColor = false;
+            TabButtonBand.Click += TabButtonBand_Click;
             // 
             // TabButtonGraphics
             // 
@@ -507,7 +533,7 @@
             AutoLaunchEncoreMode.Size = new Size(148, 26);
             AutoLaunchEncoreMode.TabIndex = 13;
             AutoLaunchEncoreMode.Text = "Last Song Encore";
-            ToolTipMain.SetToolTip(AutoLaunchEncoreMode, "When enabled, this will export to the Logs folder various text files for streamers to use containing\r\nvarious information, such as the song currently playing, artist, venue, etc.");
+            ToolTipMain.SetToolTip(AutoLaunchEncoreMode, "Do you want the encore animations to trigger in the\r\nlast song of the auto launch rotation?");
             AutoLaunchEncoreMode.UseVisualStyleBackColor = true;
             AutoLaunchEncoreMode.CheckedChanged += AutoLaunchEncoreMode_CheckedChanged;
             // 
@@ -520,7 +546,7 @@
             AutoLaunchSongTime.Size = new Size(142, 26);
             AutoLaunchSongTime.TabIndex = 4;
             AutoLaunchSongTime.Text = "Show Song Time";
-            ToolTipMain.SetToolTip(AutoLaunchSongTime, "Turn ON or OFF whammy effects. If this is OFF, audio distortion by whammy will be disabled.");
+            ToolTipMain.SetToolTip(AutoLaunchSongTime, "Show the song time (in seconds) on screen during the song.");
             AutoLaunchSongTime.UseVisualStyleBackColor = true;
             AutoLaunchSongTime.CheckedChanged += AutoLaunchSongTime_CheckedChanged;
             // 
@@ -547,7 +573,7 @@
             AutoLaunchVenue.Name = "AutoLaunchVenue";
             AutoLaunchVenue.Size = new Size(171, 23);
             AutoLaunchVenue.TabIndex = 22;
-            ToolTipMain.SetToolTip(AutoLaunchVenue, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchVenue, "What venue should we load into?");
             AutoLaunchVenue.SelectedIndexChanged += AutoLaunchVenue_SelectedIndexChanged;
             // 
             // AutoLaunchPart1
@@ -560,7 +586,7 @@
             AutoLaunchPart1.Name = "AutoLaunchPart1";
             AutoLaunchPart1.Size = new Size(171, 23);
             AutoLaunchPart1.TabIndex = 25;
-            ToolTipMain.SetToolTip(AutoLaunchPart1, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchPart1, "What instrument will Player 1 have?");
             AutoLaunchPart1.SelectedIndexChanged += AutoLaunchPart1_SelectedIndexChanged;
             // 
             // AutoLaunchDifficulty1
@@ -573,7 +599,7 @@
             AutoLaunchDifficulty1.Name = "AutoLaunchDifficulty1";
             AutoLaunchDifficulty1.Size = new Size(105, 23);
             AutoLaunchDifficulty1.TabIndex = 27;
-            ToolTipMain.SetToolTip(AutoLaunchDifficulty1, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty1, "What difficulty will Player 1 be playing on?");
             AutoLaunchDifficulty1.SelectedIndexChanged += AutoLaunchDifficulty1_SelectedIndexChanged;
             // 
             // AutoLaunchDifficulty2
@@ -586,7 +612,7 @@
             AutoLaunchDifficulty2.Name = "AutoLaunchDifficulty2";
             AutoLaunchDifficulty2.Size = new Size(105, 23);
             AutoLaunchDifficulty2.TabIndex = 31;
-            ToolTipMain.SetToolTip(AutoLaunchDifficulty2, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty2, "What difficulty will Player 2 be playing on?");
             AutoLaunchDifficulty2.SelectedIndexChanged += AutoLaunchDifficulty2_SelectedIndexChanged;
             // 
             // AutoLaunchPart2
@@ -599,7 +625,7 @@
             AutoLaunchPart2.Name = "AutoLaunchPart2";
             AutoLaunchPart2.Size = new Size(171, 23);
             AutoLaunchPart2.TabIndex = 30;
-            ToolTipMain.SetToolTip(AutoLaunchPart2, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchPart2, "What instrument will Player 2 have?");
             AutoLaunchPart2.SelectedIndexChanged += AutoLaunchPart2_SelectedIndexChanged;
             // 
             // AutoLaunchDifficulty3
@@ -612,7 +638,7 @@
             AutoLaunchDifficulty3.Name = "AutoLaunchDifficulty3";
             AutoLaunchDifficulty3.Size = new Size(105, 23);
             AutoLaunchDifficulty3.TabIndex = 36;
-            ToolTipMain.SetToolTip(AutoLaunchDifficulty3, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty3, "What difficulty will Player 3 be playing on?");
             AutoLaunchDifficulty3.SelectedIndexChanged += AutoLaunchDifficulty3_SelectedIndexChanged;
             // 
             // AutoLaunchPart3
@@ -625,7 +651,7 @@
             AutoLaunchPart3.Name = "AutoLaunchPart3";
             AutoLaunchPart3.Size = new Size(171, 23);
             AutoLaunchPart3.TabIndex = 35;
-            ToolTipMain.SetToolTip(AutoLaunchPart3, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchPart3, "What instrument will Player 3 have?");
             AutoLaunchPart3.SelectedIndexChanged += AutoLaunchPart3_SelectedIndexChanged;
             // 
             // AutoLaunchDifficulty4
@@ -638,7 +664,7 @@
             AutoLaunchDifficulty4.Name = "AutoLaunchDifficulty4";
             AutoLaunchDifficulty4.Size = new Size(105, 23);
             AutoLaunchDifficulty4.TabIndex = 40;
-            ToolTipMain.SetToolTip(AutoLaunchDifficulty4, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchDifficulty4, "What difficulty will Player 4 be playing on?");
             AutoLaunchDifficulty4.SelectedIndexChanged += AutoLaunchDifficulty4_SelectedIndexChanged;
             // 
             // AutoLaunchPart4
@@ -651,7 +677,7 @@
             AutoLaunchPart4.Name = "AutoLaunchPart4";
             AutoLaunchPart4.Size = new Size(171, 23);
             AutoLaunchPart4.TabIndex = 39;
-            ToolTipMain.SetToolTip(AutoLaunchPart4, "The default difficulty that will be selected when playing a song for the first time in Quickplay.");
+            ToolTipMain.SetToolTip(AutoLaunchPart4, "What instrument will Player 4 have?");
             AutoLaunchPart4.SelectedIndexChanged += AutoLaunchPart4_SelectedIndexChanged;
             // 
             // AutoLaunchSong
@@ -664,6 +690,84 @@
             AutoLaunchSong.TabIndex = 20;
             ToolTipMain.SetToolTip(AutoLaunchSong, "What song should we boot into?");
             AutoLaunchSong.TextChanged += AutoLaunchSong_TextChanged;
+            // 
+            // AutoLaunchHideHUD
+            // 
+            AutoLaunchHideHUD.AutoSize = true;
+            AutoLaunchHideHUD.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchHideHUD.Location = new Point(20, 336);
+            AutoLaunchHideHUD.Name = "AutoLaunchHideHUD";
+            AutoLaunchHideHUD.Size = new Size(96, 26);
+            AutoLaunchHideHUD.TabIndex = 6;
+            AutoLaunchHideHUD.Text = "Hide HUD";
+            ToolTipMain.SetToolTip(AutoLaunchHideHUD, "Hides the user interface elements during play.");
+            AutoLaunchHideHUD.UseVisualStyleBackColor = true;
+            AutoLaunchHideHUD.CheckedChanged += AutoLaunchHideHUD_CheckedChanged;
+            // 
+            // AutoLaunchBot4
+            // 
+            AutoLaunchBot4.AutoSize = true;
+            AutoLaunchBot4.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot4.Location = new Point(531, 250);
+            AutoLaunchBot4.Name = "AutoLaunchBot4";
+            AutoLaunchBot4.Size = new Size(89, 26);
+            AutoLaunchBot4.TabIndex = 37;
+            AutoLaunchBot4.Text = "Use Bot?";
+            ToolTipMain.SetToolTip(AutoLaunchBot4, "Do you want to enable the bot for Player 4?");
+            AutoLaunchBot4.UseVisualStyleBackColor = true;
+            AutoLaunchBot4.CheckedChanged += AutoLaunchBot4_CheckedChanged;
+            // 
+            // AutoLaunchBot1
+            // 
+            AutoLaunchBot1.AutoSize = true;
+            AutoLaunchBot1.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot1.Location = new Point(531, 144);
+            AutoLaunchBot1.Name = "AutoLaunchBot1";
+            AutoLaunchBot1.Size = new Size(89, 26);
+            AutoLaunchBot1.TabIndex = 9;
+            AutoLaunchBot1.Text = "Use Bot?";
+            ToolTipMain.SetToolTip(AutoLaunchBot1, "Do you want to enable the bot for Player 1?");
+            AutoLaunchBot1.UseVisualStyleBackColor = true;
+            AutoLaunchBot1.CheckedChanged += AutoLaunchBot1_CheckedChanged;
+            // 
+            // AutoLaunchRawLoad
+            // 
+            AutoLaunchRawLoad.AutoSize = true;
+            AutoLaunchRawLoad.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchRawLoad.Location = new Point(350, 336);
+            AutoLaunchRawLoad.Name = "AutoLaunchRawLoad";
+            AutoLaunchRawLoad.Size = new Size(225, 26);
+            AutoLaunchRawLoad.TabIndex = 10;
+            AutoLaunchRawLoad.Text = "Use Raw Venue PAK Loading";
+            ToolTipMain.SetToolTip(AutoLaunchRawLoad, "Loads into the venue, but the game won't try and set the zone up as a venue.\r\nUseful for venue mod debugging!");
+            AutoLaunchRawLoad.UseVisualStyleBackColor = true;
+            AutoLaunchRawLoad.CheckedChanged += AutoLaunchRawLoad_CheckedChanged;
+            // 
+            // AutoLaunchBot3
+            // 
+            AutoLaunchBot3.AutoSize = true;
+            AutoLaunchBot3.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot3.Location = new Point(531, 214);
+            AutoLaunchBot3.Name = "AutoLaunchBot3";
+            AutoLaunchBot3.Size = new Size(89, 26);
+            AutoLaunchBot3.TabIndex = 33;
+            AutoLaunchBot3.Text = "Use Bot?";
+            ToolTipMain.SetToolTip(AutoLaunchBot3, "Do you want to enable the bot for Player 3?");
+            AutoLaunchBot3.UseVisualStyleBackColor = true;
+            AutoLaunchBot3.CheckedChanged += AutoLaunchBot3_CheckedChanged;
+            // 
+            // AutoLaunchBot2
+            // 
+            AutoLaunchBot2.AutoSize = true;
+            AutoLaunchBot2.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            AutoLaunchBot2.Location = new Point(531, 179);
+            AutoLaunchBot2.Name = "AutoLaunchBot2";
+            AutoLaunchBot2.Size = new Size(89, 26);
+            AutoLaunchBot2.TabIndex = 28;
+            AutoLaunchBot2.Text = "Use Bot?";
+            ToolTipMain.SetToolTip(AutoLaunchBot2, "Do you want to enable the bot for Player 2?");
+            AutoLaunchBot2.UseVisualStyleBackColor = true;
+            AutoLaunchBot2.CheckedChanged += AutoLaunchBot2_CheckedChanged;
             // 
             // LogoFretworks
             // 
@@ -712,7 +816,7 @@
             TabGeneralGroup.Controls.Add(RichPresence);
             TabGeneralGroup.Controls.Add(TabGeneralMMOHeader);
             TabGeneralGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TabGeneralGroup.Location = new Point(671, 11);
+            TabGeneralGroup.Location = new Point(660, 6);
             TabGeneralGroup.Name = "TabGeneralGroup";
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
@@ -861,7 +965,7 @@
             TabAutoLaunchGroup.Controls.Add(EnableAutoLaunch);
             TabAutoLaunchGroup.Controls.Add(TabALEditorPanel);
             TabAutoLaunchGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TabAutoLaunchGroup.Location = new Point(13, 17);
+            TabAutoLaunchGroup.Location = new Point(594, 50);
             TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
             TabAutoLaunchGroup.Size = new Size(669, 642);
             TabAutoLaunchGroup.TabIndex = 15;
@@ -916,6 +1020,7 @@
             AutoLaunchSongSelectINI.TabIndex = 41;
             AutoLaunchSongSelectINI.Text = "...";
             AutoLaunchSongSelectINI.UseVisualStyleBackColor = true;
+            AutoLaunchSongSelectINI.Click += AutoLaunchSongSelectINI_Click;
             // 
             // AutoLaunchDiffsLabel
             // 
@@ -954,54 +1059,6 @@
             label1.TabIndex = 38;
             label1.Text = "Player 4:";
             // 
-            // AutoLaunchHideHUD
-            // 
-            AutoLaunchHideHUD.AutoSize = true;
-            AutoLaunchHideHUD.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoLaunchHideHUD.Location = new Point(20, 336);
-            AutoLaunchHideHUD.Name = "AutoLaunchHideHUD";
-            AutoLaunchHideHUD.Size = new Size(96, 26);
-            AutoLaunchHideHUD.TabIndex = 6;
-            AutoLaunchHideHUD.Text = "Hide HUD";
-            AutoLaunchHideHUD.UseVisualStyleBackColor = true;
-            AutoLaunchHideHUD.CheckedChanged += AutoLaunchHideHUD_CheckedChanged;
-            // 
-            // AutoLaunchBot4
-            // 
-            AutoLaunchBot4.AutoSize = true;
-            AutoLaunchBot4.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoLaunchBot4.Location = new Point(531, 250);
-            AutoLaunchBot4.Name = "AutoLaunchBot4";
-            AutoLaunchBot4.Size = new Size(89, 26);
-            AutoLaunchBot4.TabIndex = 37;
-            AutoLaunchBot4.Text = "Use Bot?";
-            AutoLaunchBot4.UseVisualStyleBackColor = true;
-            AutoLaunchBot4.CheckedChanged += AutoLaunchBot4_CheckedChanged;
-            // 
-            // AutoLaunchBot1
-            // 
-            AutoLaunchBot1.AutoSize = true;
-            AutoLaunchBot1.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoLaunchBot1.Location = new Point(531, 144);
-            AutoLaunchBot1.Name = "AutoLaunchBot1";
-            AutoLaunchBot1.Size = new Size(89, 26);
-            AutoLaunchBot1.TabIndex = 9;
-            AutoLaunchBot1.Text = "Use Bot?";
-            AutoLaunchBot1.UseVisualStyleBackColor = true;
-            AutoLaunchBot1.CheckedChanged += AutoLaunchBot1_CheckedChanged;
-            // 
-            // AutoLaunchRawLoad
-            // 
-            AutoLaunchRawLoad.AutoSize = true;
-            AutoLaunchRawLoad.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoLaunchRawLoad.Location = new Point(350, 336);
-            AutoLaunchRawLoad.Name = "AutoLaunchRawLoad";
-            AutoLaunchRawLoad.Size = new Size(225, 26);
-            AutoLaunchRawLoad.TabIndex = 10;
-            AutoLaunchRawLoad.Text = "Use Raw Venue PAK Loading";
-            AutoLaunchRawLoad.UseVisualStyleBackColor = true;
-            AutoLaunchRawLoad.CheckedChanged += AutoLaunchRawLoad_CheckedChanged;
-            // 
             // AutoLaunchP3Label
             // 
             AutoLaunchP3Label.AutoSize = true;
@@ -1019,18 +1076,6 @@
             AutoLaunchPlayersLabel.Size = new Size(64, 22);
             AutoLaunchPlayersLabel.TabIndex = 14;
             AutoLaunchPlayersLabel.Text = "Players:";
-            // 
-            // AutoLaunchBot3
-            // 
-            AutoLaunchBot3.AutoSize = true;
-            AutoLaunchBot3.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoLaunchBot3.Location = new Point(531, 214);
-            AutoLaunchBot3.Name = "AutoLaunchBot3";
-            AutoLaunchBot3.Size = new Size(89, 26);
-            AutoLaunchBot3.TabIndex = 33;
-            AutoLaunchBot3.Text = "Use Bot?";
-            AutoLaunchBot3.UseVisualStyleBackColor = true;
-            AutoLaunchBot3.CheckedChanged += AutoLaunchBot3_CheckedChanged;
             // 
             // TabAutoLaunchASHeader
             // 
@@ -1079,18 +1124,6 @@
             AutoLaunchVenueLabel.TabIndex = 21;
             AutoLaunchVenueLabel.Text = "Venue:";
             // 
-            // AutoLaunchBot2
-            // 
-            AutoLaunchBot2.AutoSize = true;
-            AutoLaunchBot2.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            AutoLaunchBot2.Location = new Point(531, 179);
-            AutoLaunchBot2.Name = "AutoLaunchBot2";
-            AutoLaunchBot2.Size = new Size(89, 26);
-            AutoLaunchBot2.TabIndex = 28;
-            AutoLaunchBot2.Text = "Use Bot?";
-            AutoLaunchBot2.UseVisualStyleBackColor = true;
-            AutoLaunchBot2.CheckedChanged += AutoLaunchBot2_CheckedChanged;
-            // 
             // AutoLaunchP1Label
             // 
             AutoLaunchP1Label.AutoSize = true;
@@ -1105,12 +1138,264 @@
             TabParentContainer.BackColor = Color.Transparent;
             TabParentContainer.BackgroundImage = Properties.Resources.light_overlay;
             TabParentContainer.BackgroundImageLayout = ImageLayout.Stretch;
+            TabParentContainer.Controls.Add(TabBandGroup);
             TabParentContainer.Controls.Add(TabAutoLaunchGroup);
-            TabParentContainer.Controls.Add(TabGeneralGroup);
             TabParentContainer.Location = new Point(314, 64);
             TabParentContainer.Name = "TabParentContainer";
             TabParentContainer.Size = new Size(701, 672);
             TabParentContainer.TabIndex = 16;
+            // 
+            // TabBandGroup
+            // 
+            TabBandGroup.BackColor = Color.Transparent;
+            TabBandGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabBandGroup.Controls.Add(PrefDrmHwySelectHwy);
+            TabBandGroup.Controls.Add(PreferredDrummerHighway);
+            TabBandGroup.Controls.Add(TabGeneralGroup);
+            TabBandGroup.Controls.Add(PrefDrumsHwyLabel);
+            TabBandGroup.Controls.Add(PrefBasHwySelectHwy);
+            TabBandGroup.Controls.Add(PreferredBassistHighway);
+            TabBandGroup.Controls.Add(PrefBassHwyLabel);
+            TabBandGroup.Controls.Add(PrefGtrHwySelectHwy);
+            TabBandGroup.Controls.Add(PreferredGuitaristHighway);
+            TabBandGroup.Controls.Add(PrefGuitarHwyLabel);
+            TabBandGroup.Controls.Add(label3);
+            TabBandGroup.Controls.Add(PrefSingerSelectChar);
+            TabBandGroup.Controls.Add(PreferredSinger);
+            TabBandGroup.Controls.Add(PreferredSingerLabel);
+            TabBandGroup.Controls.Add(PrefDrumsSelectChar);
+            TabBandGroup.Controls.Add(PreferredDrummer);
+            TabBandGroup.Controls.Add(PreferredDrummerLabel);
+            TabBandGroup.Controls.Add(PrefBassSelectChar);
+            TabBandGroup.Controls.Add(PreferredBassist);
+            TabBandGroup.Controls.Add(PreferredBassistLabel);
+            TabBandGroup.Controls.Add(PrefGuitarSelectChar);
+            TabBandGroup.Controls.Add(PreferredGuitarist);
+            TabBandGroup.Controls.Add(label2);
+            TabBandGroup.Controls.Add(PreferredGuitaristLabel);
+            TabBandGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            TabBandGroup.Location = new Point(16, 11);
+            TabBandGroup.Name = "TabBandGroup";
+            TabBandGroup.Size = new Size(669, 642);
+            TabBandGroup.TabIndex = 16;
+            TabBandGroup.TabStop = false;
+            TabBandGroup.Text = "DEBUG: Band Tab";
+            // 
+            // PrefDrmHwySelectHwy
+            // 
+            PrefDrmHwySelectHwy.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefDrmHwySelectHwy.Location = new Point(627, 110);
+            PrefDrmHwySelectHwy.Name = "PrefDrmHwySelectHwy";
+            PrefDrmHwySelectHwy.Size = new Size(28, 25);
+            PrefDrmHwySelectHwy.TabIndex = 61;
+            PrefDrmHwySelectHwy.Text = "...";
+            PrefDrmHwySelectHwy.UseVisualStyleBackColor = true;
+            // 
+            // PreferredDrummerHighway
+            // 
+            PreferredDrummerHighway.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredDrummerHighway.Location = new Point(467, 111);
+            PreferredDrummerHighway.Name = "PreferredDrummerHighway";
+            PreferredDrummerHighway.Size = new Size(157, 23);
+            PreferredDrummerHighway.TabIndex = 60;
+            PreferredDrummerHighway.TextChanged += PreferredDrummerHighway_TextChanged;
+            // 
+            // PrefDrumsHwyLabel
+            // 
+            PrefDrumsHwyLabel.AutoSize = true;
+            PrefDrumsHwyLabel.Location = new Point(388, 109);
+            PrefDrumsHwyLabel.Name = "PrefDrumsHwyLabel";
+            PrefDrumsHwyLabel.Size = new Size(73, 22);
+            PrefDrumsHwyLabel.TabIndex = 59;
+            PrefDrumsHwyLabel.Text = "Highway:";
+            // 
+            // PrefBasHwySelectHwy
+            // 
+            PrefBasHwySelectHwy.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefBasHwySelectHwy.Location = new Point(627, 79);
+            PrefBasHwySelectHwy.Name = "PrefBasHwySelectHwy";
+            PrefBasHwySelectHwy.Size = new Size(28, 25);
+            PrefBasHwySelectHwy.TabIndex = 58;
+            PrefBasHwySelectHwy.Text = "...";
+            PrefBasHwySelectHwy.UseVisualStyleBackColor = true;
+            // 
+            // PreferredBassistHighway
+            // 
+            PreferredBassistHighway.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredBassistHighway.Location = new Point(467, 80);
+            PreferredBassistHighway.Name = "PreferredBassistHighway";
+            PreferredBassistHighway.Size = new Size(157, 23);
+            PreferredBassistHighway.TabIndex = 57;
+            PreferredBassistHighway.TextChanged += PreferredBassistHighway_TextChanged;
+            // 
+            // PrefBassHwyLabel
+            // 
+            PrefBassHwyLabel.AutoSize = true;
+            PrefBassHwyLabel.Location = new Point(388, 78);
+            PrefBassHwyLabel.Name = "PrefBassHwyLabel";
+            PrefBassHwyLabel.Size = new Size(73, 22);
+            PrefBassHwyLabel.TabIndex = 56;
+            PrefBassHwyLabel.Text = "Highway:";
+            // 
+            // PrefGtrHwySelectHwy
+            // 
+            PrefGtrHwySelectHwy.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefGtrHwySelectHwy.Location = new Point(627, 49);
+            PrefGtrHwySelectHwy.Name = "PrefGtrHwySelectHwy";
+            PrefGtrHwySelectHwy.Size = new Size(28, 25);
+            PrefGtrHwySelectHwy.TabIndex = 55;
+            PrefGtrHwySelectHwy.Text = "...";
+            PrefGtrHwySelectHwy.UseVisualStyleBackColor = true;
+            // 
+            // PreferredGuitaristHighway
+            // 
+            PreferredGuitaristHighway.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredGuitaristHighway.Location = new Point(467, 50);
+            PreferredGuitaristHighway.Name = "PreferredGuitaristHighway";
+            PreferredGuitaristHighway.Size = new Size(157, 23);
+            PreferredGuitaristHighway.TabIndex = 54;
+            PreferredGuitaristHighway.TextChanged += PreferredGuitaristHighway_TextChanged;
+            // 
+            // PrefGuitarHwyLabel
+            // 
+            PrefGuitarHwyLabel.AutoSize = true;
+            PrefGuitarHwyLabel.Location = new Point(388, 48);
+            PrefGuitarHwyLabel.Name = "PrefGuitarHwyLabel";
+            PrefGuitarHwyLabel.Size = new Size(73, 22);
+            PrefGuitarHwyLabel.TabIndex = 53;
+            PrefGuitarHwyLabel.Text = "Highway:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(364, 18);
+            label3.Name = "label3";
+            label3.Size = new Size(186, 25);
+            label3.TabIndex = 52;
+            label3.Text = "Preferred Highways:";
+            // 
+            // PrefSingerSelectChar
+            // 
+            PrefSingerSelectChar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefSingerSelectChar.Location = new Point(335, 139);
+            PrefSingerSelectChar.Name = "PrefSingerSelectChar";
+            PrefSingerSelectChar.Size = new Size(28, 25);
+            PrefSingerSelectChar.TabIndex = 51;
+            PrefSingerSelectChar.Text = "...";
+            PrefSingerSelectChar.UseVisualStyleBackColor = true;
+            // 
+            // PreferredSinger
+            // 
+            PreferredSinger.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredSinger.Location = new Point(175, 140);
+            PreferredSinger.Name = "PreferredSinger";
+            PreferredSinger.Size = new Size(157, 23);
+            PreferredSinger.TabIndex = 50;
+            PreferredSinger.TextChanged += PreferredSinger_TextChanged;
+            // 
+            // PreferredSingerLabel
+            // 
+            PreferredSingerLabel.AutoSize = true;
+            PreferredSingerLabel.Location = new Point(24, 139);
+            PreferredSingerLabel.Name = "PreferredSingerLabel";
+            PreferredSingerLabel.Size = new Size(127, 22);
+            PreferredSingerLabel.TabIndex = 49;
+            PreferredSingerLabel.Text = "Preferred Singer:";
+            // 
+            // PrefDrumsSelectChar
+            // 
+            PrefDrumsSelectChar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefDrumsSelectChar.Location = new Point(335, 108);
+            PrefDrumsSelectChar.Name = "PrefDrumsSelectChar";
+            PrefDrumsSelectChar.Size = new Size(28, 25);
+            PrefDrumsSelectChar.TabIndex = 48;
+            PrefDrumsSelectChar.Text = "...";
+            PrefDrumsSelectChar.UseVisualStyleBackColor = true;
+            // 
+            // PreferredDrummer
+            // 
+            PreferredDrummer.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredDrummer.Location = new Point(175, 109);
+            PreferredDrummer.Name = "PreferredDrummer";
+            PreferredDrummer.Size = new Size(157, 23);
+            PreferredDrummer.TabIndex = 47;
+            PreferredDrummer.TextChanged += PreferredDrummer_TextChanged;
+            // 
+            // PreferredDrummerLabel
+            // 
+            PreferredDrummerLabel.AutoSize = true;
+            PreferredDrummerLabel.Location = new Point(24, 108);
+            PreferredDrummerLabel.Name = "PreferredDrummerLabel";
+            PreferredDrummerLabel.Size = new Size(147, 22);
+            PreferredDrummerLabel.TabIndex = 46;
+            PreferredDrummerLabel.Text = "Preferred Drummer:";
+            // 
+            // PrefBassSelectChar
+            // 
+            PrefBassSelectChar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefBassSelectChar.Location = new Point(335, 78);
+            PrefBassSelectChar.Name = "PrefBassSelectChar";
+            PrefBassSelectChar.Size = new Size(28, 25);
+            PrefBassSelectChar.TabIndex = 45;
+            PrefBassSelectChar.Text = "...";
+            PrefBassSelectChar.UseVisualStyleBackColor = true;
+            // 
+            // PreferredBassist
+            // 
+            PreferredBassist.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredBassist.Location = new Point(175, 79);
+            PreferredBassist.Name = "PreferredBassist";
+            PreferredBassist.Size = new Size(157, 23);
+            PreferredBassist.TabIndex = 44;
+            PreferredBassist.TextChanged += PreferredBassist_TextChanged;
+            // 
+            // PreferredBassistLabel
+            // 
+            PreferredBassistLabel.AutoSize = true;
+            PreferredBassistLabel.Location = new Point(24, 78);
+            PreferredBassistLabel.Name = "PreferredBassistLabel";
+            PreferredBassistLabel.Size = new Size(132, 22);
+            PreferredBassistLabel.TabIndex = 43;
+            PreferredBassistLabel.Text = "Preferred Bassist:";
+            // 
+            // PrefGuitarSelectChar
+            // 
+            PrefGuitarSelectChar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PrefGuitarSelectChar.Location = new Point(335, 48);
+            PrefGuitarSelectChar.Name = "PrefGuitarSelectChar";
+            PrefGuitarSelectChar.Size = new Size(28, 25);
+            PrefGuitarSelectChar.TabIndex = 42;
+            PrefGuitarSelectChar.Text = "...";
+            PrefGuitarSelectChar.UseVisualStyleBackColor = true;
+            // 
+            // PreferredGuitarist
+            // 
+            PreferredGuitarist.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PreferredGuitarist.Location = new Point(175, 49);
+            PreferredGuitarist.Name = "PreferredGuitarist";
+            PreferredGuitarist.Size = new Size(157, 23);
+            PreferredGuitarist.TabIndex = 20;
+            PreferredGuitarist.TextChanged += PreferredGuitarist_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(15, 18);
+            label2.Name = "label2";
+            label2.Size = new Size(126, 25);
+            label2.TabIndex = 19;
+            label2.Text = "Band Lineup:";
+            // 
+            // PreferredGuitaristLabel
+            // 
+            PreferredGuitaristLabel.AutoSize = true;
+            PreferredGuitaristLabel.Location = new Point(24, 48);
+            PreferredGuitaristLabel.Name = "PreferredGuitaristLabel";
+            PreferredGuitaristLabel.Size = new Size(142, 22);
+            PreferredGuitaristLabel.TabIndex = 0;
+            PreferredGuitaristLabel.Text = "Preferred Guitarist:";
             // 
             // Main
             // 
@@ -1148,6 +1433,8 @@
             TabALEditorPanel.ResumeLayout(false);
             TabALEditorPanel.PerformLayout();
             TabParentContainer.ResumeLayout(false);
+            TabBandGroup.ResumeLayout(false);
+            TabBandGroup.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1228,5 +1515,29 @@
         private Panel TabParentContainer;
         private Panel TabALEditorPanel;
         private Button AutoLaunchSongSelectINI;
+        private GroupBox TabBandGroup;
+        private Label label2;
+        private Label PreferredGuitaristLabel;
+        private TextBox PreferredGuitarist;
+        private Button PrefBassSelectChar;
+        private TextBox PreferredBassist;
+        private Label PreferredBassistLabel;
+        private Button PrefGuitarSelectChar;
+        private Button PrefSingerSelectChar;
+        private TextBox PreferredSinger;
+        private Label PreferredSingerLabel;
+        private Button PrefDrumsSelectChar;
+        private TextBox PreferredDrummer;
+        private Label PreferredDrummerLabel;
+        private Button PrefBasHwySelectHwy;
+        private TextBox PreferredBassistHighway;
+        private Label PrefBassHwyLabel;
+        private Button PrefGtrHwySelectHwy;
+        private TextBox PreferredGuitaristHighway;
+        private Label PrefGuitarHwyLabel;
+        private Label label3;
+        private Button PrefDrmHwySelectHwy;
+        private TextBox PreferredDrummerHighway;
+        private Label PrefDrumsHwyLabel;
     }
 }

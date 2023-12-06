@@ -206,6 +206,21 @@ namespace WTDE_Launcher_V3
             #endregion
 
             // ---------------------------
+            // Band Tab
+            // ---------------------------
+            #region Band Tab
+            PreferredGuitarist.Text = INIFunctions.GetINIValue("Band", "PreferredGuitarist", "");
+            PreferredBassist.Text = INIFunctions.GetINIValue("Band", "PreferredBassist", "");
+            PreferredDrummer.Text = INIFunctions.GetINIValue("Band", "PreferredDrummer", "");
+            PreferredSinger.Text = INIFunctions.GetINIValue("Band", "PreferredSinger", "");
+
+            PreferredGuitaristHighway.Text = INIFunctions.GetINIValue("Band", "PreferredGuitaristHighway", "");
+            PreferredBassistHighway.Text = INIFunctions.GetINIValue("Band", "PreferredBassistHighway", "");
+            PreferredDrummerHighway.Text = INIFunctions.GetINIValue("Band", "PreferredDrummerHighway", "");
+
+            #endregion
+
+            // ---------------------------
             // Auto Launch Tab
             // ---------------------------
             #region Auto Launch Tab
@@ -252,12 +267,13 @@ namespace WTDE_Launcher_V3
         {
             // No text on group boxes. That's just debug stuff.
             TabGeneralGroup.Text = "";
-
+            TabBandGroup.Text = "";
             TabAutoLaunchGroup.Text = "";
 
             // Hide all group boxes, move them to their correct positions.
             TabParentContainer.Hide();
             TabGeneralGroup.Hide();
+            TabBandGroup.Hide();
             TabAutoLaunchGroup.Hide();
         }
 
@@ -270,11 +286,13 @@ namespace WTDE_Launcher_V3
             // First, parent these tabs to the main panel.
             // This is a workaround so we don't have to dock things.
             TabGeneralGroup.Parent = TabParentContainer;
+            TabBandGroup.Parent = TabParentContainer;
             TabAutoLaunchGroup.Parent = TabParentContainer;
 
             // Top left corner of this panel, but padded 16 px left and 12 px down.
             Point location = new Point(16, 12);
             TabGeneralGroup.Location = location;
+            TabBandGroup.Location = location;
             TabAutoLaunchGroup.Location = location;
         }
 
@@ -298,6 +316,17 @@ namespace WTDE_Launcher_V3
         /// <param name="e"></param>
         private void RunWTDE_Click(object sender, EventArgs e)
         {
+            if (EnableAutoLaunch.Checked)
+            {
+                string autoLaunchWarning = "";
+                /*
+                if (MessageBox.Show(autoLaunchWarning, "Auto Launch Enabled"))
+                {
+
+                }
+                */
+            }
+
             if (File.Exists("GHWT_Definitive.exe"))
             {
                 System.Diagnostics.Process.Start("GHWT_Definitive.exe");
@@ -388,9 +417,13 @@ namespace WTDE_Launcher_V3
             TabGeneralGroup.Visible = true;
             TabGeneralGroup.Enabled = true;
 
+            TabBandGroup.Hide();
+            TabBandGroup.Visible = false;
+            TabBandGroup.Enabled = false;
+
+            TabAutoLaunchGroup.Hide();
             TabAutoLaunchGroup.Visible = false;
             TabAutoLaunchGroup.Enabled = false;
-            TabAutoLaunchGroup.Hide();
         }
 
         // ------------------------------------------------------
@@ -475,11 +508,19 @@ namespace WTDE_Launcher_V3
 
         #endregion
 
+        // ------------------------------------------------------
+        // AUTO LAUNCH TAB AUTO UPDATE
+        // ------------------------------------------------------
+        #region Auto Launch Tab Auto Update
         private void TabButtonAutoLaunch_Click(object sender, EventArgs e)
         {
             TabGeneralGroup.Hide();
             TabGeneralGroup.Visible = false;
             TabGeneralGroup.Enabled = false;
+
+            TabBandGroup.Hide();
+            TabBandGroup.Visible = false;
+            TabBandGroup.Enabled = false;
 
             TabAutoLaunchGroup.Show();
             TabAutoLaunchGroup.Enabled = true;
@@ -585,6 +626,66 @@ namespace WTDE_Launcher_V3
         private void AutoLaunchEncoreMode_CheckedChanged(object sender, EventArgs e)
         {
             INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked, "last_song", "none"));
+        }
+
+        private void AutoLaunchSongSelectINI_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        // ------------------------------------------------------
+        // AUTO LAUNCH TAB AUTO UPDATE
+        // ------------------------------------------------------
+        private void TabButtonBand_Click(object sender, EventArgs e)
+        {
+            TabGeneralGroup.Hide();
+            TabGeneralGroup.Visible = false;
+            TabGeneralGroup.Enabled = false;
+
+            TabBandGroup.Show();
+            TabBandGroup.Visible = true;
+            TabBandGroup.Enabled = true;
+
+            TabAutoLaunchGroup.Hide();
+            TabAutoLaunchGroup.Visible = false;
+            TabAutoLaunchGroup.Enabled = false;
+        }
+
+        private void PreferredGuitarist_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredGuitarist", PreferredGuitarist.Text);
+        }
+
+        private void PreferredBassist_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredBassist", PreferredBassist.Text);
+        }
+
+        private void PreferredDrummer_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredDrummer", PreferredDrummer.Text);
+        }
+
+        private void PreferredSinger_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredSinger", PreferredSinger.Text);
+        }
+
+        private void PreferredGuitaristHighway_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredGuitaristHighway", PreferredGuitaristHighway.Text);
+        }
+
+        private void PreferredBassistHighway_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredBassistHighway", PreferredBassistHighway.Text);
+        }
+
+        private void PreferredDrummerHighway_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Band", "PreferredDrummerHighway", PreferredDrummerHighway.Text);
         }
     }
 }
