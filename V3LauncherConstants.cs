@@ -34,6 +34,11 @@ namespace WTDE_Launcher_V3 {
         public static string WTDESaveDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/GHWTDE.sav";
 
         /// <summary>
+        ///  Where are the user's save file backups located?
+        /// </summary>
+        public static string WTDESaveBackupsDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Save Backups";
+
+        /// <summary>
         ///  Where is AspyrConfig.xml located?
         /// </summary>
         public static string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";

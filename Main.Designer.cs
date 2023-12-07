@@ -1,7 +1,5 @@
-﻿namespace WTDE_Launcher_V3
-{
-    partial class Main
-    {
+﻿namespace WTDE_Launcher_V3 {
+    partial class Main {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -26,8 +22,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             LeftDarkOverlay = new PictureBox();
@@ -73,6 +68,8 @@
             AutoLaunchRawLoad = new CheckBox();
             AutoLaunchBot3 = new CheckBox();
             AutoLaunchBot2 = new CheckBox();
+            GuitarStrumAnim = new ComboBox();
+            BassStrumAnim = new ComboBox();
             LogoFretworks = new PictureBox();
             MOTDDarkOverlay = new PictureBox();
             TabGeneralGroup = new GroupBox();
@@ -105,6 +102,9 @@
             AutoLaunchP1Label = new Label();
             TabParentContainer = new Panel();
             TabBandGroup = new GroupBox();
+            BassStrumAnimLabel = new Label();
+            TabBandSAHeader = new Label();
+            GuitarStrumAnimLabel = new Label();
             PrefDrmHwySelectHwy = new Button();
             PreferredDrummerHighway = new TextBox();
             PrefDrumsHwyLabel = new Label();
@@ -114,7 +114,7 @@
             PrefGtrHwySelectHwy = new Button();
             PreferredGuitaristHighway = new TextBox();
             PrefGuitarHwyLabel = new Label();
-            label3 = new Label();
+            TabBandPHHeader = new Label();
             PrefSingerSelectChar = new Button();
             PreferredSinger = new TextBox();
             PreferredSingerLabel = new Label();
@@ -126,7 +126,7 @@
             PreferredBassistLabel = new Label();
             PrefGuitarSelectChar = new Button();
             PreferredGuitarist = new TextBox();
-            label2 = new Label();
+            TabBandBLHeader = new Label();
             PreferredGuitaristLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)LeftDarkOverlay).BeginInit();
             TabButtonGroup.SuspendLayout();
@@ -355,6 +355,7 @@
             RunWTDE.Text = "Start WTDE";
             ToolTipMain.SetToolTip(RunWTDE, "Save your configuration settings and launch WTDE.");
             RunWTDE.UseVisualStyleBackColor = false;
+            RunWTDE.Click += RunWTDE_Click;
             // 
             // AdjustSettings
             // 
@@ -398,6 +399,7 @@
             OpenMods.Text = "Open Mods Folder";
             ToolTipMain.SetToolTip(OpenMods, "Open your mods folder.");
             OpenMods.UseVisualStyleBackColor = false;
+            OpenMods.Click += OpenMods_Click;
             // 
             // CheckForUpdates
             // 
@@ -419,6 +421,7 @@
             CheckForUpdates.Text = "Check For Updates";
             ToolTipMain.SetToolTip(CheckForUpdates, "Check for updates to GHWT: DE and verify your installation's integrity.");
             CheckForUpdates.UseVisualStyleBackColor = false;
+            CheckForUpdates.Click += CheckForUpdates_Click;
             // 
             // RichPresence
             // 
@@ -769,6 +772,32 @@
             AutoLaunchBot2.UseVisualStyleBackColor = true;
             AutoLaunchBot2.CheckedChanged += AutoLaunchBot2_CheckedChanged;
             // 
+            // GuitarStrumAnim
+            // 
+            GuitarStrumAnim.DropDownStyle = ComboBoxStyle.DropDownList;
+            GuitarStrumAnim.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            GuitarStrumAnim.FormattingEnabled = true;
+            GuitarStrumAnim.Items.AddRange(new object[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" });
+            GuitarStrumAnim.Location = new Point(216, 214);
+            GuitarStrumAnim.Name = "GuitarStrumAnim";
+            GuitarStrumAnim.Size = new Size(171, 23);
+            GuitarStrumAnim.TabIndex = 63;
+            ToolTipMain.SetToolTip(GuitarStrumAnim, "What instrument will Player 1 have?");
+            GuitarStrumAnim.SelectedIndexChanged += GuitarStrumAnim_SelectedIndexChanged;
+            // 
+            // BassStrumAnim
+            // 
+            BassStrumAnim.DropDownStyle = ComboBoxStyle.DropDownList;
+            BassStrumAnim.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            BassStrumAnim.FormattingEnabled = true;
+            BassStrumAnim.Items.AddRange(new object[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" });
+            BassStrumAnim.Location = new Point(216, 246);
+            BassStrumAnim.Name = "BassStrumAnim";
+            BassStrumAnim.Size = new Size(171, 23);
+            BassStrumAnim.TabIndex = 66;
+            ToolTipMain.SetToolTip(BassStrumAnim, "What instrument will Player 1 have?");
+            BassStrumAnim.SelectedIndexChanged += BassStrumAnim_SelectedIndexChanged;
+            // 
             // LogoFretworks
             // 
             LogoFretworks.BackColor = Color.Transparent;
@@ -816,7 +845,7 @@
             TabGeneralGroup.Controls.Add(RichPresence);
             TabGeneralGroup.Controls.Add(TabGeneralMMOHeader);
             TabGeneralGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TabGeneralGroup.Location = new Point(660, 6);
+            TabGeneralGroup.Location = new Point(663, 17);
             TabGeneralGroup.Name = "TabGeneralGroup";
             TabGeneralGroup.Size = new Size(669, 642);
             TabGeneralGroup.TabIndex = 14;
@@ -965,7 +994,7 @@
             TabAutoLaunchGroup.Controls.Add(EnableAutoLaunch);
             TabAutoLaunchGroup.Controls.Add(TabALEditorPanel);
             TabAutoLaunchGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TabAutoLaunchGroup.Location = new Point(594, 50);
+            TabAutoLaunchGroup.Location = new Point(578, 105);
             TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
             TabAutoLaunchGroup.Size = new Size(669, 642);
             TabAutoLaunchGroup.TabIndex = 15;
@@ -1140,6 +1169,7 @@
             TabParentContainer.BackgroundImageLayout = ImageLayout.Stretch;
             TabParentContainer.Controls.Add(TabBandGroup);
             TabParentContainer.Controls.Add(TabAutoLaunchGroup);
+            TabParentContainer.Controls.Add(TabGeneralGroup);
             TabParentContainer.Location = new Point(314, 64);
             TabParentContainer.Name = "TabParentContainer";
             TabParentContainer.Size = new Size(701, 672);
@@ -1149,9 +1179,13 @@
             // 
             TabBandGroup.BackColor = Color.Transparent;
             TabBandGroup.BackgroundImage = Properties.Resources.white_overlay_d_l;
+            TabBandGroup.Controls.Add(BassStrumAnimLabel);
+            TabBandGroup.Controls.Add(BassStrumAnim);
+            TabBandGroup.Controls.Add(TabBandSAHeader);
+            TabBandGroup.Controls.Add(GuitarStrumAnimLabel);
+            TabBandGroup.Controls.Add(GuitarStrumAnim);
             TabBandGroup.Controls.Add(PrefDrmHwySelectHwy);
             TabBandGroup.Controls.Add(PreferredDrummerHighway);
-            TabBandGroup.Controls.Add(TabGeneralGroup);
             TabBandGroup.Controls.Add(PrefDrumsHwyLabel);
             TabBandGroup.Controls.Add(PrefBasHwySelectHwy);
             TabBandGroup.Controls.Add(PreferredBassistHighway);
@@ -1159,7 +1193,7 @@
             TabBandGroup.Controls.Add(PrefGtrHwySelectHwy);
             TabBandGroup.Controls.Add(PreferredGuitaristHighway);
             TabBandGroup.Controls.Add(PrefGuitarHwyLabel);
-            TabBandGroup.Controls.Add(label3);
+            TabBandGroup.Controls.Add(TabBandPHHeader);
             TabBandGroup.Controls.Add(PrefSingerSelectChar);
             TabBandGroup.Controls.Add(PreferredSinger);
             TabBandGroup.Controls.Add(PreferredSingerLabel);
@@ -1171,15 +1205,43 @@
             TabBandGroup.Controls.Add(PreferredBassistLabel);
             TabBandGroup.Controls.Add(PrefGuitarSelectChar);
             TabBandGroup.Controls.Add(PreferredGuitarist);
-            TabBandGroup.Controls.Add(label2);
+            TabBandGroup.Controls.Add(TabBandBLHeader);
             TabBandGroup.Controls.Add(PreferredGuitaristLabel);
             TabBandGroup.Font = new Font("Lexend", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            TabBandGroup.Location = new Point(16, 11);
+            TabBandGroup.Location = new Point(13, 17);
             TabBandGroup.Name = "TabBandGroup";
             TabBandGroup.Size = new Size(669, 642);
             TabBandGroup.TabIndex = 16;
             TabBandGroup.TabStop = false;
             TabBandGroup.Text = "DEBUG: Band Tab";
+            // 
+            // BassStrumAnimLabel
+            // 
+            BassStrumAnimLabel.AutoSize = true;
+            BassStrumAnimLabel.Location = new Point(28, 246);
+            BassStrumAnimLabel.Name = "BassStrumAnimLabel";
+            BassStrumAnimLabel.Size = new Size(172, 22);
+            BassStrumAnimLabel.TabIndex = 65;
+            BassStrumAnimLabel.Text = "Bass Strum Animations:";
+            // 
+            // TabBandSAHeader
+            // 
+            TabBandSAHeader.AutoSize = true;
+            TabBandSAHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabBandSAHeader.Location = new Point(15, 178);
+            TabBandSAHeader.Name = "TabBandSAHeader";
+            TabBandSAHeader.Size = new Size(172, 25);
+            TabBandSAHeader.TabIndex = 64;
+            TabBandSAHeader.Text = "Strum Animations:";
+            // 
+            // GuitarStrumAnimLabel
+            // 
+            GuitarStrumAnimLabel.AutoSize = true;
+            GuitarStrumAnimLabel.Location = new Point(28, 214);
+            GuitarStrumAnimLabel.Name = "GuitarStrumAnimLabel";
+            GuitarStrumAnimLabel.Size = new Size(182, 22);
+            GuitarStrumAnimLabel.TabIndex = 62;
+            GuitarStrumAnimLabel.Text = "Guitar Strum Animations:";
             // 
             // PrefDrmHwySelectHwy
             // 
@@ -1265,15 +1327,15 @@
             PrefGuitarHwyLabel.TabIndex = 53;
             PrefGuitarHwyLabel.Text = "Highway:";
             // 
-            // label3
+            // TabBandPHHeader
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(364, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(186, 25);
-            label3.TabIndex = 52;
-            label3.Text = "Preferred Highways:";
+            TabBandPHHeader.AutoSize = true;
+            TabBandPHHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabBandPHHeader.Location = new Point(364, 18);
+            TabBandPHHeader.Name = "TabBandPHHeader";
+            TabBandPHHeader.Size = new Size(186, 25);
+            TabBandPHHeader.TabIndex = 52;
+            TabBandPHHeader.Text = "Preferred Highways:";
             // 
             // PrefSingerSelectChar
             // 
@@ -1378,15 +1440,15 @@
             PreferredGuitarist.TabIndex = 20;
             PreferredGuitarist.TextChanged += PreferredGuitarist_TextChanged;
             // 
-            // label2
+            // TabBandBLHeader
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(15, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(126, 25);
-            label2.TabIndex = 19;
-            label2.Text = "Band Lineup:";
+            TabBandBLHeader.AutoSize = true;
+            TabBandBLHeader.Font = new Font("Lexend", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            TabBandBLHeader.Location = new Point(15, 18);
+            TabBandBLHeader.Name = "TabBandBLHeader";
+            TabBandBLHeader.Size = new Size(126, 25);
+            TabBandBLHeader.TabIndex = 19;
+            TabBandBLHeader.Text = "Band Lineup:";
             // 
             // PreferredGuitaristLabel
             // 
@@ -1516,7 +1578,7 @@
         private Panel TabALEditorPanel;
         private Button AutoLaunchSongSelectINI;
         private GroupBox TabBandGroup;
-        private Label label2;
+        private Label TabBandBLHeader;
         private Label PreferredGuitaristLabel;
         private TextBox PreferredGuitarist;
         private Button PrefBassSelectChar;
@@ -1535,9 +1597,14 @@
         private Button PrefGtrHwySelectHwy;
         private TextBox PreferredGuitaristHighway;
         private Label PrefGuitarHwyLabel;
-        private Label label3;
+        private Label TabBandPHHeader;
         private Button PrefDrmHwySelectHwy;
         private TextBox PreferredDrummerHighway;
         private Label PrefDrumsHwyLabel;
+        private Label GuitarStrumAnimLabel;
+        private ComboBox GuitarStrumAnim;
+        private Label TabBandSAHeader;
+        private Label BassStrumAnimLabel;
+        private ComboBox BassStrumAnim;
     }
 }
