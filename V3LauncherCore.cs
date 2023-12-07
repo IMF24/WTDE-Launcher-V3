@@ -44,7 +44,7 @@ namespace WTDE_Launcher_V3 {
                     } catch (Exception exc) {
                         MessageBox.Show($"An error occurred in downloading the files:\n\n{exc}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
+                } else return false;
             }
 
             // Get the MD5 hash of tb.pab.xen in the user's GHWT install folder.\

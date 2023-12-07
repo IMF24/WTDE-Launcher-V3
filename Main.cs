@@ -104,7 +104,8 @@ namespace WTDE_Launcher_V3 {
             WriteDefaultINI();
             LoadINISettings();
 
-            // Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen")}");
+            // Debug.WriteLine($"AspyrConfig read test: {XMLFunctions.AspyrGetString("Audio.BuffLen", "not found")}");
+            XMLFunctions.AspyrWriteString("Audio.BuffLen", "4096");
 
             // Just for the sake of debugging, we'll change our working directory to where
             // GHWT is installed. This path is defined in the `wtde_path.txt` file.
