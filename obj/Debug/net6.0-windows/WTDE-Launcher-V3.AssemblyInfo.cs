@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WTDE-Launcher-V3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7ab4c0844bbd87d529d04237c9e39679a403dca")]
 [assembly: System.Reflection.AssemblyProductAttribute("WTDE-Launcher-V3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WTDE-Launcher-V3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

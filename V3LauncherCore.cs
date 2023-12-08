@@ -290,5 +290,13 @@ namespace WTDE_Launcher_V3 {
                     break;
             }
         }
+
+        public static void AspyrInputEncode() {
+        
+        }
+
+        public static void AspyrInputDecode() {
+
+        }
     }
 }

@@ -167,7 +167,7 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
-        ///  Load all configuration data from GHWTDE.ini.
+        ///  Load all configuration data from GHWTDE.ini and AspyrConfig.xml.
         /// </summary>
         public void LoadINISettings() {
             // ---------------------------
@@ -180,6 +180,7 @@ namespace WTDE_Launcher_V3 {
             WhammyPitchShift.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "WhammyPitchShift")));
             StatusHandler.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "StatusHandler")));
             DefaultQPODifficulty.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "DefaultQPODifficulty", "expert"), INIFunctions.QPODifficulties[1], INIFunctions.QPODifficulties[0]);
+            AudioBuffLen.Text = XMLFunctions.AspyrGetString("Audio.BuffLen", "4096");
 
             // -- MAIN MENU TOGGLES ---------------------------
             UseCareerOption.Checked = Convert.ToBoolean(INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCareerOption")));
@@ -264,12 +265,14 @@ namespace WTDE_Launcher_V3 {
         public void HideAllTabs() {
             // No text on group boxes. That's just debug stuff.
             TabGeneralGroup.Text = "";
+            TabInputGroup.Text = "";
             TabBandGroup.Text = "";
             TabAutoLaunchGroup.Text = "";
 
             // Hide all group boxes, move them to their correct positions.
             TabParentContainer.Hide();
             TabGeneralGroup.Hide();
+            TabInputGroup.Hide();
             TabBandGroup.Hide();
             TabAutoLaunchGroup.Hide();
         }
@@ -282,12 +285,14 @@ namespace WTDE_Launcher_V3 {
             // First, parent these tabs to the main panel.
             // This is a workaround so we don't have to dock things.
             TabGeneralGroup.Parent = TabParentContainer;
+            TabInputGroup.Parent = TabParentContainer;
             TabBandGroup.Parent = TabParentContainer;
             TabAutoLaunchGroup.Parent = TabParentContainer;
 
             // Top left corner of this panel, but padded 16 px left and 12 px down.
             Point location = new Point(16, 12);
             TabGeneralGroup.Location = location;
+            TabInputGroup.Location = location;
             TabBandGroup.Location = location;
             TabAutoLaunchGroup.Location = location;
         }
@@ -404,6 +409,10 @@ namespace WTDE_Launcher_V3 {
             TabGeneralGroup.Visible = true;
             TabGeneralGroup.Enabled = true;
 
+            TabInputGroup.Hide();
+            TabInputGroup.Visible = false;
+            TabInputGroup.Enabled = false;
+
             TabBandGroup.Hide();
             TabBandGroup.Visible = false;
             TabBandGroup.Enabled = false;
@@ -440,6 +449,10 @@ namespace WTDE_Launcher_V3 {
 
         private void DefaultQPODifficulty_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "DefaultQPODifficulty", INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text, INIFunctions.QPODifficulties[0], INIFunctions.QPODifficulties[1]));
+        }
+
+        private void AudioBuffLen_SelectedIndexChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
         }
 
         private void UseCareerOption_CheckedChanged(object sender, EventArgs e) {
@@ -488,6 +501,10 @@ namespace WTDE_Launcher_V3 {
             TabGeneralGroup.Hide();
             TabGeneralGroup.Visible = false;
             TabGeneralGroup.Enabled = false;
+
+            TabInputGroup.Hide();
+            TabInputGroup.Visible = false;
+            TabInputGroup.Enabled = false;
 
             TabBandGroup.Hide();
             TabBandGroup.Visible = false;
@@ -580,7 +597,7 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void AutoLaunchSongSelectINI_Click(object sender, EventArgs e) {
-            V3LauncherCore.DynamicTextBoxUpdate("./DATA/MODS", (int) V3LauncherCore.ModINITypes.Song, "Select Song Mod", (int) V3LauncherCore.FileFilterTypes.INI, AutoLaunchSong);
+            V3LauncherCore.DynamicTextBoxUpdate("./DATA/MODS", (int)V3LauncherCore.ModINITypes.Song, "Select Song Mod", (int)V3LauncherCore.FileFilterTypes.INI, AutoLaunchSong);
             INIFunctions.SaveINIValue("AutoLaunch", "Song", AutoLaunchSong.Text);
         }
         #endregion
@@ -588,10 +605,15 @@ namespace WTDE_Launcher_V3 {
         // ------------------------------------------------------
         // BAND TAB AUTO UPDATE
         // ------------------------------------------------------
+        #region Band Tab Auto Update
         private void TabButtonBand_Click(object sender, EventArgs e) {
             TabGeneralGroup.Hide();
             TabGeneralGroup.Visible = false;
             TabGeneralGroup.Enabled = false;
+
+            TabInputGroup.Hide();
+            TabInputGroup.Visible = false;
+            TabInputGroup.Enabled = false;
 
             TabBandGroup.Show();
             TabBandGroup.Visible = true;
@@ -640,6 +662,28 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("Band", "BassStrumAnim", INIFunctions.InterpretINISetting(BassStrumAnim.Text,
                 new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" },
                 new string[] { "none", "ghm" }));
+        }
+        #endregion
+
+        // ------------------------------------------------------
+        // INPUT TAB AUTO UPDATE
+        // ------------------------------------------------------
+        private void TabButtonInput_Click(object sender, EventArgs e) {
+            TabGeneralGroup.Hide();
+            TabGeneralGroup.Visible = false;
+            TabGeneralGroup.Enabled = false;
+
+            TabInputGroup.Show();
+            TabInputGroup.Visible = true;
+            TabInputGroup.Enabled = true;
+
+            TabBandGroup.Hide();
+            TabBandGroup.Visible = false;
+            TabBandGroup.Enabled = false;
+
+            TabAutoLaunchGroup.Hide();
+            TabAutoLaunchGroup.Enabled = false;
+            TabAutoLaunchGroup.Visible = false;
         }
     }
 }
