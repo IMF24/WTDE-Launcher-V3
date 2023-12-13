@@ -23,8 +23,7 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static bool GetBoolean(string s)
-        {
+        public static bool GetBoolean(string s) {
             return (s == "1") ? true : false;
         }
 
@@ -33,13 +32,17 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static bool GetBooleanInverse(string s)
-        {
+        public static bool GetBooleanInverse(string s) {
             return (s == "1") ? false : true;
         }
 
-        public static bool GetBooleanCustomString(string s, string t)
-        {
+        /// <summary>
+        ///  Get boolean as a custom string.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static bool GetBooleanCustomString(string s, string t) {
             return (s == t) ? true : false;
         }
 
@@ -48,8 +51,7 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static string BoolToString(bool b)
-        {
+        public static string BoolToString(bool b) {
             return (b ? "1" : "0");
         }
 
@@ -58,7 +60,7 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public static string BoolToStringInverse(bool b) { 
+        public static string BoolToStringInverse(bool b) {
             return (b ? "0" : "1");
         }
 
@@ -69,8 +71,7 @@ namespace WTDE_Launcher_V3 {
         /// <param name="t"></param>
         /// <param name="f"></param>
         /// <returns></returns>
-        public static string BoolToStringCustom(bool b, string t, string f)
-        {
+        public static string BoolToStringCustom(bool b, string t, string f) {
             return (b ? t : f);
         }
 
@@ -89,21 +90,17 @@ namespace WTDE_Launcher_V3 {
         /// <returns>
         ///  Returns the requested value as a string. Returns a string of "0" when not found.
         /// </returns>
-        public static string GetINIValue(string sect, string opt, string fallback = "0")
-        {
+        public static string GetINIValue(string sect, string opt, string fallback = "0") {
             // Initialize MadMilkman's INI library, load GHWTDE.ini.
             IniFile file = new IniFile();
             file.Load(V3LauncherConstants.WTDEConfigDir);
 
             // Look for the option we specified in the arguments.
-            foreach (var section in file.Sections)
-            {
-                if (section.Name == sect)
-                {
-                    foreach (var key in section.Keys)
-                    {
-                        if (key.Name == opt)
-                        {
+            foreach (var section in file.Sections) {
+                if (section.Name == sect) {
+                    foreach (var key in section.Keys) {
+                        if (key.Name == opt) {
+                            V3LauncherCore.AddDebugEntry($"Reading value of {opt} in {sect}, found {key.Value}", "INI Functions");
                             return key.Value.ToString();
                         }
                     }
@@ -113,6 +110,8 @@ namespace WTDE_Launcher_V3 {
             // If option doesn't exist, write it as a fallback.
             if (!file.Sections.Contains(sect)) file.Sections.Add(sect);
             if (!file.Sections[sect].Keys.Contains(opt)) file.Sections[sect].Keys.Add(opt);
+
+            V3LauncherCore.AddDebugEntry($"Reading value of {opt} in {sect}; option not found, using fallback value {fallback}", "INI Functions");
 
             file.Sections[sect].Keys[opt].Value = fallback;
             file.Save(V3LauncherConstants.WTDEConfigDir);
@@ -131,13 +130,14 @@ namespace WTDE_Launcher_V3 {
         /// <param name="value">
         ///  Value to assign to this option.
         /// </param>
-        public static void SaveINIValue(string section, string key, string value)
-        {
+        public static void SaveINIValue(string section, string key, string value) {
             IniFile file = new IniFile();
             file.Load(V3LauncherConstants.WTDEConfigDir);
 
             if (!file.Sections.Contains(section)) file.Sections.Add(section);
             if (!file.Sections[section].Keys.Contains(key)) file.Sections[section].Keys.Add(key);
+
+            V3LauncherCore.AddDebugEntry($"Saving value {value} to {key} in {section} of GHWTDE.ini", "INI Functions");
 
             file.Sections[section].Keys[key].Value = value;
             file.Save(V3LauncherConstants.WTDEConfigDir);
@@ -158,25 +158,15 @@ namespace WTDE_Launcher_V3 {
         ///  Values that will potentially be given back.
         /// </param>
         /// <returns></returns>
-        public static string InterpretINISetting(string value, string[] inValues, string[] outValues)
-        {
+        public static string InterpretINISetting(string value, string[] inValues, string[] outValues) {
             if (inValues.Length != outValues.Length) throw new Exception("The input values and output values do not equal each other in length.");
 
-            for (var i = 0; i < inValues.Length; i++)
-            {
+            for (var i = 0; i < inValues.Length; i++) {
                 if (inValues[i] == value) {
                     return outValues[i].ToString();
                 }
             }
             return "";
         }
-
-        /// <summary>
-        ///  QPO difficulties names. | Index 0: Option names | Index 1: INI option values
-        /// </summary>
-        public static string[][] QPODifficulties = {
-            new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
-            new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" }
-        };
     }
 }

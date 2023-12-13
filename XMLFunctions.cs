@@ -12,6 +12,7 @@ using System.Xml;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using System.IO;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>

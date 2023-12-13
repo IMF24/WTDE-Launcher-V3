@@ -202,7 +202,7 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public static string[][] VenueIDs = {
             // Venue literal names
-            new string[] { 
+            new string[] {
                 "WT: Phi Psi Kappa",
                 "WT: Wilted Orchid",
                 "WT: Bone Church",

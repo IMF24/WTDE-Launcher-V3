@@ -6,25 +6,49 @@
 //    the code for update checking, mod folder scanning, etc.
 // ----------------------------------------------------------------------------
 using System;
-using System.Security.Cryptography;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
-using System.Diagnostics;
-using MadMilkman.Ini;
+using System.Windows.Forms;
 
 namespace WTDE_Launcher_V3 {
-    /// <summary>
-    ///  Internal class of important functions used by the V3 launcher. This has
-    ///  the code for update checking, mod folder scanning, etc.
-    /// </summary>
     internal class V3LauncherCore {
+        /// <summary>
+        ///  Internal debug log written by the V3 Launcher. Writes to debug_launcher.txt in the user's Documents folder.
+        /// </summary>
+        public static List<string> DebugLog = new List<string> {
+            "~=-=~=-=~      W T D E     L A U N C H E R     V 3      ~=-=~=-=~",
+            $"WTDE Launcher Execution Debug Log: V{V3LauncherConstants.VERSION}",
+            $"Date of Execution: {DateTime.Now.ToString()}",
+            "~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~"
+        };
+
+        /// <summary>
+        ///  Add entry to the debug log. Prefix is surrounded in square brackets ( [] ).
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <param name="prefix"></param>
+        public static void AddDebugEntry(string entry, string prefix = "V3 Launcher") {
+            DebugLog.Add($"[{prefix}] {entry}");
+        }
+
+        /// <summary>
+        ///  Write the V3 launcher's debug log to the Logs directory in Documents.
+        /// </summary>
+        public static void WriteDebugLog() {
+            string saveDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Logs/debug_launcher.txt";
+            using (StreamWriter sw = new StreamWriter(saveDir)) {
+                foreach (string line in DebugLog) sw.WriteLine(line);
+            }
+        }
+
         /// <summary>
         ///  Using MD5 hash checks, checks for updates to GHWT: DE.
         /// </summary>
-        public static bool CheckForUpdates() {
+        public static void CheckForUpdates() {
             // Does updater not exist?
             if (!File.Exists("Updater.exe")) {
                 // Attempt to download the updater files.
@@ -36,6 +60,15 @@ namespace WTDE_Launcher_V3 {
                             client.DownloadFile("https://ghwt.de/meta/Updater.exe", "Updater.exe");
                             client.DownloadFile("https://ghwt.de/meta/libcurl.dll", "libcurl.dll");
                         }
+
+                        // Also write a new INI file (Updater.ini) in this folder.
+                        if (!File.Exists("Updater.ini")) {
+                            using (StreamWriter sw = new StreamWriter("Updater.ini")) {
+                                sw.WriteLine("[Updater]");
+                                sw.WriteLine($"GameDirectory={Directory.GetCurrentDirectory()}\nAutoUpdate=1\nStartAfterFinish=1");
+                            }
+                        }
+
                         string updaterFilesDownloaded = "All files were downloaded!\n\n" +
                                                         "If the program fails to begin the update due to a virus flag, it is" +
                                                         "a FALSE POSITIVE! You might have to allow these files in Windows or" +
@@ -44,259 +77,80 @@ namespace WTDE_Launcher_V3 {
                     } catch (Exception exc) {
                         MessageBox.Show($"An error occurred in downloading the files:\n\n{exc}", "Download Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                } else return false;
-            }
-
-            // Get the MD5 hash of tb.pab.xen in the user's GHWT install folder.\
-            string userMD5 = "";
-            string repoMD5 = "";
-            string latestVersion = "";
-            using (var md5 = MD5.Create()) { 
-                using (var file = File.OpenRead("DATA/PAK/tb.pab.xen")) {
-                    var hash = md5.ComputeHash(file);
-                    userMD5 = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
-
-            // Now we want the MD5 hash from the Git repository.
-            try {
-                using (WebClient client = new WebClient()) {
-                    // We have the hash list string, let's split it at the newlines and find tb.pab.xen in the list.
-                    string downloadString = client.DownloadString("https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat");
-                    string[] downloadLines = downloadString.Split(new char[] { '\r', '\n' });
-
-                    latestVersion = downloadLines[1];
-
-                    bool foundTB = false;
-
-                    foreach (string line in downloadLines) {
-                        // Is this file tb.pab?
-                        if (line.Contains("tb.pab.xen")) {
-                            foundTB = true;
-                            continue;
-                        }
-
-                        // We found tb.pab!
-                        if (foundTB) {
-                            repoMD5 = line;
-                            break;
-                        }
-                    }
-                }
-            // If the user is not connected to the internet, show error message.
-            } catch {
-                MessageBox.Show("No internet connection was found!", "Can't Update!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            Debug.WriteLine($"user MD5 hash: {userMD5}");
-            Debug.WriteLine($"repo MD5 hash: {repoMD5}");
-
-            // Are these hashes the same?
-            if (userMD5.ToUpper() == repoMD5.ToUpper()) {
-                // They are, we're good!
-                MessageBox.Show("You're already up to date!", "Update Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else {
-                // Does the user want to update?
-                string askUpdateMessage = $"A new version of WTDE is available!\nThe latest version is {latestVersion}.\n\nDo you want to update now?";
-                if (MessageBox.Show(askUpdateMessage, "Update WTDE?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    System.Diagnostics.Process.Start("Updater.exe");
-                }
-            }
-
-            return true;
         }
 
         /// <summary>
-        ///  Get the latest version of WTDE from the public Git repository.
+        ///  Returns the MOTD text from the GHWT: DE website. This content is located at https://ghwt.de/meta/motd.txt. Returns placeholder
+        ///  MOTD upon failure to establish an internet connection.
+        /// </summary>
+        /// <returns>
+        ///  String of text containing the MOTD. Gives back fallback MOTD if it fails.
+        /// </returns>
+        public static string GetMOTDText() {
+            try {
+                using (WebClient client = new WebClient()) {
+                    string downloadString = client.DownloadString("https://ghwt.de/meta/motd.txt");
+                    return downloadString;
+                }
+            } catch {
+                string retnString = "MOTD not found, call IMF!\n\nIf you're seeing this, it means we probably couldn't establish a connection to the internet.";
+                return retnString;
+            }
+        }
+
+        /// <summary>
+        ///  Opens a specific website. This handles all the complicated stuff to do this.
+        /// </summary>
+        /// <param name="site"></param>
+        public static void OpenSiteURL(string site) {
+            var url = site;
+            var psi = new System.Diagnostics.ProcessStartInfo();
+            psi.UseShellExecute = true;
+            psi.FileName = url;
+            System.Diagnostics.Process.Start(psi);
+        }
+
+        /// <summary>
+        ///  Get the latest version of WTDE from the hashlist.
         /// </summary>
         /// <returns></returns>
         public static string GetLatestVersion() {
-            try {
-                using (WebClient client = new WebClient()) {
-                    // We have the hash list string, let's split it at the newlines and find whatever the latest version number is.
-                    string downloadString = client.DownloadString("https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat");
-                    string[] downloadLines = downloadString.Split(new char[] { '\r', '\n' });
-                    // Index 1 (2nd item) is always the version number.
-                    return downloadLines[1];
-                }
-            // If the user is not connected to the internet, show error message.
-            } catch {
-                // MessageBox.Show("No internet connection was found!", "Can't Update!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return "??? (connect to internet)";
+            using (WebClient client = new WebClient()) {
+                string downloadString = client.DownloadString("https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat");
+                return downloadString.Split('\n')[1];
             }
         }
-
-        /// <summary>
-        ///  List of file types the V3 launcher will use in the DynamicTextBoxUpdate function.
-        /// </summary>
-        public enum FileFilterTypes {
-            INI = 0,
-            Folder = 1
-        }
-
-        /// <summary>
-        ///  List of different mod types as an enum.
-        /// </summary>
-        public enum ModINITypes {
-            /// <summary>
-            ///  Song mod types.
-            /// </summary>
-            Song = 0,
-            /// <summary>
-            ///  Character mod types.
-            /// </summary>
-            Character = 1,
-            /// <summary>
-            ///  Instrument mod types.
-            /// </summary>
-            Instrument = 2,
-            /// <summary>
-            ///  Highway mod types.
-            /// </summary>
-            Highway = 3,
-            /// <summary>
-            ///  Venue mod types.
-            /// </summary>
-            Venue = 4,
-            /// <summary>
-            ///  Menu music mod types.
-            /// </summary>
-            MenuMusic = 5,
-            /// <summary>
-            ///  Song category mod types.
-            /// </summary>
-            Category = 6,
-            /// <summary>
-            ///  Gem theme mod types.
-            /// </summary>
-            Gems = 7,
-            /// <summary>
-            ///  Code script mod types.
-            /// </summary>
-            Script = 8
-        }
-
-        /// <summary>
-        ///  Read data from a file or folder dialog, then update the given TextBox control.
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="tb"></param>
-        public static void DynamicTextBoxUpdate(string initialDir, int filter, string title, int type, TextBox tb) {
-            switch (type) {
-                // INI file mode.
-                case 0:
-                    OpenFileDialog openFileDialog = new OpenFileDialog();
-                    openFileDialog.Title = title;
-                    openFileDialog.InitialDirectory = initialDir;
-                    // Set the filter based on our preferences.
-                    switch (filter) {
-                        case 0:
-                            openFileDialog.Filter = "Song Mod INIs (song.ini)|*song.ini";
-                            break;
-
-                        case 1:
-                            openFileDialog.Filter = "Character Mod INIs (character.ini)|*character.ini";
-                            break;
-
-                        case 2:
-                            openFileDialog.Filter = "Instrument Mod INIs (instrument.ini)|*instrument.ini";
-                            break;
-
-                        case 3:
-                            openFileDialog.Filter = "Highway Mod INIs (highway.ini)|*highway.ini";
-                            break;
-
-                        case 4:
-                            openFileDialog.Filter = "Venue Mod INIs (venue.ini)|*venue.ini";
-                            break;
-
-                        case 5:
-                            openFileDialog.Filter = "Menu Music Mod INIs (menumusic.ini)|*menumusic.ini";
-                            break;
-
-                        case 6:
-                            openFileDialog.Filter = "Song Category Mod INIs (category.ini)|*category.ini";
-                            break;
-
-                        case 7:
-                            openFileDialog.Filter = "Gem Mod INIs (gems.ini)|*gems.ini";
-                            break;
-
-                        case 8:
-                            openFileDialog.Filter = "Script Mod INIs (Mod.ini)|*Mod.ini";
-                            break;
-
-                        default:
-                            openFileDialog.Filter = "INI Files (*.ini)|*.ini";
-                            break;
-                    }
-
-                    if (openFileDialog.ShowDialog() != DialogResult.OK) return;
-
-                    // Get INI contents.
-                    IniFile file = new IniFile();
-                    file.Load(openFileDialog.FileName);
-
-                    // Update text box with correct data.
-                    switch (filter) {
-                        case 0:
-                            tb.Text = file.Sections["SongInfo"].Keys["Checksum"].Value;
-                            break;
-
-                        case 1:
-                            tb.Text = file.Sections["CharacterInfo"].Keys["Name"].Value;
-                            break;
-
-                        case 2:
-                            tb.Text = file.Sections["InstrumentInfo"].Keys["Name"].Value;
-                            break;
-
-                        case 3:
-                            tb.Text = file.Sections["HighwayInfo"].Keys["Name"].Value;
-                            break;
-
-                        case 4:
-                            tb.Text = file.Sections["VenueInfo"].Keys["PakPrefix"].Value;
-                            break;
-
-                        case 5:
-                            tb.Text = file.Sections["MenuMusicInfo"].Keys["FSBName"].Value;
-                            break;
-
-                        case 6:
-                            tb.Text = file.Sections["CategoryInfo"].Keys["Name"].Value;
-                            break;
-
-                        case 7:
-                            tb.Text = file.Sections["GemInfo"].Keys["Name"].Value;
-                            break;
-
-                        case 8: default:
-                            tb.Text = "";
-                            break;
-                    }
-                    
-                    break;
-
-                // Folder mode.
-                case 1:
-                    FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                    
-                    if (folderBrowserDialog.ShowDialog() != DialogResult.OK) return;
-
-                    tb.Text = folderBrowserDialog.ToString().Replace("\\", "/").Split("/").Last();
-
-                    break;
-            }
-        }
-
-        public static void AspyrInputEncode() {
         
-        }
+        /// <summary>
+        ///  Update the form with the correct window title based on the various seasonal themes.
+        /// </summary>
+        /// <param name="form"></param>
+        public static void SetWindowTitle(System.Windows.Forms.Form form) {
+            // Random number selection.
+            Random random = new Random();
+            int selectedID;
 
-        public static void AspyrInputDecode() {
+            // What is the current month?
+            switch (DateTime.Now.Month) {
+                case 10:
+                    selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitlesHW.Length);
+                    form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitlesHW[selectedID]}";
+                    break;
 
+                case 12:
+                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25) {
+                        selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitlesXM.Length);
+                        form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitlesXM[selectedID]}";
+                    }
+                    break;
+
+                default:
+                    selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitles.Length);
+                    form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitles[selectedID]}";
+                    break;
+            }
         }
     }
 }

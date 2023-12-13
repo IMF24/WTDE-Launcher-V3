@@ -1,7 +1,0 @@
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\WTDE-Launcher-V3.exe
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\WTDE-Launcher-V3.dll
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\WTDE-Launcher-V3.deps.json
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\WTDE-Launcher-V3.runtimeconfig.json
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\WTDE-Launcher-V3.dll.config
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\WTDE-Launcher-V3.pdb
-C:\Users\ifire\Desktop\WTDE Launcher V3 Test Builds\MadMilkman.Ini.dll

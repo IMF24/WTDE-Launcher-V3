@@ -20,6 +20,11 @@ namespace WTDE_Launcher_V3 {
     /// </summary>
     internal class BGConstants {
         /// <summary>
+        ///  What is the current background?
+        /// </summary>
+        public static int BGIndex = 0;
+
+        /// <summary>
         ///  List of backgrounds. This is handled in the background swapper. THESE MUST BE INDEXED PROPERLY!
         /// </summary>
         public static System.Drawing.Bitmap[] V3LauncherBackgrounds = {
@@ -41,7 +46,7 @@ namespace WTDE_Launcher_V3 {
         ///  List of authors of the backgrounds. THESE MUST BE INDEXED PROPERLY!
         /// </summary>
         public static string[] V3LauncherBGAuthors = {
-            "Fox (FoxJudy)",
+            "Fox (FoxInari)",
             "IMF24",
             "Derpytron84",
             "blu2.rph",
@@ -72,5 +77,103 @@ namespace WTDE_Launcher_V3 {
             "https://youtube.com/@raccoon_333",
             "https://youtube.com/@DerpyTheShreddingProto"
         };
+
+        /// <summary>
+        ///  List of WTDE logo images. These changed based on the time of year.
+        /// </summary>
+        public static System.Drawing.Bitmap[] LogoImages = {
+            Properties.Resources.logo_wtde,
+            Properties.Resources.logo_hw,
+            Properties.Resources.logo_xm
+        };
+
+        /// <summary>
+        ///  Update the background and logo image based on the time of year of BG artists' birthdays!
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="label"></param>
+        public static void AutoDateBackground(System.Windows.Forms.Form form, System.Windows.Forms.Label label, System.Windows.Forms.PictureBox pictureBox) {
+            // What month is it?
+            switch (DateTime.Now.Month) {
+                // Halloween logo and background.
+                case 10:
+                    form.BackgroundImage = Properties.Resources.bg_1_hw;
+                    V3LauncherBackgrounds[0] = Properties.Resources.bg_1_hw;
+                    pictureBox.Image = LogoImages[1];
+                    break;
+
+                // Christmas logo and background.
+                case 12:
+                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25) {
+                        form.BackgroundImage = Properties.Resources.bg_1_xm;
+                        V3LauncherBackgrounds[0] = Properties.Resources.bg_1_xm;
+                        pictureBox.Image = LogoImages[2];
+                    }
+                    break;
+            }
+
+            // Now, who's birthday is it?
+            switch (DateTime.Now.Month) {
+                // Blu's background
+                case 1:
+                    if (DateTime.Now.Day == 23) {
+                        BGIndex = 3;
+                    }
+                    break;
+
+                // Cobalt's background
+                case 3:
+                    if (DateTime.Now.Day == 5) {
+                        BGIndex = 6;
+                    }
+                    break;
+
+                case 4:
+                    // IMF's background
+                    if (DateTime.Now.Day == 14) {
+                        BGIndex = 1;
+                    }
+
+                    // INF3CT0R's background
+                    if (DateTime.Now.Day == 20) {
+                        BGIndex = 5;
+                    }
+                    break;
+
+                // Hex's background
+                case 5:
+                    if (DateTime.Now.Day == 3) {
+                        BGIndex = 7;
+                    }
+                    break;
+
+                // Derpy's background
+                case 6:
+                    if (DateTime.Now.Day == 2) {
+                        BGIndex = 11;
+                    }
+                    break;
+
+                // Fox's background
+                case 8:
+                    if (DateTime.Now.Day == 7) {
+                        BGIndex = 0;
+                    }
+                    break;
+
+                // DanRock's background
+                case 9:
+                    if (DateTime.Now.Day == 22) {
+                        BGIndex = 4;
+                    }
+                    break;
+            }
+
+            form.BackgroundImage = V3LauncherBackgrounds[BGIndex];
+
+            label.Text = label.Text.Replace("ABC", V3LauncherConstants.VERSION);
+            label.Text = label.Text.Replace("BG_AUTHOR", V3LauncherBGAuthors[BGIndex]);
+            label.Text = label.Text.Replace("LATEST_VERSION", V3LauncherCore.GetLatestVersion());
+        }
     }
 }
