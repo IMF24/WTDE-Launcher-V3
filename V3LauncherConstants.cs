@@ -4,6 +4,9 @@
 //
 //    Internal class of constants for the V3 launcher. Contains locations of
 //    necessary config files, and other various constant variables.
+//
+//    We primarily won't be changing these. If we do, we'll change anything at
+//    start up, then leave them be from there on.
 // ----------------------------------------------------------------------------
 // Various imports. We might not need all these, but it's nice to have them.
 using System;
@@ -329,19 +332,115 @@ namespace WTDE_Launcher_V3 {
         };
 
         /// <summary>
-        ///  List of instruments and instrument IDs. | Index 0: Instrument part names | Index 1: Internal referents
+        ///  List of keyboard keys and their internal Aspyr numerical IDs.
         /// </summary>
-        public static string[][] AutoLaunchParts = {
-            new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" },
-            new string[] { "guitar", "bass", "drum", "vocals" }
-        };
-
-        /// <summary>
-        ///  List of difficulties and difficulty IDs. | Index 0: Difficulty names | Index 1: Internal referents
-        /// </summary>
-        public static string[][] AutoLaunchDifficulties = {
-            new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
-            new string[] { "beginner", "easy", "medium", "hard", "expert" }
+        public static string[][] AspyrKeyBinds = {
+            new string[] { "999", "Esc" },
+            new string[] { "237", "F1" },
+            new string[] { "238", "F2" },
+            new string[] { "239", "F3" },
+            new string[] { "240", "F4" },
+            new string[] { "241", "F5" },
+            new string[] { "242", "F6" },
+            new string[] { "243", "F7" },
+            new string[] { "244", "F8" },
+            new string[] { "245", "F9" },
+            new string[] { "246", "F10" },
+            new string[] { "247", "F11" },
+            new string[] { "248", "F12" },
+            new string[] { "321", "PrScr" },
+            new string[] { "314", "ScrLck" },
+            new string[] { "298", "Pause" },
+            new string[] { "253", "~" },
+            new string[] { "200", "0" },
+            new string[] { "201", "1" },
+            new string[] { "202", "2" },
+            new string[] { "203", "3" },
+            new string[] { "204", "4" },
+            new string[] { "205", "5" },
+            new string[] { "206", "6" },
+            new string[] { "207", "7" },
+            new string[] { "208", "8" },
+            new string[] { "209", "9" },
+            new string[] { "219", "BckSpc" },
+            new string[] { "235", "Accent" },
+            new string[] { "257", "Ins" },
+            new string[] { "229", "Del" },
+            new string[] { "255", "Home" },
+            new string[] { "233", "End" },
+            new string[] { "303", "PgUp" },
+            new string[] { "278", "PgDn" },
+            new string[] { "281", "NumLck" },
+            new string[] { "282", "Num0" },
+            new string[] { "283", "Num1" },
+            new string[] { "284", "Num2" },
+            new string[] { "285", "Num3" },
+            new string[] { "286", "Num4" },
+            new string[] { "287", "Num5" },
+            new string[] { "288", "Num6" },
+            new string[] { "289", "Num7" },
+            new string[] { "290", "Num8" },
+            new string[] { "291", "Num9" },
+            new string[] { "213", "Num+" },
+            new string[] { "320", "Num-" },
+            new string[] { "274", "Num*" },
+            new string[] { "230", "Num/" },
+            new string[] { "293", "NumEnt" },
+            new string[] { "228", "NumDel" },
+            new string[] { "323", "Tab" },
+            new string[] { "304", "Q" },
+            new string[] { "331", "W" },
+            new string[] { "232", "E" },
+            new string[] { "305", "R" },
+            new string[] { "322", "T" },
+            new string[] { "341", "Y" },
+            new string[] { "324", "U" },
+            new string[] { "256", "I" },
+            new string[] { "295", "O" },
+            new string[] { "297", "P" },
+            new string[] { "263", "[" },
+            new string[] { "306", "]" },
+            new string[] { "220", "\"" },
+            new string[] { "273", "-" },
+            new string[] { "234", "=" },
+            new string[] { "223", "Caps" },
+            new string[] { "210", "A" },
+            new string[] { "313", "S" },
+            new string[] { "227", "D" },
+            new string[] { "236", "F" },
+            new string[] { "252", "G" },
+            new string[] { "254", "H" },
+            new string[] { "258", "J" },
+            new string[] { "259", "K" },
+            new string[] { "262", "L" },
+            new string[] { "345", ";" },
+            new string[] { "214", "'" },
+            new string[] { "308", "Enter" },
+            new string[] { "267", "LShift" },
+            new string[] { "343", "Z" },
+            new string[] { "340", "X" },
+            new string[] { "221", "C" },
+            new string[] { "328", "V" },
+            new string[] { "218", "B" },
+            new string[] { "330", "B" },
+            new string[] { "277", "N" },
+            new string[] { "269", "M" },
+            new string[] { "225", "," },
+            new string[] { "299", "." },
+            new string[] { "316", "?" },
+            new string[] { "311", "RShift" },
+            new string[] { "264", "LCtrl" },
+            new string[] { "266", "LAlt" },
+            new string[] { "318", "Space" },
+            new string[] { "310", "RAlt" },
+            new string[] { "307", "RCtrl" },
+            new string[] { "327", "Up" },
+            new string[] { "231", "Down" },
+            new string[] { "265", "Left" },
+            new string[] { "309", "Right" },
+            new string[] { "400", "LMB" },
+            new string[] { "401", "RMB" },
+            new string[] { "402", "MMB" }
         };
     }
 }

@@ -82,6 +82,14 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
+        ///  Automatically run an update check when the launcher starts up, if designated.
+        /// </summary>
+        public static void AutoCheckForUpdates() {
+            bool autoUpdate = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));
+            if (autoUpdate) CheckForUpdates();
+        }
+
+        /// <summary>
         ///  Returns the MOTD text from the GHWT: DE website. This content is located at https://ghwt.de/meta/motd.txt. Returns placeholder
         ///  MOTD upon failure to establish an internet connection.
         /// </summary>
@@ -151,6 +159,67 @@ namespace WTDE_Launcher_V3 {
                     form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitles[selectedID]}";
                     break;
             }
+        }
+
+        /// <summary>
+        ///  Returns true or false if a string contains only numeric digits.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsDigitsOnly(string str) {
+            foreach (char c in str) {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        ///  Take an Aspyr keyboard mapping string and decode a specific input from it.
+        /// </summary>
+        /// <param name="sIDKeyBindString"></param>
+        /// <param name="inputKey"></param>
+        /// <returns>
+        ///  Returns a set of decoded keyboard inputs from the given string.
+        /// </returns>
+        public static string AspyrKeyDecode(string sIDKeyBindString, string inputKey) {
+            // Initial boiler plate stuff; key bind string being split at whitespaces, you get the idea.
+            string bindString = XMLFunctions.AspyrGetString(sIDKeyBindString);
+            string[] inputs = bindString.Split(' ');
+            inputKey = inputKey.ToUpper();
+
+            bool inputFound = false;
+            string returnString = "";
+
+            // Let's decode the inputs now!
+            for (var i = 0; i < inputs.Length; i++) {
+                // Have we found the input we want?
+                if (inputFound) {
+                    // Have we found an input we DO NOT want?
+                    if (!IsDigitsOnly(inputs[i]) && inputs[i].ToUpper() != inputKey) {
+                        break;
+                    }
+
+                    // Take the string and figure out what number corresponds to what input.
+                    if (IsDigitsOnly(inputs[i].Trim())) {
+                        foreach (string[] keyPair in V3LauncherConstants.AspyrKeyBinds) {
+                            if (keyPair[0] == inputs[i]) {
+                                returnString += keyPair[1] + " ";
+                                break;
+                            }
+                        }
+                    }
+
+                // Is this the input we want?
+                } else {
+                    if (inputs[i].ToUpper() == inputKey) inputFound = true;
+                }
+            }
+            // Add debug log entry and return the string!
+            returnString = returnString.Trim();
+            AddDebugEntry($"Aspyr key string {sIDKeyBindString} decoded inputs for input {inputKey}: {returnString}", "Aspyr Keybind Decoder");
+            return returnString;
         }
     }
 }

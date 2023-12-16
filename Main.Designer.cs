@@ -281,6 +281,7 @@
             this.CheckUpdatesButton.TabIndex = 7;
             this.CheckUpdatesButton.Text = "Check For Updates";
             this.CheckUpdatesButton.UseVisualStyleBackColor = false;
+            this.CheckUpdatesButton.Click += new System.EventHandler(this.CheckUpdatesButton_Click);
             // 
             // FretworksLogo
             // 
@@ -1028,6 +1029,7 @@
             this.PreferredStage.Name = "PreferredStage";
             this.PreferredStage.Size = new System.Drawing.Size(190, 23);
             this.PreferredStage.TabIndex = 32;
+            this.PreferredStage.SelectedIndexChanged += new System.EventHandler(this.PreferredStage_SelectedIndexChanged);
             // 
             // TBPrefStageLabel
             // 
@@ -1083,6 +1085,7 @@
             this.PreferredDrummerHighway.Name = "PreferredDrummerHighway";
             this.PreferredDrummerHighway.Size = new System.Drawing.Size(167, 23);
             this.PreferredDrummerHighway.TabIndex = 26;
+            this.PreferredDrummerHighway.TextChanged += new System.EventHandler(this.PreferredDrummerHighway_TextChanged);
             // 
             // TBPDHLabel
             // 
@@ -1138,6 +1141,7 @@
             this.PreferredBassistHighway.Name = "PreferredBassistHighway";
             this.PreferredBassistHighway.Size = new System.Drawing.Size(167, 23);
             this.PreferredBassistHighway.TabIndex = 20;
+            this.PreferredBassistHighway.TextChanged += new System.EventHandler(this.PreferredBassistHighway_TextChanged);
             // 
             // TBPBHLabel
             // 
@@ -1193,6 +1197,7 @@
             this.PreferredGuitaristHighway.Name = "PreferredGuitaristHighway";
             this.PreferredGuitaristHighway.Size = new System.Drawing.Size(167, 23);
             this.PreferredGuitaristHighway.TabIndex = 14;
+            this.PreferredGuitaristHighway.TextChanged += new System.EventHandler(this.PreferredGuitaristHighway_TextChanged);
             // 
             // TBPGHLabel
             // 
@@ -1255,6 +1260,7 @@
             this.BassStrumAnim.Name = "BassStrumAnim";
             this.BassStrumAnim.Size = new System.Drawing.Size(150, 23);
             this.BassStrumAnim.TabIndex = 7;
+            this.BassStrumAnim.SelectedIndexChanged += new System.EventHandler(this.BassStrumAnim_SelectedIndexChanged);
             // 
             // GuitarStrumAnim
             // 
@@ -1269,6 +1275,7 @@
             this.GuitarStrumAnim.Name = "GuitarStrumAnim";
             this.GuitarStrumAnim.Size = new System.Drawing.Size(150, 23);
             this.GuitarStrumAnim.TabIndex = 6;
+            this.GuitarStrumAnim.SelectedIndexChanged += new System.EventHandler(this.GuitarStrumAnim_SelectedIndexChanged);
             // 
             // TBPrefGtrLabel
             // 

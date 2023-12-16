@@ -51,6 +51,11 @@ namespace WTDE_Launcher_V3 {
             LoadINISettings();
             V3LauncherCore.SetWindowTitle(this);
             BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
+
+            Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
+
+            // Should we automatically update when the program starts?
+            V3LauncherCore.AutoCheckForUpdates();
         }
         
         /// <summary>
@@ -383,6 +388,10 @@ namespace WTDE_Launcher_V3 {
             else UpdateActiveTab((int)LauncherTabs.MOTD);
         }
 
+        private void CheckUpdatesButton_Click(object sender, EventArgs e) {
+            V3LauncherCore.CheckForUpdates();
+        }
+
         private void VersionInfoLabel_Click(object sender, EventArgs e) {
             // Which mouse button did we push?
             MouseEventArgs me = (MouseEventArgs) e;
@@ -505,6 +514,10 @@ namespace WTDE_Launcher_V3 {
 
         #endregion
 
+        // ----------------------------------------------------------
+        // BAND TAB AUTO UPDATE
+        // ----------------------------------------------------------
+        #region Band Tab Auto Update
         private void PreferredGuitarist_TextChanged(object sender, EventArgs e) {
             try {
                 INIFunctions.SaveINIValue("Band", "PreferredGuitarist", PreferredGuitarist.Text);
@@ -536,5 +549,45 @@ namespace WTDE_Launcher_V3 {
                 V3LauncherCore.AddDebugEntry(exc.ToString(), "Internal Error");
             }
         }
+
+        private void PreferredGuitaristHighway_TextChanged(object sender, EventArgs e) {
+            try {
+                INIFunctions.SaveINIValue("Band", "PreferredGuitaristHighway", PreferredGuitaristHighway.Text);
+            } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry(exc.ToString(), "Internal Error");
+            }
+        }
+
+        private void PreferredBassistHighway_TextChanged(object sender, EventArgs e) {
+            try {
+                INIFunctions.SaveINIValue("Band", "PreferredBassistHighway", PreferredBassistHighway.Text);
+            } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry(exc.ToString(), "Internal Error");
+            }
+        }
+
+        private void PreferredDrummerHighway_TextChanged(object sender, EventArgs e) {
+            try {
+                INIFunctions.SaveINIValue("Band", "PreferredDrummerHighway", PreferredDrummerHighway.Text);
+            } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry(exc.ToString(), "Internal Error");
+            }
+        }
+
+        private void PreferredStage_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Band", "PreferredStage", INIFunctions.InterpretINISetting(PreferredStage.Text,
+                V3LauncherConstants.VenueIDs[0], V3LauncherConstants.VenueIDs[1]));
+        }
+
+        private void GuitarStrumAnim_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Band", "GuitarStrumAnim", INIFunctions.InterpretINISetting(GuitarStrumAnim.Text,
+                new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" }, new string[] { "none", "ghm" }));
+        }
+
+        private void BassStrumAnim_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Band", "BassStrumAnim", INIFunctions.InterpretINISetting(BassStrumAnim.Text,
+                new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" }, new string[] { "none", "ghm" }));
+        }
+        #endregion
     }
 }
