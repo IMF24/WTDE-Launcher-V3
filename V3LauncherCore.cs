@@ -15,6 +15,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WTDE_Launcher_V3 {
+    /// <summary>
+    ///  Internal class of important functions used by the V3 launcher. This has
+    ///  the code for update checking, mod folder scanning, etc.
+    /// </summary>
     internal class V3LauncherCore {
         /// <summary>
         ///  Internal debug log written by the V3 Launcher. Writes to debug_launcher.txt in the user's Documents folder.

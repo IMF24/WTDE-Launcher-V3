@@ -1,22 +1,22 @@
-﻿/* -----------------------------------------------------------------------------------------------
+﻿/* ------------------------------------------------------------------------------------------------
      __    __  _____  ___  __        __    _             __  ___         __  __            _____ 
     / / /\ \ \/__   \/   \/__\      / /   /_\  /\ /\  /\ \ \/ __\ /\  /\/__\/__\    /\   /\___ / 
     \ \/  \/ /  / /\/ /\ /_\       / /   //_\\/ / \ \/  \/ / /   / /_/ /_\ / \//    \ \ / / |_ \ 
      \  /\  /  / / / /_///__      / /___/  _  \ \_/ / /\  / /___/ __  //__/ _  \     \ V / ___) |
       \/  \/   \/ /___,'\__/      \____/\_/ \_/\___/\_\ \/\____/\/ /_/\__/\/ \_/      \_/ |____/ 
-                                                                                             
+    
     GHWT: Definitive Edition Launcher Version 3 - By IMF24
      - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+    
     The 3rd generation launcher program for Guitar Hero World Tour: Definitive Edition, but now
     expanded even further and made as pretty as Uzis' original launcher!
-
+    
     This time, this isn't a Python program, it's now written in C#! That's right, we've moved
     away from Python, and we're moving the launcher BACK to the C# language, built on the .NET
     framework. All the functionality of the V2 launcher will be re-imported into here, and it
     will also be visually polished to make it look the best it possibly can!
     
------------------------------------------------------------------------------------------------ */
+------------------------------------------------------------------------------------------------ */
 // Various required imports.
 using System;
 using System.Collections.Generic;
@@ -51,8 +51,8 @@ namespace WTDE_Launcher_V3 {
             LoadINISettings();
             V3LauncherCore.SetWindowTitle(this);
             BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
-
-            Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
+    
+            //~ Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
 
             // Should we automatically update when the program starts?
             V3LauncherCore.AutoCheckForUpdates();
@@ -62,8 +62,9 @@ namespace WTDE_Launcher_V3 {
         ///  Load all config data from GHWTDE.ini and AspyrConfig.xml.
         /// </summary>
         public void LoadINISettings() {
-            IniFile file = new IniFile();
-            file.Load(V3LauncherConstants.WTDEConfigDir);
+            // Not needed, we have the INIFunctions class handling this for us!
+            //~ IniFile file = new IniFile();
+            //~ file.Load(V3LauncherConstants.WTDEConfigDir);
 
             // ---------------------------------
             // GENERAL TAB
