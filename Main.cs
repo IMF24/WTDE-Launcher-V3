@@ -617,16 +617,268 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void PrefGtrHwySelectHwy_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitaristHighway, "Select Character Mod Folder");
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitaristHighway, "Select Highway Mod Folder");
         }
 
         private void PrefBasHwySelectHwy_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredBassistHighway, "Select Character Mod Folder");
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredBassistHighway, "Select Highway Mod Folder");
         }
 
         private void PrefDrmHwySelectHwy_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredDrummerHighway, "Select Character Mod Folder");
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredDrummerHighway, "Select Highway Mod Folder");
         }
+
         #endregion
+
+        private void AutoLaunchEnabled_CheckedChanged(object sender, EventArgs e) {
+            TabALMainEditor.Enabled = AutoLaunchEnabled.Checked;
+        }
+
+        private void AutoLaunchPlayers_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Players", AutoLaunchPlayers.Text);
+            // Update selectable player configs.
+            switch (int.Parse(AutoLaunchPlayers.Text)) {
+                case 1:
+                    // -- PLAYER 1 --------------------------
+                    TALPlayer1Label.Enabled = true;
+                    TALP1DLabel.Enabled = true;
+                    TALP1ILabel.Enabled = true;
+
+                    AutoLaunchPart1.Enabled = true;
+                    AutoLaunchDifficulty1.Enabled = true;
+                    AutoLaunchBot1.Enabled = true;
+
+                    // -- PLAYER 2 --------------------------
+                    TALPlayer2Label.Enabled = false;
+                    TALP2DLabel.Enabled = false;
+                    TALP2ILabel.Enabled = false;
+
+                    AutoLaunchPart2.Enabled = false;
+                    AutoLaunchDifficulty2.Enabled = false;
+                    AutoLaunchBot2.Enabled = false;
+
+                    // -- PLAYER 3 --------------------------
+                    TALPlayer3Label.Enabled = false;
+                    TALP3DLabel.Enabled = false;
+                    TALP3ILabel.Enabled = false;
+
+                    AutoLaunchPart3.Enabled = false;
+                    AutoLaunchDifficulty3.Enabled = false;
+                    AutoLaunchBot3.Enabled = false;
+
+                    // -- PLAYER 4 --------------------------
+                    TALPlayer4Label.Enabled = false;
+                    TALP4DLabel.Enabled = false;
+                    TALP4ILabel.Enabled = false;
+
+                    AutoLaunchPart4.Enabled = false;
+                    AutoLaunchDifficulty4.Enabled = false;
+                    AutoLaunchBot4.Enabled = false;
+                    break;
+
+                case 2:
+                    // -- PLAYER 1 --------------------------
+                    TALPlayer1Label.Enabled = true;
+                    TALP1DLabel.Enabled = true;
+                    TALP1ILabel.Enabled = true;
+
+                    AutoLaunchPart1.Enabled = true;
+                    AutoLaunchDifficulty1.Enabled = true;
+                    AutoLaunchBot1.Enabled = true;
+
+                    // -- PLAYER 2 --------------------------
+                    TALPlayer2Label.Enabled = true;
+                    TALP2DLabel.Enabled = true;
+                    TALP2ILabel.Enabled = true;
+
+                    AutoLaunchPart2.Enabled = true;
+                    AutoLaunchDifficulty2.Enabled = true;
+                    AutoLaunchBot2.Enabled = true;
+
+                    // -- PLAYER 3 --------------------------
+                    TALPlayer3Label.Enabled = false;
+                    TALP3DLabel.Enabled = false;
+                    TALP3ILabel.Enabled = false;
+
+                    AutoLaunchPart3.Enabled = false;
+                    AutoLaunchDifficulty3.Enabled = false;
+                    AutoLaunchBot3.Enabled = false;
+
+                    // -- PLAYER 4 --------------------------
+                    TALPlayer4Label.Enabled = false;
+                    TALP4DLabel.Enabled = false;
+                    TALP4ILabel.Enabled = false;
+
+                    AutoLaunchPart4.Enabled = false;
+                    AutoLaunchDifficulty4.Enabled = false;
+                    AutoLaunchBot4.Enabled = false;
+                    break;
+
+                case 3:
+                    // -- PLAYER 1 --------------------------
+                    TALPlayer1Label.Enabled = true;
+                    TALP1DLabel.Enabled = true;
+                    TALP1ILabel.Enabled = true;
+
+                    AutoLaunchPart1.Enabled = true;
+                    AutoLaunchDifficulty1.Enabled = true;
+                    AutoLaunchBot1.Enabled = true;
+
+                    // -- PLAYER 2 --------------------------
+                    TALPlayer2Label.Enabled = true;
+                    TALP2DLabel.Enabled = true;
+                    TALP2ILabel.Enabled = true;
+
+                    AutoLaunchPart2.Enabled = true;
+                    AutoLaunchDifficulty2.Enabled = true;
+                    AutoLaunchBot2.Enabled = true;
+
+                    // -- PLAYER 3 --------------------------
+                    TALPlayer3Label.Enabled = true;
+                    TALP3DLabel.Enabled = true;
+                    TALP3ILabel.Enabled = true;
+
+                    AutoLaunchPart3.Enabled = true;
+                    AutoLaunchDifficulty3.Enabled = true;
+                    AutoLaunchBot3.Enabled = true;
+
+                    // -- PLAYER 4 --------------------------
+                    TALPlayer4Label.Enabled = false;
+                    TALP4DLabel.Enabled = false;
+                    TALP4ILabel.Enabled = false;
+
+                    AutoLaunchPart4.Enabled = false;
+                    AutoLaunchDifficulty4.Enabled = false;
+                    AutoLaunchBot4.Enabled = false;
+                    break;
+
+                case 4:
+                    // -- PLAYER 1 --------------------------
+                    TALPlayer1Label.Enabled = true;
+                    TALP1DLabel.Enabled = true;
+                    TALP1ILabel.Enabled = true;
+
+                    AutoLaunchPart1.Enabled = true;
+                    AutoLaunchDifficulty1.Enabled = true;
+                    AutoLaunchBot1.Enabled = true;
+
+                    // -- PLAYER 2 --------------------------
+                    TALPlayer2Label.Enabled = true;
+                    TALP2DLabel.Enabled = true;
+                    TALP2ILabel.Enabled = true;
+
+                    AutoLaunchPart2.Enabled = true;
+                    AutoLaunchDifficulty2.Enabled = true;
+                    AutoLaunchBot2.Enabled = true;
+
+                    // -- PLAYER 3 --------------------------
+                    TALPlayer3Label.Enabled = true;
+                    TALP3DLabel.Enabled = true;
+                    TALP3ILabel.Enabled = true;
+
+                    AutoLaunchPart3.Enabled = true;
+                    AutoLaunchDifficulty3.Enabled = true;
+                    AutoLaunchBot3.Enabled = true;
+
+                    // -- PLAYER 4 --------------------------
+                    TALPlayer4Label.Enabled = true;
+                    TALP4DLabel.Enabled = true;
+                    TALP4ILabel.Enabled = true;
+
+                    AutoLaunchPart4.Enabled = true;
+                    AutoLaunchDifficulty4.Enabled = true;
+                    AutoLaunchBot4.Enabled = true;
+                    break;
+            }
+        }
+
+        private void AutoLaunchSong_TextChanged(object sender, EventArgs e) {
+            try {
+                INIFunctions.SaveINIValue("AutoLaunch", "Song", AutoLaunchSong.Text);
+            } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry(exc.ToString(), "Internal Error");
+            }
+        }
+
+        private void ALSongSelectINI_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(0, AutoLaunchSong, "Select song.ini File", false, "song.ini Files|*song.ini");
+            IniFile file = new IniFile();
+            file.Load(AutoLaunchSong.Text);
+            AutoLaunchSong.Text = file.Sections["SongInfo"].Keys["Checksum"].Value;
+        }
+
+        private void AutoLaunchVenue_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Venue", INIFunctions.InterpretINISetting(AutoLaunchVenue.Text,
+                V3LauncherConstants.VenueIDs[0], V3LauncherConstants.VenueIDs[1]));
+        }
+
+        private void AutoLaunchPart1_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part", INIFunctions.InterpretINISetting(AutoLaunchPart1.Text,
+                V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+        }
+
+        private void AutoLaunchDifficulty1_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty", AutoLaunchDifficulty1.Text.ToLower());
+        }
+
+        private void AutoLaunchBot1_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot", INIFunctions.BoolToString(AutoLaunchBot1.Checked));
+        }
+
+        private void AutoLaunchPart2_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part2", INIFunctions.InterpretINISetting(AutoLaunchPart2.Text,
+                V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+        }
+
+        private void AutoLaunchDifficulty2_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty2", AutoLaunchDifficulty2.Text.ToLower());
+        }
+
+        private void AutoLaunchBot2_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot2", INIFunctions.BoolToString(AutoLaunchBot2.Checked));
+        }
+
+        private void AutoLaunchPart3_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part3", INIFunctions.InterpretINISetting(AutoLaunchPart3.Text,
+                V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+        }
+
+        private void AutoLaunchDifficulty3_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty3", AutoLaunchDifficulty3.Text.ToLower());
+        }
+
+        private void AutoLaunchBot3_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot3", INIFunctions.BoolToString(AutoLaunchBot3.Checked));
+        }
+
+        private void AutoLaunchPart4_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Part4", INIFunctions.InterpretINISetting(AutoLaunchPart4.Text,
+                V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+        }
+
+        private void AutoLaunchDifficulty4_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty4", AutoLaunchDifficulty4.Text.ToLower());
+        }
+
+        private void AutoLaunchBot4_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot4", INIFunctions.BoolToString(AutoLaunchBot4.Checked));
+        }
+
+        private void AutoLaunchHideHUD_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "HideHUD", INIFunctions.BoolToString(AutoLaunchHideHUD.Checked));
+        }
+
+        private void AutoLaunchSongTime_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "SongTime", INIFunctions.BoolToString(AutoLaunchSongTime.Checked));
+        }
+
+        private void AutoLaunchRawLoad_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "RawLoad", INIFunctions.BoolToString(AutoLaunchRawLoad.Checked));
+        }
+
+        private void AutoLaunchEncoreMode_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked,
+                "last_song", "none"));
+        }
     }
 }

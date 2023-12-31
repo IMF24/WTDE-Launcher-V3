@@ -254,6 +254,9 @@ namespace WTDE_Launcher_V3 {
                     if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25) {
                         selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitlesXM.Length);
                         form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitlesXM[selectedID]}";
+                    } else {
+                        selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitles.Length);
+                        form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitles[selectedID]}";
                     }
                     break;
 

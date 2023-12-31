@@ -332,7 +332,7 @@
             this.TabAutoLaunchGroup.Controls.Add(this.TabALMainEditor);
             this.TabAutoLaunchGroup.Controls.Add(this.AutoLaunchEnabled);
             this.TabAutoLaunchGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(73, 556);
+            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(13, 12);
             this.TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
             this.TabAutoLaunchGroup.Size = new System.Drawing.Size(662, 648);
             this.TabAutoLaunchGroup.TabIndex = 2;
@@ -414,6 +414,7 @@
             this.AutoLaunchEncoreMode.TabIndex = 62;
             this.AutoLaunchEncoreMode.Text = "Last Song Encore";
             this.AutoLaunchEncoreMode.UseVisualStyleBackColor = true;
+            this.AutoLaunchEncoreMode.CheckedChanged += new System.EventHandler(this.AutoLaunchEncoreMode_CheckedChanged);
             // 
             // AutoLaunchDifficulty4
             // 
@@ -431,6 +432,7 @@
             this.AutoLaunchDifficulty4.Name = "AutoLaunchDifficulty4";
             this.AutoLaunchDifficulty4.Size = new System.Drawing.Size(101, 23);
             this.AutoLaunchDifficulty4.TabIndex = 57;
+            this.AutoLaunchDifficulty4.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty4_SelectedIndexChanged);
             // 
             // TALSongLabel
             // 
@@ -450,6 +452,7 @@
             this.AutoLaunchBot4.TabIndex = 56;
             this.AutoLaunchBot4.Text = "Use Bot?";
             this.AutoLaunchBot4.UseVisualStyleBackColor = true;
+            this.AutoLaunchBot4.CheckedChanged += new System.EventHandler(this.AutoLaunchBot4_CheckedChanged);
             // 
             // AutoLaunchRawLoad
             // 
@@ -460,6 +463,7 @@
             this.AutoLaunchRawLoad.TabIndex = 61;
             this.AutoLaunchRawLoad.Text = "Use Raw Venue PAK Loading";
             this.AutoLaunchRawLoad.UseVisualStyleBackColor = true;
+            this.AutoLaunchRawLoad.CheckedChanged += new System.EventHandler(this.AutoLaunchRawLoad_CheckedChanged);
             // 
             // TALP4ILabel
             // 
@@ -485,6 +489,7 @@
             this.AutoLaunchPlayers.Name = "AutoLaunchPlayers";
             this.AutoLaunchPlayers.Size = new System.Drawing.Size(43, 23);
             this.AutoLaunchPlayers.TabIndex = 6;
+            this.AutoLaunchPlayers.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPlayers_SelectedIndexChanged);
             // 
             // TALPlayer4Label
             // 
@@ -504,6 +509,7 @@
             this.AutoLaunchSongTime.TabIndex = 60;
             this.AutoLaunchSongTime.Text = "Show Song Time";
             this.AutoLaunchSongTime.UseVisualStyleBackColor = true;
+            this.AutoLaunchSongTime.CheckedChanged += new System.EventHandler(this.AutoLaunchSongTime_CheckedChanged);
             // 
             // AutoLaunchPart4
             // 
@@ -520,6 +526,7 @@
             this.AutoLaunchPart4.Name = "AutoLaunchPart4";
             this.AutoLaunchPart4.Size = new System.Drawing.Size(167, 23);
             this.AutoLaunchPart4.TabIndex = 53;
+            this.AutoLaunchPart4.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart4_SelectedIndexChanged);
             // 
             // TALPlayersLabel
             // 
@@ -548,6 +555,7 @@
             this.AutoLaunchHideHUD.TabIndex = 59;
             this.AutoLaunchHideHUD.Text = "Hide HUD";
             this.AutoLaunchHideHUD.UseVisualStyleBackColor = true;
+            this.AutoLaunchHideHUD.CheckedChanged += new System.EventHandler(this.AutoLaunchHideHUD_CheckedChanged);
             // 
             // AutoLaunchDifficulty3
             // 
@@ -565,6 +573,7 @@
             this.AutoLaunchDifficulty3.Name = "AutoLaunchDifficulty3";
             this.AutoLaunchDifficulty3.Size = new System.Drawing.Size(101, 23);
             this.AutoLaunchDifficulty3.TabIndex = 51;
+            this.AutoLaunchDifficulty3.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty3_SelectedIndexChanged);
             // 
             // AutoLaunchSong
             // 
@@ -573,6 +582,7 @@
             this.AutoLaunchSong.Name = "AutoLaunchSong";
             this.AutoLaunchSong.Size = new System.Drawing.Size(148, 23);
             this.AutoLaunchSong.TabIndex = 11;
+            this.AutoLaunchSong.TextChanged += new System.EventHandler(this.AutoLaunchSong_TextChanged);
             // 
             // AutoLaunchBot3
             // 
@@ -583,6 +593,7 @@
             this.AutoLaunchBot3.TabIndex = 50;
             this.AutoLaunchBot3.Text = "Use Bot?";
             this.AutoLaunchBot3.UseVisualStyleBackColor = true;
+            this.AutoLaunchBot3.CheckedChanged += new System.EventHandler(this.AutoLaunchBot3_CheckedChanged);
             // 
             // ALSongSelectINI
             // 
@@ -593,6 +604,7 @@
             this.ALSongSelectINI.TabIndex = 12;
             this.ALSongSelectINI.Text = " ...";
             this.ALSongSelectINI.UseVisualStyleBackColor = true;
+            this.ALSongSelectINI.Click += new System.EventHandler(this.ALSongSelectINI_Click);
             // 
             // TALP3ILabel
             // 
@@ -691,6 +703,7 @@
             this.AutoLaunchVenue.Name = "AutoLaunchVenue";
             this.AutoLaunchVenue.Size = new System.Drawing.Size(190, 23);
             this.AutoLaunchVenue.TabIndex = 32;
+            this.AutoLaunchVenue.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchVenue_SelectedIndexChanged);
             // 
             // AutoLaunchPart3
             // 
@@ -707,6 +720,7 @@
             this.AutoLaunchPart3.Name = "AutoLaunchPart3";
             this.AutoLaunchPart3.Size = new System.Drawing.Size(167, 23);
             this.AutoLaunchPart3.TabIndex = 47;
+            this.AutoLaunchPart3.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart3_SelectedIndexChanged);
             // 
             // TALAdvancedSettings
             // 
@@ -754,6 +768,7 @@
             this.AutoLaunchDifficulty2.Name = "AutoLaunchDifficulty2";
             this.AutoLaunchDifficulty2.Size = new System.Drawing.Size(101, 23);
             this.AutoLaunchDifficulty2.TabIndex = 45;
+            this.AutoLaunchDifficulty2.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty2_SelectedIndexChanged);
             // 
             // AutoLaunchPart1
             // 
@@ -770,6 +785,7 @@
             this.AutoLaunchPart1.Name = "AutoLaunchPart1";
             this.AutoLaunchPart1.Size = new System.Drawing.Size(167, 23);
             this.AutoLaunchPart1.TabIndex = 7;
+            this.AutoLaunchPart1.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart1_SelectedIndexChanged);
             // 
             // AutoLaunchBot2
             // 
@@ -780,6 +796,7 @@
             this.AutoLaunchBot2.TabIndex = 44;
             this.AutoLaunchBot2.Text = "Use Bot?";
             this.AutoLaunchBot2.UseVisualStyleBackColor = true;
+            this.AutoLaunchBot2.CheckedChanged += new System.EventHandler(this.AutoLaunchBot2_CheckedChanged);
             // 
             // TALPlayer1Label
             // 
@@ -842,6 +859,7 @@
             this.AutoLaunchPart2.Name = "AutoLaunchPart2";
             this.AutoLaunchPart2.Size = new System.Drawing.Size(167, 23);
             this.AutoLaunchPart2.TabIndex = 41;
+            this.AutoLaunchPart2.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart2_SelectedIndexChanged);
             // 
             // AutoLaunchBot1
             // 
@@ -852,6 +870,7 @@
             this.AutoLaunchBot1.TabIndex = 36;
             this.AutoLaunchBot1.Text = "Use Bot?";
             this.AutoLaunchBot1.UseVisualStyleBackColor = true;
+            this.AutoLaunchBot1.CheckedChanged += new System.EventHandler(this.AutoLaunchBot1_CheckedChanged);
             // 
             // TALPDSettings
             // 
@@ -879,6 +898,7 @@
             this.AutoLaunchDifficulty1.Name = "AutoLaunchDifficulty1";
             this.AutoLaunchDifficulty1.Size = new System.Drawing.Size(101, 23);
             this.AutoLaunchDifficulty1.TabIndex = 38;
+            this.AutoLaunchDifficulty1.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty1_SelectedIndexChanged);
             // 
             // TALP1DLabel
             // 
@@ -898,6 +918,7 @@
             this.AutoLaunchEnabled.TabIndex = 35;
             this.AutoLaunchEnabled.Text = "Enable Auto Launch";
             this.AutoLaunchEnabled.UseVisualStyleBackColor = true;
+            this.AutoLaunchEnabled.CheckedChanged += new System.EventHandler(this.AutoLaunchEnabled_CheckedChanged);
             // 
             // TabBandGroup
             // 
@@ -934,7 +955,7 @@
             this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
             this.TabBandGroup.Controls.Add(this.TBBandLineup);
             this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(10, 6);
+            this.TabBandGroup.Location = new System.Drawing.Point(531, 82);
             this.TabBandGroup.Name = "TabBandGroup";
             this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
             this.TabBandGroup.TabIndex = 1;

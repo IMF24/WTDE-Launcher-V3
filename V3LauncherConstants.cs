@@ -340,6 +340,22 @@ namespace WTDE_Launcher_V3 {
         };
 
         /// <summary>
+        ///  List of instrument part names. Index 0 = Option names | Index 1 = Internal referents
+        /// </summary>
+        public static string[][] InstrumentPartNames = {
+            new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" },
+            new string[] { "guitar", "bass", "drum", "vocals" }
+        };
+
+        /// <summary>
+        ///  Default Quickplay options difficulties names. Index 0 = Option names | Index 1 = Internal referents
+        /// </summary>
+        public static string[][] DefaultQPODifficulties = {
+            new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
+            new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" }
+        };
+
+        /// <summary>
         ///  List of keyboard keys and their internal Aspyr numerical IDs.
         /// </summary>
         public static string[][] AspyrKeyBinds = {
