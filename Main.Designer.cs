@@ -139,6 +139,7 @@
             this.TabButtonInput = new System.Windows.Forms.Button();
             this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.OpenDevOnlySettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).BeginInit();
@@ -1047,8 +1048,9 @@
             this.PrefVoxSelectChar.Name = "PrefVoxSelectChar";
             this.PrefVoxSelectChar.Size = new System.Drawing.Size(28, 25);
             this.PrefVoxSelectChar.TabIndex = 30;
-            this.PrefVoxSelectChar.Text = " ...";
+            this.PrefVoxSelectChar.Text = "...";
             this.PrefVoxSelectChar.UseVisualStyleBackColor = true;
+            this.PrefVoxSelectChar.Click += new System.EventHandler(this.PrefVoxSelectChar_Click);
             // 
             // PreferredSinger
             // 
@@ -1075,8 +1077,9 @@
             this.PrefDrmHwySelectHwy.Name = "PrefDrmHwySelectHwy";
             this.PrefDrmHwySelectHwy.Size = new System.Drawing.Size(28, 25);
             this.PrefDrmHwySelectHwy.TabIndex = 27;
-            this.PrefDrmHwySelectHwy.Text = " ...";
+            this.PrefDrmHwySelectHwy.Text = "...";
             this.PrefDrmHwySelectHwy.UseVisualStyleBackColor = true;
+            this.PrefDrmHwySelectHwy.Click += new System.EventHandler(this.PrefDrmHwySelectHwy_Click);
             // 
             // PreferredDrummerHighway
             // 
@@ -1103,8 +1106,9 @@
             this.PrefDrmSelectChar.Name = "PrefDrmSelectChar";
             this.PrefDrmSelectChar.Size = new System.Drawing.Size(28, 25);
             this.PrefDrmSelectChar.TabIndex = 24;
-            this.PrefDrmSelectChar.Text = " ...";
+            this.PrefDrmSelectChar.Text = "...";
             this.PrefDrmSelectChar.UseVisualStyleBackColor = true;
+            this.PrefDrmSelectChar.Click += new System.EventHandler(this.PrefDrmSelectChar_Click);
             // 
             // PreferredDrummer
             // 
@@ -1131,8 +1135,9 @@
             this.PrefBasHwySelectHwy.Name = "PrefBasHwySelectHwy";
             this.PrefBasHwySelectHwy.Size = new System.Drawing.Size(28, 25);
             this.PrefBasHwySelectHwy.TabIndex = 21;
-            this.PrefBasHwySelectHwy.Text = " ...";
+            this.PrefBasHwySelectHwy.Text = "...";
             this.PrefBasHwySelectHwy.UseVisualStyleBackColor = true;
+            this.PrefBasHwySelectHwy.Click += new System.EventHandler(this.PrefBasHwySelectHwy_Click);
             // 
             // PreferredBassistHighway
             // 
@@ -1159,8 +1164,9 @@
             this.PrefBasSelectChar.Name = "PrefBasSelectChar";
             this.PrefBasSelectChar.Size = new System.Drawing.Size(28, 25);
             this.PrefBasSelectChar.TabIndex = 18;
-            this.PrefBasSelectChar.Text = " ...";
+            this.PrefBasSelectChar.Text = "...";
             this.PrefBasSelectChar.UseVisualStyleBackColor = true;
+            this.PrefBasSelectChar.Click += new System.EventHandler(this.PrefBasSelectChar_Click);
             // 
             // PreferredBassist
             // 
@@ -1187,8 +1193,9 @@
             this.PrefGtrHwySelectHwy.Name = "PrefGtrHwySelectHwy";
             this.PrefGtrHwySelectHwy.Size = new System.Drawing.Size(28, 25);
             this.PrefGtrHwySelectHwy.TabIndex = 15;
-            this.PrefGtrHwySelectHwy.Text = " ...";
+            this.PrefGtrHwySelectHwy.Text = "...";
             this.PrefGtrHwySelectHwy.UseVisualStyleBackColor = true;
+            this.PrefGtrHwySelectHwy.Click += new System.EventHandler(this.PrefGtrHwySelectHwy_Click);
             // 
             // PreferredGuitaristHighway
             // 
@@ -1215,8 +1222,9 @@
             this.PrefGtrSelectChar.Name = "PrefGtrSelectChar";
             this.PrefGtrSelectChar.Size = new System.Drawing.Size(28, 25);
             this.PrefGtrSelectChar.TabIndex = 12;
-            this.PrefGtrSelectChar.Text = " ...";
+            this.PrefGtrSelectChar.Text = "...";
             this.PrefGtrSelectChar.UseVisualStyleBackColor = true;
+            this.PrefGtrSelectChar.Click += new System.EventHandler(this.PrefGtrSelectChar_Click);
             // 
             // PreferredGuitarist
             // 
@@ -1696,13 +1704,36 @@
             this.TabButtonGeneral.UseVisualStyleBackColor = false;
             this.TabButtonGeneral.Click += new System.EventHandler(this.TabButtonGeneral_Click);
             // 
+            // OpenDevOnlySettings
+            // 
+            this.OpenDevOnlySettings.BackColor = System.Drawing.Color.Transparent;
+            this.OpenDevOnlySettings.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.OpenDevOnlySettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenDevOnlySettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenDevOnlySettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.OpenDevOnlySettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.OpenDevOnlySettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.OpenDevOnlySettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenDevOnlySettings.Font = new System.Drawing.Font("Lexend", 16F);
+            this.OpenDevOnlySettings.ForeColor = System.Drawing.Color.White;
+            this.OpenDevOnlySettings.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.OpenDevOnlySettings.Location = new System.Drawing.Point(3, 3);
+            this.OpenDevOnlySettings.Name = "OpenDevOnlySettings";
+            this.OpenDevOnlySettings.Size = new System.Drawing.Size(53, 51);
+            this.OpenDevOnlySettings.TabIndex = 13;
+            this.OpenDevOnlySettings.Text = "?";
+            this.ToolTipMain.SetToolTip(this.OpenDevOnlySettings, "Allows modification of developer specific settings.\r\n\r\nNOTE: This should NEVER be" +
+        " enabled in public builds.");
+            this.OpenDevOnlySettings.UseVisualStyleBackColor = false;
+            this.OpenDevOnlySettings.Click += new System.EventHandler(this.OpenDevOnlySettings_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.bg_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.OpenDevOnlySettings);
             this.Controls.Add(this.TabParentContainer);
             this.Controls.Add(this.VersionInfoLabel);
             this.Controls.Add(this.FretworksLogo);
@@ -1857,6 +1888,7 @@
         private System.Windows.Forms.Label TALPlayer3Label;
         private System.Windows.Forms.ComboBox AutoLaunchPart3;
         private System.Windows.Forms.Panel TabALMainEditor;
+        private System.Windows.Forms.Button OpenDevOnlySettings;
     }
 }
 

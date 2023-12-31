@@ -19,6 +19,7 @@
 ------------------------------------------------------------------------------------------------ */
 // Various required imports.
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,13 +52,22 @@ namespace WTDE_Launcher_V3 {
             LoadINISettings();
             V3LauncherCore.SetWindowTitle(this);
             BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
+
+            // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
+            OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
+            OpenDevOnlySettings.Visible = V3LauncherCore.AllowDevSettings();
     
             //~ Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
 
             // Should we automatically update when the program starts?
             V3LauncherCore.AutoCheckForUpdates();
         }
-        
+
+        private void OpenDevOnlySettings_Click(object sender, EventArgs e) {
+            WTDEDevSettingsDialog dlg = new WTDEDevSettingsDialog();
+            dlg.ShowDialog();
+        }
+
         /// <summary>
         ///  Load all config data from GHWTDE.ini and AspyrConfig.xml.
         /// </summary>
@@ -588,6 +598,34 @@ namespace WTDE_Launcher_V3 {
         private void BassStrumAnim_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Band", "BassStrumAnim", INIFunctions.InterpretINISetting(BassStrumAnim.Text,
                 new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" }, new string[] { "none", "ghm" }));
+        }
+
+        private void PrefGtrSelectChar_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitarist, "Select Character Mod Folder");
+        }
+
+        private void PrefBasSelectChar_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredBassist, "Select Character Mod Folder");
+        }
+
+        private void PrefDrmSelectChar_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredDrummer, "Select Character Mod Folder");
+        }
+
+        private void PrefVoxSelectChar_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredSinger, "Select Character Mod Folder");
+        }
+
+        private void PrefGtrHwySelectHwy_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitaristHighway, "Select Character Mod Folder");
+        }
+
+        private void PrefBasHwySelectHwy_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredBassistHighway, "Select Character Mod Folder");
+        }
+
+        private void PrefDrmHwySelectHwy_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredDrummerHighway, "Select Character Mod Folder");
         }
         #endregion
     }

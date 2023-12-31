@@ -19,6 +19,9 @@ namespace WTDE_Launcher_V3 {
     /// <summary>
     ///  Internal class of global constants for the V3 launcher. Contains locations of
     ///  necessary config files, and other various constant variables.
+    ///  <br/><br/>
+    ///  We primarily won't be changing these. If we do, we'll change anything at
+    ///  start up, then leave them be from there on.
     /// </summary>
     internal class V3LauncherConstants {
         /// <summary>
@@ -45,6 +48,11 @@ namespace WTDE_Launcher_V3 {
         ///  Where is AspyrConfig.xml located?
         /// </summary>
         public static string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";
+
+        /// <summary>
+        ///  The MD5 hash list for all WTDE related files. File hashes on the disk get matched against these before being updated.
+        /// </summary>
+        public static string WTDEHashList = "https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat";
 
         /// <summary>
         ///  Random window titles that will show in the title bar on startup.
@@ -308,7 +316,7 @@ namespace WTDE_Launcher_V3 {
                 "z_starwood",
                 "z_rome",
                 "z_s_stage",
-                "z_berlin",
+                "z_paris",          // Note from IMF: Why the hell is Berlin named as z_paris?
                 "z_drum_kit",
                 "z_londonghvh",
                 "z_frankenstrat",

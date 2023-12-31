@@ -4,14 +4,13 @@
 //
 //    Various functions for dealing with INI files.
 // ----------------------------------------------------------------------------
-using MadMilkman.Ini;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 using System.Windows.Forms;
+using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>

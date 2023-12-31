@@ -12,3 +12,4 @@ D:\WTDE-Launcher-V3\bin\Debug\MadMilkman.Ini.xml
 D:\WTDE-Launcher-V3\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 D:\WTDE-Launcher-V3\obj\Debug\WTDE-Launcher-V3.csproj.Fody.CopyLocal.cache
 D:\WTDE-Launcher-V3\obj\Debug\WTDE-Launcher-V3.csproj.CopyComplete
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.WTDEDevSettingsDialog.resources
