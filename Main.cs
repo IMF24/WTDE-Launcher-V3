@@ -244,6 +244,9 @@ namespace WTDE_Launcher_V3 {
                     TabButtonGroup.Visible = false;
                     TabButtonGroup.Enabled = false;
 
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
                     // ------------------------------------
 
                     TabGeneralGroup.Visible = false;
@@ -254,6 +257,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabAutoLaunchGroup.Visible = false;
                     TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
                     break;
 
                 // -- GENERAL TAB SWITCH ---------------------------------
@@ -267,6 +273,9 @@ namespace WTDE_Launcher_V3 {
                     TabButtonGroup.Visible = true;
                     TabButtonGroup.Enabled = true;
 
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
                     // ------------------------------------
 
                     TabGeneralGroup.Visible = true;
@@ -277,6 +286,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabAutoLaunchGroup.Visible = false;
                     TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
                     break;
 
                 // -- BAND TAB SWITCH ---------------------------------
@@ -290,6 +302,9 @@ namespace WTDE_Launcher_V3 {
                     TabButtonGroup.Visible = true;
                     TabButtonGroup.Enabled = true;
 
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
                     // ------------------------------------
 
                     TabGeneralGroup.Visible = false;
@@ -300,6 +315,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabAutoLaunchGroup.Visible = false;
                     TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
                     break;
 
                 // -- AUTO LAUNCH TAB SWITCH ---------------------------------
@@ -313,6 +331,9 @@ namespace WTDE_Launcher_V3 {
                     TabButtonGroup.Visible = true;
                     TabButtonGroup.Enabled = true;
 
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
                     // ------------------------------------
 
                     TabGeneralGroup.Visible = false;
@@ -323,6 +344,67 @@ namespace WTDE_Launcher_V3 {
 
                     TabAutoLaunchGroup.Visible = true;
                     TabAutoLaunchGroup.Enabled = true;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
+                    break;
+
+                // -- DEBUG TAB SWITCH ---------------------------------
+                case 6:
+                    MOTDText.Visible = false;
+                    MOTDBack.Visible = false;
+
+                    TabParentContainer.Visible = true;
+                    TabParentContainer.Enabled = true;
+
+                    TabButtonGroup.Visible = true;
+                    TabButtonGroup.Enabled = true;
+
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
+                    // ------------------------------------
+
+                    TabGeneralGroup.Visible = false;
+                    TabGeneralGroup.Enabled = false;
+
+                    TabBandGroup.Visible = false;
+                    TabBandGroup.Enabled = false;
+
+                    TabAutoLaunchGroup.Visible = false;
+                    TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = true;
+                    TabDebugGroup.Enabled = true;
+                    break;
+
+                // -- CREDITS TAB SWITCH ---------------------------------
+                case 7:
+                    MOTDText.Visible = false;
+                    MOTDBack.Visible = false;
+
+                    TabParentContainer.Visible = false;
+                    TabParentContainer.Enabled = false;
+
+                    TabButtonGroup.Visible = false;
+                    TabButtonGroup.Enabled = false;
+
+                    TabCreditsGroup.Visible = true;
+                    TabCreditsGroup.Enabled = true;
+
+                    // ------------------------------------
+
+                    TabGeneralGroup.Visible = false;
+                    TabGeneralGroup.Enabled = false;
+
+                    TabBandGroup.Visible = false;
+                    TabBandGroup.Enabled = false;
+
+                    TabAutoLaunchGroup.Visible = false;
+                    TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
                     break;
 
                 // -- PRE-TAB TAB SWITCH ---------------------------------
@@ -336,6 +418,9 @@ namespace WTDE_Launcher_V3 {
                     TabButtonGroup.Visible = true;
                     TabButtonGroup.Enabled = true;
 
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
                     // ------------------------------------
 
                     TabGeneralGroup.Visible = false;
@@ -346,6 +431,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabAutoLaunchGroup.Visible = false;
                     TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
                     break;
             }
         }
@@ -365,26 +453,37 @@ namespace WTDE_Launcher_V3 {
         ///  Moves all tabs to the correct location and other various tab setup functionality.
         /// </summary>
         public void DoTabSetup() {
+            // Set up the main editing containers' locations and the credits tab panel.
+            TabButtonGroup.Location = new Point(321, 0);
+            TabParentContainer.Location = new Point(321, 60);
+            TabCreditsGroup.Location = new Point(321, 0);
+            TabCreditsGroup.Parent = this;
+            CreditsVersionLabel.Text = $"GHWT: Definitive Edition Launcher - Version {V3LauncherConstants.VERSION}";
+
             // Hide title text on the group boxes.
             TabGeneralGroup.Text = "";
             TabBandGroup.Text = "";
             TabAutoLaunchGroup.Text = "";
+            TabDebugGroup.Text = "";
 
             // Parent all tabs to the parent container.
             TabGeneralGroup.Parent = TabParentContainer;
+            TabBandGroup.Parent = TabParentContainer;
+            TabAutoLaunchGroup.Parent = TabParentContainer;
+            TabDebugGroup.Parent = TabParentContainer;
 
             // Move all of the tabs to their correct locations.
             Point location = new Point(12, 8);
             TabGeneralGroup.Location = location;
             TabBandGroup.Location = location;
             TabAutoLaunchGroup.Location = location;
+            TabDebugGroup.Location = location;
         }
 
         // ----------------------------------------------------------
         // LEFT SIDE BUTTONS & CONTROLS
         // ----------------------------------------------------------
         #region Left Side Buttons & Controls
-
         private void WTDELogo_Click(object sender, EventArgs e) {
             string creditsBriefInfo = "GHWT: Definitive Edition by Fretworks, EST. 2021\n" +
                                      $"GHWT: Definitive Edition Launcher V{V3LauncherConstants.VERSION} by IMF24\n\n" +
@@ -395,12 +494,17 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void AdjustSettingsButton_Click(object sender, EventArgs e) {
-            if (ActiveTab == 0) UpdateActiveTab((int)LauncherTabs.PreTab);
+            if (ActiveTab == 0 || ActiveTab == 7) UpdateActiveTab((int)LauncherTabs.PreTab);
             else UpdateActiveTab((int)LauncherTabs.MOTD);
         }
 
         private void CheckUpdatesButton_Click(object sender, EventArgs e) {
             V3LauncherCore.CheckForUpdates();
+        }
+
+        private void FretworksLogo_Click(object sender, EventArgs e) {
+            if (ActiveTab == 7) UpdateActiveTab((int)LauncherTabs.MOTD);
+            else UpdateActiveTab((int)LauncherTabs.Credits);
         }
 
         private void VersionInfoLabel_Click(object sender, EventArgs e) {
@@ -884,8 +988,35 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked,
                 "last_song", "none"));
         }
+
+
         #endregion
-    
-        
+
+        // ----------------------------------------------------------
+        // CREDITS TAB SOCIAL BUTTONS
+        // ----------------------------------------------------------
+        #region Credits Tab Social Buttons
+        private void ButtonYouTube_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://youtube.com/@IMF24");
+        }
+
+        private void ButtonGitHub_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://github.com/IMF24");
+        }
+
+        private void ButtonWTDESite_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://ghwt.de");
+        }
+
+        private void ButtonFretworks_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://gitgud.io/fretworks");
+        }
+
+        private void ButtonDiscord_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
+        }
+        #endregion
+
+
     }
 }

@@ -184,6 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="res\img\social\fretworks.png" />
+    <None Include="res\img\social\youtube.png" />
+    <None Include="res\img\social\wtde_site.png" />
+    <None Include="res\img\social\github.png" />
+    <None Include="res\img\social\discord.png" />
+    <None Include="res\img\black_chalk.png" />
     <None Include="Resources\Lexend-Regular.ttf" />
     <None Include="Resources\MARKER FELT.TTF" />
     <None Include="res\img\logos\wtde\wtde_v2_logo_s.png" />
