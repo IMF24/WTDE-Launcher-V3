@@ -630,6 +630,10 @@ namespace WTDE_Launcher_V3 {
 
         #endregion
 
+        // ----------------------------------------------------------
+        // AUTO LAUNCH TAB AUTO UPDATE
+        // ----------------------------------------------------------
+        #region Auto Launch Tab Auto Update
         private void AutoLaunchEnabled_CheckedChanged(object sender, EventArgs e) {
             TabALMainEditor.Enabled = AutoLaunchEnabled.Checked;
         }
@@ -880,5 +884,8 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked,
                 "last_song", "none"));
         }
+        #endregion
+    
+        
     }
 }
