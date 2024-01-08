@@ -26,6 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.OpenDevOnlySettings = new System.Windows.Forms.Button();
             this.TabCreditsGroup = new System.Windows.Forms.Panel();
             this.ButtonFretworks = new System.Windows.Forms.Button();
             this.CreditsMainInfo = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.BlackChalk = new System.Windows.Forms.PictureBox();
             this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
             this.IconLogoIMF = new System.Windows.Forms.PictureBox();
-            this.OpenDevOnlySettings = new System.Windows.Forms.Button();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.FixNoteLimit = new System.Windows.Forms.CheckBox();
@@ -170,6 +170,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
             this.SuspendLayout();
             // 
+            // OpenDevOnlySettings
+            // 
+            this.OpenDevOnlySettings.BackColor = System.Drawing.Color.Transparent;
+            this.OpenDevOnlySettings.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.OpenDevOnlySettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenDevOnlySettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenDevOnlySettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.OpenDevOnlySettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.OpenDevOnlySettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.OpenDevOnlySettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenDevOnlySettings.Font = new System.Drawing.Font("Lexend", 16F);
+            this.OpenDevOnlySettings.ForeColor = System.Drawing.Color.White;
+            this.OpenDevOnlySettings.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.OpenDevOnlySettings.Location = new System.Drawing.Point(3, 3);
+            this.OpenDevOnlySettings.Name = "OpenDevOnlySettings";
+            this.OpenDevOnlySettings.Size = new System.Drawing.Size(53, 51);
+            this.OpenDevOnlySettings.TabIndex = 13;
+            this.OpenDevOnlySettings.Text = "?";
+            this.ToolTipMain.SetToolTip(this.OpenDevOnlySettings, "Allows modification of developer specific settings.\r\n\r\nNOTE: This should NEVER be" +
+        " enabled in public builds.");
+            this.OpenDevOnlySettings.UseVisualStyleBackColor = false;
+            this.OpenDevOnlySettings.Click += new System.EventHandler(this.OpenDevOnlySettings_Click);
+            // 
             // TabCreditsGroup
             // 
             this.TabCreditsGroup.BackColor = System.Drawing.Color.Transparent;
@@ -184,7 +207,7 @@
             this.TabCreditsGroup.Controls.Add(this.BlackChalk);
             this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
             this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
-            this.TabCreditsGroup.Location = new System.Drawing.Point(321, 0);
+            this.TabCreditsGroup.Location = new System.Drawing.Point(631, 182);
             this.TabCreditsGroup.Name = "TabCreditsGroup";
             this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
             this.TabCreditsGroup.TabIndex = 14;
@@ -339,34 +362,12 @@
             this.IconLogoIMF.TabIndex = 22;
             this.IconLogoIMF.TabStop = false;
             // 
-            // OpenDevOnlySettings
-            // 
-            this.OpenDevOnlySettings.BackColor = System.Drawing.Color.Transparent;
-            this.OpenDevOnlySettings.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.OpenDevOnlySettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OpenDevOnlySettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenDevOnlySettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.OpenDevOnlySettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.OpenDevOnlySettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.OpenDevOnlySettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenDevOnlySettings.Font = new System.Drawing.Font("Lexend", 16F);
-            this.OpenDevOnlySettings.ForeColor = System.Drawing.Color.White;
-            this.OpenDevOnlySettings.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.OpenDevOnlySettings.Location = new System.Drawing.Point(3, 3);
-            this.OpenDevOnlySettings.Name = "OpenDevOnlySettings";
-            this.OpenDevOnlySettings.Size = new System.Drawing.Size(53, 51);
-            this.OpenDevOnlySettings.TabIndex = 13;
-            this.OpenDevOnlySettings.Text = "?";
-            this.ToolTipMain.SetToolTip(this.OpenDevOnlySettings, "Allows modification of developer specific settings.\r\n\r\nNOTE: This should NEVER be" +
-        " enabled in public builds.");
-            this.OpenDevOnlySettings.UseVisualStyleBackColor = false;
-            this.OpenDevOnlySettings.Click += new System.EventHandler(this.OpenDevOnlySettings_Click);
-            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
@@ -1967,9 +1968,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.bg_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.TabCreditsGroup);
             this.Controls.Add(this.OpenDevOnlySettings);
             this.Controls.Add(this.TabParentContainer);
             this.Controls.Add(this.VersionInfoLabel);

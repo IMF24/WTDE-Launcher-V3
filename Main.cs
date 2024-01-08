@@ -517,11 +517,11 @@ namespace WTDE_Launcher_V3 {
                 if (BGConstants.BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGConstants.BGIndex = 0;
                 else BGConstants.BGIndex++;
 
-                // Update the background image.
-                this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGConstants.BGIndex];
-
                 // Update the version info.
                 VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGConstants.BGIndex]}\nWTDE Latest Version: {V3LauncherCore.GetLatestVersion()}";
+
+                // Update the background image.
+                this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGConstants.BGIndex];
 
                 // And right opens the social link for that person.
             } else if (me.Button == MouseButtons.Right) {
