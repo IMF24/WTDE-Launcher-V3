@@ -28,3 +28,4 @@ C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.csproj.Fod
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.csproj.CopyComplete
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.exe
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.pdb
+D:\WTDE-Launcher-V3\bin\Debug\NAudio.xml

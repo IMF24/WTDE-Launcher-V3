@@ -160,6 +160,12 @@ namespace WTDE_Launcher_V3 {
         public static string InterpretINISetting(string value, string[] inValues, string[] outValues) {
             if (inValues.Length != outValues.Length) throw new Exception("The input values and output values do not equal each other in length.");
 
+            Type inOutValType = typeof(string[]);
+
+            if (inValues.GetType() != inOutValType) inValues = inValues.ToArray();
+
+            if (outValues.GetType() != inOutValType) outValues = outValues.ToArray();
+
             for (var i = 0; i < inValues.Length; i++) {
                 if (inValues[i] == value) {
                     return outValues[i].ToString();

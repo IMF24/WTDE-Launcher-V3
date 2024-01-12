@@ -29,6 +29,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
+using NAudio.CoreAudioApi;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -47,6 +48,9 @@ namespace WTDE_Launcher_V3 {
             MOTDText.Text = V3LauncherCore.GetMOTDText();
             UpdateActiveTab((int) LauncherTabs.MOTD);
 
+            // Get our list of microphone devices.
+            GetMicDevices();
+
             // Set up tabs, load INI and XML file settings, set the window title, and the background.
             DoTabSetup();
             LoadINISettings();
@@ -61,8 +65,6 @@ namespace WTDE_Launcher_V3 {
 
             // Should we automatically update when the program starts?
             V3LauncherCore.AutoCheckForUpdates();
-
-            
         }
 
         private void OpenDevOnlySettings_Click(object sender, EventArgs e) {
@@ -103,6 +105,13 @@ namespace WTDE_Launcher_V3 {
             UseQuitOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuitOption"));
 
             // ---------------------------------
+            // INPUT TAB
+            // ---------------------------------
+            MicrophoneSelect.Text = INIFunctions.GetINIValue("Audio", "MicDevice", "");
+            MicAudioDelay.Value = int.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "0"));
+            MicVideoDelay.Value = int.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "0"));
+
+            // ---------------------------------
             // BAND TAB
             // ---------------------------------
             PreferredGuitarist.Text = INIFunctions.GetINIValue("Band", "PreferredGuitarist");
@@ -110,7 +119,7 @@ namespace WTDE_Launcher_V3 {
             PreferredDrummer.Text = INIFunctions.GetINIValue("Band", "PreferredDrummer");
             PreferredSinger.Text = INIFunctions.GetINIValue("Band", "PreferredSinger");
             PreferredStage.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "PreferredStage"),
-                V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
+                V3LauncherConstants.VenueIDs[1].ToArray(), V3LauncherConstants.VenueIDs[0].ToArray());
 
             PreferredGuitaristHighway.Text = INIFunctions.GetINIValue("Band", "PreferredGuitaristHighway");
             PreferredBassistHighway.Text = INIFunctions.GetINIValue("Band", "PreferredBassistHighway");
@@ -132,33 +141,35 @@ namespace WTDE_Launcher_V3 {
             AutoLaunchPlayers.Text = INIFunctions.GetINIValue("AutoLaunch", "Players", "1");
             AutoLaunchSong.Text = INIFunctions.GetINIValue("AutoLaunch", "Song", "random");
             AutoLaunchVenue.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Venue"),
-                V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
+                V3LauncherConstants.VenueIDs[1].ToArray(), V3LauncherConstants.VenueIDs[0].ToArray());
+
+            string[][] autoLaunchInstruments = {
+                new string[] { "guitar", "bass", "drum", "vocals" },
+                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" }
+            };
+
+            string[][] autoLaunchDifficulties = {
+                new string[] { "beginner", "easy", "medium", "hard", "expert" },
+                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" }
+            };
 
             AutoLaunchPart1.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part", "guitar"),
-                new string[] { "guitar", "bass", "drum", "vocals" },
-                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+                autoLaunchInstruments[1], autoLaunchInstruments[0]);
             AutoLaunchPart2.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part2", "bass"),
-                new string[] { "guitar", "bass", "drum", "vocals" },
-                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+                autoLaunchInstruments[1], autoLaunchInstruments[0]);
             AutoLaunchPart3.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part3", "drum"),
-                new string[] { "guitar", "bass", "drum", "vocals" },
-                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+                autoLaunchInstruments[1], autoLaunchInstruments[0]);
             AutoLaunchPart4.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part4", "vocals"),
-                new string[] { "guitar", "bass", "drum", "vocals" },
-                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" });
+                autoLaunchInstruments[1], autoLaunchInstruments[0]);
 
             AutoLaunchDifficulty1.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty", "easy"),
-                new string[] { "beginner", "easy", "medium", "hard", "expert" },
-                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
             AutoLaunchDifficulty2.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty2", "easy"),
-                new string[] { "beginner", "easy", "medium", "hard", "expert" },
-                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
             AutoLaunchDifficulty3.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty3", "easy"),
-                new string[] { "beginner", "easy", "medium", "hard", "expert" },
-                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
             AutoLaunchDifficulty4.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty4", "easy"),
-                new string[] { "beginner", "easy", "medium", "hard", "expert" },
-                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
 
             AutoLaunchBot1.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot", "1"));
             AutoLaunchBot2.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot2", "1"));
@@ -169,6 +180,117 @@ namespace WTDE_Launcher_V3 {
             AutoLaunchSongTime.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "SongTime"));
             AutoLaunchRawLoad.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "RawLoad"));
             AutoLaunchEncoreMode.Checked = INIFunctions.GetBooleanCustomString(INIFunctions.GetINIValue("AutoLaunch", "EncoreMode"), "last_song");
+        }
+
+        /// <summary>
+        ///  Save all data to GHWTDE.ini and AspyrConfig.xml.
+        /// </summary>
+        public void SaveINISettings() {
+            // All right, let's do some config settings saving!
+            // We will be writing ALL INI and XML file settings!
+
+            // ---------------------------------
+            // GENERAL TAB
+            // ---------------------------------
+            INIFunctions.SaveINIValue("Config", "RichPresence", INIFunctions.BoolToString(RichPresence.Checked));
+            INIFunctions.SaveINIValue("Config", "AllowHolidays", INIFunctions.BoolToString(AllowHolidays.Checked));
+            INIFunctions.SaveINIValue("Audio", "MuteStreams", INIFunctions.BoolToString(MuteStreams.Checked));
+            INIFunctions.SaveINIValue("Audio", "WhammyPitchShift", INIFunctions.BoolToString(WhammyPitchShift.Checked));
+            INIFunctions.SaveINIValue("Config", "DefaultQPODifficulty", INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text,
+                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
+                new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" }));
+            XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
+
+            // -- MAIN MENU TOGGLES --------
+            INIFunctions.SaveINIValue("Config", "UseCareerOption", INIFunctions.BoolToString(UseCareerOption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseQuickplayOption", INIFunctions.BoolToString(UseQuickplayOption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseHeadToHeadOption", INIFunctions.BoolToString(UseHeadToHeadOption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseOnlineOption", INIFunctions.BoolToString(UseOnlineOption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseMusicStudioOption", INIFunctions.BoolToString(UseMusicStudioOption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseCAROption", INIFunctions.BoolToString(UseCAROption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseOptionsOption", INIFunctions.BoolToString(UseOptionsOption.Checked));
+            INIFunctions.SaveINIValue("Config", "UseQuitOption", INIFunctions.BoolToString(UseQuitOption.Checked));
+
+            // ---------------------------------
+            // INPUT TAB
+            // ---------------------------------
+            INIFunctions.SaveINIValue("Audio", "MicDevice", MicrophoneSelect.Text);
+            INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
+            XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
+
+            // ---------------------------------
+            // BAND TAB
+            // ---------------------------------
+            INIFunctions.SaveINIValue("Band", "PreferredGuitarist", PreferredGuitarist.Text);
+            INIFunctions.SaveINIValue("Band", "PreferredBassist", PreferredBassist.Text);
+            INIFunctions.SaveINIValue("Band", "PreferredDrummer", PreferredDrummer.Text);
+            INIFunctions.SaveINIValue("Band", "PreferredSinger", PreferredSinger.Text);
+            INIFunctions.SaveINIValue("Band", "PreferredStage", INIFunctions.InterpretINISetting(PreferredStage.Text,
+                V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
+
+            INIFunctions.SaveINIValue("Band", "PreferredGuitaristHighway", PreferredGuitaristHighway.Text);
+            INIFunctions.SaveINIValue("Band", "PreferredBassistHighway", PreferredBassistHighway.Text);
+            INIFunctions.SaveINIValue("Band", "PreferredDrummerHighway", PreferredDrummerHighway.Text);
+
+            INIFunctions.SaveINIValue("Band", "GuitarStrumAnim", INIFunctions.InterpretINISetting(GuitarStrumAnim.Text,
+                new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" },
+                new string[] { "none", "ghm" }));
+            INIFunctions.SaveINIValue("Band", "BassStrumAnim", INIFunctions.InterpretINISetting(BassStrumAnim.Text,
+                new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" },
+                new string[] { "none", "ghm" }));
+
+            // ---------------------------------
+            // AUTO LAUNCH TAB
+            // ---------------------------------
+            INIFunctions.SaveINIValue("AutoLaunch", "Enabled", INIFunctions.BoolToString(AutoLaunchEnabled.Checked));
+
+            INIFunctions.SaveINIValue("AutoLaunch", "Players", AutoLaunchPlayers.Text);
+            INIFunctions.SaveINIValue("AutoLaunch", "Song", AutoLaunchSong.Text);
+            INIFunctions.SaveINIValue("AutoLaunch", "Venue", INIFunctions.InterpretINISetting(AutoLaunchVenue.Text,
+                V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
+
+            string[][] autoLaunchInstruments = {
+                new string[] { "guitar", "bass", "drum", "vocals" },
+                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" }
+            };
+
+            string[][] autoLaunchDifficulties = {
+                new string[] { "beginner", "easy", "medium", "hard", "expert" },
+                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" }
+            };
+
+            INIFunctions.SaveINIValue("AutoLaunch", "Part", INIFunctions.InterpretINISetting(AutoLaunchPart1.Text,
+                autoLaunchInstruments[1], autoLaunchInstruments[0]));
+            INIFunctions.SaveINIValue("AutoLaunch", "Part2", INIFunctions.InterpretINISetting(AutoLaunchPart2.Text,
+                autoLaunchInstruments[1], autoLaunchInstruments[0]));
+            INIFunctions.SaveINIValue("AutoLaunch", "Part3", INIFunctions.InterpretINISetting(AutoLaunchPart3.Text,
+                autoLaunchInstruments[1], autoLaunchInstruments[0]));
+            INIFunctions.SaveINIValue("AutoLaunch", "Part4", INIFunctions.InterpretINISetting(AutoLaunchPart4.Text,
+                autoLaunchInstruments[1], autoLaunchInstruments[0]));
+
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty", INIFunctions.InterpretINISetting(AutoLaunchDifficulty1.Text,
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty2", INIFunctions.InterpretINISetting(AutoLaunchDifficulty2.Text,
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty3", INIFunctions.InterpretINISetting(AutoLaunchDifficulty3.Text,
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
+            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty4", INIFunctions.InterpretINISetting(AutoLaunchDifficulty4.Text,
+                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
+
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot", INIFunctions.BoolToString(AutoLaunchBot1.Checked));
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot2", INIFunctions.BoolToString(AutoLaunchBot2.Checked));
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot3", INIFunctions.BoolToString(AutoLaunchBot3.Checked));
+            INIFunctions.SaveINIValue("AutoLaunch", "Bot4", INIFunctions.BoolToString(AutoLaunchBot4.Checked));
+
+            INIFunctions.SaveINIValue("AutoLaunch", "HideHUD", INIFunctions.BoolToString(AutoLaunchHideHUD.Checked));
+            INIFunctions.SaveINIValue("AutoLaunch", "SongTime", INIFunctions.BoolToString(AutoLaunchSongTime.Checked));
+            INIFunctions.SaveINIValue("AutoLaunch", "RawLoad", INIFunctions.BoolToString(AutoLaunchRawLoad.Checked));
+            INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked, "last_song", "none"));
+
+            // ---------------------------------
+            // DEBUG TAB
+            // ---------------------------------
+            INIFunctions.SaveINIValue("Debug", "FixNoteLimit", INIFunctions.BoolToString(FixNoteLimit.Checked));
         }
 
         /// <summary>
@@ -538,6 +660,16 @@ namespace WTDE_Launcher_V3 {
             TabDebugGroup.Location = location;
         }
 
+        /// <summary>
+        ///  Get the list of supported microphone devices. Uses NAudio to get devices.
+        /// </summary>
+        public void GetMicDevices() {
+            var enumerator = new MMDeviceEnumerator();
+            foreach (var endpoint in enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active)) {
+                MicrophoneSelect.Items.Add(endpoint.FriendlyName);
+            }
+        }
+
         // ----------------------------------------------------------
         // LEFT SIDE BUTTONS & CONTROLS
         // ----------------------------------------------------------
@@ -749,7 +881,7 @@ namespace WTDE_Launcher_V3 {
 
         private void PreferredStage_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Band", "PreferredStage", INIFunctions.InterpretINISetting(PreferredStage.Text,
-                V3LauncherConstants.VenueIDs[0], V3LauncherConstants.VenueIDs[1]));
+                V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
         }
 
         private void GuitarStrumAnim_SelectedIndexChanged(object sender, EventArgs e) {
@@ -975,7 +1107,7 @@ namespace WTDE_Launcher_V3 {
 
         private void AutoLaunchVenue_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Venue", INIFunctions.InterpretINISetting(AutoLaunchVenue.Text,
-                V3LauncherConstants.VenueIDs[0], V3LauncherConstants.VenueIDs[1]));
+                V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
         }
 
         private void AutoLaunchPart1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -1073,8 +1205,18 @@ namespace WTDE_Launcher_V3 {
         private void ButtonDiscord_Click(object sender, EventArgs e) {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
+
         #endregion
 
+        // ----------------------------------------------------------
+        // INPUT TAB SOCIAL BUTTONS
+        // ----------------------------------------------------------
+        private void SetDefaultVoxLag_Click(object sender, EventArgs e) {
+            MicAudioDelay.Value = -80;
+            MicVideoDelay.Value = -315;
 
+            INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
+            XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
+        }
     }
 }
