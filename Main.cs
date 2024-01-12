@@ -61,6 +61,8 @@ namespace WTDE_Launcher_V3 {
 
             // Should we automatically update when the program starts?
             V3LauncherCore.AutoCheckForUpdates();
+
+            
         }
 
         private void OpenDevOnlySettings_Click(object sender, EventArgs e) {
@@ -252,6 +254,9 @@ namespace WTDE_Launcher_V3 {
                     TabGeneralGroup.Visible = false;
                     TabGeneralGroup.Enabled = false;
 
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -280,6 +285,41 @@ namespace WTDE_Launcher_V3 {
 
                     TabGeneralGroup.Visible = true;
                     TabGeneralGroup.Enabled = true;
+
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
+
+                    TabBandGroup.Visible = false;
+                    TabBandGroup.Enabled = false;
+
+                    TabAutoLaunchGroup.Visible = false;
+                    TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
+                    break;
+
+                // -- INPUT TAB SWITCH ---------------------------------
+                case 2:
+                    MOTDText.Visible = false;
+                    MOTDBack.Visible = false;
+
+                    TabParentContainer.Visible = true;
+                    TabParentContainer.Enabled = true;
+
+                    TabButtonGroup.Visible = true;
+                    TabButtonGroup.Enabled = true;
+
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
+                    // ------------------------------------
+
+                    TabGeneralGroup.Visible = false;
+                    TabGeneralGroup.Enabled = false;
+
+                    TabInputGroup.Visible = true;
+                    TabInputGroup.Enabled = true;
 
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
@@ -310,6 +350,9 @@ namespace WTDE_Launcher_V3 {
                     TabGeneralGroup.Visible = false;
                     TabGeneralGroup.Enabled = false;
 
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
+
                     TabBandGroup.Visible = true;
                     TabBandGroup.Enabled = true;
 
@@ -338,6 +381,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabGeneralGroup.Visible = false;
                     TabGeneralGroup.Enabled = false;
+
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
 
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
@@ -368,6 +414,9 @@ namespace WTDE_Launcher_V3 {
                     TabGeneralGroup.Visible = false;
                     TabGeneralGroup.Enabled = false;
 
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -397,6 +446,9 @@ namespace WTDE_Launcher_V3 {
                     TabGeneralGroup.Visible = false;
                     TabGeneralGroup.Enabled = false;
 
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -425,6 +477,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabGeneralGroup.Visible = false;
                     TabGeneralGroup.Enabled = false;
+
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
 
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
@@ -462,12 +517,14 @@ namespace WTDE_Launcher_V3 {
 
             // Hide title text on the group boxes.
             TabGeneralGroup.Text = "";
+            TabInputGroup.Text = "";
             TabBandGroup.Text = "";
             TabAutoLaunchGroup.Text = "";
             TabDebugGroup.Text = "";
 
             // Parent all tabs to the parent container.
             TabGeneralGroup.Parent = TabParentContainer;
+            TabInputGroup.Parent = TabParentContainer;
             TabBandGroup.Parent = TabParentContainer;
             TabAutoLaunchGroup.Parent = TabParentContainer;
             TabDebugGroup.Parent = TabParentContainer;
@@ -475,6 +532,7 @@ namespace WTDE_Launcher_V3 {
             // Move all of the tabs to their correct locations.
             Point location = new Point(12, 8);
             TabGeneralGroup.Location = location;
+            TabInputGroup.Location = location;
             TabBandGroup.Location = location;
             TabAutoLaunchGroup.Location = location;
             TabDebugGroup.Location = location;

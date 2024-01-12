@@ -211,9 +211,9 @@ namespace WTDE_Launcher_V3 {
         /// <summary>
         ///  List of venue names and zone prefixes. | Index 0: Zone names | Index 1: Zone PAK names/zone prefixes
         /// </summary>
-        public static string[][] VenueIDs = {
+        public static List<List<string>> VenueIDs = new List<List<string>>() {
             // Venue literal names
-            new string[] {
+            new List<string>() {
                 "WT: Phi Psi Kappa",
                 "WT: Wilted Orchid",
                 "WT: Bone Church",
@@ -276,7 +276,7 @@ namespace WTDE_Launcher_V3 {
             },
 
             // Venue PAK names
-            new string[] {
+            new List<string>() {
                 "z_frathouse",
                 "z_goth",
                 "z_cathedral",

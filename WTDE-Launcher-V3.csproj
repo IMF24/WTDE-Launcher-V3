@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B8D8084C-689B-40B5-8D90-4501EF28CA40}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>WTDE_Launcher_V3</RootNamespace>
     <AssemblyName>WTDE-Launcher-V3</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
@@ -184,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Compile Include="ModHandler.cs" />
     <None Include="res\img\social\fretworks.png" />
     <None Include="res\img\social\youtube.png" />
     <None Include="res\img\social\wtde_site.png" />

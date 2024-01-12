@@ -65,16 +65,19 @@ namespace WTDE_Launcher_V3 {
         ///  Allows for developer settings window. NEVER ALLOW THIS IN PUBLIC BUILDS.
         /// </summary>
         /// <returns></returns>
-        public static bool AllowDevSettings() {
-            if (File.Exists("dev_settings_enable")) {
-                using (var md5 = MD5.Create()) {
-                    using (var file = File.OpenRead("dev_settings_enable")) {
-                        // THIS HASH MUST MATCH.
-                        var hash = md5.ComputeHash(file);
-                        return (BitConverter.ToString(hash).Replace("-", "").ToUpperInvariant() == "3D663C297E547366D7429491D7EE7BBC");
+        public static bool AllowDevSettings(bool disableAnyway = true) {
+            if (!disableAnyway) {
+                if (File.Exists("dev_settings_enable")) {
+                    using (var md5 = MD5.Create()) {
+                        using (var file = File.OpenRead("dev_settings_enable")) {
+                            // THIS HASH MUST MATCH.
+                            var hash = md5.ComputeHash(file);
+                            return (BitConverter.ToString(hash).Replace("-", "").ToUpperInvariant() == "3D663C297E547366D7429491D7EE7BBC");
+                        }
                     }
-                }
-            } else return false;
+                } else return false;
+            }
+            return false;
         }
 
         /// <summary>
@@ -205,8 +208,8 @@ namespace WTDE_Launcher_V3 {
                     string downloadString = client.DownloadString("https://ghwt.de/meta/motd.txt");
                     return downloadString;
                 }
-            } catch {
-                string retnString = "MOTD not found, call IMF!\n\nIf you're seeing this, it means we probably couldn't establish a connection to the internet.";
+            } catch (Exception exc) {
+                string retnString = $"MOTD not found, call IMF!\n\nHm... If you're seeing this, it means we probably couldn't establish a connection to the internet.\nIs the Wi-Fi plugged in and working?\n\nError information: {exc.Message}";
                 return retnString;
             }
         }

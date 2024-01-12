@@ -39,6 +39,7 @@
             this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
             this.IconLogoIMF = new System.Windows.Forms.PictureBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabInputGroup = new System.Windows.Forms.GroupBox();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.FixNoteLimit = new System.Windows.Forms.CheckBox();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
@@ -367,6 +368,7 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
@@ -376,6 +378,18 @@
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabInputGroup
+            // 
+            this.TabInputGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabInputGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabInputGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabInputGroup.Location = new System.Drawing.Point(13, 15);
+            this.TabInputGroup.Name = "TabInputGroup";
+            this.TabInputGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabInputGroup.TabIndex = 15;
+            this.TabInputGroup.TabStop = false;
+            this.TabInputGroup.Text = "DEBUG: Input Tab";
             // 
             // TabDebugGroup
             // 
@@ -2147,6 +2161,7 @@
         private System.Windows.Forms.Button ButtonGitHub;
         private System.Windows.Forms.Label CreditsMainInfo;
         private System.Windows.Forms.Button ButtonFretworks;
+        private System.Windows.Forms.GroupBox TabInputGroup;
     }
 }
 
