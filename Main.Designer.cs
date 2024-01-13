@@ -40,6 +40,14 @@
             this.IconLogoIMF = new System.Windows.Forms.PictureBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabInputGroup = new System.Windows.Forms.GroupBox();
+            this.SetDefaultVoxLag = new System.Windows.Forms.Button();
+            this.MicVideoDelay = new System.Windows.Forms.NumericUpDown();
+            this.MicAudioDelay = new System.Windows.Forms.NumericUpDown();
+            this.MVidDelayLabel = new System.Windows.Forms.Label();
+            this.MAudDelayLabel = new System.Windows.Forms.Label();
+            this.MicrophoneSelect = new System.Windows.Forms.ComboBox();
+            this.MicrophoneLabel = new System.Windows.Forms.Label();
+            this.MicSettingsHeaderLabel = new System.Windows.Forms.Label();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.FixNoteLimit = new System.Windows.Forms.CheckBox();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
@@ -154,20 +162,14 @@
             this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
-            this.MicrophoneLabel = new System.Windows.Forms.Label();
-            this.MicSettingsHeaderLabel = new System.Windows.Forms.Label();
-            this.MicrophoneSelect = new System.Windows.Forms.ComboBox();
-            this.MAudDelayLabel = new System.Windows.Forms.Label();
-            this.MVidDelayLabel = new System.Windows.Forms.Label();
-            this.MicAudioDelay = new System.Windows.Forms.NumericUpDown();
-            this.MicVideoDelay = new System.Windows.Forms.NumericUpDown();
-            this.SetDefaultVoxLag = new System.Windows.Forms.Button();
             this.TabCreditsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
             this.TabParentContainer.SuspendLayout();
             this.TabInputGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             this.TabDebugGroup.SuspendLayout();
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
@@ -178,8 +180,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -409,6 +409,103 @@
             this.TabInputGroup.TabIndex = 15;
             this.TabInputGroup.TabStop = false;
             this.TabInputGroup.Text = "DEBUG: Input Tab";
+            // 
+            // SetDefaultVoxLag
+            // 
+            this.SetDefaultVoxLag.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SetDefaultVoxLag.Location = new System.Drawing.Point(452, 98);
+            this.SetDefaultVoxLag.Name = "SetDefaultVoxLag";
+            this.SetDefaultVoxLag.Size = new System.Drawing.Size(187, 23);
+            this.SetDefaultVoxLag.TabIndex = 16;
+            this.SetDefaultVoxLag.Text = "Use Recommended Values";
+            this.SetDefaultVoxLag.UseVisualStyleBackColor = true;
+            this.SetDefaultVoxLag.Click += new System.EventHandler(this.SetDefaultVoxLag_Click);
+            // 
+            // MicVideoDelay
+            // 
+            this.MicVideoDelay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MicVideoDelay.Location = new System.Drawing.Point(579, 69);
+            this.MicVideoDelay.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.MicVideoDelay.Minimum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            -2147483648});
+            this.MicVideoDelay.Name = "MicVideoDelay";
+            this.MicVideoDelay.Size = new System.Drawing.Size(60, 23);
+            this.MicVideoDelay.TabIndex = 15;
+            // 
+            // MicAudioDelay
+            // 
+            this.MicAudioDelay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MicAudioDelay.Location = new System.Drawing.Point(579, 40);
+            this.MicAudioDelay.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.MicAudioDelay.Minimum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            -2147483648});
+            this.MicAudioDelay.Name = "MicAudioDelay";
+            this.MicAudioDelay.Size = new System.Drawing.Size(60, 23);
+            this.MicAudioDelay.TabIndex = 14;
+            // 
+            // MVidDelayLabel
+            // 
+            this.MVidDelayLabel.AutoEllipsis = true;
+            this.MVidDelayLabel.AutoSize = true;
+            this.MVidDelayLabel.Location = new System.Drawing.Point(448, 67);
+            this.MVidDelayLabel.Name = "MVidDelayLabel";
+            this.MVidDelayLabel.Size = new System.Drawing.Size(123, 22);
+            this.MVidDelayLabel.TabIndex = 13;
+            this.MVidDelayLabel.Text = "Mic Video Delay:";
+            // 
+            // MAudDelayLabel
+            // 
+            this.MAudDelayLabel.AutoSize = true;
+            this.MAudDelayLabel.Location = new System.Drawing.Point(448, 38);
+            this.MAudDelayLabel.Name = "MAudDelayLabel";
+            this.MAudDelayLabel.Size = new System.Drawing.Size(123, 22);
+            this.MAudDelayLabel.TabIndex = 12;
+            this.MAudDelayLabel.Text = "Mic Audio Delay:";
+            // 
+            // MicrophoneSelect
+            // 
+            this.MicrophoneSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MicrophoneSelect.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MicrophoneSelect.FormattingEnabled = true;
+            this.MicrophoneSelect.Items.AddRange(new object[] {
+            "None"});
+            this.MicrophoneSelect.Location = new System.Drawing.Point(129, 39);
+            this.MicrophoneSelect.Name = "MicrophoneSelect";
+            this.MicrophoneSelect.Size = new System.Drawing.Size(305, 23);
+            this.MicrophoneSelect.TabIndex = 8;
+            // 
+            // MicrophoneLabel
+            // 
+            this.MicrophoneLabel.AutoSize = true;
+            this.MicrophoneLabel.Location = new System.Drawing.Point(30, 39);
+            this.MicrophoneLabel.Name = "MicrophoneLabel";
+            this.MicrophoneLabel.Size = new System.Drawing.Size(93, 22);
+            this.MicrophoneLabel.TabIndex = 7;
+            this.MicrophoneLabel.Text = "Microphone:";
+            // 
+            // MicSettingsHeaderLabel
+            // 
+            this.MicSettingsHeaderLabel.AutoSize = true;
+            this.MicSettingsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.MicSettingsHeaderLabel.Location = new System.Drawing.Point(18, 14);
+            this.MicSettingsHeaderLabel.Name = "MicSettingsHeaderLabel";
+            this.MicSettingsHeaderLabel.Size = new System.Drawing.Size(214, 25);
+            this.MicSettingsHeaderLabel.TabIndex = 6;
+            this.MicSettingsHeaderLabel.Text = "Mic and Vocal Settings:";
             // 
             // TabDebugGroup
             // 
@@ -1763,6 +1860,7 @@
             this.OpenModsButton.TabIndex = 6;
             this.OpenModsButton.Text = "Open Mods Folder";
             this.OpenModsButton.UseVisualStyleBackColor = false;
+            this.OpenModsButton.Click += new System.EventHandler(this.OpenModsButton_Click);
             // 
             // AdjustSettingsButton
             // 
@@ -1804,6 +1902,7 @@
             this.RunWTDEButton.TabIndex = 4;
             this.RunWTDEButton.Text = "Start WTDE";
             this.RunWTDEButton.UseVisualStyleBackColor = false;
+            this.RunWTDEButton.Click += new System.EventHandler(this.RunWTDEButton_Click);
             // 
             // WTDELogo
             // 
@@ -1997,103 +2096,6 @@
             this.MOTDBack.TabIndex = 1;
             this.MOTDBack.TabStop = false;
             // 
-            // MicrophoneLabel
-            // 
-            this.MicrophoneLabel.AutoSize = true;
-            this.MicrophoneLabel.Location = new System.Drawing.Point(30, 39);
-            this.MicrophoneLabel.Name = "MicrophoneLabel";
-            this.MicrophoneLabel.Size = new System.Drawing.Size(93, 22);
-            this.MicrophoneLabel.TabIndex = 7;
-            this.MicrophoneLabel.Text = "Microphone:";
-            // 
-            // MicSettingsHeaderLabel
-            // 
-            this.MicSettingsHeaderLabel.AutoSize = true;
-            this.MicSettingsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.MicSettingsHeaderLabel.Location = new System.Drawing.Point(18, 14);
-            this.MicSettingsHeaderLabel.Name = "MicSettingsHeaderLabel";
-            this.MicSettingsHeaderLabel.Size = new System.Drawing.Size(214, 25);
-            this.MicSettingsHeaderLabel.TabIndex = 6;
-            this.MicSettingsHeaderLabel.Text = "Mic and Vocal Settings:";
-            // 
-            // MicrophoneSelect
-            // 
-            this.MicrophoneSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MicrophoneSelect.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MicrophoneSelect.FormattingEnabled = true;
-            this.MicrophoneSelect.Items.AddRange(new object[] {
-            "None"});
-            this.MicrophoneSelect.Location = new System.Drawing.Point(129, 39);
-            this.MicrophoneSelect.Name = "MicrophoneSelect";
-            this.MicrophoneSelect.Size = new System.Drawing.Size(305, 23);
-            this.MicrophoneSelect.TabIndex = 8;
-            // 
-            // MAudDelayLabel
-            // 
-            this.MAudDelayLabel.AutoSize = true;
-            this.MAudDelayLabel.Location = new System.Drawing.Point(448, 38);
-            this.MAudDelayLabel.Name = "MAudDelayLabel";
-            this.MAudDelayLabel.Size = new System.Drawing.Size(123, 22);
-            this.MAudDelayLabel.TabIndex = 12;
-            this.MAudDelayLabel.Text = "Mic Audio Delay:";
-            // 
-            // MVidDelayLabel
-            // 
-            this.MVidDelayLabel.AutoEllipsis = true;
-            this.MVidDelayLabel.AutoSize = true;
-            this.MVidDelayLabel.Location = new System.Drawing.Point(448, 67);
-            this.MVidDelayLabel.Name = "MVidDelayLabel";
-            this.MVidDelayLabel.Size = new System.Drawing.Size(123, 22);
-            this.MVidDelayLabel.TabIndex = 13;
-            this.MVidDelayLabel.Text = "Mic Video Delay:";
-            // 
-            // MicAudioDelay
-            // 
-            this.MicAudioDelay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MicAudioDelay.Location = new System.Drawing.Point(579, 40);
-            this.MicAudioDelay.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.MicAudioDelay.Minimum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            -2147483648});
-            this.MicAudioDelay.Name = "MicAudioDelay";
-            this.MicAudioDelay.Size = new System.Drawing.Size(60, 23);
-            this.MicAudioDelay.TabIndex = 14;
-            // 
-            // MicVideoDelay
-            // 
-            this.MicVideoDelay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MicVideoDelay.Location = new System.Drawing.Point(579, 69);
-            this.MicVideoDelay.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.MicVideoDelay.Minimum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            -2147483648});
-            this.MicVideoDelay.Name = "MicVideoDelay";
-            this.MicVideoDelay.Size = new System.Drawing.Size(60, 23);
-            this.MicVideoDelay.TabIndex = 15;
-            // 
-            // SetDefaultVoxLag
-            // 
-            this.SetDefaultVoxLag.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SetDefaultVoxLag.Location = new System.Drawing.Point(452, 98);
-            this.SetDefaultVoxLag.Name = "SetDefaultVoxLag";
-            this.SetDefaultVoxLag.Size = new System.Drawing.Size(187, 23);
-            this.SetDefaultVoxLag.TabIndex = 16;
-            this.SetDefaultVoxLag.Text = "Use Recommended Values";
-            this.SetDefaultVoxLag.UseVisualStyleBackColor = true;
-            this.SetDefaultVoxLag.Click += new System.EventHandler(this.SetDefaultVoxLag_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -2129,6 +2131,8 @@
             this.TabParentContainer.ResumeLayout(false);
             this.TabInputGroup.ResumeLayout(false);
             this.TabInputGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).EndInit();
             this.TabDebugGroup.ResumeLayout(false);
             this.TabDebugGroup.PerformLayout();
             this.TabAutoLaunchGroup.ResumeLayout(false);
@@ -2144,8 +2148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

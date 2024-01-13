@@ -20,6 +20,7 @@
 // Various required imports.
 using System;
 using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,24 +47,28 @@ namespace WTDE_Launcher_V3 {
             // Set our background image correctly and get the MOTD from the website.
             this.BackgroundImage = Properties.Resources.bg_1;
             MOTDText.Text = V3LauncherCore.GetMOTDText();
-            UpdateActiveTab((int) LauncherTabs.MOTD);
+            UpdateActiveTab((int)LauncherTabs.MOTD);
 
             // Get our list of microphone devices.
             GetMicDevices();
 
-            // Set up tabs, load INI and XML file settings, set the window title, and the background.
-            DoTabSetup();
+            // Set working directory for DEBUG PURPOSES.
+            //~ Directory.SetCurrentDirectory("D:/Program Files (D)/Aspyr/Guitar Hero World Tour");
+            ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
+
+            // Set up tabs, the window title, and the background.
             LoadINISettings();
+            DoTabSetup();
             V3LauncherCore.SetWindowTitle(this);
             BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
 
             // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
             OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
             OpenDevOnlySettings.Visible = V3LauncherCore.AllowDevSettings();
-    
+
             //~ Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
 
-            // Should we automatically update when the program starts?
+            // Also, should we automatically update when the program starts?
             V3LauncherCore.AutoCheckForUpdates();
         }
 
@@ -154,22 +159,22 @@ namespace WTDE_Launcher_V3 {
             };
 
             AutoLaunchPart1.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part", "guitar"),
-                autoLaunchInstruments[1], autoLaunchInstruments[0]);
+                autoLaunchInstruments[0], autoLaunchInstruments[1]);
             AutoLaunchPart2.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part2", "bass"),
-                autoLaunchInstruments[1], autoLaunchInstruments[0]);
+                autoLaunchInstruments[0], autoLaunchInstruments[1]);
             AutoLaunchPart3.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part3", "drum"),
-                autoLaunchInstruments[1], autoLaunchInstruments[0]);
+                autoLaunchInstruments[0], autoLaunchInstruments[1]);
             AutoLaunchPart4.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Part4", "vocals"),
-                autoLaunchInstruments[1], autoLaunchInstruments[0]);
+                autoLaunchInstruments[0], autoLaunchInstruments[1]);
 
             AutoLaunchDifficulty1.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty", "easy"),
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
+                autoLaunchDifficulties[0], autoLaunchDifficulties[1]);
             AutoLaunchDifficulty2.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty2", "easy"),
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
+                autoLaunchDifficulties[0], autoLaunchDifficulties[1]);
             AutoLaunchDifficulty3.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty3", "easy"),
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
+                autoLaunchDifficulties[0], autoLaunchDifficulties[1]);
             AutoLaunchDifficulty4.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Difficulty4", "easy"),
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]);
+                autoLaunchDifficulties[0], autoLaunchDifficulties[1]);
 
             AutoLaunchBot1.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot", "1"));
             AutoLaunchBot2.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot2", "1"));
@@ -185,7 +190,7 @@ namespace WTDE_Launcher_V3 {
         /// <summary>
         ///  Save all data to GHWTDE.ini and AspyrConfig.xml.
         /// </summary>
-        public void SaveINISettings() {
+        public void SaveINISettings(object sender, EventArgs e) {
             // All right, let's do some config settings saving!
             // We will be writing ALL INI and XML file settings!
 
@@ -291,6 +296,8 @@ namespace WTDE_Launcher_V3 {
             // DEBUG TAB
             // ---------------------------------
             INIFunctions.SaveINIValue("Debug", "FixNoteLimit", INIFunctions.BoolToString(FixNoteLimit.Checked));
+
+            
         }
 
         /// <summary>
@@ -619,7 +626,7 @@ namespace WTDE_Launcher_V3 {
         ///  Actions to be carried out when the program closes.
         /// </summary>
         public void ExitActions() {
-            V3LauncherCore.AddDebugEntry("We're done in the launcher for now!\nThanks for using it! :D", "Form Closing");
+            V3LauncherCore.DebugLog.Add("\n\nWe're done in the launcher for now!\nThanks for using it! :D");
             V3LauncherCore.WriteDebugLog();
         }
         private void Main_FormClosed(object sender, FormClosedEventArgs e) {
@@ -683,9 +690,24 @@ namespace WTDE_Launcher_V3 {
             }
         }
 
+        private void RunWTDEButton_Click(object sender, EventArgs e) {
+            ModHandler.UseUpdaterINIDirectory();
+            this.Close();
+            Process.Start("GHWT_Definitive.exe");
+        }
+
         private void AdjustSettingsButton_Click(object sender, EventArgs e) {
             if (ActiveTab == 0 || ActiveTab == 7) UpdateActiveTab((int)LauncherTabs.PreTab);
             else UpdateActiveTab((int)LauncherTabs.MOTD);
+        }
+
+        private void OpenModsButton_Click(object sender, EventArgs e) {
+            // We'll use Path.Combine() for this, otherwise we might
+            // run into other platform issues (for example, Linux).
+            var owd = Directory.GetCurrentDirectory();
+            ModHandler.UseUpdaterINIDirectory();
+            Process.Start("explorer.exe", Path.Combine("DATA", "MODS"));
+            Directory.SetCurrentDirectory(owd);
         }
 
         private void CheckUpdatesButton_Click(object sender, EventArgs e) {
@@ -1218,5 +1240,7 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
             XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
         }
+
+        
     }
 }
