@@ -137,6 +137,12 @@
   <ItemGroup>
     <Compile Include="BGConstants.cs" />
     <Compile Include="INIFunctions.cs" />
+    <Compile Include="InputKeySelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputKeySelector.Designer.cs">
+      <DependentUpon>InputKeySelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="XMLFunctions.cs" />
+    <EmbeddedResource Include="InputKeySelector.resx">
+      <DependentUpon>InputKeySelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +197,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\img\mouse_outline.png" />
     <None Include="res\img\social\fretworks.png" />
     <None Include="res\img\social\youtube.png" />
     <None Include="res\img\social\wtde_site.png" />

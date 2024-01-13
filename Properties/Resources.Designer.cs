@@ -403,6 +403,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mouse_outline {
+            get {
+                object obj = ResourceManager.GetObject("mouse_outline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap white_overlay_d {
             get {
                 object obj = ResourceManager.GetObject("white_overlay_d", resourceCulture);

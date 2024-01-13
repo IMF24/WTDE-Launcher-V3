@@ -116,6 +116,14 @@ namespace WTDE_Launcher_V3 {
             MicAudioDelay.Value = int.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "0"));
             MicVideoDelay.Value = int.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "0"));
 
+            // -- GUITAR KEYBOARD INPUTS --------
+            GuitarGreenInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "GREEN");
+            GuitarRedInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "RED");
+            GuitarYellowInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "YELLOW");
+            GuitarBlueInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "BLUE");
+            GuitarOrangeInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "ORANGE");
+            GuitarStartInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "START");
+
             // ---------------------------------
             // BAND TAB
             // ---------------------------------
@@ -1231,7 +1239,7 @@ namespace WTDE_Launcher_V3 {
         #endregion
 
         // ----------------------------------------------------------
-        // INPUT TAB SOCIAL BUTTONS
+        // INPUT TAB AUTO UPDATE
         // ----------------------------------------------------------
         private void SetDefaultVoxLag_Click(object sender, EventArgs e) {
             MicAudioDelay.Value = -80;
@@ -1241,6 +1249,15 @@ namespace WTDE_Launcher_V3 {
             XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
         }
 
-        
+        public void AddInputKey(Label label) {
+            InputKeySelector iks = new InputKeySelector(label);
+            iks.ShowDialog();
+        }
+
+        private void AddGtrGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarGreenInputs);
+        }
+
+
     }
 }

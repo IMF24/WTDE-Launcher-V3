@@ -29,3 +29,4 @@ C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.csproj.Cop
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.exe
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.pdb
 D:\WTDE-Launcher-V3\bin\Debug\NAudio.xml
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.InputKeySelector.resources
