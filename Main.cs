@@ -1249,6 +1249,26 @@ namespace WTDE_Launcher_V3 {
             XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
         }
 
+        private void SaveKeybindsButton_Click(object sender, EventArgs e) {
+            // -- GUITAR INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    GuitarGreenInputs.Text,
+                    GuitarRedInputs.Text,
+                    GuitarYellowInputs.Text,
+                    GuitarBlueInputs.Text,
+                    GuitarOrangeInputs.Text,
+                    GuitarStartInputs.Text
+                },
+
+                new List<string> {
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START"
+                },
+                
+                "Keyboard_Guitar"
+            );
+        }
+
         public void AddInputKey(Label label) {
             InputKeySelector iks = new InputKeySelector(label);
             iks.ShowDialog();
@@ -1258,6 +1278,13 @@ namespace WTDE_Launcher_V3 {
             AddInputKey(GuitarGreenInputs);
         }
 
+        private void ClearGtrGreenInputs_Click(object sender, EventArgs e) {
+            GuitarGreenInputs.Text = "";
+        }
+
+        private void GuitarGreenInputs_TextChanged(object sender, EventArgs e) {
+
+        }
 
     }
 }

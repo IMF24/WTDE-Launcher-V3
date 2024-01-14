@@ -466,5 +466,26 @@ namespace WTDE_Launcher_V3 {
             new string[] { "401", "RMB" },
             new string[] { "402", "MMB" }
         };
+
+        /// <summary>
+        ///  The default mapping string for `Keyboard_Guitar` in AspyrConfig.xml. 
+        /// </summary>
+        public const string ASPYR_INPUT_GUITAR_DEFAULT = "GREEN 328 308 RED 221 YELLOW 340 BLUE 343 ORANGE 267 STAR 402 318 CANCEL 999 START 219 BACK 999 DOWN 231 400 UP 327 401 WHAMMY 310 LEFT 265 RIGHT 309 ";
+
+        /// <summary>
+        ///  The default mapping string for `Keyboard_Drum` in AspyrConfig.xml.
+        /// </summary>
+        public const string ASPYR_INPUT_DRUMS_BACKUP = "GREEN 308 262 259 258 254 RED 252 236 227 313 YELLOW 322 305 232 331 BLUE 295 256 324 341 ORANGE 999 KICK 318 CANCEL 999 START 219 BACK 999 DOWN 231 UP 327 WHAMMY 999 ";
+
+        /// <summary>
+        ///  The default mapping string for `Keyboard_Mic` in AspyrConfig.xml.
+        /// </summary>
+        public const string ASPYR_INPUT_MIC_BACKUP = "GREEN 328 308 402 318 RED 221 YELLOW 340 BLUE 343 ORANGE 267 234 218 CANCEL 999 START 219 BACK 999 DOWN 400 231 UP 401 327 MIC_VOL_DOWN 273 ";
+
+        /// <summary>
+        ///  The default mapping string for `Keyboard_Menu` in AspyrConfig.xml.
+        /// </summary>
+        public const string ASPYR_INPUT_MENU_BACKUP = "GREEN 308 328 RED 221 YELLOW 340 BLUE 343 ORANGE 267 CANCEL 999 START 219 BACK 402 311 DOWN 400 231 UP 401 327 WHAMMY 310 KICK 318 LEFT 265 RIGHT 309 ";
+
     }
 }

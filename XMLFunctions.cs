@@ -55,6 +55,23 @@ namespace WTDE_Launcher_V3 {
 
             // If we didn't find the tag we wanted, let's add it in.
             // Also assign that tag to our fallback value.
+            switch (sIDKey) {
+                case "Keyboard_Guitar":
+                    fallback = V3LauncherConstants.ASPYR_INPUT_GUITAR_DEFAULT;
+                    break;
+
+                case "Keyboard_Drum":
+                    fallback = V3LauncherConstants.ASPYR_INPUT_DRUMS_BACKUP;
+                    break;
+
+                case "Keyboard_Mic":
+                    fallback = V3LauncherConstants.ASPYR_INPUT_MIC_BACKUP;
+                    break;
+
+                case "Keyboard_Menu":
+                    fallback = V3LauncherConstants.ASPYR_INPUT_MENU_BACKUP;
+                    break;
+            }
             AspyrWriteString(sIDKey, fallback);
             return fallback;
         }

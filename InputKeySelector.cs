@@ -46,6 +46,8 @@ namespace WTDE_Launcher_V3 {
         private void InputKeySelector_FormClosing(object sender, FormClosingEventArgs e) {
             OutputLabel.Text += $" {ReturnKey}";
             OutputLabel.Text = OutputLabel.Text.Trim();
+
+            Main main = new Main();
         }
 
         private void CancelButton_Click(object sender, EventArgs e) {
@@ -427,6 +429,50 @@ namespace WTDE_Launcher_V3 {
 
         private void KeyRMB_Click(object sender, EventArgs e) {
             GiveKeyBack("RMB");
+        }
+
+        private void KeyZ_Click(object sender, EventArgs e) {
+            GiveKeyBack("Z");
+        }
+
+        private void KeyX_Click(object sender, EventArgs e) {
+            GiveKeyBack("X");
+        }
+
+        private void KeyC_Click(object sender, EventArgs e) {
+            GiveKeyBack("C");
+        }
+
+        private void KeyV_Click(object sender, EventArgs e) {
+            GiveKeyBack("V");
+        }
+
+        private void KeyB_Click(object sender, EventArgs e) {
+            GiveKeyBack("B");
+        }
+
+        private void KeyN_Click(object sender, EventArgs e) {
+            GiveKeyBack("N");
+        }
+
+        private void KeyM_Click(object sender, EventArgs e) {
+            GiveKeyBack("M");
+        }
+
+        private void KeyComma_Click(object sender, EventArgs e) {
+            GiveKeyBack(",");
+        }
+
+        private void KeyPeriod_Click(object sender, EventArgs e) {
+            GiveKeyBack(".");
+        }
+
+        private void KeyQuestion_Click(object sender, EventArgs e) {
+            GiveKeyBack("?");
+        }
+
+        private void KeyRShift_Click(object sender, EventArgs e) {
+            GiveKeyBack("RShift");
         }
     }
 }

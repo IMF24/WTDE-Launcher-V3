@@ -40,6 +40,23 @@
             this.IconLogoIMF = new System.Windows.Forms.PictureBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabInputGroup = new System.Windows.Forms.GroupBox();
+            this.KeyBindsHeaderLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ClearGtrGreenInputs = new System.Windows.Forms.Button();
+            this.AddGtrGreenInput = new System.Windows.Forms.Button();
+            this.GuitarStartInputs = new System.Windows.Forms.Label();
+            this.GuitarOrangeInputs = new System.Windows.Forms.Label();
+            this.GuitarBlueInputs = new System.Windows.Forms.Label();
+            this.GuitarYellowInputs = new System.Windows.Forms.Label();
+            this.GuitarRedInputs = new System.Windows.Forms.Label();
+            this.GuitarGreenInputs = new System.Windows.Forms.Label();
+            this.GtrStartLabel = new System.Windows.Forms.Label();
+            this.GtrOrangeLabel = new System.Windows.Forms.Label();
+            this.GtrBlueLabel = new System.Windows.Forms.Label();
+            this.GtrYellowLabel = new System.Windows.Forms.Label();
+            this.GtrRedLabel = new System.Windows.Forms.Label();
+            this.GtrGreenLabel = new System.Windows.Forms.Label();
+            this.GuitarInputsHeaderLabel = new System.Windows.Forms.Label();
             this.SetDefaultVoxLag = new System.Windows.Forms.Button();
             this.MicVideoDelay = new System.Windows.Forms.NumericUpDown();
             this.MicAudioDelay = new System.Windows.Forms.NumericUpDown();
@@ -162,29 +179,15 @@
             this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.KeyBindsHeaderLabel = new System.Windows.Forms.Label();
-            this.GuitarInputsHeaderLabel = new System.Windows.Forms.Label();
-            this.GtrGreenLabel = new System.Windows.Forms.Label();
-            this.GtrRedLabel = new System.Windows.Forms.Label();
-            this.GtrYellowLabel = new System.Windows.Forms.Label();
-            this.GtrBlueLabel = new System.Windows.Forms.Label();
-            this.GtrOrangeLabel = new System.Windows.Forms.Label();
-            this.GtrStartLabel = new System.Windows.Forms.Label();
-            this.GuitarGreenInputs = new System.Windows.Forms.Label();
-            this.GuitarRedInputs = new System.Windows.Forms.Label();
-            this.GuitarYellowInputs = new System.Windows.Forms.Label();
-            this.GuitarBlueInputs = new System.Windows.Forms.Label();
-            this.GuitarOrangeInputs = new System.Windows.Forms.Label();
-            this.GuitarStartInputs = new System.Windows.Forms.Label();
-            this.AddGtrGreenInput = new System.Windows.Forms.Button();
-            this.ClearGtrGreenInputs = new System.Windows.Forms.Button();
+            this.SaveKeybindsButton = new System.Windows.Forms.Button();
+            this.ResetKeybindsButton = new System.Windows.Forms.Button();
             this.TabCreditsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
             this.TabParentContainer.SuspendLayout();
             this.TabInputGroup.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             this.TabDebugGroup.SuspendLayout();
@@ -197,7 +200,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -412,6 +414,8 @@
             // 
             this.TabInputGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
             this.TabInputGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabInputGroup.Controls.Add(this.ResetKeybindsButton);
+            this.TabInputGroup.Controls.Add(this.SaveKeybindsButton);
             this.TabInputGroup.Controls.Add(this.KeyBindsHeaderLabel);
             this.TabInputGroup.Controls.Add(this.panel1);
             this.TabInputGroup.Controls.Add(this.SetDefaultVoxLag);
@@ -429,6 +433,201 @@
             this.TabInputGroup.TabIndex = 15;
             this.TabInputGroup.TabStop = false;
             this.TabInputGroup.Text = "DEBUG: Input Tab";
+            // 
+            // KeyBindsHeaderLabel
+            // 
+            this.KeyBindsHeaderLabel.AutoSize = true;
+            this.KeyBindsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.KeyBindsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.KeyBindsHeaderLabel.Location = new System.Drawing.Point(18, 125);
+            this.KeyBindsHeaderLabel.Name = "KeyBindsHeaderLabel";
+            this.KeyBindsHeaderLabel.Size = new System.Drawing.Size(102, 25);
+            this.KeyBindsHeaderLabel.TabIndex = 18;
+            this.KeyBindsHeaderLabel.Text = "Key Binds:";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.ClearGtrGreenInputs);
+            this.panel1.Controls.Add(this.AddGtrGreenInput);
+            this.panel1.Controls.Add(this.GuitarStartInputs);
+            this.panel1.Controls.Add(this.GuitarOrangeInputs);
+            this.panel1.Controls.Add(this.GuitarBlueInputs);
+            this.panel1.Controls.Add(this.GuitarYellowInputs);
+            this.panel1.Controls.Add(this.GuitarRedInputs);
+            this.panel1.Controls.Add(this.GuitarGreenInputs);
+            this.panel1.Controls.Add(this.GtrStartLabel);
+            this.panel1.Controls.Add(this.GtrOrangeLabel);
+            this.panel1.Controls.Add(this.GtrBlueLabel);
+            this.panel1.Controls.Add(this.GtrYellowLabel);
+            this.panel1.Controls.Add(this.GtrRedLabel);
+            this.panel1.Controls.Add(this.GtrGreenLabel);
+            this.panel1.Controls.Add(this.GuitarInputsHeaderLabel);
+            this.panel1.Location = new System.Drawing.Point(23, 153);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(616, 474);
+            this.panel1.TabIndex = 17;
+            // 
+            // ClearGtrGreenInputs
+            // 
+            this.ClearGtrGreenInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearGtrGreenInputs.Location = new System.Drawing.Point(519, 26);
+            this.ClearGtrGreenInputs.Name = "ClearGtrGreenInputs";
+            this.ClearGtrGreenInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearGtrGreenInputs.TabIndex = 33;
+            this.ClearGtrGreenInputs.Text = "Clear";
+            this.ClearGtrGreenInputs.UseVisualStyleBackColor = true;
+            this.ClearGtrGreenInputs.Click += new System.EventHandler(this.ClearGtrGreenInputs_Click);
+            // 
+            // AddGtrGreenInput
+            // 
+            this.AddGtrGreenInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddGtrGreenInput.Location = new System.Drawing.Point(441, 26);
+            this.AddGtrGreenInput.Name = "AddGtrGreenInput";
+            this.AddGtrGreenInput.Size = new System.Drawing.Size(75, 23);
+            this.AddGtrGreenInput.TabIndex = 32;
+            this.AddGtrGreenInput.Text = "Add";
+            this.AddGtrGreenInput.UseVisualStyleBackColor = true;
+            this.AddGtrGreenInput.Click += new System.EventHandler(this.AddGtrGreenInput_Click);
+            // 
+            // GuitarStartInputs
+            // 
+            this.GuitarStartInputs.AutoSize = true;
+            this.GuitarStartInputs.Location = new System.Drawing.Point(125, 136);
+            this.GuitarStartInputs.Name = "GuitarStartInputs";
+            this.GuitarStartInputs.Size = new System.Drawing.Size(157, 22);
+            this.GuitarStartInputs.TabIndex = 31;
+            this.GuitarStartInputs.Text = "GTR_START_INPUTS";
+            // 
+            // GuitarOrangeInputs
+            // 
+            this.GuitarOrangeInputs.AutoSize = true;
+            this.GuitarOrangeInputs.Location = new System.Drawing.Point(125, 114);
+            this.GuitarOrangeInputs.Name = "GuitarOrangeInputs";
+            this.GuitarOrangeInputs.Size = new System.Drawing.Size(175, 22);
+            this.GuitarOrangeInputs.TabIndex = 30;
+            this.GuitarOrangeInputs.Text = "GTR_ORANGE_INPUTS";
+            // 
+            // GuitarBlueInputs
+            // 
+            this.GuitarBlueInputs.AutoSize = true;
+            this.GuitarBlueInputs.Location = new System.Drawing.Point(125, 92);
+            this.GuitarBlueInputs.Name = "GuitarBlueInputs";
+            this.GuitarBlueInputs.Size = new System.Drawing.Size(150, 22);
+            this.GuitarBlueInputs.TabIndex = 29;
+            this.GuitarBlueInputs.Text = "GTR_BLUE_INPUTS";
+            // 
+            // GuitarYellowInputs
+            // 
+            this.GuitarYellowInputs.AutoSize = true;
+            this.GuitarYellowInputs.Location = new System.Drawing.Point(125, 70);
+            this.GuitarYellowInputs.Name = "GuitarYellowInputs";
+            this.GuitarYellowInputs.Size = new System.Drawing.Size(172, 22);
+            this.GuitarYellowInputs.TabIndex = 28;
+            this.GuitarYellowInputs.Text = "GTR_YELLOW_INPUTS";
+            // 
+            // GuitarRedInputs
+            // 
+            this.GuitarRedInputs.AutoSize = true;
+            this.GuitarRedInputs.Location = new System.Drawing.Point(125, 48);
+            this.GuitarRedInputs.Name = "GuitarRedInputs";
+            this.GuitarRedInputs.Size = new System.Drawing.Size(142, 22);
+            this.GuitarRedInputs.TabIndex = 27;
+            this.GuitarRedInputs.Text = "GTR_RED_INPUTS";
+            // 
+            // GuitarGreenInputs
+            // 
+            this.GuitarGreenInputs.AutoSize = true;
+            this.GuitarGreenInputs.Location = new System.Drawing.Point(125, 26);
+            this.GuitarGreenInputs.Name = "GuitarGreenInputs";
+            this.GuitarGreenInputs.Size = new System.Drawing.Size(163, 22);
+            this.GuitarGreenInputs.TabIndex = 26;
+            this.GuitarGreenInputs.Text = "GTR_GREEN_INPUTS";
+            this.GuitarGreenInputs.TextChanged += new System.EventHandler(this.GuitarGreenInputs_TextChanged);
+            // 
+            // GtrStartLabel
+            // 
+            this.GtrStartLabel.AutoSize = true;
+            this.GtrStartLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.GtrStartLabel.ForeColor = System.Drawing.Color.Black;
+            this.GtrStartLabel.Location = new System.Drawing.Point(66, 135);
+            this.GtrStartLabel.Name = "GtrStartLabel";
+            this.GtrStartLabel.Size = new System.Drawing.Size(53, 22);
+            this.GtrStartLabel.TabIndex = 25;
+            this.GtrStartLabel.Text = "Start:";
+            this.GtrStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GtrOrangeLabel
+            // 
+            this.GtrOrangeLabel.AutoSize = true;
+            this.GtrOrangeLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.GtrOrangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.GtrOrangeLabel.Location = new System.Drawing.Point(48, 113);
+            this.GtrOrangeLabel.Name = "GtrOrangeLabel";
+            this.GtrOrangeLabel.Size = new System.Drawing.Size(71, 22);
+            this.GtrOrangeLabel.TabIndex = 24;
+            this.GtrOrangeLabel.Text = "Orange:";
+            this.GtrOrangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GtrBlueLabel
+            // 
+            this.GtrBlueLabel.AutoSize = true;
+            this.GtrBlueLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.GtrBlueLabel.ForeColor = System.Drawing.Color.Blue;
+            this.GtrBlueLabel.Location = new System.Drawing.Point(71, 91);
+            this.GtrBlueLabel.Name = "GtrBlueLabel";
+            this.GtrBlueLabel.Size = new System.Drawing.Size(48, 22);
+            this.GtrBlueLabel.TabIndex = 23;
+            this.GtrBlueLabel.Text = "Blue:";
+            this.GtrBlueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GtrYellowLabel
+            // 
+            this.GtrYellowLabel.AutoSize = true;
+            this.GtrYellowLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.GtrYellowLabel.ForeColor = System.Drawing.Color.Goldenrod;
+            this.GtrYellowLabel.Location = new System.Drawing.Point(55, 69);
+            this.GtrYellowLabel.Name = "GtrYellowLabel";
+            this.GtrYellowLabel.Size = new System.Drawing.Size(64, 22);
+            this.GtrYellowLabel.TabIndex = 22;
+            this.GtrYellowLabel.Text = "Yellow:";
+            this.GtrYellowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GtrRedLabel
+            // 
+            this.GtrRedLabel.AutoSize = true;
+            this.GtrRedLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.GtrRedLabel.ForeColor = System.Drawing.Color.Red;
+            this.GtrRedLabel.Location = new System.Drawing.Point(75, 47);
+            this.GtrRedLabel.Name = "GtrRedLabel";
+            this.GtrRedLabel.Size = new System.Drawing.Size(44, 22);
+            this.GtrRedLabel.TabIndex = 21;
+            this.GtrRedLabel.Text = "Red:";
+            this.GtrRedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GtrGreenLabel
+            // 
+            this.GtrGreenLabel.AutoSize = true;
+            this.GtrGreenLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.GtrGreenLabel.ForeColor = System.Drawing.Color.Lime;
+            this.GtrGreenLabel.Location = new System.Drawing.Point(59, 25);
+            this.GtrGreenLabel.Name = "GtrGreenLabel";
+            this.GtrGreenLabel.Size = new System.Drawing.Size(60, 22);
+            this.GtrGreenLabel.TabIndex = 20;
+            this.GtrGreenLabel.Text = "Green:";
+            this.GtrGreenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // GuitarInputsHeaderLabel
+            // 
+            this.GuitarInputsHeaderLabel.AutoSize = true;
+            this.GuitarInputsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.GuitarInputsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GuitarInputsHeaderLabel.Location = new System.Drawing.Point(6, -1);
+            this.GuitarInputsHeaderLabel.Name = "GuitarInputsHeaderLabel";
+            this.GuitarInputsHeaderLabel.Size = new System.Drawing.Size(134, 25);
+            this.GuitarInputsHeaderLabel.TabIndex = 19;
+            this.GuitarInputsHeaderLabel.Text = "Guitar Inputs:";
             // 
             // SetDefaultVoxLag
             // 
@@ -2116,198 +2315,26 @@
             this.MOTDBack.TabIndex = 1;
             this.MOTDBack.TabStop = false;
             // 
-            // panel1
+            // SaveKeybindsButton
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.ClearGtrGreenInputs);
-            this.panel1.Controls.Add(this.AddGtrGreenInput);
-            this.panel1.Controls.Add(this.GuitarStartInputs);
-            this.panel1.Controls.Add(this.GuitarOrangeInputs);
-            this.panel1.Controls.Add(this.GuitarBlueInputs);
-            this.panel1.Controls.Add(this.GuitarYellowInputs);
-            this.panel1.Controls.Add(this.GuitarRedInputs);
-            this.panel1.Controls.Add(this.GuitarGreenInputs);
-            this.panel1.Controls.Add(this.GtrStartLabel);
-            this.panel1.Controls.Add(this.GtrOrangeLabel);
-            this.panel1.Controls.Add(this.GtrBlueLabel);
-            this.panel1.Controls.Add(this.GtrYellowLabel);
-            this.panel1.Controls.Add(this.GtrRedLabel);
-            this.panel1.Controls.Add(this.GtrGreenLabel);
-            this.panel1.Controls.Add(this.GuitarInputsHeaderLabel);
-            this.panel1.Location = new System.Drawing.Point(23, 153);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(616, 474);
-            this.panel1.TabIndex = 17;
+            this.SaveKeybindsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SaveKeybindsButton.Location = new System.Drawing.Point(138, 127);
+            this.SaveKeybindsButton.Name = "SaveKeybindsButton";
+            this.SaveKeybindsButton.Size = new System.Drawing.Size(161, 23);
+            this.SaveKeybindsButton.TabIndex = 19;
+            this.SaveKeybindsButton.Text = "Save Key Binds";
+            this.SaveKeybindsButton.UseVisualStyleBackColor = true;
+            this.SaveKeybindsButton.Click += new System.EventHandler(this.SaveKeybindsButton_Click);
             // 
-            // KeyBindsHeaderLabel
+            // ResetKeybindsButton
             // 
-            this.KeyBindsHeaderLabel.AutoSize = true;
-            this.KeyBindsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.KeyBindsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.KeyBindsHeaderLabel.Location = new System.Drawing.Point(18, 125);
-            this.KeyBindsHeaderLabel.Name = "KeyBindsHeaderLabel";
-            this.KeyBindsHeaderLabel.Size = new System.Drawing.Size(102, 25);
-            this.KeyBindsHeaderLabel.TabIndex = 18;
-            this.KeyBindsHeaderLabel.Text = "Key Binds:";
-            // 
-            // GuitarInputsHeaderLabel
-            // 
-            this.GuitarInputsHeaderLabel.AutoSize = true;
-            this.GuitarInputsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.GuitarInputsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuitarInputsHeaderLabel.Location = new System.Drawing.Point(6, -1);
-            this.GuitarInputsHeaderLabel.Name = "GuitarInputsHeaderLabel";
-            this.GuitarInputsHeaderLabel.Size = new System.Drawing.Size(134, 25);
-            this.GuitarInputsHeaderLabel.TabIndex = 19;
-            this.GuitarInputsHeaderLabel.Text = "Guitar Inputs:";
-            // 
-            // GtrGreenLabel
-            // 
-            this.GtrGreenLabel.AutoSize = true;
-            this.GtrGreenLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.GtrGreenLabel.ForeColor = System.Drawing.Color.Lime;
-            this.GtrGreenLabel.Location = new System.Drawing.Point(59, 25);
-            this.GtrGreenLabel.Name = "GtrGreenLabel";
-            this.GtrGreenLabel.Size = new System.Drawing.Size(60, 22);
-            this.GtrGreenLabel.TabIndex = 20;
-            this.GtrGreenLabel.Text = "Green:";
-            this.GtrGreenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GtrRedLabel
-            // 
-            this.GtrRedLabel.AutoSize = true;
-            this.GtrRedLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.GtrRedLabel.ForeColor = System.Drawing.Color.Red;
-            this.GtrRedLabel.Location = new System.Drawing.Point(75, 47);
-            this.GtrRedLabel.Name = "GtrRedLabel";
-            this.GtrRedLabel.Size = new System.Drawing.Size(44, 22);
-            this.GtrRedLabel.TabIndex = 21;
-            this.GtrRedLabel.Text = "Red:";
-            this.GtrRedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GtrYellowLabel
-            // 
-            this.GtrYellowLabel.AutoSize = true;
-            this.GtrYellowLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.GtrYellowLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.GtrYellowLabel.Location = new System.Drawing.Point(55, 69);
-            this.GtrYellowLabel.Name = "GtrYellowLabel";
-            this.GtrYellowLabel.Size = new System.Drawing.Size(64, 22);
-            this.GtrYellowLabel.TabIndex = 22;
-            this.GtrYellowLabel.Text = "Yellow:";
-            this.GtrYellowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GtrBlueLabel
-            // 
-            this.GtrBlueLabel.AutoSize = true;
-            this.GtrBlueLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.GtrBlueLabel.ForeColor = System.Drawing.Color.Blue;
-            this.GtrBlueLabel.Location = new System.Drawing.Point(71, 91);
-            this.GtrBlueLabel.Name = "GtrBlueLabel";
-            this.GtrBlueLabel.Size = new System.Drawing.Size(48, 22);
-            this.GtrBlueLabel.TabIndex = 23;
-            this.GtrBlueLabel.Text = "Blue:";
-            this.GtrBlueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GtrOrangeLabel
-            // 
-            this.GtrOrangeLabel.AutoSize = true;
-            this.GtrOrangeLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.GtrOrangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.GtrOrangeLabel.Location = new System.Drawing.Point(48, 113);
-            this.GtrOrangeLabel.Name = "GtrOrangeLabel";
-            this.GtrOrangeLabel.Size = new System.Drawing.Size(71, 22);
-            this.GtrOrangeLabel.TabIndex = 24;
-            this.GtrOrangeLabel.Text = "Orange:";
-            this.GtrOrangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GtrStartLabel
-            // 
-            this.GtrStartLabel.AutoSize = true;
-            this.GtrStartLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.GtrStartLabel.ForeColor = System.Drawing.Color.Black;
-            this.GtrStartLabel.Location = new System.Drawing.Point(66, 135);
-            this.GtrStartLabel.Name = "GtrStartLabel";
-            this.GtrStartLabel.Size = new System.Drawing.Size(53, 22);
-            this.GtrStartLabel.TabIndex = 25;
-            this.GtrStartLabel.Text = "Start:";
-            this.GtrStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GuitarGreenInputs
-            // 
-            this.GuitarGreenInputs.AutoSize = true;
-            this.GuitarGreenInputs.Location = new System.Drawing.Point(125, 26);
-            this.GuitarGreenInputs.Name = "GuitarGreenInputs";
-            this.GuitarGreenInputs.Size = new System.Drawing.Size(163, 22);
-            this.GuitarGreenInputs.TabIndex = 26;
-            this.GuitarGreenInputs.Text = "GTR_GREEN_INPUTS";
-            // 
-            // GuitarRedInputs
-            // 
-            this.GuitarRedInputs.AutoSize = true;
-            this.GuitarRedInputs.Location = new System.Drawing.Point(125, 48);
-            this.GuitarRedInputs.Name = "GuitarRedInputs";
-            this.GuitarRedInputs.Size = new System.Drawing.Size(142, 22);
-            this.GuitarRedInputs.TabIndex = 27;
-            this.GuitarRedInputs.Text = "GTR_RED_INPUTS";
-            // 
-            // GuitarYellowInputs
-            // 
-            this.GuitarYellowInputs.AutoSize = true;
-            this.GuitarYellowInputs.Location = new System.Drawing.Point(125, 70);
-            this.GuitarYellowInputs.Name = "GuitarYellowInputs";
-            this.GuitarYellowInputs.Size = new System.Drawing.Size(172, 22);
-            this.GuitarYellowInputs.TabIndex = 28;
-            this.GuitarYellowInputs.Text = "GTR_YELLOW_INPUTS";
-            // 
-            // GuitarBlueInputs
-            // 
-            this.GuitarBlueInputs.AutoSize = true;
-            this.GuitarBlueInputs.Location = new System.Drawing.Point(125, 92);
-            this.GuitarBlueInputs.Name = "GuitarBlueInputs";
-            this.GuitarBlueInputs.Size = new System.Drawing.Size(150, 22);
-            this.GuitarBlueInputs.TabIndex = 29;
-            this.GuitarBlueInputs.Text = "GTR_BLUE_INPUTS";
-            // 
-            // GuitarOrangeInputs
-            // 
-            this.GuitarOrangeInputs.AutoSize = true;
-            this.GuitarOrangeInputs.Location = new System.Drawing.Point(125, 114);
-            this.GuitarOrangeInputs.Name = "GuitarOrangeInputs";
-            this.GuitarOrangeInputs.Size = new System.Drawing.Size(175, 22);
-            this.GuitarOrangeInputs.TabIndex = 30;
-            this.GuitarOrangeInputs.Text = "GTR_ORANGE_INPUTS";
-            // 
-            // GuitarStartInputs
-            // 
-            this.GuitarStartInputs.AutoSize = true;
-            this.GuitarStartInputs.Location = new System.Drawing.Point(125, 136);
-            this.GuitarStartInputs.Name = "GuitarStartInputs";
-            this.GuitarStartInputs.Size = new System.Drawing.Size(157, 22);
-            this.GuitarStartInputs.TabIndex = 31;
-            this.GuitarStartInputs.Text = "GTR_START_INPUTS";
-            // 
-            // AddGtrGreenInput
-            // 
-            this.AddGtrGreenInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddGtrGreenInput.Location = new System.Drawing.Point(441, 26);
-            this.AddGtrGreenInput.Name = "AddGtrGreenInput";
-            this.AddGtrGreenInput.Size = new System.Drawing.Size(75, 23);
-            this.AddGtrGreenInput.TabIndex = 32;
-            this.AddGtrGreenInput.Text = "Add";
-            this.AddGtrGreenInput.UseVisualStyleBackColor = true;
-            this.AddGtrGreenInput.Click += new System.EventHandler(this.AddGtrGreenInput_Click);
-            // 
-            // ClearGtrGreenInputs
-            // 
-            this.ClearGtrGreenInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearGtrGreenInputs.Location = new System.Drawing.Point(519, 26);
-            this.ClearGtrGreenInputs.Name = "ClearGtrGreenInputs";
-            this.ClearGtrGreenInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearGtrGreenInputs.TabIndex = 33;
-            this.ClearGtrGreenInputs.Text = "Clear";
-            this.ClearGtrGreenInputs.UseVisualStyleBackColor = true;
+            this.ResetKeybindsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ResetKeybindsButton.Location = new System.Drawing.Point(311, 127);
+            this.ResetKeybindsButton.Name = "ResetKeybindsButton";
+            this.ResetKeybindsButton.Size = new System.Drawing.Size(161, 23);
+            this.ResetKeybindsButton.TabIndex = 20;
+            this.ResetKeybindsButton.Text = "Reset Key Binds";
+            this.ResetKeybindsButton.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -2344,6 +2371,8 @@
             this.TabParentContainer.ResumeLayout(false);
             this.TabInputGroup.ResumeLayout(false);
             this.TabInputGroup.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).EndInit();
             this.TabDebugGroup.ResumeLayout(false);
@@ -2361,8 +2390,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2524,6 +2551,8 @@
         public System.Windows.Forms.Label GuitarGreenInputs;
         public System.Windows.Forms.Label GuitarStartInputs;
         public System.Windows.Forms.Label GuitarOrangeInputs;
+        private System.Windows.Forms.Button ResetKeybindsButton;
+        private System.Windows.Forms.Button SaveKeybindsButton;
     }
 }
 

@@ -637,6 +637,7 @@
             this.KeyZ.TabIndex = 48;
             this.KeyZ.Text = "Z";
             this.KeyZ.UseVisualStyleBackColor = true;
+            this.KeyZ.Click += new System.EventHandler(this.KeyZ_Click);
             // 
             // KeyX
             // 
@@ -646,6 +647,7 @@
             this.KeyX.TabIndex = 49;
             this.KeyX.Text = "X";
             this.KeyX.UseVisualStyleBackColor = true;
+            this.KeyX.Click += new System.EventHandler(this.KeyX_Click);
             // 
             // KeyC
             // 
@@ -655,6 +657,7 @@
             this.KeyC.TabIndex = 50;
             this.KeyC.Text = "C";
             this.KeyC.UseVisualStyleBackColor = true;
+            this.KeyC.Click += new System.EventHandler(this.KeyC_Click);
             // 
             // KeyV
             // 
@@ -664,6 +667,7 @@
             this.KeyV.TabIndex = 51;
             this.KeyV.Text = "V";
             this.KeyV.UseVisualStyleBackColor = true;
+            this.KeyV.Click += new System.EventHandler(this.KeyV_Click);
             // 
             // KeyB
             // 
@@ -673,6 +677,7 @@
             this.KeyB.TabIndex = 52;
             this.KeyB.Text = "B";
             this.KeyB.UseVisualStyleBackColor = true;
+            this.KeyB.Click += new System.EventHandler(this.KeyB_Click);
             // 
             // KeyN
             // 
@@ -682,6 +687,7 @@
             this.KeyN.TabIndex = 53;
             this.KeyN.Text = "N";
             this.KeyN.UseVisualStyleBackColor = true;
+            this.KeyN.Click += new System.EventHandler(this.KeyN_Click);
             // 
             // KeyM
             // 
@@ -691,6 +697,7 @@
             this.KeyM.TabIndex = 53;
             this.KeyM.Text = "M";
             this.KeyM.UseVisualStyleBackColor = true;
+            this.KeyM.Click += new System.EventHandler(this.KeyM_Click);
             // 
             // KeyComma
             // 
@@ -700,6 +707,7 @@
             this.KeyComma.TabIndex = 54;
             this.KeyComma.Text = ",";
             this.KeyComma.UseVisualStyleBackColor = true;
+            this.KeyComma.Click += new System.EventHandler(this.KeyComma_Click);
             // 
             // KeyPeriod
             // 
@@ -709,6 +717,7 @@
             this.KeyPeriod.TabIndex = 55;
             this.KeyPeriod.Text = ".";
             this.KeyPeriod.UseVisualStyleBackColor = true;
+            this.KeyPeriod.Click += new System.EventHandler(this.KeyPeriod_Click);
             // 
             // KeyQuestion
             // 
@@ -718,6 +727,7 @@
             this.KeyQuestion.TabIndex = 55;
             this.KeyQuestion.Text = "?";
             this.KeyQuestion.UseVisualStyleBackColor = true;
+            this.KeyQuestion.Click += new System.EventHandler(this.KeyQuestion_Click);
             // 
             // KeyRShift
             // 
@@ -727,6 +737,7 @@
             this.KeyRShift.TabIndex = 56;
             this.KeyRShift.Text = "Right Shift";
             this.KeyRShift.UseVisualStyleBackColor = true;
+            this.KeyRShift.Click += new System.EventHandler(this.KeyRShift_Click);
             // 
             // KeyLCtrl
             // 
@@ -1240,7 +1251,7 @@
             // 
             this.CurrentInputs.AutoSize = true;
             this.CurrentInputs.Font = new System.Drawing.Font("Lexend", 10F);
-            this.CurrentInputs.Location = new System.Drawing.Point(200, 301);
+            this.CurrentInputs.Location = new System.Drawing.Point(192, 301);
             this.CurrentInputs.Name = "CurrentInputs";
             this.CurrentInputs.Size = new System.Drawing.Size(142, 22);
             this.CurrentInputs.TabIndex = 91;

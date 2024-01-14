@@ -285,6 +285,57 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
+        ///  Takes a list of inputs along with a binding string and translates it into Aspyr's keybind codes.
+        /// </summary>
+        /// <param name="inputs">
+        ///  Array of strings of input bindings, corresponding to the inputList argument.
+        /// </param>
+        /// <param name="inputList">
+        ///  Array of strings of inputs, corresponding to the inputs argument.
+        /// </param>
+        /// <param name="mappingString">
+        ///  The string to be written to AspyrConfig.
+        /// </param>
+        public static void AspyrKeyEncode(List<string> inputs, List<string> inputList, string mappingString) {
+            if (inputs.Count != inputList.Count) throw new Exception("The number of inputs given do not match each other.");
+
+            // This will be the string we plan to write.
+            string inputsEncoded = "";
+
+            // Make a list of keybinds. We'll just split the strings at
+            // the whitespaces.
+            var keybindsList = new List<string[]>();
+            foreach (var str in inputs) {
+                // Split the string at the whitespaces.
+                // Also remove all duplicates.
+                var inputArray = str.Split(' ').Distinct().ToArray();
+                keybindsList.Add(inputArray);
+            }
+
+            // Let's write each input one by one.
+            foreach (var bind in inputList) {
+                inputsEncoded += bind.ToUpper() + " ";
+
+                // Now loop through the keybinds.
+                foreach (var keyPair in V3LauncherConstants.AspyrKeyBinds) {
+                    foreach (var id in keybindsList[0]) {
+                        // Is this the binding we're looking for?
+                        if (keyPair[1] == id) {
+                            inputsEncoded += keyPair[0] + " ";
+                        }
+                    }
+                }
+
+                // Remove the first element of the list, we'll keep track of the
+                // current input using the first item.
+                keybindsList.RemoveAt(0);
+            }
+
+            // Write the changes to AspyrConfig.xml.
+            XMLFunctions.AspyrWriteString(mappingString, inputsEncoded.TrimEnd());
+        }
+
+        /// <summary>
         ///  Take an Aspyr keyboard mapping string and decode a specific input from it.
         /// </summary>
         /// <param name="sIDKeyBindString"></param>
