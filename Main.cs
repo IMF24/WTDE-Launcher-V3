@@ -123,6 +123,27 @@ namespace WTDE_Launcher_V3 {
             GuitarBlueInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "BLUE");
             GuitarOrangeInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "ORANGE");
             GuitarStartInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "START");
+            GuitarSelectInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "BACK");
+            GuitarWhammyInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "WHAMMY");
+            GuitarStarPowerInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "STAR");
+            GuitarCancelInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "CANCEL");
+            GuitarUpInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "UP");
+            GuitarDownInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "DOWN");
+            GuitarLeftInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "LEFT");
+            GuitarRightInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "RIGHT");
+
+            // -- DRUM KEYBOARD INPUTS --------
+            DrumRedInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "RED");
+            DrumYellowInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "YELLOW");
+            DrumBlueInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "BLUE");
+            DrumOrangeInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "ORANGE");
+            DrumGreenInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "GREEN");
+            DrumKickInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "KICK");
+            DrumStartInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "START");
+            DrumSelectInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "BACK");
+            DrumCancelInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "CANCEL");
+            DrumUpInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "UP");
+            DrumDownInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "DOWN");
 
             // ---------------------------------
             // BAND TAB
@@ -635,7 +656,11 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public void ExitActions() {
             V3LauncherCore.DebugLog.Add("\n\nWe're done in the launcher for now!\nThanks for using it! :D");
-            V3LauncherCore.WriteDebugLog();
+            try {
+                V3LauncherCore.WriteDebugLog();
+            } catch (Exception ex) {
+                Console.WriteLine($"Uh oh! Hit a problem! Probably nothing severe...\nException details: {ex.Message}");
+            }
         }
         private void Main_FormClosed(object sender, FormClosedEventArgs e) {
             ExitActions();
@@ -1258,22 +1283,64 @@ namespace WTDE_Launcher_V3 {
                     GuitarYellowInputs.Text,
                     GuitarBlueInputs.Text,
                     GuitarOrangeInputs.Text,
-                    GuitarStartInputs.Text
+                    GuitarStartInputs.Text,
+                    GuitarSelectInputs.Text,
+                    GuitarWhammyInputs.Text,
+                    GuitarStarPowerInputs.Text,
+                    GuitarCancelInputs.Text,
+                    GuitarUpInputs.Text,
+                    GuitarDownInputs.Text,
+                    GuitarLeftInputs.Text,
+                    GuitarRightInputs.Text,
                 },
 
                 new List<string> {
-                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START"
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START", "BACK",
+                    "WHAMMY", "STAR", "CANCEL", "UP", "DOWN", "LEFT", "RIGHT"
                 },
                 
                 "Keyboard_Guitar"
             );
+
+            // -- DRUM INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    DrumRedInputs.Text,
+                    DrumYellowInputs.Text,
+                    DrumBlueInputs.Text,
+                    DrumOrangeInputs.Text,
+                    DrumGreenInputs.Text,
+                    DrumKickInputs.Text,
+                    DrumStartInputs.Text,
+                    DrumSelectInputs.Text,
+                    DrumCancelInputs.Text,
+                    DrumUpInputs.Text,
+                    DrumDownInputs.Text
+                },
+                
+                new List<string> {
+                    "RED", "YELLOW", "BLUE", "ORANGE", "GREEN", "KICK", "START",
+                    "BACK", "CANCEL", "UP", "DOWN"
+                },
+
+                "Keyboard_Drum"
+            );
         }
 
+        /// <summary>
+        ///  Insert a new input into the provided label. Brings an on-screen
+        ///  keyboard for the user to select an input.
+        /// </summary>
+        /// <param name="label"></param>
         public void AddInputKey(Label label) {
             InputKeySelector iks = new InputKeySelector(label);
             iks.ShowDialog();
         }
 
+        // - - - - - - - - - - - - - - - - - - -
+        //  G U I T A R     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Guitar Inputs
         private void AddGtrGreenInput_Click(object sender, EventArgs e) {
             AddInputKey(GuitarGreenInputs);
         }
@@ -1282,9 +1349,185 @@ namespace WTDE_Launcher_V3 {
             GuitarGreenInputs.Text = "";
         }
 
-        private void GuitarGreenInputs_TextChanged(object sender, EventArgs e) {
-
+        private void AddGtrRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarRedInputs);
         }
 
+        private void ClearGtrRedInputs_Click(object sender, EventArgs e) {
+            GuitarRedInputs.Text = "";
+        }
+
+        private void AddGtrYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarYellowInputs);
+        }
+
+        private void ClearGtrYellowInputs_Click(object sender, EventArgs e) {
+            GuitarYellowInputs.Text = "";
+        }
+
+        private void AddGtrBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarBlueInputs);
+        }
+
+        private void ClearGtrBlueInputs_Click(object sender, EventArgs e) {
+            GuitarBlueInputs.Text = "";
+        }
+
+        private void AddGtrOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarOrangeInputs);
+        }
+
+        private void ClearGtrOrangeInputs_Click(object sender, EventArgs e) {
+            GuitarOrangeInputs.Text = "";
+        }
+
+        private void AddGtrStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarStartInputs);
+        }
+
+        private void ClearGtrStartInputs_Click(object sender, EventArgs e) {
+            GuitarStartInputs.Text = "";
+        }
+
+        private void AddGtrSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarSelectInputs);
+        }
+
+        private void ClearGtrSelectInputs_Click(object sender, EventArgs e) {
+            GuitarSelectInputs.Text = "";
+        }
+
+        private void AddGtrWhammyInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarWhammyInputs);
+        }
+
+        private void ClearGtrWhammyInputs_Click(object sender, EventArgs e) {
+            GuitarWhammyInputs.Text = "";
+        }
+
+        private void AddGtrStarPowerInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarStarPowerInputs);
+        }
+
+        private void ClearGtrStarPowerInputs_Click(object sender, EventArgs e) {
+            GuitarStarPowerInputs.Text = "";
+        }
+
+        private void AddGtrCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarCancelInputs);
+        }
+
+        private void ClearGtrCancelInputs_Click(object sender, EventArgs e) {
+            GuitarCancelInputs.Text = "";
+        }
+
+        private void AddGtrUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarUpInputs);
+        }
+
+        private void ClearGtrUpInputs_Click(object sender, EventArgs e) {
+            GuitarUpInputs.Text = "";
+        }
+
+        private void AddGtrDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarDownInputs);
+        }
+
+        private void ClearGtrDownInputs_Click(object sender, EventArgs e) {
+            GuitarDownInputs.Text = "";
+        }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  D R U M     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+
+        private void AddDrmRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumRedInputs);
+        }
+
+        private void ClearDrmRedInputs_Click(object sender, EventArgs e) {
+            DrumRedInputs.Text = "";
+        }
+
+        private void AddDrmYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumYellowInputs);
+        }
+
+        private void ClearDrmYellowInputs_Click(object sender, EventArgs e) {
+            DrumYellowInputs.Text = "";
+        }
+
+        private void AddDrmBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumBlueInputs);
+        }
+
+        private void ClearDrmBlueInputs_Click(object sender, EventArgs e) {
+            DrumBlueInputs.Text = "";
+        }
+
+        private void AddDrmOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumOrangeInputs);
+        }
+
+        private void button19_Click(object sender, EventArgs e) {
+            DrumOrangeInputs.Text = "";
+        }
+
+        private void AddDrmGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumGreenInputs);
+        }
+
+        private void ClearDrmGreenInputs_Click(object sender, EventArgs e) {
+            DrumGreenInputs.Text = "";
+        }
+
+        private void AddDrmKickInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumKickInputs);
+        }
+
+        private void ClearDrmKickInputs_Click(object sender, EventArgs e) {
+            DrumKickInputs.Text = "";
+        }
+
+        private void AddDrmStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumStartInputs);
+        }
+
+        private void ClearDrmStartInputs_Click(object sender, EventArgs e) {
+            DrumStartInputs.Text = "";
+        }
+
+        private void AddDrmSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumSelectInputs);
+        }
+
+        private void ClearDrmSelectInputs_Click(object sender, EventArgs e) {
+            DrumSelectInputs.Text = "";
+        }
+
+        private void AddDrmCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumCancelInputs);
+        }
+
+        private void ClearDrmCancelInputs_Click(object sender, EventArgs e) {
+            DrumCancelInputs.Text = "";
+        }
+
+        private void AddDrmUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumUpInputs);
+        }
+
+        private void ClearDrmUpInputs_Click(object sender, EventArgs e) {
+            DrumUpInputs.Text = "";
+        }
+
+        private void AddDrmDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumDownInputs);
+        }
+
+        private void ClearDrmDownInputs_Click(object sender, EventArgs e) {
+            DrumDownInputs.Text = "";
+        }
     }
 }

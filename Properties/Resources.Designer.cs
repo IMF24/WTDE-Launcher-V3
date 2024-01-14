@@ -403,6 +403,56 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mixer_icon_bass {
+            get {
+                object obj = ResourceManager.GetObject("mixer_icon_bass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mixer_icon_drums {
+            get {
+                object obj = ResourceManager.GetObject("mixer_icon_drums", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mixer_icon_guitar {
+            get {
+                object obj = ResourceManager.GetObject("mixer_icon_guitar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mixer_icon_keyboard {
+            get {
+                object obj = ResourceManager.GetObject("mixer_icon_keyboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mixer_icon_vocals {
+            get {
+                object obj = ResourceManager.GetObject("mixer_icon_vocals", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mouse_outline {
             get {
                 object obj = ResourceManager.GetObject("mouse_outline", resourceCulture);

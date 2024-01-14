@@ -197,6 +197,11 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\img\instruments\mixer_icon_keyboard.png" />
+    <None Include="res\img\instruments\mixer_icon_drums.png" />
+    <None Include="res\img\instruments\mixer_icon_bass.png" />
+    <None Include="res\img\instruments\mixer_icon_vocals.png" />
+    <None Include="res\img\instruments\mixer_icon_guitar.png" />
     <None Include="res\img\mouse_outline.png" />
     <None Include="res\img\social\fretworks.png" />
     <None Include="res\img\social\youtube.png" />
