@@ -154,6 +154,13 @@ namespace WTDE_Launcher_V3 {
                     }
                     break;
 
+                // Strange's background
+                case 7:
+                    if (DateTime.Now.Day == 26) {
+                        BGIndex = 9;
+                    }
+                    break;
+
                 // Fox's background
                 case 8:
                     if (DateTime.Now.Day == 7) {

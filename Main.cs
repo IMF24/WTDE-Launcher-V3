@@ -145,6 +145,18 @@ namespace WTDE_Launcher_V3 {
             DrumUpInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "UP");
             DrumDownInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Drum", "DOWN");
 
+            // -- MIC KEYBOARD INPUTS --------
+            MicGreenInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "GREEN");
+            MicRedInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "RED");
+            MicYellowInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "YELLOW");
+            MicBlueInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "BLUE");
+            MicOrangeInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "ORANGE");
+            MicStartInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "START");
+            MicSelectInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "BACK");
+            MicCancelInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "CANCEL");
+            MicUpInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "UP");
+            MicDownInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "DOWN");
+
             // ---------------------------------
             // BAND TAB
             // ---------------------------------
@@ -1325,6 +1337,29 @@ namespace WTDE_Launcher_V3 {
 
                 "Keyboard_Drum"
             );
+
+            // -- MIC INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    MicGreenInputs.Text,
+                    MicRedInputs.Text,
+                    MicYellowInputs.Text,
+                    MicBlueInputs.Text,
+                    MicOrangeInputs.Text,
+                    MicStartInputs.Text,
+                    MicSelectInputs.Text,
+                    MicCancelInputs.Text,
+                    MicUpInputs.Text,
+                    MicDownInputs.Text
+                },
+
+                new List<string> {
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START",
+                    "BACK", "CANCEL", "UP", "DOWN"
+                },
+
+                "Keyboard_Mic"
+            );
         }
 
         /// <summary>
@@ -1441,7 +1476,7 @@ namespace WTDE_Launcher_V3 {
         // - - - - - - - - - - - - - - - - - - -
         //  D R U M     I N P U T S
         // - - - - - - - - - - - - - - - - - - -
-
+        #region Drum Inputs
         private void AddDrmRedInput_Click(object sender, EventArgs e) {
             AddInputKey(DrumRedInputs);
         }
@@ -1529,5 +1564,91 @@ namespace WTDE_Launcher_V3 {
         private void ClearDrmDownInputs_Click(object sender, EventArgs e) {
             DrumDownInputs.Text = "";
         }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  M I C     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Mic Inputs
+        private void AddMicGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicGreenInputs);
+        }
+
+        private void ClearMicGreenInputs_Click(object sender, EventArgs e) {
+            MicGreenInputs.Text = "";
+        }
+
+        private void AddMicRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicRedInputs);
+        }
+
+        private void ClearMicRedInputs_Click(object sender, EventArgs e) {
+            MicRedInputs.Text = "";
+        }
+
+        private void AddMicYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicYellowInputs);
+        }
+
+        private void ClearMicYellowInputs_Click(object sender, EventArgs e) {
+            MicYellowInputs.Text = "";
+        }
+
+        private void AddMicBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicBlueInputs);
+        }
+
+        private void ClearMicBlueInputs_Click(object sender, EventArgs e) {
+            MicBlueInputs.Text = "";
+        }
+
+        private void AddMicOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicOrangeInputs);
+        }
+
+        private void ClearMicOrangeInputs_Click(object sender, EventArgs e) {
+            MicOrangeInputs.Text = "";
+        }
+
+        private void AddMicStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicStartInputs);
+        }
+
+        private void ClearMicStartInputs_Click(object sender, EventArgs e) {
+            MicStartInputs.Text = "";
+        }
+
+        private void AddMicSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicSelectInputs);
+        }
+
+        private void ClearMicSelectInputs_Click(object sender, EventArgs e) {
+            MicSelectInputs.Text = "";
+        }
+
+        private void AddMicCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicCancelInputs);
+        }
+
+        private void ClearMicCancelInputs_Click(object sender, EventArgs e) {
+            MicCancelInputs.Text = "";
+        }
+
+        private void AddMicUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicUpInputs);
+        }
+
+        private void ClearMicUpInputs_Click(object sender, EventArgs e) {
+            MicUpInputs.Text = "";
+        }
+
+        private void AddMicDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicDownInputs);
+        }
+
+        private void ClearMicDownInputs_Click(object sender, EventArgs e) {
+            MicDownInputs.Text = "";
+        }
+        #endregion
     }
 }
