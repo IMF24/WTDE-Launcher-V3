@@ -157,6 +157,22 @@ namespace WTDE_Launcher_V3 {
             MicUpInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "UP");
             MicDownInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Mic", "DOWN");
 
+            // -- MENU KEYBOARD INPUTS --------
+            MenuGreenInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "GREEN");
+            MenuRedInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "RED");
+            MenuYellowInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "YELLOW");
+            MenuBlueInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "BLUE");
+            MenuOrangeInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "ORANGE");
+            MenuKickInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK");
+            MenuWhammyInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "WHAMMY");
+            MenuStartInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "START");
+            MenuSelectInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "BACK");
+            MenuCancelInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "CANCEL");
+            MenuUpInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "UP");
+            MenuDownInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "DOWN");
+            MenuLeftInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "LEFT");
+            MenuRightInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "RIGHT");
+
             // ---------------------------------
             // BAND TAB
             // ---------------------------------
@@ -887,6 +903,551 @@ namespace WTDE_Launcher_V3 {
         #endregion
 
         // ----------------------------------------------------------
+        // INPUT TAB AUTO UPDATE
+        // ----------------------------------------------------------
+        #region Input Tab Auto Update
+        private void MicrophoneSelect_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Audio", "MicDevice", MicrophoneSelect.Text);
+        }
+
+        private void DeleteWTDEInputINI_Click(object sender, EventArgs e) {
+            if (File.Exists(V3LauncherConstants.WTDEInputConfigDir)) {
+                string inputResetWarning = "Are you sure you want to reset your SDL controller mappings?\n" +
+                                           "This cannot be undone!";
+
+                if (MessageBox.Show(inputResetWarning, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                    File.Delete(V3LauncherConstants.WTDEInputConfigDir);
+                }
+            }
+        }
+
+        private void SetDefaultVoxLag_Click(object sender, EventArgs e) {
+            MicAudioDelay.Value = -80;
+            MicVideoDelay.Value = -315;
+
+            INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
+            XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
+        }
+
+        private void SaveKeybindsButton_Click(object sender, EventArgs e) {
+            // -- GUITAR INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    GuitarGreenInputs.Text,
+                    GuitarRedInputs.Text,
+                    GuitarYellowInputs.Text,
+                    GuitarBlueInputs.Text,
+                    GuitarOrangeInputs.Text,
+                    GuitarStartInputs.Text,
+                    GuitarSelectInputs.Text,
+                    GuitarWhammyInputs.Text,
+                    GuitarStarPowerInputs.Text,
+                    GuitarCancelInputs.Text,
+                    GuitarUpInputs.Text,
+                    GuitarDownInputs.Text,
+                    GuitarLeftInputs.Text,
+                    GuitarRightInputs.Text,
+                },
+
+                new List<string> {
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START", "BACK",
+                    "WHAMMY", "STAR", "CANCEL", "UP", "DOWN", "LEFT", "RIGHT"
+                },
+                
+                "Keyboard_Guitar"
+            );
+
+            // -- DRUM INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    DrumRedInputs.Text,
+                    DrumYellowInputs.Text,
+                    DrumBlueInputs.Text,
+                    DrumOrangeInputs.Text,
+                    DrumGreenInputs.Text,
+                    DrumKickInputs.Text,
+                    DrumStartInputs.Text,
+                    DrumSelectInputs.Text,
+                    DrumCancelInputs.Text,
+                    DrumUpInputs.Text,
+                    DrumDownInputs.Text
+                },
+                
+                new List<string> {
+                    "RED", "YELLOW", "BLUE", "ORANGE", "GREEN", "KICK", "START",
+                    "BACK", "CANCEL", "UP", "DOWN"
+                },
+
+                "Keyboard_Drum"
+            );
+
+            // -- MIC INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    MicGreenInputs.Text,
+                    MicRedInputs.Text,
+                    MicYellowInputs.Text,
+                    MicBlueInputs.Text,
+                    MicOrangeInputs.Text,
+                    MicStartInputs.Text,
+                    MicSelectInputs.Text,
+                    MicCancelInputs.Text,
+                    MicUpInputs.Text,
+                    MicDownInputs.Text
+                },
+
+                new List<string> {
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START",
+                    "BACK", "CANCEL", "UP", "DOWN"
+                },
+
+                "Keyboard_Mic"
+            );
+
+            // -- MENU INPUTS ----------------------
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string> {
+                    MenuGreenInputs.Text,
+                    MenuRedInputs.Text,
+                    MenuYellowInputs.Text,
+                    MenuBlueInputs.Text,
+                    MenuOrangeInputs.Text,
+                    MenuKickInputs.Text,
+                    MenuWhammyInputs.Text,
+                    MenuStartInputs.Text,
+                    MenuSelectInputs.Text,
+                    MenuCancelInputs.Text,
+                    MenuUpInputs.Text,
+                    MenuDownInputs.Text,
+                    MenuLeftInputs.Text,
+                    MenuRightInputs.Text
+                },
+
+                new List<string> {
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "KICK", "WHAMMY", "START",
+                    "BACK", "CANCEL", "UP", "DOWN", "LEFT", "RIGHT"
+                },
+
+                "Keyboard_Menu"
+            );
+        }
+
+        private void ResetKeybindsButton_Click(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Keyboard_Guitar", V3LauncherConstants.ASPYR_INPUT_GUITAR_DEFAULT);
+            XMLFunctions.AspyrWriteString("Keyboard_Drum", V3LauncherConstants.ASPYR_INPUT_DRUMS_BACKUP);
+            XMLFunctions.AspyrWriteString("Keyboard_Mic", V3LauncherConstants.ASPYR_INPUT_MIC_BACKUP);
+            XMLFunctions.AspyrWriteString("Keyboard_Menu", V3LauncherConstants.ASPYR_INPUT_MENU_BACKUP);
+        }
+
+        /// <summary>
+        ///  Insert a new input into the provided label. Brings an on-screen
+        ///  keyboard for the user to select an input.
+        /// </summary>
+        /// <param name="label"></param>
+        public void AddInputKey(Label label) {
+            InputKeySelector iks = new InputKeySelector(label);
+            iks.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  G U I T A R     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Guitar Inputs
+        private void AddGtrGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarGreenInputs);
+        }
+
+        private void ClearGtrGreenInputs_Click(object sender, EventArgs e) {
+            GuitarGreenInputs.Text = "";
+        }
+
+        private void AddGtrRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarRedInputs);
+        }
+
+        private void ClearGtrRedInputs_Click(object sender, EventArgs e) {
+            GuitarRedInputs.Text = "";
+        }
+
+        private void AddGtrYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarYellowInputs);
+        }
+
+        private void ClearGtrYellowInputs_Click(object sender, EventArgs e) {
+            GuitarYellowInputs.Text = "";
+        }
+
+        private void AddGtrBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarBlueInputs);
+        }
+
+        private void ClearGtrBlueInputs_Click(object sender, EventArgs e) {
+            GuitarBlueInputs.Text = "";
+        }
+
+        private void AddGtrOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarOrangeInputs);
+        }
+
+        private void ClearGtrOrangeInputs_Click(object sender, EventArgs e) {
+            GuitarOrangeInputs.Text = "";
+        }
+
+        private void AddGtrStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarStartInputs);
+        }
+
+        private void ClearGtrStartInputs_Click(object sender, EventArgs e) {
+            GuitarStartInputs.Text = "";
+        }
+
+        private void AddGtrSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarSelectInputs);
+        }
+
+        private void ClearGtrSelectInputs_Click(object sender, EventArgs e) {
+            GuitarSelectInputs.Text = "";
+        }
+
+        private void AddGtrWhammyInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarWhammyInputs);
+        }
+
+        private void ClearGtrWhammyInputs_Click(object sender, EventArgs e) {
+            GuitarWhammyInputs.Text = "";
+        }
+
+        private void AddGtrStarPowerInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarStarPowerInputs);
+        }
+
+        private void ClearGtrStarPowerInputs_Click(object sender, EventArgs e) {
+            GuitarStarPowerInputs.Text = "";
+        }
+
+        private void AddGtrCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarCancelInputs);
+        }
+
+        private void ClearGtrCancelInputs_Click(object sender, EventArgs e) {
+            GuitarCancelInputs.Text = "";
+        }
+
+        private void AddGtrUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarUpInputs);
+        }
+
+        private void ClearGtrUpInputs_Click(object sender, EventArgs e) {
+            GuitarUpInputs.Text = "";
+        }
+
+        private void AddGtrDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(GuitarDownInputs);
+        }
+
+        private void ClearGtrDownInputs_Click(object sender, EventArgs e) {
+            GuitarDownInputs.Text = "";
+        }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  D R U M     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Drum Inputs
+        private void AddDrmRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumRedInputs);
+        }
+
+        private void ClearDrmRedInputs_Click(object sender, EventArgs e) {
+            DrumRedInputs.Text = "";
+        }
+
+        private void AddDrmYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumYellowInputs);
+        }
+
+        private void ClearDrmYellowInputs_Click(object sender, EventArgs e) {
+            DrumYellowInputs.Text = "";
+        }
+
+        private void AddDrmBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumBlueInputs);
+        }
+
+        private void ClearDrmBlueInputs_Click(object sender, EventArgs e) {
+            DrumBlueInputs.Text = "";
+        }
+
+        private void AddDrmOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumOrangeInputs);
+        }
+
+        private void button19_Click(object sender, EventArgs e) {
+            DrumOrangeInputs.Text = "";
+        }
+
+        private void AddDrmGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumGreenInputs);
+        }
+
+        private void ClearDrmGreenInputs_Click(object sender, EventArgs e) {
+            DrumGreenInputs.Text = "";
+        }
+
+        private void AddDrmKickInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumKickInputs);
+        }
+
+        private void ClearDrmKickInputs_Click(object sender, EventArgs e) {
+            DrumKickInputs.Text = "";
+        }
+
+        private void AddDrmStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumStartInputs);
+        }
+
+        private void ClearDrmStartInputs_Click(object sender, EventArgs e) {
+            DrumStartInputs.Text = "";
+        }
+
+        private void AddDrmSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumSelectInputs);
+        }
+
+        private void ClearDrmSelectInputs_Click(object sender, EventArgs e) {
+            DrumSelectInputs.Text = "";
+        }
+
+        private void AddDrmCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumCancelInputs);
+        }
+
+        private void ClearDrmCancelInputs_Click(object sender, EventArgs e) {
+            DrumCancelInputs.Text = "";
+        }
+
+        private void AddDrmUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumUpInputs);
+        }
+
+        private void ClearDrmUpInputs_Click(object sender, EventArgs e) {
+            DrumUpInputs.Text = "";
+        }
+
+        private void AddDrmDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(DrumDownInputs);
+        }
+
+        private void ClearDrmDownInputs_Click(object sender, EventArgs e) {
+            DrumDownInputs.Text = "";
+        }
+        #endregion
+         
+        // - - - - - - - - - - - - - - - - - - -
+        //  M I C     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Mic Inputs
+        private void AddMicGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicGreenInputs);
+        }
+
+        private void ClearMicGreenInputs_Click(object sender, EventArgs e) {
+            MicGreenInputs.Text = "";
+        }
+
+        private void AddMicRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicRedInputs);
+        }
+
+        private void ClearMicRedInputs_Click(object sender, EventArgs e) {
+            MicRedInputs.Text = "";
+        }
+
+        private void AddMicYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicYellowInputs);
+        }
+
+        private void ClearMicYellowInputs_Click(object sender, EventArgs e) {
+            MicYellowInputs.Text = "";
+        }
+
+        private void AddMicBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicBlueInputs);
+        }
+
+        private void ClearMicBlueInputs_Click(object sender, EventArgs e) {
+            MicBlueInputs.Text = "";
+        }
+
+        private void AddMicOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicOrangeInputs);
+        }
+
+        private void ClearMicOrangeInputs_Click(object sender, EventArgs e) {
+            MicOrangeInputs.Text = "";
+        }
+
+        private void AddMicStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicStartInputs);
+        }
+
+        private void ClearMicStartInputs_Click(object sender, EventArgs e) {
+            MicStartInputs.Text = "";
+        }
+
+        private void AddMicSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicSelectInputs);
+        }
+
+        private void ClearMicSelectInputs_Click(object sender, EventArgs e) {
+            MicSelectInputs.Text = "";
+        }
+
+        private void AddMicCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicCancelInputs);
+        }
+
+        private void ClearMicCancelInputs_Click(object sender, EventArgs e) {
+            MicCancelInputs.Text = "";
+        }
+
+        private void AddMicUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicUpInputs);
+        }
+
+        private void ClearMicUpInputs_Click(object sender, EventArgs e) {
+            MicUpInputs.Text = "";
+        }
+
+        private void AddMicDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(MicDownInputs);
+        }
+
+        private void ClearMicDownInputs_Click(object sender, EventArgs e) {
+            MicDownInputs.Text = "";
+        }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  M E N U     I N P U T S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Menu Inputs
+        private void AddMenuGreenInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuGreenInputs);
+        }
+
+        private void ClearMenuGreenInputs_Click(object sender, EventArgs e) {
+            MenuGreenInputs.Text = "";
+        }
+
+        private void AddMenuRedInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuRedInputs);
+        }
+
+        private void ClearMenuRedInputs_Click(object sender, EventArgs e) {
+            MenuRedInputs.Text = "";
+        }
+
+        private void AddMenuYellowInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuYellowInputs);
+        }
+
+        private void ClearMenuYellowInputs_Click(object sender, EventArgs e) {
+            MenuYellowInputs.Text = "";
+        }
+
+        private void AddMenuBlueInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuBlueInputs);
+        }
+
+        private void ClearMenuBlueInputs_Click(object sender, EventArgs e) {
+            MenuBlueInputs.Text = "";
+        }
+
+        private void AddMenuOrangeInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuOrangeInputs);
+        }
+
+        private void ClearMenuOrangeInputs_Click(object sender, EventArgs e) {
+            MenuOrangeInputs.Text = "";
+        }
+
+        private void AddMenuKickInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuKickInputs);
+        }
+
+        private void ClearMenuKickInputs_Click(object sender, EventArgs e) {
+            MenuKickInputs.Text = "";
+        }
+
+        private void AddMenuWhammyInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuWhammyInputs);
+        }
+
+        private void ClearMenuWhammyInputs_Click(object sender, EventArgs e) {
+            MenuWhammyInputs.Text = "";
+        }
+
+        private void AddMenuStartInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuStartInputs);
+        }
+
+        private void ClearMenuStartInputs_Click(object sender, EventArgs e) {
+            MenuStartInputs.Text = "";
+        }
+
+        private void AddMenuSelectInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuSelectInputs);
+        }
+
+        private void ClearMenuSelectInputs_Click(object sender, EventArgs e) {
+            MenuSelectInputs.Text = "";
+        }
+
+        private void AddMenuCancelInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuCancelInputs);
+        }
+
+        private void ClearMenuCancelInputs_Click(object sender, EventArgs e) {
+            MenuCancelInputs.Text = "";
+        }
+
+        private void AddMenuUpInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuUpInputs);
+        }
+
+        private void ClearMenuUpInputs_Click(object sender, EventArgs e) {
+            MenuUpInputs.Text = "";
+        }
+
+        private void AddMenuDownInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuDownInputs);
+        }
+
+        private void ClearMenuDownInputs_Click(object sender, EventArgs e) {
+            MenuDownInputs.Text = "";
+        }
+
+        private void AddMenuLeftInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuLeftInputs);
+        }
+
+        private void ClearMenuLeftInputs_Click(object sender, EventArgs e) {
+            MenuLeftInputs.Text = "";
+        }
+
+        private void AddMenuRightInput_Click(object sender, EventArgs e) {
+            AddInputKey(MenuRightInputs);
+        }
+
+        private void ClearMenuRightInputs_Click(object sender, EventArgs e) {
+            MenuRightInputs.Text = "";
+        }
+        #endregion
+
+        #endregion
+        
+        // ----------------------------------------------------------
         // BAND TAB AUTO UPDATE
         // ----------------------------------------------------------
         #region Band Tab Auto Update
@@ -1275,380 +1836,5 @@ namespace WTDE_Launcher_V3 {
 
         #endregion
 
-        // ----------------------------------------------------------
-        // INPUT TAB AUTO UPDATE
-        // ----------------------------------------------------------
-        private void SetDefaultVoxLag_Click(object sender, EventArgs e) {
-            MicAudioDelay.Value = -80;
-            MicVideoDelay.Value = -315;
-
-            INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
-            XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
-        }
-
-        private void SaveKeybindsButton_Click(object sender, EventArgs e) {
-            // -- GUITAR INPUTS ----------------------
-            V3LauncherCore.AspyrKeyEncode(
-                new List<string> {
-                    GuitarGreenInputs.Text,
-                    GuitarRedInputs.Text,
-                    GuitarYellowInputs.Text,
-                    GuitarBlueInputs.Text,
-                    GuitarOrangeInputs.Text,
-                    GuitarStartInputs.Text,
-                    GuitarSelectInputs.Text,
-                    GuitarWhammyInputs.Text,
-                    GuitarStarPowerInputs.Text,
-                    GuitarCancelInputs.Text,
-                    GuitarUpInputs.Text,
-                    GuitarDownInputs.Text,
-                    GuitarLeftInputs.Text,
-                    GuitarRightInputs.Text,
-                },
-
-                new List<string> {
-                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START", "BACK",
-                    "WHAMMY", "STAR", "CANCEL", "UP", "DOWN", "LEFT", "RIGHT"
-                },
-                
-                "Keyboard_Guitar"
-            );
-
-            // -- DRUM INPUTS ----------------------
-            V3LauncherCore.AspyrKeyEncode(
-                new List<string> {
-                    DrumRedInputs.Text,
-                    DrumYellowInputs.Text,
-                    DrumBlueInputs.Text,
-                    DrumOrangeInputs.Text,
-                    DrumGreenInputs.Text,
-                    DrumKickInputs.Text,
-                    DrumStartInputs.Text,
-                    DrumSelectInputs.Text,
-                    DrumCancelInputs.Text,
-                    DrumUpInputs.Text,
-                    DrumDownInputs.Text
-                },
-                
-                new List<string> {
-                    "RED", "YELLOW", "BLUE", "ORANGE", "GREEN", "KICK", "START",
-                    "BACK", "CANCEL", "UP", "DOWN"
-                },
-
-                "Keyboard_Drum"
-            );
-
-            // -- MIC INPUTS ----------------------
-            V3LauncherCore.AspyrKeyEncode(
-                new List<string> {
-                    MicGreenInputs.Text,
-                    MicRedInputs.Text,
-                    MicYellowInputs.Text,
-                    MicBlueInputs.Text,
-                    MicOrangeInputs.Text,
-                    MicStartInputs.Text,
-                    MicSelectInputs.Text,
-                    MicCancelInputs.Text,
-                    MicUpInputs.Text,
-                    MicDownInputs.Text
-                },
-
-                new List<string> {
-                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START",
-                    "BACK", "CANCEL", "UP", "DOWN"
-                },
-
-                "Keyboard_Mic"
-            );
-        }
-
-        /// <summary>
-        ///  Insert a new input into the provided label. Brings an on-screen
-        ///  keyboard for the user to select an input.
-        /// </summary>
-        /// <param name="label"></param>
-        public void AddInputKey(Label label) {
-            InputKeySelector iks = new InputKeySelector(label);
-            iks.ShowDialog();
-        }
-
-        // - - - - - - - - - - - - - - - - - - -
-        //  G U I T A R     I N P U T S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Guitar Inputs
-        private void AddGtrGreenInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarGreenInputs);
-        }
-
-        private void ClearGtrGreenInputs_Click(object sender, EventArgs e) {
-            GuitarGreenInputs.Text = "";
-        }
-
-        private void AddGtrRedInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarRedInputs);
-        }
-
-        private void ClearGtrRedInputs_Click(object sender, EventArgs e) {
-            GuitarRedInputs.Text = "";
-        }
-
-        private void AddGtrYellowInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarYellowInputs);
-        }
-
-        private void ClearGtrYellowInputs_Click(object sender, EventArgs e) {
-            GuitarYellowInputs.Text = "";
-        }
-
-        private void AddGtrBlueInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarBlueInputs);
-        }
-
-        private void ClearGtrBlueInputs_Click(object sender, EventArgs e) {
-            GuitarBlueInputs.Text = "";
-        }
-
-        private void AddGtrOrangeInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarOrangeInputs);
-        }
-
-        private void ClearGtrOrangeInputs_Click(object sender, EventArgs e) {
-            GuitarOrangeInputs.Text = "";
-        }
-
-        private void AddGtrStartInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarStartInputs);
-        }
-
-        private void ClearGtrStartInputs_Click(object sender, EventArgs e) {
-            GuitarStartInputs.Text = "";
-        }
-
-        private void AddGtrSelectInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarSelectInputs);
-        }
-
-        private void ClearGtrSelectInputs_Click(object sender, EventArgs e) {
-            GuitarSelectInputs.Text = "";
-        }
-
-        private void AddGtrWhammyInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarWhammyInputs);
-        }
-
-        private void ClearGtrWhammyInputs_Click(object sender, EventArgs e) {
-            GuitarWhammyInputs.Text = "";
-        }
-
-        private void AddGtrStarPowerInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarStarPowerInputs);
-        }
-
-        private void ClearGtrStarPowerInputs_Click(object sender, EventArgs e) {
-            GuitarStarPowerInputs.Text = "";
-        }
-
-        private void AddGtrCancelInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarCancelInputs);
-        }
-
-        private void ClearGtrCancelInputs_Click(object sender, EventArgs e) {
-            GuitarCancelInputs.Text = "";
-        }
-
-        private void AddGtrUpInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarUpInputs);
-        }
-
-        private void ClearGtrUpInputs_Click(object sender, EventArgs e) {
-            GuitarUpInputs.Text = "";
-        }
-
-        private void AddGtrDownInput_Click(object sender, EventArgs e) {
-            AddInputKey(GuitarDownInputs);
-        }
-
-        private void ClearGtrDownInputs_Click(object sender, EventArgs e) {
-            GuitarDownInputs.Text = "";
-        }
-        #endregion
-
-        // - - - - - - - - - - - - - - - - - - -
-        //  D R U M     I N P U T S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Drum Inputs
-        private void AddDrmRedInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumRedInputs);
-        }
-
-        private void ClearDrmRedInputs_Click(object sender, EventArgs e) {
-            DrumRedInputs.Text = "";
-        }
-
-        private void AddDrmYellowInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumYellowInputs);
-        }
-
-        private void ClearDrmYellowInputs_Click(object sender, EventArgs e) {
-            DrumYellowInputs.Text = "";
-        }
-
-        private void AddDrmBlueInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumBlueInputs);
-        }
-
-        private void ClearDrmBlueInputs_Click(object sender, EventArgs e) {
-            DrumBlueInputs.Text = "";
-        }
-
-        private void AddDrmOrangeInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumOrangeInputs);
-        }
-
-        private void button19_Click(object sender, EventArgs e) {
-            DrumOrangeInputs.Text = "";
-        }
-
-        private void AddDrmGreenInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumGreenInputs);
-        }
-
-        private void ClearDrmGreenInputs_Click(object sender, EventArgs e) {
-            DrumGreenInputs.Text = "";
-        }
-
-        private void AddDrmKickInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumKickInputs);
-        }
-
-        private void ClearDrmKickInputs_Click(object sender, EventArgs e) {
-            DrumKickInputs.Text = "";
-        }
-
-        private void AddDrmStartInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumStartInputs);
-        }
-
-        private void ClearDrmStartInputs_Click(object sender, EventArgs e) {
-            DrumStartInputs.Text = "";
-        }
-
-        private void AddDrmSelectInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumSelectInputs);
-        }
-
-        private void ClearDrmSelectInputs_Click(object sender, EventArgs e) {
-            DrumSelectInputs.Text = "";
-        }
-
-        private void AddDrmCancelInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumCancelInputs);
-        }
-
-        private void ClearDrmCancelInputs_Click(object sender, EventArgs e) {
-            DrumCancelInputs.Text = "";
-        }
-
-        private void AddDrmUpInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumUpInputs);
-        }
-
-        private void ClearDrmUpInputs_Click(object sender, EventArgs e) {
-            DrumUpInputs.Text = "";
-        }
-
-        private void AddDrmDownInput_Click(object sender, EventArgs e) {
-            AddInputKey(DrumDownInputs);
-        }
-
-        private void ClearDrmDownInputs_Click(object sender, EventArgs e) {
-            DrumDownInputs.Text = "";
-        }
-        #endregion
-
-        // - - - - - - - - - - - - - - - - - - -
-        //  M I C     I N P U T S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Mic Inputs
-        private void AddMicGreenInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicGreenInputs);
-        }
-
-        private void ClearMicGreenInputs_Click(object sender, EventArgs e) {
-            MicGreenInputs.Text = "";
-        }
-
-        private void AddMicRedInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicRedInputs);
-        }
-
-        private void ClearMicRedInputs_Click(object sender, EventArgs e) {
-            MicRedInputs.Text = "";
-        }
-
-        private void AddMicYellowInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicYellowInputs);
-        }
-
-        private void ClearMicYellowInputs_Click(object sender, EventArgs e) {
-            MicYellowInputs.Text = "";
-        }
-
-        private void AddMicBlueInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicBlueInputs);
-        }
-
-        private void ClearMicBlueInputs_Click(object sender, EventArgs e) {
-            MicBlueInputs.Text = "";
-        }
-
-        private void AddMicOrangeInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicOrangeInputs);
-        }
-
-        private void ClearMicOrangeInputs_Click(object sender, EventArgs e) {
-            MicOrangeInputs.Text = "";
-        }
-
-        private void AddMicStartInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicStartInputs);
-        }
-
-        private void ClearMicStartInputs_Click(object sender, EventArgs e) {
-            MicStartInputs.Text = "";
-        }
-
-        private void AddMicSelectInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicSelectInputs);
-        }
-
-        private void ClearMicSelectInputs_Click(object sender, EventArgs e) {
-            MicSelectInputs.Text = "";
-        }
-
-        private void AddMicCancelInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicCancelInputs);
-        }
-
-        private void ClearMicCancelInputs_Click(object sender, EventArgs e) {
-            MicCancelInputs.Text = "";
-        }
-
-        private void AddMicUpInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicUpInputs);
-        }
-
-        private void ClearMicUpInputs_Click(object sender, EventArgs e) {
-            MicUpInputs.Text = "";
-        }
-
-        private void AddMicDownInput_Click(object sender, EventArgs e) {
-            AddInputKey(MicDownInputs);
-        }
-
-        private void ClearMicDownInputs_Click(object sender, EventArgs e) {
-            MicDownInputs.Text = "";
-        }
-        #endregion
     }
 }

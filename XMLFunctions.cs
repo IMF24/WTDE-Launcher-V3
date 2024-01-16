@@ -104,7 +104,7 @@ namespace WTDE_Launcher_V3 {
                     if (attribute != null && attribute == sIDKey) {
                         // The InnerText property is what we want to write.
                         // Write it, then exit out of execution.
-                        Console.WriteLine($"Found value {sIDKey}, setting to value {value}");
+                        V3LauncherCore.DebugLog.Add($"Found value {sIDKey}, setting to value {value}");
                         root.ChildNodes[i].InnerText = value;
                         xml.Save(V3LauncherConstants.AspyrConfigDir);
                         return;

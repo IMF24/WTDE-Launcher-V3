@@ -50,7 +50,109 @@
             this.MicSettingsHeaderIcon = new System.Windows.Forms.PictureBox();
             this.KeyBindsHeaderLabel = new System.Windows.Forms.Label();
             this.KeyBindsParentPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.MenuInputsPanel = new System.Windows.Forms.Panel();
+            this.MenuStartLabel = new System.Windows.Forms.Label();
+            this.MenuStartInputs = new System.Windows.Forms.Label();
+            this.ClearMenuRightInputs = new System.Windows.Forms.Button();
+            this.AddMenuStartInput = new System.Windows.Forms.Button();
+            this.AddMenuRightInput = new System.Windows.Forms.Button();
+            this.ClearMenuStartInputs = new System.Windows.Forms.Button();
+            this.MenuRightInputs = new System.Windows.Forms.Label();
+            this.MenuRightLabel = new System.Windows.Forms.Label();
+            this.ClearMenuLeftInputs = new System.Windows.Forms.Button();
+            this.AddMenuLeftInput = new System.Windows.Forms.Button();
+            this.MenuLeftInputs = new System.Windows.Forms.Label();
+            this.MenuLeftLabel = new System.Windows.Forms.Label();
+            this.ClearMenuWhammyInputs = new System.Windows.Forms.Button();
+            this.AddMenuWhammyInput = new System.Windows.Forms.Button();
+            this.MenuWhammyInputs = new System.Windows.Forms.Label();
+            this.MenuWhammyLabel = new System.Windows.Forms.Label();
+            this.MenuGreenLabel = new System.Windows.Forms.Label();
+            this.MenuInputsHeaderLabel = new System.Windows.Forms.Label();
+            this.MenuOrangeLabel = new System.Windows.Forms.Label();
+            this.MenuRedLabel = new System.Windows.Forms.Label();
+            this.MenuYellowLabel = new System.Windows.Forms.Label();
+            this.MenuBlueLabel = new System.Windows.Forms.Label();
+            this.MenuKickLabel = new System.Windows.Forms.Label();
+            this.MenuOrangeInputs = new System.Windows.Forms.Label();
+            this.ClearMenuDownInputs = new System.Windows.Forms.Button();
+            this.MenuRedInputs = new System.Windows.Forms.Label();
+            this.AddMenuDownInput = new System.Windows.Forms.Button();
+            this.MenuYellowInputs = new System.Windows.Forms.Label();
+            this.MenuDownInputs = new System.Windows.Forms.Label();
+            this.MenuBlueInputs = new System.Windows.Forms.Label();
+            this.MenuDownLabel = new System.Windows.Forms.Label();
+            this.MenuGreenInputs = new System.Windows.Forms.Label();
+            this.ClearMenuCancelInputs = new System.Windows.Forms.Button();
+            this.MenuKickInputs = new System.Windows.Forms.Label();
+            this.AddMenuCancelInput = new System.Windows.Forms.Button();
+            this.AddMenuOrangeInput = new System.Windows.Forms.Button();
+            this.MenuCancelInputs = new System.Windows.Forms.Label();
+            this.ClearMenuOrangeInputs = new System.Windows.Forms.Button();
+            this.MenuCancelLabel = new System.Windows.Forms.Label();
+            this.AddMenuRedInput = new System.Windows.Forms.Button();
+            this.ClearMenuUpInputs = new System.Windows.Forms.Button();
+            this.ClearMenuRedInputs = new System.Windows.Forms.Button();
+            this.AddMenuYellowInput = new System.Windows.Forms.Button();
+            this.AddMenuUpInput = new System.Windows.Forms.Button();
+            this.ClearMenuYellowInputs = new System.Windows.Forms.Button();
+            this.ClearMenuBlueInputs = new System.Windows.Forms.Button();
+            this.MenuUpInputs = new System.Windows.Forms.Label();
+            this.AddMenuBlueInput = new System.Windows.Forms.Button();
+            this.AddMenuGreenInput = new System.Windows.Forms.Button();
+            this.MenuUpLabel = new System.Windows.Forms.Label();
+            this.ClearMenuGreenInputs = new System.Windows.Forms.Button();
+            this.AddMenuKickInput = new System.Windows.Forms.Button();
+            this.ClearMenuSelectInputs = new System.Windows.Forms.Button();
+            this.ClearMenuKickInputs = new System.Windows.Forms.Button();
+            this.AddMenuSelectInput = new System.Windows.Forms.Button();
+            this.InputIconMenu = new System.Windows.Forms.PictureBox();
+            this.MenuSelectInputs = new System.Windows.Forms.Label();
+            this.MenuSelectLabel = new System.Windows.Forms.Label();
+            this.MicInputsPanel = new System.Windows.Forms.Panel();
+            this.MicGreenLabel = new System.Windows.Forms.Label();
+            this.MicInputsHeaderLabel = new System.Windows.Forms.Label();
+            this.MicOrangeLabel = new System.Windows.Forms.Label();
+            this.MicRedLabel = new System.Windows.Forms.Label();
+            this.MicYellowLabel = new System.Windows.Forms.Label();
+            this.MicBlueLabel = new System.Windows.Forms.Label();
+            this.MicStartLabel = new System.Windows.Forms.Label();
+            this.MicOrangeInputs = new System.Windows.Forms.Label();
+            this.ClearMicDownInputs = new System.Windows.Forms.Button();
+            this.MicRedInputs = new System.Windows.Forms.Label();
+            this.AddMicDownInput = new System.Windows.Forms.Button();
+            this.MicYellowInputs = new System.Windows.Forms.Label();
+            this.MicDownInputs = new System.Windows.Forms.Label();
+            this.MicBlueInputs = new System.Windows.Forms.Label();
+            this.MicDownLabel = new System.Windows.Forms.Label();
+            this.MicGreenInputs = new System.Windows.Forms.Label();
+            this.ClearMicCancelInputs = new System.Windows.Forms.Button();
+            this.MicStartInputs = new System.Windows.Forms.Label();
+            this.AddMicCancelInput = new System.Windows.Forms.Button();
+            this.AddMicOrangeInput = new System.Windows.Forms.Button();
+            this.MicCancelInputs = new System.Windows.Forms.Label();
+            this.ClearMicOrangeInputs = new System.Windows.Forms.Button();
+            this.MicCancelLabel = new System.Windows.Forms.Label();
+            this.AddMicRedInput = new System.Windows.Forms.Button();
+            this.ClearMicUpInputs = new System.Windows.Forms.Button();
+            this.ClearMicRedInputs = new System.Windows.Forms.Button();
+            this.AddMicYellowInput = new System.Windows.Forms.Button();
+            this.AddMicUpInput = new System.Windows.Forms.Button();
+            this.ClearMicYellowInputs = new System.Windows.Forms.Button();
+            this.ClearMicBlueInputs = new System.Windows.Forms.Button();
+            this.MicUpInputs = new System.Windows.Forms.Label();
+            this.AddMicBlueInput = new System.Windows.Forms.Button();
+            this.AddMicGreenInput = new System.Windows.Forms.Button();
+            this.MicUpLabel = new System.Windows.Forms.Label();
+            this.ClearMicGreenInputs = new System.Windows.Forms.Button();
+            this.AddMicStartInput = new System.Windows.Forms.Button();
+            this.ClearMicSelectInputs = new System.Windows.Forms.Button();
+            this.ClearMicStartInputs = new System.Windows.Forms.Button();
+            this.AddMicSelectInput = new System.Windows.Forms.Button();
+            this.InputIconMic = new System.Windows.Forms.PictureBox();
+            this.MicSelectInputs = new System.Windows.Forms.Label();
+            this.MicSelectLabel = new System.Windows.Forms.Label();
+            this.DrumInputsPanel = new System.Windows.Forms.Panel();
             this.DrmGreenLabel = new System.Windows.Forms.Label();
             this.DrumInputsHeaderLabel = new System.Windows.Forms.Label();
             this.DrmRedLabel = new System.Windows.Forms.Label();
@@ -275,49 +377,7 @@
             this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.MicGreenLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.MicOrangeLabel = new System.Windows.Forms.Label();
-            this.MicRedLabel = new System.Windows.Forms.Label();
-            this.MicYellowLabel = new System.Windows.Forms.Label();
-            this.MicBlueLabel = new System.Windows.Forms.Label();
-            this.MicStartLabel = new System.Windows.Forms.Label();
-            this.MicOrangeInputs = new System.Windows.Forms.Label();
-            this.ClearMicDownInputs = new System.Windows.Forms.Button();
-            this.MicRedInputs = new System.Windows.Forms.Label();
-            this.AddMicDownInput = new System.Windows.Forms.Button();
-            this.MicYellowInputs = new System.Windows.Forms.Label();
-            this.MicDownInputs = new System.Windows.Forms.Label();
-            this.MicBlueInputs = new System.Windows.Forms.Label();
-            this.MicDownLabel = new System.Windows.Forms.Label();
-            this.MicGreenInputs = new System.Windows.Forms.Label();
-            this.ClearMicCancelInputs = new System.Windows.Forms.Button();
-            this.MicStartInputs = new System.Windows.Forms.Label();
-            this.AddMicCancelInput = new System.Windows.Forms.Button();
-            this.AddMicOrangeInput = new System.Windows.Forms.Button();
-            this.MicCancelInputs = new System.Windows.Forms.Label();
-            this.ClearMicOrangeInputs = new System.Windows.Forms.Button();
-            this.MicCancelLabel = new System.Windows.Forms.Label();
-            this.AddMicRedInput = new System.Windows.Forms.Button();
-            this.ClearMicUpInputs = new System.Windows.Forms.Button();
-            this.ClearMicRedInputs = new System.Windows.Forms.Button();
-            this.AddMicYellowInput = new System.Windows.Forms.Button();
-            this.AddMicUpInput = new System.Windows.Forms.Button();
-            this.ClearMicYellowInputs = new System.Windows.Forms.Button();
-            this.ClearMicBlueInputs = new System.Windows.Forms.Button();
-            this.MicUpInputs = new System.Windows.Forms.Label();
-            this.AddMicBlueInput = new System.Windows.Forms.Button();
-            this.AddMicGreenInput = new System.Windows.Forms.Button();
-            this.MicUpLabel = new System.Windows.Forms.Label();
-            this.ClearMicGreenInputs = new System.Windows.Forms.Button();
-            this.AddMicStartInput = new System.Windows.Forms.Button();
-            this.ClearMicSelectInputs = new System.Windows.Forms.Button();
-            this.ClearMicStartInputs = new System.Windows.Forms.Button();
-            this.AddMicSelectInput = new System.Windows.Forms.Button();
-            this.InputIconMic = new System.Windows.Forms.PictureBox();
-            this.MicSelectInputs = new System.Windows.Forms.Label();
-            this.MicSelectLabel = new System.Windows.Forms.Label();
+            this.DeleteWTDEInputINI = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             this.TabCreditsGroup.SuspendLayout();
@@ -329,7 +389,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).BeginInit();
             this.KeyBindsParentPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.MenuInputsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputIconMenu)).BeginInit();
+            this.MicInputsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputIconMic)).BeginInit();
+            this.DrumInputsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconDrums)).BeginInit();
             this.GuitarInputsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
@@ -344,8 +408,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InputIconMic)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -381,6 +443,7 @@
             this.ResetKeybindsButton.Text = "Reset Key Binds";
             this.ToolTipMain.SetToolTip(this.ResetKeybindsButton, "Revert your keybinds to the defaults.");
             this.ResetKeybindsButton.UseVisualStyleBackColor = true;
+            this.ResetKeybindsButton.Click += new System.EventHandler(this.ResetKeybindsButton_Click);
             // 
             // SaveKeybindsButton
             // 
@@ -459,6 +522,7 @@
             this.MicrophoneSelect.TabIndex = 8;
             this.ToolTipMain.SetToolTip(this.MicrophoneSelect, "The audio input device to use in-game when playing vocals.\r\n\r\nRemember: Vocals ar" +
         "e KEYBOARD ONLY, you CAN NOT play\r\nvocals with a controller.");
+            this.MicrophoneSelect.SelectedIndexChanged += new System.EventHandler(this.MicrophoneSelect_SelectedIndexChanged);
             // 
             // TabCreditsGroup
             // 
@@ -649,6 +713,7 @@
             // 
             this.TabInputGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
             this.TabInputGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabInputGroup.Controls.Add(this.DeleteWTDEInputINI);
             this.TabInputGroup.Controls.Add(this.KeyBindsHeaderIcon);
             this.TabInputGroup.Controls.Add(this.MicSettingsHeaderIcon);
             this.TabInputGroup.Controls.Add(this.ResetKeybindsButton);
@@ -706,66 +771,1255 @@
             // 
             this.KeyBindsParentPanel.AutoScroll = true;
             this.KeyBindsParentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.KeyBindsParentPanel.Controls.Add(this.panel2);
-            this.KeyBindsParentPanel.Controls.Add(this.panel1);
+            this.KeyBindsParentPanel.Controls.Add(this.MenuInputsPanel);
+            this.KeyBindsParentPanel.Controls.Add(this.MicInputsPanel);
+            this.KeyBindsParentPanel.Controls.Add(this.DrumInputsPanel);
             this.KeyBindsParentPanel.Controls.Add(this.GuitarInputsPanel);
             this.KeyBindsParentPanel.Location = new System.Drawing.Point(23, 153);
             this.KeyBindsParentPanel.Name = "KeyBindsParentPanel";
             this.KeyBindsParentPanel.Size = new System.Drawing.Size(616, 474);
             this.KeyBindsParentPanel.TabIndex = 17;
             // 
-            // panel1
+            // MenuInputsPanel
             // 
-            this.panel1.Controls.Add(this.DrmGreenLabel);
-            this.panel1.Controls.Add(this.DrumInputsHeaderLabel);
-            this.panel1.Controls.Add(this.DrmRedLabel);
-            this.panel1.Controls.Add(this.DrmYellowLabel);
-            this.panel1.Controls.Add(this.DrmBlueLabel);
-            this.panel1.Controls.Add(this.DrmOrangeLabel);
-            this.panel1.Controls.Add(this.DrmStartLabel);
-            this.panel1.Controls.Add(this.DrumRedInputs);
-            this.panel1.Controls.Add(this.ClearDrmDownInputs);
-            this.panel1.Controls.Add(this.DrumYellowInputs);
-            this.panel1.Controls.Add(this.AddDrmDownInput);
-            this.panel1.Controls.Add(this.DrumBlueInputs);
-            this.panel1.Controls.Add(this.DrumDownInputs);
-            this.panel1.Controls.Add(this.DrumOrangeInputs);
-            this.panel1.Controls.Add(this.DrmDownLabel);
-            this.panel1.Controls.Add(this.DrumGreenInputs);
-            this.panel1.Controls.Add(this.ClearDrmCancelInputs);
-            this.panel1.Controls.Add(this.DrumStartInputs);
-            this.panel1.Controls.Add(this.AddDrmCancelInput);
-            this.panel1.Controls.Add(this.AddDrmRedInput);
-            this.panel1.Controls.Add(this.DrumCancelInputs);
-            this.panel1.Controls.Add(this.ClearDrmRedInputs);
-            this.panel1.Controls.Add(this.DrmCancelLabel);
-            this.panel1.Controls.Add(this.AddDrmYellowInput);
-            this.panel1.Controls.Add(this.ClearDrmUpInputs);
-            this.panel1.Controls.Add(this.ClearDrmYellowInputs);
-            this.panel1.Controls.Add(this.ClearDrmKickInputs);
-            this.panel1.Controls.Add(this.AddDrmBlueInput);
-            this.panel1.Controls.Add(this.AddDrmUpInput);
-            this.panel1.Controls.Add(this.ClearDrmBlueInputs);
-            this.panel1.Controls.Add(this.AddDrmKickInput);
-            this.panel1.Controls.Add(this.button19);
-            this.panel1.Controls.Add(this.DrumUpInputs);
-            this.panel1.Controls.Add(this.AddDrmOrangeInput);
-            this.panel1.Controls.Add(this.DrumKickInputs);
-            this.panel1.Controls.Add(this.AddDrmGreenInput);
-            this.panel1.Controls.Add(this.DrmUpLabel);
-            this.panel1.Controls.Add(this.ClearDrmGreenInputs);
-            this.panel1.Controls.Add(this.DrmKickLabel);
-            this.panel1.Controls.Add(this.AddDrmStartInput);
-            this.panel1.Controls.Add(this.ClearDrmSelectInputs);
-            this.panel1.Controls.Add(this.ClearDrmStartInputs);
-            this.panel1.Controls.Add(this.AddDrmSelectInput);
-            this.panel1.Controls.Add(this.InputIconDrums);
-            this.panel1.Controls.Add(this.DrumSelectInputs);
-            this.panel1.Controls.Add(this.DrmSelectLabel);
-            this.panel1.Location = new System.Drawing.Point(0, 353);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 277);
-            this.panel1.TabIndex = 70;
+            this.MenuInputsPanel.Controls.Add(this.MenuStartLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuStartInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuRightInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuStartInput);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuRightInput);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuStartInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuRightInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuRightLabel);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuLeftInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuLeftInput);
+            this.MenuInputsPanel.Controls.Add(this.MenuLeftInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuLeftLabel);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuWhammyInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuWhammyInput);
+            this.MenuInputsPanel.Controls.Add(this.MenuWhammyInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuWhammyLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuGreenLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuInputsHeaderLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuOrangeLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuRedLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuYellowLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuBlueLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuKickLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuOrangeInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuDownInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuRedInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuDownInput);
+            this.MenuInputsPanel.Controls.Add(this.MenuYellowInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuDownInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuBlueInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuDownLabel);
+            this.MenuInputsPanel.Controls.Add(this.MenuGreenInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuCancelInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuKickInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuCancelInput);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuOrangeInput);
+            this.MenuInputsPanel.Controls.Add(this.MenuCancelInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuOrangeInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuCancelLabel);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuRedInput);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuUpInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuRedInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuYellowInput);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuUpInput);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuYellowInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuBlueInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuUpInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuBlueInput);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuGreenInput);
+            this.MenuInputsPanel.Controls.Add(this.MenuUpLabel);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuGreenInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuKickInput);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuSelectInputs);
+            this.MenuInputsPanel.Controls.Add(this.ClearMenuKickInputs);
+            this.MenuInputsPanel.Controls.Add(this.AddMenuSelectInput);
+            this.MenuInputsPanel.Controls.Add(this.InputIconMenu);
+            this.MenuInputsPanel.Controls.Add(this.MenuSelectInputs);
+            this.MenuInputsPanel.Controls.Add(this.MenuSelectLabel);
+            this.MenuInputsPanel.Location = new System.Drawing.Point(0, 889);
+            this.MenuInputsPanel.Name = "MenuInputsPanel";
+            this.MenuInputsPanel.Size = new System.Drawing.Size(596, 352);
+            this.MenuInputsPanel.TabIndex = 72;
+            // 
+            // MenuStartLabel
+            // 
+            this.MenuStartLabel.AutoSize = true;
+            this.MenuStartLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuStartLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuStartLabel.Location = new System.Drawing.Point(65, 179);
+            this.MenuStartLabel.Name = "MenuStartLabel";
+            this.MenuStartLabel.Size = new System.Drawing.Size(53, 22);
+            this.MenuStartLabel.TabIndex = 70;
+            this.MenuStartLabel.Text = "Start:";
+            this.MenuStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuStartInputs
+            // 
+            this.MenuStartInputs.AutoSize = true;
+            this.MenuStartInputs.Location = new System.Drawing.Point(124, 180);
+            this.MenuStartInputs.Name = "MenuStartInputs";
+            this.MenuStartInputs.Size = new System.Drawing.Size(161, 22);
+            this.MenuStartInputs.TabIndex = 71;
+            this.MenuStartInputs.Text = "MNU_START_INPUTS";
+            // 
+            // ClearMenuRightInputs
+            // 
+            this.ClearMenuRightInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuRightInputs.Location = new System.Drawing.Point(518, 312);
+            this.ClearMenuRightInputs.Name = "ClearMenuRightInputs";
+            this.ClearMenuRightInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuRightInputs.TabIndex = 81;
+            this.ClearMenuRightInputs.Text = "Clear";
+            this.ClearMenuRightInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuRightInputs.Click += new System.EventHandler(this.ClearMenuRightInputs_Click);
+            // 
+            // AddMenuStartInput
+            // 
+            this.AddMenuStartInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuStartInput.Location = new System.Drawing.Point(440, 180);
+            this.AddMenuStartInput.Name = "AddMenuStartInput";
+            this.AddMenuStartInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuStartInput.TabIndex = 72;
+            this.AddMenuStartInput.Text = "Add";
+            this.AddMenuStartInput.UseVisualStyleBackColor = true;
+            this.AddMenuStartInput.Click += new System.EventHandler(this.AddMenuStartInput_Click);
+            // 
+            // AddMenuRightInput
+            // 
+            this.AddMenuRightInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuRightInput.Location = new System.Drawing.Point(440, 312);
+            this.AddMenuRightInput.Name = "AddMenuRightInput";
+            this.AddMenuRightInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuRightInput.TabIndex = 80;
+            this.AddMenuRightInput.Text = "Add";
+            this.AddMenuRightInput.UseVisualStyleBackColor = true;
+            this.AddMenuRightInput.Click += new System.EventHandler(this.AddMenuRightInput_Click);
+            // 
+            // ClearMenuStartInputs
+            // 
+            this.ClearMenuStartInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuStartInputs.Location = new System.Drawing.Point(518, 180);
+            this.ClearMenuStartInputs.Name = "ClearMenuStartInputs";
+            this.ClearMenuStartInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuStartInputs.TabIndex = 73;
+            this.ClearMenuStartInputs.Text = "Clear";
+            this.ClearMenuStartInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuStartInputs.Click += new System.EventHandler(this.ClearMenuStartInputs_Click);
+            // 
+            // MenuRightInputs
+            // 
+            this.MenuRightInputs.AutoSize = true;
+            this.MenuRightInputs.Location = new System.Drawing.Point(124, 312);
+            this.MenuRightInputs.Name = "MenuRightInputs";
+            this.MenuRightInputs.Size = new System.Drawing.Size(164, 22);
+            this.MenuRightInputs.TabIndex = 79;
+            this.MenuRightInputs.Text = "MNU_RIGHT_INPUTS";
+            // 
+            // MenuRightLabel
+            // 
+            this.MenuRightLabel.AutoSize = true;
+            this.MenuRightLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuRightLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuRightLabel.Location = new System.Drawing.Point(65, 311);
+            this.MenuRightLabel.Name = "MenuRightLabel";
+            this.MenuRightLabel.Size = new System.Drawing.Size(55, 22);
+            this.MenuRightLabel.TabIndex = 78;
+            this.MenuRightLabel.Text = "Right:";
+            this.MenuRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ClearMenuLeftInputs
+            // 
+            this.ClearMenuLeftInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuLeftInputs.Location = new System.Drawing.Point(518, 290);
+            this.ClearMenuLeftInputs.Name = "ClearMenuLeftInputs";
+            this.ClearMenuLeftInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuLeftInputs.TabIndex = 77;
+            this.ClearMenuLeftInputs.Text = "Clear";
+            this.ClearMenuLeftInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuLeftInputs.Click += new System.EventHandler(this.ClearMenuLeftInputs_Click);
+            // 
+            // AddMenuLeftInput
+            // 
+            this.AddMenuLeftInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuLeftInput.Location = new System.Drawing.Point(440, 290);
+            this.AddMenuLeftInput.Name = "AddMenuLeftInput";
+            this.AddMenuLeftInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuLeftInput.TabIndex = 76;
+            this.AddMenuLeftInput.Text = "Add";
+            this.AddMenuLeftInput.UseVisualStyleBackColor = true;
+            this.AddMenuLeftInput.Click += new System.EventHandler(this.AddMenuLeftInput_Click);
+            // 
+            // MenuLeftInputs
+            // 
+            this.MenuLeftInputs.AutoSize = true;
+            this.MenuLeftInputs.Location = new System.Drawing.Point(124, 290);
+            this.MenuLeftInputs.Name = "MenuLeftInputs";
+            this.MenuLeftInputs.Size = new System.Drawing.Size(150, 22);
+            this.MenuLeftInputs.TabIndex = 75;
+            this.MenuLeftInputs.Text = "MNU_LEFT_INPUTS";
+            // 
+            // MenuLeftLabel
+            // 
+            this.MenuLeftLabel.AutoSize = true;
+            this.MenuLeftLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuLeftLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuLeftLabel.Location = new System.Drawing.Point(73, 289);
+            this.MenuLeftLabel.Name = "MenuLeftLabel";
+            this.MenuLeftLabel.Size = new System.Drawing.Size(45, 22);
+            this.MenuLeftLabel.TabIndex = 74;
+            this.MenuLeftLabel.Text = "Left:";
+            this.MenuLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ClearMenuWhammyInputs
+            // 
+            this.ClearMenuWhammyInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuWhammyInputs.Location = new System.Drawing.Point(518, 158);
+            this.ClearMenuWhammyInputs.Name = "ClearMenuWhammyInputs";
+            this.ClearMenuWhammyInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuWhammyInputs.TabIndex = 73;
+            this.ClearMenuWhammyInputs.Text = "Clear";
+            this.ClearMenuWhammyInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuWhammyInputs.Click += new System.EventHandler(this.ClearMenuWhammyInputs_Click);
+            // 
+            // AddMenuWhammyInput
+            // 
+            this.AddMenuWhammyInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuWhammyInput.Location = new System.Drawing.Point(440, 158);
+            this.AddMenuWhammyInput.Name = "AddMenuWhammyInput";
+            this.AddMenuWhammyInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuWhammyInput.TabIndex = 72;
+            this.AddMenuWhammyInput.Text = "Add";
+            this.AddMenuWhammyInput.UseVisualStyleBackColor = true;
+            this.AddMenuWhammyInput.Click += new System.EventHandler(this.AddMenuWhammyInput_Click);
+            // 
+            // MenuWhammyInputs
+            // 
+            this.MenuWhammyInputs.AutoSize = true;
+            this.MenuWhammyInputs.Location = new System.Drawing.Point(124, 158);
+            this.MenuWhammyInputs.Name = "MenuWhammyInputs";
+            this.MenuWhammyInputs.Size = new System.Drawing.Size(185, 22);
+            this.MenuWhammyInputs.TabIndex = 71;
+            this.MenuWhammyInputs.Text = "MNU_WHAMMY_INPUTS";
+            // 
+            // MenuWhammyLabel
+            // 
+            this.MenuWhammyLabel.AutoSize = true;
+            this.MenuWhammyLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuWhammyLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuWhammyLabel.Location = new System.Drawing.Point(33, 157);
+            this.MenuWhammyLabel.Name = "MenuWhammyLabel";
+            this.MenuWhammyLabel.Size = new System.Drawing.Size(85, 22);
+            this.MenuWhammyLabel.TabIndex = 70;
+            this.MenuWhammyLabel.Text = "Whammy:";
+            this.MenuWhammyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuGreenLabel
+            // 
+            this.MenuGreenLabel.AutoSize = true;
+            this.MenuGreenLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuGreenLabel.ForeColor = System.Drawing.Color.Lime;
+            this.MenuGreenLabel.Location = new System.Drawing.Point(58, 24);
+            this.MenuGreenLabel.Name = "MenuGreenLabel";
+            this.MenuGreenLabel.Size = new System.Drawing.Size(60, 22);
+            this.MenuGreenLabel.TabIndex = 69;
+            this.MenuGreenLabel.Text = "Green:";
+            this.MenuGreenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuInputsHeaderLabel
+            // 
+            this.MenuInputsHeaderLabel.AutoSize = true;
+            this.MenuInputsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.MenuInputsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MenuInputsHeaderLabel.Location = new System.Drawing.Point(64, -1);
+            this.MenuInputsHeaderLabel.Name = "MenuInputsHeaderLabel";
+            this.MenuInputsHeaderLabel.Size = new System.Drawing.Size(127, 25);
+            this.MenuInputsHeaderLabel.TabIndex = 19;
+            this.MenuInputsHeaderLabel.Text = "Menu Inputs:";
+            // 
+            // MenuOrangeLabel
+            // 
+            this.MenuOrangeLabel.AutoSize = true;
+            this.MenuOrangeLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuOrangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.MenuOrangeLabel.Location = new System.Drawing.Point(46, 113);
+            this.MenuOrangeLabel.Name = "MenuOrangeLabel";
+            this.MenuOrangeLabel.Size = new System.Drawing.Size(71, 22);
+            this.MenuOrangeLabel.TabIndex = 20;
+            this.MenuOrangeLabel.Text = "Orange:";
+            this.MenuOrangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuRedLabel
+            // 
+            this.MenuRedLabel.AutoSize = true;
+            this.MenuRedLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuRedLabel.ForeColor = System.Drawing.Color.Red;
+            this.MenuRedLabel.Location = new System.Drawing.Point(73, 47);
+            this.MenuRedLabel.Name = "MenuRedLabel";
+            this.MenuRedLabel.Size = new System.Drawing.Size(44, 22);
+            this.MenuRedLabel.TabIndex = 22;
+            this.MenuRedLabel.Text = "Red:";
+            this.MenuRedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuYellowLabel
+            // 
+            this.MenuYellowLabel.AutoSize = true;
+            this.MenuYellowLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuYellowLabel.ForeColor = System.Drawing.Color.Goldenrod;
+            this.MenuYellowLabel.Location = new System.Drawing.Point(54, 69);
+            this.MenuYellowLabel.Name = "MenuYellowLabel";
+            this.MenuYellowLabel.Size = new System.Drawing.Size(64, 22);
+            this.MenuYellowLabel.TabIndex = 23;
+            this.MenuYellowLabel.Text = "Yellow:";
+            this.MenuYellowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuBlueLabel
+            // 
+            this.MenuBlueLabel.AutoSize = true;
+            this.MenuBlueLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuBlueLabel.ForeColor = System.Drawing.Color.Blue;
+            this.MenuBlueLabel.Location = new System.Drawing.Point(70, 91);
+            this.MenuBlueLabel.Name = "MenuBlueLabel";
+            this.MenuBlueLabel.Size = new System.Drawing.Size(48, 22);
+            this.MenuBlueLabel.TabIndex = 24;
+            this.MenuBlueLabel.Text = "Blue:";
+            this.MenuBlueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuKickLabel
+            // 
+            this.MenuKickLabel.AutoSize = true;
+            this.MenuKickLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuKickLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.MenuKickLabel.Location = new System.Drawing.Point(25, 135);
+            this.MenuKickLabel.Name = "MenuKickLabel";
+            this.MenuKickLabel.Size = new System.Drawing.Size(93, 22);
+            this.MenuKickLabel.TabIndex = 25;
+            this.MenuKickLabel.Text = "Kick Drum:";
+            this.MenuKickLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuOrangeInputs
+            // 
+            this.MenuOrangeInputs.AutoSize = true;
+            this.MenuOrangeInputs.Location = new System.Drawing.Point(124, 114);
+            this.MenuOrangeInputs.Name = "MenuOrangeInputs";
+            this.MenuOrangeInputs.Size = new System.Drawing.Size(179, 22);
+            this.MenuOrangeInputs.TabIndex = 26;
+            this.MenuOrangeInputs.Text = "MNU_ORANGE_INPUTS";
+            // 
+            // ClearMenuDownInputs
+            // 
+            this.ClearMenuDownInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuDownInputs.Location = new System.Drawing.Point(518, 268);
+            this.ClearMenuDownInputs.Name = "ClearMenuDownInputs";
+            this.ClearMenuDownInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuDownInputs.TabIndex = 60;
+            this.ClearMenuDownInputs.Text = "Clear";
+            this.ClearMenuDownInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuDownInputs.Click += new System.EventHandler(this.ClearMenuDownInputs_Click);
+            // 
+            // MenuRedInputs
+            // 
+            this.MenuRedInputs.AutoSize = true;
+            this.MenuRedInputs.Location = new System.Drawing.Point(124, 48);
+            this.MenuRedInputs.Name = "MenuRedInputs";
+            this.MenuRedInputs.Size = new System.Drawing.Size(146, 22);
+            this.MenuRedInputs.TabIndex = 27;
+            this.MenuRedInputs.Text = "MNU_RED_INPUTS";
+            // 
+            // AddMenuDownInput
+            // 
+            this.AddMenuDownInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuDownInput.Location = new System.Drawing.Point(440, 268);
+            this.AddMenuDownInput.Name = "AddMenuDownInput";
+            this.AddMenuDownInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuDownInput.TabIndex = 59;
+            this.AddMenuDownInput.Text = "Add";
+            this.AddMenuDownInput.UseVisualStyleBackColor = true;
+            this.AddMenuDownInput.Click += new System.EventHandler(this.AddMenuDownInput_Click);
+            // 
+            // MenuYellowInputs
+            // 
+            this.MenuYellowInputs.AutoSize = true;
+            this.MenuYellowInputs.Location = new System.Drawing.Point(124, 70);
+            this.MenuYellowInputs.Name = "MenuYellowInputs";
+            this.MenuYellowInputs.Size = new System.Drawing.Size(176, 22);
+            this.MenuYellowInputs.TabIndex = 28;
+            this.MenuYellowInputs.Text = "MNU_YELLOW_INPUTS";
+            // 
+            // MenuDownInputs
+            // 
+            this.MenuDownInputs.AutoSize = true;
+            this.MenuDownInputs.Location = new System.Drawing.Point(124, 268);
+            this.MenuDownInputs.Name = "MenuDownInputs";
+            this.MenuDownInputs.Size = new System.Drawing.Size(163, 22);
+            this.MenuDownInputs.TabIndex = 58;
+            this.MenuDownInputs.Text = "MNU_DOWN_INPUTS";
+            // 
+            // MenuBlueInputs
+            // 
+            this.MenuBlueInputs.AutoSize = true;
+            this.MenuBlueInputs.Location = new System.Drawing.Point(124, 92);
+            this.MenuBlueInputs.Name = "MenuBlueInputs";
+            this.MenuBlueInputs.Size = new System.Drawing.Size(154, 22);
+            this.MenuBlueInputs.TabIndex = 29;
+            this.MenuBlueInputs.Text = "MNU_BLUE_INPUTS";
+            // 
+            // MenuDownLabel
+            // 
+            this.MenuDownLabel.AutoSize = true;
+            this.MenuDownLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuDownLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuDownLabel.Location = new System.Drawing.Point(62, 267);
+            this.MenuDownLabel.Name = "MenuDownLabel";
+            this.MenuDownLabel.Size = new System.Drawing.Size(56, 22);
+            this.MenuDownLabel.TabIndex = 57;
+            this.MenuDownLabel.Text = "Down:";
+            this.MenuDownLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MenuGreenInputs
+            // 
+            this.MenuGreenInputs.AutoSize = true;
+            this.MenuGreenInputs.Location = new System.Drawing.Point(124, 25);
+            this.MenuGreenInputs.Name = "MenuGreenInputs";
+            this.MenuGreenInputs.Size = new System.Drawing.Size(167, 22);
+            this.MenuGreenInputs.TabIndex = 30;
+            this.MenuGreenInputs.Text = "MNU_GREEN_INPUTS";
+            // 
+            // ClearMenuCancelInputs
+            // 
+            this.ClearMenuCancelInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuCancelInputs.Location = new System.Drawing.Point(518, 224);
+            this.ClearMenuCancelInputs.Name = "ClearMenuCancelInputs";
+            this.ClearMenuCancelInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuCancelInputs.TabIndex = 56;
+            this.ClearMenuCancelInputs.Text = "Clear";
+            this.ClearMenuCancelInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuCancelInputs.Click += new System.EventHandler(this.ClearMenuCancelInputs_Click);
+            // 
+            // MenuKickInputs
+            // 
+            this.MenuKickInputs.AutoSize = true;
+            this.MenuKickInputs.Location = new System.Drawing.Point(124, 136);
+            this.MenuKickInputs.Name = "MenuKickInputs";
+            this.MenuKickInputs.Size = new System.Drawing.Size(154, 22);
+            this.MenuKickInputs.TabIndex = 31;
+            this.MenuKickInputs.Text = "MNU_KICK_INPUTS";
+            // 
+            // AddMenuCancelInput
+            // 
+            this.AddMenuCancelInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuCancelInput.Location = new System.Drawing.Point(440, 224);
+            this.AddMenuCancelInput.Name = "AddMenuCancelInput";
+            this.AddMenuCancelInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuCancelInput.TabIndex = 55;
+            this.AddMenuCancelInput.Text = "Add";
+            this.AddMenuCancelInput.UseVisualStyleBackColor = true;
+            this.AddMenuCancelInput.Click += new System.EventHandler(this.AddMenuCancelInput_Click);
+            // 
+            // AddMenuOrangeInput
+            // 
+            this.AddMenuOrangeInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuOrangeInput.Location = new System.Drawing.Point(440, 114);
+            this.AddMenuOrangeInput.Name = "AddMenuOrangeInput";
+            this.AddMenuOrangeInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuOrangeInput.TabIndex = 32;
+            this.AddMenuOrangeInput.Text = "Add";
+            this.AddMenuOrangeInput.UseVisualStyleBackColor = true;
+            this.AddMenuOrangeInput.Click += new System.EventHandler(this.AddMenuOrangeInput_Click);
+            // 
+            // MenuCancelInputs
+            // 
+            this.MenuCancelInputs.AutoSize = true;
+            this.MenuCancelInputs.Location = new System.Drawing.Point(124, 224);
+            this.MenuCancelInputs.Name = "MenuCancelInputs";
+            this.MenuCancelInputs.Size = new System.Drawing.Size(175, 22);
+            this.MenuCancelInputs.TabIndex = 54;
+            this.MenuCancelInputs.Text = "MNU_CANCEL_INPUTS";
+            // 
+            // ClearMenuOrangeInputs
+            // 
+            this.ClearMenuOrangeInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuOrangeInputs.Location = new System.Drawing.Point(518, 114);
+            this.ClearMenuOrangeInputs.Name = "ClearMenuOrangeInputs";
+            this.ClearMenuOrangeInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuOrangeInputs.TabIndex = 33;
+            this.ClearMenuOrangeInputs.Text = "Clear";
+            this.ClearMenuOrangeInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuOrangeInputs.Click += new System.EventHandler(this.ClearMenuOrangeInputs_Click);
+            // 
+            // MenuCancelLabel
+            // 
+            this.MenuCancelLabel.AutoSize = true;
+            this.MenuCancelLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuCancelLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuCancelLabel.Location = new System.Drawing.Point(52, 223);
+            this.MenuCancelLabel.Name = "MenuCancelLabel";
+            this.MenuCancelLabel.Size = new System.Drawing.Size(66, 22);
+            this.MenuCancelLabel.TabIndex = 53;
+            this.MenuCancelLabel.Text = "Cancel:";
+            this.MenuCancelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AddMenuRedInput
+            // 
+            this.AddMenuRedInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuRedInput.Location = new System.Drawing.Point(440, 48);
+            this.AddMenuRedInput.Name = "AddMenuRedInput";
+            this.AddMenuRedInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuRedInput.TabIndex = 34;
+            this.AddMenuRedInput.Text = "Add";
+            this.AddMenuRedInput.UseVisualStyleBackColor = true;
+            this.AddMenuRedInput.Click += new System.EventHandler(this.AddMenuRedInput_Click);
+            // 
+            // ClearMenuUpInputs
+            // 
+            this.ClearMenuUpInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuUpInputs.Location = new System.Drawing.Point(518, 246);
+            this.ClearMenuUpInputs.Name = "ClearMenuUpInputs";
+            this.ClearMenuUpInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuUpInputs.TabIndex = 52;
+            this.ClearMenuUpInputs.Text = "Clear";
+            this.ClearMenuUpInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuUpInputs.Click += new System.EventHandler(this.ClearMenuUpInputs_Click);
+            // 
+            // ClearMenuRedInputs
+            // 
+            this.ClearMenuRedInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuRedInputs.Location = new System.Drawing.Point(518, 48);
+            this.ClearMenuRedInputs.Name = "ClearMenuRedInputs";
+            this.ClearMenuRedInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuRedInputs.TabIndex = 35;
+            this.ClearMenuRedInputs.Text = "Clear";
+            this.ClearMenuRedInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuRedInputs.Click += new System.EventHandler(this.ClearMenuRedInputs_Click);
+            // 
+            // AddMenuYellowInput
+            // 
+            this.AddMenuYellowInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuYellowInput.Location = new System.Drawing.Point(440, 70);
+            this.AddMenuYellowInput.Name = "AddMenuYellowInput";
+            this.AddMenuYellowInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuYellowInput.TabIndex = 36;
+            this.AddMenuYellowInput.Text = "Add";
+            this.AddMenuYellowInput.UseVisualStyleBackColor = true;
+            this.AddMenuYellowInput.Click += new System.EventHandler(this.AddMenuYellowInput_Click);
+            // 
+            // AddMenuUpInput
+            // 
+            this.AddMenuUpInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuUpInput.Location = new System.Drawing.Point(440, 246);
+            this.AddMenuUpInput.Name = "AddMenuUpInput";
+            this.AddMenuUpInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuUpInput.TabIndex = 51;
+            this.AddMenuUpInput.Text = "Add";
+            this.AddMenuUpInput.UseVisualStyleBackColor = true;
+            this.AddMenuUpInput.Click += new System.EventHandler(this.AddMenuUpInput_Click);
+            // 
+            // ClearMenuYellowInputs
+            // 
+            this.ClearMenuYellowInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuYellowInputs.Location = new System.Drawing.Point(518, 70);
+            this.ClearMenuYellowInputs.Name = "ClearMenuYellowInputs";
+            this.ClearMenuYellowInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuYellowInputs.TabIndex = 37;
+            this.ClearMenuYellowInputs.Text = "Clear";
+            this.ClearMenuYellowInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuYellowInputs.Click += new System.EventHandler(this.ClearMenuYellowInputs_Click);
+            // 
+            // ClearMenuBlueInputs
+            // 
+            this.ClearMenuBlueInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuBlueInputs.Location = new System.Drawing.Point(518, 92);
+            this.ClearMenuBlueInputs.Name = "ClearMenuBlueInputs";
+            this.ClearMenuBlueInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuBlueInputs.TabIndex = 37;
+            this.ClearMenuBlueInputs.Text = "Clear";
+            this.ClearMenuBlueInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuBlueInputs.Click += new System.EventHandler(this.ClearMenuBlueInputs_Click);
+            // 
+            // MenuUpInputs
+            // 
+            this.MenuUpInputs.AutoSize = true;
+            this.MenuUpInputs.Location = new System.Drawing.Point(124, 246);
+            this.MenuUpInputs.Name = "MenuUpInputs";
+            this.MenuUpInputs.Size = new System.Drawing.Size(136, 22);
+            this.MenuUpInputs.TabIndex = 50;
+            this.MenuUpInputs.Text = "MNU_UP_INPUTS";
+            // 
+            // AddMenuBlueInput
+            // 
+            this.AddMenuBlueInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuBlueInput.Location = new System.Drawing.Point(440, 92);
+            this.AddMenuBlueInput.Name = "AddMenuBlueInput";
+            this.AddMenuBlueInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuBlueInput.TabIndex = 38;
+            this.AddMenuBlueInput.Text = "Add";
+            this.AddMenuBlueInput.UseVisualStyleBackColor = true;
+            this.AddMenuBlueInput.Click += new System.EventHandler(this.AddMenuBlueInput_Click);
+            // 
+            // AddMenuGreenInput
+            // 
+            this.AddMenuGreenInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuGreenInput.Location = new System.Drawing.Point(440, 25);
+            this.AddMenuGreenInput.Name = "AddMenuGreenInput";
+            this.AddMenuGreenInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuGreenInput.TabIndex = 39;
+            this.AddMenuGreenInput.Text = "Add";
+            this.AddMenuGreenInput.UseVisualStyleBackColor = true;
+            this.AddMenuGreenInput.Click += new System.EventHandler(this.AddMenuGreenInput_Click);
+            // 
+            // MenuUpLabel
+            // 
+            this.MenuUpLabel.AutoSize = true;
+            this.MenuUpLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuUpLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuUpLabel.Location = new System.Drawing.Point(83, 245);
+            this.MenuUpLabel.Name = "MenuUpLabel";
+            this.MenuUpLabel.Size = new System.Drawing.Size(35, 22);
+            this.MenuUpLabel.TabIndex = 49;
+            this.MenuUpLabel.Text = "Up:";
+            this.MenuUpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ClearMenuGreenInputs
+            // 
+            this.ClearMenuGreenInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuGreenInputs.Location = new System.Drawing.Point(518, 25);
+            this.ClearMenuGreenInputs.Name = "ClearMenuGreenInputs";
+            this.ClearMenuGreenInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuGreenInputs.TabIndex = 40;
+            this.ClearMenuGreenInputs.Text = "Clear";
+            this.ClearMenuGreenInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuGreenInputs.Click += new System.EventHandler(this.ClearMenuGreenInputs_Click);
+            // 
+            // AddMenuKickInput
+            // 
+            this.AddMenuKickInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuKickInput.Location = new System.Drawing.Point(440, 136);
+            this.AddMenuKickInput.Name = "AddMenuKickInput";
+            this.AddMenuKickInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuKickInput.TabIndex = 41;
+            this.AddMenuKickInput.Text = "Add";
+            this.AddMenuKickInput.UseVisualStyleBackColor = true;
+            this.AddMenuKickInput.Click += new System.EventHandler(this.AddMenuKickInput_Click);
+            // 
+            // ClearMenuSelectInputs
+            // 
+            this.ClearMenuSelectInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuSelectInputs.Location = new System.Drawing.Point(518, 202);
+            this.ClearMenuSelectInputs.Name = "ClearMenuSelectInputs";
+            this.ClearMenuSelectInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuSelectInputs.TabIndex = 48;
+            this.ClearMenuSelectInputs.Text = "Clear";
+            this.ClearMenuSelectInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuSelectInputs.Click += new System.EventHandler(this.ClearMenuSelectInputs_Click);
+            // 
+            // ClearMenuKickInputs
+            // 
+            this.ClearMenuKickInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMenuKickInputs.Location = new System.Drawing.Point(518, 136);
+            this.ClearMenuKickInputs.Name = "ClearMenuKickInputs";
+            this.ClearMenuKickInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMenuKickInputs.TabIndex = 42;
+            this.ClearMenuKickInputs.Text = "Clear";
+            this.ClearMenuKickInputs.UseVisualStyleBackColor = true;
+            this.ClearMenuKickInputs.Click += new System.EventHandler(this.ClearMenuKickInputs_Click);
+            // 
+            // AddMenuSelectInput
+            // 
+            this.AddMenuSelectInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMenuSelectInput.Location = new System.Drawing.Point(440, 202);
+            this.AddMenuSelectInput.Name = "AddMenuSelectInput";
+            this.AddMenuSelectInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMenuSelectInput.TabIndex = 47;
+            this.AddMenuSelectInput.Text = "Add";
+            this.AddMenuSelectInput.UseVisualStyleBackColor = true;
+            this.AddMenuSelectInput.Click += new System.EventHandler(this.AddMenuSelectInput_Click);
+            // 
+            // InputIconMenu
+            // 
+            this.InputIconMenu.Image = global::WTDE_Launcher_V3.Properties.Resources.mixer_icon_keyboard;
+            this.InputIconMenu.Location = new System.Drawing.Point(33, 0);
+            this.InputIconMenu.Name = "InputIconMenu";
+            this.InputIconMenu.Size = new System.Drawing.Size(24, 24);
+            this.InputIconMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InputIconMenu.TabIndex = 44;
+            this.InputIconMenu.TabStop = false;
+            // 
+            // MenuSelectInputs
+            // 
+            this.MenuSelectInputs.AutoSize = true;
+            this.MenuSelectInputs.Location = new System.Drawing.Point(124, 202);
+            this.MenuSelectInputs.Name = "MenuSelectInputs";
+            this.MenuSelectInputs.Size = new System.Drawing.Size(170, 22);
+            this.MenuSelectInputs.TabIndex = 46;
+            this.MenuSelectInputs.Text = "MNU_SELECT_INPUTS";
+            // 
+            // MenuSelectLabel
+            // 
+            this.MenuSelectLabel.AutoSize = true;
+            this.MenuSelectLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MenuSelectLabel.ForeColor = System.Drawing.Color.Black;
+            this.MenuSelectLabel.Location = new System.Drawing.Point(10, 201);
+            this.MenuSelectLabel.Name = "MenuSelectLabel";
+            this.MenuSelectLabel.Size = new System.Drawing.Size(108, 22);
+            this.MenuSelectLabel.TabIndex = 45;
+            this.MenuSelectLabel.Text = "Back/Select:";
+            this.MenuSelectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicInputsPanel
+            // 
+            this.MicInputsPanel.Controls.Add(this.MicGreenLabel);
+            this.MicInputsPanel.Controls.Add(this.MicInputsHeaderLabel);
+            this.MicInputsPanel.Controls.Add(this.MicOrangeLabel);
+            this.MicInputsPanel.Controls.Add(this.MicRedLabel);
+            this.MicInputsPanel.Controls.Add(this.MicYellowLabel);
+            this.MicInputsPanel.Controls.Add(this.MicBlueLabel);
+            this.MicInputsPanel.Controls.Add(this.MicStartLabel);
+            this.MicInputsPanel.Controls.Add(this.MicOrangeInputs);
+            this.MicInputsPanel.Controls.Add(this.ClearMicDownInputs);
+            this.MicInputsPanel.Controls.Add(this.MicRedInputs);
+            this.MicInputsPanel.Controls.Add(this.AddMicDownInput);
+            this.MicInputsPanel.Controls.Add(this.MicYellowInputs);
+            this.MicInputsPanel.Controls.Add(this.MicDownInputs);
+            this.MicInputsPanel.Controls.Add(this.MicBlueInputs);
+            this.MicInputsPanel.Controls.Add(this.MicDownLabel);
+            this.MicInputsPanel.Controls.Add(this.MicGreenInputs);
+            this.MicInputsPanel.Controls.Add(this.ClearMicCancelInputs);
+            this.MicInputsPanel.Controls.Add(this.MicStartInputs);
+            this.MicInputsPanel.Controls.Add(this.AddMicCancelInput);
+            this.MicInputsPanel.Controls.Add(this.AddMicOrangeInput);
+            this.MicInputsPanel.Controls.Add(this.MicCancelInputs);
+            this.MicInputsPanel.Controls.Add(this.ClearMicOrangeInputs);
+            this.MicInputsPanel.Controls.Add(this.MicCancelLabel);
+            this.MicInputsPanel.Controls.Add(this.AddMicRedInput);
+            this.MicInputsPanel.Controls.Add(this.ClearMicUpInputs);
+            this.MicInputsPanel.Controls.Add(this.ClearMicRedInputs);
+            this.MicInputsPanel.Controls.Add(this.AddMicYellowInput);
+            this.MicInputsPanel.Controls.Add(this.AddMicUpInput);
+            this.MicInputsPanel.Controls.Add(this.ClearMicYellowInputs);
+            this.MicInputsPanel.Controls.Add(this.ClearMicBlueInputs);
+            this.MicInputsPanel.Controls.Add(this.MicUpInputs);
+            this.MicInputsPanel.Controls.Add(this.AddMicBlueInput);
+            this.MicInputsPanel.Controls.Add(this.AddMicGreenInput);
+            this.MicInputsPanel.Controls.Add(this.MicUpLabel);
+            this.MicInputsPanel.Controls.Add(this.ClearMicGreenInputs);
+            this.MicInputsPanel.Controls.Add(this.AddMicStartInput);
+            this.MicInputsPanel.Controls.Add(this.ClearMicSelectInputs);
+            this.MicInputsPanel.Controls.Add(this.ClearMicStartInputs);
+            this.MicInputsPanel.Controls.Add(this.AddMicSelectInput);
+            this.MicInputsPanel.Controls.Add(this.InputIconMic);
+            this.MicInputsPanel.Controls.Add(this.MicSelectInputs);
+            this.MicInputsPanel.Controls.Add(this.MicSelectLabel);
+            this.MicInputsPanel.Location = new System.Drawing.Point(0, 632);
+            this.MicInputsPanel.Name = "MicInputsPanel";
+            this.MicInputsPanel.Size = new System.Drawing.Size(596, 255);
+            this.MicInputsPanel.TabIndex = 71;
+            // 
+            // MicGreenLabel
+            // 
+            this.MicGreenLabel.AutoSize = true;
+            this.MicGreenLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicGreenLabel.ForeColor = System.Drawing.Color.Lime;
+            this.MicGreenLabel.Location = new System.Drawing.Point(58, 24);
+            this.MicGreenLabel.Name = "MicGreenLabel";
+            this.MicGreenLabel.Size = new System.Drawing.Size(60, 22);
+            this.MicGreenLabel.TabIndex = 69;
+            this.MicGreenLabel.Text = "Green:";
+            this.MicGreenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicInputsHeaderLabel
+            // 
+            this.MicInputsHeaderLabel.AutoSize = true;
+            this.MicInputsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.MicInputsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MicInputsHeaderLabel.Location = new System.Drawing.Point(64, -1);
+            this.MicInputsHeaderLabel.Name = "MicInputsHeaderLabel";
+            this.MicInputsHeaderLabel.Size = new System.Drawing.Size(110, 25);
+            this.MicInputsHeaderLabel.TabIndex = 19;
+            this.MicInputsHeaderLabel.Text = "Mic Inputs:";
+            // 
+            // MicOrangeLabel
+            // 
+            this.MicOrangeLabel.AutoSize = true;
+            this.MicOrangeLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicOrangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.MicOrangeLabel.Location = new System.Drawing.Point(46, 113);
+            this.MicOrangeLabel.Name = "MicOrangeLabel";
+            this.MicOrangeLabel.Size = new System.Drawing.Size(71, 22);
+            this.MicOrangeLabel.TabIndex = 20;
+            this.MicOrangeLabel.Text = "Orange:";
+            this.MicOrangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicRedLabel
+            // 
+            this.MicRedLabel.AutoSize = true;
+            this.MicRedLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicRedLabel.ForeColor = System.Drawing.Color.Red;
+            this.MicRedLabel.Location = new System.Drawing.Point(73, 47);
+            this.MicRedLabel.Name = "MicRedLabel";
+            this.MicRedLabel.Size = new System.Drawing.Size(44, 22);
+            this.MicRedLabel.TabIndex = 22;
+            this.MicRedLabel.Text = "Red:";
+            this.MicRedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicYellowLabel
+            // 
+            this.MicYellowLabel.AutoSize = true;
+            this.MicYellowLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicYellowLabel.ForeColor = System.Drawing.Color.Goldenrod;
+            this.MicYellowLabel.Location = new System.Drawing.Point(54, 69);
+            this.MicYellowLabel.Name = "MicYellowLabel";
+            this.MicYellowLabel.Size = new System.Drawing.Size(64, 22);
+            this.MicYellowLabel.TabIndex = 23;
+            this.MicYellowLabel.Text = "Yellow:";
+            this.MicYellowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicBlueLabel
+            // 
+            this.MicBlueLabel.AutoSize = true;
+            this.MicBlueLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicBlueLabel.ForeColor = System.Drawing.Color.Blue;
+            this.MicBlueLabel.Location = new System.Drawing.Point(70, 91);
+            this.MicBlueLabel.Name = "MicBlueLabel";
+            this.MicBlueLabel.Size = new System.Drawing.Size(48, 22);
+            this.MicBlueLabel.TabIndex = 24;
+            this.MicBlueLabel.Text = "Blue:";
+            this.MicBlueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicStartLabel
+            // 
+            this.MicStartLabel.AutoSize = true;
+            this.MicStartLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicStartLabel.ForeColor = System.Drawing.Color.Black;
+            this.MicStartLabel.Location = new System.Drawing.Point(65, 135);
+            this.MicStartLabel.Name = "MicStartLabel";
+            this.MicStartLabel.Size = new System.Drawing.Size(53, 22);
+            this.MicStartLabel.TabIndex = 25;
+            this.MicStartLabel.Text = "Start:";
+            this.MicStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicOrangeInputs
+            // 
+            this.MicOrangeInputs.AutoSize = true;
+            this.MicOrangeInputs.Location = new System.Drawing.Point(124, 114);
+            this.MicOrangeInputs.Name = "MicOrangeInputs";
+            this.MicOrangeInputs.Size = new System.Drawing.Size(177, 22);
+            this.MicOrangeInputs.TabIndex = 26;
+            this.MicOrangeInputs.Text = "VOX_ORANGE_INPUTS";
+            // 
+            // ClearMicDownInputs
+            // 
+            this.ClearMicDownInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicDownInputs.Location = new System.Drawing.Point(518, 224);
+            this.ClearMicDownInputs.Name = "ClearMicDownInputs";
+            this.ClearMicDownInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicDownInputs.TabIndex = 60;
+            this.ClearMicDownInputs.Text = "Clear";
+            this.ClearMicDownInputs.UseVisualStyleBackColor = true;
+            this.ClearMicDownInputs.Click += new System.EventHandler(this.ClearMicDownInputs_Click);
+            // 
+            // MicRedInputs
+            // 
+            this.MicRedInputs.AutoSize = true;
+            this.MicRedInputs.Location = new System.Drawing.Point(124, 48);
+            this.MicRedInputs.Name = "MicRedInputs";
+            this.MicRedInputs.Size = new System.Drawing.Size(144, 22);
+            this.MicRedInputs.TabIndex = 27;
+            this.MicRedInputs.Text = "VOX_RED_INPUTS";
+            // 
+            // AddMicDownInput
+            // 
+            this.AddMicDownInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicDownInput.Location = new System.Drawing.Point(440, 224);
+            this.AddMicDownInput.Name = "AddMicDownInput";
+            this.AddMicDownInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicDownInput.TabIndex = 59;
+            this.AddMicDownInput.Text = "Add";
+            this.AddMicDownInput.UseVisualStyleBackColor = true;
+            this.AddMicDownInput.Click += new System.EventHandler(this.AddMicDownInput_Click);
+            // 
+            // MicYellowInputs
+            // 
+            this.MicYellowInputs.AutoSize = true;
+            this.MicYellowInputs.Location = new System.Drawing.Point(124, 70);
+            this.MicYellowInputs.Name = "MicYellowInputs";
+            this.MicYellowInputs.Size = new System.Drawing.Size(174, 22);
+            this.MicYellowInputs.TabIndex = 28;
+            this.MicYellowInputs.Text = "VOX_YELLOW_INPUTS";
+            // 
+            // MicDownInputs
+            // 
+            this.MicDownInputs.AutoSize = true;
+            this.MicDownInputs.Location = new System.Drawing.Point(124, 224);
+            this.MicDownInputs.Name = "MicDownInputs";
+            this.MicDownInputs.Size = new System.Drawing.Size(161, 22);
+            this.MicDownInputs.TabIndex = 58;
+            this.MicDownInputs.Text = "VOX_DOWN_INPUTS";
+            // 
+            // MicBlueInputs
+            // 
+            this.MicBlueInputs.AutoSize = true;
+            this.MicBlueInputs.Location = new System.Drawing.Point(124, 92);
+            this.MicBlueInputs.Name = "MicBlueInputs";
+            this.MicBlueInputs.Size = new System.Drawing.Size(152, 22);
+            this.MicBlueInputs.TabIndex = 29;
+            this.MicBlueInputs.Text = "VOX_BLUE_INPUTS";
+            // 
+            // MicDownLabel
+            // 
+            this.MicDownLabel.AutoSize = true;
+            this.MicDownLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicDownLabel.ForeColor = System.Drawing.Color.Black;
+            this.MicDownLabel.Location = new System.Drawing.Point(62, 223);
+            this.MicDownLabel.Name = "MicDownLabel";
+            this.MicDownLabel.Size = new System.Drawing.Size(56, 22);
+            this.MicDownLabel.TabIndex = 57;
+            this.MicDownLabel.Text = "Down:";
+            this.MicDownLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MicGreenInputs
+            // 
+            this.MicGreenInputs.AutoSize = true;
+            this.MicGreenInputs.Location = new System.Drawing.Point(124, 25);
+            this.MicGreenInputs.Name = "MicGreenInputs";
+            this.MicGreenInputs.Size = new System.Drawing.Size(165, 22);
+            this.MicGreenInputs.TabIndex = 30;
+            this.MicGreenInputs.Text = "VOX_GREEN_INPUTS";
+            // 
+            // ClearMicCancelInputs
+            // 
+            this.ClearMicCancelInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicCancelInputs.Location = new System.Drawing.Point(518, 180);
+            this.ClearMicCancelInputs.Name = "ClearMicCancelInputs";
+            this.ClearMicCancelInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicCancelInputs.TabIndex = 56;
+            this.ClearMicCancelInputs.Text = "Clear";
+            this.ClearMicCancelInputs.UseVisualStyleBackColor = true;
+            this.ClearMicCancelInputs.Click += new System.EventHandler(this.ClearMicCancelInputs_Click);
+            // 
+            // MicStartInputs
+            // 
+            this.MicStartInputs.AutoSize = true;
+            this.MicStartInputs.Location = new System.Drawing.Point(124, 136);
+            this.MicStartInputs.Name = "MicStartInputs";
+            this.MicStartInputs.Size = new System.Drawing.Size(159, 22);
+            this.MicStartInputs.TabIndex = 31;
+            this.MicStartInputs.Text = "VOX_START_INPUTS";
+            // 
+            // AddMicCancelInput
+            // 
+            this.AddMicCancelInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicCancelInput.Location = new System.Drawing.Point(440, 180);
+            this.AddMicCancelInput.Name = "AddMicCancelInput";
+            this.AddMicCancelInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicCancelInput.TabIndex = 55;
+            this.AddMicCancelInput.Text = "Add";
+            this.AddMicCancelInput.UseVisualStyleBackColor = true;
+            this.AddMicCancelInput.Click += new System.EventHandler(this.AddMicCancelInput_Click);
+            // 
+            // AddMicOrangeInput
+            // 
+            this.AddMicOrangeInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicOrangeInput.Location = new System.Drawing.Point(440, 114);
+            this.AddMicOrangeInput.Name = "AddMicOrangeInput";
+            this.AddMicOrangeInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicOrangeInput.TabIndex = 32;
+            this.AddMicOrangeInput.Text = "Add";
+            this.AddMicOrangeInput.UseVisualStyleBackColor = true;
+            this.AddMicOrangeInput.Click += new System.EventHandler(this.AddMicOrangeInput_Click);
+            // 
+            // MicCancelInputs
+            // 
+            this.MicCancelInputs.AutoSize = true;
+            this.MicCancelInputs.Location = new System.Drawing.Point(124, 180);
+            this.MicCancelInputs.Name = "MicCancelInputs";
+            this.MicCancelInputs.Size = new System.Drawing.Size(173, 22);
+            this.MicCancelInputs.TabIndex = 54;
+            this.MicCancelInputs.Text = "VOX_CANCEL_INPUTS";
+            // 
+            // ClearMicOrangeInputs
+            // 
+            this.ClearMicOrangeInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicOrangeInputs.Location = new System.Drawing.Point(518, 114);
+            this.ClearMicOrangeInputs.Name = "ClearMicOrangeInputs";
+            this.ClearMicOrangeInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicOrangeInputs.TabIndex = 33;
+            this.ClearMicOrangeInputs.Text = "Clear";
+            this.ClearMicOrangeInputs.UseVisualStyleBackColor = true;
+            this.ClearMicOrangeInputs.Click += new System.EventHandler(this.ClearMicOrangeInputs_Click);
+            // 
+            // MicCancelLabel
+            // 
+            this.MicCancelLabel.AutoSize = true;
+            this.MicCancelLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicCancelLabel.ForeColor = System.Drawing.Color.Black;
+            this.MicCancelLabel.Location = new System.Drawing.Point(52, 179);
+            this.MicCancelLabel.Name = "MicCancelLabel";
+            this.MicCancelLabel.Size = new System.Drawing.Size(66, 22);
+            this.MicCancelLabel.TabIndex = 53;
+            this.MicCancelLabel.Text = "Cancel:";
+            this.MicCancelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AddMicRedInput
+            // 
+            this.AddMicRedInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicRedInput.Location = new System.Drawing.Point(440, 48);
+            this.AddMicRedInput.Name = "AddMicRedInput";
+            this.AddMicRedInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicRedInput.TabIndex = 34;
+            this.AddMicRedInput.Text = "Add";
+            this.AddMicRedInput.UseVisualStyleBackColor = true;
+            this.AddMicRedInput.Click += new System.EventHandler(this.AddMicRedInput_Click);
+            // 
+            // ClearMicUpInputs
+            // 
+            this.ClearMicUpInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicUpInputs.Location = new System.Drawing.Point(518, 202);
+            this.ClearMicUpInputs.Name = "ClearMicUpInputs";
+            this.ClearMicUpInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicUpInputs.TabIndex = 52;
+            this.ClearMicUpInputs.Text = "Clear";
+            this.ClearMicUpInputs.UseVisualStyleBackColor = true;
+            this.ClearMicUpInputs.Click += new System.EventHandler(this.ClearMicUpInputs_Click);
+            // 
+            // ClearMicRedInputs
+            // 
+            this.ClearMicRedInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicRedInputs.Location = new System.Drawing.Point(518, 48);
+            this.ClearMicRedInputs.Name = "ClearMicRedInputs";
+            this.ClearMicRedInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicRedInputs.TabIndex = 35;
+            this.ClearMicRedInputs.Text = "Clear";
+            this.ClearMicRedInputs.UseVisualStyleBackColor = true;
+            this.ClearMicRedInputs.Click += new System.EventHandler(this.ClearMicRedInputs_Click);
+            // 
+            // AddMicYellowInput
+            // 
+            this.AddMicYellowInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicYellowInput.Location = new System.Drawing.Point(440, 70);
+            this.AddMicYellowInput.Name = "AddMicYellowInput";
+            this.AddMicYellowInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicYellowInput.TabIndex = 36;
+            this.AddMicYellowInput.Text = "Add";
+            this.AddMicYellowInput.UseVisualStyleBackColor = true;
+            this.AddMicYellowInput.Click += new System.EventHandler(this.AddMicYellowInput_Click);
+            // 
+            // AddMicUpInput
+            // 
+            this.AddMicUpInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicUpInput.Location = new System.Drawing.Point(440, 202);
+            this.AddMicUpInput.Name = "AddMicUpInput";
+            this.AddMicUpInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicUpInput.TabIndex = 51;
+            this.AddMicUpInput.Text = "Add";
+            this.AddMicUpInput.UseVisualStyleBackColor = true;
+            this.AddMicUpInput.Click += new System.EventHandler(this.AddMicUpInput_Click);
+            // 
+            // ClearMicYellowInputs
+            // 
+            this.ClearMicYellowInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicYellowInputs.Location = new System.Drawing.Point(518, 70);
+            this.ClearMicYellowInputs.Name = "ClearMicYellowInputs";
+            this.ClearMicYellowInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicYellowInputs.TabIndex = 37;
+            this.ClearMicYellowInputs.Text = "Clear";
+            this.ClearMicYellowInputs.UseVisualStyleBackColor = true;
+            this.ClearMicYellowInputs.Click += new System.EventHandler(this.ClearMicYellowInputs_Click);
+            // 
+            // ClearMicBlueInputs
+            // 
+            this.ClearMicBlueInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicBlueInputs.Location = new System.Drawing.Point(518, 92);
+            this.ClearMicBlueInputs.Name = "ClearMicBlueInputs";
+            this.ClearMicBlueInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicBlueInputs.TabIndex = 37;
+            this.ClearMicBlueInputs.Text = "Clear";
+            this.ClearMicBlueInputs.UseVisualStyleBackColor = true;
+            this.ClearMicBlueInputs.Click += new System.EventHandler(this.ClearMicBlueInputs_Click);
+            // 
+            // MicUpInputs
+            // 
+            this.MicUpInputs.AutoSize = true;
+            this.MicUpInputs.Location = new System.Drawing.Point(124, 202);
+            this.MicUpInputs.Name = "MicUpInputs";
+            this.MicUpInputs.Size = new System.Drawing.Size(134, 22);
+            this.MicUpInputs.TabIndex = 50;
+            this.MicUpInputs.Text = "VOX_UP_INPUTS";
+            // 
+            // AddMicBlueInput
+            // 
+            this.AddMicBlueInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicBlueInput.Location = new System.Drawing.Point(440, 92);
+            this.AddMicBlueInput.Name = "AddMicBlueInput";
+            this.AddMicBlueInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicBlueInput.TabIndex = 38;
+            this.AddMicBlueInput.Text = "Add";
+            this.AddMicBlueInput.UseVisualStyleBackColor = true;
+            this.AddMicBlueInput.Click += new System.EventHandler(this.AddMicBlueInput_Click);
+            // 
+            // AddMicGreenInput
+            // 
+            this.AddMicGreenInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicGreenInput.Location = new System.Drawing.Point(440, 25);
+            this.AddMicGreenInput.Name = "AddMicGreenInput";
+            this.AddMicGreenInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicGreenInput.TabIndex = 39;
+            this.AddMicGreenInput.Text = "Add";
+            this.AddMicGreenInput.UseVisualStyleBackColor = true;
+            this.AddMicGreenInput.Click += new System.EventHandler(this.AddMicGreenInput_Click);
+            // 
+            // MicUpLabel
+            // 
+            this.MicUpLabel.AutoSize = true;
+            this.MicUpLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicUpLabel.ForeColor = System.Drawing.Color.Black;
+            this.MicUpLabel.Location = new System.Drawing.Point(83, 201);
+            this.MicUpLabel.Name = "MicUpLabel";
+            this.MicUpLabel.Size = new System.Drawing.Size(35, 22);
+            this.MicUpLabel.TabIndex = 49;
+            this.MicUpLabel.Text = "Up:";
+            this.MicUpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ClearMicGreenInputs
+            // 
+            this.ClearMicGreenInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicGreenInputs.Location = new System.Drawing.Point(518, 25);
+            this.ClearMicGreenInputs.Name = "ClearMicGreenInputs";
+            this.ClearMicGreenInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicGreenInputs.TabIndex = 40;
+            this.ClearMicGreenInputs.Text = "Clear";
+            this.ClearMicGreenInputs.UseVisualStyleBackColor = true;
+            this.ClearMicGreenInputs.Click += new System.EventHandler(this.ClearMicGreenInputs_Click);
+            // 
+            // AddMicStartInput
+            // 
+            this.AddMicStartInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicStartInput.Location = new System.Drawing.Point(440, 136);
+            this.AddMicStartInput.Name = "AddMicStartInput";
+            this.AddMicStartInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicStartInput.TabIndex = 41;
+            this.AddMicStartInput.Text = "Add";
+            this.AddMicStartInput.UseVisualStyleBackColor = true;
+            this.AddMicStartInput.Click += new System.EventHandler(this.AddMicStartInput_Click);
+            // 
+            // ClearMicSelectInputs
+            // 
+            this.ClearMicSelectInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicSelectInputs.Location = new System.Drawing.Point(518, 158);
+            this.ClearMicSelectInputs.Name = "ClearMicSelectInputs";
+            this.ClearMicSelectInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicSelectInputs.TabIndex = 48;
+            this.ClearMicSelectInputs.Text = "Clear";
+            this.ClearMicSelectInputs.UseVisualStyleBackColor = true;
+            this.ClearMicSelectInputs.Click += new System.EventHandler(this.ClearMicSelectInputs_Click);
+            // 
+            // ClearMicStartInputs
+            // 
+            this.ClearMicStartInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClearMicStartInputs.Location = new System.Drawing.Point(518, 136);
+            this.ClearMicStartInputs.Name = "ClearMicStartInputs";
+            this.ClearMicStartInputs.Size = new System.Drawing.Size(75, 23);
+            this.ClearMicStartInputs.TabIndex = 42;
+            this.ClearMicStartInputs.Text = "Clear";
+            this.ClearMicStartInputs.UseVisualStyleBackColor = true;
+            this.ClearMicStartInputs.Click += new System.EventHandler(this.ClearMicStartInputs_Click);
+            // 
+            // AddMicSelectInput
+            // 
+            this.AddMicSelectInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddMicSelectInput.Location = new System.Drawing.Point(440, 158);
+            this.AddMicSelectInput.Name = "AddMicSelectInput";
+            this.AddMicSelectInput.Size = new System.Drawing.Size(75, 23);
+            this.AddMicSelectInput.TabIndex = 47;
+            this.AddMicSelectInput.Text = "Add";
+            this.AddMicSelectInput.UseVisualStyleBackColor = true;
+            this.AddMicSelectInput.Click += new System.EventHandler(this.AddMicSelectInput_Click);
+            // 
+            // InputIconMic
+            // 
+            this.InputIconMic.Image = global::WTDE_Launcher_V3.Properties.Resources.mixer_icon_vocals;
+            this.InputIconMic.Location = new System.Drawing.Point(33, 0);
+            this.InputIconMic.Name = "InputIconMic";
+            this.InputIconMic.Size = new System.Drawing.Size(24, 24);
+            this.InputIconMic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.InputIconMic.TabIndex = 44;
+            this.InputIconMic.TabStop = false;
+            // 
+            // MicSelectInputs
+            // 
+            this.MicSelectInputs.AutoSize = true;
+            this.MicSelectInputs.Location = new System.Drawing.Point(124, 158);
+            this.MicSelectInputs.Name = "MicSelectInputs";
+            this.MicSelectInputs.Size = new System.Drawing.Size(168, 22);
+            this.MicSelectInputs.TabIndex = 46;
+            this.MicSelectInputs.Text = "VOX_SELECT_INPUTS";
+            // 
+            // MicSelectLabel
+            // 
+            this.MicSelectLabel.AutoSize = true;
+            this.MicSelectLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.MicSelectLabel.ForeColor = System.Drawing.Color.Black;
+            this.MicSelectLabel.Location = new System.Drawing.Point(10, 157);
+            this.MicSelectLabel.Name = "MicSelectLabel";
+            this.MicSelectLabel.Size = new System.Drawing.Size(108, 22);
+            this.MicSelectLabel.TabIndex = 45;
+            this.MicSelectLabel.Text = "Back/Select:";
+            this.MicSelectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // DrumInputsPanel
+            // 
+            this.DrumInputsPanel.Controls.Add(this.DrmGreenLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrumInputsHeaderLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrmRedLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrmYellowLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrmBlueLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrmOrangeLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrmStartLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrumRedInputs);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmDownInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrumYellowInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmDownInput);
+            this.DrumInputsPanel.Controls.Add(this.DrumBlueInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrumDownInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrumOrangeInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrmDownLabel);
+            this.DrumInputsPanel.Controls.Add(this.DrumGreenInputs);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmCancelInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrumStartInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmCancelInput);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmRedInput);
+            this.DrumInputsPanel.Controls.Add(this.DrumCancelInputs);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmRedInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrmCancelLabel);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmYellowInput);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmUpInputs);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmYellowInputs);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmKickInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmBlueInput);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmUpInput);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmBlueInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmKickInput);
+            this.DrumInputsPanel.Controls.Add(this.button19);
+            this.DrumInputsPanel.Controls.Add(this.DrumUpInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmOrangeInput);
+            this.DrumInputsPanel.Controls.Add(this.DrumKickInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmGreenInput);
+            this.DrumInputsPanel.Controls.Add(this.DrmUpLabel);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmGreenInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrmKickLabel);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmStartInput);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmSelectInputs);
+            this.DrumInputsPanel.Controls.Add(this.ClearDrmStartInputs);
+            this.DrumInputsPanel.Controls.Add(this.AddDrmSelectInput);
+            this.DrumInputsPanel.Controls.Add(this.InputIconDrums);
+            this.DrumInputsPanel.Controls.Add(this.DrumSelectInputs);
+            this.DrumInputsPanel.Controls.Add(this.DrmSelectLabel);
+            this.DrumInputsPanel.Location = new System.Drawing.Point(0, 353);
+            this.DrumInputsPanel.Name = "DrumInputsPanel";
+            this.DrumInputsPanel.Size = new System.Drawing.Size(596, 277);
+            this.DrumInputsPanel.TabIndex = 70;
             // 
             // DrmGreenLabel
             // 
@@ -3583,505 +4837,18 @@
             this.MOTDBack.TabIndex = 1;
             this.MOTDBack.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.MicGreenLabel);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.MicOrangeLabel);
-            this.panel2.Controls.Add(this.MicRedLabel);
-            this.panel2.Controls.Add(this.MicYellowLabel);
-            this.panel2.Controls.Add(this.MicBlueLabel);
-            this.panel2.Controls.Add(this.MicStartLabel);
-            this.panel2.Controls.Add(this.MicOrangeInputs);
-            this.panel2.Controls.Add(this.ClearMicDownInputs);
-            this.panel2.Controls.Add(this.MicRedInputs);
-            this.panel2.Controls.Add(this.AddMicDownInput);
-            this.panel2.Controls.Add(this.MicYellowInputs);
-            this.panel2.Controls.Add(this.MicDownInputs);
-            this.panel2.Controls.Add(this.MicBlueInputs);
-            this.panel2.Controls.Add(this.MicDownLabel);
-            this.panel2.Controls.Add(this.MicGreenInputs);
-            this.panel2.Controls.Add(this.ClearMicCancelInputs);
-            this.panel2.Controls.Add(this.MicStartInputs);
-            this.panel2.Controls.Add(this.AddMicCancelInput);
-            this.panel2.Controls.Add(this.AddMicOrangeInput);
-            this.panel2.Controls.Add(this.MicCancelInputs);
-            this.panel2.Controls.Add(this.ClearMicOrangeInputs);
-            this.panel2.Controls.Add(this.MicCancelLabel);
-            this.panel2.Controls.Add(this.AddMicRedInput);
-            this.panel2.Controls.Add(this.ClearMicUpInputs);
-            this.panel2.Controls.Add(this.ClearMicRedInputs);
-            this.panel2.Controls.Add(this.AddMicYellowInput);
-            this.panel2.Controls.Add(this.AddMicUpInput);
-            this.panel2.Controls.Add(this.ClearMicYellowInputs);
-            this.panel2.Controls.Add(this.ClearMicBlueInputs);
-            this.panel2.Controls.Add(this.MicUpInputs);
-            this.panel2.Controls.Add(this.AddMicBlueInput);
-            this.panel2.Controls.Add(this.AddMicGreenInput);
-            this.panel2.Controls.Add(this.MicUpLabel);
-            this.panel2.Controls.Add(this.ClearMicGreenInputs);
-            this.panel2.Controls.Add(this.AddMicStartInput);
-            this.panel2.Controls.Add(this.ClearMicSelectInputs);
-            this.panel2.Controls.Add(this.ClearMicStartInputs);
-            this.panel2.Controls.Add(this.AddMicSelectInput);
-            this.panel2.Controls.Add(this.InputIconMic);
-            this.panel2.Controls.Add(this.MicSelectInputs);
-            this.panel2.Controls.Add(this.MicSelectLabel);
-            this.panel2.Location = new System.Drawing.Point(0, 632);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(596, 277);
-            this.panel2.TabIndex = 71;
-            // 
-            // MicGreenLabel
-            // 
-            this.MicGreenLabel.AutoSize = true;
-            this.MicGreenLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicGreenLabel.ForeColor = System.Drawing.Color.Lime;
-            this.MicGreenLabel.Location = new System.Drawing.Point(58, 24);
-            this.MicGreenLabel.Name = "MicGreenLabel";
-            this.MicGreenLabel.Size = new System.Drawing.Size(60, 22);
-            this.MicGreenLabel.TabIndex = 69;
-            this.MicGreenLabel.Text = "Green:";
-            this.MicGreenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(64, -1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 25);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Mic Inputs:";
-            // 
-            // MicOrangeLabel
-            // 
-            this.MicOrangeLabel.AutoSize = true;
-            this.MicOrangeLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicOrangeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.MicOrangeLabel.Location = new System.Drawing.Point(46, 113);
-            this.MicOrangeLabel.Name = "MicOrangeLabel";
-            this.MicOrangeLabel.Size = new System.Drawing.Size(71, 22);
-            this.MicOrangeLabel.TabIndex = 20;
-            this.MicOrangeLabel.Text = "Orange:";
-            this.MicOrangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // MicRedLabel
-            // 
-            this.MicRedLabel.AutoSize = true;
-            this.MicRedLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicRedLabel.ForeColor = System.Drawing.Color.Red;
-            this.MicRedLabel.Location = new System.Drawing.Point(73, 47);
-            this.MicRedLabel.Name = "MicRedLabel";
-            this.MicRedLabel.Size = new System.Drawing.Size(44, 22);
-            this.MicRedLabel.TabIndex = 22;
-            this.MicRedLabel.Text = "Red:";
-            this.MicRedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // MicYellowLabel
-            // 
-            this.MicYellowLabel.AutoSize = true;
-            this.MicYellowLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicYellowLabel.ForeColor = System.Drawing.Color.Goldenrod;
-            this.MicYellowLabel.Location = new System.Drawing.Point(54, 69);
-            this.MicYellowLabel.Name = "MicYellowLabel";
-            this.MicYellowLabel.Size = new System.Drawing.Size(64, 22);
-            this.MicYellowLabel.TabIndex = 23;
-            this.MicYellowLabel.Text = "Yellow:";
-            this.MicYellowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // MicBlueLabel
-            // 
-            this.MicBlueLabel.AutoSize = true;
-            this.MicBlueLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicBlueLabel.ForeColor = System.Drawing.Color.Blue;
-            this.MicBlueLabel.Location = new System.Drawing.Point(70, 91);
-            this.MicBlueLabel.Name = "MicBlueLabel";
-            this.MicBlueLabel.Size = new System.Drawing.Size(48, 22);
-            this.MicBlueLabel.TabIndex = 24;
-            this.MicBlueLabel.Text = "Blue:";
-            this.MicBlueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // MicStartLabel
-            // 
-            this.MicStartLabel.AutoSize = true;
-            this.MicStartLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicStartLabel.ForeColor = System.Drawing.Color.Black;
-            this.MicStartLabel.Location = new System.Drawing.Point(65, 135);
-            this.MicStartLabel.Name = "MicStartLabel";
-            this.MicStartLabel.Size = new System.Drawing.Size(53, 22);
-            this.MicStartLabel.TabIndex = 25;
-            this.MicStartLabel.Text = "Start:";
-            this.MicStartLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // MicOrangeInputs
-            // 
-            this.MicOrangeInputs.AutoSize = true;
-            this.MicOrangeInputs.Location = new System.Drawing.Point(124, 114);
-            this.MicOrangeInputs.Name = "MicOrangeInputs";
-            this.MicOrangeInputs.Size = new System.Drawing.Size(177, 22);
-            this.MicOrangeInputs.TabIndex = 26;
-            this.MicOrangeInputs.Text = "VOX_ORANGE_INPUTS";
-            // 
-            // ClearMicDownInputs
-            // 
-            this.ClearMicDownInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicDownInputs.Location = new System.Drawing.Point(518, 224);
-            this.ClearMicDownInputs.Name = "ClearMicDownInputs";
-            this.ClearMicDownInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicDownInputs.TabIndex = 60;
-            this.ClearMicDownInputs.Text = "Clear";
-            this.ClearMicDownInputs.UseVisualStyleBackColor = true;
-            this.ClearMicDownInputs.Click += new System.EventHandler(this.ClearMicDownInputs_Click);
-            // 
-            // MicRedInputs
-            // 
-            this.MicRedInputs.AutoSize = true;
-            this.MicRedInputs.Location = new System.Drawing.Point(124, 48);
-            this.MicRedInputs.Name = "MicRedInputs";
-            this.MicRedInputs.Size = new System.Drawing.Size(144, 22);
-            this.MicRedInputs.TabIndex = 27;
-            this.MicRedInputs.Text = "VOX_RED_INPUTS";
-            // 
-            // AddMicDownInput
-            // 
-            this.AddMicDownInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicDownInput.Location = new System.Drawing.Point(440, 224);
-            this.AddMicDownInput.Name = "AddMicDownInput";
-            this.AddMicDownInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicDownInput.TabIndex = 59;
-            this.AddMicDownInput.Text = "Add";
-            this.AddMicDownInput.UseVisualStyleBackColor = true;
-            this.AddMicDownInput.Click += new System.EventHandler(this.AddMicDownInput_Click);
-            // 
-            // MicYellowInputs
-            // 
-            this.MicYellowInputs.AutoSize = true;
-            this.MicYellowInputs.Location = new System.Drawing.Point(124, 70);
-            this.MicYellowInputs.Name = "MicYellowInputs";
-            this.MicYellowInputs.Size = new System.Drawing.Size(174, 22);
-            this.MicYellowInputs.TabIndex = 28;
-            this.MicYellowInputs.Text = "VOX_YELLOW_INPUTS";
-            // 
-            // MicDownInputs
-            // 
-            this.MicDownInputs.AutoSize = true;
-            this.MicDownInputs.Location = new System.Drawing.Point(124, 224);
-            this.MicDownInputs.Name = "MicDownInputs";
-            this.MicDownInputs.Size = new System.Drawing.Size(161, 22);
-            this.MicDownInputs.TabIndex = 58;
-            this.MicDownInputs.Text = "VOX_DOWN_INPUTS";
-            // 
-            // MicBlueInputs
-            // 
-            this.MicBlueInputs.AutoSize = true;
-            this.MicBlueInputs.Location = new System.Drawing.Point(124, 92);
-            this.MicBlueInputs.Name = "MicBlueInputs";
-            this.MicBlueInputs.Size = new System.Drawing.Size(152, 22);
-            this.MicBlueInputs.TabIndex = 29;
-            this.MicBlueInputs.Text = "VOX_BLUE_INPUTS";
-            // 
-            // MicDownLabel
-            // 
-            this.MicDownLabel.AutoSize = true;
-            this.MicDownLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicDownLabel.ForeColor = System.Drawing.Color.Black;
-            this.MicDownLabel.Location = new System.Drawing.Point(62, 223);
-            this.MicDownLabel.Name = "MicDownLabel";
-            this.MicDownLabel.Size = new System.Drawing.Size(56, 22);
-            this.MicDownLabel.TabIndex = 57;
-            this.MicDownLabel.Text = "Down:";
-            this.MicDownLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // MicGreenInputs
-            // 
-            this.MicGreenInputs.AutoSize = true;
-            this.MicGreenInputs.Location = new System.Drawing.Point(124, 25);
-            this.MicGreenInputs.Name = "MicGreenInputs";
-            this.MicGreenInputs.Size = new System.Drawing.Size(165, 22);
-            this.MicGreenInputs.TabIndex = 30;
-            this.MicGreenInputs.Text = "VOX_GREEN_INPUTS";
-            // 
-            // ClearMicCancelInputs
-            // 
-            this.ClearMicCancelInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicCancelInputs.Location = new System.Drawing.Point(518, 180);
-            this.ClearMicCancelInputs.Name = "ClearMicCancelInputs";
-            this.ClearMicCancelInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicCancelInputs.TabIndex = 56;
-            this.ClearMicCancelInputs.Text = "Clear";
-            this.ClearMicCancelInputs.UseVisualStyleBackColor = true;
-            this.ClearMicCancelInputs.Click += new System.EventHandler(this.ClearMicCancelInputs_Click);
-            // 
-            // MicStartInputs
-            // 
-            this.MicStartInputs.AutoSize = true;
-            this.MicStartInputs.Location = new System.Drawing.Point(124, 136);
-            this.MicStartInputs.Name = "MicStartInputs";
-            this.MicStartInputs.Size = new System.Drawing.Size(159, 22);
-            this.MicStartInputs.TabIndex = 31;
-            this.MicStartInputs.Text = "VOX_START_INPUTS";
-            // 
-            // AddMicCancelInput
-            // 
-            this.AddMicCancelInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicCancelInput.Location = new System.Drawing.Point(440, 180);
-            this.AddMicCancelInput.Name = "AddMicCancelInput";
-            this.AddMicCancelInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicCancelInput.TabIndex = 55;
-            this.AddMicCancelInput.Text = "Add";
-            this.AddMicCancelInput.UseVisualStyleBackColor = true;
-            this.AddMicCancelInput.Click += new System.EventHandler(this.AddMicCancelInput_Click);
-            // 
-            // AddMicOrangeInput
-            // 
-            this.AddMicOrangeInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicOrangeInput.Location = new System.Drawing.Point(440, 114);
-            this.AddMicOrangeInput.Name = "AddMicOrangeInput";
-            this.AddMicOrangeInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicOrangeInput.TabIndex = 32;
-            this.AddMicOrangeInput.Text = "Add";
-            this.AddMicOrangeInput.UseVisualStyleBackColor = true;
-            this.AddMicOrangeInput.Click += new System.EventHandler(this.AddMicOrangeInput_Click);
-            // 
-            // MicCancelInputs
-            // 
-            this.MicCancelInputs.AutoSize = true;
-            this.MicCancelInputs.Location = new System.Drawing.Point(124, 180);
-            this.MicCancelInputs.Name = "MicCancelInputs";
-            this.MicCancelInputs.Size = new System.Drawing.Size(173, 22);
-            this.MicCancelInputs.TabIndex = 54;
-            this.MicCancelInputs.Text = "VOX_CANCEL_INPUTS";
-            // 
-            // ClearMicOrangeInputs
-            // 
-            this.ClearMicOrangeInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicOrangeInputs.Location = new System.Drawing.Point(518, 114);
-            this.ClearMicOrangeInputs.Name = "ClearMicOrangeInputs";
-            this.ClearMicOrangeInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicOrangeInputs.TabIndex = 33;
-            this.ClearMicOrangeInputs.Text = "Clear";
-            this.ClearMicOrangeInputs.UseVisualStyleBackColor = true;
-            this.ClearMicOrangeInputs.Click += new System.EventHandler(this.ClearMicOrangeInputs_Click);
-            // 
-            // MicCancelLabel
-            // 
-            this.MicCancelLabel.AutoSize = true;
-            this.MicCancelLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicCancelLabel.ForeColor = System.Drawing.Color.Black;
-            this.MicCancelLabel.Location = new System.Drawing.Point(52, 179);
-            this.MicCancelLabel.Name = "MicCancelLabel";
-            this.MicCancelLabel.Size = new System.Drawing.Size(66, 22);
-            this.MicCancelLabel.TabIndex = 53;
-            this.MicCancelLabel.Text = "Cancel:";
-            this.MicCancelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // AddMicRedInput
-            // 
-            this.AddMicRedInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicRedInput.Location = new System.Drawing.Point(440, 48);
-            this.AddMicRedInput.Name = "AddMicRedInput";
-            this.AddMicRedInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicRedInput.TabIndex = 34;
-            this.AddMicRedInput.Text = "Add";
-            this.AddMicRedInput.UseVisualStyleBackColor = true;
-            this.AddMicRedInput.Click += new System.EventHandler(this.AddMicRedInput_Click);
-            // 
-            // ClearMicUpInputs
-            // 
-            this.ClearMicUpInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicUpInputs.Location = new System.Drawing.Point(518, 202);
-            this.ClearMicUpInputs.Name = "ClearMicUpInputs";
-            this.ClearMicUpInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicUpInputs.TabIndex = 52;
-            this.ClearMicUpInputs.Text = "Clear";
-            this.ClearMicUpInputs.UseVisualStyleBackColor = true;
-            this.ClearMicUpInputs.Click += new System.EventHandler(this.ClearMicUpInputs_Click);
-            // 
-            // ClearMicRedInputs
-            // 
-            this.ClearMicRedInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicRedInputs.Location = new System.Drawing.Point(518, 48);
-            this.ClearMicRedInputs.Name = "ClearMicRedInputs";
-            this.ClearMicRedInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicRedInputs.TabIndex = 35;
-            this.ClearMicRedInputs.Text = "Clear";
-            this.ClearMicRedInputs.UseVisualStyleBackColor = true;
-            this.ClearMicRedInputs.Click += new System.EventHandler(this.ClearMicRedInputs_Click);
-            // 
-            // AddMicYellowInput
-            // 
-            this.AddMicYellowInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicYellowInput.Location = new System.Drawing.Point(440, 70);
-            this.AddMicYellowInput.Name = "AddMicYellowInput";
-            this.AddMicYellowInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicYellowInput.TabIndex = 36;
-            this.AddMicYellowInput.Text = "Add";
-            this.AddMicYellowInput.UseVisualStyleBackColor = true;
-            this.AddMicYellowInput.Click += new System.EventHandler(this.AddMicYellowInput_Click);
-            // 
-            // AddMicUpInput
-            // 
-            this.AddMicUpInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicUpInput.Location = new System.Drawing.Point(440, 202);
-            this.AddMicUpInput.Name = "AddMicUpInput";
-            this.AddMicUpInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicUpInput.TabIndex = 51;
-            this.AddMicUpInput.Text = "Add";
-            this.AddMicUpInput.UseVisualStyleBackColor = true;
-            this.AddMicUpInput.Click += new System.EventHandler(this.AddMicUpInput_Click);
-            // 
-            // ClearMicYellowInputs
-            // 
-            this.ClearMicYellowInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicYellowInputs.Location = new System.Drawing.Point(518, 70);
-            this.ClearMicYellowInputs.Name = "ClearMicYellowInputs";
-            this.ClearMicYellowInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicYellowInputs.TabIndex = 37;
-            this.ClearMicYellowInputs.Text = "Clear";
-            this.ClearMicYellowInputs.UseVisualStyleBackColor = true;
-            this.ClearMicYellowInputs.Click += new System.EventHandler(this.ClearMicYellowInputs_Click);
-            // 
-            // ClearMicBlueInputs
-            // 
-            this.ClearMicBlueInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicBlueInputs.Location = new System.Drawing.Point(518, 92);
-            this.ClearMicBlueInputs.Name = "ClearMicBlueInputs";
-            this.ClearMicBlueInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicBlueInputs.TabIndex = 37;
-            this.ClearMicBlueInputs.Text = "Clear";
-            this.ClearMicBlueInputs.UseVisualStyleBackColor = true;
-            this.ClearMicBlueInputs.Click += new System.EventHandler(this.ClearMicBlueInputs_Click);
-            // 
-            // MicUpInputs
-            // 
-            this.MicUpInputs.AutoSize = true;
-            this.MicUpInputs.Location = new System.Drawing.Point(124, 202);
-            this.MicUpInputs.Name = "MicUpInputs";
-            this.MicUpInputs.Size = new System.Drawing.Size(134, 22);
-            this.MicUpInputs.TabIndex = 50;
-            this.MicUpInputs.Text = "VOX_UP_INPUTS";
-            // 
-            // AddMicBlueInput
-            // 
-            this.AddMicBlueInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicBlueInput.Location = new System.Drawing.Point(440, 92);
-            this.AddMicBlueInput.Name = "AddMicBlueInput";
-            this.AddMicBlueInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicBlueInput.TabIndex = 38;
-            this.AddMicBlueInput.Text = "Add";
-            this.AddMicBlueInput.UseVisualStyleBackColor = true;
-            this.AddMicBlueInput.Click += new System.EventHandler(this.AddMicBlueInput_Click);
-            // 
-            // AddMicGreenInput
-            // 
-            this.AddMicGreenInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicGreenInput.Location = new System.Drawing.Point(440, 25);
-            this.AddMicGreenInput.Name = "AddMicGreenInput";
-            this.AddMicGreenInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicGreenInput.TabIndex = 39;
-            this.AddMicGreenInput.Text = "Add";
-            this.AddMicGreenInput.UseVisualStyleBackColor = true;
-            this.AddMicGreenInput.Click += new System.EventHandler(this.AddMicGreenInput_Click);
-            // 
-            // MicUpLabel
-            // 
-            this.MicUpLabel.AutoSize = true;
-            this.MicUpLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicUpLabel.ForeColor = System.Drawing.Color.Black;
-            this.MicUpLabel.Location = new System.Drawing.Point(83, 201);
-            this.MicUpLabel.Name = "MicUpLabel";
-            this.MicUpLabel.Size = new System.Drawing.Size(35, 22);
-            this.MicUpLabel.TabIndex = 49;
-            this.MicUpLabel.Text = "Up:";
-            this.MicUpLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ClearMicGreenInputs
-            // 
-            this.ClearMicGreenInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicGreenInputs.Location = new System.Drawing.Point(518, 25);
-            this.ClearMicGreenInputs.Name = "ClearMicGreenInputs";
-            this.ClearMicGreenInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicGreenInputs.TabIndex = 40;
-            this.ClearMicGreenInputs.Text = "Clear";
-            this.ClearMicGreenInputs.UseVisualStyleBackColor = true;
-            this.ClearMicGreenInputs.Click += new System.EventHandler(this.ClearMicGreenInputs_Click);
-            // 
-            // AddMicStartInput
-            // 
-            this.AddMicStartInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicStartInput.Location = new System.Drawing.Point(440, 136);
-            this.AddMicStartInput.Name = "AddMicStartInput";
-            this.AddMicStartInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicStartInput.TabIndex = 41;
-            this.AddMicStartInput.Text = "Add";
-            this.AddMicStartInput.UseVisualStyleBackColor = true;
-            this.AddMicStartInput.Click += new System.EventHandler(this.AddMicStartInput_Click);
-            // 
-            // ClearMicSelectInputs
-            // 
-            this.ClearMicSelectInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicSelectInputs.Location = new System.Drawing.Point(518, 158);
-            this.ClearMicSelectInputs.Name = "ClearMicSelectInputs";
-            this.ClearMicSelectInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicSelectInputs.TabIndex = 48;
-            this.ClearMicSelectInputs.Text = "Clear";
-            this.ClearMicSelectInputs.UseVisualStyleBackColor = true;
-            this.ClearMicSelectInputs.Click += new System.EventHandler(this.ClearMicSelectInputs_Click);
-            // 
-            // ClearMicStartInputs
-            // 
-            this.ClearMicStartInputs.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClearMicStartInputs.Location = new System.Drawing.Point(518, 136);
-            this.ClearMicStartInputs.Name = "ClearMicStartInputs";
-            this.ClearMicStartInputs.Size = new System.Drawing.Size(75, 23);
-            this.ClearMicStartInputs.TabIndex = 42;
-            this.ClearMicStartInputs.Text = "Clear";
-            this.ClearMicStartInputs.UseVisualStyleBackColor = true;
-            this.ClearMicStartInputs.Click += new System.EventHandler(this.ClearMicStartInputs_Click);
-            // 
-            // AddMicSelectInput
-            // 
-            this.AddMicSelectInput.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AddMicSelectInput.Location = new System.Drawing.Point(440, 158);
-            this.AddMicSelectInput.Name = "AddMicSelectInput";
-            this.AddMicSelectInput.Size = new System.Drawing.Size(75, 23);
-            this.AddMicSelectInput.TabIndex = 47;
-            this.AddMicSelectInput.Text = "Add";
-            this.AddMicSelectInput.UseVisualStyleBackColor = true;
-            this.AddMicSelectInput.Click += new System.EventHandler(this.AddMicSelectInput_Click);
-            // 
-            // InputIconMic
-            // 
-            this.InputIconMic.Image = global::WTDE_Launcher_V3.Properties.Resources.mixer_icon_vocals;
-            this.InputIconMic.Location = new System.Drawing.Point(33, 0);
-            this.InputIconMic.Name = "InputIconMic";
-            this.InputIconMic.Size = new System.Drawing.Size(24, 24);
-            this.InputIconMic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.InputIconMic.TabIndex = 44;
-            this.InputIconMic.TabStop = false;
-            // 
-            // MicSelectInputs
-            // 
-            this.MicSelectInputs.AutoSize = true;
-            this.MicSelectInputs.Location = new System.Drawing.Point(124, 158);
-            this.MicSelectInputs.Name = "MicSelectInputs";
-            this.MicSelectInputs.Size = new System.Drawing.Size(168, 22);
-            this.MicSelectInputs.TabIndex = 46;
-            this.MicSelectInputs.Text = "VOX_SELECT_INPUTS";
-            // 
-            // MicSelectLabel
-            // 
-            this.MicSelectLabel.AutoSize = true;
-            this.MicSelectLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.MicSelectLabel.ForeColor = System.Drawing.Color.Black;
-            this.MicSelectLabel.Location = new System.Drawing.Point(10, 157);
-            this.MicSelectLabel.Name = "MicSelectLabel";
-            this.MicSelectLabel.Size = new System.Drawing.Size(108, 22);
-            this.MicSelectLabel.TabIndex = 45;
-            this.MicSelectLabel.Text = "Back/Select:";
-            this.MicSelectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // DeleteWTDEInputINI
+            // 
+            this.DeleteWTDEInputINI.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DeleteWTDEInputINI.Location = new System.Drawing.Point(34, 65);
+            this.DeleteWTDEInputINI.Name = "DeleteWTDEInputINI";
+            this.DeleteWTDEInputINI.Size = new System.Drawing.Size(400, 23);
+            this.DeleteWTDEInputINI.TabIndex = 47;
+            this.DeleteWTDEInputINI.Text = "Reset Controller Mappings";
+            this.ToolTipMain.SetToolTip(this.DeleteWTDEInputINI, "Resets all CONTROLLER bindings, not keyboard inputs. In short, this\r\njust deletes" +
+        " GHWTDEInput.ini.");
+            this.DeleteWTDEInputINI.UseVisualStyleBackColor = true;
+            this.DeleteWTDEInputINI.Click += new System.EventHandler(this.DeleteWTDEInputINI_Click);
             // 
             // Main
             // 
@@ -4122,8 +4889,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).EndInit();
             this.KeyBindsParentPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.MenuInputsPanel.ResumeLayout(false);
+            this.MenuInputsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputIconMenu)).EndInit();
+            this.MicInputsPanel.ResumeLayout(false);
+            this.MicInputsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputIconMic)).EndInit();
+            this.DrumInputsPanel.ResumeLayout(false);
+            this.DrumInputsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconDrums)).EndInit();
             this.GuitarInputsPanel.ResumeLayout(false);
             this.GuitarInputsPanel.PerformLayout();
@@ -4144,9 +4917,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InputIconMic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4353,7 +5123,7 @@
         public System.Windows.Forms.Label GuitarRightInputs;
         private System.Windows.Forms.Label GtrRightLabel;
         private System.Windows.Forms.Panel GuitarInputsPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel DrumInputsPanel;
         private System.Windows.Forms.Label DrumInputsHeaderLabel;
         private System.Windows.Forms.Label DrmRedLabel;
         private System.Windows.Forms.Label DrmYellowLabel;
@@ -4404,9 +5174,9 @@
         private System.Windows.Forms.Button AddGtrCancelInput;
         public System.Windows.Forms.Label GuitarCancelInputs;
         private System.Windows.Forms.Label GtrCancelLabel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel MicInputsPanel;
         private System.Windows.Forms.Label MicGreenLabel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label MicInputsHeaderLabel;
         private System.Windows.Forms.Label MicOrangeLabel;
         private System.Windows.Forms.Label MicRedLabel;
         private System.Windows.Forms.Label MicYellowLabel;
@@ -4447,6 +5217,66 @@
         private System.Windows.Forms.PictureBox InputIconMic;
         public System.Windows.Forms.Label MicSelectInputs;
         private System.Windows.Forms.Label MicSelectLabel;
+        private System.Windows.Forms.Panel MenuInputsPanel;
+        private System.Windows.Forms.Label MenuGreenLabel;
+        private System.Windows.Forms.Label MenuInputsHeaderLabel;
+        private System.Windows.Forms.Label MenuOrangeLabel;
+        private System.Windows.Forms.Label MenuRedLabel;
+        private System.Windows.Forms.Label MenuYellowLabel;
+        private System.Windows.Forms.Label MenuBlueLabel;
+        private System.Windows.Forms.Label MenuKickLabel;
+        public System.Windows.Forms.Label MenuOrangeInputs;
+        private System.Windows.Forms.Button ClearMenuDownInputs;
+        public System.Windows.Forms.Label MenuRedInputs;
+        private System.Windows.Forms.Button AddMenuDownInput;
+        public System.Windows.Forms.Label MenuYellowInputs;
+        public System.Windows.Forms.Label MenuDownInputs;
+        public System.Windows.Forms.Label MenuBlueInputs;
+        private System.Windows.Forms.Label MenuDownLabel;
+        public System.Windows.Forms.Label MenuGreenInputs;
+        private System.Windows.Forms.Button ClearMenuCancelInputs;
+        public System.Windows.Forms.Label MenuKickInputs;
+        private System.Windows.Forms.Button AddMenuCancelInput;
+        private System.Windows.Forms.Button AddMenuOrangeInput;
+        public System.Windows.Forms.Label MenuCancelInputs;
+        private System.Windows.Forms.Button ClearMenuOrangeInputs;
+        private System.Windows.Forms.Label MenuCancelLabel;
+        private System.Windows.Forms.Button AddMenuRedInput;
+        private System.Windows.Forms.Button ClearMenuUpInputs;
+        private System.Windows.Forms.Button ClearMenuRedInputs;
+        private System.Windows.Forms.Button AddMenuYellowInput;
+        private System.Windows.Forms.Button AddMenuUpInput;
+        private System.Windows.Forms.Button ClearMenuYellowInputs;
+        private System.Windows.Forms.Button ClearMenuBlueInputs;
+        public System.Windows.Forms.Label MenuUpInputs;
+        private System.Windows.Forms.Button AddMenuBlueInput;
+        private System.Windows.Forms.Button AddMenuGreenInput;
+        private System.Windows.Forms.Label MenuUpLabel;
+        private System.Windows.Forms.Button ClearMenuGreenInputs;
+        private System.Windows.Forms.Button AddMenuKickInput;
+        private System.Windows.Forms.Button ClearMenuSelectInputs;
+        private System.Windows.Forms.Button ClearMenuKickInputs;
+        private System.Windows.Forms.Button AddMenuSelectInput;
+        private System.Windows.Forms.PictureBox InputIconMenu;
+        public System.Windows.Forms.Label MenuSelectInputs;
+        private System.Windows.Forms.Label MenuSelectLabel;
+        private System.Windows.Forms.Label MenuStartLabel;
+        public System.Windows.Forms.Label MenuStartInputs;
+        private System.Windows.Forms.Button ClearMenuRightInputs;
+        private System.Windows.Forms.Button AddMenuStartInput;
+        private System.Windows.Forms.Button AddMenuRightInput;
+        private System.Windows.Forms.Button ClearMenuStartInputs;
+        public System.Windows.Forms.Label MenuRightInputs;
+        private System.Windows.Forms.Label MenuRightLabel;
+        private System.Windows.Forms.Button ClearMenuLeftInputs;
+        private System.Windows.Forms.Button AddMenuLeftInput;
+        public System.Windows.Forms.Label MenuLeftInputs;
+        private System.Windows.Forms.Label MenuLeftLabel;
+        private System.Windows.Forms.Button ClearMenuWhammyInputs;
+        private System.Windows.Forms.Button AddMenuWhammyInput;
+        public System.Windows.Forms.Label MenuWhammyInputs;
+        private System.Windows.Forms.Label MenuWhammyLabel;
+        private System.Windows.Forms.Button DeleteWTDEInputINI;
     }
 }
 
