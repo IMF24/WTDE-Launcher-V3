@@ -57,10 +57,12 @@ namespace WTDE_Launcher_V3 {
             ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
 
             // Set up tabs, the window title, and the background.
+            // Also play boot VOs if we have them on, fun stuff!
             LoadINISettings();
             DoTabSetup();
             V3LauncherCore.SetWindowTitle(this);
             BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
+            V3LauncherCore.AudioBootVO();
 
             // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
             OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
@@ -174,25 +176,47 @@ namespace WTDE_Launcher_V3 {
             MenuRightInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "RIGHT");
 
             // ---------------------------------
+            // GRAPHICS TAB
+            // ---------------------------------
+
+            // -- BASIC OPTIONS --------
+            VideoWidth.Value = decimal.Parse(XMLFunctions.AspyrGetString("Video.Width", "1280"));
+            VideoHeight.Value = decimal.Parse(XMLFunctions.AspyrGetString("Video.Height", "720"));
+            UseNativeRes.Text = $"Native Resolution ({Screen.FromControl(this).Bounds.Width} X {Screen.FromControl(this).Bounds.Height})";
+            FPSLimit.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "FPSLimit"));
+
+            DisableVSync.Checked = INIFunctions.GetBooleanInverse(INIFunctions.GetINIValue("Graphics", "DisableVSync", "1"));
+            WindowedMode.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "WindowedMode"));
+            Borderless.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "Borderless"));
+            HighDetail.Checked = !(XMLFunctions.AspyrGetString("Options.GraphicsQuality") == "1");
+
+            // ---------------------------------
             // BAND TAB
             // ---------------------------------
-            PreferredGuitarist.Text = INIFunctions.GetINIValue("Band", "PreferredGuitarist");
-            PreferredBassist.Text = INIFunctions.GetINIValue("Band", "PreferredBassist");
-            PreferredDrummer.Text = INIFunctions.GetINIValue("Band", "PreferredDrummer");
-            PreferredSinger.Text = INIFunctions.GetINIValue("Band", "PreferredSinger");
-            PreferredStage.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "PreferredStage"),
+            PreferredGuitarist.Text = INIFunctions.GetINIValue("Band", "PreferredGuitarist", "");
+            PreferredBassist.Text = INIFunctions.GetINIValue("Band", "PreferredBassist", "");
+            PreferredDrummer.Text = INIFunctions.GetINIValue("Band", "PreferredDrummer", "");
+            PreferredSinger.Text = INIFunctions.GetINIValue("Band", "PreferredSinger", "");
+            PreferredFemaleSinger.Text = INIFunctions.GetINIValue("Band", "PreferredFemaleSinger", "");
+            PreferredStage.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "PreferredStage", ""),
                 V3LauncherConstants.VenueIDs[1].ToArray(), V3LauncherConstants.VenueIDs[0].ToArray());
+            ReplaceSpecialBands.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Band", "ReplaceSpecialBands"));
 
-            PreferredGuitaristHighway.Text = INIFunctions.GetINIValue("Band", "PreferredGuitaristHighway");
-            PreferredBassistHighway.Text = INIFunctions.GetINIValue("Band", "PreferredBassistHighway");
-            PreferredDrummerHighway.Text = INIFunctions.GetINIValue("Band", "PreferredDrummerHighway");
+            PreferredGuitaristHighway.Text = INIFunctions.GetINIValue("Band", "PreferredGuitaristHighway", "");
+            PreferredBassistHighway.Text = INIFunctions.GetINIValue("Band", "PreferredBassistHighway", "");
+            PreferredDrummerHighway.Text = INIFunctions.GetINIValue("Band", "PreferredDrummerHighway", "");
 
-            GuitarStrumAnim.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "GuitarStrumAnim"),
+            GuitarStrumAnim.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "GuitarStrumAnim", "none"),
                 new string[] { "none", "ghm" },
                 new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" });
-            BassStrumAnim.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "BassStrumAnim"),
+            BassStrumAnim.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "BassStrumAnim", "none"),
                 new string[] { "none", "ghm" },
                 new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" });
+
+            SongSpecificIntros.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "SongSpecificIntros", "1"));
+            AlwaysSplashText.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "AlwaysSplashText", "1"));
+            AlwaysCelebIntro.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "AlwaysCelebIntro", "1"));
+            AlwaysVOIntro.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "AlwaysVOIntro"));
 
             // ---------------------------------
             // AUTO LAUNCH TAB
@@ -443,6 +467,9 @@ namespace WTDE_Launcher_V3 {
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
 
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -474,6 +501,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
+
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
 
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
@@ -507,6 +537,44 @@ namespace WTDE_Launcher_V3 {
                     TabInputGroup.Visible = true;
                     TabInputGroup.Enabled = true;
 
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
+
+                    TabBandGroup.Visible = false;
+                    TabBandGroup.Enabled = false;
+
+                    TabAutoLaunchGroup.Visible = false;
+                    TabAutoLaunchGroup.Enabled = false;
+
+                    TabDebugGroup.Visible = false;
+                    TabDebugGroup.Enabled = false;
+                    break;
+
+                // -- GRAPHICS TAB SWITCH ---------------------------------
+                case 3:
+                    MOTDText.Visible = false;
+                    MOTDBack.Visible = false;
+
+                    TabParentContainer.Visible = true;
+                    TabParentContainer.Enabled = true;
+
+                    TabButtonGroup.Visible = true;
+                    TabButtonGroup.Enabled = true;
+
+                    TabCreditsGroup.Visible = false;
+                    TabCreditsGroup.Enabled = false;
+
+                    // ------------------------------------
+
+                    TabGeneralGroup.Visible = false;
+                    TabGeneralGroup.Enabled = false;
+
+                    TabInputGroup.Visible = false;
+                    TabInputGroup.Enabled = false;
+
+                    TabGraphicsGroup.Visible = true;
+                    TabGraphicsGroup.Enabled = true;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -538,6 +606,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
+
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
 
                     TabBandGroup.Visible = true;
                     TabBandGroup.Enabled = true;
@@ -571,6 +642,9 @@ namespace WTDE_Launcher_V3 {
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
 
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -602,6 +676,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
+
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
 
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
@@ -635,6 +712,9 @@ namespace WTDE_Launcher_V3 {
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
 
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
+
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
 
@@ -666,6 +746,9 @@ namespace WTDE_Launcher_V3 {
 
                     TabInputGroup.Visible = false;
                     TabInputGroup.Enabled = false;
+
+                    TabGraphicsGroup.Visible = false;
+                    TabGraphicsGroup.Enabled = false;
 
                     TabBandGroup.Visible = false;
                     TabBandGroup.Enabled = false;
@@ -708,6 +791,7 @@ namespace WTDE_Launcher_V3 {
             // Hide title text on the group boxes.
             TabGeneralGroup.Text = "";
             TabInputGroup.Text = "";
+            TabGraphicsGroup.Text = "";
             TabBandGroup.Text = "";
             TabAutoLaunchGroup.Text = "";
             TabDebugGroup.Text = "";
@@ -715,6 +799,7 @@ namespace WTDE_Launcher_V3 {
             // Parent all tabs to the parent container.
             TabGeneralGroup.Parent = TabParentContainer;
             TabInputGroup.Parent = TabParentContainer;
+            TabGraphicsGroup.Parent = TabParentContainer;
             TabBandGroup.Parent = TabParentContainer;
             TabAutoLaunchGroup.Parent = TabParentContainer;
             TabDebugGroup.Parent = TabParentContainer;
@@ -723,6 +808,7 @@ namespace WTDE_Launcher_V3 {
             Point location = new Point(12, 8);
             TabGeneralGroup.Location = location;
             TabInputGroup.Location = location;
+            TabGraphicsGroup.Location = location;
             TabBandGroup.Location = location;
             TabAutoLaunchGroup.Location = location;
             TabDebugGroup.Location = location;
@@ -1483,6 +1569,10 @@ namespace WTDE_Launcher_V3 {
             }
         }
 
+        private void PreferredFemaleSinger_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Band", "PreferredFemaleSinger", PreferredFemaleSinger.Text);
+        }
+
         private void PreferredGuitaristHighway_TextChanged(object sender, EventArgs e) {
             try {
                 INIFunctions.SaveINIValue("Band", "PreferredGuitaristHighway", PreferredGuitaristHighway.Text);
@@ -1512,6 +1602,10 @@ namespace WTDE_Launcher_V3 {
                 V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
         }
 
+        private void ReplaceSpecialBands_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Band", "ReplaceSpecialBands", INIFunctions.BoolToString(ReplaceSpecialBands.Checked));
+        }
+
         private void GuitarStrumAnim_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Band", "GuitarStrumAnim", INIFunctions.InterpretINISetting(GuitarStrumAnim.Text,
                 new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" }, new string[] { "none", "ghm" }));
@@ -1538,6 +1632,10 @@ namespace WTDE_Launcher_V3 {
             V3LauncherCore.TextBoxReadFromDialog(1, PreferredSinger, "Select Character Mod Folder");
         }
 
+        private void PrefFVoxSelectChar_Click(object sender, EventArgs e) {
+            V3LauncherCore.TextBoxReadFromDialog(1, PreferredFemaleSinger, "Select Character Mod Folder");
+        }
+
         private void PrefGtrHwySelectHwy_Click(object sender, EventArgs e) {
             V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitaristHighway, "Select Highway Mod Folder");
         }
@@ -1557,6 +1655,7 @@ namespace WTDE_Launcher_V3 {
         // ----------------------------------------------------------
         #region Auto Launch Tab Auto Update
         private void AutoLaunchEnabled_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "Enabled", INIFunctions.BoolToString(AutoLaunchEnabled.Checked));
             TabALMainEditor.Enabled = AutoLaunchEnabled.Checked;
         }
 
@@ -1836,5 +1935,54 @@ namespace WTDE_Launcher_V3 {
 
         #endregion
 
+        // ----------------------------------------------------------
+        // GRAPHICS TAB AUTO UPDATE
+        // ----------------------------------------------------------
+        // - - - - - - - - - - - - - - - - - - -
+        //  B A S I C     O P T I O N S
+        // - - - - - - - - - - - - - - - - - - -
+        private void VideoWidth_ValueChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
+        }
+
+        private void VideoHeight_ValueChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
+        }
+
+        private void UseNativeRes_Click(object sender, EventArgs e) {
+            VideoWidth.Value = Screen.FromControl(this).Bounds.Width;
+            VideoHeight.Value = Screen.FromControl(this).Bounds.Height;
+
+            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
+            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
+        }
+
+        private void FPSLimit_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "FPSLimit", FPSLimit.Value.ToString());
+        }
+
+        private void DisableVSync_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DisableVSync", INIFunctions.BoolToStringInverse(DisableVSync.Checked));
+        }
+
+        private void WindowedMode_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "WindowedMode", INIFunctions.BoolToString(WindowedMode.Checked));
+        }
+
+        private void Borderless_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "Borderless", INIFunctions.BoolToString(Borderless.Checked));
+        }
+
+        private void HighDetail_CheckedChanged(object sender, EventArgs e) {
+            if (HighDetail.Checked) {
+                XMLFunctions.AspyrWriteString("Options.GraphicsQuality", "0");
+                XMLFunctions.AspyrWriteString("Options.UseLOD", "0");
+                XMLFunctions.AspyrWriteString("Options.Flares", "1");
+            } else {
+                XMLFunctions.AspyrWriteString("Options.GraphicsQuality", "1");
+                XMLFunctions.AspyrWriteString("Options.UseLOD", "1");
+                XMLFunctions.AspyrWriteString("Options.Flares", "0");
+            }
+        }
     }
 }

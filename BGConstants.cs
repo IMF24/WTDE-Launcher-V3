@@ -6,6 +6,7 @@
 //    activating various backgrounds when commanded, and also loading specific
 //    backgrounds for the artists and developers for this launcher!
 // ----------------------------------------------------------------------------
+using MadMilkman.Ini;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,8 @@ namespace WTDE_Launcher_V3 {
             Properties.Resources.bg_9,
             Properties.Resources.bg_10,
             Properties.Resources.bg_11,
-            Properties.Resources.bg_12
+            Properties.Resources.bg_12,
+            Properties.Resources.bg_13
         };
 
         /// <summary>
@@ -57,7 +59,8 @@ namespace WTDE_Launcher_V3 {
             "DanRock",
             "StrangerX-01",
             "Raccoon_333",
-            "Derpytron84"
+            "Derpytron84",
+            "Fox (FoxInari)"
         };
 
         /// <summary>
@@ -75,7 +78,8 @@ namespace WTDE_Launcher_V3 {
             "https://youtube.com/@DanRockProductions",
             "https://youtube.com/@strangerxo1591",
             "https://youtube.com/@raccoon_333",
-            "https://youtube.com/@DerpyTheShreddingProto"
+            "https://youtube.com/@DerpyTheShreddingProto",
+            "https://youtube.com/@Fox-Judy"
         };
 
         /// <summary>
@@ -174,8 +178,25 @@ namespace WTDE_Launcher_V3 {
                         BGIndex = 4;
                     }
                     break;
-            }
 
+                // 2 year anniversary background
+                case 12:
+                    if (DateTime.Now.Day == 25) {
+                        BGIndex = 12;
+                    }
+                    break;
+            }
+            
+            IniFile file = new IniFile();
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+            
+            // Is there a preferred background set?
+            if (file.Sections.Contains("Launcher")) {
+                if (file.Sections["Launcher"].Keys.Contains("PreferredBackground")) {
+                    BGIndex = int.Parse(file.Sections["Launcher"].Keys["PreferredBackground"].Value);
+                    if (BGIndex >= V3LauncherBackgrounds.Length) BGIndex = 0;
+                }
+            }
             form.BackgroundImage = V3LauncherBackgrounds[BGIndex];
 
             label.Text = label.Text.Replace("ABC", V3LauncherConstants.VERSION);

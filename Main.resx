@@ -120,6 +120,141 @@
   <metadata name="ToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="ReplaceSpecialBands.ToolTip" xml:space="preserve">
+    <value>By default, for songs such as Metallica or Van Halen songs, GHWT: DE will populate the character
+slots with specific, per-song band members. If this is checked, the game will ignore this behavior
+and use characters in the preferred member slots, or it will select characters at random to fill the
+empty member slots.</value>
+  </data>
+  <data name="PreferredFemaleSinger.ToolTip" xml:space="preserve">
+    <value>Who will be seen as the default female vocalist? This only triggers in female lead singer songs.
+
+For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
+in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
+indexes, visit the Rock Star Creator Character Manager.
+
+For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
+name of the folder, select the folder selector ("...") button to the right of this text box.
+
+For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
+
+If this is blank or the specified character does not exist, the game will, at random, select any character.
+</value>
+  </data>
+  <data name="AlwaysVOIntro.ToolTip" xml:space="preserve">
+    <value>Makes the pre-song interventions by James Hetfield always on by default.
+
+Note that if this is checked, intro animation sequences like Ecstacy of Gold seen
+on For Whom the Bell Tolls will not be displayed before the song starts.
+
+It is also worth noting that if you wish to see the unique animations for songs like
+Panama or FWTTB, they must be played in their original venues for the intro
+sequence to trigger; they will not be seen on unrelated venues.</value>
+  </data>
+  <data name="PreferredStage.ToolTip" xml:space="preserve">
+    <value>What venue do you want the game to select by default? This will set the preferred venue
+in the Quickplay Options menu before starting.
+
+Any compatible venue mods are listed at the bottom of the dropdown menu.</value>
+  </data>
+  <data name="PreferredSinger.ToolTip" xml:space="preserve">
+    <value>Who will be seen as the default male vocalist?
+
+For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
+in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
+indexes, visit the Rock Star Creator Character Manager.
+
+For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
+name of the folder, select the folder selector ("...") button to the right of this text box.
+
+For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
+
+If this is blank or the specified character does not exist, the game will, at random, select any character.
+</value>
+  </data>
+  <data name="PreferredDrummer.ToolTip" xml:space="preserve">
+    <value>Who will be seen as the default drummer?
+
+For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
+in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
+indexes, visit the Rock Star Creator Character Manager.
+
+For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
+name of the folder, select the folder selector ("...") button to the right of this text box.
+
+For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
+
+If this is blank or the specified character does not exist, the game will, at random, select any character.
+</value>
+  </data>
+  <data name="PreferredBassist.ToolTip" xml:space="preserve">
+    <value>Who will be seen as the default bassist?
+
+For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
+in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
+indexes, visit the Rock Star Creator Character Manager.
+
+For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
+name of the folder, select the folder selector ("...") button to the right of this text box.
+
+For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
+
+If this is blank or the specified character does not exist, the game will, at random, select any character.
+</value>
+  </data>
+  <data name="PreferredGuitarist.ToolTip" xml:space="preserve">
+    <value>Who will be seen as the default guitarist?
+
+For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
+in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
+indexes, visit the Rock Star Creator Character Manager.
+
+For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
+name of the folder, select the folder selector ("...") button to the right of this text box.
+
+For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
+
+If this is blank or the specified character does not exist, the game will, at random, select any character.
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        rKZeM2b8D9V2rP/UNhS7AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="CreditsMainInfo.Text" xml:space="preserve">
     <value>GHWT: Definitive Edition by Fretworks, EST. 2021
 GHWT: Definitive Edition Launcher by IMF24
@@ -133,7 +268,6 @@ A huge thanks to all of the developers, development testers, and of course, YOU,
 GHWT: DE and Fretworks are not associated with Neversoft, Activision Blizzard, RedOctane, Beenox, or Underground Development in any way, shape, or form.
 GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ButtonDiscord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -316,43 +450,6 @@ GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
         zyL2BeVfxdoa0Nen91jGnmDwvTY0pI8NCbOC+fyL3OEhMDOjjwkZs4LyHstmgWRSr0eAWcEORATlfr5a
         dAG58XutFRzhTlbwR9tJl/gpK7jIT+ptBReQO/ZZeiJKsaRsIGqD4sx3pru5R9ggSvOB7OpWW8U4c8vs
         8KL1NOVeh09+5GKO+cZoW8WdjFxznpls6fj4+Pj4+Pj4xDpEfwEBzJ8BrinHKwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        rKZeM2b8D9V2rP/UNhS7AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

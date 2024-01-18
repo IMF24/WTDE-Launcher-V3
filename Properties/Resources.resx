@@ -130,6 +130,9 @@
   <data name="bg_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bg_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_1_hw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_1_hw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,6 +168,18 @@
   </data>
   <data name="black_chalk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\black_chalk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boot_msg_marcus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\audio\boot_msg_marcus.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boot_msg_matty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\audio\boot_msg_matty.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boot_msg_riki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\audio\boot_msg_riki.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boot_msg_shirley" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\audio\boot_msg_shirley.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dark_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\dark_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

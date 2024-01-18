@@ -271,6 +271,35 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
+        ///  At random, if enabled, plays an AI generated voice over from any of the WT era band characters. Thanks Derpy!
+        /// </summary>
+        public static void AudioBootVO() {
+            IniFile file = new IniFile();
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+
+            if (!file.Sections.Contains("Launcher")) return;
+
+            if (!file.Sections["Launcher"].Keys.Contains("PlayBootVO") || file.Sections["Launcher"].Keys["PlayBootVO"].Value != "1") return;
+
+            DebugLog.Add("VO boot audio enabled, playing random audio (thanks Derpy!)");
+
+            Random random = new Random();
+            int selectedID;
+
+            UnmanagedMemoryStream[] audioFiles = new UnmanagedMemoryStream[] {
+                Properties.Resources.boot_msg_marcus,
+                Properties.Resources.boot_msg_shirley,   
+                Properties.Resources.boot_msg_matty,
+                Properties.Resources.boot_msg_riki
+            };
+
+            selectedID = random.Next(0, audioFiles.Length);
+
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(audioFiles[selectedID]);
+            player.Play();
+        }
+
+        /// <summary>
         ///  Returns true or false if a string contains only numeric digits.
         /// </summary>
         /// <param name="str"></param>
@@ -403,6 +432,14 @@ namespace WTDE_Launcher_V3 {
                 resultingValue = (dialog.FileName != "") ? (stripPath) ? dialog.FileName.Replace("\\", "/").Split('/').Last() : dialog.FileName : oldText;
             } else {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+                /*
+                if (File.Exists("Updater.ini")) {
+                    IniFile file = new IniFile();
+                    file.Load("Updater.ini");
+                    dialog.SelectedPath = Path.Combine(file.Sections["Updater"].Keys["GameDirectory"].Value, "DATA/MODS");
+                }
+                */
 
                 dialog.ShowDialog();
 
