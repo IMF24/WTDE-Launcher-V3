@@ -231,9 +231,14 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         /// <returns></returns>
         public static string GetLatestVersion() {
-            using (WebClient client = new WebClient()) {
-                string downloadString = client.DownloadString("https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat");
-                return downloadString.Split('\n')[1];
+            try {
+                using (WebClient client = new WebClient()) {
+                    string downloadString = client.DownloadString("https://gitgud.io/fretworks/ghwt-de-volatile/-/raw/master/GHWTDE/hashlist.dat");
+                    return downloadString.Split('\n')[1];
+                }
+            } catch (Exception exc) {
+                DebugLog.Add($"Uh oh, WebClient issue! Exception: {exc}");
+                return "???";
             }
         }
         
@@ -349,7 +354,7 @@ namespace WTDE_Launcher_V3 {
                 foreach (var keyPair in V3LauncherConstants.AspyrKeyBinds) {
                     foreach (var id in keybindsList[0]) {
                         // Is this the binding we're looking for?
-                        if (keyPair[1] == id) {
+                        if ((string) keyPair[1] == id) {
                             inputsEncoded += keyPair[0] + " ";
                         }
                     }
@@ -392,8 +397,8 @@ namespace WTDE_Launcher_V3 {
 
                     // Take the string and figure out what number corresponds to what input.
                     if (IsDigitsOnly(inputs[i].Trim())) {
-                        foreach (string[] keyPair in V3LauncherConstants.AspyrKeyBinds) {
-                            if (keyPair[0] == inputs[i]) {
+                        foreach (var keyPair in V3LauncherConstants.AspyrKeyBinds) {
+                            if ((string) keyPair[0] == inputs[i]) {
                                 returnString += keyPair[1] + " ";
                                 break;
                             }

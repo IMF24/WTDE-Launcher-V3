@@ -46,6 +46,20 @@
             this.MicAudioDelay = new System.Windows.Forms.NumericUpDown();
             this.MicrophoneSelect = new System.Windows.Forms.ComboBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
+            this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
+            this.TGEditorBasic = new System.Windows.Forms.TabPage();
+            this.HighDetail = new System.Windows.Forms.CheckBox();
+            this.Borderless = new System.Windows.Forms.CheckBox();
+            this.WindowedMode = new System.Windows.Forms.CheckBox();
+            this.DisableVSync = new System.Windows.Forms.CheckBox();
+            this.FPSLimit = new System.Windows.Forms.NumericUpDown();
+            this.FPSLimitLabel = new System.Windows.Forms.Label();
+            this.UseNativeRes = new System.Windows.Forms.Button();
+            this.VideoHeight = new System.Windows.Forms.NumericUpDown();
+            this.VideoWidth = new System.Windows.Forms.NumericUpDown();
+            this.ResolutionLabel = new System.Windows.Forms.Label();
+            this.TGEditorGameplay = new System.Windows.Forms.TabPage();
             this.TabBandGroup = new System.Windows.Forms.GroupBox();
             this.PrefFVoxSelectChar = new System.Windows.Forms.Button();
             this.TBPrefFVoxLabel = new System.Windows.Forms.Label();
@@ -75,20 +89,6 @@
             this.GuitarStrumAnim = new System.Windows.Forms.ComboBox();
             this.TBPrefGtrLabel = new System.Windows.Forms.Label();
             this.TBBandLineup = new System.Windows.Forms.Label();
-            this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
-            this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
-            this.TGEditorBasic = new System.Windows.Forms.TabPage();
-            this.HighDetail = new System.Windows.Forms.CheckBox();
-            this.Borderless = new System.Windows.Forms.CheckBox();
-            this.WindowedMode = new System.Windows.Forms.CheckBox();
-            this.DisableVSync = new System.Windows.Forms.CheckBox();
-            this.FPSLimit = new System.Windows.Forms.NumericUpDown();
-            this.FPSLimitLabel = new System.Windows.Forms.Label();
-            this.UseNativeRes = new System.Windows.Forms.Button();
-            this.VideoHeight = new System.Windows.Forms.NumericUpDown();
-            this.VideoWidth = new System.Windows.Forms.NumericUpDown();
-            this.ResolutionLabel = new System.Windows.Forms.Label();
-            this.TGEditorGameplay = new System.Windows.Forms.TabPage();
             this.TabInputGroup = new System.Windows.Forms.GroupBox();
             this.KeyBindsHeaderIcon = new System.Windows.Forms.PictureBox();
             this.MicSettingsHeaderIcon = new System.Windows.Forms.PictureBox();
@@ -401,16 +401,17 @@
             this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
+            this.DummyLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             this.TabParentContainer.SuspendLayout();
-            this.TabBandGroup.SuspendLayout();
             this.TabGraphicsGroup.SuspendLayout();
             this.TabGraphicsMainEditor.SuspendLayout();
             this.TGEditorBasic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FPSLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoWidth)).BeginInit();
+            this.TabBandGroup.SuspendLayout();
             this.TabInputGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).BeginInit();
@@ -487,7 +488,7 @@
             // AlwaysCelebIntro
             // 
             this.AlwaysCelebIntro.AutoSize = true;
-            this.AlwaysCelebIntro.Location = new System.Drawing.Point(30, 463);
+            this.AlwaysCelebIntro.Location = new System.Drawing.Point(30, 466);
             this.AlwaysCelebIntro.Name = "AlwaysCelebIntro";
             this.AlwaysCelebIntro.Size = new System.Drawing.Size(166, 26);
             this.AlwaysCelebIntro.TabIndex = 39;
@@ -498,7 +499,7 @@
             // AlwaysVOIntro
             // 
             this.AlwaysVOIntro.AutoSize = true;
-            this.AlwaysVOIntro.Location = new System.Drawing.Point(30, 436);
+            this.AlwaysVOIntro.Location = new System.Drawing.Point(30, 438);
             this.AlwaysVOIntro.Name = "AlwaysVOIntro";
             this.AlwaysVOIntro.Size = new System.Drawing.Size(149, 26);
             this.AlwaysVOIntro.TabIndex = 38;
@@ -509,7 +510,7 @@
             // AlwaysSplashText
             // 
             this.AlwaysSplashText.AutoSize = true;
-            this.AlwaysSplashText.Location = new System.Drawing.Point(30, 409);
+            this.AlwaysSplashText.Location = new System.Drawing.Point(30, 410);
             this.AlwaysSplashText.Name = "AlwaysSplashText";
             this.AlwaysSplashText.Size = new System.Drawing.Size(148, 26);
             this.AlwaysSplashText.TabIndex = 37;
@@ -765,6 +766,205 @@
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
             // 
+            // TabGraphicsGroup
+            // 
+            this.TabGraphicsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
+            this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(13, 9);
+            this.TabGraphicsGroup.Name = "TabGraphicsGroup";
+            this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabGraphicsGroup.TabIndex = 16;
+            this.TabGraphicsGroup.TabStop = false;
+            this.TabGraphicsGroup.Text = "DEBUG: Graphics Tab";
+            // 
+            // TabGraphicsMainEditor
+            // 
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorBasic);
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorGameplay);
+            this.TabGraphicsMainEditor.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGraphicsMainEditor.Location = new System.Drawing.Point(6, 12);
+            this.TabGraphicsMainEditor.Name = "TabGraphicsMainEditor";
+            this.TabGraphicsMainEditor.SelectedIndex = 0;
+            this.TabGraphicsMainEditor.Size = new System.Drawing.Size(648, 630);
+            this.TabGraphicsMainEditor.TabIndex = 1;
+            // 
+            // TGEditorBasic
+            // 
+            this.TGEditorBasic.Controls.Add(this.HighDetail);
+            this.TGEditorBasic.Controls.Add(this.Borderless);
+            this.TGEditorBasic.Controls.Add(this.WindowedMode);
+            this.TGEditorBasic.Controls.Add(this.DisableVSync);
+            this.TGEditorBasic.Controls.Add(this.FPSLimit);
+            this.TGEditorBasic.Controls.Add(this.FPSLimitLabel);
+            this.TGEditorBasic.Controls.Add(this.UseNativeRes);
+            this.TGEditorBasic.Controls.Add(this.VideoHeight);
+            this.TGEditorBasic.Controls.Add(this.VideoWidth);
+            this.TGEditorBasic.Controls.Add(this.ResolutionLabel);
+            this.TGEditorBasic.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorBasic.Name = "TGEditorBasic";
+            this.TGEditorBasic.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorBasic.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorBasic.TabIndex = 0;
+            this.TGEditorBasic.Text = "Basic Options";
+            this.TGEditorBasic.UseVisualStyleBackColor = true;
+            // 
+            // HighDetail
+            // 
+            this.HighDetail.AutoSize = true;
+            this.HighDetail.Location = new System.Drawing.Point(19, 161);
+            this.HighDetail.Name = "HighDetail";
+            this.HighDetail.Size = new System.Drawing.Size(147, 26);
+            this.HighDetail.TabIndex = 10;
+            this.HighDetail.Text = "High Detail Mode";
+            this.HighDetail.UseVisualStyleBackColor = true;
+            this.HighDetail.CheckedChanged += new System.EventHandler(this.HighDetail_CheckedChanged);
+            // 
+            // Borderless
+            // 
+            this.Borderless.AutoSize = true;
+            this.Borderless.Location = new System.Drawing.Point(19, 135);
+            this.Borderless.Name = "Borderless";
+            this.Borderless.Size = new System.Drawing.Size(179, 26);
+            this.Borderless.TabIndex = 9;
+            this.Borderless.Text = "Borderless Windowed";
+            this.Borderless.UseVisualStyleBackColor = true;
+            this.Borderless.CheckedChanged += new System.EventHandler(this.Borderless_CheckedChanged);
+            // 
+            // WindowedMode
+            // 
+            this.WindowedMode.AutoSize = true;
+            this.WindowedMode.Location = new System.Drawing.Point(19, 109);
+            this.WindowedMode.Name = "WindowedMode";
+            this.WindowedMode.Size = new System.Drawing.Size(143, 26);
+            this.WindowedMode.TabIndex = 8;
+            this.WindowedMode.Text = "Windowed Mode";
+            this.WindowedMode.UseVisualStyleBackColor = true;
+            this.WindowedMode.CheckedChanged += new System.EventHandler(this.WindowedMode_CheckedChanged);
+            // 
+            // DisableVSync
+            // 
+            this.DisableVSync.AutoSize = true;
+            this.DisableVSync.Location = new System.Drawing.Point(19, 83);
+            this.DisableVSync.Name = "DisableVSync";
+            this.DisableVSync.Size = new System.Drawing.Size(146, 26);
+            this.DisableVSync.TabIndex = 7;
+            this.DisableVSync.Text = "Use Vertical Sync";
+            this.DisableVSync.UseVisualStyleBackColor = true;
+            this.DisableVSync.CheckedChanged += new System.EventHandler(this.DisableVSync_CheckedChanged);
+            // 
+            // FPSLimit
+            // 
+            this.FPSLimit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FPSLimit.Location = new System.Drawing.Point(107, 58);
+            this.FPSLimit.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.FPSLimit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.FPSLimit.Name = "FPSLimit";
+            this.FPSLimit.Size = new System.Drawing.Size(64, 23);
+            this.FPSLimit.TabIndex = 6;
+            this.FPSLimit.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.FPSLimit.ValueChanged += new System.EventHandler(this.FPSLimit_ValueChanged);
+            // 
+            // FPSLimitLabel
+            // 
+            this.FPSLimitLabel.AutoSize = true;
+            this.FPSLimitLabel.Location = new System.Drawing.Point(15, 58);
+            this.FPSLimitLabel.Name = "FPSLimitLabel";
+            this.FPSLimitLabel.Size = new System.Drawing.Size(77, 22);
+            this.FPSLimitLabel.TabIndex = 5;
+            this.FPSLimitLabel.Text = "FPS Limit:";
+            // 
+            // UseNativeRes
+            // 
+            this.UseNativeRes.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.UseNativeRes.Location = new System.Drawing.Point(19, 32);
+            this.UseNativeRes.Name = "UseNativeRes";
+            this.UseNativeRes.Size = new System.Drawing.Size(249, 23);
+            this.UseNativeRes.TabIndex = 4;
+            this.UseNativeRes.Text = "Native Resolution (X BY Y)";
+            this.UseNativeRes.UseVisualStyleBackColor = true;
+            this.UseNativeRes.Click += new System.EventHandler(this.UseNativeRes_Click);
+            // 
+            // VideoHeight
+            // 
+            this.VideoHeight.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.VideoHeight.Location = new System.Drawing.Point(204, 7);
+            this.VideoHeight.Maximum = new decimal(new int[] {
+            8192,
+            0,
+            0,
+            0});
+            this.VideoHeight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.VideoHeight.Name = "VideoHeight";
+            this.VideoHeight.Size = new System.Drawing.Size(64, 23);
+            this.VideoHeight.TabIndex = 3;
+            this.VideoHeight.Value = new decimal(new int[] {
+            720,
+            0,
+            0,
+            0});
+            this.VideoHeight.ValueChanged += new System.EventHandler(this.VideoHeight_ValueChanged);
+            // 
+            // VideoWidth
+            // 
+            this.VideoWidth.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.VideoWidth.Location = new System.Drawing.Point(107, 7);
+            this.VideoWidth.Maximum = new decimal(new int[] {
+            8192,
+            0,
+            0,
+            0});
+            this.VideoWidth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.VideoWidth.Name = "VideoWidth";
+            this.VideoWidth.Size = new System.Drawing.Size(64, 23);
+            this.VideoWidth.TabIndex = 2;
+            this.VideoWidth.Value = new decimal(new int[] {
+            1280,
+            0,
+            0,
+            0});
+            this.VideoWidth.ValueChanged += new System.EventHandler(this.VideoWidth_ValueChanged);
+            // 
+            // ResolutionLabel
+            // 
+            this.ResolutionLabel.AutoSize = true;
+            this.ResolutionLabel.Location = new System.Drawing.Point(15, 6);
+            this.ResolutionLabel.Name = "ResolutionLabel";
+            this.ResolutionLabel.Size = new System.Drawing.Size(183, 22);
+            this.ResolutionLabel.TabIndex = 1;
+            this.ResolutionLabel.Text = "Resolution:                      X";
+            // 
+            // TGEditorGameplay
+            // 
+            this.TGEditorGameplay.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorGameplay.Name = "TGEditorGameplay";
+            this.TGEditorGameplay.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorGameplay.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorGameplay.TabIndex = 1;
+            this.TGEditorGameplay.Text = "Gameplay Options";
+            this.TGEditorGameplay.UseVisualStyleBackColor = true;
+            // 
             // TabBandGroup
             // 
             this.TabBandGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -809,7 +1009,7 @@
             this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
             this.TabBandGroup.Controls.Add(this.TBBandLineup);
             this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(63, 563);
+            this.TabBandGroup.Location = new System.Drawing.Point(44, 570);
             this.TabBandGroup.Name = "TabBandGroup";
             this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
             this.TabBandGroup.TabIndex = 1;
@@ -1100,205 +1300,6 @@
             this.TBBandLineup.Size = new System.Drawing.Size(126, 25);
             this.TBBandLineup.TabIndex = 1;
             this.TBBandLineup.Text = "Band Lineup:";
-            // 
-            // TabGraphicsGroup
-            // 
-            this.TabGraphicsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
-            this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(13, 12);
-            this.TabGraphicsGroup.Name = "TabGraphicsGroup";
-            this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabGraphicsGroup.TabIndex = 16;
-            this.TabGraphicsGroup.TabStop = false;
-            this.TabGraphicsGroup.Text = "DEBUG: Graphics Tab";
-            // 
-            // TabGraphicsMainEditor
-            // 
-            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorBasic);
-            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorGameplay);
-            this.TabGraphicsMainEditor.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsMainEditor.Location = new System.Drawing.Point(6, 12);
-            this.TabGraphicsMainEditor.Name = "TabGraphicsMainEditor";
-            this.TabGraphicsMainEditor.SelectedIndex = 0;
-            this.TabGraphicsMainEditor.Size = new System.Drawing.Size(648, 630);
-            this.TabGraphicsMainEditor.TabIndex = 1;
-            // 
-            // TGEditorBasic
-            // 
-            this.TGEditorBasic.Controls.Add(this.HighDetail);
-            this.TGEditorBasic.Controls.Add(this.Borderless);
-            this.TGEditorBasic.Controls.Add(this.WindowedMode);
-            this.TGEditorBasic.Controls.Add(this.DisableVSync);
-            this.TGEditorBasic.Controls.Add(this.FPSLimit);
-            this.TGEditorBasic.Controls.Add(this.FPSLimitLabel);
-            this.TGEditorBasic.Controls.Add(this.UseNativeRes);
-            this.TGEditorBasic.Controls.Add(this.VideoHeight);
-            this.TGEditorBasic.Controls.Add(this.VideoWidth);
-            this.TGEditorBasic.Controls.Add(this.ResolutionLabel);
-            this.TGEditorBasic.Location = new System.Drawing.Point(4, 30);
-            this.TGEditorBasic.Name = "TGEditorBasic";
-            this.TGEditorBasic.Padding = new System.Windows.Forms.Padding(3);
-            this.TGEditorBasic.Size = new System.Drawing.Size(640, 596);
-            this.TGEditorBasic.TabIndex = 0;
-            this.TGEditorBasic.Text = "Basic Options";
-            this.TGEditorBasic.UseVisualStyleBackColor = true;
-            // 
-            // HighDetail
-            // 
-            this.HighDetail.AutoSize = true;
-            this.HighDetail.Location = new System.Drawing.Point(19, 161);
-            this.HighDetail.Name = "HighDetail";
-            this.HighDetail.Size = new System.Drawing.Size(147, 26);
-            this.HighDetail.TabIndex = 10;
-            this.HighDetail.Text = "High Detail Mode";
-            this.HighDetail.UseVisualStyleBackColor = true;
-            this.HighDetail.CheckedChanged += new System.EventHandler(this.HighDetail_CheckedChanged);
-            // 
-            // Borderless
-            // 
-            this.Borderless.AutoSize = true;
-            this.Borderless.Location = new System.Drawing.Point(19, 135);
-            this.Borderless.Name = "Borderless";
-            this.Borderless.Size = new System.Drawing.Size(179, 26);
-            this.Borderless.TabIndex = 9;
-            this.Borderless.Text = "Borderless Windowed";
-            this.Borderless.UseVisualStyleBackColor = true;
-            this.Borderless.CheckedChanged += new System.EventHandler(this.Borderless_CheckedChanged);
-            // 
-            // WindowedMode
-            // 
-            this.WindowedMode.AutoSize = true;
-            this.WindowedMode.Location = new System.Drawing.Point(19, 109);
-            this.WindowedMode.Name = "WindowedMode";
-            this.WindowedMode.Size = new System.Drawing.Size(143, 26);
-            this.WindowedMode.TabIndex = 8;
-            this.WindowedMode.Text = "Windowed Mode";
-            this.WindowedMode.UseVisualStyleBackColor = true;
-            this.WindowedMode.CheckedChanged += new System.EventHandler(this.WindowedMode_CheckedChanged);
-            // 
-            // DisableVSync
-            // 
-            this.DisableVSync.AutoSize = true;
-            this.DisableVSync.Location = new System.Drawing.Point(19, 83);
-            this.DisableVSync.Name = "DisableVSync";
-            this.DisableVSync.Size = new System.Drawing.Size(146, 26);
-            this.DisableVSync.TabIndex = 7;
-            this.DisableVSync.Text = "Use Vertical Sync";
-            this.DisableVSync.UseVisualStyleBackColor = true;
-            this.DisableVSync.CheckedChanged += new System.EventHandler(this.DisableVSync_CheckedChanged);
-            // 
-            // FPSLimit
-            // 
-            this.FPSLimit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FPSLimit.Location = new System.Drawing.Point(107, 58);
-            this.FPSLimit.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.FPSLimit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.FPSLimit.Name = "FPSLimit";
-            this.FPSLimit.Size = new System.Drawing.Size(64, 23);
-            this.FPSLimit.TabIndex = 6;
-            this.FPSLimit.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.FPSLimit.ValueChanged += new System.EventHandler(this.FPSLimit_ValueChanged);
-            // 
-            // FPSLimitLabel
-            // 
-            this.FPSLimitLabel.AutoSize = true;
-            this.FPSLimitLabel.Location = new System.Drawing.Point(15, 58);
-            this.FPSLimitLabel.Name = "FPSLimitLabel";
-            this.FPSLimitLabel.Size = new System.Drawing.Size(77, 22);
-            this.FPSLimitLabel.TabIndex = 5;
-            this.FPSLimitLabel.Text = "FPS Limit:";
-            // 
-            // UseNativeRes
-            // 
-            this.UseNativeRes.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.UseNativeRes.Location = new System.Drawing.Point(19, 32);
-            this.UseNativeRes.Name = "UseNativeRes";
-            this.UseNativeRes.Size = new System.Drawing.Size(249, 23);
-            this.UseNativeRes.TabIndex = 4;
-            this.UseNativeRes.Text = "Native Resolution (X BY Y)";
-            this.UseNativeRes.UseVisualStyleBackColor = true;
-            this.UseNativeRes.Click += new System.EventHandler(this.UseNativeRes_Click);
-            // 
-            // VideoHeight
-            // 
-            this.VideoHeight.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.VideoHeight.Location = new System.Drawing.Point(204, 7);
-            this.VideoHeight.Maximum = new decimal(new int[] {
-            8192,
-            0,
-            0,
-            0});
-            this.VideoHeight.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.VideoHeight.Name = "VideoHeight";
-            this.VideoHeight.Size = new System.Drawing.Size(64, 23);
-            this.VideoHeight.TabIndex = 3;
-            this.VideoHeight.Value = new decimal(new int[] {
-            720,
-            0,
-            0,
-            0});
-            this.VideoHeight.ValueChanged += new System.EventHandler(this.VideoHeight_ValueChanged);
-            // 
-            // VideoWidth
-            // 
-            this.VideoWidth.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.VideoWidth.Location = new System.Drawing.Point(107, 7);
-            this.VideoWidth.Maximum = new decimal(new int[] {
-            8192,
-            0,
-            0,
-            0});
-            this.VideoWidth.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.VideoWidth.Name = "VideoWidth";
-            this.VideoWidth.Size = new System.Drawing.Size(64, 23);
-            this.VideoWidth.TabIndex = 2;
-            this.VideoWidth.Value = new decimal(new int[] {
-            1280,
-            0,
-            0,
-            0});
-            this.VideoWidth.ValueChanged += new System.EventHandler(this.VideoWidth_ValueChanged);
-            // 
-            // ResolutionLabel
-            // 
-            this.ResolutionLabel.AutoSize = true;
-            this.ResolutionLabel.Location = new System.Drawing.Point(15, 6);
-            this.ResolutionLabel.Name = "ResolutionLabel";
-            this.ResolutionLabel.Size = new System.Drawing.Size(183, 22);
-            this.ResolutionLabel.TabIndex = 1;
-            this.ResolutionLabel.Text = "Resolution:                      X";
-            // 
-            // TGEditorGameplay
-            // 
-            this.TGEditorGameplay.Location = new System.Drawing.Point(4, 30);
-            this.TGEditorGameplay.Name = "TGEditorGameplay";
-            this.TGEditorGameplay.Padding = new System.Windows.Forms.Padding(3);
-            this.TGEditorGameplay.Size = new System.Drawing.Size(640, 596);
-            this.TGEditorGameplay.TabIndex = 1;
-            this.TGEditorGameplay.Text = "Gameplay Options";
-            this.TGEditorGameplay.UseVisualStyleBackColor = true;
             // 
             // TabInputGroup
             // 
@@ -4934,6 +4935,7 @@
             this.CheckUpdatesButton.Size = new System.Drawing.Size(297, 57);
             this.CheckUpdatesButton.TabIndex = 7;
             this.CheckUpdatesButton.Text = "Check For Updates";
+            this.ToolTipMain.SetToolTip(this.CheckUpdatesButton, "Check for updates to WTDE and verify your installation\'s integrity.");
             this.CheckUpdatesButton.UseVisualStyleBackColor = false;
             this.CheckUpdatesButton.Click += new System.EventHandler(this.CheckUpdatesButton_Click);
             // 
@@ -4955,6 +4957,7 @@
             this.OpenModsButton.Size = new System.Drawing.Size(297, 57);
             this.OpenModsButton.TabIndex = 6;
             this.OpenModsButton.Text = "Open Mods Folder";
+            this.ToolTipMain.SetToolTip(this.OpenModsButton, "Open your mods folder in your GHWT installation folder.");
             this.OpenModsButton.UseVisualStyleBackColor = false;
             this.OpenModsButton.Click += new System.EventHandler(this.OpenModsButton_Click);
             // 
@@ -4976,6 +4979,7 @@
             this.AdjustSettingsButton.Size = new System.Drawing.Size(297, 57);
             this.AdjustSettingsButton.TabIndex = 5;
             this.AdjustSettingsButton.Text = "Adjust Settings";
+            this.ToolTipMain.SetToolTip(this.AdjustSettingsButton, "Adjust various settings for WTDE. All changes are saved automatically.");
             this.AdjustSettingsButton.UseVisualStyleBackColor = false;
             this.AdjustSettingsButton.Click += new System.EventHandler(this.AdjustSettingsButton_Click);
             // 
@@ -4997,6 +5001,7 @@
             this.RunWTDEButton.Size = new System.Drawing.Size(297, 57);
             this.RunWTDEButton.TabIndex = 4;
             this.RunWTDEButton.Text = "Start WTDE";
+            this.ToolTipMain.SetToolTip(this.RunWTDEButton, "Run Guitar Hero World Tour: Definitive Edition.");
             this.RunWTDEButton.UseVisualStyleBackColor = false;
             this.RunWTDEButton.Click += new System.EventHandler(this.RunWTDEButton_Click);
             // 
@@ -5060,6 +5065,7 @@
             this.TabButtonDebug.Size = new System.Drawing.Size(101, 47);
             this.TabButtonDebug.TabIndex = 20;
             this.TabButtonDebug.Text = "Debug";
+            this.ToolTipMain.SetToolTip(this.TabButtonDebug, "Adjust various settings for debugging purposes.");
             this.TabButtonDebug.UseVisualStyleBackColor = false;
             this.TabButtonDebug.Click += new System.EventHandler(this.TabButtonDebug_Click);
             // 
@@ -5081,6 +5087,7 @@
             this.TabButtonAutoLaunch.Size = new System.Drawing.Size(101, 47);
             this.TabButtonAutoLaunch.TabIndex = 19;
             this.TabButtonAutoLaunch.Text = "Auto Launch";
+            this.ToolTipMain.SetToolTip(this.TabButtonAutoLaunch, "Set up WTDE to automatically load into a song of your choice on boot.");
             this.TabButtonAutoLaunch.UseVisualStyleBackColor = false;
             this.TabButtonAutoLaunch.Click += new System.EventHandler(this.TabButtonAutoLaunch_Click);
             // 
@@ -5102,6 +5109,7 @@
             this.TabButtonBand.Size = new System.Drawing.Size(101, 47);
             this.TabButtonBand.TabIndex = 18;
             this.TabButtonBand.Text = "Band";
+            this.ToolTipMain.SetToolTip(this.TabButtonBand, "Alter your preferred band lineup and change celebrity song settings.");
             this.TabButtonBand.UseVisualStyleBackColor = false;
             this.TabButtonBand.Click += new System.EventHandler(this.TabButtonBand_Click);
             // 
@@ -5123,6 +5131,7 @@
             this.TabButtonGraphics.Size = new System.Drawing.Size(101, 47);
             this.TabButtonGraphics.TabIndex = 17;
             this.TabButtonGraphics.Text = "Graphics";
+            this.ToolTipMain.SetToolTip(this.TabButtonGraphics, "Change various aspects of how the game looks.");
             this.TabButtonGraphics.UseVisualStyleBackColor = false;
             this.TabButtonGraphics.Click += new System.EventHandler(this.TabButtonGraphics_Click);
             // 
@@ -5144,6 +5153,7 @@
             this.TabButtonInput.Size = new System.Drawing.Size(101, 47);
             this.TabButtonInput.TabIndex = 16;
             this.TabButtonInput.Text = "Input";
+            this.ToolTipMain.SetToolTip(this.TabButtonInput, "Modify your keyboard controls and other related input settings.");
             this.TabButtonInput.UseVisualStyleBackColor = false;
             this.TabButtonInput.Click += new System.EventHandler(this.TabButtonInput_Click);
             // 
@@ -5165,6 +5175,7 @@
             this.TabButtonGeneral.Size = new System.Drawing.Size(101, 47);
             this.TabButtonGeneral.TabIndex = 15;
             this.TabButtonGeneral.Text = "General";
+            this.ToolTipMain.SetToolTip(this.TabButtonGeneral, "Adjust various basic, general use settings about WTDE.");
             this.TabButtonGeneral.UseVisualStyleBackColor = false;
             this.TabButtonGeneral.Click += new System.EventHandler(this.TabButtonGeneral_Click);
             // 
@@ -5192,12 +5203,22 @@
             this.MOTDBack.TabIndex = 1;
             this.MOTDBack.TabStop = false;
             // 
+            // DummyLabel
+            // 
+            this.DummyLabel.AutoSize = true;
+            this.DummyLabel.Location = new System.Drawing.Point(-999, 0);
+            this.DummyLabel.Name = "DummyLabel";
+            this.DummyLabel.Size = new System.Drawing.Size(87, 13);
+            this.DummyLabel.TabIndex = 14;
+            this.DummyLabel.Text = "DUMMY_LABEL";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.DummyLabel);
             this.Controls.Add(this.OpenDevOnlySettings);
             this.Controls.Add(this.TabParentContainer);
             this.Controls.Add(this.VersionInfoLabel);
@@ -5222,8 +5243,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
-            this.TabBandGroup.ResumeLayout(false);
-            this.TabBandGroup.PerformLayout();
             this.TabGraphicsGroup.ResumeLayout(false);
             this.TabGraphicsMainEditor.ResumeLayout(false);
             this.TGEditorBasic.ResumeLayout(false);
@@ -5231,6 +5250,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.FPSLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoWidth)).EndInit();
+            this.TabBandGroup.ResumeLayout(false);
+            this.TabBandGroup.PerformLayout();
             this.TabInputGroup.ResumeLayout(false);
             this.TabInputGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).EndInit();
@@ -5649,6 +5670,7 @@
         private System.Windows.Forms.TextBox PreferredFemaleSinger;
         private System.Windows.Forms.Label TBPrefFVoxLabel;
         private System.Windows.Forms.CheckBox ReplaceSpecialBands;
+        public System.Windows.Forms.Label DummyLabel;
     }
 }
 

@@ -1039,7 +1039,7 @@ namespace WTDE_Launcher_V3 {
                     "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START", "BACK",
                     "WHAMMY", "STAR", "CANCEL", "UP", "DOWN", "LEFT", "RIGHT"
                 },
-                
+
                 "Keyboard_Guitar"
             );
 
@@ -1058,7 +1058,7 @@ namespace WTDE_Launcher_V3 {
                     DrumUpInputs.Text,
                     DrumDownInputs.Text
                 },
-                
+
                 new List<string> {
                     "RED", "YELLOW", "BLUE", "ORANGE", "GREEN", "KICK", "START",
                     "BACK", "CANCEL", "UP", "DOWN"
@@ -1079,12 +1079,13 @@ namespace WTDE_Launcher_V3 {
                     MicSelectInputs.Text,
                     MicCancelInputs.Text,
                     MicUpInputs.Text,
-                    MicDownInputs.Text
+                    MicDownInputs.Text,
+                    "-"
                 },
 
                 new List<string> {
                     "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START",
-                    "BACK", "CANCEL", "UP", "DOWN"
+                    "BACK", "CANCEL", "UP", "DOWN", "MIC_VOL_DOWN"
                 },
 
                 "Keyboard_Mic"
@@ -1116,6 +1117,8 @@ namespace WTDE_Launcher_V3 {
 
                 "Keyboard_Menu"
             );
+
+
         }
 
         private void ResetKeybindsButton_Click(object sender, EventArgs e) {

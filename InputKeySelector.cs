@@ -36,18 +36,18 @@ namespace WTDE_Launcher_V3 {
         ///  binding. Adds the binding to the given label.
         /// </summary>
         /// <param name="label"></param>
-        public InputKeySelector(Label label) {
+        public InputKeySelector(Label label = null) {
             InitializeComponent();
 
-            this.OutputLabel = label;
-            CurrentInputs.Text = label.Text;
-        }
+            if (label != null) {
+                this.OutputLabel = label;
+                CurrentInputs.Text = label.Text;
+            }
+        }     
 
         private void InputKeySelector_FormClosing(object sender, FormClosingEventArgs e) {
             OutputLabel.Text += $" {ReturnKey}";
             OutputLabel.Text = OutputLabel.Text.Trim();
-
-            Main main = new Main();
         }
 
         private void CancelButton_Click(object sender, EventArgs e) {
@@ -60,6 +60,13 @@ namespace WTDE_Launcher_V3 {
         /// <param name="key"></param>
         public void GiveKeyBack(string key) {
             ReturnKey = key;
+            
+            // FOR GUITAR ONLY: Do NOT allow frets and strums to share ANY similar inputs.
+            if (CurrentInputs.Text.Contains(key)) {
+                MessageBox.Show("You cannot map the same key twice!", "Duplicate Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             this.Close();
         }
 

@@ -14,3 +14,8 @@ bin/Release/WTDE-Updater-V2.dll
 bin/Release/WTDE-Updater-V2.exe
 bin/Release/WTDE-Updater-V2.pdb
 bin/Release/WTDE-Updater-V2.runtimeconfig.json
+
+res/audio/boot_msg_marcus.mp3
+res/audio/boot_msg_shirley.mp3
+res/audio/boot_msg_matty.mp3
+res/audio/boot_msg_riki.mp3
