@@ -34,3 +34,9 @@ D:\WTDE-Launcher-V3\bin\Debug\Aspose.Zip.xml
 D:\WTDE-Launcher-V3\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\WTDE-Launcher-V3\obj\Debug\WTDE-Launcher-V3.csproj.SuggestedBindingRedirects.cache
 D:\WTDE-Launcher-V3\obj\Debug\WTDE-Launcher-V3.exe.config
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\bin\Debug\Aspose.Zip.xml
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\bin\Debug\NAudio.xml
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.csproj.SuggestedBindingRedirects.cache
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.exe.config
+C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE_Launcher_V3.InputKeySelector.resources

@@ -55,6 +55,7 @@ namespace WTDE_Launcher_V3 {
             // Set working directory for DEBUG PURPOSES.
             //~ Directory.SetCurrentDirectory("D:/Program Files (D)/Aspyr/Guitar Hero World Tour");
             ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
+            ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
 
             // Set up tabs, the window title, and the background.
             // Also play boot VOs if we have them on, fun stuff!
@@ -115,8 +116,8 @@ namespace WTDE_Launcher_V3 {
             // INPUT TAB
             // ---------------------------------
             MicrophoneSelect.Text = INIFunctions.GetINIValue("Audio", "MicDevice", "");
-            MicAudioDelay.Value = int.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "0"));
-            MicVideoDelay.Value = int.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "0"));
+            MicAudioDelay.Value = decimal.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "0"));
+            MicVideoDelay.Value = decimal.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "0"));
 
             // -- GUITAR KEYBOARD INPUTS --------
             GuitarGreenInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "GREEN");
@@ -189,6 +190,39 @@ namespace WTDE_Launcher_V3 {
             WindowedMode.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "WindowedMode"));
             Borderless.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "Borderless"));
             HighDetail.Checked = !(XMLFunctions.AspyrGetString("Options.GraphicsQuality") == "1");
+
+            // -- GAMEPLAY OPTIONS --------
+            HitSparks.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "HitSparks", "1"));
+            BlackStage.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "BlackStage"));
+            HideBand.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "HideBand"));
+            HideInstruments.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "HideInstruments"));
+            HandFlames.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "HandFlames"));
+            SpecialStarPowerFX.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "SpecialStarPowerFX"));
+
+            // -- INTERFACE OPTIONS --------
+            GemTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemTheme", "ghwt"),
+                V3LauncherConstants.NoteStyles[1].ToArray(), V3LauncherConstants.NoteStyles[0].ToArray());
+            GemColors.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemColors", "standard_gems"),
+                V3LauncherConstants.NoteThemeColors[1].ToArray(), V3LauncherConstants.NoteThemeColors[0].ToArray());
+            SongIntroStyle.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "SongIntroStyle", "ghwt"),
+                V3LauncherConstants.IntroStyles[1].ToArray(), V3LauncherConstants.IntroStyles[0].ToArray());
+            LoadingTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "LoadingTheme", "wtde"),
+                V3LauncherConstants.LoadScreenThemes[1].ToArray(), V3LauncherConstants.LoadScreenThemes[0].ToArray());
+            HUDTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HUDTheme", "ghwt_plus"),
+                V3LauncherConstants.HUDThemes[1].ToArray(), V3LauncherConstants.HUDThemes[0].ToArray());
+            YouRockTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "YouRockTheme", "ghwt"),
+                V3LauncherConstants.YouRockThemes[1].ToArray(), V3LauncherConstants.YouRockThemes[0].ToArray());
+            PauseTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "PauseTheme", "ghwt"),
+                V3LauncherConstants.PauseMenuThemes[1].ToArray(), V3LauncherConstants.PauseMenuThemes[0].ToArray());
+            HelperPillTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HelperPillTheme", "wtde"),
+                V3LauncherConstants.HelperPillThemes[1].ToArray(), V3LauncherConstants.HelperPillThemes[0].ToArray());
+            TapTrailTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "TapTrailTheme", "ghwt"),
+                V3LauncherConstants.TapTrailThemes[1].ToArray(), V3LauncherConstants.TapTrailThemes[0].ToArray());
+            HitFlameTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HitFlameTheme", "ghwt"),
+                V3LauncherConstants.HitFlameStyles[1].ToArray(), V3LauncherConstants.HitFlameStyles[0].ToArray());
+            SustainFX.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "SustainFX", "1"));
+            HighwayOpacity.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "HighwayOpacity", "100"));
+            HighwayVignetteOpacity.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "HighwayVignetteOpacity", "0"));
 
             // ---------------------------------
             // BAND TAB
@@ -1944,6 +1978,7 @@ namespace WTDE_Launcher_V3 {
         // - - - - - - - - - - - - - - - - - - -
         //  B A S I C     O P T I O N S
         // - - - - - - - - - - - - - - - - - - -
+        #region Graphics Settings: Basic Options
         private void VideoWidth_ValueChanged(object sender, EventArgs e) {
             XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
         }
@@ -1986,6 +2021,102 @@ namespace WTDE_Launcher_V3 {
                 XMLFunctions.AspyrWriteString("Options.UseLOD", "1");
                 XMLFunctions.AspyrWriteString("Options.Flares", "0");
             }
+        }
+
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  G A M E P L A Y     O P T I O N S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Graphics Settings: Gameplay Options
+        private void HitSparks_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HitSparks", INIFunctions.BoolToString(HitSparks.Checked));
+        }
+
+        private void BlackStage_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "BlackStage", INIFunctions.BoolToString(BlackStage.Checked));
+        }
+
+        private void HideBand_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HideBand", INIFunctions.BoolToString(HideBand.Checked));
+        }
+
+        private void HideInstruments_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HideInstruments", INIFunctions.BoolToString(HideInstruments.Checked));
+        }
+
+        private void HandFlames_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HandFlames", INIFunctions.BoolToString(HandFlames.Checked));
+        }
+
+        private void SpecialStarPowerFX_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SpecialStarPowerFX", INIFunctions.BoolToString(SpecialStarPowerFX.Checked));
+        }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  I N T E R F A C E     O P T I O N S
+        // - - - - - - - - - - - - - - - - - - -
+        private void GemTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "GemTheme", INIFunctions.InterpretINISetting(GemTheme.Text,
+                V3LauncherConstants.NoteStyles[0].ToArray(), V3LauncherConstants.NoteStyles[1].ToArray()));
+        }
+
+        private void GemColors_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "GemColors", INIFunctions.InterpretINISetting(GemColors.Text,
+                V3LauncherConstants.NoteThemeColors[0].ToArray(), V3LauncherConstants.NoteThemeColors[1].ToArray()));
+        }
+
+        private void SongIntroStyle_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SongIntroStyle", INIFunctions.InterpretINISetting(SongIntroStyle.Text,
+                V3LauncherConstants.IntroStyles[0].ToArray(), V3LauncherConstants.IntroStyles[1].ToArray()));
+        }
+
+        private void LoadingTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "LoadingTheme", INIFunctions.InterpretINISetting(LoadingTheme.Text,
+                V3LauncherConstants.LoadScreenThemes[0].ToArray(), V3LauncherConstants.LoadScreenThemes[1].ToArray()));
+        }
+
+        private void HUDTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HUDTheme", INIFunctions.InterpretINISetting(HUDTheme.Text,
+                V3LauncherConstants.HUDThemes[0].ToArray(), V3LauncherConstants.HUDThemes[1].ToArray()));
+        }
+
+        private void YouRockTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "YouRockTheme", INIFunctions.InterpretINISetting(YouRockTheme.Text,
+                V3LauncherConstants.YouRockThemes[0].ToArray(), V3LauncherConstants.YouRockThemes[1].ToArray()));
+        }
+
+        private void PauseTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "PauseTheme", INIFunctions.InterpretINISetting(PauseTheme.Text,
+                V3LauncherConstants.PauseMenuThemes[0].ToArray(), V3LauncherConstants.PauseMenuThemes[1].ToArray()));
+        }
+
+        private void HelperPillTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HelperPillTheme", INIFunctions.InterpretINISetting(HelperPillTheme.Text,
+                V3LauncherConstants.HelperPillThemes[0].ToArray(), V3LauncherConstants.HelperPillThemes[1].ToArray()));
+        }
+
+        private void TapTrailTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "TapTrailTheme", INIFunctions.InterpretINISetting(TapTrailTheme.Text,
+                V3LauncherConstants.TapTrailThemes[0].ToArray(), V3LauncherConstants.TapTrailThemes[1].ToArray()));
+        }
+
+        private void HitFlameTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HitFlameTheme", INIFunctions.InterpretINISetting(HitFlameTheme.Text,
+                V3LauncherConstants.HitFlameStyles[0].ToArray(), V3LauncherConstants.HitFlameStyles[1].ToArray()));
+        }
+
+        private void SustainFX_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SustainFX", INIFunctions.BoolToString(SustainFX.Checked));
+        }
+
+        private void HighwayOpacity_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HighwayOpacity", HighwayOpacity.Value.ToString());
+        }
+
+        private void HighwayVignetteOpacity_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HighwayVignetteOpacity", HighwayVignetteOpacity.Value.ToString());
         }
     }
 }

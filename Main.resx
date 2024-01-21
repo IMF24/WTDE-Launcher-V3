@@ -217,6 +217,29 @@ For built-in characters, visit the "ID_Characters.txt" file in the Resources dir
 If this is blank or the specified character does not exist, the game will, at random, select any character.
 </value>
   </data>
+  <data name="TapTrailTheme.ToolTip" xml:space="preserve">
+    <value>The style of the line connecting tap notes in a tap section.
+
+  •  GH: World Tour (Default): Tap notes are connected by a purple line.
+  •  Guitar Hero: Metallica: Tap notes are connected by a gray line.
+  •  No Tap Trail: The tap trail will not be displayed.</value>
+  </data>
+  <data name="HUDTheme.ToolTip" xml:space="preserve">
+    <value>The style of the HUD (heads up display) seen on the screen during songs.
+
+  •  GH: World Tour+ (Default): The same as the vanilla GHWT interface, but adds a song time
+      meter above the score in single player and under the score in multiplayer.
+  •  Guitar Hero: World Tour: The vanilla, original HUD style in the game.
+  •  Guitar Hero: Metallica: Takes on the appearance of Guitar Hero: Metallica's HUD design
+      with the star meter, band HUD improvements, colored multiplier numbers, and more!
+  •  Guitar Hero: Smash Hits: Same as Guitar Hero: Metallica's HUD, but with the sleek, gold
+      look seen in Guitar Hero: Smash Hits along with a star earned sound effect!
+  •  Guitar Hero: Van Halen: Same as Guitar Hero: Metallica's HUD, but with a few minor
+      visual tweaks, sound effect changes, and font changes.
+
+Note that all post-GHWT themes (GHM, GHSH, GHVH) will use different sound effects and
+fonts to compliment their original appearances in their respective games.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

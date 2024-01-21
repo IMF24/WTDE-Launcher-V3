@@ -236,5 +236,51 @@ namespace WTDE_Launcher_V3 {
 				}
 			}
 		}
+
+        /// <summary>
+        ///  Insert gem mods into the global array of gem mod names and filenames.
+        /// </summary>
+        public static void AppendGemMods(ComboBox[] cBoxList) {
+			// This list will house our gem mods.
+			List<string[]> gemMods = new List<string[]>();
+
+			// We'll use the ACTUAL name in the GemInfo section.
+			IniFile file = new IniFile();
+
+			string gemModName = "", gemNameValue = "";
+			foreach (var mod in UserContentMods) {
+				// Is this a gem mod?
+				if (mod[2] == "Gem Theme") {
+					V3LauncherCore.DebugLog.Add("--------------------------\nGEM THEME MOD FOUND\n--------------------------");
+
+					V3LauncherCore.DebugLog.Add($"path being loaded: {mod[5]}");
+
+					// It is, let's get its name and filename.
+					file.Load(mod[5]);
+
+					gemModName = file.Sections["GemInfo"].Keys["Name"].Value;
+					gemNameValue = file.Sections["GemInfo"].Keys["Filename"].Value;
+
+					V3LauncherConstants.NoteStyles[0].Add($"Mod: {gemModName}");
+					V3LauncherConstants.NoteStyles[1].Add(gemNameValue);
+
+					gemMods.Add(new string[] { $"Mod: {gemModName}", gemNameValue });
+
+                    // Clear sections list, otherwise we get a bunch
+                    // of copies of the same gem mod name.
+                    file.Sections.Clear();
+
+					continue;
+                }
+			}
+
+			foreach (var cBox in cBoxList) {
+				foreach (var gemMod in gemMods) {
+					cBox.Items.Add(gemMod[0]);
+				}
+			}
+		}
+	
+		
 	}
 }

@@ -497,5 +497,272 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public const string ASPYR_INPUT_MENU_BACKUP = "GREEN 308 328 RED 221 YELLOW 340 BLUE 343 ORANGE 267 CANCEL 999 START 219 BACK 402 311 DOWN 400 231 UP 401 327 WHAMMY 310 KICK 318 LEFT 265 RIGHT 309 ";
 
+        /// <summary>
+        ///  List of note styles.
+        /// </summary>
+        public static List<List<string>> NoteStyles = new List<List<string>> {
+            // Note style names.
+            new List<string> {
+                "GH: World Tour (Default)",
+                "Guitar Hero III",
+                "Guitar Hero: Warriors of Rock",
+                "Flat Notes"
+            },
+
+            // Note style IDs.
+            new List<string> {
+                "ghwt",
+                "gh3",
+                "ghwor",
+                "flat"
+            }
+        };
+
+        /// <summary>
+        ///  List of note theme colors.
+        /// </summary>
+        public static string[][] NoteThemeColors = new string[][] {
+            // Theme color names.
+            new string[] {
+                "Normal Color (Default)",
+                "Pink",
+                "Stealth",
+                "Eggs 'N Bacon",
+                "Old Glory",
+                "Solid Gold",
+                "Platinum",
+                "Diabolic",
+                "Toxic Waste",
+                "Black",
+                "Pastel",
+                "Dark",
+                "Outline",
+                "GH1 Prototype",
+                "Pure Green",
+                "Pure Red",
+                "Pure Yellow",
+                "Pure Blue",
+                "Pure Orange",
+                "Candy Cane",
+                "Ghoulish"
+            },
+
+            // Theme color IDs.
+            new string[] {
+                "standard_gems",
+                "pink_gems",
+                "stealth_gems",
+                "Eggs_N_Bacon_gems",
+                "old_glory_gems",
+                "solid_gold_gems",
+                "platinum_gems",
+                "diabolic_gems",
+                "toxic_waste_gems",
+                "black_gems",
+                "pastel_gems",
+                "dark_gems",
+                "outline_gems",
+                "gh1proto_gems",
+                "pure_green",
+                "pure_red",
+                "pure_yellow",
+                "pure_blue",
+                "pure_orange",
+                "candy_cane",
+                "halloween"
+            }
+        };
+
+        /// <summary>
+        ///  List of title card intro styles
+        /// </summary>
+        public static string[][] IntroStyles = new string[][] {
+            // Intro style names.
+            new string[] {
+                "Normal GHWT (Default)",
+                "Guitar Hero III",
+                "Guitar Hero III (Left)",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Van Halen",
+                "Guitar Hero 5",
+                "Band Hero",
+                "Guitar Hero: Warriors of Rock",
+                "Auto (Based on Setlist)"
+            },
+
+            // Intro style IDs.
+            new string[] {
+                "ghwt",
+                "gh3",
+                "gh3_left",
+                "ghm",
+                "ghshits",
+                "ghvh",
+                "gh5",
+                "bh",
+                "ghwor",
+                "auto"
+            }
+        };
+
+        /// <summary>
+        ///  List of load screen themes.
+        /// </summary>
+        public static string[][] LoadScreenThemes = new string[][] {
+            // Load screen names.
+            new string[] {
+                "GHWT: DE (Default)",
+                "Guitar Hero II",
+                "Guitar Hero III",
+                "Guitar Hero III (Console)",
+                "Guitar Hero: Aerosmith",
+                "Guitar Hero: World Tour",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Van Halen"
+            },
+
+            // Load screen IDs.
+            new string[] {
+                "wtde",
+                "gh2",
+                "gh3",
+                "gh3_console",
+                "gha",
+                "ghwt",
+                "ghm",
+                "ghshits",
+                "ghvh"
+            }
+        };
+
+        /// <summary>
+        ///  List of different HUD theme layouts.
+        /// </summary>
+        public static string[][] HUDThemes = new string[][] {
+            // HUD theme names.
+            new string[] {
+                "GH: World Tour+ (Default)",
+                "Guitar Hero: World Tour",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Van Halen"
+            },
+
+            // HUD theme IDs.
+            new string[] { 
+                "ghwt_plus",
+                "ghwt",
+                "ghm",
+                "ghsh",
+                "ghvh"
+            }
+        };
+
+        /// <summary>
+        ///  List of different "You Rock!" themes.
+        /// </summary>
+        public static string[][] YouRockThemes = new string[][] { 
+            // You Rock theme names.
+            new string[] {
+                "GH: World Tour (Default)",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Van Halen"
+            },
+
+            // You Rock theme IDs.
+            new string[] {
+                "ghwt",
+                "ghm",
+                "ghshits",
+                "ghvh"
+            }
+        };
+
+        /// <summary>
+        ///  List of pause menu themes.
+        /// </summary>
+        public static string[][] PauseMenuThemes = new string[][] {
+            // Pause menu theme names.
+            new string[] {
+                "GH: World Tour (Default)",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Van Halen"
+            },
+
+            // Pause menu theme IDs.
+            new string[] {
+                "ghwt",
+                "ghm",
+                "ghshits",
+                "ghvh"
+            }
+        };
+
+        /// <summary>
+        ///  List of user helper pill themes.
+        /// </summary>
+        public static string[][] HelperPillThemes = new string[][] {
+            // Helper pill theme names.
+            new string[] {
+                "GHWT: DE (Default)",
+                "Guitar Hero: World Tour",
+                "Guitar Hero: World Tour (Beta)",
+                "Guitar Hero: World Tour (Wii)",
+                "GH: World Tour (Wii, HD)"
+            },
+
+            // Helper pill theme IDs.
+            new string[] { 
+                "wtde",
+                "ghwt",
+                "ghwt_beta",
+                "ghwt_wii",
+                "ghwt_wii_hd"
+            }
+        };
+
+        /// <summary>
+        ///  List of tap trail themes.
+        /// </summary>
+        public static string[][] TapTrailThemes = new string[][] {
+            // Tap trail theme names.
+            new string[] {
+                "GH: World Tour (Default)",
+                "Guitar Hero: Metallica",
+                "No Tap Trail"
+            },
+
+            // Tap trail theme IDs.
+            new string[] {
+                "ghwt",
+                "ghm",
+                "none"
+            }
+        };
+        
+        /// <summary>
+        ///  List of note hit flame themes.
+        /// </summary>
+        public static string[][] HitFlameStyles = new string[][] {
+            // Flame theme names.
+            new string[] {
+                "GH: World Tour (Default)",
+                "Guitar Hero II",
+                "Guitar Hero: Warriors of Rock",
+                "No Hit Flames"
+            },
+
+            // Flame theme IDs.
+            new string[] {
+                "ghwt",
+                "gh2",
+                "ghwor",
+                "none"
+            }
+        };
     }
 }

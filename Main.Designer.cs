@@ -45,6 +45,16 @@
             this.MicVideoDelay = new System.Windows.Forms.NumericUpDown();
             this.MicAudioDelay = new System.Windows.Forms.NumericUpDown();
             this.MicrophoneSelect = new System.Windows.Forms.ComboBox();
+            this.CheckUpdatesButton = new System.Windows.Forms.Button();
+            this.OpenModsButton = new System.Windows.Forms.Button();
+            this.AdjustSettingsButton = new System.Windows.Forms.Button();
+            this.RunWTDEButton = new System.Windows.Forms.Button();
+            this.TabButtonDebug = new System.Windows.Forms.Button();
+            this.TabButtonAutoLaunch = new System.Windows.Forms.Button();
+            this.TabButtonBand = new System.Windows.Forms.Button();
+            this.TabButtonGraphics = new System.Windows.Forms.Button();
+            this.TabButtonInput = new System.Windows.Forms.Button();
+            this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
@@ -386,22 +396,45 @@
             this.RichPresence = new System.Windows.Forms.CheckBox();
             this.VersionInfoLabel = new System.Windows.Forms.Label();
             this.FretworksLogo = new System.Windows.Forms.PictureBox();
-            this.CheckUpdatesButton = new System.Windows.Forms.Button();
-            this.OpenModsButton = new System.Windows.Forms.Button();
-            this.AdjustSettingsButton = new System.Windows.Forms.Button();
-            this.RunWTDEButton = new System.Windows.Forms.Button();
             this.WTDELogo = new System.Windows.Forms.PictureBox();
             this.MainControlsBack = new System.Windows.Forms.PictureBox();
             this.TabButtonGroup = new System.Windows.Forms.Panel();
-            this.TabButtonDebug = new System.Windows.Forms.Button();
-            this.TabButtonAutoLaunch = new System.Windows.Forms.Button();
-            this.TabButtonBand = new System.Windows.Forms.Button();
-            this.TabButtonGraphics = new System.Windows.Forms.Button();
-            this.TabButtonInput = new System.Windows.Forms.Button();
-            this.TabButtonGeneral = new System.Windows.Forms.Button();
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
             this.DummyLabel = new System.Windows.Forms.Label();
+            this.HitSparks = new System.Windows.Forms.CheckBox();
+            this.BlackStage = new System.Windows.Forms.CheckBox();
+            this.HideBand = new System.Windows.Forms.CheckBox();
+            this.HideInstruments = new System.Windows.Forms.CheckBox();
+            this.HandFlames = new System.Windows.Forms.CheckBox();
+            this.SpecialStarPowerFX = new System.Windows.Forms.CheckBox();
+            this.TGEditorInterface = new System.Windows.Forms.TabPage();
+            this.NoteStyleLabel = new System.Windows.Forms.Label();
+            this.GemTheme = new System.Windows.Forms.ComboBox();
+            this.NoteColorLabel = new System.Windows.Forms.Label();
+            this.GemColors = new System.Windows.Forms.ComboBox();
+            this.SongIntroStyle = new System.Windows.Forms.ComboBox();
+            this.TitleCardLabel = new System.Windows.Forms.Label();
+            this.LoadThemeLabel = new System.Windows.Forms.Label();
+            this.LoadingTheme = new System.Windows.Forms.ComboBox();
+            this.HUDThemeLabel = new System.Windows.Forms.Label();
+            this.HUDTheme = new System.Windows.Forms.ComboBox();
+            this.HelperPillLabel = new System.Windows.Forms.Label();
+            this.HelperPillTheme = new System.Windows.Forms.ComboBox();
+            this.TapTrailLabel = new System.Windows.Forms.Label();
+            this.TapTrailTheme = new System.Windows.Forms.ComboBox();
+            this.FlameStyleLabel = new System.Windows.Forms.Label();
+            this.HitFlameTheme = new System.Windows.Forms.ComboBox();
+            this.SustainFX = new System.Windows.Forms.CheckBox();
+            this.YouRockThemeLabel = new System.Windows.Forms.Label();
+            this.YouRockTheme = new System.Windows.Forms.ComboBox();
+            this.PauseThemeLabel = new System.Windows.Forms.Label();
+            this.PauseTheme = new System.Windows.Forms.ComboBox();
+            this.HWAlphaLabel = new System.Windows.Forms.Label();
+            this.HighwayOpacity = new System.Windows.Forms.NumericUpDown();
+            this.HWVignetteLabel = new System.Windows.Forms.Label();
+            this.HighwayVignetteOpacity = new System.Windows.Forms.NumericUpDown();
+            this.TGEditorAdvanced = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             this.TabParentContainer.SuspendLayout();
@@ -411,6 +444,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FPSLimit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoWidth)).BeginInit();
+            this.TGEditorGameplay.SuspendLayout();
             this.TabBandGroup.SuspendLayout();
             this.TabInputGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
@@ -438,6 +472,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
+            this.TGEditorInterface.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HighwayVignetteOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -749,6 +786,226 @@
         "e KEYBOARD ONLY, you CAN NOT play\r\nvocals with a controller.");
             this.MicrophoneSelect.SelectedIndexChanged += new System.EventHandler(this.MicrophoneSelect_SelectedIndexChanged);
             // 
+            // CheckUpdatesButton
+            // 
+            this.CheckUpdatesButton.BackColor = System.Drawing.Color.Transparent;
+            this.CheckUpdatesButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.CheckUpdatesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CheckUpdatesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CheckUpdatesButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.CheckUpdatesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.CheckUpdatesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.CheckUpdatesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckUpdatesButton.Font = new System.Drawing.Font("Lexend", 16F);
+            this.CheckUpdatesButton.ForeColor = System.Drawing.Color.White;
+            this.CheckUpdatesButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.CheckUpdatesButton.Location = new System.Drawing.Point(12, 395);
+            this.CheckUpdatesButton.Name = "CheckUpdatesButton";
+            this.CheckUpdatesButton.Size = new System.Drawing.Size(297, 57);
+            this.CheckUpdatesButton.TabIndex = 7;
+            this.CheckUpdatesButton.Text = "Check For Updates";
+            this.ToolTipMain.SetToolTip(this.CheckUpdatesButton, "Check for updates to WTDE and verify your installation\'s integrity.");
+            this.CheckUpdatesButton.UseVisualStyleBackColor = false;
+            this.CheckUpdatesButton.Click += new System.EventHandler(this.CheckUpdatesButton_Click);
+            // 
+            // OpenModsButton
+            // 
+            this.OpenModsButton.BackColor = System.Drawing.Color.Transparent;
+            this.OpenModsButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.OpenModsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenModsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenModsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.OpenModsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.OpenModsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.OpenModsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenModsButton.Font = new System.Drawing.Font("Lexend", 16F);
+            this.OpenModsButton.ForeColor = System.Drawing.Color.White;
+            this.OpenModsButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.OpenModsButton.Location = new System.Drawing.Point(12, 332);
+            this.OpenModsButton.Name = "OpenModsButton";
+            this.OpenModsButton.Size = new System.Drawing.Size(297, 57);
+            this.OpenModsButton.TabIndex = 6;
+            this.OpenModsButton.Text = "Open Mods Folder";
+            this.ToolTipMain.SetToolTip(this.OpenModsButton, "Open your mods folder in your GHWT installation folder.");
+            this.OpenModsButton.UseVisualStyleBackColor = false;
+            this.OpenModsButton.Click += new System.EventHandler(this.OpenModsButton_Click);
+            // 
+            // AdjustSettingsButton
+            // 
+            this.AdjustSettingsButton.BackColor = System.Drawing.Color.Transparent;
+            this.AdjustSettingsButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.AdjustSettingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdjustSettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdjustSettingsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.AdjustSettingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.AdjustSettingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.AdjustSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdjustSettingsButton.Font = new System.Drawing.Font("Lexend", 16F);
+            this.AdjustSettingsButton.ForeColor = System.Drawing.Color.White;
+            this.AdjustSettingsButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.AdjustSettingsButton.Location = new System.Drawing.Point(12, 269);
+            this.AdjustSettingsButton.Name = "AdjustSettingsButton";
+            this.AdjustSettingsButton.Size = new System.Drawing.Size(297, 57);
+            this.AdjustSettingsButton.TabIndex = 5;
+            this.AdjustSettingsButton.Text = "Adjust Settings";
+            this.ToolTipMain.SetToolTip(this.AdjustSettingsButton, "Adjust various settings for WTDE. All changes are saved automatically.");
+            this.AdjustSettingsButton.UseVisualStyleBackColor = false;
+            this.AdjustSettingsButton.Click += new System.EventHandler(this.AdjustSettingsButton_Click);
+            // 
+            // RunWTDEButton
+            // 
+            this.RunWTDEButton.BackColor = System.Drawing.Color.Transparent;
+            this.RunWTDEButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.RunWTDEButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RunWTDEButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RunWTDEButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.RunWTDEButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RunWTDEButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RunWTDEButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RunWTDEButton.Font = new System.Drawing.Font("Lexend", 16F);
+            this.RunWTDEButton.ForeColor = System.Drawing.Color.White;
+            this.RunWTDEButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.RunWTDEButton.Location = new System.Drawing.Point(12, 206);
+            this.RunWTDEButton.Name = "RunWTDEButton";
+            this.RunWTDEButton.Size = new System.Drawing.Size(297, 57);
+            this.RunWTDEButton.TabIndex = 4;
+            this.RunWTDEButton.Text = "Start WTDE";
+            this.ToolTipMain.SetToolTip(this.RunWTDEButton, "Run Guitar Hero World Tour: Definitive Edition.");
+            this.RunWTDEButton.UseVisualStyleBackColor = false;
+            this.RunWTDEButton.Click += new System.EventHandler(this.RunWTDEButton_Click);
+            // 
+            // TabButtonDebug
+            // 
+            this.TabButtonDebug.BackColor = System.Drawing.Color.Transparent;
+            this.TabButtonDebug.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonDebug.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabButtonDebug.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabButtonDebug.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.TabButtonDebug.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonDebug.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonDebug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TabButtonDebug.Font = new System.Drawing.Font("Lexend", 12F);
+            this.TabButtonDebug.ForeColor = System.Drawing.Color.White;
+            this.TabButtonDebug.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonDebug.Location = new System.Drawing.Point(576, 7);
+            this.TabButtonDebug.Name = "TabButtonDebug";
+            this.TabButtonDebug.Size = new System.Drawing.Size(101, 47);
+            this.TabButtonDebug.TabIndex = 20;
+            this.TabButtonDebug.Text = "Debug";
+            this.ToolTipMain.SetToolTip(this.TabButtonDebug, "Adjust various settings for debugging purposes.");
+            this.TabButtonDebug.UseVisualStyleBackColor = false;
+            this.TabButtonDebug.Click += new System.EventHandler(this.TabButtonDebug_Click);
+            // 
+            // TabButtonAutoLaunch
+            // 
+            this.TabButtonAutoLaunch.BackColor = System.Drawing.Color.Transparent;
+            this.TabButtonAutoLaunch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonAutoLaunch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabButtonAutoLaunch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabButtonAutoLaunch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.TabButtonAutoLaunch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonAutoLaunch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonAutoLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TabButtonAutoLaunch.Font = new System.Drawing.Font("Lexend", 9F);
+            this.TabButtonAutoLaunch.ForeColor = System.Drawing.Color.White;
+            this.TabButtonAutoLaunch.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonAutoLaunch.Location = new System.Drawing.Point(462, 7);
+            this.TabButtonAutoLaunch.Name = "TabButtonAutoLaunch";
+            this.TabButtonAutoLaunch.Size = new System.Drawing.Size(101, 47);
+            this.TabButtonAutoLaunch.TabIndex = 19;
+            this.TabButtonAutoLaunch.Text = "Auto Launch";
+            this.ToolTipMain.SetToolTip(this.TabButtonAutoLaunch, "Set up WTDE to automatically load into a song of your choice on boot.");
+            this.TabButtonAutoLaunch.UseVisualStyleBackColor = false;
+            this.TabButtonAutoLaunch.Click += new System.EventHandler(this.TabButtonAutoLaunch_Click);
+            // 
+            // TabButtonBand
+            // 
+            this.TabButtonBand.BackColor = System.Drawing.Color.Transparent;
+            this.TabButtonBand.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonBand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabButtonBand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabButtonBand.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.TabButtonBand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonBand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonBand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TabButtonBand.Font = new System.Drawing.Font("Lexend", 12F);
+            this.TabButtonBand.ForeColor = System.Drawing.Color.White;
+            this.TabButtonBand.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonBand.Location = new System.Drawing.Point(348, 7);
+            this.TabButtonBand.Name = "TabButtonBand";
+            this.TabButtonBand.Size = new System.Drawing.Size(101, 47);
+            this.TabButtonBand.TabIndex = 18;
+            this.TabButtonBand.Text = "Band";
+            this.ToolTipMain.SetToolTip(this.TabButtonBand, "Alter your preferred band lineup and change celebrity song settings.");
+            this.TabButtonBand.UseVisualStyleBackColor = false;
+            this.TabButtonBand.Click += new System.EventHandler(this.TabButtonBand_Click);
+            // 
+            // TabButtonGraphics
+            // 
+            this.TabButtonGraphics.BackColor = System.Drawing.Color.Transparent;
+            this.TabButtonGraphics.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonGraphics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabButtonGraphics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabButtonGraphics.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.TabButtonGraphics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonGraphics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonGraphics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TabButtonGraphics.Font = new System.Drawing.Font("Lexend", 12F);
+            this.TabButtonGraphics.ForeColor = System.Drawing.Color.White;
+            this.TabButtonGraphics.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonGraphics.Location = new System.Drawing.Point(235, 7);
+            this.TabButtonGraphics.Name = "TabButtonGraphics";
+            this.TabButtonGraphics.Size = new System.Drawing.Size(101, 47);
+            this.TabButtonGraphics.TabIndex = 17;
+            this.TabButtonGraphics.Text = "Graphics";
+            this.ToolTipMain.SetToolTip(this.TabButtonGraphics, "Change various aspects of how the game looks.");
+            this.TabButtonGraphics.UseVisualStyleBackColor = false;
+            this.TabButtonGraphics.Click += new System.EventHandler(this.TabButtonGraphics_Click);
+            // 
+            // TabButtonInput
+            // 
+            this.TabButtonInput.BackColor = System.Drawing.Color.Transparent;
+            this.TabButtonInput.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabButtonInput.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabButtonInput.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.TabButtonInput.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonInput.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TabButtonInput.Font = new System.Drawing.Font("Lexend", 12F);
+            this.TabButtonInput.ForeColor = System.Drawing.Color.White;
+            this.TabButtonInput.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonInput.Location = new System.Drawing.Point(122, 7);
+            this.TabButtonInput.Name = "TabButtonInput";
+            this.TabButtonInput.Size = new System.Drawing.Size(101, 47);
+            this.TabButtonInput.TabIndex = 16;
+            this.TabButtonInput.Text = "Input";
+            this.ToolTipMain.SetToolTip(this.TabButtonInput, "Modify your keyboard controls and other related input settings.");
+            this.TabButtonInput.UseVisualStyleBackColor = false;
+            this.TabButtonInput.Click += new System.EventHandler(this.TabButtonInput_Click);
+            // 
+            // TabButtonGeneral
+            // 
+            this.TabButtonGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.TabButtonGeneral.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabButtonGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TabButtonGeneral.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.TabButtonGeneral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonGeneral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.TabButtonGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TabButtonGeneral.Font = new System.Drawing.Font("Lexend", 12F);
+            this.TabButtonGeneral.ForeColor = System.Drawing.Color.White;
+            this.TabButtonGeneral.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.TabButtonGeneral.Location = new System.Drawing.Point(10, 7);
+            this.TabButtonGeneral.Name = "TabButtonGeneral";
+            this.TabButtonGeneral.Size = new System.Drawing.Size(101, 47);
+            this.TabButtonGeneral.TabIndex = 15;
+            this.TabButtonGeneral.Text = "General";
+            this.ToolTipMain.SetToolTip(this.TabButtonGeneral, "Adjust various basic, general use settings about WTDE.");
+            this.TabButtonGeneral.UseVisualStyleBackColor = false;
+            this.TabButtonGeneral.Click += new System.EventHandler(this.TabButtonGeneral_Click);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
@@ -783,6 +1040,8 @@
             // 
             this.TabGraphicsMainEditor.Controls.Add(this.TGEditorBasic);
             this.TabGraphicsMainEditor.Controls.Add(this.TGEditorGameplay);
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorInterface);
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorAdvanced);
             this.TabGraphicsMainEditor.Font = new System.Drawing.Font("Lexend", 10F);
             this.TabGraphicsMainEditor.Location = new System.Drawing.Point(6, 12);
             this.TabGraphicsMainEditor.Name = "TabGraphicsMainEditor";
@@ -957,6 +1216,12 @@
             // 
             // TGEditorGameplay
             // 
+            this.TGEditorGameplay.Controls.Add(this.SpecialStarPowerFX);
+            this.TGEditorGameplay.Controls.Add(this.HandFlames);
+            this.TGEditorGameplay.Controls.Add(this.HideInstruments);
+            this.TGEditorGameplay.Controls.Add(this.HideBand);
+            this.TGEditorGameplay.Controls.Add(this.BlackStage);
+            this.TGEditorGameplay.Controls.Add(this.HitSparks);
             this.TGEditorGameplay.Location = new System.Drawing.Point(4, 30);
             this.TGEditorGameplay.Name = "TGEditorGameplay";
             this.TGEditorGameplay.Padding = new System.Windows.Forms.Padding(3);
@@ -4917,94 +5182,6 @@
             this.FretworksLogo.TabStop = false;
             this.FretworksLogo.Click += new System.EventHandler(this.FretworksLogo_Click);
             // 
-            // CheckUpdatesButton
-            // 
-            this.CheckUpdatesButton.BackColor = System.Drawing.Color.Transparent;
-            this.CheckUpdatesButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.CheckUpdatesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CheckUpdatesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CheckUpdatesButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CheckUpdatesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.CheckUpdatesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.CheckUpdatesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckUpdatesButton.Font = new System.Drawing.Font("Lexend", 16F);
-            this.CheckUpdatesButton.ForeColor = System.Drawing.Color.White;
-            this.CheckUpdatesButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.CheckUpdatesButton.Location = new System.Drawing.Point(12, 395);
-            this.CheckUpdatesButton.Name = "CheckUpdatesButton";
-            this.CheckUpdatesButton.Size = new System.Drawing.Size(297, 57);
-            this.CheckUpdatesButton.TabIndex = 7;
-            this.CheckUpdatesButton.Text = "Check For Updates";
-            this.ToolTipMain.SetToolTip(this.CheckUpdatesButton, "Check for updates to WTDE and verify your installation\'s integrity.");
-            this.CheckUpdatesButton.UseVisualStyleBackColor = false;
-            this.CheckUpdatesButton.Click += new System.EventHandler(this.CheckUpdatesButton_Click);
-            // 
-            // OpenModsButton
-            // 
-            this.OpenModsButton.BackColor = System.Drawing.Color.Transparent;
-            this.OpenModsButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.OpenModsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OpenModsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenModsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.OpenModsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.OpenModsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.OpenModsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenModsButton.Font = new System.Drawing.Font("Lexend", 16F);
-            this.OpenModsButton.ForeColor = System.Drawing.Color.White;
-            this.OpenModsButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.OpenModsButton.Location = new System.Drawing.Point(12, 332);
-            this.OpenModsButton.Name = "OpenModsButton";
-            this.OpenModsButton.Size = new System.Drawing.Size(297, 57);
-            this.OpenModsButton.TabIndex = 6;
-            this.OpenModsButton.Text = "Open Mods Folder";
-            this.ToolTipMain.SetToolTip(this.OpenModsButton, "Open your mods folder in your GHWT installation folder.");
-            this.OpenModsButton.UseVisualStyleBackColor = false;
-            this.OpenModsButton.Click += new System.EventHandler(this.OpenModsButton_Click);
-            // 
-            // AdjustSettingsButton
-            // 
-            this.AdjustSettingsButton.BackColor = System.Drawing.Color.Transparent;
-            this.AdjustSettingsButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.AdjustSettingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdjustSettingsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdjustSettingsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.AdjustSettingsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.AdjustSettingsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.AdjustSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdjustSettingsButton.Font = new System.Drawing.Font("Lexend", 16F);
-            this.AdjustSettingsButton.ForeColor = System.Drawing.Color.White;
-            this.AdjustSettingsButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.AdjustSettingsButton.Location = new System.Drawing.Point(12, 269);
-            this.AdjustSettingsButton.Name = "AdjustSettingsButton";
-            this.AdjustSettingsButton.Size = new System.Drawing.Size(297, 57);
-            this.AdjustSettingsButton.TabIndex = 5;
-            this.AdjustSettingsButton.Text = "Adjust Settings";
-            this.ToolTipMain.SetToolTip(this.AdjustSettingsButton, "Adjust various settings for WTDE. All changes are saved automatically.");
-            this.AdjustSettingsButton.UseVisualStyleBackColor = false;
-            this.AdjustSettingsButton.Click += new System.EventHandler(this.AdjustSettingsButton_Click);
-            // 
-            // RunWTDEButton
-            // 
-            this.RunWTDEButton.BackColor = System.Drawing.Color.Transparent;
-            this.RunWTDEButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.RunWTDEButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RunWTDEButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RunWTDEButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.RunWTDEButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.RunWTDEButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.RunWTDEButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RunWTDEButton.Font = new System.Drawing.Font("Lexend", 16F);
-            this.RunWTDEButton.ForeColor = System.Drawing.Color.White;
-            this.RunWTDEButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.RunWTDEButton.Location = new System.Drawing.Point(12, 206);
-            this.RunWTDEButton.Name = "RunWTDEButton";
-            this.RunWTDEButton.Size = new System.Drawing.Size(297, 57);
-            this.RunWTDEButton.TabIndex = 4;
-            this.RunWTDEButton.Text = "Start WTDE";
-            this.ToolTipMain.SetToolTip(this.RunWTDEButton, "Run Guitar Hero World Tour: Definitive Edition.");
-            this.RunWTDEButton.UseVisualStyleBackColor = false;
-            this.RunWTDEButton.Click += new System.EventHandler(this.RunWTDEButton_Click);
-            // 
             // WTDELogo
             // 
             this.WTDELogo.BackColor = System.Drawing.Color.Transparent;
@@ -5047,138 +5224,6 @@
             this.TabButtonGroup.Size = new System.Drawing.Size(689, 63);
             this.TabButtonGroup.TabIndex = 12;
             // 
-            // TabButtonDebug
-            // 
-            this.TabButtonDebug.BackColor = System.Drawing.Color.Transparent;
-            this.TabButtonDebug.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonDebug.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabButtonDebug.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabButtonDebug.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.TabButtonDebug.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonDebug.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonDebug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TabButtonDebug.Font = new System.Drawing.Font("Lexend", 12F);
-            this.TabButtonDebug.ForeColor = System.Drawing.Color.White;
-            this.TabButtonDebug.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonDebug.Location = new System.Drawing.Point(576, 7);
-            this.TabButtonDebug.Name = "TabButtonDebug";
-            this.TabButtonDebug.Size = new System.Drawing.Size(101, 47);
-            this.TabButtonDebug.TabIndex = 20;
-            this.TabButtonDebug.Text = "Debug";
-            this.ToolTipMain.SetToolTip(this.TabButtonDebug, "Adjust various settings for debugging purposes.");
-            this.TabButtonDebug.UseVisualStyleBackColor = false;
-            this.TabButtonDebug.Click += new System.EventHandler(this.TabButtonDebug_Click);
-            // 
-            // TabButtonAutoLaunch
-            // 
-            this.TabButtonAutoLaunch.BackColor = System.Drawing.Color.Transparent;
-            this.TabButtonAutoLaunch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonAutoLaunch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabButtonAutoLaunch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabButtonAutoLaunch.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.TabButtonAutoLaunch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonAutoLaunch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonAutoLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TabButtonAutoLaunch.Font = new System.Drawing.Font("Lexend", 9F);
-            this.TabButtonAutoLaunch.ForeColor = System.Drawing.Color.White;
-            this.TabButtonAutoLaunch.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonAutoLaunch.Location = new System.Drawing.Point(462, 7);
-            this.TabButtonAutoLaunch.Name = "TabButtonAutoLaunch";
-            this.TabButtonAutoLaunch.Size = new System.Drawing.Size(101, 47);
-            this.TabButtonAutoLaunch.TabIndex = 19;
-            this.TabButtonAutoLaunch.Text = "Auto Launch";
-            this.ToolTipMain.SetToolTip(this.TabButtonAutoLaunch, "Set up WTDE to automatically load into a song of your choice on boot.");
-            this.TabButtonAutoLaunch.UseVisualStyleBackColor = false;
-            this.TabButtonAutoLaunch.Click += new System.EventHandler(this.TabButtonAutoLaunch_Click);
-            // 
-            // TabButtonBand
-            // 
-            this.TabButtonBand.BackColor = System.Drawing.Color.Transparent;
-            this.TabButtonBand.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonBand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabButtonBand.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabButtonBand.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.TabButtonBand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonBand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonBand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TabButtonBand.Font = new System.Drawing.Font("Lexend", 12F);
-            this.TabButtonBand.ForeColor = System.Drawing.Color.White;
-            this.TabButtonBand.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonBand.Location = new System.Drawing.Point(348, 7);
-            this.TabButtonBand.Name = "TabButtonBand";
-            this.TabButtonBand.Size = new System.Drawing.Size(101, 47);
-            this.TabButtonBand.TabIndex = 18;
-            this.TabButtonBand.Text = "Band";
-            this.ToolTipMain.SetToolTip(this.TabButtonBand, "Alter your preferred band lineup and change celebrity song settings.");
-            this.TabButtonBand.UseVisualStyleBackColor = false;
-            this.TabButtonBand.Click += new System.EventHandler(this.TabButtonBand_Click);
-            // 
-            // TabButtonGraphics
-            // 
-            this.TabButtonGraphics.BackColor = System.Drawing.Color.Transparent;
-            this.TabButtonGraphics.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonGraphics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabButtonGraphics.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabButtonGraphics.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.TabButtonGraphics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonGraphics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonGraphics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TabButtonGraphics.Font = new System.Drawing.Font("Lexend", 12F);
-            this.TabButtonGraphics.ForeColor = System.Drawing.Color.White;
-            this.TabButtonGraphics.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonGraphics.Location = new System.Drawing.Point(235, 7);
-            this.TabButtonGraphics.Name = "TabButtonGraphics";
-            this.TabButtonGraphics.Size = new System.Drawing.Size(101, 47);
-            this.TabButtonGraphics.TabIndex = 17;
-            this.TabButtonGraphics.Text = "Graphics";
-            this.ToolTipMain.SetToolTip(this.TabButtonGraphics, "Change various aspects of how the game looks.");
-            this.TabButtonGraphics.UseVisualStyleBackColor = false;
-            this.TabButtonGraphics.Click += new System.EventHandler(this.TabButtonGraphics_Click);
-            // 
-            // TabButtonInput
-            // 
-            this.TabButtonInput.BackColor = System.Drawing.Color.Transparent;
-            this.TabButtonInput.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonInput.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabButtonInput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabButtonInput.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.TabButtonInput.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonInput.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TabButtonInput.Font = new System.Drawing.Font("Lexend", 12F);
-            this.TabButtonInput.ForeColor = System.Drawing.Color.White;
-            this.TabButtonInput.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonInput.Location = new System.Drawing.Point(122, 7);
-            this.TabButtonInput.Name = "TabButtonInput";
-            this.TabButtonInput.Size = new System.Drawing.Size(101, 47);
-            this.TabButtonInput.TabIndex = 16;
-            this.TabButtonInput.Text = "Input";
-            this.ToolTipMain.SetToolTip(this.TabButtonInput, "Modify your keyboard controls and other related input settings.");
-            this.TabButtonInput.UseVisualStyleBackColor = false;
-            this.TabButtonInput.Click += new System.EventHandler(this.TabButtonInput_Click);
-            // 
-            // TabButtonGeneral
-            // 
-            this.TabButtonGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.TabButtonGeneral.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabButtonGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TabButtonGeneral.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.TabButtonGeneral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonGeneral.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.TabButtonGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TabButtonGeneral.Font = new System.Drawing.Font("Lexend", 12F);
-            this.TabButtonGeneral.ForeColor = System.Drawing.Color.White;
-            this.TabButtonGeneral.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.TabButtonGeneral.Location = new System.Drawing.Point(10, 7);
-            this.TabButtonGeneral.Name = "TabButtonGeneral";
-            this.TabButtonGeneral.Size = new System.Drawing.Size(101, 47);
-            this.TabButtonGeneral.TabIndex = 15;
-            this.TabButtonGeneral.Text = "General";
-            this.ToolTipMain.SetToolTip(this.TabButtonGeneral, "Adjust various basic, general use settings about WTDE.");
-            this.TabButtonGeneral.UseVisualStyleBackColor = false;
-            this.TabButtonGeneral.Click += new System.EventHandler(this.TabButtonGeneral_Click);
-            // 
             // MOTDText
             // 
             this.MOTDText.AutoEllipsis = true;
@@ -5211,6 +5256,466 @@
             this.DummyLabel.Size = new System.Drawing.Size(87, 13);
             this.DummyLabel.TabIndex = 14;
             this.DummyLabel.Text = "DUMMY_LABEL";
+            // 
+            // HitSparks
+            // 
+            this.HitSparks.AutoSize = true;
+            this.HitSparks.Location = new System.Drawing.Point(19, 6);
+            this.HitSparks.Name = "HitSparks";
+            this.HitSparks.Size = new System.Drawing.Size(142, 26);
+            this.HitSparks.TabIndex = 8;
+            this.HitSparks.Text = "Show Hit Sparks";
+            this.HitSparks.UseVisualStyleBackColor = true;
+            this.HitSparks.CheckedChanged += new System.EventHandler(this.HitSparks_CheckedChanged);
+            // 
+            // BlackStage
+            // 
+            this.BlackStage.AutoSize = true;
+            this.BlackStage.Location = new System.Drawing.Point(19, 31);
+            this.BlackStage.Name = "BlackStage";
+            this.BlackStage.Size = new System.Drawing.Size(201, 26);
+            this.BlackStage.TabIndex = 9;
+            this.BlackStage.Text = "Hide Stage (Black Stage)";
+            this.BlackStage.UseVisualStyleBackColor = true;
+            this.BlackStage.CheckedChanged += new System.EventHandler(this.BlackStage_CheckedChanged);
+            // 
+            // HideBand
+            // 
+            this.HideBand.AutoSize = true;
+            this.HideBand.Location = new System.Drawing.Point(19, 56);
+            this.HideBand.Name = "HideBand";
+            this.HideBand.Size = new System.Drawing.Size(101, 26);
+            this.HideBand.TabIndex = 10;
+            this.HideBand.Text = "Hide Band";
+            this.HideBand.UseVisualStyleBackColor = true;
+            this.HideBand.CheckedChanged += new System.EventHandler(this.HideBand_CheckedChanged);
+            // 
+            // HideInstruments
+            // 
+            this.HideInstruments.AutoSize = true;
+            this.HideInstruments.Location = new System.Drawing.Point(19, 81);
+            this.HideInstruments.Name = "HideInstruments";
+            this.HideInstruments.Size = new System.Drawing.Size(147, 26);
+            this.HideInstruments.TabIndex = 11;
+            this.HideInstruments.Text = "Hide Instruments";
+            this.HideInstruments.UseVisualStyleBackColor = true;
+            this.HideInstruments.CheckedChanged += new System.EventHandler(this.HideInstruments_CheckedChanged);
+            // 
+            // HandFlames
+            // 
+            this.HandFlames.AutoSize = true;
+            this.HandFlames.Location = new System.Drawing.Point(19, 106);
+            this.HandFlames.Name = "HandFlames";
+            this.HandFlames.Size = new System.Drawing.Size(160, 26);
+            this.HandFlames.TabIndex = 12;
+            this.HandFlames.Text = "Show Hand Flames";
+            this.HandFlames.UseVisualStyleBackColor = true;
+            this.HandFlames.CheckedChanged += new System.EventHandler(this.HandFlames_CheckedChanged);
+            // 
+            // SpecialStarPowerFX
+            // 
+            this.SpecialStarPowerFX.AutoSize = true;
+            this.SpecialStarPowerFX.Location = new System.Drawing.Point(19, 131);
+            this.SpecialStarPowerFX.Name = "SpecialStarPowerFX";
+            this.SpecialStarPowerFX.Size = new System.Drawing.Size(181, 26);
+            this.SpecialStarPowerFX.TabIndex = 13;
+            this.SpecialStarPowerFX.Text = "Special Star Power FX";
+            this.SpecialStarPowerFX.UseVisualStyleBackColor = true;
+            this.SpecialStarPowerFX.CheckedChanged += new System.EventHandler(this.SpecialStarPowerFX_CheckedChanged);
+            // 
+            // TGEditorInterface
+            // 
+            this.TGEditorInterface.Controls.Add(this.HighwayVignetteOpacity);
+            this.TGEditorInterface.Controls.Add(this.HWVignetteLabel);
+            this.TGEditorInterface.Controls.Add(this.HighwayOpacity);
+            this.TGEditorInterface.Controls.Add(this.HWAlphaLabel);
+            this.TGEditorInterface.Controls.Add(this.PauseThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.PauseTheme);
+            this.TGEditorInterface.Controls.Add(this.YouRockThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.YouRockTheme);
+            this.TGEditorInterface.Controls.Add(this.SustainFX);
+            this.TGEditorInterface.Controls.Add(this.FlameStyleLabel);
+            this.TGEditorInterface.Controls.Add(this.HitFlameTheme);
+            this.TGEditorInterface.Controls.Add(this.TapTrailLabel);
+            this.TGEditorInterface.Controls.Add(this.TapTrailTheme);
+            this.TGEditorInterface.Controls.Add(this.HelperPillLabel);
+            this.TGEditorInterface.Controls.Add(this.HelperPillTheme);
+            this.TGEditorInterface.Controls.Add(this.HUDThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.HUDTheme);
+            this.TGEditorInterface.Controls.Add(this.LoadThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.LoadingTheme);
+            this.TGEditorInterface.Controls.Add(this.TitleCardLabel);
+            this.TGEditorInterface.Controls.Add(this.SongIntroStyle);
+            this.TGEditorInterface.Controls.Add(this.GemColors);
+            this.TGEditorInterface.Controls.Add(this.NoteColorLabel);
+            this.TGEditorInterface.Controls.Add(this.GemTheme);
+            this.TGEditorInterface.Controls.Add(this.NoteStyleLabel);
+            this.TGEditorInterface.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorInterface.Name = "TGEditorInterface";
+            this.TGEditorInterface.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorInterface.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorInterface.TabIndex = 2;
+            this.TGEditorInterface.Text = "Interface Options";
+            this.TGEditorInterface.UseVisualStyleBackColor = true;
+            // 
+            // NoteStyleLabel
+            // 
+            this.NoteStyleLabel.AutoSize = true;
+            this.NoteStyleLabel.Location = new System.Drawing.Point(15, 6);
+            this.NoteStyleLabel.Name = "NoteStyleLabel";
+            this.NoteStyleLabel.Size = new System.Drawing.Size(123, 22);
+            this.NoteStyleLabel.TabIndex = 2;
+            this.NoteStyleLabel.Text = "Note/Gem Style:";
+            // 
+            // GemTheme
+            // 
+            this.GemTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GemTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GemTheme.FormattingEnabled = true;
+            this.GemTheme.Items.AddRange(new object[] {
+            "GH: World Tour (Default)",
+            "Guitar Hero III",
+            "Guitar Hero: Warriors of Rock",
+            "Flat Notes"});
+            this.GemTheme.Location = new System.Drawing.Point(198, 7);
+            this.GemTheme.Name = "GemTheme";
+            this.GemTheme.Size = new System.Drawing.Size(179, 23);
+            this.GemTheme.TabIndex = 3;
+            this.ToolTipMain.SetToolTip(this.GemTheme, "The visual appearance of the notes on the highway.");
+            this.GemTheme.SelectedIndexChanged += new System.EventHandler(this.GemTheme_SelectedIndexChanged);
+            // 
+            // NoteColorLabel
+            // 
+            this.NoteColorLabel.AutoSize = true;
+            this.NoteColorLabel.Location = new System.Drawing.Point(15, 31);
+            this.NoteColorLabel.Name = "NoteColorLabel";
+            this.NoteColorLabel.Size = new System.Drawing.Size(134, 22);
+            this.NoteColorLabel.TabIndex = 4;
+            this.NoteColorLabel.Text = "Note/Gem Theme:";
+            // 
+            // GemColors
+            // 
+            this.GemColors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GemColors.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GemColors.FormattingEnabled = true;
+            this.GemColors.Items.AddRange(new object[] {
+            "Normal Color (Default)",
+            "Pink",
+            "Stealth",
+            "Eggs \'N Bacon",
+            "Old Glory",
+            "Solid Gold",
+            "Platinum",
+            "Diabolic",
+            "Toxic Waste",
+            "Black",
+            "Pastel",
+            "Dark",
+            "Outline",
+            "GH1 Prototype",
+            "Pure Green",
+            "Pure Red",
+            "Pure Yellow",
+            "Pure Blue",
+            "Pure Orange",
+            "Candy Cane",
+            "Ghoulish"});
+            this.GemColors.Location = new System.Drawing.Point(198, 32);
+            this.GemColors.Name = "GemColors";
+            this.GemColors.Size = new System.Drawing.Size(179, 23);
+            this.GemColors.TabIndex = 5;
+            this.ToolTipMain.SetToolTip(this.GemColors, "The color palette of the notes on the highway.");
+            this.GemColors.SelectedIndexChanged += new System.EventHandler(this.GemColors_SelectedIndexChanged);
+            // 
+            // SongIntroStyle
+            // 
+            this.SongIntroStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SongIntroStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SongIntroStyle.FormattingEnabled = true;
+            this.SongIntroStyle.Items.AddRange(new object[] {
+            "Normal GHWT (Default)",
+            "Guitar Hero III",
+            "Guitar Hero III (Left)",
+            "Guitar Hero: Metallica",
+            "Guitar Hero: Smash Hits",
+            "Guitar Hero: Van Halen",
+            "Guitar Hero 5",
+            "Band Hero",
+            "Guitar Hero: Warriors of Rock",
+            "Auto (Based on Setlist)"});
+            this.SongIntroStyle.Location = new System.Drawing.Point(198, 57);
+            this.SongIntroStyle.Name = "SongIntroStyle";
+            this.SongIntroStyle.Size = new System.Drawing.Size(179, 23);
+            this.SongIntroStyle.TabIndex = 6;
+            this.ToolTipMain.SetToolTip(this.SongIntroStyle, "Style of the information about the song shown on the top left corner\r\nof the scre" +
+        "en when a song starts.");
+            this.SongIntroStyle.SelectedIndexChanged += new System.EventHandler(this.SongIntroStyle_SelectedIndexChanged);
+            // 
+            // TitleCardLabel
+            // 
+            this.TitleCardLabel.AutoSize = true;
+            this.TitleCardLabel.Location = new System.Drawing.Point(15, 56);
+            this.TitleCardLabel.Name = "TitleCardLabel";
+            this.TitleCardLabel.Size = new System.Drawing.Size(118, 22);
+            this.TitleCardLabel.TabIndex = 7;
+            this.TitleCardLabel.Text = "Title Card Style:";
+            // 
+            // LoadThemeLabel
+            // 
+            this.LoadThemeLabel.AutoSize = true;
+            this.LoadThemeLabel.Location = new System.Drawing.Point(15, 81);
+            this.LoadThemeLabel.Name = "LoadThemeLabel";
+            this.LoadThemeLabel.Size = new System.Drawing.Size(147, 22);
+            this.LoadThemeLabel.TabIndex = 9;
+            this.LoadThemeLabel.Text = "Load Screen Theme:";
+            // 
+            // LoadingTheme
+            // 
+            this.LoadingTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LoadingTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LoadingTheme.FormattingEnabled = true;
+            this.LoadingTheme.Items.AddRange(new object[] {
+            "GHWT: DE (Default)",
+            "Guitar Hero II",
+            "Guitar Hero III",
+            "Guitar Hero III (Console)",
+            "Guitar Hero: Aerosmith",
+            "Guitar Hero: World Tour",
+            "Guitar Hero: Metallica",
+            "Guitar Hero: Smash Hits",
+            "Guitar Hero: Van Halen"});
+            this.LoadingTheme.Location = new System.Drawing.Point(198, 82);
+            this.LoadingTheme.Name = "LoadingTheme";
+            this.LoadingTheme.Size = new System.Drawing.Size(179, 23);
+            this.LoadingTheme.TabIndex = 8;
+            this.ToolTipMain.SetToolTip(this.LoadingTheme, "Style of the loading screen between menus.");
+            this.LoadingTheme.SelectedIndexChanged += new System.EventHandler(this.LoadingTheme_SelectedIndexChanged);
+            // 
+            // HUDThemeLabel
+            // 
+            this.HUDThemeLabel.AutoSize = true;
+            this.HUDThemeLabel.Location = new System.Drawing.Point(15, 106);
+            this.HUDThemeLabel.Name = "HUDThemeLabel";
+            this.HUDThemeLabel.Size = new System.Drawing.Size(93, 22);
+            this.HUDThemeLabel.TabIndex = 11;
+            this.HUDThemeLabel.Text = "HUD Theme:";
+            // 
+            // HUDTheme
+            // 
+            this.HUDTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HUDTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.HUDTheme.FormattingEnabled = true;
+            this.HUDTheme.Items.AddRange(new object[] {
+            "GH: World Tour+ (Default)",
+            "Guitar Hero: World Tour",
+            "Guitar Hero: Metallica",
+            "Guitar Hero: Smash Hits",
+            "Guitar Hero: Van Halen"});
+            this.HUDTheme.Location = new System.Drawing.Point(198, 107);
+            this.HUDTheme.Name = "HUDTheme";
+            this.HUDTheme.Size = new System.Drawing.Size(179, 23);
+            this.HUDTheme.TabIndex = 10;
+            this.ToolTipMain.SetToolTip(this.HUDTheme, resources.GetString("HUDTheme.ToolTip"));
+            this.HUDTheme.SelectedIndexChanged += new System.EventHandler(this.HUDTheme_SelectedIndexChanged);
+            // 
+            // HelperPillLabel
+            // 
+            this.HelperPillLabel.AutoSize = true;
+            this.HelperPillLabel.Location = new System.Drawing.Point(15, 181);
+            this.HelperPillLabel.Name = "HelperPillLabel";
+            this.HelperPillLabel.Size = new System.Drawing.Size(143, 22);
+            this.HelperPillLabel.TabIndex = 13;
+            this.HelperPillLabel.Text = "User Helper Theme:";
+            // 
+            // HelperPillTheme
+            // 
+            this.HelperPillTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HelperPillTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.HelperPillTheme.FormattingEnabled = true;
+            this.HelperPillTheme.Items.AddRange(new object[] {
+            "GHWT: DE (Default)",
+            "Guitar Hero: World Tour",
+            "Guitar Hero: World Tour (Beta)",
+            "Guitar Hero: World Tour (Wii)",
+            "GH: World Tour (Wii, HD)"});
+            this.HelperPillTheme.Location = new System.Drawing.Point(198, 182);
+            this.HelperPillTheme.Name = "HelperPillTheme";
+            this.HelperPillTheme.Size = new System.Drawing.Size(179, 23);
+            this.HelperPillTheme.TabIndex = 12;
+            this.ToolTipMain.SetToolTip(this.HelperPillTheme, "The style of the user helper pills seen on the bottom center of the screen in men" +
+        "us.");
+            this.HelperPillTheme.SelectedIndexChanged += new System.EventHandler(this.HelperPillTheme_SelectedIndexChanged);
+            // 
+            // TapTrailLabel
+            // 
+            this.TapTrailLabel.AutoSize = true;
+            this.TapTrailLabel.Location = new System.Drawing.Point(15, 206);
+            this.TapTrailLabel.Name = "TapTrailLabel";
+            this.TapTrailLabel.Size = new System.Drawing.Size(110, 22);
+            this.TapTrailLabel.TabIndex = 15;
+            this.TapTrailLabel.Text = "Tap Trail Style:";
+            // 
+            // TapTrailTheme
+            // 
+            this.TapTrailTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TapTrailTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TapTrailTheme.FormattingEnabled = true;
+            this.TapTrailTheme.Items.AddRange(new object[] {
+            "GH: World Tour (Default)",
+            "Guitar Hero: Metallica",
+            "No Tap Trail"});
+            this.TapTrailTheme.Location = new System.Drawing.Point(198, 207);
+            this.TapTrailTheme.Name = "TapTrailTheme";
+            this.TapTrailTheme.Size = new System.Drawing.Size(179, 23);
+            this.TapTrailTheme.TabIndex = 14;
+            this.ToolTipMain.SetToolTip(this.TapTrailTheme, resources.GetString("TapTrailTheme.ToolTip"));
+            this.TapTrailTheme.SelectedIndexChanged += new System.EventHandler(this.TapTrailTheme_SelectedIndexChanged);
+            // 
+            // FlameStyleLabel
+            // 
+            this.FlameStyleLabel.AutoSize = true;
+            this.FlameStyleLabel.Location = new System.Drawing.Point(15, 231);
+            this.FlameStyleLabel.Name = "FlameStyleLabel";
+            this.FlameStyleLabel.Size = new System.Drawing.Size(117, 22);
+            this.FlameStyleLabel.TabIndex = 17;
+            this.FlameStyleLabel.Text = "Hit Flame Style:";
+            // 
+            // HitFlameTheme
+            // 
+            this.HitFlameTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HitFlameTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.HitFlameTheme.FormattingEnabled = true;
+            this.HitFlameTheme.Items.AddRange(new object[] {
+            "GH: World Tour (Default)",
+            "Guitar Hero II",
+            "Guitar Hero: Warriors of Rock",
+            "No Hit Flames"});
+            this.HitFlameTheme.Location = new System.Drawing.Point(198, 232);
+            this.HitFlameTheme.Name = "HitFlameTheme";
+            this.HitFlameTheme.Size = new System.Drawing.Size(179, 23);
+            this.HitFlameTheme.TabIndex = 16;
+            this.ToolTipMain.SetToolTip(this.HitFlameTheme, "The style of the flames seen when a note is hit. Disabling these may\r\nbe jarring " +
+        "to some players!");
+            this.HitFlameTheme.SelectedIndexChanged += new System.EventHandler(this.HitFlameTheme_SelectedIndexChanged);
+            // 
+            // SustainFX
+            // 
+            this.SustainFX.AutoSize = true;
+            this.SustainFX.Location = new System.Drawing.Point(19, 255);
+            this.SustainFX.Name = "SustainFX";
+            this.SustainFX.Size = new System.Drawing.Size(172, 26);
+            this.SustainFX.TabIndex = 18;
+            this.SustainFX.Text = "Use Sustain Fizzle FX";
+            this.ToolTipMain.SetToolTip(this.SustainFX, "Shows the red fizzle effects seen on the strike line while a sustain is held.\r\nDi" +
+        "sabling these may be jarring to some players!");
+            this.SustainFX.UseVisualStyleBackColor = true;
+            this.SustainFX.CheckedChanged += new System.EventHandler(this.SustainFX_CheckedChanged);
+            // 
+            // YouRockThemeLabel
+            // 
+            this.YouRockThemeLabel.AutoSize = true;
+            this.YouRockThemeLabel.Location = new System.Drawing.Point(15, 131);
+            this.YouRockThemeLabel.Name = "YouRockThemeLabel";
+            this.YouRockThemeLabel.Size = new System.Drawing.Size(128, 22);
+            this.YouRockThemeLabel.TabIndex = 20;
+            this.YouRockThemeLabel.Text = "You Rock! Theme:";
+            // 
+            // YouRockTheme
+            // 
+            this.YouRockTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.YouRockTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.YouRockTheme.FormattingEnabled = true;
+            this.YouRockTheme.Items.AddRange(new object[] {
+            "GH: World Tour (Default)",
+            "Guitar Hero: Metallica",
+            "Guitar Hero: Smash Hits",
+            "Guitar Hero: Van Halen"});
+            this.YouRockTheme.Location = new System.Drawing.Point(198, 132);
+            this.YouRockTheme.Name = "YouRockTheme";
+            this.YouRockTheme.Size = new System.Drawing.Size(179, 23);
+            this.YouRockTheme.TabIndex = 19;
+            this.ToolTipMain.SetToolTip(this.YouRockTheme, "The style of the \"You Rock!\" animation seen after a song is completed.");
+            this.YouRockTheme.SelectedIndexChanged += new System.EventHandler(this.YouRockTheme_SelectedIndexChanged);
+            // 
+            // PauseThemeLabel
+            // 
+            this.PauseThemeLabel.AutoSize = true;
+            this.PauseThemeLabel.Location = new System.Drawing.Point(15, 156);
+            this.PauseThemeLabel.Name = "PauseThemeLabel";
+            this.PauseThemeLabel.Size = new System.Drawing.Size(143, 22);
+            this.PauseThemeLabel.TabIndex = 22;
+            this.PauseThemeLabel.Text = "Pause Menu Theme:";
+            // 
+            // PauseTheme
+            // 
+            this.PauseTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PauseTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PauseTheme.FormattingEnabled = true;
+            this.PauseTheme.Items.AddRange(new object[] {
+            "GH: World Tour (Default)",
+            "Guitar Hero: Metallica",
+            "Guitar Hero: Van Halen"});
+            this.PauseTheme.Location = new System.Drawing.Point(198, 157);
+            this.PauseTheme.Name = "PauseTheme";
+            this.PauseTheme.Size = new System.Drawing.Size(179, 23);
+            this.PauseTheme.TabIndex = 21;
+            this.ToolTipMain.SetToolTip(this.PauseTheme, "Alters the visual style of the pause menu when a song is paused.");
+            this.PauseTheme.SelectedIndexChanged += new System.EventHandler(this.PauseTheme_SelectedIndexChanged);
+            // 
+            // HWAlphaLabel
+            // 
+            this.HWAlphaLabel.AutoSize = true;
+            this.HWAlphaLabel.Location = new System.Drawing.Point(15, 280);
+            this.HWAlphaLabel.Name = "HWAlphaLabel";
+            this.HWAlphaLabel.Size = new System.Drawing.Size(336, 22);
+            this.HWAlphaLabel.TabIndex = 23;
+            this.HWAlphaLabel.Text = "Highway Alpha (Opacity):                                   %";
+            // 
+            // HighwayOpacity
+            // 
+            this.HighwayOpacity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.HighwayOpacity.Location = new System.Drawing.Point(270, 280);
+            this.HighwayOpacity.Name = "HighwayOpacity";
+            this.HighwayOpacity.Size = new System.Drawing.Size(55, 23);
+            this.HighwayOpacity.TabIndex = 24;
+            this.ToolTipMain.SetToolTip(this.HighwayOpacity, "Adjust how see-through the highway is. 100% is default; the lower this\r\nvalue, th" +
+        "e more invisible the highway becomes.");
+            this.HighwayOpacity.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.HighwayOpacity.ValueChanged += new System.EventHandler(this.HighwayOpacity_ValueChanged);
+            // 
+            // HWVignetteLabel
+            // 
+            this.HWVignetteLabel.AutoSize = true;
+            this.HWVignetteLabel.Location = new System.Drawing.Point(15, 305);
+            this.HWVignetteLabel.Name = "HWVignetteLabel";
+            this.HWVignetteLabel.Size = new System.Drawing.Size(337, 22);
+            this.HWVignetteLabel.TabIndex = 25;
+            this.HWVignetteLabel.Text = "Highway Vignette Alpha (Opacity):                    %";
+            // 
+            // HighwayVignetteOpacity
+            // 
+            this.HighwayVignetteOpacity.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.HighwayVignetteOpacity.Location = new System.Drawing.Point(270, 306);
+            this.HighwayVignetteOpacity.Name = "HighwayVignetteOpacity";
+            this.HighwayVignetteOpacity.Size = new System.Drawing.Size(55, 23);
+            this.HighwayVignetteOpacity.TabIndex = 26;
+            this.ToolTipMain.SetToolTip(this.HighwayVignetteOpacity, "Adds a faint shadow on the edges of the highway. 0% is default; the higher\r\nthis " +
+        "value, the more pronounced the shadow on the sides will be.");
+            this.HighwayVignetteOpacity.ValueChanged += new System.EventHandler(this.HighwayVignetteOpacity_ValueChanged);
+            // 
+            // TGEditorAdvanced
+            // 
+            this.TGEditorAdvanced.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorAdvanced.Name = "TGEditorAdvanced";
+            this.TGEditorAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorAdvanced.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorAdvanced.TabIndex = 3;
+            this.TGEditorAdvanced.Text = "Advanced Graphics";
+            this.TGEditorAdvanced.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -5250,6 +5755,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.FPSLimit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoWidth)).EndInit();
+            this.TGEditorGameplay.ResumeLayout(false);
+            this.TGEditorGameplay.PerformLayout();
             this.TabBandGroup.ResumeLayout(false);
             this.TabBandGroup.PerformLayout();
             this.TabInputGroup.ResumeLayout(false);
@@ -5287,6 +5794,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).EndInit();
+            this.TGEditorInterface.ResumeLayout(false);
+            this.TGEditorInterface.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HighwayVignetteOpacity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5671,6 +6182,39 @@
         private System.Windows.Forms.Label TBPrefFVoxLabel;
         private System.Windows.Forms.CheckBox ReplaceSpecialBands;
         public System.Windows.Forms.Label DummyLabel;
+        private System.Windows.Forms.CheckBox BlackStage;
+        private System.Windows.Forms.CheckBox HitSparks;
+        private System.Windows.Forms.CheckBox SpecialStarPowerFX;
+        private System.Windows.Forms.CheckBox HandFlames;
+        private System.Windows.Forms.CheckBox HideInstruments;
+        private System.Windows.Forms.CheckBox HideBand;
+        private System.Windows.Forms.TabPage TGEditorInterface;
+        private System.Windows.Forms.ComboBox GemTheme;
+        private System.Windows.Forms.Label NoteStyleLabel;
+        private System.Windows.Forms.Label TitleCardLabel;
+        private System.Windows.Forms.ComboBox SongIntroStyle;
+        private System.Windows.Forms.ComboBox GemColors;
+        private System.Windows.Forms.Label NoteColorLabel;
+        private System.Windows.Forms.Label LoadThemeLabel;
+        private System.Windows.Forms.ComboBox LoadingTheme;
+        private System.Windows.Forms.Label HUDThemeLabel;
+        private System.Windows.Forms.ComboBox HUDTheme;
+        private System.Windows.Forms.Label TapTrailLabel;
+        private System.Windows.Forms.ComboBox TapTrailTheme;
+        private System.Windows.Forms.Label HelperPillLabel;
+        private System.Windows.Forms.ComboBox HelperPillTheme;
+        private System.Windows.Forms.Label FlameStyleLabel;
+        private System.Windows.Forms.ComboBox HitFlameTheme;
+        private System.Windows.Forms.Label YouRockThemeLabel;
+        private System.Windows.Forms.ComboBox YouRockTheme;
+        private System.Windows.Forms.CheckBox SustainFX;
+        private System.Windows.Forms.Label PauseThemeLabel;
+        private System.Windows.Forms.ComboBox PauseTheme;
+        private System.Windows.Forms.Label HWAlphaLabel;
+        private System.Windows.Forms.NumericUpDown HighwayOpacity;
+        private System.Windows.Forms.NumericUpDown HighwayVignetteOpacity;
+        private System.Windows.Forms.Label HWVignetteLabel;
+        private System.Windows.Forms.TabPage TGEditorAdvanced;
     }
 }
 
