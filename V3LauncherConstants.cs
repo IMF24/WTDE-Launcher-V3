@@ -219,6 +219,7 @@ namespace WTDE_Launcher_V3 {
         public static List<List<string>> VenueIDs = new List<List<string>>() {
             // Venue literal names
             new List<string>() {
+                "None",
                 "WT: Phi Psi Kappa",
                 "WT: Wilted Orchid",
                 "WT: Bone Church",
@@ -282,6 +283,7 @@ namespace WTDE_Launcher_V3 {
 
             // Venue PAK names
             new List<string>() {
+                "",
                 "z_frathouse",
                 "z_goth",
                 "z_cathedral",
@@ -761,6 +763,52 @@ namespace WTDE_Launcher_V3 {
                 "ghwt",
                 "gh2",
                 "ghwor",
+                "none"
+            }
+        };
+
+        /// <summary>
+        ///  List of time of day profiles/post processing FX.
+        /// </summary>
+        public static string[][] TODProfiles = new string[][] {
+            // TOD profile names.
+            new string[] { 
+                "Retro (Default)",
+                "Modern",
+                "Black & White",
+                "Psychadelic",
+                "Dusty Orange",
+                "Spooky"
+            },
+
+            // TOD profile IDs.
+            new string[] { 
+                "ghwt",
+                "ghvh",
+                "bw",
+                "psych",
+                "dustyorange",
+                "spooky"
+            }
+        };
+
+        /// <summary>
+        ///  List of flare styles.
+        /// </summary>
+        public static string[][] FlareStyles = new string[][] { 
+            // Flare style names.
+            new string[] {
+                "GHWT: DE (Default)",
+                "Guitar Hero: World Tour",
+                "Guitar Hero III",
+                "No Flares"
+            },
+
+            // Flare style IDs.
+            new string[] { 
+                "wtde",
+                "ghwt",
+                "gh3",
                 "none"
             }
         };

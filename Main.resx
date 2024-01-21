@@ -217,13 +217,6 @@ For built-in characters, visit the "ID_Characters.txt" file in the Resources dir
 If this is blank or the specified character does not exist, the game will, at random, select any character.
 </value>
   </data>
-  <data name="TapTrailTheme.ToolTip" xml:space="preserve">
-    <value>The style of the line connecting tap notes in a tap section.
-
-  •  GH: World Tour (Default): Tap notes are connected by a purple line.
-  •  Guitar Hero: Metallica: Tap notes are connected by a gray line.
-  •  No Tap Trail: The tap trail will not be displayed.</value>
-  </data>
   <data name="HUDTheme.ToolTip" xml:space="preserve">
     <value>The style of the HUD (heads up display) seen on the screen during songs.
 
@@ -239,6 +232,13 @@ If this is blank or the specified character does not exist, the game will, at ra
 
 Note that all post-GHWT themes (GHM, GHSH, GHVH) will use different sound effects and
 fonts to compliment their original appearances in their respective games.</value>
+  </data>
+  <data name="TapTrailTheme.ToolTip" xml:space="preserve">
+    <value>The style of the line connecting tap notes in a tap section.
+
+  •  GH: World Tour (Default): Tap notes are connected by a purple line.
+  •  Guitar Hero: Metallica: Tap notes are connected by a gray line.
+  •  No Tap Trail: The tap trail will not be displayed.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -475,6 +475,9 @@ GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
         8KL1NOVeh09+5GKO+cZoW8WdjFxznpls6fj4+Pj4+Pj4xDpEfwEBzJ8BrinHKwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>55</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAEBAAAAEAIABoBAAAZgAAACAgAAABACAAqBAAAM4EAAAwMAAAAQAgAKglAAB2FQAAQEAAAAEA
