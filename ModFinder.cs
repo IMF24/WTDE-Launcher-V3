@@ -33,11 +33,11 @@ namespace WTDE_Launcher_V3 {
             // Find mods with the given filters.
             List<string> matchedMods = new List<string>();
 
-            string modNameFilter = ModName.Text;
-            string modAuthorFilter = ModAuthor.Text;
-            string modVersionFilter = ModVersion.Text;
-            string modDescriptionFilter = ModDescription.Text;
-            string modPathFilter = PathFilter.Text;
+            string modNameFilter = ModName.Text.ToLower();
+            string modAuthorFilter = ModAuthor.Text.ToLower();
+            string modVersionFilter = ModVersion.Text.ToLower();
+            string modDescriptionFilter = ModDescription.Text.ToLower();
+            string modPathFilter = PathFilter.Text.ToLower();
 
             string modTypeFilter = "";
 

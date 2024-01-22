@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModFinder));
             this.ModFinderHeader = new System.Windows.Forms.Label();
             this.FindSongs = new System.Windows.Forms.RadioButton();
@@ -57,6 +58,7 @@
             this.DeleteSelectedMod = new System.Windows.Forms.Button();
             this.OpenSelectedConfig = new System.Windows.Forms.Button();
             this.ActionsHeader = new System.Windows.Forms.Label();
+            this.FinderToolTipMain = new System.Windows.Forms.ToolTip(this.components);
             this.ModTypeGroup.SuspendLayout();
             this.SearchFiltersGroup.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +101,7 @@
             this.ModTypeGroup.TabIndex = 4;
             this.ModTypeGroup.TabStop = false;
             this.ModTypeGroup.Text = "Mod Type";
+            this.FinderToolTipMain.SetToolTip(this.ModTypeGroup, "Filter the mod search down to a certain mod type.");
             // 
             // FindCharacters
             // 
@@ -220,6 +223,7 @@
             this.SearchFiltersGroup.TabIndex = 6;
             this.SearchFiltersGroup.TabStop = false;
             this.SearchFiltersGroup.Text = "Search Filters";
+            this.FinderToolTipMain.SetToolTip(this.SearchFiltersGroup, "Various other filters to apply to the search query.");
             // 
             // PathFilter
             // 
@@ -227,6 +231,7 @@
             this.PathFilter.Name = "PathFilter";
             this.PathFilter.Size = new System.Drawing.Size(389, 20);
             this.PathFilter.TabIndex = 6;
+            this.FinderToolTipMain.SetToolTip(this.PathFilter, "Look for a specific path/folder/file name.");
             // 
             // ModNameLabel
             // 
@@ -243,6 +248,7 @@
             this.ModName.Name = "ModName";
             this.ModName.Size = new System.Drawing.Size(389, 20);
             this.ModName.TabIndex = 8;
+            this.FinderToolTipMain.SetToolTip(this.ModName, "Searches the ModInfo section for a mod\'s name.");
             // 
             // ModAuthor
             // 
@@ -250,6 +256,7 @@
             this.ModAuthor.Name = "ModAuthor";
             this.ModAuthor.Size = new System.Drawing.Size(389, 20);
             this.ModAuthor.TabIndex = 10;
+            this.FinderToolTipMain.SetToolTip(this.ModAuthor, "Searches the ModInfo section for a mod\'s author.");
             // 
             // ModAuthorLabel
             // 
@@ -266,6 +273,7 @@
             this.ModVersion.Name = "ModVersion";
             this.ModVersion.Size = new System.Drawing.Size(389, 20);
             this.ModVersion.TabIndex = 12;
+            this.FinderToolTipMain.SetToolTip(this.ModVersion, "Searches the ModInfo section for a mod\'s version.");
             // 
             // ModVersionLabel
             // 
@@ -282,6 +290,7 @@
             this.ModDescription.Name = "ModDescription";
             this.ModDescription.Size = new System.Drawing.Size(389, 20);
             this.ModDescription.TabIndex = 14;
+            this.FinderToolTipMain.SetToolTip(this.ModDescription, "Searches the ModInfo section for a mod\'s description.");
             // 
             // ModDescLabel
             // 
@@ -309,6 +318,7 @@
             this.FindResultsList.Name = "FindResultsList";
             this.FindResultsList.Size = new System.Drawing.Size(376, 277);
             this.FindResultsList.TabIndex = 8;
+            this.FinderToolTipMain.SetToolTip(this.FindResultsList, "List of mod paths matching what you provided.");
             this.FindResultsList.SelectedIndexChanged += new System.EventHandler(this.FindResultsList_SelectedIndexChanged);
             // 
             // FindModsButton
@@ -318,16 +328,19 @@
             this.FindModsButton.Size = new System.Drawing.Size(75, 23);
             this.FindModsButton.TabIndex = 9;
             this.FindModsButton.Text = "Search";
+            this.FinderToolTipMain.SetToolTip(this.FindModsButton, "Run a scan on your mods folder, reporting any mods matching the filters you provi" +
+        "ded.");
             this.FindModsButton.UseVisualStyleBackColor = true;
             this.FindModsButton.Click += new System.EventHandler(this.FindModsButton_Click);
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(455, 600);
+            this.CloseButton.Location = new System.Drawing.Point(461, 600);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 10;
             this.CloseButton.Text = "Close";
+            this.FinderToolTipMain.SetToolTip(this.CloseButton, "Closes this window.");
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -348,6 +361,7 @@
             this.CopySelectedPath.Size = new System.Drawing.Size(136, 23);
             this.CopySelectedPath.TabIndex = 11;
             this.CopySelectedPath.Text = "Copy Selected Path";
+            this.FinderToolTipMain.SetToolTip(this.CopySelectedPath, "Copy the selected mod\'s path.");
             this.CopySelectedPath.UseVisualStyleBackColor = true;
             this.CopySelectedPath.Click += new System.EventHandler(this.CopySelectedPath_Click);
             // 
@@ -358,6 +372,7 @@
             this.OpenSelectedFolder.Size = new System.Drawing.Size(136, 23);
             this.OpenSelectedFolder.TabIndex = 12;
             this.OpenSelectedFolder.Text = "Open Selected Folder";
+            this.FinderToolTipMain.SetToolTip(this.OpenSelectedFolder, "Open the selected mod\'s folder.");
             this.OpenSelectedFolder.UseVisualStyleBackColor = true;
             this.OpenSelectedFolder.Click += new System.EventHandler(this.OpenSelectedFolder_Click);
             // 
@@ -368,6 +383,7 @@
             this.DeleteSelectedMod.Size = new System.Drawing.Size(136, 23);
             this.DeleteSelectedMod.TabIndex = 13;
             this.DeleteSelectedMod.Text = "Delete Mod";
+            this.FinderToolTipMain.SetToolTip(this.DeleteSelectedMod, "Delete the selected mod.");
             this.DeleteSelectedMod.UseVisualStyleBackColor = true;
             this.DeleteSelectedMod.Click += new System.EventHandler(this.DeleteSelectedMod_Click);
             // 
@@ -378,6 +394,7 @@
             this.OpenSelectedConfig.Size = new System.Drawing.Size(136, 23);
             this.OpenSelectedConfig.TabIndex = 14;
             this.OpenSelectedConfig.Text = "Open Selected Config";
+            this.FinderToolTipMain.SetToolTip(this.OpenSelectedConfig, "Open the selected mod\'s INI file.");
             this.OpenSelectedConfig.UseVisualStyleBackColor = true;
             this.OpenSelectedConfig.Click += new System.EventHandler(this.OpenSelectedConfig_Click);
             // 
@@ -459,5 +476,6 @@
         private System.Windows.Forms.Button DeleteSelectedMod;
         private System.Windows.Forms.Button OpenSelectedConfig;
         private System.Windows.Forms.Label ActionsHeader;
+        private System.Windows.Forms.ToolTip FinderToolTipMain;
     }
 }
