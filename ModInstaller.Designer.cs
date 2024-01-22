@@ -46,7 +46,7 @@
             this.AddModArchives.Name = "AddModArchives";
             this.AddModArchives.Size = new System.Drawing.Size(295, 23);
             this.AddModArchives.TabIndex = 0;
-            this.AddModArchives.Text = "Add Archive Mod...";
+            this.AddModArchives.Text = "Add Archive Mod(s)...";
             this.InstallerToolTipMain.SetToolTip(this.AddModArchives, "Add mod archives to the queue list (ZIP/7Z/RAR format).");
             this.AddModArchives.UseVisualStyleBackColor = true;
             this.AddModArchives.Click += new System.EventHandler(this.AddModArchives_Click);
@@ -150,7 +150,7 @@
             // 
             this.InstallProgressInfo.AutoSize = true;
             this.InstallProgressInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InstallProgressInfo.Location = new System.Drawing.Point(12, 471);
+            this.InstallProgressInfo.Location = new System.Drawing.Point(12, 468);
             this.InstallProgressInfo.Name = "InstallProgressInfo";
             this.InstallProgressInfo.Size = new System.Drawing.Size(118, 15);
             this.InstallProgressInfo.TabIndex = 10;

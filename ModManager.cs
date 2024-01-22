@@ -1,4 +1,11 @@
-﻿using System;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       M O D       M A N A G E R
+//
+//    The Mod Manager, meant for the user to manage their mods with a
+//    relatively user-friendly dialog.
+// ----------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -115,7 +122,11 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void copyFolderPathToolStripMenuItem_Click(object sender, EventArgs e) {
-            Clipboard.SetText(Path.GetDirectoryName(this.SelectedModConfig));
+            try {
+                Clipboard.SetText(Path.GetDirectoryName(this.SelectedModConfig));
+            } catch (Exception exc) {
+                V3LauncherCore.DebugLog.Add($"Clipboard failure, don't worry about it // Exception: {exc.Message}");
+            }
         }
 
         private void installModsToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -123,6 +134,34 @@ namespace WTDE_Launcher_V3 {
             modInstaller.ShowDialog();
 
             // REFRESH MODS LIST AFTER INSTALLING
+            UserContentModsTree.Items.Clear();
+            StatusLabelMain.Text = "Refreshing mods list...";
+
+            Application.DoEvents();
+
+            ModHandler.ReadMods();
+
+            foreach (string[] mod in ModHandler.UserContentMods) {
+                var listViewItem = new ListViewItem(mod);
+                UserContentModsTree.Items.Add(listViewItem);
+            }
+
+            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
+        }
+
+        private void copySelectedModFolderPathToolStripMenuItem_Click(object sender, EventArgs e) {
+            try {
+                Clipboard.SetText(Path.GetDirectoryName(this.SelectedModConfig));
+            } catch (Exception exc) {
+                V3LauncherCore.DebugLog.Add($"Clipboard failure, don't worry about it // Exception: {exc.Message}");
+            }
+        }
+
+        private void findModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            ModFinder finder = new ModFinder();
+            finder.ShowDialog();
+
+            // REFRESH MODS LIST AFTER SEARCHING
             UserContentModsTree.Items.Clear();
             StatusLabelMain.Text = "Refreshing mods list...";
 
