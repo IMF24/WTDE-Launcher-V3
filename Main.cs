@@ -99,8 +99,16 @@ namespace WTDE_Launcher_V3 {
                 new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" },
                 new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
             AudioBuffLen.Text = XMLFunctions.AspyrGetString("Audio.BuffLen", "4096");
+            Language.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "Language", "en"),
+                V3LauncherConstants.Languages[1], V3LauncherConstants.Languages[0]);
+            AutoLogin.Text = INIFunctions.InterpretINISetting(XMLFunctions.AspyrGetString("AutoLogin", "PROMPT"),
+                new string[] { "ON", "PROMPT", "OFF" },
+                new string[] { "On", "Always Prompt", "Off" });
+            StatusHandler.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "StatusHandler", "0"));
+            Holiday.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "Holiday", ""),
+                V3LauncherConstants.HolidayThemes[1], V3LauncherConstants.HolidayThemes[0]);
 
-            CheckForUpdates.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));
+            CheckForUpdates.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));   
 
             // -- MAIN MENU TOGGLES --------
             UseCareerOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCareerOption"));
@@ -209,23 +217,23 @@ namespace WTDE_Launcher_V3 {
             GemTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemTheme", "ghwt"),
                 V3LauncherConstants.NoteStyles[1].ToArray(), V3LauncherConstants.NoteStyles[0].ToArray());
             GemColors.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemColors", "standard_gems"),
-                V3LauncherConstants.NoteThemeColors[1].ToArray(), V3LauncherConstants.NoteThemeColors[0].ToArray());
+                V3LauncherConstants.NoteThemeColors[1], V3LauncherConstants.NoteThemeColors[0]);
             SongIntroStyle.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "SongIntroStyle", "ghwt"),
-                V3LauncherConstants.IntroStyles[1].ToArray(), V3LauncherConstants.IntroStyles[0].ToArray());
+                V3LauncherConstants.IntroStyles[1], V3LauncherConstants.IntroStyles[0]);
             LoadingTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "LoadingTheme", "wtde"),
-                V3LauncherConstants.LoadScreenThemes[1].ToArray(), V3LauncherConstants.LoadScreenThemes[0].ToArray());
+                V3LauncherConstants.LoadScreenThemes[1], V3LauncherConstants.LoadScreenThemes[0]);
             HUDTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HUDTheme", "ghwt_plus"),
-                V3LauncherConstants.HUDThemes[1].ToArray(), V3LauncherConstants.HUDThemes[0].ToArray());
+                V3LauncherConstants.HUDThemes[1], V3LauncherConstants.HUDThemes[0]);
             YouRockTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "YouRockTheme", "ghwt"),
-                V3LauncherConstants.YouRockThemes[1].ToArray(), V3LauncherConstants.YouRockThemes[0].ToArray());
+                V3LauncherConstants.YouRockThemes[1], V3LauncherConstants.YouRockThemes[0]);
             PauseTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "PauseTheme", "ghwt"),
-                V3LauncherConstants.PauseMenuThemes[1].ToArray(), V3LauncherConstants.PauseMenuThemes[0].ToArray());
+                V3LauncherConstants.PauseMenuThemes[1], V3LauncherConstants.PauseMenuThemes[0]);
             HelperPillTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HelperPillTheme", "wtde"),
-                V3LauncherConstants.HelperPillThemes[1].ToArray(), V3LauncherConstants.HelperPillThemes[0].ToArray());
+                V3LauncherConstants.HelperPillThemes[1], V3LauncherConstants.HelperPillThemes[0]);
             TapTrailTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "TapTrailTheme", "ghwt"),
-                V3LauncherConstants.TapTrailThemes[1].ToArray(), V3LauncherConstants.TapTrailThemes[0].ToArray());
+                V3LauncherConstants.TapTrailThemes[1], V3LauncherConstants.TapTrailThemes[0]);
             HitFlameTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HitFlameTheme", "ghwt"),
-                V3LauncherConstants.HitFlameStyles[1].ToArray(), V3LauncherConstants.HitFlameStyles[0].ToArray());
+                V3LauncherConstants.HitFlameStyles[1], V3LauncherConstants.HitFlameStyles[0]);
             SustainFX.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "SustainFX", "1"));
             HighwayOpacity.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "HighwayOpacity", "100"));
             BlackHighway.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "BlackHighway", "0"));
@@ -923,6 +931,11 @@ namespace WTDE_Launcher_V3 {
             V3LauncherCore.CheckForUpdates();
         }
 
+        private void ModManagerButton_Click(object sender, EventArgs e) {
+            ModManager mManager = new ModManager();
+            mManager.ShowDialog();
+        }
+
         private void FretworksLogo_Click(object sender, EventArgs e) {
             if (ActiveTab == 7) UpdateActiveTab((int)LauncherTabs.MOTD);
             else UpdateActiveTab((int)LauncherTabs.Credits);
@@ -1008,6 +1021,29 @@ namespace WTDE_Launcher_V3 {
 
         private void AudioBuffLen_SelectedIndexChanged(object sender, EventArgs e) {
             XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
+        }
+
+        private void Language_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "Language", INIFunctions.InterpretINISetting(Language.Text,
+                V3LauncherConstants.Languages[0], V3LauncherConstants.Languages[1]));
+        }
+
+        private void AutoLogin_SelectedIndexChanged(object sender, EventArgs e) {
+            string valueToWrite = AutoLogin.Text;
+            switch (AutoLogin.Text) {
+                case "Always Prompt":
+                    valueToWrite = "Prompt";
+                    break;
+            }
+            XMLFunctions.AspyrWriteString("AutoLogin", valueToWrite.ToUpper());
+        }
+        private void Holiday_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "Holiday", INIFunctions.InterpretINISetting(Holiday.Text,
+                V3LauncherConstants.HolidayThemes[0], V3LauncherConstants.HolidayThemes[1]));
+        }
+
+        private void StatusHandler_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "StatusHandler", INIFunctions.BoolToString(StatusHandler.Checked));
         }
 
         private void CheckForUpdates_CheckedChanged(object sender, EventArgs e) {
@@ -1599,6 +1635,267 @@ namespace WTDE_Launcher_V3 {
         #endregion
         
         // ----------------------------------------------------------
+        // GRAPHICS TAB AUTO UPDATE
+        // ----------------------------------------------------------
+        #region Graphics Tab Auto Update
+        // - - - - - - - - - - - - - - - - - - -
+        //  B A S I C     O P T I O N S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Graphics Settings: Basic Options
+        private void VideoWidth_ValueChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
+        }
+
+        private void VideoHeight_ValueChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
+        }
+
+        private void UseNativeRes_Click(object sender, EventArgs e) {
+            VideoWidth.Value = Screen.FromControl(this).Bounds.Width;
+            VideoHeight.Value = Screen.FromControl(this).Bounds.Height;
+
+            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
+            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
+        }
+
+        private void FPSLimit_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "FPSLimit", FPSLimit.Value.ToString());
+        }
+
+        private void DisableVSync_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DisableVSync", INIFunctions.BoolToStringInverse(DisableVSync.Checked));
+        }
+
+        private void WindowedMode_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "WindowedMode", INIFunctions.BoolToString(WindowedMode.Checked));
+        }
+
+        private void Borderless_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "Borderless", INIFunctions.BoolToString(Borderless.Checked));
+        }
+
+        private void HighDetail_CheckedChanged(object sender, EventArgs e) {
+            if (HighDetail.Checked) {
+                XMLFunctions.AspyrWriteString("Options.GraphicsQuality", "0");
+                XMLFunctions.AspyrWriteString("Options.UseLOD", "0");
+                XMLFunctions.AspyrWriteString("Options.Flares", "1");
+            } else {
+                XMLFunctions.AspyrWriteString("Options.GraphicsQuality", "1");
+                XMLFunctions.AspyrWriteString("Options.UseLOD", "1");
+                XMLFunctions.AspyrWriteString("Options.Flares", "0");
+            }
+        }
+
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  G A M E P L A Y     O P T I O N S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Graphics Settings: Gameplay Options
+        private void HitSparks_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HitSparks", INIFunctions.BoolToString(HitSparks.Checked));
+        }
+
+        private void BlackStage_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "BlackStage", INIFunctions.BoolToString(BlackStage.Checked));
+        }
+
+        private void HideBand_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HideBand", INIFunctions.BoolToString(HideBand.Checked));
+        }
+
+        private void HideInstruments_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HideInstruments", INIFunctions.BoolToString(HideInstruments.Checked));
+        }
+
+        private void HandFlames_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HandFlames", INIFunctions.BoolToString(HandFlames.Checked));
+        }
+
+        private void SpecialStarPowerFX_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SpecialStarPowerFX", INIFunctions.BoolToString(SpecialStarPowerFX.Checked));
+        }
+
+        private void TeslaFX_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "TeslaFX", INIFunctions.BoolToString(TeslaFX.Checked));
+        }
+
+        private void SoloMarkers_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SoloMarkers", INIFunctions.BoolToString(SoloMarkers.Checked));
+        }
+
+        private void OptionsPhysics_CheckedChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Options.Physics", INIFunctions.BoolToString(OptionsPhysics.Checked));
+        }
+
+        private void OptionsFrontRowCamera_CheckedChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Options.FrontRowCamera", INIFunctions.BoolToString(OptionsFrontRowCamera.Checked));
+        }
+
+        private void OptionsCrowd_SelectedIndexChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Options.Crowd", OptionsCrowd.SelectedIndex.ToString());
+        }
+
+        private void X360Zones_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "X360Zones", INIFunctions.BoolToString(X360Zones.Checked));
+        }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  I N T E R F A C E     O P T I O N S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Graphics Settings: Interface Options
+        private void GemTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "GemTheme", INIFunctions.InterpretINISetting(GemTheme.Text,
+                V3LauncherConstants.NoteStyles[0].ToArray(), V3LauncherConstants.NoteStyles[1].ToArray()));
+        }
+
+        private void GemColors_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "GemColors", INIFunctions.InterpretINISetting(GemColors.Text,
+                V3LauncherConstants.NoteThemeColors[0].ToArray(), V3LauncherConstants.NoteThemeColors[1].ToArray()));
+        }
+
+        private void SongIntroStyle_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SongIntroStyle", INIFunctions.InterpretINISetting(SongIntroStyle.Text,
+                V3LauncherConstants.IntroStyles[0].ToArray(), V3LauncherConstants.IntroStyles[1].ToArray()));
+        }
+
+        private void LoadingTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "LoadingTheme", INIFunctions.InterpretINISetting(LoadingTheme.Text,
+                V3LauncherConstants.LoadScreenThemes[0].ToArray(), V3LauncherConstants.LoadScreenThemes[1].ToArray()));
+        }
+
+        private void HUDTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HUDTheme", INIFunctions.InterpretINISetting(HUDTheme.Text,
+                V3LauncherConstants.HUDThemes[0].ToArray(), V3LauncherConstants.HUDThemes[1].ToArray()));
+        }
+
+        private void YouRockTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "YouRockTheme", INIFunctions.InterpretINISetting(YouRockTheme.Text,
+                V3LauncherConstants.YouRockThemes[0].ToArray(), V3LauncherConstants.YouRockThemes[1].ToArray()));
+        }
+
+        private void PauseTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "PauseTheme", INIFunctions.InterpretINISetting(PauseTheme.Text,
+                V3LauncherConstants.PauseMenuThemes[0].ToArray(), V3LauncherConstants.PauseMenuThemes[1].ToArray()));
+        }
+
+        private void HelperPillTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HelperPillTheme", INIFunctions.InterpretINISetting(HelperPillTheme.Text,
+                V3LauncherConstants.HelperPillThemes[0].ToArray(), V3LauncherConstants.HelperPillThemes[1].ToArray()));
+        }
+
+        private void TapTrailTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "TapTrailTheme", INIFunctions.InterpretINISetting(TapTrailTheme.Text,
+                V3LauncherConstants.TapTrailThemes[0].ToArray(), V3LauncherConstants.TapTrailThemes[1].ToArray()));
+        }
+
+        private void HitFlameTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HitFlameTheme", INIFunctions.InterpretINISetting(HitFlameTheme.Text,
+                V3LauncherConstants.HitFlameStyles[0].ToArray(), V3LauncherConstants.HitFlameStyles[1].ToArray()));
+        }
+
+        private void SustainFX_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "SustainFX", INIFunctions.BoolToString(SustainFX.Checked));
+        }
+
+        private void HighwayOpacity_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HighwayOpacity", HighwayOpacity.Value.ToString());
+        }
+
+        private void BlackHighway_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "BlackHighway", INIFunctions.BoolToString(BlackHighway.Checked));
+        }
+
+        private void HighwayVignetteOpacity_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HighwayVignetteOpacity", HighwayVignetteOpacity.Value.ToString());
+        }
+        #endregion
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  A D V A N C E D     G R A P H I C S
+        // - - - - - - - - - - - - - - - - - - -
+        #region Graphics Settings: Advanced Graphics
+        private void DisableDOF_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DisableDOF", INIFunctions.BoolToStringInverse(DisableDOF.Checked));
+        }
+
+        private void DisableBloom_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DisableBloom", INIFunctions.BoolToStringInverse(DisableBloom.Checked));
+        }
+
+        private void ColorFilters_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "ColorFilters", INIFunctions.BoolToString(ColorFilters.Checked));
+        }
+
+        private void RenderParticles_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "RenderParticles", INIFunctions.BoolToString(RenderParticles.Checked));
+        }
+
+        private void RenderGeoms_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "RenderGeoms", INIFunctions.BoolToString(RenderGeoms.Checked));
+        }
+
+        private void RenderInstances_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "RenderInstances", INIFunctions.BoolToString(RenderInstances.Checked));
+        }
+
+        private void DrawProjectors_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DrawProjectors", INIFunctions.BoolToString(DrawProjectors.Checked));
+        }
+
+        private void Render2D_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "Render2D", INIFunctions.BoolToString(Render2D.Checked));
+        }
+
+        private void RenderScreenFX_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "RenderScreenFX", INIFunctions.BoolToString(RenderScreenFX.Checked));
+        }
+
+        private void RenderFog_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "RenderFog", INIFunctions.BoolToString(RenderFog.Checked));
+        }
+
+        private void ApplyBandName_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "ApplyBandName", INIFunctions.BoolToString(ApplyBandName.Checked));
+        }
+
+        private void ApplyBandLogo_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "ApplyBandLogo", INIFunctions.BoolToString(ApplyBandLogo.Checked));
+        }
+
+        private void EnableCamPulse_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "EnableCamPulse", INIFunctions.BoolToString(EnableCamPulse.Checked));
+        }
+
+        private void DefaultTODProfile_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DefaultTODProfile", INIFunctions.InterpretINISetting(DefaultTODProfile.Text,
+                V3LauncherConstants.TODProfiles[0].ToArray(), V3LauncherConstants.TODProfiles[1].ToArray()));
+        }
+
+        private void DOFQuality_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DOFQuality", DOFQuality.SelectedIndex.ToString());
+        }
+
+        private void DOFBlur_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "DOFBlur", DOFBlur.Value.ToString());
+        }
+
+        private void FlareStyle_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "FlareStyle", INIFunctions.InterpretINISetting(FlareStyle.Text,
+                V3LauncherConstants.FlareStyles[0].ToArray(), V3LauncherConstants.FlareStyles[1].ToArray()));
+        }
+
+
+
+
+
+
+
+        #endregion
+        #endregion
+    
+        // ----------------------------------------------------------
         // BAND TAB AUTO UPDATE
         // ----------------------------------------------------------
         #region Band Tab Auto Update
@@ -1997,264 +2294,6 @@ namespace WTDE_Launcher_V3 {
         private void ButtonDiscord_Click(object sender, EventArgs e) {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
-
-        #endregion
-
-        // ----------------------------------------------------------
-        // GRAPHICS TAB AUTO UPDATE
-        // ----------------------------------------------------------
-        // - - - - - - - - - - - - - - - - - - -
-        //  B A S I C     O P T I O N S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Graphics Settings: Basic Options
-        private void VideoWidth_ValueChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
-        }
-
-        private void VideoHeight_ValueChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
-        }
-
-        private void UseNativeRes_Click(object sender, EventArgs e) {
-            VideoWidth.Value = Screen.FromControl(this).Bounds.Width;
-            VideoHeight.Value = Screen.FromControl(this).Bounds.Height;
-
-            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
-            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
-        }
-
-        private void FPSLimit_ValueChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "FPSLimit", FPSLimit.Value.ToString());
-        }
-
-        private void DisableVSync_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DisableVSync", INIFunctions.BoolToStringInverse(DisableVSync.Checked));
-        }
-
-        private void WindowedMode_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "WindowedMode", INIFunctions.BoolToString(WindowedMode.Checked));
-        }
-
-        private void Borderless_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "Borderless", INIFunctions.BoolToString(Borderless.Checked));
-        }
-
-        private void HighDetail_CheckedChanged(object sender, EventArgs e) {
-            if (HighDetail.Checked) {
-                XMLFunctions.AspyrWriteString("Options.GraphicsQuality", "0");
-                XMLFunctions.AspyrWriteString("Options.UseLOD", "0");
-                XMLFunctions.AspyrWriteString("Options.Flares", "1");
-            } else {
-                XMLFunctions.AspyrWriteString("Options.GraphicsQuality", "1");
-                XMLFunctions.AspyrWriteString("Options.UseLOD", "1");
-                XMLFunctions.AspyrWriteString("Options.Flares", "0");
-            }
-        }
-
-        #endregion
-
-        // - - - - - - - - - - - - - - - - - - -
-        //  G A M E P L A Y     O P T I O N S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Graphics Settings: Gameplay Options
-        private void HitSparks_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HitSparks", INIFunctions.BoolToString(HitSparks.Checked));
-        }
-
-        private void BlackStage_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "BlackStage", INIFunctions.BoolToString(BlackStage.Checked));
-        }
-
-        private void HideBand_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HideBand", INIFunctions.BoolToString(HideBand.Checked));
-        }
-
-        private void HideInstruments_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HideInstruments", INIFunctions.BoolToString(HideInstruments.Checked));
-        }
-
-        private void HandFlames_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HandFlames", INIFunctions.BoolToString(HandFlames.Checked));
-        }
-
-        private void SpecialStarPowerFX_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "SpecialStarPowerFX", INIFunctions.BoolToString(SpecialStarPowerFX.Checked));
-        }
-
-        private void TeslaFX_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "TeslaFX", INIFunctions.BoolToString(TeslaFX.Checked));
-        }
-
-        private void SoloMarkers_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "SoloMarkers", INIFunctions.BoolToString(SoloMarkers.Checked));
-        }
-
-        private void OptionsPhysics_CheckedChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Options.Physics", INIFunctions.BoolToString(OptionsPhysics.Checked));
-        }
-
-        private void OptionsFrontRowCamera_CheckedChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Options.FrontRowCamera", INIFunctions.BoolToString(OptionsFrontRowCamera.Checked));
-        }
-
-        private void OptionsCrowd_SelectedIndexChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Options.Crowd", OptionsCrowd.SelectedIndex.ToString());
-        }
-
-        private void X360Zones_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Config", "X360Zones", INIFunctions.BoolToString(X360Zones.Checked));
-        }
-        #endregion
-
-        // - - - - - - - - - - - - - - - - - - -
-        //  I N T E R F A C E     O P T I O N S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Graphics Settings: Interface Options
-        private void GemTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "GemTheme", INIFunctions.InterpretINISetting(GemTheme.Text,
-                V3LauncherConstants.NoteStyles[0].ToArray(), V3LauncherConstants.NoteStyles[1].ToArray()));
-        }
-
-        private void GemColors_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "GemColors", INIFunctions.InterpretINISetting(GemColors.Text,
-                V3LauncherConstants.NoteThemeColors[0].ToArray(), V3LauncherConstants.NoteThemeColors[1].ToArray()));
-        }
-
-        private void SongIntroStyle_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "SongIntroStyle", INIFunctions.InterpretINISetting(SongIntroStyle.Text,
-                V3LauncherConstants.IntroStyles[0].ToArray(), V3LauncherConstants.IntroStyles[1].ToArray()));
-        }
-
-        private void LoadingTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "LoadingTheme", INIFunctions.InterpretINISetting(LoadingTheme.Text,
-                V3LauncherConstants.LoadScreenThemes[0].ToArray(), V3LauncherConstants.LoadScreenThemes[1].ToArray()));
-        }
-
-        private void HUDTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HUDTheme", INIFunctions.InterpretINISetting(HUDTheme.Text,
-                V3LauncherConstants.HUDThemes[0].ToArray(), V3LauncherConstants.HUDThemes[1].ToArray()));
-        }
-
-        private void YouRockTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "YouRockTheme", INIFunctions.InterpretINISetting(YouRockTheme.Text,
-                V3LauncherConstants.YouRockThemes[0].ToArray(), V3LauncherConstants.YouRockThemes[1].ToArray()));
-        }
-
-        private void PauseTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "PauseTheme", INIFunctions.InterpretINISetting(PauseTheme.Text,
-                V3LauncherConstants.PauseMenuThemes[0].ToArray(), V3LauncherConstants.PauseMenuThemes[1].ToArray()));
-        }
-
-        private void HelperPillTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HelperPillTheme", INIFunctions.InterpretINISetting(HelperPillTheme.Text,
-                V3LauncherConstants.HelperPillThemes[0].ToArray(), V3LauncherConstants.HelperPillThemes[1].ToArray()));
-        }
-
-        private void TapTrailTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "TapTrailTheme", INIFunctions.InterpretINISetting(TapTrailTheme.Text,
-                V3LauncherConstants.TapTrailThemes[0].ToArray(), V3LauncherConstants.TapTrailThemes[1].ToArray()));
-        }
-
-        private void HitFlameTheme_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HitFlameTheme", INIFunctions.InterpretINISetting(HitFlameTheme.Text,
-                V3LauncherConstants.HitFlameStyles[0].ToArray(), V3LauncherConstants.HitFlameStyles[1].ToArray()));
-        }
-
-        private void SustainFX_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "SustainFX", INIFunctions.BoolToString(SustainFX.Checked));
-        }
-
-        private void HighwayOpacity_ValueChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HighwayOpacity", HighwayOpacity.Value.ToString());
-        }
-
-        private void BlackHighway_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "BlackHighway", INIFunctions.BoolToString(BlackHighway.Checked));
-        }
-
-        private void HighwayVignetteOpacity_ValueChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "HighwayVignetteOpacity", HighwayVignetteOpacity.Value.ToString());
-        }
-        #endregion
-
-        // - - - - - - - - - - - - - - - - - - -
-        //  A D V A N C E D     G R A P H I C S
-        // - - - - - - - - - - - - - - - - - - -
-        #region Graphics Settings: Advanced Graphics
-        private void DisableDOF_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DisableDOF", INIFunctions.BoolToStringInverse(DisableDOF.Checked));
-        }
-
-        private void DisableBloom_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DisableBloom", INIFunctions.BoolToStringInverse(DisableBloom.Checked));
-        }
-
-        private void ColorFilters_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "ColorFilters", INIFunctions.BoolToString(ColorFilters.Checked));
-        }
-
-        private void RenderParticles_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "RenderParticles", INIFunctions.BoolToString(RenderParticles.Checked));
-        }
-
-        private void RenderGeoms_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "RenderGeoms", INIFunctions.BoolToString(RenderGeoms.Checked));
-        }
-
-        private void RenderInstances_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "RenderInstances", INIFunctions.BoolToString(RenderInstances.Checked));
-        }
-
-        private void DrawProjectors_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DrawProjectors", INIFunctions.BoolToString(DrawProjectors.Checked));
-        }
-
-        private void Render2D_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "Render2D", INIFunctions.BoolToString(Render2D.Checked));
-        }
-
-        private void RenderScreenFX_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "RenderScreenFX", INIFunctions.BoolToString(RenderScreenFX.Checked));
-        }
-
-        private void RenderFog_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "RenderFog", INIFunctions.BoolToString(RenderFog.Checked));
-        }
-
-        private void ApplyBandName_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "ApplyBandName", INIFunctions.BoolToString(ApplyBandName.Checked));
-        }
-
-        private void ApplyBandLogo_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "ApplyBandLogo", INIFunctions.BoolToString(ApplyBandLogo.Checked));
-        }
-
-        private void EnableCamPulse_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Config", "EnableCamPulse", INIFunctions.BoolToString(EnableCamPulse.Checked));
-        }
-
-        private void DefaultTODProfile_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DefaultTODProfile", INIFunctions.InterpretINISetting(DefaultTODProfile.Text,
-                V3LauncherConstants.TODProfiles[0].ToArray(), V3LauncherConstants.TODProfiles[1].ToArray()));
-        }
-
-        private void DOFQuality_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DOFQuality", DOFQuality.SelectedIndex.ToString());
-        }
-
-        private void DOFBlur_ValueChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "DOFBlur", DOFBlur.Value.ToString());
-        }
-
-        private void FlareStyle_SelectedIndexChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "FlareStyle", INIFunctions.InterpretINISetting(FlareStyle.Text,
-                V3LauncherConstants.FlareStyles[0].ToArray(), V3LauncherConstants.FlareStyles[1].ToArray()));
-        }
-
-
-
-
-
 
         #endregion
 

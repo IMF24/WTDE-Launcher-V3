@@ -49,7 +49,7 @@ namespace WTDE_Launcher_V3 {
 			UseUpdaterINIDirectory();
 
 			// Timer starts now!
-			var startTime = DateTime.Now.Second;
+			var startTime = DateTime.Now.Millisecond;
 
 			// Read the user's MODS directory for ALL INI FILES.
 			string[] files = Directory.GetFiles("DATA/MODS", "*.ini", SearchOption.AllDirectories);
@@ -62,11 +62,13 @@ namespace WTDE_Launcher_V3 {
                 V3LauncherCore.DebugLog.Add($"in dir, reading config file: {file}");
 
 				IniFile iFile = new IniFile();
-				iFile.Load(file);
+
+				if (file.ToLower().Contains(".ini") && !file.ToLower().Contains("folder.ini")) iFile.Load(file.ToLower());
+				else continue;
 
 				// Normalize slashes, split path, also figure out
 				// what type of INI file this is.
-				string currentINIFile = file.Replace("\\", "/").Split('/').Last().Replace("/", "");
+				string currentINIFile = file.Replace("\\", "/").Split('/').Last().Replace("/", "").ToLower();
                 V3LauncherCore.DebugLog.Add($"current INI file is {currentINIFile}");
 
 				// What type of INI file is this?
@@ -161,6 +163,7 @@ namespace WTDE_Launcher_V3 {
 						break;
 
 					case "Mod.ini":
+					case "mod.ini":
                         V3LauncherCore.DebugLog.Add("We found a script mod!");
 
 						modName = iFile.Sections["ModInfo"].Keys["Name"].Value;
@@ -171,20 +174,18 @@ namespace WTDE_Launcher_V3 {
 						break;
 
 					default:
-						modName = "Unknown Mod";
-						modAuthor = "Unknown Author";
-						modType = "N/A";
-						modVersion = "N/A";
-						modDescription = "NO INFO";
+						continue;
 						break;
 				}
 				outArray.Add(new string[] { modName, modAuthor, modType, modVersion, modDescription, Path.Combine(Directory.GetCurrentDirectory(), file) });
 			}
 
 			// And the timer stops here!
-			var endTime = DateTime.Now.Second;
+			var endTime = DateTime.Now.Millisecond;
 
             V3LauncherCore.DebugLog.Add($"ALL DONE! Read and parsed {outArray.Count} mods in {(endTime - startTime).ToString("0.00")} sec");
+
+			UserContentMods = outArray;
 
 			// Reset our working directory if we changed it, then give the list back!
 			Directory.SetCurrentDirectory(owd);

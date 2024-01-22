@@ -40,3 +40,5 @@ C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\bin\Debug\System.Runtime.CompilerServ
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.csproj.SuggestedBindingRedirects.cache
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE-Launcher-V3.exe.config
 C:\Users\ifire\Desktop\WTDE-Launcher-V3-CS\obj\Debug\WTDE_Launcher_V3.InputKeySelector.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.ModManager.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.ModInstaller.resources

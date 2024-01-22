@@ -465,6 +465,14 @@
             this.OptionsCrowd = new System.Windows.Forms.ComboBox();
             this.X360Zones = new System.Windows.Forms.CheckBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
+            this.TGLanguageLabel = new System.Windows.Forms.Label();
+            this.Language = new System.Windows.Forms.ComboBox();
+            this.TGAutoLoginLabel = new System.Windows.Forms.Label();
+            this.AutoLogin = new System.Windows.Forms.ComboBox();
+            this.StatusHandler = new System.Windows.Forms.CheckBox();
+            this.ModManagerButton = new System.Windows.Forms.Button();
+            this.TGForceHolidayLabel = new System.Windows.Forms.Label();
+            this.Holiday = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -1295,13 +1303,13 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
-            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Location = new System.Drawing.Point(321, 60);
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
@@ -5450,6 +5458,13 @@
             // 
             this.TabGeneralGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
             this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabGeneralGroup.Controls.Add(this.TGForceHolidayLabel);
+            this.TabGeneralGroup.Controls.Add(this.Holiday);
+            this.TabGeneralGroup.Controls.Add(this.StatusHandler);
+            this.TabGeneralGroup.Controls.Add(this.TGAutoLoginLabel);
+            this.TabGeneralGroup.Controls.Add(this.AutoLogin);
+            this.TabGeneralGroup.Controls.Add(this.TGLanguageLabel);
+            this.TabGeneralGroup.Controls.Add(this.Language);
             this.TabGeneralGroup.Controls.Add(this.CheckForUpdates);
             this.TabGeneralGroup.Controls.Add(this.TGLauncherOptions);
             this.TabGeneralGroup.Controls.Add(this.UseQuitOption);
@@ -5471,7 +5486,7 @@
             this.TabGeneralGroup.Controls.Add(this.TGBasicSettings);
             this.TabGeneralGroup.Controls.Add(this.RichPresence);
             this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralGroup.Location = new System.Drawing.Point(114, 495);
+            this.TabGeneralGroup.Location = new System.Drawing.Point(13, 9);
             this.TabGeneralGroup.Name = "TabGeneralGroup";
             this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGeneralGroup.TabIndex = 0;
@@ -5481,7 +5496,7 @@
             // CheckForUpdates
             // 
             this.CheckForUpdates.AutoSize = true;
-            this.CheckForUpdates.Location = new System.Drawing.Point(33, 345);
+            this.CheckForUpdates.Location = new System.Drawing.Point(33, 442);
             this.CheckForUpdates.Name = "CheckForUpdates";
             this.CheckForUpdates.Size = new System.Drawing.Size(194, 26);
             this.CheckForUpdates.TabIndex = 19;
@@ -5493,7 +5508,7 @@
             // 
             this.TGLauncherOptions.AutoSize = true;
             this.TGLauncherOptions.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGLauncherOptions.Location = new System.Drawing.Point(17, 316);
+            this.TGLauncherOptions.Location = new System.Drawing.Point(17, 413);
             this.TGLauncherOptions.Name = "TGLauncherOptions";
             this.TGLauncherOptions.Size = new System.Drawing.Size(172, 25);
             this.TGLauncherOptions.TabIndex = 18;
@@ -6201,12 +6216,128 @@
             this.TALSaveWarningLabel.TabIndex = 64;
             this.TALSaveWarningLabel.Text = "Warning: This may erase your save data, so make sure to back it up first!";
             // 
+            // TGLanguageLabel
+            // 
+            this.TGLanguageLabel.AutoSize = true;
+            this.TGLanguageLabel.Location = new System.Drawing.Point(29, 240);
+            this.TGLanguageLabel.Name = "TGLanguageLabel";
+            this.TGLanguageLabel.Size = new System.Drawing.Size(81, 22);
+            this.TGLanguageLabel.TabIndex = 21;
+            this.TGLanguageLabel.Text = "Language:";
+            // 
+            // Language
+            // 
+            this.Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Language.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Language.FormattingEnabled = true;
+            this.Language.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Language.Items.AddRange(new object[] {
+            "English",
+            "Spanish (Español)",
+            "Italian (Italiano)",
+            "French (Français)",
+            "German (Deutsch)",
+            "Japanese (日本語)",
+            "Korean (한국어)"});
+            this.Language.Location = new System.Drawing.Point(219, 241);
+            this.Language.Name = "Language";
+            this.Language.Size = new System.Drawing.Size(145, 23);
+            this.Language.TabIndex = 20;
+            this.Language.SelectedIndexChanged += new System.EventHandler(this.Language_SelectedIndexChanged);
+            // 
+            // TGAutoLoginLabel
+            // 
+            this.TGAutoLoginLabel.AutoSize = true;
+            this.TGAutoLoginLabel.Location = new System.Drawing.Point(29, 274);
+            this.TGAutoLoginLabel.Name = "TGAutoLoginLabel";
+            this.TGAutoLoginLabel.Size = new System.Drawing.Size(87, 22);
+            this.TGAutoLoginLabel.TabIndex = 23;
+            this.TGAutoLoginLabel.Text = "Auto Login:";
+            // 
+            // AutoLogin
+            // 
+            this.AutoLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AutoLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AutoLogin.FormattingEnabled = true;
+            this.AutoLogin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AutoLogin.Items.AddRange(new object[] {
+            "On",
+            "Always Prompt",
+            "Off"});
+            this.AutoLogin.Location = new System.Drawing.Point(219, 275);
+            this.AutoLogin.Name = "AutoLogin";
+            this.AutoLogin.Size = new System.Drawing.Size(145, 23);
+            this.AutoLogin.TabIndex = 22;
+            this.AutoLogin.SelectedIndexChanged += new System.EventHandler(this.AutoLogin_SelectedIndexChanged);
+            // 
+            // StatusHandler
+            // 
+            this.StatusHandler.AutoSize = true;
+            this.StatusHandler.Location = new System.Drawing.Point(33, 340);
+            this.StatusHandler.Name = "StatusHandler";
+            this.StatusHandler.Size = new System.Drawing.Size(169, 26);
+            this.StatusHandler.TabIndex = 24;
+            this.StatusHandler.Text = "Write Streamer Files";
+            this.StatusHandler.UseVisualStyleBackColor = true;
+            this.StatusHandler.CheckedChanged += new System.EventHandler(this.StatusHandler_CheckedChanged);
+            // 
+            // ModManagerButton
+            // 
+            this.ModManagerButton.BackColor = System.Drawing.Color.Transparent;
+            this.ModManagerButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ModManagerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ModManagerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ModManagerButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ModManagerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ModManagerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ModManagerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ModManagerButton.Font = new System.Drawing.Font("Lexend", 16F);
+            this.ModManagerButton.ForeColor = System.Drawing.Color.White;
+            this.ModManagerButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ModManagerButton.Location = new System.Drawing.Point(12, 458);
+            this.ModManagerButton.Name = "ModManagerButton";
+            this.ModManagerButton.Size = new System.Drawing.Size(297, 57);
+            this.ModManagerButton.TabIndex = 15;
+            this.ModManagerButton.Text = "Mod Manager";
+            this.ToolTipMain.SetToolTip(this.ModManagerButton, "Manage installed mods, your save data, and other various assets.");
+            this.ModManagerButton.UseVisualStyleBackColor = false;
+            this.ModManagerButton.Click += new System.EventHandler(this.ModManagerButton_Click);
+            // 
+            // TGForceHolidayLabel
+            // 
+            this.TGForceHolidayLabel.AutoSize = true;
+            this.TGForceHolidayLabel.Location = new System.Drawing.Point(29, 308);
+            this.TGForceHolidayLabel.Name = "TGForceHolidayLabel";
+            this.TGForceHolidayLabel.Size = new System.Drawing.Size(158, 22);
+            this.TGForceHolidayLabel.TabIndex = 26;
+            this.TGForceHolidayLabel.Text = "Force Holiday Theme:";
+            // 
+            // Holiday
+            // 
+            this.Holiday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Holiday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Holiday.FormattingEnabled = true;
+            this.Holiday.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Holiday.Items.AddRange(new object[] {
+            "Auto (Based on Date)",
+            "Valentine\'s Day Theme",
+            "April Fools Day Theme",
+            "Halloween Theme",
+            "Christmas Theme",
+            "No Holidays"});
+            this.Holiday.Location = new System.Drawing.Point(219, 309);
+            this.Holiday.Name = "Holiday";
+            this.Holiday.Size = new System.Drawing.Size(145, 23);
+            this.Holiday.TabIndex = 25;
+            this.Holiday.SelectedIndexChanged += new System.EventHandler(this.Holiday_SelectedIndexChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.ModManagerButton);
             this.Controls.Add(this.DummyLabel);
             this.Controls.Add(this.OpenDevOnlySettings);
             this.Controls.Add(this.TabParentContainer);
@@ -6732,6 +6863,14 @@
         private System.Windows.Forms.CheckBox OptionsPhysics;
         private System.Windows.Forms.CheckBox X360Zones;
         private System.Windows.Forms.Label TALSaveWarningLabel;
+        private System.Windows.Forms.Label TGLanguageLabel;
+        private System.Windows.Forms.ComboBox Language;
+        private System.Windows.Forms.CheckBox StatusHandler;
+        private System.Windows.Forms.Label TGAutoLoginLabel;
+        private System.Windows.Forms.ComboBox AutoLogin;
+        private System.Windows.Forms.Button ModManagerButton;
+        private System.Windows.Forms.Label TGForceHolidayLabel;
+        private System.Windows.Forms.ComboBox Holiday;
     }
 }
 

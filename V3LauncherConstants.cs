@@ -50,6 +50,11 @@ namespace WTDE_Launcher_V3 {
         public static string WTDESaveBackupsDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Save Backups";
 
         /// <summary>
+        ///  Where are the user's Rock Star Creator character files located?
+        /// </summary>
+        public static string WTDEProfilesDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Profiles";
+
+        /// <summary>
         ///  Where is AspyrConfig.xml located?
         /// </summary>
         public static string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";
@@ -343,6 +348,58 @@ namespace WTDE_Launcher_V3 {
                 "z_space",
                 "z_wikker",
                 "z_hell"
+            }
+        };
+
+        /// <summary>
+        ///  List of language names.
+        /// </summary>
+        public static string[][] Languages = new string[][] {
+            // Language names.
+            new string[] {
+                "English",
+                "Spanish (Español)",
+                "Italian (Italiano)",
+                "French (Français)",
+                "German (Deutsch)",
+                "Japanese (日本語)",
+                "Korean (한국어)"
+            },
+
+            // Language IDs.
+            new string[] { 
+                "en",
+                "es",
+                "it",
+                "fr",
+                "de",
+                "ja",
+                "ko"
+            }
+        };
+
+        /// <summary>
+        ///  List of holiday themes.
+        /// </summary>
+        public static string[][] HolidayThemes = new string[][] { 
+            // Holiday names.
+            new string[] {
+                "Auto (Based on Date)",
+                "Valentine's Day Theme",
+                "April Fools Day Theme",
+                "Halloween Theme",
+                "Christmas Theme",
+                "No Holidays"
+            },
+
+            // Holiday IDs.
+            new string[] { 
+                "",
+                "valentine",
+                "aprilfools",
+                "halloween",
+                "xmas",
+                "none"
             }
         };
 

@@ -162,6 +162,18 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModInstaller.Designer.cs">
+      <DependentUpon>ModInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModManager.Designer.cs">
+      <DependentUpon>ModManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="V3LauncherConstants.cs" />
@@ -178,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModInstaller.resx">
+      <DependentUpon>ModInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModManager.resx">
+      <DependentUpon>ModManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -210,6 +228,18 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\img\menuicons\delete.png" />
+    <None Include="res\img\menuicons\find.png" />
+    <None Include="res\img\menuicons\copy.png" />
+    <None Include="res\img\menuicons\music_note.png" />
+    <None Include="res\img\menuicons\exit_program.png" />
+    <None Include="res\img\menuicons\save_manager.png" />
+    <None Include="res\img\menuicons\friend_list_manager.png" />
+    <None Include="res\img\menuicons\rsc_manager.png" />
+    <None Include="res\img\menuicons\download.png" />
+    <None Include="res\img\menuicons\refresh.png" />
+    <None Include="res\img\menuicons\edit_meta_data.png" />
+    <None Include="res\img\menuicons\open_file.png" />
     <None Include="res\img\backgrounds\bg_13.png" />
     <None Include="res\audio\boot_msg_shirley.wav" />
     <None Include="res\audio\boot_msg_matty.wav" />
