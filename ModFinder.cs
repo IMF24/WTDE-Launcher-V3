@@ -1,4 +1,10 @@
-﻿using MadMilkman.Ini;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       M O D       F I N D E R
+//
+//    The Mod Manager's mod finder, which searches through the user's MODS
+//    folder for specific mods based on specific filters.
+// ----------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3 {
     public partial class ModFinder : Form {

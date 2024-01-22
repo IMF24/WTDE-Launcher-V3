@@ -1,4 +1,11 @@
-﻿using System;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       M O D       I N S T A L L E R
+//
+//    The Mod Manager's mod installer, allowing the user to very easily install
+//    new mods for their WTDE installation.
+// ----------------------------------------------------------------------------
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
