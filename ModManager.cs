@@ -176,5 +176,10 @@ namespace WTDE_Launcher_V3 {
 
             StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
         }
+
+        private void manageSaveFilesToolStripMenuItem_Click(object sender, EventArgs e) {
+            SaveFileManager sfm = new SaveFileManager();
+            sfm.ShowDialog();
+        }
     }
 }

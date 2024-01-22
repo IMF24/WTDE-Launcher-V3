@@ -32,37 +32,37 @@
             this.ModVersion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ModDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ModPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ModManagerMenuMain = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.songsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatusBarMain = new System.Windows.Forms.StatusStrip();
-            this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.ModTreeContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.openSelectedModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openSelectedModFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.copyFolderPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModManagerMenuMain = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageSaveFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.closeModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.installModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.openSelectedModConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openSelectedModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copySelectedModFolderPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteModToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.songsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songAndSongCategoryManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copySelectedModFolderPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatusBarMain = new System.Windows.Forms.StatusStrip();
+            this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
-            this.ModTreeContext.SuspendLayout();
             this.SuspendLayout();
             // 
             // UserContentModsTree
@@ -114,6 +114,60 @@
             this.ModPath.Text = "Path";
             this.ModPath.Width = 346;
             // 
+            // ModTreeContext
+            // 
+            this.ModTreeContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openSelectedModConfigToolStripMenuItem1,
+            this.openSelectedModFolderToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.copyFolderPathToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.deleteModToolStripMenuItem});
+            this.ModTreeContext.Name = "ModTreeContext";
+            this.ModTreeContext.Size = new System.Drawing.Size(218, 104);
+            // 
+            // openSelectedModConfigToolStripMenuItem1
+            // 
+            this.openSelectedModConfigToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.edit_meta_data;
+            this.openSelectedModConfigToolStripMenuItem1.Name = "openSelectedModConfigToolStripMenuItem1";
+            this.openSelectedModConfigToolStripMenuItem1.Size = new System.Drawing.Size(217, 22);
+            this.openSelectedModConfigToolStripMenuItem1.Text = "Open Selected Mod Config";
+            this.openSelectedModConfigToolStripMenuItem1.Click += new System.EventHandler(this.openSelectedModConfigToolStripMenuItem1_Click);
+            // 
+            // openSelectedModFolderToolStripMenuItem
+            // 
+            this.openSelectedModFolderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
+            this.openSelectedModFolderToolStripMenuItem.Name = "openSelectedModFolderToolStripMenuItem";
+            this.openSelectedModFolderToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.openSelectedModFolderToolStripMenuItem.Text = "Open Selected Mod Folder";
+            this.openSelectedModFolderToolStripMenuItem.Click += new System.EventHandler(this.openSelectedModFolderToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(214, 6);
+            // 
+            // copyFolderPathToolStripMenuItem
+            // 
+            this.copyFolderPathToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.copy;
+            this.copyFolderPathToolStripMenuItem.Name = "copyFolderPathToolStripMenuItem";
+            this.copyFolderPathToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.copyFolderPathToolStripMenuItem.Text = "Copy Folder Path";
+            this.copyFolderPathToolStripMenuItem.Click += new System.EventHandler(this.copyFolderPathToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(214, 6);
+            // 
+            // deleteModToolStripMenuItem
+            // 
+            this.deleteModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
+            this.deleteModToolStripMenuItem.Name = "deleteModToolStripMenuItem";
+            this.deleteModToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.deleteModToolStripMenuItem.Text = "Delete Mod...";
+            this.deleteModToolStripMenuItem.Click += new System.EventHandler(this.deleteModToolStripMenuItem_Click);
+            // 
             // ModManagerMenuMain
             // 
             this.ModManagerMenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -136,6 +190,27 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // manageSaveFilesToolStripMenuItem
+            // 
+            this.manageSaveFilesToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.save_manager;
+            this.manageSaveFilesToolStripMenuItem.Name = "manageSaveFilesToolStripMenuItem";
+            this.manageSaveFilesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.manageSaveFilesToolStripMenuItem.Text = "Manage Save Files";
+            this.manageSaveFilesToolStripMenuItem.Click += new System.EventHandler(this.manageSaveFilesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
+            // 
+            // closeModManagerToolStripMenuItem
+            // 
+            this.closeModManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.exit_program;
+            this.closeModManagerToolStripMenuItem.Name = "closeModManagerToolStripMenuItem";
+            this.closeModManagerToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.closeModManagerToolStripMenuItem.Text = "Close Mod Manager";
+            this.closeModManagerToolStripMenuItem.Click += new System.EventHandler(this.closeModManagerToolStripMenuItem_Click);
+            // 
             // modsToolStripMenuItem
             // 
             this.modsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -153,115 +228,6 @@
             this.modsToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.modsToolStripMenuItem.Text = "Mods";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(237, 6);
-            // 
-            // songsToolStripMenuItem
-            // 
-            this.songsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.songAndSongCategoryManagerToolStripMenuItem,
-            this.manageDuplicateSongChecksumsToolStripMenuItem});
-            this.songsToolStripMenuItem.Name = "songsToolStripMenuItem";
-            this.songsToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.songsToolStripMenuItem.Text = "Songs";
-            // 
-            // StatusBarMain
-            // 
-            this.StatusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusLabelMain});
-            this.StatusBarMain.Location = new System.Drawing.Point(0, 659);
-            this.StatusBarMain.Name = "StatusBarMain";
-            this.StatusBarMain.Size = new System.Drawing.Size(1264, 22);
-            this.StatusBarMain.TabIndex = 2;
-            this.StatusBarMain.Text = "StatusBarMain";
-            // 
-            // StatusLabelMain
-            // 
-            this.StatusLabelMain.Name = "StatusLabelMain";
-            this.StatusLabelMain.Size = new System.Drawing.Size(187, 17);
-            this.StatusLabelMain.Text = "WTDE Launcher V3: Mod Manager";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
-            // 
-            // ModTreeContext
-            // 
-            this.ModTreeContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openSelectedModConfigToolStripMenuItem1,
-            this.openSelectedModFolderToolStripMenuItem,
-            this.toolStripSeparator6,
-            this.copyFolderPathToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.deleteModToolStripMenuItem});
-            this.ModTreeContext.Name = "ModTreeContext";
-            this.ModTreeContext.Size = new System.Drawing.Size(218, 104);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(214, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(214, 6);
-            // 
-            // openSelectedModConfigToolStripMenuItem1
-            // 
-            this.openSelectedModConfigToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.edit_meta_data;
-            this.openSelectedModConfigToolStripMenuItem1.Name = "openSelectedModConfigToolStripMenuItem1";
-            this.openSelectedModConfigToolStripMenuItem1.Size = new System.Drawing.Size(217, 22);
-            this.openSelectedModConfigToolStripMenuItem1.Text = "Open Selected Mod Config";
-            this.openSelectedModConfigToolStripMenuItem1.Click += new System.EventHandler(this.openSelectedModConfigToolStripMenuItem1_Click);
-            // 
-            // openSelectedModFolderToolStripMenuItem
-            // 
-            this.openSelectedModFolderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
-            this.openSelectedModFolderToolStripMenuItem.Name = "openSelectedModFolderToolStripMenuItem";
-            this.openSelectedModFolderToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.openSelectedModFolderToolStripMenuItem.Text = "Open Selected Mod Folder";
-            this.openSelectedModFolderToolStripMenuItem.Click += new System.EventHandler(this.openSelectedModFolderToolStripMenuItem_Click);
-            // 
-            // copyFolderPathToolStripMenuItem
-            // 
-            this.copyFolderPathToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.copy;
-            this.copyFolderPathToolStripMenuItem.Name = "copyFolderPathToolStripMenuItem";
-            this.copyFolderPathToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.copyFolderPathToolStripMenuItem.Text = "Copy Folder Path";
-            this.copyFolderPathToolStripMenuItem.Click += new System.EventHandler(this.copyFolderPathToolStripMenuItem_Click);
-            // 
-            // deleteModToolStripMenuItem
-            // 
-            this.deleteModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
-            this.deleteModToolStripMenuItem.Name = "deleteModToolStripMenuItem";
-            this.deleteModToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.deleteModToolStripMenuItem.Text = "Delete Mod...";
-            this.deleteModToolStripMenuItem.Click += new System.EventHandler(this.deleteModToolStripMenuItem_Click);
-            // 
-            // manageSaveFilesToolStripMenuItem
-            // 
-            this.manageSaveFilesToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.save_manager;
-            this.manageSaveFilesToolStripMenuItem.Name = "manageSaveFilesToolStripMenuItem";
-            this.manageSaveFilesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.manageSaveFilesToolStripMenuItem.Text = "Manage Save Files";
-            // 
-            // closeModManagerToolStripMenuItem
-            // 
-            this.closeModManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.exit_program;
-            this.closeModManagerToolStripMenuItem.Name = "closeModManagerToolStripMenuItem";
-            this.closeModManagerToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.closeModManagerToolStripMenuItem.Text = "Close Mod Manager";
-            this.closeModManagerToolStripMenuItem.Click += new System.EventHandler(this.closeModManagerToolStripMenuItem_Click);
-            // 
             // openModsFolderToolStripMenuItem
             // 
             this.openModsFolderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
@@ -270,13 +236,13 @@
             this.openModsFolderToolStripMenuItem.Text = "Open Mods Folder";
             this.openModsFolderToolStripMenuItem.Click += new System.EventHandler(this.openModsFolderToolStripMenuItem_Click);
             // 
-            // findModsToolStripMenuItem
+            // installModsToolStripMenuItem
             // 
-            this.findModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
-            this.findModsToolStripMenuItem.Name = "findModsToolStripMenuItem";
-            this.findModsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.findModsToolStripMenuItem.Text = "Find Mods...";
-            this.findModsToolStripMenuItem.Click += new System.EventHandler(this.findModsToolStripMenuItem_Click);
+            this.installModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
+            this.installModsToolStripMenuItem.Name = "installModsToolStripMenuItem";
+            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.installModsToolStripMenuItem.Text = "Install Mods...";
+            this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installModsToolStripMenuItem_Click);
             // 
             // refreshModsToolStripMenuItem
             // 
@@ -286,13 +252,18 @@
             this.refreshModsToolStripMenuItem.Text = "Refresh Mods";
             this.refreshModsToolStripMenuItem.Click += new System.EventHandler(this.refreshModsToolStripMenuItem_Click);
             // 
-            // installModsToolStripMenuItem
+            // findModsToolStripMenuItem
             // 
-            this.installModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
-            this.installModsToolStripMenuItem.Name = "installModsToolStripMenuItem";
-            this.installModsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.installModsToolStripMenuItem.Text = "Install Mods...";
-            this.installModsToolStripMenuItem.Click += new System.EventHandler(this.installModsToolStripMenuItem_Click);
+            this.findModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
+            this.findModsToolStripMenuItem.Name = "findModsToolStripMenuItem";
+            this.findModsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.findModsToolStripMenuItem.Text = "Find Mods...";
+            this.findModsToolStripMenuItem.Click += new System.EventHandler(this.findModsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
             // 
             // openSelectedModConfigToolStripMenuItem
             // 
@@ -310,6 +281,19 @@
             this.openSelectedModFolderToolStripMenuItem1.Text = "Open Selected Mod Folder";
             this.openSelectedModFolderToolStripMenuItem1.Click += new System.EventHandler(this.openSelectedModFolderToolStripMenuItem1_Click);
             // 
+            // copySelectedModFolderPathToolStripMenuItem
+            // 
+            this.copySelectedModFolderPathToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.copy;
+            this.copySelectedModFolderPathToolStripMenuItem.Name = "copySelectedModFolderPathToolStripMenuItem";
+            this.copySelectedModFolderPathToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.copySelectedModFolderPathToolStripMenuItem.Text = "Copy Selected Mod Folder Path";
+            this.copySelectedModFolderPathToolStripMenuItem.Click += new System.EventHandler(this.copySelectedModFolderPathToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(237, 6);
+            // 
             // deleteModToolStripMenuItem1
             // 
             this.deleteModToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
@@ -317,6 +301,15 @@
             this.deleteModToolStripMenuItem1.Size = new System.Drawing.Size(240, 22);
             this.deleteModToolStripMenuItem1.Text = "Delete Mod...";
             this.deleteModToolStripMenuItem1.Click += new System.EventHandler(this.deleteModToolStripMenuItem1_Click);
+            // 
+            // songsToolStripMenuItem
+            // 
+            this.songsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.songAndSongCategoryManagerToolStripMenuItem,
+            this.manageDuplicateSongChecksumsToolStripMenuItem});
+            this.songsToolStripMenuItem.Name = "songsToolStripMenuItem";
+            this.songsToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.songsToolStripMenuItem.Text = "Songs";
             // 
             // songAndSongCategoryManagerToolStripMenuItem
             // 
@@ -332,13 +325,21 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.manageDuplicateSongChecksumsToolStripMenuItem.Text = "Manage Duplicate Song Checksums";
             // 
-            // copySelectedModFolderPathToolStripMenuItem
+            // StatusBarMain
             // 
-            this.copySelectedModFolderPathToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.copy;
-            this.copySelectedModFolderPathToolStripMenuItem.Name = "copySelectedModFolderPathToolStripMenuItem";
-            this.copySelectedModFolderPathToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.copySelectedModFolderPathToolStripMenuItem.Text = "Copy Selected Mod Folder Path";
-            this.copySelectedModFolderPathToolStripMenuItem.Click += new System.EventHandler(this.copySelectedModFolderPathToolStripMenuItem_Click);
+            this.StatusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabelMain});
+            this.StatusBarMain.Location = new System.Drawing.Point(0, 659);
+            this.StatusBarMain.Name = "StatusBarMain";
+            this.StatusBarMain.Size = new System.Drawing.Size(1264, 22);
+            this.StatusBarMain.TabIndex = 2;
+            this.StatusBarMain.Text = "StatusBarMain";
+            // 
+            // StatusLabelMain
+            // 
+            this.StatusLabelMain.Name = "StatusLabelMain";
+            this.StatusLabelMain.Size = new System.Drawing.Size(187, 17);
+            this.StatusLabelMain.Text = "WTDE Launcher V3: Mod Manager";
             // 
             // ModManager
             // 
@@ -355,11 +356,11 @@
             this.Name = "ModManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WTDE Mod Manager";
+            this.ModTreeContext.ResumeLayout(false);
             this.ModManagerMenuMain.ResumeLayout(false);
             this.ModManagerMenuMain.PerformLayout();
             this.StatusBarMain.ResumeLayout(false);
             this.StatusBarMain.PerformLayout();
-            this.ModTreeContext.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
