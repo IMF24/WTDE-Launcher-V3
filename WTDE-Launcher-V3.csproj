@@ -149,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BGConstants.cs" />
+    <Compile Include="CARManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CARManager.Designer.cs">
+      <DependentUpon>CARManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="INIFunctions.cs" />
     <Compile Include="InputKeySelector.cs">
       <SubType>Form</SubType>
@@ -197,6 +203,9 @@
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="XMLFunctions.cs" />
+    <EmbeddedResource Include="CARManager.resx">
+      <DependentUpon>CARManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputKeySelector.resx">
       <DependentUpon>InputKeySelector.cs</DependentUpon>
     </EmbeddedResource>

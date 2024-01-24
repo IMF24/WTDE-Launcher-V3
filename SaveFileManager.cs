@@ -69,7 +69,7 @@ namespace WTDE_Launcher_V3 {
         private void ReplaceSaveButton_Click(object sender, EventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select Save File to Replace With";
-            ofd.Filter = "GHWT: DE Save Files|*GHWTDE.sav";
+            ofd.Filter = "GHWT: DE Save Files|*.sav";
 
             ofd.ShowDialog();
 

@@ -60,6 +60,7 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.rockStarCreatorCharacterManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -184,6 +185,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageSaveFilesToolStripMenuItem,
+            this.rockStarCreatorCharacterManagerToolStripMenuItem,
             this.toolStripSeparator4,
             this.closeModManagerToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -194,20 +196,20 @@
             // 
             this.manageSaveFilesToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.save_manager;
             this.manageSaveFilesToolStripMenuItem.Name = "manageSaveFilesToolStripMenuItem";
-            this.manageSaveFilesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.manageSaveFilesToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.manageSaveFilesToolStripMenuItem.Text = "Manage Save Files";
             this.manageSaveFilesToolStripMenuItem.Click += new System.EventHandler(this.manageSaveFilesToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(266, 6);
             // 
             // closeModManagerToolStripMenuItem
             // 
             this.closeModManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.exit_program;
             this.closeModManagerToolStripMenuItem.Name = "closeModManagerToolStripMenuItem";
-            this.closeModManagerToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.closeModManagerToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.closeModManagerToolStripMenuItem.Text = "Close Mod Manager";
             this.closeModManagerToolStripMenuItem.Click += new System.EventHandler(this.closeModManagerToolStripMenuItem_Click);
             // 
@@ -341,6 +343,14 @@
             this.StatusLabelMain.Size = new System.Drawing.Size(187, 17);
             this.StatusLabelMain.Text = "WTDE Launcher V3: Mod Manager";
             // 
+            // rockStarCreatorCharacterManagerToolStripMenuItem
+            // 
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.rsc_manager;
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Name = "rockStarCreatorCharacterManagerToolStripMenuItem";
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Text = "Rock Star Creator Character Manager";
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Click += new System.EventHandler(this.rockStarCreatorCharacterManagerToolStripMenuItem_Click);
+            // 
             // ModManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -403,5 +413,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem copyFolderPathToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copySelectedModFolderPathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rockStarCreatorCharacterManagerToolStripMenuItem;
     }
 }

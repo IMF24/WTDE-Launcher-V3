@@ -934,6 +934,9 @@ namespace WTDE_Launcher_V3 {
         private void ModManagerButton_Click(object sender, EventArgs e) {
             ModManager mManager = new ModManager();
             mManager.ShowDialog();
+
+            // Reload INI/XML settings again just in case.
+            LoadINISettings();
         }
 
         private void FretworksLogo_Click(object sender, EventArgs e) {

@@ -181,5 +181,10 @@ namespace WTDE_Launcher_V3 {
             SaveFileManager sfm = new SaveFileManager();
             sfm.ShowDialog();
         }
+
+        private void rockStarCreatorCharacterManagerToolStripMenuItem_Click(object sender, EventArgs e) {
+            CARManager cam = new CARManager();
+            cam.ShowDialog();
+        }
     }
 }
