@@ -37,8 +37,8 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public static List<string> DebugLog = new List<string> {
             "~=-=~=-=~      W T D E     L A U N C H E R     V 3      ~=-=~=-=~",
-            $"WTDE Launcher Execution Debug Log: V{V3LauncherConstants.VERSION}",
-            $"Date of Execution: {DateTime.Now.ToString()}",
+           $"   WTDE Launcher Execution Debug Log: V{V3LauncherConstants.VERSION}",
+           $"   Date of Execution: {DateTime.Now.ToString()}",
             "~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~"
         };
 

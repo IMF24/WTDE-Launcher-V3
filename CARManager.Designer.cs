@@ -91,6 +91,7 @@
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 17;
             this.CloseButton.Text = "Close";
+            this.CARManagerToolTipMain.SetToolTip(this.CloseButton, "Closes this window.");
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -100,7 +101,8 @@
             this.InstallNewProfile.Name = "InstallNewProfile";
             this.InstallNewProfile.Size = new System.Drawing.Size(221, 23);
             this.InstallNewProfile.TabIndex = 18;
-            this.InstallNewProfile.Text = "Install CAR Character...";
+            this.InstallNewProfile.Text = "Install CAR Character(s)...";
+            this.CARManagerToolTipMain.SetToolTip(this.InstallNewProfile, "Install new Rock Star Creator characters into your Profiles folder.");
             this.InstallNewProfile.UseVisualStyleBackColor = true;
             this.InstallNewProfile.Click += new System.EventHandler(this.InstallNewProfile_Click);
             // 
@@ -111,6 +113,7 @@
             this.DeleteSelectedProfile.Size = new System.Drawing.Size(221, 23);
             this.DeleteSelectedProfile.TabIndex = 19;
             this.DeleteSelectedProfile.Text = "Delete CAR Character";
+            this.CARManagerToolTipMain.SetToolTip(this.DeleteSelectedProfile, "Delete the selected character file.");
             this.DeleteSelectedProfile.UseVisualStyleBackColor = true;
             this.DeleteSelectedProfile.Click += new System.EventHandler(this.DeleteSelectedProfile_Click);
             // 
@@ -121,6 +124,7 @@
             this.OpenProfilesFolder.Size = new System.Drawing.Size(221, 23);
             this.OpenProfilesFolder.TabIndex = 20;
             this.OpenProfilesFolder.Text = "Open Profiles Folder";
+            this.CARManagerToolTipMain.SetToolTip(this.OpenProfilesFolder, "Open your Profiles folder.");
             this.OpenProfilesFolder.UseVisualStyleBackColor = true;
             this.OpenProfilesFolder.Click += new System.EventHandler(this.OpenProfilesFolder_Click);
             // 
@@ -131,6 +135,7 @@
             this.RefreshProfilesList.Size = new System.Drawing.Size(268, 23);
             this.RefreshProfilesList.TabIndex = 21;
             this.RefreshProfilesList.Text = "Refresh List";
+            this.CARManagerToolTipMain.SetToolTip(this.RefreshProfilesList, "Refresh the list of profiles in your Profiles folder.");
             this.RefreshProfilesList.UseVisualStyleBackColor = true;
             this.RefreshProfilesList.Click += new System.EventHandler(this.RefreshProfilesList_Click);
             // 
@@ -141,6 +146,7 @@
             this.MarkPreferredGuitarist.Size = new System.Drawing.Size(221, 23);
             this.MarkPreferredGuitarist.TabIndex = 22;
             this.MarkPreferredGuitarist.Text = "Set As Preferred Guitarist";
+            this.CARManagerToolTipMain.SetToolTip(this.MarkPreferredGuitarist, "Mark the selected character as the preferred guitarist.");
             this.MarkPreferredGuitarist.UseVisualStyleBackColor = true;
             this.MarkPreferredGuitarist.Click += new System.EventHandler(this.MarkPreferredGuitarist_Click);
             // 
@@ -151,6 +157,7 @@
             this.MarkPreferredBassist.Size = new System.Drawing.Size(221, 23);
             this.MarkPreferredBassist.TabIndex = 23;
             this.MarkPreferredBassist.Text = "Set As Preferred Bassist";
+            this.CARManagerToolTipMain.SetToolTip(this.MarkPreferredBassist, "Mark the selected character as the preferred bassist.");
             this.MarkPreferredBassist.UseVisualStyleBackColor = true;
             this.MarkPreferredBassist.Click += new System.EventHandler(this.MarkPreferredBassist_Click);
             // 
@@ -161,6 +168,7 @@
             this.MarkPreferredDrummer.Size = new System.Drawing.Size(221, 23);
             this.MarkPreferredDrummer.TabIndex = 24;
             this.MarkPreferredDrummer.Text = "Set As Preferred Drummer";
+            this.CARManagerToolTipMain.SetToolTip(this.MarkPreferredDrummer, "Mark the selected character as the preferred drummer.");
             this.MarkPreferredDrummer.UseVisualStyleBackColor = true;
             this.MarkPreferredDrummer.Click += new System.EventHandler(this.MarkPreferredDrummer_Click);
             // 
@@ -171,6 +179,7 @@
             this.MarkPreferredSinger.Size = new System.Drawing.Size(221, 23);
             this.MarkPreferredSinger.TabIndex = 25;
             this.MarkPreferredSinger.Text = "Set As Preferred Male Singer";
+            this.CARManagerToolTipMain.SetToolTip(this.MarkPreferredSinger, "Mark the selected character as the preferred male singer.");
             this.MarkPreferredSinger.UseVisualStyleBackColor = true;
             this.MarkPreferredSinger.Click += new System.EventHandler(this.MarkPreferredSinger_Click);
             // 
@@ -181,6 +190,7 @@
             this.MarkPreferredFemaleSinger.Size = new System.Drawing.Size(221, 23);
             this.MarkPreferredFemaleSinger.TabIndex = 26;
             this.MarkPreferredFemaleSinger.Text = "Set As Preferred Female Singer";
+            this.CARManagerToolTipMain.SetToolTip(this.MarkPreferredFemaleSinger, "Mark the selected character as the preferred female singer.");
             this.MarkPreferredFemaleSinger.UseVisualStyleBackColor = true;
             this.MarkPreferredFemaleSinger.Click += new System.EventHandler(this.MarkPreferredFemaleSinger_Click);
             // 

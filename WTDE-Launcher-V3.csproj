@@ -255,6 +255,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\default_config.txt" />
     <None Include="res\img\menuicons\delete.png" />
     <None Include="res\img\menuicons\find.png" />
     <None Include="res\img\menuicons\copy.png" />

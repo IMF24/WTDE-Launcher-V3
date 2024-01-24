@@ -240,6 +240,42 @@ fonts to compliment their original appearances in their respective games.</value
   •  Guitar Hero: Metallica: Tap notes are connected by a gray line.
   •  No Tap Trail: The tap trail will not be displayed.</value>
   </data>
+  <data name="AudioBuffLen.ToolTip" xml:space="preserve">
+    <value>In bytes, the length of the audio buffer used when decoding FMOD streams.
+Higher is usually better, but changing this or changing your speaker output
+frequency can potentially cause bad audio output.
+
+For most users, leave this on 4096. If audio begins to sound bad, turn this
+down to a lower value.</value>
+  </data>
+  <data name="MuteStreams.ToolTip" xml:space="preserve">
+    <value>When this is enabled, if a note is missed, it mutes out the current instrument track
+until another note is successfully hit. Unchecking this disables this behavior, and
+all audio tracks will be audible regardless of notes missed.</value>
+  </data>
+  <data name="RichPresence.ToolTip" xml:space="preserve">
+    <value>Uses Discord's rich presence feature.
+
+If this is enabled, when you're playing GHWT: DE, this will update your
+Discord status with various details about the song you're playing, the
+difficulty and instrument you're playing on, how much longer until
+the song is over, and other cool little things!</value>
+  </data>
+  <data name="AutoLaunchEnabled.ToolTip" xml:space="preserve">
+    <value>Enable or disable auto launch.
+
+When this is enabled, WTDE will automatically load into a song of your choosing!
+You can also set the bot usage, instruments, difficulties, venue, and more.
+
+Warning: This may erase your save data, so make sure to back it up first!</value>
+  </data>
+  <data name="KeyBindsParentPanel.ToolTip" xml:space="preserve">
+    <value>This list shows all of the keyboard inputs you can rebind.
+
+To add an input, click "Add". To clear all inputs for that control, click "Clear".
+
+Make sure to click "Save Key Binds" when you're finished editing your controls!</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

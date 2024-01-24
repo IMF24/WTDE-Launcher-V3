@@ -42,6 +42,7 @@
             this.ModManagerMenuMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageSaveFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rockStarCreatorCharacterManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.closeModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,6 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
-            this.rockStarCreatorCharacterManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -199,6 +199,14 @@
             this.manageSaveFilesToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.manageSaveFilesToolStripMenuItem.Text = "Manage Save Files";
             this.manageSaveFilesToolStripMenuItem.Click += new System.EventHandler(this.manageSaveFilesToolStripMenuItem_Click);
+            // 
+            // rockStarCreatorCharacterManagerToolStripMenuItem
+            // 
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.rsc_manager;
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Name = "rockStarCreatorCharacterManagerToolStripMenuItem";
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Text = "Rock Star Creator Character Manager";
+            this.rockStarCreatorCharacterManagerToolStripMenuItem.Click += new System.EventHandler(this.rockStarCreatorCharacterManagerToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -340,16 +348,9 @@
             // StatusLabelMain
             // 
             this.StatusLabelMain.Name = "StatusLabelMain";
-            this.StatusLabelMain.Size = new System.Drawing.Size(187, 17);
-            this.StatusLabelMain.Text = "WTDE Launcher V3: Mod Manager";
-            // 
-            // rockStarCreatorCharacterManagerToolStripMenuItem
-            // 
-            this.rockStarCreatorCharacterManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.rsc_manager;
-            this.rockStarCreatorCharacterManagerToolStripMenuItem.Name = "rockStarCreatorCharacterManagerToolStripMenuItem";
-            this.rockStarCreatorCharacterManagerToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
-            this.rockStarCreatorCharacterManagerToolStripMenuItem.Text = "Rock Star Creator Character Manager";
-            this.rockStarCreatorCharacterManagerToolStripMenuItem.Click += new System.EventHandler(this.rockStarCreatorCharacterManagerToolStripMenuItem_Click);
+            this.StatusLabelMain.Size = new System.Drawing.Size(473, 17);
+            this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
+    "nagers";
             // 
             // ModManager
             // 

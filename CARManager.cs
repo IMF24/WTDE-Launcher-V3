@@ -74,7 +74,7 @@ namespace WTDE_Launcher_V3 {
 
         private void InstallNewProfile_Click(object sender, EventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select CAR File to Install";
+            ofd.Title = "Select CAR File(s) to Install";
             ofd.Filter = "Rock Star Creator Characters|*.car";
             ofd.Multiselect = true;
 

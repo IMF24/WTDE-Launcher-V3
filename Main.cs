@@ -84,9 +84,11 @@ namespace WTDE_Launcher_V3 {
         ///  Load all config data from GHWTDE.ini and AspyrConfig.xml.
         /// </summary>
         public void LoadINISettings() {
-            // Not needed, we have the INIFunctions class handling this for us!
-            //~ IniFile file = new IniFile();
-            //~ file.Load(V3LauncherConstants.WTDEConfigDir);
+            // Write a new default config if the user doesn't have one!
+            if (!File.Exists(V3LauncherConstants.WTDEConfigDir)) {
+                string fileContents = Properties.Resources.default_config.ToString();
+                File.WriteAllText(V3LauncherConstants.WTDEConfigDir, fileContents);
+            }
 
             // ---------------------------------
             // GENERAL TAB
@@ -908,6 +910,24 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void RunWTDEButton_Click(object sender, EventArgs e) {
+            // If Auto Launch is enabled, warn the user!
+            // Back up their save data if we're instructed to do so.
+            if (AutoLaunchEnabled.Checked) {
+                string autoLaunchEnabledWarning = "You have Auto Launch functionality enabled. Running the game may cause your save data " +
+                                                  "to be lost.\n\nIn the event something goes wrong, do you want to create a backup copy " +
+                                                  "of your save data?";
+
+                if (MessageBox.Show(autoLaunchEnabledWarning, "Auto Launch Enabled", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    File.Copy(V3LauncherConstants.WTDESaveDir, $"{V3LauncherConstants.WTDESaveBackupsDir}/GHWTDE_{DateTime.Now.ToString().Replace(":", "_").Replace("/", "-")}.sav", true);
+
+                    string saveBackedUp = "Your save file has been backed up!\n\nYou can load the backup save from the Save File Manager if something goes wrong. " +
+                                          "Access the manager by going to the Mod Manager, then go to File > Manage Save Files.";
+
+                    MessageBox.Show(saveBackedUp, "Save Backed Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            // Go to the user's WTDE install folder and start the game up!
             ModHandler.UseUpdaterINIDirectory();
             this.Close();
             Process.Start("GHWT_Definitive.exe");
@@ -1050,6 +1070,12 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void CheckForUpdates_CheckedChanged(object sender, EventArgs e) {
+            if (!CheckForUpdates.Checked) {
+                string cfuDisableWarning = "Do you really wish to disable the auto update checker? Doing this " +
+                                           "is not recommended and may cause your WTDE installation to fall " +
+                                           "out of date much faster.";
+                CheckForUpdates.Checked = !(MessageBox.Show(cfuDisableWarning, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+            }
             INIFunctions.SaveINIValue("Launcher", "CheckForUpdates", INIFunctions.BoolToString(CheckForUpdates.Checked));
         }
 
@@ -1227,6 +1253,8 @@ namespace WTDE_Launcher_V3 {
             XMLFunctions.AspyrWriteString("Keyboard_Drum", V3LauncherConstants.ASPYR_INPUT_DRUMS_BACKUP);
             XMLFunctions.AspyrWriteString("Keyboard_Mic", V3LauncherConstants.ASPYR_INPUT_MIC_BACKUP);
             XMLFunctions.AspyrWriteString("Keyboard_Menu", V3LauncherConstants.ASPYR_INPUT_MENU_BACKUP);
+
+            LoadINISettings();
         }
 
         /// <summary>
