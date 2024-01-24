@@ -39,6 +39,22 @@ namespace WTDE_Launcher_V3 {
             }
         }
 
+        public void RefreshModsList() {
+            UserContentModsTree.Items.Clear();
+            StatusLabelMain.Text = "Refreshing mods list...";
+
+            Application.DoEvents();
+
+            ModHandler.ReadMods();
+
+            foreach (string[] mod in ModHandler.UserContentMods) {
+                var listViewItem = new ListViewItem(mod);
+                UserContentModsTree.Items.Add(listViewItem);
+            }
+
+            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
+        }
+
         private void UserContentModsTree_SelectedIndexChanged(object sender, EventArgs e) {
             try {
                 this.SelectedModConfig = UserContentModsTree.SelectedItems[0].SubItems[5].Text;
@@ -60,19 +76,7 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void refreshModsToolStripMenuItem_Click(object sender, EventArgs e) {
-            UserContentModsTree.Items.Clear();
-            StatusLabelMain.Text = "Refreshing mods list...";
-
-            Application.DoEvents();
-
-            ModHandler.ReadMods();
-
-            foreach (string[] mod in ModHandler.UserContentMods) {
-                var listViewItem = new ListViewItem(mod);
-                UserContentModsTree.Items.Add(listViewItem);
-            }
-
-            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
+            RefreshModsList();
         }
 
         private void openSelectedModConfigToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -134,19 +138,7 @@ namespace WTDE_Launcher_V3 {
             modInstaller.ShowDialog();
 
             // REFRESH MODS LIST AFTER INSTALLING
-            UserContentModsTree.Items.Clear();
-            StatusLabelMain.Text = "Refreshing mods list...";
-
-            Application.DoEvents();
-
-            ModHandler.ReadMods();
-
-            foreach (string[] mod in ModHandler.UserContentMods) {
-                var listViewItem = new ListViewItem(mod);
-                UserContentModsTree.Items.Add(listViewItem);
-            }
-
-            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
+            RefreshModsList();
         }
 
         private void copySelectedModFolderPathToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -161,20 +153,8 @@ namespace WTDE_Launcher_V3 {
             ModFinder finder = new ModFinder();
             finder.ShowDialog();
 
-            // REFRESH MODS LIST AFTER SEARCHING
-            UserContentModsTree.Items.Clear();
-            StatusLabelMain.Text = "Refreshing mods list...";
-
-            Application.DoEvents();
-
-            ModHandler.ReadMods();
-
-            foreach (string[] mod in ModHandler.UserContentMods) {
-                var listViewItem = new ListViewItem(mod);
-                UserContentModsTree.Items.Add(listViewItem);
-            }
-
-            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
+            // REFRESH MODS LIST AFTER INSTALLING
+            RefreshModsList();
         }
 
         private void manageSaveFilesToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -185,6 +165,18 @@ namespace WTDE_Launcher_V3 {
         private void rockStarCreatorCharacterManagerToolStripMenuItem_Click(object sender, EventArgs e) {
             CARManager cam = new CARManager();
             cam.ShowDialog();
+        }
+
+        private void manageDuplicateSongChecksumsToolStripMenuItem_Click(object sender, EventArgs e) {
+            try {
+                DupeChecksumManager dcm = new DupeChecksumManager();
+                dcm.ShowDialog();
+            } catch (Exception exc) {
+                V3LauncherCore.DebugLog.Add($"Issue with Duplicate Song Checksum Manager // Exception: {exc.Message}");
+            }
+
+            // REFRESH MODS LIST AFTER INSTALLING
+            RefreshModsList();
         }
     }
 }

@@ -334,6 +334,7 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem.Name = "manageDuplicateSongChecksumsToolStripMenuItem";
             this.manageDuplicateSongChecksumsToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.manageDuplicateSongChecksumsToolStripMenuItem.Text = "Manage Duplicate Song Checksums";
+            this.manageDuplicateSongChecksumsToolStripMenuItem.Click += new System.EventHandler(this.manageDuplicateSongChecksumsToolStripMenuItem_Click);
             // 
             // StatusBarMain
             // 
