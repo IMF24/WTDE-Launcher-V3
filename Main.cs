@@ -67,7 +67,6 @@ namespace WTDE_Launcher_V3 {
 
                 // Set up tabs, the window title, and the background.
                 // Also play boot VOs if we have them on, fun stuff!
-                LoadINISettings();
                 DoTabSetup();
                 V3LauncherCore.SetWindowTitle(this);
                 BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
@@ -77,10 +76,11 @@ namespace WTDE_Launcher_V3 {
                 OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
                 OpenDevOnlySettings.Visible = V3LauncherCore.AllowDevSettings();
 
-                //~ Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
-
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
+
+                // NOW let's load our settings!
+                LoadINISettings();
             } catch (Exception exc) {
                 V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
                 
