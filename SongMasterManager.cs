@@ -91,6 +91,7 @@ namespace WTDE_Launcher_V3 {
 
             SongCategoryNames.Clear();
             SongCategoryChecksums.Clear();
+            SongCategoryPaths.Clear();
 
             // Clear out the list boxes too.
             SongModsList.Items.Clear();

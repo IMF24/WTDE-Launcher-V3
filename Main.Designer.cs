@@ -357,7 +357,26 @@
             this.InputIconBass = new System.Windows.Forms.PictureBox();
             this.GuitarSelectInputs = new System.Windows.Forms.Label();
             this.GtrSelectLabel = new System.Windows.Forms.Label();
+            this.FixNoteLimit = new System.Windows.Forms.CheckBox();
+            this.FixMemoryHandler = new System.Windows.Forms.CheckBox();
+            this.DebugConsole = new System.Windows.Forms.CheckBox();
+            this.WriteFile = new System.Windows.Forms.CheckBox();
+            this.DisableSongLogging = new System.Windows.Forms.CheckBox();
+            this.DebugDLCSync = new System.Windows.Forms.CheckBox();
+            this.FixFSBObjects = new System.Windows.Forms.CheckBox();
+            this.ExtraOptimizedSaves = new System.Windows.Forms.CheckBox();
+            this.DebugSaves = new System.Windows.Forms.CheckBox();
+            this.ShowWarnings = new System.Windows.Forms.CheckBox();
+            this.FixFastTextures = new System.Windows.Forms.CheckBox();
+            this.BindWarningShown = new System.Windows.Forms.CheckBox();
+            this.QuickDebug = new System.Windows.Forms.CheckBox();
+            this.PrintLoadedAssets = new System.Windows.Forms.CheckBox();
+            this.PrintCreateFile = new System.Windows.Forms.CheckBox();
+            this.CASNoticeShown = new System.Windows.Forms.CheckBox();
+            this.DisableInitialMovies = new System.Windows.Forms.CheckBox();
+            this.ImmediateVectorHandlers = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
             this.TabALMainEditor = new System.Windows.Forms.Panel();
@@ -398,8 +417,6 @@
             this.TGAudioBLen = new System.Windows.Forms.Label();
             this.TGDefaultQPODiff = new System.Windows.Forms.Label();
             this.TGBasicSettings = new System.Windows.Forms.Label();
-            this.TabDebugGroup = new System.Windows.Forms.GroupBox();
-            this.FixNoteLimit = new System.Windows.Forms.CheckBox();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
             this.TGEditorBasic = new System.Windows.Forms.TabPage();
@@ -492,13 +509,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabDebugGroup.SuspendLayout();
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
             this.TabInputGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).BeginInit();
             this.TabGeneralGroup.SuspendLayout();
-            this.TabDebugGroup.SuspendLayout();
             this.TabGraphicsGroup.SuspendLayout();
             this.TabGraphicsMainEditor.SuspendLayout();
             this.TGEditorBasic.SuspendLayout();
@@ -4952,6 +4969,254 @@
             this.GtrSelectLabel.Text = "Back/Select:";
             this.GtrSelectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // FixNoteLimit
+            // 
+            this.FixNoteLimit.AutoSize = true;
+            this.FixNoteLimit.Location = new System.Drawing.Point(24, 22);
+            this.FixNoteLimit.Margin = new System.Windows.Forms.Padding(2);
+            this.FixNoteLimit.Name = "FixNoteLimit";
+            this.FixNoteLimit.Size = new System.Drawing.Size(124, 26);
+            this.FixNoteLimit.TabIndex = 0;
+            this.FixNoteLimit.Text = "Fix Note Limit";
+            this.ToolTipMain.SetToolTip(this.FixNoteLimit, "Fix the note limit from the default 4,096 note limit.\r\n\r\nNote that this option is" +
+        " experimental and has been known to cause memory issues;\r\nit\'s best advised to l" +
+        "eave this OFF.");
+            this.FixNoteLimit.UseVisualStyleBackColor = true;
+            this.FixNoteLimit.CheckedChanged += new System.EventHandler(this.FixNoteLimit_CheckedChanged);
+            // 
+            // FixMemoryHandler
+            // 
+            this.FixMemoryHandler.AutoSize = true;
+            this.FixMemoryHandler.Location = new System.Drawing.Point(24, 52);
+            this.FixMemoryHandler.Margin = new System.Windows.Forms.Padding(2);
+            this.FixMemoryHandler.Name = "FixMemoryHandler";
+            this.FixMemoryHandler.Size = new System.Drawing.Size(168, 26);
+            this.FixMemoryHandler.TabIndex = 1;
+            this.FixMemoryHandler.Text = "Fix Memory Handler";
+            this.ToolTipMain.SetToolTip(this.FixMemoryHandler, "Fixes the memory handler. This extends memory limits, shows errors if pools excee" +
+        "d\r\ntheir bounds, etc.\r\n\r\nNote: It is HEAVILY encouraged that you DO NOT disable " +
+        "this.");
+            this.FixMemoryHandler.UseVisualStyleBackColor = true;
+            this.FixMemoryHandler.CheckedChanged += new System.EventHandler(this.FixMemoryHandler_CheckedChanged);
+            // 
+            // DebugConsole
+            // 
+            this.DebugConsole.AutoSize = true;
+            this.DebugConsole.Location = new System.Drawing.Point(24, 82);
+            this.DebugConsole.Margin = new System.Windows.Forms.Padding(2);
+            this.DebugConsole.Name = "DebugConsole";
+            this.DebugConsole.Size = new System.Drawing.Size(172, 26);
+            this.DebugConsole.TabIndex = 2;
+            this.DebugConsole.Text = "Open Debug Console";
+            this.ToolTipMain.SetToolTip(this.DebugConsole, "While the game is open, this will show a console window that prints out\r\na stream" +
+        " of everything that WTDE is doing in the background.");
+            this.DebugConsole.UseVisualStyleBackColor = true;
+            this.DebugConsole.CheckedChanged += new System.EventHandler(this.DebugConsole_CheckedChanged);
+            // 
+            // WriteFile
+            // 
+            this.WriteFile.AutoSize = true;
+            this.WriteFile.Location = new System.Drawing.Point(24, 112);
+            this.WriteFile.Margin = new System.Windows.Forms.Padding(2);
+            this.WriteFile.Name = "WriteFile";
+            this.WriteFile.Size = new System.Drawing.Size(144, 26);
+            this.WriteFile.TabIndex = 3;
+            this.WriteFile.Text = "Write Debug Log";
+            this.ToolTipMain.SetToolTip(this.WriteFile, "Writes a debug log in the Documents folder about the currently\r\nactive game sessi" +
+        "on.");
+            this.WriteFile.UseVisualStyleBackColor = true;
+            this.WriteFile.CheckedChanged += new System.EventHandler(this.WriteFile_CheckedChanged);
+            // 
+            // DisableSongLogging
+            // 
+            this.DisableSongLogging.AutoSize = true;
+            this.DisableSongLogging.Location = new System.Drawing.Point(24, 142);
+            this.DisableSongLogging.Margin = new System.Windows.Forms.Padding(2);
+            this.DisableSongLogging.Name = "DisableSongLogging";
+            this.DisableSongLogging.Size = new System.Drawing.Size(158, 26);
+            this.DisableSongLogging.TabIndex = 4;
+            this.DisableSongLogging.Text = "Skip Song Logging";
+            this.ToolTipMain.SetToolTip(this.DisableSongLogging, resources.GetString("DisableSongLogging.ToolTip"));
+            this.DisableSongLogging.UseVisualStyleBackColor = true;
+            this.DisableSongLogging.CheckedChanged += new System.EventHandler(this.DisableSongLogging_CheckedChanged);
+            // 
+            // DebugDLCSync
+            // 
+            this.DebugDLCSync.AutoSize = true;
+            this.DebugDLCSync.Location = new System.Drawing.Point(24, 172);
+            this.DebugDLCSync.Margin = new System.Windows.Forms.Padding(2);
+            this.DebugDLCSync.Name = "DebugDLCSync";
+            this.DebugDLCSync.Size = new System.Drawing.Size(171, 26);
+            this.DebugDLCSync.TabIndex = 5;
+            this.DebugDLCSync.Text = "DLC Sync Debugging";
+            this.ToolTipMain.SetToolTip(this.DebugDLCSync, resources.GetString("DebugDLCSync.ToolTip"));
+            this.DebugDLCSync.UseVisualStyleBackColor = true;
+            this.DebugDLCSync.CheckedChanged += new System.EventHandler(this.DebugDLCSync_CheckedChanged);
+            // 
+            // FixFSBObjects
+            // 
+            this.FixFSBObjects.AutoSize = true;
+            this.FixFSBObjects.Location = new System.Drawing.Point(24, 202);
+            this.FixFSBObjects.Margin = new System.Windows.Forms.Padding(2);
+            this.FixFSBObjects.Name = "FixFSBObjects";
+            this.FixFSBObjects.Size = new System.Drawing.Size(149, 26);
+            this.FixFSBObjects.TabIndex = 6;
+            this.FixFSBObjects.Text = "Fix FMOD Objects";
+            this.ToolTipMain.SetToolTip(this.FixFSBObjects, "Attempts to redirect the 10 item FSB list to a bigger list internally.");
+            this.FixFSBObjects.UseVisualStyleBackColor = true;
+            this.FixFSBObjects.CheckedChanged += new System.EventHandler(this.FixFSBObjects_CheckedChanged);
+            // 
+            // ExtraOptimizedSaves
+            // 
+            this.ExtraOptimizedSaves.AutoSize = true;
+            this.ExtraOptimizedSaves.Location = new System.Drawing.Point(24, 232);
+            this.ExtraOptimizedSaves.Margin = new System.Windows.Forms.Padding(2);
+            this.ExtraOptimizedSaves.Name = "ExtraOptimizedSaves";
+            this.ExtraOptimizedSaves.Size = new System.Drawing.Size(183, 26);
+            this.ExtraOptimizedSaves.TabIndex = 7;
+            this.ExtraOptimizedSaves.Text = "More Optimized Saves";
+            this.ToolTipMain.SetToolTip(this.ExtraOptimizedSaves, "Makes the save functionality more optimized.\r\n\r\nThis is not a well documented fea" +
+        "ture, so you should keep this OFF.");
+            this.ExtraOptimizedSaves.UseVisualStyleBackColor = true;
+            this.ExtraOptimizedSaves.CheckedChanged += new System.EventHandler(this.ExtraOptimizedSaves_CheckedChanged);
+            // 
+            // DebugSaves
+            // 
+            this.DebugSaves.AutoSize = true;
+            this.DebugSaves.Location = new System.Drawing.Point(24, 262);
+            this.DebugSaves.Margin = new System.Windows.Forms.Padding(2);
+            this.DebugSaves.Name = "DebugSaves";
+            this.DebugSaves.Size = new System.Drawing.Size(146, 26);
+            this.DebugSaves.TabIndex = 8;
+            this.DebugSaves.Text = "Debug Save Files";
+            this.ToolTipMain.SetToolTip(this.DebugSaves, "Enables debug functionality for save files.");
+            this.DebugSaves.UseVisualStyleBackColor = true;
+            this.DebugSaves.CheckedChanged += new System.EventHandler(this.DebugSaves_CheckedChanged);
+            // 
+            // ShowWarnings
+            // 
+            this.ShowWarnings.AutoSize = true;
+            this.ShowWarnings.Location = new System.Drawing.Point(24, 292);
+            this.ShowWarnings.Margin = new System.Windows.Forms.Padding(2);
+            this.ShowWarnings.Name = "ShowWarnings";
+            this.ShowWarnings.Size = new System.Drawing.Size(183, 26);
+            this.ShowWarnings.TabIndex = 9;
+            this.ShowWarnings.Text = "Show Debug Warnings";
+            this.ToolTipMain.SetToolTip(this.ShowWarnings, "Turn ON or OFF display of warning messages in the top left corner of the screen. " +
+        "Useful for debugging!");
+            this.ShowWarnings.UseVisualStyleBackColor = true;
+            this.ShowWarnings.CheckedChanged += new System.EventHandler(this.ShowWarnings_CheckedChanged);
+            // 
+            // FixFastTextures
+            // 
+            this.FixFastTextures.AutoSize = true;
+            this.FixFastTextures.Location = new System.Drawing.Point(24, 322);
+            this.FixFastTextures.Margin = new System.Windows.Forms.Padding(2);
+            this.FixFastTextures.Name = "FixFastTextures";
+            this.FixFastTextures.Size = new System.Drawing.Size(143, 26);
+            this.FixFastTextures.TabIndex = 10;
+            this.FixFastTextures.Text = "Fix Fast Textures";
+            this.ToolTipMain.SetToolTip(this.FixFastTextures, "Toggles a faster implementation of non-DDS textures. Only disable this in edge ca" +
+        "ses when\r\nencountering graphical crashes (e.g. loading custom character photo im" +
+        "ages).");
+            this.FixFastTextures.UseVisualStyleBackColor = true;
+            this.FixFastTextures.CheckedChanged += new System.EventHandler(this.FixFastTextures_CheckedChanged);
+            // 
+            // BindWarningShown
+            // 
+            this.BindWarningShown.AutoSize = true;
+            this.BindWarningShown.Location = new System.Drawing.Point(24, 352);
+            this.BindWarningShown.Margin = new System.Windows.Forms.Padding(2);
+            this.BindWarningShown.Name = "BindWarningShown";
+            this.BindWarningShown.Size = new System.Drawing.Size(158, 26);
+            this.BindWarningShown.TabIndex = 11;
+            this.BindWarningShown.Text = "Hide Bind Warning";
+            this.ToolTipMain.SetToolTip(this.BindWarningShown, "Hides the controller bind warning upon startup.");
+            this.BindWarningShown.UseVisualStyleBackColor = true;
+            this.BindWarningShown.CheckedChanged += new System.EventHandler(this.BindWarningShown_CheckedChanged);
+            // 
+            // QuickDebug
+            // 
+            this.QuickDebug.AutoSize = true;
+            this.QuickDebug.Location = new System.Drawing.Point(24, 382);
+            this.QuickDebug.Margin = new System.Windows.Forms.Padding(2);
+            this.QuickDebug.Name = "QuickDebug";
+            this.QuickDebug.Size = new System.Drawing.Size(175, 26);
+            this.QuickDebug.TabIndex = 12;
+            this.QuickDebug.Text = "Quick Debug Hotkeys";
+            this.ToolTipMain.SetToolTip(this.QuickDebug, "Enables extra measures for faster debugging bound to the function (F) keys.\r\n\r\nTo" +
+        " access this functionality, turn this ON, and press Shift + 1 while the game is " +
+        "open.");
+            this.QuickDebug.UseVisualStyleBackColor = true;
+            this.QuickDebug.CheckedChanged += new System.EventHandler(this.QuickDebug_CheckedChanged);
+            // 
+            // PrintLoadedAssets
+            // 
+            this.PrintLoadedAssets.AutoSize = true;
+            this.PrintLoadedAssets.Location = new System.Drawing.Point(24, 412);
+            this.PrintLoadedAssets.Margin = new System.Windows.Forms.Padding(2);
+            this.PrintLoadedAssets.Name = "PrintLoadedAssets";
+            this.PrintLoadedAssets.Size = new System.Drawing.Size(197, 26);
+            this.PrintLoadedAssets.TabIndex = 13;
+            this.PrintLoadedAssets.Text = "Print Loaded PAK Assets";
+            this.ToolTipMain.SetToolTip(this.PrintLoadedAssets, "When enabled, writes every loaded PAK asset to the debug log.");
+            this.PrintLoadedAssets.UseVisualStyleBackColor = true;
+            this.PrintLoadedAssets.CheckedChanged += new System.EventHandler(this.PrintLoadedAssets_CheckedChanged);
+            // 
+            // PrintCreateFile
+            // 
+            this.PrintCreateFile.AutoSize = true;
+            this.PrintCreateFile.Location = new System.Drawing.Point(24, 442);
+            this.PrintCreateFile.Margin = new System.Windows.Forms.Padding(2);
+            this.PrintCreateFile.Name = "PrintCreateFile";
+            this.PrintCreateFile.Size = new System.Drawing.Size(237, 26);
+            this.PrintCreateFile.TabIndex = 14;
+            this.PrintCreateFile.Text = "Print Opened Files (CreateFile)";
+            this.ToolTipMain.SetToolTip(this.PrintCreateFile, "When enabled, writes every file that the game attempts to open into debug.txt.");
+            this.PrintCreateFile.UseVisualStyleBackColor = true;
+            this.PrintCreateFile.CheckedChanged += new System.EventHandler(this.PrintCreateFile_CheckedChanged);
+            // 
+            // CASNoticeShown
+            // 
+            this.CASNoticeShown.AutoSize = true;
+            this.CASNoticeShown.Location = new System.Drawing.Point(24, 472);
+            this.CASNoticeShown.Margin = new System.Windows.Forms.Padding(2);
+            this.CASNoticeShown.Name = "CASNoticeShown";
+            this.CASNoticeShown.Size = new System.Drawing.Size(237, 26);
+            this.CASNoticeShown.TabIndex = 15;
+            this.CASNoticeShown.Text = "Hide Rock Star Creator Notice";
+            this.ToolTipMain.SetToolTip(this.CASNoticeShown, "Hides the notice shown when entering the Rock Star Creator, informing the user\r\na" +
+        "bout how modded characters will not appear there.");
+            this.CASNoticeShown.UseVisualStyleBackColor = true;
+            this.CASNoticeShown.CheckedChanged += new System.EventHandler(this.CASNoticeShown_CheckedChanged);
+            // 
+            // DisableInitialMovies
+            // 
+            this.DisableInitialMovies.AutoSize = true;
+            this.DisableInitialMovies.Location = new System.Drawing.Point(24, 502);
+            this.DisableInitialMovies.Margin = new System.Windows.Forms.Padding(2);
+            this.DisableInitialMovies.Name = "DisableInitialMovies";
+            this.DisableInitialMovies.Size = new System.Drawing.Size(254, 26);
+            this.DisableInitialMovies.TabIndex = 16;
+            this.DisableInitialMovies.Text = "Disable Initial Career Cut Scenes";
+            this.ToolTipMain.SetToolTip(this.DisableInitialMovies, "If this is ON, this will disable the introduction cut scenes in Career Mode.");
+            this.DisableInitialMovies.UseVisualStyleBackColor = true;
+            this.DisableInitialMovies.CheckedChanged += new System.EventHandler(this.DisableInitialMovies_CheckedChanged);
+            // 
+            // ImmediateVectorHandlers
+            // 
+            this.ImmediateVectorHandlers.AutoSize = true;
+            this.ImmediateVectorHandlers.Location = new System.Drawing.Point(24, 532);
+            this.ImmediateVectorHandlers.Margin = new System.Windows.Forms.Padding(2);
+            this.ImmediateVectorHandlers.Name = "ImmediateVectorHandlers";
+            this.ImmediateVectorHandlers.Size = new System.Drawing.Size(290, 26);
+            this.ImmediateVectorHandlers.TabIndex = 17;
+            this.ImmediateVectorHandlers.Text = "Immediate Vector Exception Handlers";
+            this.ToolTipMain.SetToolTip(this.ImmediateVectorHandlers, "Enables immediate vector exception handlers. Seems to be a help measure\r\nfor Wind" +
+        "ows 11 users.");
+            this.ImmediateVectorHandlers.UseVisualStyleBackColor = true;
+            this.ImmediateVectorHandlers.CheckedChanged += new System.EventHandler(this.ImmediateVectorHandlers_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
@@ -4968,6 +5233,36 @@
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabDebugGroup
+            // 
+            this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabDebugGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabDebugGroup.Controls.Add(this.ImmediateVectorHandlers);
+            this.TabDebugGroup.Controls.Add(this.DisableInitialMovies);
+            this.TabDebugGroup.Controls.Add(this.CASNoticeShown);
+            this.TabDebugGroup.Controls.Add(this.PrintCreateFile);
+            this.TabDebugGroup.Controls.Add(this.PrintLoadedAssets);
+            this.TabDebugGroup.Controls.Add(this.QuickDebug);
+            this.TabDebugGroup.Controls.Add(this.BindWarningShown);
+            this.TabDebugGroup.Controls.Add(this.FixFastTextures);
+            this.TabDebugGroup.Controls.Add(this.ShowWarnings);
+            this.TabDebugGroup.Controls.Add(this.DebugSaves);
+            this.TabDebugGroup.Controls.Add(this.ExtraOptimizedSaves);
+            this.TabDebugGroup.Controls.Add(this.FixFSBObjects);
+            this.TabDebugGroup.Controls.Add(this.DebugDLCSync);
+            this.TabDebugGroup.Controls.Add(this.DisableSongLogging);
+            this.TabDebugGroup.Controls.Add(this.WriteFile);
+            this.TabDebugGroup.Controls.Add(this.DebugConsole);
+            this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
+            this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
+            this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabDebugGroup.Location = new System.Drawing.Point(13, 8);
+            this.TabDebugGroup.Name = "TabDebugGroup";
+            this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabDebugGroup.TabIndex = 3;
+            this.TabDebugGroup.TabStop = false;
+            this.TabDebugGroup.Text = "DEBUG: Debug Tab";
             // 
             // TabAutoLaunchGroup
             // 
@@ -5439,30 +5734,6 @@
             this.TGBasicSettings.Size = new System.Drawing.Size(140, 25);
             this.TGBasicSettings.TabIndex = 1;
             this.TGBasicSettings.Text = "Basic Settings:";
-            // 
-            // TabDebugGroup
-            // 
-            this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabDebugGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
-            this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(13, 8);
-            this.TabDebugGroup.Name = "TabDebugGroup";
-            this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabDebugGroup.TabIndex = 3;
-            this.TabDebugGroup.TabStop = false;
-            this.TabDebugGroup.Text = "DEBUG: Debug Tab";
-            // 
-            // FixNoteLimit
-            // 
-            this.FixNoteLimit.AutoSize = true;
-            this.FixNoteLimit.Location = new System.Drawing.Point(24, 22);
-            this.FixNoteLimit.Margin = new System.Windows.Forms.Padding(2);
-            this.FixNoteLimit.Name = "FixNoteLimit";
-            this.FixNoteLimit.Size = new System.Drawing.Size(124, 26);
-            this.FixNoteLimit.TabIndex = 0;
-            this.FixNoteLimit.Text = "Fix Note Limit";
-            this.FixNoteLimit.UseVisualStyleBackColor = true;
             // 
             // TabGraphicsGroup
             // 
@@ -6434,6 +6705,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabDebugGroup.ResumeLayout(false);
+            this.TabDebugGroup.PerformLayout();
             this.TabAutoLaunchGroup.ResumeLayout(false);
             this.TabAutoLaunchGroup.PerformLayout();
             this.TabALMainEditor.ResumeLayout(false);
@@ -6444,8 +6717,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).EndInit();
             this.TabGeneralGroup.ResumeLayout(false);
             this.TabGeneralGroup.PerformLayout();
-            this.TabDebugGroup.ResumeLayout(false);
-            this.TabDebugGroup.PerformLayout();
             this.TabGraphicsGroup.ResumeLayout(false);
             this.TabGraphicsMainEditor.ResumeLayout(false);
             this.TGEditorBasic.ResumeLayout(false);
@@ -6922,6 +7193,23 @@
         private System.Windows.Forms.Button ModManagerButton;
         private System.Windows.Forms.Label TGForceHolidayLabel;
         private System.Windows.Forms.ComboBox Holiday;
+        private System.Windows.Forms.CheckBox FixFSBObjects;
+        private System.Windows.Forms.CheckBox DebugDLCSync;
+        private System.Windows.Forms.CheckBox DisableSongLogging;
+        private System.Windows.Forms.CheckBox WriteFile;
+        private System.Windows.Forms.CheckBox DebugConsole;
+        private System.Windows.Forms.CheckBox FixMemoryHandler;
+        private System.Windows.Forms.CheckBox PrintCreateFile;
+        private System.Windows.Forms.CheckBox PrintLoadedAssets;
+        private System.Windows.Forms.CheckBox QuickDebug;
+        private System.Windows.Forms.CheckBox BindWarningShown;
+        private System.Windows.Forms.CheckBox FixFastTextures;
+        private System.Windows.Forms.CheckBox ShowWarnings;
+        private System.Windows.Forms.CheckBox DebugSaves;
+        private System.Windows.Forms.CheckBox ExtraOptimizedSaves;
+        private System.Windows.Forms.CheckBox DisableInitialMovies;
+        private System.Windows.Forms.CheckBox CASNoticeShown;
+        private System.Windows.Forms.CheckBox ImmediateVectorHandlers;
     }
 }
 

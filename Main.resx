@@ -276,6 +276,19 @@ To add an input, click "Add". To clear all inputs for that control, click "Clear
 
 Make sure to click "Save Key Binds" when you're finished editing your controls!</value>
   </data>
+  <data name="DisableSongLogging.ToolTip" xml:space="preserve">
+    <value>Turn ON or OFF writing to the debug log while songs are being played.
+
+While songs are running in-game, this will disable any sort of logging to the debug log,
+which may improve performance slightly. However, while OFF, in the event of crashes
+that occur mid-song, this won't exhibit a helpful debug log.</value>
+  </data>
+  <data name="DebugDLCSync.ToolTip" xml:space="preserve">
+    <value>Enable or disable song sync debugging.
+
+While playing online, a sync is performed to ensure all players have identical copies of the
+same songs. If this is ON, this will write all syncing information to the debug log.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

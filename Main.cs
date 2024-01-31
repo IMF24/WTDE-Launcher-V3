@@ -338,119 +338,27 @@ namespace WTDE_Launcher_V3 {
             AutoLaunchSongTime.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "SongTime"));
             AutoLaunchRawLoad.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "RawLoad"));
             AutoLaunchEncoreMode.Checked = INIFunctions.GetBooleanCustomString(INIFunctions.GetINIValue("AutoLaunch", "EncoreMode"), "last_song");
-        }
-
-        /// <summary>
-        ///  Save all data to GHWTDE.ini and AspyrConfig.xml.
-        /// </summary>
-        public void SaveINISettings(object sender, EventArgs e) {
-            // All right, let's do some config settings saving!
-            // We will be writing ALL INI and XML file settings!
-
-            // ---------------------------------
-            // GENERAL TAB
-            // ---------------------------------
-            INIFunctions.SaveINIValue("Config", "RichPresence", INIFunctions.BoolToString(RichPresence.Checked));
-            INIFunctions.SaveINIValue("Config", "AllowHolidays", INIFunctions.BoolToString(AllowHolidays.Checked));
-            INIFunctions.SaveINIValue("Audio", "MuteStreams", INIFunctions.BoolToString(MuteStreams.Checked));
-            INIFunctions.SaveINIValue("Audio", "WhammyPitchShift", INIFunctions.BoolToString(WhammyPitchShift.Checked));
-            INIFunctions.SaveINIValue("Config", "DefaultQPODifficulty", INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text,
-                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
-                new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" }));
-            XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
-
-            // -- MAIN MENU TOGGLES --------
-            INIFunctions.SaveINIValue("Config", "UseCareerOption", INIFunctions.BoolToString(UseCareerOption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseQuickplayOption", INIFunctions.BoolToString(UseQuickplayOption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseHeadToHeadOption", INIFunctions.BoolToString(UseHeadToHeadOption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseOnlineOption", INIFunctions.BoolToString(UseOnlineOption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseMusicStudioOption", INIFunctions.BoolToString(UseMusicStudioOption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseCAROption", INIFunctions.BoolToString(UseCAROption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseOptionsOption", INIFunctions.BoolToString(UseOptionsOption.Checked));
-            INIFunctions.SaveINIValue("Config", "UseQuitOption", INIFunctions.BoolToString(UseQuitOption.Checked));
-
-            // ---------------------------------
-            // INPUT TAB
-            // ---------------------------------
-            INIFunctions.SaveINIValue("Audio", "MicDevice", MicrophoneSelect.Text);
-            INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
-            XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
-
-            // ---------------------------------
-            // BAND TAB
-            // ---------------------------------
-            INIFunctions.SaveINIValue("Band", "PreferredGuitarist", PreferredGuitarist.Text);
-            INIFunctions.SaveINIValue("Band", "PreferredBassist", PreferredBassist.Text);
-            INIFunctions.SaveINIValue("Band", "PreferredDrummer", PreferredDrummer.Text);
-            INIFunctions.SaveINIValue("Band", "PreferredSinger", PreferredSinger.Text);
-            INIFunctions.SaveINIValue("Band", "PreferredStage", INIFunctions.InterpretINISetting(PreferredStage.Text,
-                V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
-
-            INIFunctions.SaveINIValue("Band", "PreferredGuitaristHighway", PreferredGuitaristHighway.Text);
-            INIFunctions.SaveINIValue("Band", "PreferredBassistHighway", PreferredBassistHighway.Text);
-            INIFunctions.SaveINIValue("Band", "PreferredDrummerHighway", PreferredDrummerHighway.Text);
-
-            INIFunctions.SaveINIValue("Band", "GuitarStrumAnim", INIFunctions.InterpretINISetting(GuitarStrumAnim.Text,
-                new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" },
-                new string[] { "none", "ghm" }));
-            INIFunctions.SaveINIValue("Band", "BassStrumAnim", INIFunctions.InterpretINISetting(BassStrumAnim.Text,
-                new string[] { "GH: World Tour (Default)", "Guitar Hero: Metallica" },
-                new string[] { "none", "ghm" }));
-
-            // ---------------------------------
-            // AUTO LAUNCH TAB
-            // ---------------------------------
-            INIFunctions.SaveINIValue("AutoLaunch", "Enabled", INIFunctions.BoolToString(AutoLaunchEnabled.Checked));
-
-            INIFunctions.SaveINIValue("AutoLaunch", "Players", AutoLaunchPlayers.Text);
-            INIFunctions.SaveINIValue("AutoLaunch", "Song", AutoLaunchSong.Text);
-            INIFunctions.SaveINIValue("AutoLaunch", "Venue", INIFunctions.InterpretINISetting(AutoLaunchVenue.Text,
-                V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
-
-            string[][] autoLaunchInstruments = {
-                new string[] { "guitar", "bass", "drum", "vocals" },
-                new string[] { "Lead Guitar - PART GUITAR", "Bass Guitar - PART BASS", "Drums - PART DRUMS", "Vocals - PART VOCALS" }
-            };
-
-            string[][] autoLaunchDifficulties = {
-                new string[] { "beginner", "easy", "medium", "hard", "expert" },
-                new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" }
-            };
-
-            INIFunctions.SaveINIValue("AutoLaunch", "Part", INIFunctions.InterpretINISetting(AutoLaunchPart1.Text,
-                autoLaunchInstruments[1], autoLaunchInstruments[0]));
-            INIFunctions.SaveINIValue("AutoLaunch", "Part2", INIFunctions.InterpretINISetting(AutoLaunchPart2.Text,
-                autoLaunchInstruments[1], autoLaunchInstruments[0]));
-            INIFunctions.SaveINIValue("AutoLaunch", "Part3", INIFunctions.InterpretINISetting(AutoLaunchPart3.Text,
-                autoLaunchInstruments[1], autoLaunchInstruments[0]));
-            INIFunctions.SaveINIValue("AutoLaunch", "Part4", INIFunctions.InterpretINISetting(AutoLaunchPart4.Text,
-                autoLaunchInstruments[1], autoLaunchInstruments[0]));
-
-            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty", INIFunctions.InterpretINISetting(AutoLaunchDifficulty1.Text,
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
-            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty2", INIFunctions.InterpretINISetting(AutoLaunchDifficulty2.Text,
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
-            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty3", INIFunctions.InterpretINISetting(AutoLaunchDifficulty3.Text,
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
-            INIFunctions.SaveINIValue("AutoLaunch", "Difficulty4", INIFunctions.InterpretINISetting(AutoLaunchDifficulty4.Text,
-                autoLaunchDifficulties[1], autoLaunchDifficulties[0]));
-
-            INIFunctions.SaveINIValue("AutoLaunch", "Bot", INIFunctions.BoolToString(AutoLaunchBot1.Checked));
-            INIFunctions.SaveINIValue("AutoLaunch", "Bot2", INIFunctions.BoolToString(AutoLaunchBot2.Checked));
-            INIFunctions.SaveINIValue("AutoLaunch", "Bot3", INIFunctions.BoolToString(AutoLaunchBot3.Checked));
-            INIFunctions.SaveINIValue("AutoLaunch", "Bot4", INIFunctions.BoolToString(AutoLaunchBot4.Checked));
-
-            INIFunctions.SaveINIValue("AutoLaunch", "HideHUD", INIFunctions.BoolToString(AutoLaunchHideHUD.Checked));
-            INIFunctions.SaveINIValue("AutoLaunch", "SongTime", INIFunctions.BoolToString(AutoLaunchSongTime.Checked));
-            INIFunctions.SaveINIValue("AutoLaunch", "RawLoad", INIFunctions.BoolToString(AutoLaunchRawLoad.Checked));
-            INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked, "last_song", "none"));
 
             // ---------------------------------
             // DEBUG TAB
             // ---------------------------------
-            INIFunctions.SaveINIValue("Debug", "FixNoteLimit", INIFunctions.BoolToString(FixNoteLimit.Checked));
-
-            
+            FixNoteLimit.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixNoteLimit", "0"));
+            FixMemoryHandler.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixMemoryHandler", "1"));
+            DebugConsole.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "Console", "0"));
+            WriteFile.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "WriteFile", "1"));
+            DisableSongLogging.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "DisableSongLogging", "0"));
+            DebugDLCSync.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "DebugDLCSync", "0"));
+            FixFSBObjects.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixFSBObjects", "0"));
+            ExtraOptimizedSaves.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "ExtraOptimizedSaves", "0"));
+            DebugSaves.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "DebugSaves", "0"));
+            ShowWarnings.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "ShowWarnings", "0"));
+            FixFastTextures.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixFastTextures", "1"));
+            BindWarningShown.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "BindWarningShown", "0"));
+            QuickDebug.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "QuickDebug", "0"));
+            PrintLoadedAssets.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "PrintLoadedAssets", "0"));
+            PrintCreateFile.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "PrintCreateFile", "0"));
+            CASNoticeShown.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "CASNoticeShown", "0"));
+            ImmediateVectorHandlers.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "ImmediateVectorHandlers", "1"));
         }
 
         /// <summary>
@@ -2298,8 +2206,91 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("AutoLaunch", "EncoreMode", INIFunctions.BoolToStringCustom(AutoLaunchEncoreMode.Checked,
                 "last_song", "none"));
         }
+        #endregion
 
+        // ----------------------------------------------------------
+        // DEBUG TAB AUTO UPDATE
+        // ----------------------------------------------------------
+        #region Debug Tab Auto Update
+        private void FixNoteLimit_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "FixNoteLimit", INIFunctions.BoolToString(FixNoteLimit.Checked));
+        }
 
+        private void FixMemoryHandler_CheckedChanged(object sender, EventArgs e) {
+            if (!FixMemoryHandler.Checked) {
+                string warnDisableMemHandler = "Do you really wish to disable the memory handler fix? Disabling this may be potentially dangerous and is not recommended.";
+
+                if (MessageBox.Show(warnDisableMemHandler, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No) {
+                    FixMemoryHandler.Checked = true;
+                }
+            }
+
+            INIFunctions.SaveINIValue("Debug", "FixMemoryHandler", INIFunctions.BoolToString(FixMemoryHandler.Checked));
+        }
+
+        private void DebugConsole_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "Console", INIFunctions.BoolToString(DebugConsole.Checked));
+        }
+
+        private void WriteFile_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "WriteFile", INIFunctions.BoolToString(WriteFile.Checked));
+        }
+
+        private void DisableSongLogging_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "DisableSongLogging", INIFunctions.BoolToString(DisableSongLogging.Checked));
+        }
+
+        private void DebugDLCSync_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "DebugDLCSync", INIFunctions.BoolToString(DebugDLCSync.Checked));
+        }
+
+        private void FixFSBObjects_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "FixFSBObjects", INIFunctions.BoolToString(FixFSBObjects.Checked));
+        }
+
+        private void ExtraOptimizedSaves_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "ExtraOptimizedSaves", INIFunctions.BoolToString(ExtraOptimizedSaves.Checked));
+        }
+
+        private void DebugSaves_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "DebugSaves", INIFunctions.BoolToString(DebugSaves.Checked));
+        }
+
+        private void ShowWarnings_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "ShowWarnings", INIFunctions.BoolToString(ShowWarnings.Checked));
+        }
+
+        private void FixFastTextures_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "FixFastTextures", INIFunctions.BoolToString(FixFastTextures.Checked));
+        }
+
+        private void BindWarningShown_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "BindWarningShown", INIFunctions.BoolToString(BindWarningShown.Checked));
+        }
+
+        private void QuickDebug_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "QuickDebug", INIFunctions.BoolToString(QuickDebug.Checked));
+        }
+
+        private void PrintLoadedAssets_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "PrintLoadedAssets", INIFunctions.BoolToString(PrintLoadedAssets.Checked));
+        }
+
+        private void PrintCreateFile_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "PrintCreateFile", INIFunctions.BoolToString(PrintCreateFile.Checked));
+        }
+
+        private void CASNoticeShown_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "CASNoticeShown", INIFunctions.BoolToString(CASNoticeShown.Checked));
+        }
+
+        private void DisableInitialMovies_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "DisableInitialMovies", INIFunctions.BoolToString(DisableInitialMovies.Checked));
+        }
+
+        private void ImmediateVectorHandlers_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "ImmediateVectorHandlers", INIFunctions.BoolToString(ImmediateVectorHandlers.Checked));
+        }
         #endregion
 
         // ----------------------------------------------------------
@@ -2326,8 +2317,7 @@ namespace WTDE_Launcher_V3 {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
 
-        #endregion
 
-        
+        #endregion
     }
 }
