@@ -1374,11 +1374,6 @@
             0,
             0,
             0});
-            this.FPSLimit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.FPSLimit.Name = "FPSLimit";
             this.FPSLimit.Size = new System.Drawing.Size(64, 23);
             this.FPSLimit.TabIndex = 6;
@@ -5222,13 +5217,13 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
+            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
-            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
-            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Location = new System.Drawing.Point(321, 60);
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
@@ -5257,7 +5252,7 @@
             this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
             this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
             this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(13, 8);
+            this.TabDebugGroup.Location = new System.Drawing.Point(218, 406);
             this.TabDebugGroup.Name = "TabDebugGroup";
             this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
             this.TabDebugGroup.TabIndex = 3;
@@ -5741,7 +5736,7 @@
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(428, 339);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(321, 352);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -6392,7 +6387,7 @@
             this.TabCreditsGroup.Controls.Add(this.BlackChalk);
             this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
             this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
-            this.TabCreditsGroup.Location = new System.Drawing.Point(631, 182);
+            this.TabCreditsGroup.Location = new System.Drawing.Point(640, 119);
             this.TabCreditsGroup.Name = "TabCreditsGroup";
             this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
             this.TabCreditsGroup.TabIndex = 14;
@@ -6509,7 +6504,7 @@
             // CreditsVersionLabel
             // 
             this.CreditsVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 14F);
             this.CreditsVersionLabel.Location = new System.Drawing.Point(95, 219);
             this.CreditsVersionLabel.Name = "CreditsVersionLabel";
             this.CreditsVersionLabel.Size = new System.Drawing.Size(500, 23);
