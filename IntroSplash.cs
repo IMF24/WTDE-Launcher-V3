@@ -24,6 +24,7 @@ namespace WTDE_Launcher_V3 {
         public IntroSplash() {
             InitializeComponent();
 
+            this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION}";
             VersionInfoLabel.Text = $"Version {V3LauncherConstants.VERSION}";
         }
 

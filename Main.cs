@@ -48,38 +48,43 @@ namespace WTDE_Launcher_V3 {
             IntroSplash ish = new IntroSplash();
             ish.ShowDialog();
 
-            // Initialize Windows Forms. We need this. DO NOT EDIT OR DELETE IT!
-            InitializeComponent();
+            try {
+                // Initialize Windows Forms. We need this. DO NOT EDIT OR DELETE IT!
+                InitializeComponent();
 
-            // Set our background image correctly and get the MOTD from the website.
-            this.BackgroundImage = Properties.Resources.bg_1;
-            MOTDText.Text = V3LauncherCore.GetMOTDText();
-            UpdateActiveTab((int)LauncherTabs.MOTD);
+                // Set our background image correctly and get the MOTD from the website.
+                this.BackgroundImage = Properties.Resources.bg_1;
+                MOTDText.Text = V3LauncherCore.GetMOTDText();
+                UpdateActiveTab((int)LauncherTabs.MOTD);
 
-            // Get our list of microphone devices.
-            GetMicDevices();
+                // Get our list of microphone devices.
+                GetMicDevices();
 
-            // Set working directory for DEBUG PURPOSES.
-            //~ Directory.SetCurrentDirectory("D:/Program Files (D)/Aspyr/Guitar Hero World Tour");
-            ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
-            ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
+                // Set working directory for DEBUG PURPOSES.
+                //~ Directory.SetCurrentDirectory("D:/Program Files (D)/Aspyr/Guitar Hero World Tour");
+                ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
+                ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
 
-            // Set up tabs, the window title, and the background.
-            // Also play boot VOs if we have them on, fun stuff!
-            LoadINISettings();
-            DoTabSetup();
-            V3LauncherCore.SetWindowTitle(this);
-            BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
-            V3LauncherCore.AudioBootVO();
+                // Set up tabs, the window title, and the background.
+                // Also play boot VOs if we have them on, fun stuff!
+                LoadINISettings();
+                DoTabSetup();
+                V3LauncherCore.SetWindowTitle(this);
+                BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
+                V3LauncherCore.AudioBootVO();
 
-            // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
-            OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
-            OpenDevOnlySettings.Visible = V3LauncherCore.AllowDevSettings();
+                // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
+                OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
+                OpenDevOnlySettings.Visible = V3LauncherCore.AllowDevSettings();
 
-            //~ Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
+                //~ Console.WriteLine(V3LauncherCore.AspyrKeyDecode("Keyboard_Menu", "KICK"));
 
-            // Also, should we automatically update when the program starts?
-            V3LauncherCore.AutoCheckForUpdates();
+                // Also, should we automatically update when the program starts?
+                V3LauncherCore.AutoCheckForUpdates();
+            } catch (Exception exc) {
+                MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}");
+                Application.Exit();
+            }
         }
 
         private void OpenDevOnlySettings_Click(object sender, EventArgs e) {

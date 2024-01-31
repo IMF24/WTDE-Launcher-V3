@@ -8,7 +8,7 @@
     <ProjectGuid>{B8D8084C-689B-40B5-8D90-4501EF28CA40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WTDE_Launcher_V3</RootNamespace>
-    <AssemblyName>WTDE-Launcher-V3</AssemblyName>
+    <AssemblyName>GHWT_Definitive_Launcher</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
