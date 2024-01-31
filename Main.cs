@@ -31,6 +31,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 using NAudio.CoreAudioApi;
+using System.Threading;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -41,6 +42,12 @@ namespace WTDE_Launcher_V3 {
         ///  Main entry point for the V3 launcher.
         /// </summary>
         public Main() {
+            // Show the intro splash.
+            V3LauncherCore.AddDebugEntry("Showing intro form! Auto killing after 3 seconds...");
+
+            IntroSplash ish = new IntroSplash();
+            ish.ShowDialog();
+
             // Initialize Windows Forms. We need this. DO NOT EDIT OR DELETE IT!
             InitializeComponent();
 

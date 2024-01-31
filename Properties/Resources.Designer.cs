@@ -233,6 +233,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg_intro_splash {
+            get {
+                object obj = ResourceManager.GetObject("bg_intro_splash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_chalk {
             get {
                 object obj = ResourceManager.GetObject("black_chalk", resourceCulture);
@@ -741,6 +751,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap white_overlay_d_l {
             get {
                 object obj = ResourceManager.GetObject("white_overlay_d_l", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wtde_launcher_splash {
+            get {
+                object obj = ResourceManager.GetObject("wtde_launcher_splash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

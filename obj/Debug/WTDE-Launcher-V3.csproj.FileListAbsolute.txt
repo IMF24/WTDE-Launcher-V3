@@ -50,3 +50,4 @@ D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SongMasterManager.resources
 D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SCMNewCategory.resources
 D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SCMEditCategory.resources
 D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SCMSongProperties.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.IntroSplash.resources

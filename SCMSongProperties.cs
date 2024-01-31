@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       S O N G       A N D       C A T E G O R Y       M A N A G E R
+//          E D I T       S O N G       P R O P E R T I E S
+//
+//    The Mod Manager's song and song category mod manager's dialog for editing
+//    the song properties of an existing song mod.
+// ----------------------------------------------------------------------------
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B8D8084C-689B-40B5-8D90-4501EF28CA40}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>WTDE_Launcher_V3</RootNamespace>
     <AssemblyName>WTDE-Launcher-V3</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
@@ -171,6 +171,12 @@
     <Compile Include="InputKeySelector.Designer.cs">
       <DependentUpon>InputKeySelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="IntroSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntroSplash.Designer.cs">
+      <DependentUpon>IntroSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     <EmbeddedResource Include="InputKeySelector.resx">
       <DependentUpon>InputKeySelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IntroSplash.resx">
+      <DependentUpon>IntroSplash.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +312,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\img\logos\wtde_launcher_splash.png" />
+    <None Include="res\img\backgrounds\bg_intro_splash.png" />
     <None Include="res\img\menuicons\folder.png" />
     <None Include="res\img\menuicons\delete_black.png" />
     <None Include="res\img\menuicons\find_tiny.png" />
