@@ -128,6 +128,7 @@
             this.Name = "IntroSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IntroSplash";
+            this.Shown += new System.EventHandler(this.IntroSplash_MouseEnter);
             this.MouseEnter += new System.EventHandler(this.IntroSplash_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageMain)).EndInit();
