@@ -82,7 +82,12 @@ namespace WTDE_Launcher_V3 {
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
             } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
+                
                 MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}");
+
+                V3LauncherCore.WriteDebugLog();
+
                 Application.Exit();
             }
         }
