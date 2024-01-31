@@ -82,9 +82,9 @@ namespace WTDE_Launcher_V3 {
                 // NOW let's load our settings!
                 LoadINISettings();
             } catch (Exception exc) {
-                V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
+                V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.InnerException.Message}");
                 
-                MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}");
+                MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}\n\nMore details:\n{exc.InnerException.Message}");
 
                 V3LauncherCore.WriteDebugLog();
 
