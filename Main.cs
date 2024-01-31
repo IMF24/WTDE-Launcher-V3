@@ -60,14 +60,13 @@ namespace WTDE_Launcher_V3 {
                 // Get our list of microphone devices.
                 GetMicDevices();
 
-                // Set working directory for DEBUG PURPOSES.
-                //~ Directory.SetCurrentDirectory("D:/Program Files (D)/Aspyr/Guitar Hero World Tour");
-                ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
-                ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
-
                 // Set up tabs, the window title, and the background.
                 // Also play boot VOs if we have them on, fun stuff!
                 DoTabSetup();
+                ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
+                ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
+                LoadINISettings();
+
                 V3LauncherCore.SetWindowTitle(this);
                 BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
                 V3LauncherCore.AudioBootVO();
@@ -78,13 +77,14 @@ namespace WTDE_Launcher_V3 {
 
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
-
-                // NOW let's load our settings!
-                LoadINISettings();
             } catch (Exception exc) {
+                var st = new StackTrace(exc, true);
+                var frame = st.GetFrame(0);
+                var line = frame.GetFileLineNumber();
+
                 V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.InnerException.Message}");
                 
-                MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}\n\nMore details:\n{exc.InnerException.Message}");
+                MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}\n\nMore details:\n{exc.InnerException.Message}\nLine: line {line}\nFrame: {frame}");
 
                 V3LauncherCore.WriteDebugLog();
 
