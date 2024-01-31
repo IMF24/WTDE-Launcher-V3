@@ -1,17 +1,28 @@
-﻿using MadMilkman.Ini;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       D U P L I C A T E       C H E C K S U M       M A N A G E R
+//
+//    The Mod Manager's duplicate checksum manager, allowing a way to resolve
+//    conflicting song mods that have the same checksum as others.
+// ----------------------------------------------------------------------------
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3 {
+    /// <summary>
+    ///  The Mod Manager's duplicate checksum manager, allowing a way to resolve
+    ///  conflicting song mods that have the same checksum as others.
+    /// </summary>
     public partial class DupeChecksumManager : Form {
         public DupeChecksumManager() {
             InitializeComponent();

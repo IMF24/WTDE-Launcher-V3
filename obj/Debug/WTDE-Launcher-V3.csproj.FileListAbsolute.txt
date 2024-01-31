@@ -46,3 +46,7 @@ D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.ModFinder.resources
 D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SaveFileManager.resources
 D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.CARManager.resources
 D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.DupeChecksumManager.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SongMasterManager.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SCMNewCategory.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SCMEditCategory.resources
+D:\WTDE-Launcher-V3\obj\Debug\WTDE_Launcher_V3.SCMSongProperties.resources

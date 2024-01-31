@@ -50,6 +50,9 @@
             this.installModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ghwtNexusModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wtdeGoogleDriveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.openSelectedModConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openSelectedModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -228,6 +231,9 @@
             this.installModsToolStripMenuItem,
             this.refreshModsToolStripMenuItem,
             this.findModsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.ghwtNexusModsToolStripMenuItem,
+            this.wtdeGoogleDriveToolStripMenuItem,
             this.toolStripSeparator1,
             this.openSelectedModConfigToolStripMenuItem,
             this.openSelectedModFolderToolStripMenuItem1,
@@ -269,6 +275,27 @@
             this.findModsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.findModsToolStripMenuItem.Text = "Find Mods...";
             this.findModsToolStripMenuItem.Click += new System.EventHandler(this.findModsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(237, 6);
+            // 
+            // ghwtNexusModsToolStripMenuItem
+            // 
+            this.ghwtNexusModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.nexus_smaller;
+            this.ghwtNexusModsToolStripMenuItem.Name = "ghwtNexusModsToolStripMenuItem";
+            this.ghwtNexusModsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.ghwtNexusModsToolStripMenuItem.Text = "GHWT Nexus Mods";
+            this.ghwtNexusModsToolStripMenuItem.Click += new System.EventHandler(this.ghwtNexusModsToolStripMenuItem_Click);
+            // 
+            // wtdeGoogleDriveToolStripMenuItem
+            // 
+            this.wtdeGoogleDriveToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.google_drive_smaller;
+            this.wtdeGoogleDriveToolStripMenuItem.Name = "wtdeGoogleDriveToolStripMenuItem";
+            this.wtdeGoogleDriveToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.wtdeGoogleDriveToolStripMenuItem.Text = "WTDE Google Drive";
+            this.wtdeGoogleDriveToolStripMenuItem.Click += new System.EventHandler(this.wtdeGoogleDriveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -327,6 +354,7 @@
             this.songAndSongCategoryManagerToolStripMenuItem.Name = "songAndSongCategoryManagerToolStripMenuItem";
             this.songAndSongCategoryManagerToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.songAndSongCategoryManagerToolStripMenuItem.Text = "Song and Song Category Manager";
+            this.songAndSongCategoryManagerToolStripMenuItem.Click += new System.EventHandler(this.songAndSongCategoryManagerToolStripMenuItem_Click);
             // 
             // manageDuplicateSongChecksumsToolStripMenuItem
             // 
@@ -416,5 +444,8 @@
         private System.Windows.Forms.ToolStripMenuItem copyFolderPathToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copySelectedModFolderPathToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rockStarCreatorCharacterManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ghwtNexusModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wtdeGoogleDriveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

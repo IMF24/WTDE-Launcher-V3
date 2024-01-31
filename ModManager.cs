@@ -6,12 +6,12 @@
 //    relatively user-friendly dialog.
 // ----------------------------------------------------------------------------
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -177,6 +177,21 @@ namespace WTDE_Launcher_V3 {
 
             // REFRESH MODS LIST AFTER INSTALLING
             RefreshModsList();
+        }
+
+        private void songAndSongCategoryManagerToolStripMenuItem_Click(object sender, EventArgs e) {
+            SongMasterManager smm = new SongMasterManager();
+            smm.ShowDialog();
+
+            RefreshModsList();
+        }
+
+        private void ghwtNexusModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://www.nexusmods.com/guitarheroworldtour/mods/");
+        }
+
+        private void wtdeGoogleDriveToolStripMenuItem_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://drive.google.com/drive/folders/1fK1R6gmLfPFlEf1LciXQ59B2Kd34dAmc");
         }
     }
 }

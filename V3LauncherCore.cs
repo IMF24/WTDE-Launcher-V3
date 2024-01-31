@@ -452,5 +452,18 @@ namespace WTDE_Launcher_V3 {
             }
             textBox.Text = resultingValue;
         }
+
+        /// <summary>
+        ///  Returns the path to GHWT as defined in Updater.ini if it exists. Otherwise, returns the current directory.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetUpdaterINIDirectory() {
+            if (File.Exists("Updater.ini")) {
+                IniFile file = new IniFile();
+                file.Load("Updater.ini");
+
+                return file.Sections["Updater"].Keys["GameDirectory"].Value;
+            } else return ".";
+        }
     }
 }

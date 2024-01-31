@@ -57,6 +57,9 @@
     <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
     </Reference>
+    <Reference Include="Pfim, Version=0.11.2.0, Culture=neutral, PublicKeyToken=c0ebc20d008ae134, processorArchitecture=MSIL">
+      <HintPath>packages\Pfim.0.11.2\lib\netstandard2.0\Pfim.dll</HintPath>
+    </Reference>
     <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>packages\SharpCompress.0.24.0\lib\net45\SharpCompress.dll</HintPath>
     </Reference>
@@ -200,6 +203,30 @@
     <Compile Include="SaveFileManager.Designer.cs">
       <DependentUpon>SaveFileManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="SCMEditCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCMEditCategory.Designer.cs">
+      <DependentUpon>SCMEditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SCMNewCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCMNewCategory.Designer.cs">
+      <DependentUpon>SCMNewCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SCMSongProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCMSongProperties.Designer.cs">
+      <DependentUpon>SCMSongProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SongMasterManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SongMasterManager.Designer.cs">
+      <DependentUpon>SongMasterManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="V3LauncherConstants.cs" />
     <Compile Include="V3LauncherCore.cs" />
     <Compile Include="WTDEDevSettingsDialog.cs">
@@ -243,6 +270,18 @@
     <EmbeddedResource Include="SaveFileManager.resx">
       <DependentUpon>SaveFileManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SCMEditCategory.resx">
+      <DependentUpon>SCMEditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SCMNewCategory.resx">
+      <DependentUpon>SCMNewCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SCMSongProperties.resx">
+      <DependentUpon>SCMSongProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SongMasterManager.resx">
+      <DependentUpon>SongMasterManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WTDEDevSettingsDialog.resx">
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +303,15 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\img\menuicons\folder.png" />
+    <None Include="res\img\menuicons\delete_black.png" />
+    <None Include="res\img\menuicons\find_tiny.png" />
+    <None Include="res\img\menuicons\add.png" />
+    <None Include="res\img\menuicons\google_drive_smaller.png" />
+    <None Include="res\img\menuicons\google_drive.png" />
+    <None Include="res\img\menuicons\nexus_smaller.png" />
+    <None Include="res\img\menuicons\nexus.png" />
+    <None Include="Resources\add.png" />
     <None Include="res\default_config.txt" />
     <None Include="res\img\menuicons\delete.png" />
     <None Include="res\img\menuicons\find.png" />
