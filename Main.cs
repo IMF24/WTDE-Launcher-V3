@@ -88,7 +88,9 @@ namespace WTDE_Launcher_V3 {
 
                 V3LauncherCore.WriteDebugLog();
 
+                this.Close();
                 Application.Exit();
+                return;
             }
         }
 
