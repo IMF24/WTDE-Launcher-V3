@@ -145,6 +145,8 @@ namespace WTDE_Launcher_V3 {
             // INPUT TAB
             // ---------------------------------
             MicrophoneSelect.Text = INIFunctions.GetINIValue("Audio", "MicDevice", "");
+            DisableInputHack.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "DisableInputHack", "0"));
+
             MicAudioDelay.Value = decimal.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "0"));
             MicVideoDelay.Value = decimal.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "0"));
 
@@ -361,6 +363,7 @@ namespace WTDE_Launcher_V3 {
             // ---------------------------------
             // DEBUG TAB
             // ---------------------------------
+            FixGuitarInputLogic.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixGuitarInputLogic", "1"));
             FixNoteLimit.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixNoteLimit", "0"));
             FixMemoryHandler.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "FixMemoryHandler", "1"));
             DebugConsole.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "Console", "0"));
@@ -2231,6 +2234,10 @@ namespace WTDE_Launcher_V3 {
         // DEBUG TAB AUTO UPDATE
         // ----------------------------------------------------------
         #region Debug Tab Auto Update
+        private void FixGuitarInputLogic_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "FixGuitarInputLogic", INIFunctions.BoolToString(FixGuitarInputLogic.Checked));
+        }
+
         private void FixNoteLimit_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Debug", "FixNoteLimit", INIFunctions.BoolToString(FixNoteLimit.Checked));
         }
@@ -2337,6 +2344,11 @@ namespace WTDE_Launcher_V3 {
         }
 
 
+
         #endregion
+
+        private void DisableInputHack_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "DisableInputHack", INIFunctions.BoolToString(DisableInputHack.Checked));
+        }
     }
 }
