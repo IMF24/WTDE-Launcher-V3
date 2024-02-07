@@ -15,6 +15,7 @@
 // Any various imports we may require.
 using System;
 using System.IO;
+using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,8 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public static List<string> DebugLog = new List<string>() {
             "~=-=~=-=~      W T D E     L A U N C H E R     V 3      ~=-=~=-=~",
-           $"   WTDE Launcher Execution Debug Log: V{V3LauncherConstants.VERSION}",
-           $"   Date of Execution: {DateTime.Now.ToString()}",
+           $"   WTDE Launcher Execution Debug Log - WTDE Launcher Version {V3LauncherConstants.VERSION}",
+           $"   Date of Execution: {DateTime.Now}",
             "~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~"
         };
 
@@ -100,6 +101,24 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
+        ///  Make an Updater.ini file within the current working directory.
+        /// </summary>
+        public static void MakeUpdaterINI() {
+            if (File.Exists("Updater.ini") && File.Exists(Path.Combine(GetUpdaterINIDirectory(), "GHWT.exe"))) {
+                return;
+            }
+
+            using (StreamWriter sw = new StreamWriter("Updater.ini")) {
+                string updaterINIContent = "[Updater]\n" +
+                                          $"GameDirectory={GHWTInstallPathGuess()}\n" +
+                                           "AutoUpdate=1\n" +
+                                           "StartAfterFinish=1";
+
+                sw.Write(updaterINIContent);
+            }
+        }
+
+        /// <summary>
         ///  Using MD5 hash checks, checks for updates to GHWT: DE.
         /// </summary>
         public static void CheckForUpdates(bool usingAutoUpdate = false) {
@@ -113,7 +132,7 @@ namespace WTDE_Launcher_V3 {
                         using (var client = new WebClient()) {
                             // Download the ZIP file, extract it!
                             client.DownloadFile("https://ghwt.de/meta/WTDE-Updater-V2.zip", "WTDE-Updater-V2.zip");
-                            System.IO.Compression.ZipFile.ExtractToDirectory("WTDE-Updater-V2.zip", ".");
+                            ZipFile.ExtractToDirectory("WTDE-Updater-V2.zip", ".");
                             File.Delete("WTDE-Updater-V2.zip");
                         }
 
@@ -253,6 +272,26 @@ namespace WTDE_Launcher_V3 {
 
             // What is the current month?
             switch (DateTime.Now.Month) {
+                case 2:
+                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 14) {
+                        selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitlesVD.Length);
+                        form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitlesVD[selectedID]}";
+                    } else {
+                        selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitles.Length);
+                        form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitles[selectedID]}";
+                    }
+                    break;
+
+                case 4:
+                    if (DateTime.Now.Day == 1) {
+                        selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitlesAF.Length);
+                        form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitlesAF[selectedID]}";
+                    } else {
+                        selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitles.Length);
+                        form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitles[selectedID]}";
+                    }
+                    break;
+
                 case 10:
                     selectedID = random.Next(0, V3LauncherConstants.RandomWindowTitlesHW.Length);
                     form.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - {V3LauncherConstants.RandomWindowTitlesHW[selectedID]}";

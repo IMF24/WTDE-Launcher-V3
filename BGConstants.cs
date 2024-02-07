@@ -87,6 +87,8 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public static System.Drawing.Bitmap[] LogoImages = {
             Properties.Resources.logo_wtde,
+            Properties.Resources.logo_vd,
+            Properties.Resources.logo_af,
             Properties.Resources.logo_hw,
             Properties.Resources.logo_xm
         };
@@ -97,13 +99,33 @@ namespace WTDE_Launcher_V3 {
         /// <param name="form"></param>
         /// <param name="label"></param>
         public static void AutoDateBackground(System.Windows.Forms.Form form, System.Windows.Forms.Label label, System.Windows.Forms.PictureBox pictureBox) {
+            if (INIFunctions.GetINIValue("Config", "Holiday", "") != "") return;
+            
             // What month is it?
             switch (DateTime.Now.Month) {
+                // Valentine's Day logo and background.
+                case 2:
+                    if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 14) {
+                        form.BackgroundImage = Properties.Resources.bg_1_vd;
+                        V3LauncherBackgrounds[0] = Properties.Resources.bg_1_vd;
+                        pictureBox.Image = LogoImages[1];
+                    }
+                    break;
+
+                // April Fools Day logo and background.
+                case 4:
+                    if (DateTime.Now.Day == 1) {
+                        form.BackgroundImage = Properties.Resources.bg_1_af;
+                        V3LauncherBackgrounds[0] = Properties.Resources.bg_1_af;
+                        pictureBox.Image = LogoImages[2];
+                    }
+                    break;
+
                 // Halloween logo and background.
                 case 10:
                     form.BackgroundImage = Properties.Resources.bg_1_hw;
                     V3LauncherBackgrounds[0] = Properties.Resources.bg_1_hw;
-                    pictureBox.Image = LogoImages[1];
+                    pictureBox.Image = LogoImages[3];
                     break;
 
                 // Christmas logo and background.
@@ -111,8 +133,8 @@ namespace WTDE_Launcher_V3 {
                     if (DateTime.Now.Day >= 1 && DateTime.Now.Day <= 25) {
                         form.BackgroundImage = Properties.Resources.bg_1_xm;
                         V3LauncherBackgrounds[0] = Properties.Resources.bg_1_xm;
-                        pictureBox.Image = LogoImages[2];
-                    }
+                        pictureBox.Image = LogoImages[4];
+                    } 
                     break;
             }
 

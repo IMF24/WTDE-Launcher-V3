@@ -83,6 +83,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg_1_af {
+            get {
+                object obj = ResourceManager.GetObject("bg_1_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bg_1_hw {
             get {
                 object obj = ResourceManager.GetObject("bg_1_hw", resourceCulture);
@@ -408,6 +418,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap discord_af {
+            get {
+                object obj = ResourceManager.GetObject("discord_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
@@ -478,6 +498,26 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fretworks_af {
+            get {
+                object obj = ResourceManager.GetObject("fretworks_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fretworks_banner_s_af {
+            get {
+                object obj = ResourceManager.GetObject("fretworks_banner_s_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap friend_list_manager {
             get {
                 object obj = ResourceManager.GetObject("friend_list_manager", resourceCulture);
@@ -491,6 +531,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap github {
             get {
                 object obj = ResourceManager.GetObject("github", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap github_af {
+            get {
+                object obj = ResourceManager.GetObject("github_af", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -526,6 +576,16 @@ namespace WTDE_Launcher_V3.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_af {
+            get {
+                object obj = ResourceManager.GetObject("icon_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Lexend_Regular {
@@ -541,6 +601,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap light_overlay {
             get {
                 object obj = ResourceManager.GetObject("light_overlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_af {
+            get {
+                object obj = ResourceManager.GetObject("logo_af", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -571,6 +641,26 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap logo_imf24 {
             get {
                 object obj = ResourceManager.GetObject("logo_imf24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_imf24_af {
+            get {
+                object obj = ResourceManager.GetObject("logo_imf24_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_vd {
+            get {
+                object obj = ResourceManager.GetObject("logo_vd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -778,9 +868,29 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wtde_site_af {
+            get {
+                object obj = ResourceManager.GetObject("wtde_site_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap youtube {
             get {
                 object obj = ResourceManager.GetObject("youtube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap youtube_af {
+            get {
+                object obj = ResourceManager.GetObject("youtube_af", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

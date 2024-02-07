@@ -42,19 +42,24 @@ namespace WTDE_Launcher_V3 {
         ///  Main entry point for the V3 launcher.
         /// </summary>
         public Main() {
-            // Show the intro splash.
-            V3LauncherCore.AddDebugEntry("Showing intro form! Auto killing after 3 seconds...");
-
-            IntroSplash ish = new IntroSplash();
-            ish.ShowDialog();
-
             try {
+                // Show the intro splash.
+                V3LauncherCore.AddDebugEntry("Showing intro form! Auto killing after 3 seconds...");
+
+                IntroSplash ish = new IntroSplash();
+                ish.ShowDialog();
+
+                // Do some directory and file verification.
+                V3LauncherCore.MakeUpdaterINI();
+
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
                 // Initialize Windows Forms. We need this. DO NOT EDIT OR DELETE IT!
                 InitializeComponent();
 
                 // Set our background image correctly and get the MOTD from the website.
                 this.BackgroundImage = Properties.Resources.bg_1;
-                MOTDText.Text = V3LauncherCore.GetMOTDText();
+
                 UpdateActiveTab((int)LauncherTabs.MOTD);
 
                 // Get our list of microphone devices.
@@ -62,13 +67,12 @@ namespace WTDE_Launcher_V3 {
 
                 // Set up tabs, the window title, and the background.
                 // Also play boot VOs if we have them on, fun stuff!
-                DoTabSetup();
                 ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
                 ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
                 LoadINISettings();
+                DoTabSetup();
 
                 V3LauncherCore.SetWindowTitle(this);
-                BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
                 V3LauncherCore.AudioBootVO();
 
                 // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
@@ -77,6 +81,69 @@ namespace WTDE_Launcher_V3 {
 
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
+
+                // April Fools Day stuff!
+                bool enableAFDTheme = INIFunctions.GetINIValue("Config", "Holiday", "") == "aprilfools" || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1);
+                
+                if (enableAFDTheme) {
+                    this.BackgroundImage = Properties.Resources.bg_1_af;
+                    WTDELogo.Image = Properties.Resources.logo_af;
+                    IconLogoIMF.BackgroundImage = Properties.Resources.logo_imf24_af;
+                    IconLogoDELauncher.BackgroundImage = Properties.Resources.icon_af;
+
+                    MOTDText.Text = "Well, this is embarrassing.\n\n" +
+                                    "We regret to inform you, but Guitar Hero World Tour: Definitive Edition is no more.\n" +
+                                    "It's now Guitar Hero World Tour Deluxe. In order to play, you require a Premium Rocker subscription in order to play the game.\n\n" +
+                                    "If you feel as if you've received this message in error, please contact our hotline. Our unpaid interns will get back to you as soon as possible.\n\n" +
+                                    "We're sorry for the inconvenience! D:";
+
+                    // Auto launch warning header.
+                    TALSaveWarningLabel.Enabled = true;
+                    TALSaveWarningLabel.Text = "Warning: It's party time!! And we don't live in a facsist nation!!";
+
+                    // Side buttons.
+                    RunWTDEButton.Text = "Start WTDX Trial";
+                    AdjustSettingsButton.Text = "Don't Change These!";
+                    OpenModsButton.Text = "Mods Folder...?";
+                    CheckUpdatesButton.Text = "Updates Unsupported";
+                    ModManagerButton.Text = "Mod Deleter";
+
+                    // Tab buttons.
+                    TabButtonGeneral.Text = "Basic";
+                    TabButtonInput.Text = "Buttons";
+                    TabButtonGraphics.Text = "Visuals";
+                    TabButtonBand.Text = "Peoples";
+                    TabButtonAutoLaunch.Text = "Blast Off";
+                    TabButtonDebug.Text = "Re-bug";
+
+                    // Credits page stuff.
+                    CreditsVersionLabel.Enabled = true;
+                    CreditsMainInfo.Enabled = true;
+                    
+                    CreditsVersionLabel.Text = $"GHWT Deluxe Destroyer - Version {V3LauncherConstants.VERSION}";
+
+                    CreditsMainInfo.Text = "GHWT Deluxe by Fretworkers, EST. 1969\n" +
+                                           "GHWT Deluxe Destroyer by International Monetary Fund 24\n\n" +
+                                           "Made in C# on .NET Framework 4.6.2\n\n" +
+                                           "This isn't even your launcher to deface! It's vandalism! It's pure vandalism! You wouldn't do that if this was YOUR launcher, would you? If I came around your house, smashing your property and telly to bits, you'd be furious! And rightfully so! Unbelievable!\n\n" +
+                                           "You really shouldn't be here... I'm leaving now. You'll be GLaD you did.\n\n" +
+                                           "GHWT: DX and Fretworkers are not associated with AlwaysSoft, Inactive Vision Wizard, RedOctave, Beeswax, or Above Ground Deployment in any way, shape, or form.\n" +
+                                           "Thank you! GHWT: DX is a project. Yes. A project. That's what it is.";
+
+                    VersionInfoLabel.Text = $"WTDX Destroyer V{V3LauncherConstants.VERSION} by I.M. Fund 24\nBG Image: Someone Based\nWTDE Latest Version: WTDE is no more";
+
+                    // Update the social link button images. Thanks Derpy!
+                    ButtonYouTube.Image = Properties.Resources.youtube_af;
+                    ButtonGitHub.Image = Properties.Resources.github_af;
+                    ButtonWTDESite.Image = Properties.Resources.wtde_site_af;
+                    ButtonFretworks.Image = Properties.Resources.fretworks_af;
+                    ButtonDiscord.Image = Properties.Resources.discord_af;
+
+                    FretworksLogo.Image = Properties.Resources.fretworks_banner_s_af;
+                } else {
+                    MOTDText.Text = V3LauncherCore.GetMOTDText();
+                    BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
+                }
             } catch (Exception exc) {
                 var st = new StackTrace(exc, true);
                 var frame = st.GetFrame(0);
@@ -380,7 +447,7 @@ namespace WTDE_Launcher_V3 {
             PrintLoadedAssets.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "PrintLoadedAssets", "0"));
             PrintCreateFile.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "PrintCreateFile", "0"));
             CASNoticeShown.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "CASNoticeShown", "0"));
-            ImmediateVectorHandlers.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "ImmediateVectorHandlers", "1"));
+            ImmediateVectorHandlers.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "ImmediateVectorHandlers", "1"));
         }
 
         /// <summary>
@@ -840,6 +907,25 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void RunWTDEButton_Click(object sender, EventArgs e) {
+            // Is WTDE already running? If so, let's ask if the user wants
+            // to kill the already running process and start a new one.
+            Process[] pname = Process.GetProcessesByName("GHWT_Definitive");
+            V3LauncherCore.AddDebugEntry($"Running processes of WTDE (should be 1 if game is running): {pname.Length}");
+            if (pname.Length == 0) {
+                V3LauncherCore.AddDebugEntry("WTDE is NOT running");
+            } else {
+                V3LauncherCore.AddDebugEntry("WTDE IS RUNNING");
+
+                string wtdeAlreadyRunning = "It seems that GHWT: DE is already running. Do you want to close the currently running " +
+                                            "instance of the game and start a new one?";
+
+                if (MessageBox.Show(wtdeAlreadyRunning, "WTDE Already Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes) {
+                    pname[0].Kill();
+                } else {
+                    return;
+                }
+            }
+
             // If Auto Launch is enabled, warn the user!
             // Back up their save data if we're instructed to do so.
             if (AutoLaunchEnabled.Checked) {
@@ -899,7 +985,7 @@ namespace WTDE_Launcher_V3 {
             MouseEventArgs me = (MouseEventArgs) e;
 
             // Left triggers the background to swap.
-            if (me.Button == MouseButtons.Left) {
+            if (me.Button == MouseButtons.Left && ((DateTime.Now.Month != 4) && (DateTime.Now.Day != 1))) {
                 // Are we at the end of the BG cycle?
                 if (BGConstants.BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGConstants.BGIndex = 0;
                 else BGConstants.BGIndex++;
@@ -1062,6 +1148,10 @@ namespace WTDE_Launcher_V3 {
                     File.Delete(V3LauncherConstants.WTDEInputConfigDir);
                 }
             }
+        }
+
+        private void DisableInputHack_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Debug", "DisableInputHack", INIFunctions.BoolToString(DisableInputHack.Checked));
         }
 
         private void SetDefaultVoxLag_Click(object sender, EventArgs e) {
@@ -2315,7 +2405,7 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void ImmediateVectorHandlers_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Debug", "ImmediateVectorHandlers", INIFunctions.BoolToString(ImmediateVectorHandlers.Checked));
+            INIFunctions.SaveINIValue("Logger", "ImmediateVectorHandlers", INIFunctions.BoolToString(ImmediateVectorHandlers.Checked));
         }
         #endregion
 
@@ -2346,9 +2436,5 @@ namespace WTDE_Launcher_V3 {
 
 
         #endregion
-
-        private void DisableInputHack_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Debug", "DisableInputHack", INIFunctions.BoolToString(DisableInputHack.Checked));
-        }
     }
 }

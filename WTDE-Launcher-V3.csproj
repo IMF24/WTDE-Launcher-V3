@@ -312,6 +312,17 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="ModHandler.cs" />
+    <None Include="res\img\fretworks_banner_s_af.png" />
+    <None Include="res\img\social\af\youtube_af.png" />
+    <None Include="res\img\social\af\wtde_site_af.png" />
+    <None Include="res\img\social\af\github_af.png" />
+    <None Include="res\img\social\af\fretworks_af.png" />
+    <None Include="res\img\social\af\discord_af.png" />
+    <None Include="res\img\icon\icon_af.png" />
+    <None Include="res\img\logo_imf24_af.png" />
+    <None Include="res\img\logos\wtde\wtde_v1_logo_aprilfools_s.png" />
+    <None Include="res\img\backgrounds\bg_1_af.png" />
+    <None Include="res\img\logos\wtde\wtde_v1_logo_valentine_s.png" />
     <None Include="res\img\logos\wtde_launcher_splash.png" />
     <None Include="res\img\backgrounds\bg_intro_splash.png" />
     <None Include="res\img\menuicons\folder.png" />

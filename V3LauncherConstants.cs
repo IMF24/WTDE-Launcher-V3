@@ -182,6 +182,29 @@ namespace WTDE_Launcher_V3 {
 
         /// <summary>
         ///  Random window titles that will show in the title bar on startup.
+        ///  These messages are used when the holiday is Valentine's Day.
+        /// </summary>
+        public static string[] RandomWindowTitlesVD = {
+            "Happy Valentine's Day!",
+            "I don't need a bullet, but thank you",
+            "Hopefully the tears don't fall this month",
+            "Will you be the voice of my band?",
+            "You're the right kind of sinner to release my inner fantasy",
+        };
+
+        /// <summary>
+        ///  Random window titles that will show in the title bar on startup.
+        ///  These messages are used when the holiday is April Fools Day.
+        /// </summary>
+        public static string[] RandomWindowTitlesAF = {
+            "Happy April Fools Day!",
+            "This launcher will self destruct in 5 minutes...",
+            "A minimum payment of $99.99 is required in order to continue playing GHWT: DX",
+            "You have reached the end of your GHWT: DX Premium Rocker subscription trial period",
+        };
+
+        /// <summary>
+        ///  Random window titles that will show in the title bar on startup.
         ///  These messages are used when the holiday is Halloween.
         /// </summary>
         public static string[] RandomWindowTitlesHW = {

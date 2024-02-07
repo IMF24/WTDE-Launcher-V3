@@ -354,7 +354,6 @@ namespace WTDE_Launcher_V3 {
             this.Close();
         }
 
-
         private void ApplyButton_Click(object sender, EventArgs e) {
             ApplySongPropertyChanges();
         }

@@ -136,6 +136,9 @@
   <data name="bg_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bg_1_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_1_hw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_1_hw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,6 +223,9 @@
   <data name="discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\discord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="discord_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\social\af\discord_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -241,11 +247,20 @@
   <data name="fretworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\fretworks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fretworks_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\social\af\fretworks_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fretworks_banner_s_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\fretworks_banner_s_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="friend_list_manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\friend_list_manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="github" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\github.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="github_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\social\af\github_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="google_drive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\google_drive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,11 +271,17 @@
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\icon\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\icon_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Lexend_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lexend-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="light_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\light_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\logos\wtde\wtde_v1_logo_aprilfools_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_fretworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\fretworks_banner_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -270,6 +291,12 @@
   </data>
   <data name="logo_imf24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logo_imf24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_imf24_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\logo_imf24_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_vd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\logos\wtde\wtde_v1_logo_valentine_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_wtde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v2_logo_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,7 +358,13 @@
   <data name="wtde_site" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\wtde_site.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="wtde_site_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\social\af\wtde_site_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="youtube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\youtube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="youtube_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\social\af\youtube_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

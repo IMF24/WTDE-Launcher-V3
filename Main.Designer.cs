@@ -375,7 +375,18 @@
             this.CASNoticeShown = new System.Windows.Forms.CheckBox();
             this.DisableInitialMovies = new System.Windows.Forms.CheckBox();
             this.ImmediateVectorHandlers = new System.Windows.Forms.CheckBox();
+            this.DisableInputHack = new System.Windows.Forms.CheckBox();
+            this.FixGuitarInputLogic = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabDebugGroup = new System.Windows.Forms.GroupBox();
+            this.TabInputGroup = new System.Windows.Forms.GroupBox();
+            this.KeyBindsHeaderIcon = new System.Windows.Forms.PictureBox();
+            this.MicSettingsHeaderIcon = new System.Windows.Forms.PictureBox();
+            this.KeyBindsHeaderLabel = new System.Windows.Forms.Label();
+            this.MVidDelayLabel = new System.Windows.Forms.Label();
+            this.MAudDelayLabel = new System.Windows.Forms.Label();
+            this.MicrophoneLabel = new System.Windows.Forms.Label();
+            this.MicSettingsHeaderLabel = new System.Windows.Forms.Label();
             this.TabCreditsGroup = new System.Windows.Forms.Panel();
             this.ButtonFretworks = new System.Windows.Forms.Button();
             this.CreditsMainInfo = new System.Windows.Forms.Label();
@@ -412,7 +423,6 @@
             this.DOFBlurLabel = new System.Windows.Forms.Label();
             this.DOFQualityLabel = new System.Windows.Forms.Label();
             this.TODProfileLabel = new System.Windows.Forms.Label();
-            this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
             this.TabALMainEditor = new System.Windows.Forms.Panel();
@@ -436,14 +446,6 @@
             this.TALP1ILabel = new System.Windows.Forms.Label();
             this.TALPDSettings = new System.Windows.Forms.Label();
             this.TALP1DLabel = new System.Windows.Forms.Label();
-            this.TabInputGroup = new System.Windows.Forms.GroupBox();
-            this.KeyBindsHeaderIcon = new System.Windows.Forms.PictureBox();
-            this.MicSettingsHeaderIcon = new System.Windows.Forms.PictureBox();
-            this.KeyBindsHeaderLabel = new System.Windows.Forms.Label();
-            this.MVidDelayLabel = new System.Windows.Forms.Label();
-            this.MAudDelayLabel = new System.Windows.Forms.Label();
-            this.MicrophoneLabel = new System.Windows.Forms.Label();
-            this.MicSettingsHeaderLabel = new System.Windows.Forms.Label();
             this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
             this.TGForceHolidayLabel = new System.Windows.Forms.Label();
             this.TGAutoLoginLabel = new System.Windows.Forms.Label();
@@ -490,8 +492,6 @@
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
             this.DummyLabel = new System.Windows.Forms.Label();
-            this.DisableInputHack = new System.Windows.Forms.CheckBox();
-            this.FixGuitarInputLogic = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -511,6 +511,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabDebugGroup.SuspendLayout();
+            this.TabInputGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).BeginInit();
             this.TabCreditsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
@@ -521,12 +525,8 @@
             this.TGEditorGameplay.SuspendLayout();
             this.TGEditorInterface.SuspendLayout();
             this.TGEditorAdvanced.SuspendLayout();
-            this.TabDebugGroup.SuspendLayout();
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
-            this.TabInputGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).BeginInit();
             this.TabGeneralGroup.SuspendLayout();
             this.TabBandGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).BeginInit();
@@ -5214,6 +5214,31 @@
             this.ImmediateVectorHandlers.UseVisualStyleBackColor = true;
             this.ImmediateVectorHandlers.CheckedChanged += new System.EventHandler(this.ImmediateVectorHandlers_CheckedChanged);
             // 
+            // DisableInputHack
+            // 
+            this.DisableInputHack.AutoSize = true;
+            this.DisableInputHack.Location = new System.Drawing.Point(35, 90);
+            this.DisableInputHack.Name = "DisableInputHack";
+            this.DisableInputHack.Size = new System.Drawing.Size(258, 26);
+            this.DisableInputHack.TabIndex = 48;
+            this.DisableInputHack.Text = "Disable Input Hack / Disable SDL";
+            this.ToolTipMain.SetToolTip(this.DisableInputHack, resources.GetString("DisableInputHack.ToolTip"));
+            this.DisableInputHack.UseVisualStyleBackColor = true;
+            this.DisableInputHack.CheckedChanged += new System.EventHandler(this.DisableInputHack_CheckedChanged);
+            // 
+            // FixGuitarInputLogic
+            // 
+            this.FixGuitarInputLogic.AutoSize = true;
+            this.FixGuitarInputLogic.Location = new System.Drawing.Point(24, 22);
+            this.FixGuitarInputLogic.Margin = new System.Windows.Forms.Padding(2);
+            this.FixGuitarInputLogic.Name = "FixGuitarInputLogic";
+            this.FixGuitarInputLogic.Size = new System.Drawing.Size(178, 26);
+            this.FixGuitarInputLogic.TabIndex = 18;
+            this.FixGuitarInputLogic.Text = "Fix Guitar Input Logic";
+            this.ToolTipMain.SetToolTip(this.FixGuitarInputLogic, resources.GetString("FixGuitarInputLogic.ToolTip"));
+            this.FixGuitarInputLogic.UseVisualStyleBackColor = true;
+            this.FixGuitarInputLogic.CheckedChanged += new System.EventHandler(this.FixGuitarInputLogic_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
@@ -5231,6 +5256,134 @@
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
             // 
+            // TabDebugGroup
+            // 
+            this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabDebugGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabDebugGroup.Controls.Add(this.FixGuitarInputLogic);
+            this.TabDebugGroup.Controls.Add(this.ImmediateVectorHandlers);
+            this.TabDebugGroup.Controls.Add(this.DisableInitialMovies);
+            this.TabDebugGroup.Controls.Add(this.CASNoticeShown);
+            this.TabDebugGroup.Controls.Add(this.PrintCreateFile);
+            this.TabDebugGroup.Controls.Add(this.PrintLoadedAssets);
+            this.TabDebugGroup.Controls.Add(this.QuickDebug);
+            this.TabDebugGroup.Controls.Add(this.BindWarningShown);
+            this.TabDebugGroup.Controls.Add(this.FixFastTextures);
+            this.TabDebugGroup.Controls.Add(this.ShowWarnings);
+            this.TabDebugGroup.Controls.Add(this.DebugSaves);
+            this.TabDebugGroup.Controls.Add(this.ExtraOptimizedSaves);
+            this.TabDebugGroup.Controls.Add(this.FixFSBObjects);
+            this.TabDebugGroup.Controls.Add(this.DebugDLCSync);
+            this.TabDebugGroup.Controls.Add(this.DisableSongLogging);
+            this.TabDebugGroup.Controls.Add(this.WriteFile);
+            this.TabDebugGroup.Controls.Add(this.DebugConsole);
+            this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
+            this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
+            this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabDebugGroup.Location = new System.Drawing.Point(178, 413);
+            this.TabDebugGroup.Name = "TabDebugGroup";
+            this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabDebugGroup.TabIndex = 3;
+            this.TabDebugGroup.TabStop = false;
+            this.TabDebugGroup.Text = "DEBUG: Debug Tab";
+            // 
+            // TabInputGroup
+            // 
+            this.TabInputGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabInputGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabInputGroup.Controls.Add(this.DisableInputHack);
+            this.TabInputGroup.Controls.Add(this.DeleteWTDEInputINI);
+            this.TabInputGroup.Controls.Add(this.KeyBindsHeaderIcon);
+            this.TabInputGroup.Controls.Add(this.MicSettingsHeaderIcon);
+            this.TabInputGroup.Controls.Add(this.ResetKeybindsButton);
+            this.TabInputGroup.Controls.Add(this.SaveKeybindsButton);
+            this.TabInputGroup.Controls.Add(this.KeyBindsHeaderLabel);
+            this.TabInputGroup.Controls.Add(this.KeyBindsParentPanel);
+            this.TabInputGroup.Controls.Add(this.SetDefaultVoxLag);
+            this.TabInputGroup.Controls.Add(this.MicVideoDelay);
+            this.TabInputGroup.Controls.Add(this.MicAudioDelay);
+            this.TabInputGroup.Controls.Add(this.MVidDelayLabel);
+            this.TabInputGroup.Controls.Add(this.MAudDelayLabel);
+            this.TabInputGroup.Controls.Add(this.MicrophoneSelect);
+            this.TabInputGroup.Controls.Add(this.MicrophoneLabel);
+            this.TabInputGroup.Controls.Add(this.MicSettingsHeaderLabel);
+            this.TabInputGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabInputGroup.Location = new System.Drawing.Point(438, 287);
+            this.TabInputGroup.Name = "TabInputGroup";
+            this.TabInputGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabInputGroup.TabIndex = 15;
+            this.TabInputGroup.TabStop = false;
+            this.TabInputGroup.Text = "DEBUG: Input Tab";
+            // 
+            // KeyBindsHeaderIcon
+            // 
+            this.KeyBindsHeaderIcon.Image = ((System.Drawing.Image)(resources.GetObject("KeyBindsHeaderIcon.Image")));
+            this.KeyBindsHeaderIcon.Location = new System.Drawing.Point(13, 126);
+            this.KeyBindsHeaderIcon.Name = "KeyBindsHeaderIcon";
+            this.KeyBindsHeaderIcon.Size = new System.Drawing.Size(24, 24);
+            this.KeyBindsHeaderIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.KeyBindsHeaderIcon.TabIndex = 46;
+            this.KeyBindsHeaderIcon.TabStop = false;
+            // 
+            // MicSettingsHeaderIcon
+            // 
+            this.MicSettingsHeaderIcon.Image = global::WTDE_Launcher_V3.Properties.Resources.mixer_icon_vocals;
+            this.MicSettingsHeaderIcon.Location = new System.Drawing.Point(13, 15);
+            this.MicSettingsHeaderIcon.Name = "MicSettingsHeaderIcon";
+            this.MicSettingsHeaderIcon.Size = new System.Drawing.Size(24, 24);
+            this.MicSettingsHeaderIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MicSettingsHeaderIcon.TabIndex = 45;
+            this.MicSettingsHeaderIcon.TabStop = false;
+            // 
+            // KeyBindsHeaderLabel
+            // 
+            this.KeyBindsHeaderLabel.AutoSize = true;
+            this.KeyBindsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.KeyBindsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.KeyBindsHeaderLabel.Location = new System.Drawing.Point(43, 125);
+            this.KeyBindsHeaderLabel.Name = "KeyBindsHeaderLabel";
+            this.KeyBindsHeaderLabel.Size = new System.Drawing.Size(102, 25);
+            this.KeyBindsHeaderLabel.TabIndex = 18;
+            this.KeyBindsHeaderLabel.Text = "Key Binds:";
+            // 
+            // MVidDelayLabel
+            // 
+            this.MVidDelayLabel.AutoEllipsis = true;
+            this.MVidDelayLabel.AutoSize = true;
+            this.MVidDelayLabel.Location = new System.Drawing.Point(448, 67);
+            this.MVidDelayLabel.Name = "MVidDelayLabel";
+            this.MVidDelayLabel.Size = new System.Drawing.Size(123, 22);
+            this.MVidDelayLabel.TabIndex = 13;
+            this.MVidDelayLabel.Text = "Mic Video Delay:";
+            // 
+            // MAudDelayLabel
+            // 
+            this.MAudDelayLabel.AutoSize = true;
+            this.MAudDelayLabel.Location = new System.Drawing.Point(448, 38);
+            this.MAudDelayLabel.Name = "MAudDelayLabel";
+            this.MAudDelayLabel.Size = new System.Drawing.Size(123, 22);
+            this.MAudDelayLabel.TabIndex = 12;
+            this.MAudDelayLabel.Text = "Mic Audio Delay:";
+            // 
+            // MicrophoneLabel
+            // 
+            this.MicrophoneLabel.AutoSize = true;
+            this.MicrophoneLabel.Location = new System.Drawing.Point(30, 39);
+            this.MicrophoneLabel.Name = "MicrophoneLabel";
+            this.MicrophoneLabel.Size = new System.Drawing.Size(93, 22);
+            this.MicrophoneLabel.TabIndex = 7;
+            this.MicrophoneLabel.Text = "Microphone:";
+            // 
+            // MicSettingsHeaderLabel
+            // 
+            this.MicSettingsHeaderLabel.AutoSize = true;
+            this.MicSettingsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.MicSettingsHeaderLabel.Location = new System.Drawing.Point(43, 14);
+            this.MicSettingsHeaderLabel.Name = "MicSettingsHeaderLabel";
+            this.MicSettingsHeaderLabel.Size = new System.Drawing.Size(214, 25);
+            this.MicSettingsHeaderLabel.TabIndex = 6;
+            this.MicSettingsHeaderLabel.Text = "Mic and Vocal Settings:";
+            // 
             // TabCreditsGroup
             // 
             this.TabCreditsGroup.BackColor = System.Drawing.Color.Transparent;
@@ -5245,7 +5398,7 @@
             this.TabCreditsGroup.Controls.Add(this.BlackChalk);
             this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
             this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
-            this.TabCreditsGroup.Location = new System.Drawing.Point(640, 119);
+            this.TabCreditsGroup.Location = new System.Drawing.Point(628, 82);
             this.TabCreditsGroup.Name = "TabCreditsGroup";
             this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
             this.TabCreditsGroup.TabIndex = 14;
@@ -5707,37 +5860,6 @@
             this.TODProfileLabel.TabIndex = 24;
             this.TODProfileLabel.Text = "Time of Day Profile:";
             // 
-            // TabDebugGroup
-            // 
-            this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabDebugGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabDebugGroup.Controls.Add(this.FixGuitarInputLogic);
-            this.TabDebugGroup.Controls.Add(this.ImmediateVectorHandlers);
-            this.TabDebugGroup.Controls.Add(this.DisableInitialMovies);
-            this.TabDebugGroup.Controls.Add(this.CASNoticeShown);
-            this.TabDebugGroup.Controls.Add(this.PrintCreateFile);
-            this.TabDebugGroup.Controls.Add(this.PrintLoadedAssets);
-            this.TabDebugGroup.Controls.Add(this.QuickDebug);
-            this.TabDebugGroup.Controls.Add(this.BindWarningShown);
-            this.TabDebugGroup.Controls.Add(this.FixFastTextures);
-            this.TabDebugGroup.Controls.Add(this.ShowWarnings);
-            this.TabDebugGroup.Controls.Add(this.DebugSaves);
-            this.TabDebugGroup.Controls.Add(this.ExtraOptimizedSaves);
-            this.TabDebugGroup.Controls.Add(this.FixFSBObjects);
-            this.TabDebugGroup.Controls.Add(this.DebugDLCSync);
-            this.TabDebugGroup.Controls.Add(this.DisableSongLogging);
-            this.TabDebugGroup.Controls.Add(this.WriteFile);
-            this.TabDebugGroup.Controls.Add(this.DebugConsole);
-            this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
-            this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
-            this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(178, 413);
-            this.TabDebugGroup.Name = "TabDebugGroup";
-            this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabDebugGroup.TabIndex = 3;
-            this.TabDebugGroup.TabStop = false;
-            this.TabDebugGroup.Text = "DEBUG: Debug Tab";
-            // 
             // TabAutoLaunchGroup
             // 
             this.TabAutoLaunchGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -5746,7 +5868,7 @@
             this.TabAutoLaunchGroup.Controls.Add(this.TabALMainEditor);
             this.TabAutoLaunchGroup.Controls.Add(this.AutoLaunchEnabled);
             this.TabAutoLaunchGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(93, 464);
+            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(100, 477);
             this.TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
             this.TabAutoLaunchGroup.Size = new System.Drawing.Size(662, 648);
             this.TabAutoLaunchGroup.TabIndex = 2;
@@ -5997,103 +6119,6 @@
             this.TALP1DLabel.Size = new System.Drawing.Size(74, 22);
             this.TALP1DLabel.TabIndex = 39;
             this.TALP1DLabel.Text = "Difficulty:";
-            // 
-            // TabInputGroup
-            // 
-            this.TabInputGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabInputGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabInputGroup.Controls.Add(this.DisableInputHack);
-            this.TabInputGroup.Controls.Add(this.DeleteWTDEInputINI);
-            this.TabInputGroup.Controls.Add(this.KeyBindsHeaderIcon);
-            this.TabInputGroup.Controls.Add(this.MicSettingsHeaderIcon);
-            this.TabInputGroup.Controls.Add(this.ResetKeybindsButton);
-            this.TabInputGroup.Controls.Add(this.SaveKeybindsButton);
-            this.TabInputGroup.Controls.Add(this.KeyBindsHeaderLabel);
-            this.TabInputGroup.Controls.Add(this.KeyBindsParentPanel);
-            this.TabInputGroup.Controls.Add(this.SetDefaultVoxLag);
-            this.TabInputGroup.Controls.Add(this.MicVideoDelay);
-            this.TabInputGroup.Controls.Add(this.MicAudioDelay);
-            this.TabInputGroup.Controls.Add(this.MVidDelayLabel);
-            this.TabInputGroup.Controls.Add(this.MAudDelayLabel);
-            this.TabInputGroup.Controls.Add(this.MicrophoneSelect);
-            this.TabInputGroup.Controls.Add(this.MicrophoneLabel);
-            this.TabInputGroup.Controls.Add(this.MicSettingsHeaderLabel);
-            this.TabInputGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabInputGroup.Location = new System.Drawing.Point(438, 287);
-            this.TabInputGroup.Name = "TabInputGroup";
-            this.TabInputGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabInputGroup.TabIndex = 15;
-            this.TabInputGroup.TabStop = false;
-            this.TabInputGroup.Text = "DEBUG: Input Tab";
-            // 
-            // KeyBindsHeaderIcon
-            // 
-            this.KeyBindsHeaderIcon.Image = ((System.Drawing.Image)(resources.GetObject("KeyBindsHeaderIcon.Image")));
-            this.KeyBindsHeaderIcon.Location = new System.Drawing.Point(13, 126);
-            this.KeyBindsHeaderIcon.Name = "KeyBindsHeaderIcon";
-            this.KeyBindsHeaderIcon.Size = new System.Drawing.Size(24, 24);
-            this.KeyBindsHeaderIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.KeyBindsHeaderIcon.TabIndex = 46;
-            this.KeyBindsHeaderIcon.TabStop = false;
-            // 
-            // MicSettingsHeaderIcon
-            // 
-            this.MicSettingsHeaderIcon.Image = global::WTDE_Launcher_V3.Properties.Resources.mixer_icon_vocals;
-            this.MicSettingsHeaderIcon.Location = new System.Drawing.Point(13, 15);
-            this.MicSettingsHeaderIcon.Name = "MicSettingsHeaderIcon";
-            this.MicSettingsHeaderIcon.Size = new System.Drawing.Size(24, 24);
-            this.MicSettingsHeaderIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MicSettingsHeaderIcon.TabIndex = 45;
-            this.MicSettingsHeaderIcon.TabStop = false;
-            // 
-            // KeyBindsHeaderLabel
-            // 
-            this.KeyBindsHeaderLabel.AutoSize = true;
-            this.KeyBindsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.KeyBindsHeaderLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.KeyBindsHeaderLabel.Location = new System.Drawing.Point(43, 125);
-            this.KeyBindsHeaderLabel.Name = "KeyBindsHeaderLabel";
-            this.KeyBindsHeaderLabel.Size = new System.Drawing.Size(102, 25);
-            this.KeyBindsHeaderLabel.TabIndex = 18;
-            this.KeyBindsHeaderLabel.Text = "Key Binds:";
-            // 
-            // MVidDelayLabel
-            // 
-            this.MVidDelayLabel.AutoEllipsis = true;
-            this.MVidDelayLabel.AutoSize = true;
-            this.MVidDelayLabel.Location = new System.Drawing.Point(448, 67);
-            this.MVidDelayLabel.Name = "MVidDelayLabel";
-            this.MVidDelayLabel.Size = new System.Drawing.Size(123, 22);
-            this.MVidDelayLabel.TabIndex = 13;
-            this.MVidDelayLabel.Text = "Mic Video Delay:";
-            // 
-            // MAudDelayLabel
-            // 
-            this.MAudDelayLabel.AutoSize = true;
-            this.MAudDelayLabel.Location = new System.Drawing.Point(448, 38);
-            this.MAudDelayLabel.Name = "MAudDelayLabel";
-            this.MAudDelayLabel.Size = new System.Drawing.Size(123, 22);
-            this.MAudDelayLabel.TabIndex = 12;
-            this.MAudDelayLabel.Text = "Mic Audio Delay:";
-            // 
-            // MicrophoneLabel
-            // 
-            this.MicrophoneLabel.AutoSize = true;
-            this.MicrophoneLabel.Location = new System.Drawing.Point(30, 39);
-            this.MicrophoneLabel.Name = "MicrophoneLabel";
-            this.MicrophoneLabel.Size = new System.Drawing.Size(93, 22);
-            this.MicrophoneLabel.TabIndex = 7;
-            this.MicrophoneLabel.Text = "Microphone:";
-            // 
-            // MicSettingsHeaderLabel
-            // 
-            this.MicSettingsHeaderLabel.AutoSize = true;
-            this.MicSettingsHeaderLabel.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.MicSettingsHeaderLabel.Location = new System.Drawing.Point(43, 14);
-            this.MicSettingsHeaderLabel.Name = "MicSettingsHeaderLabel";
-            this.MicSettingsHeaderLabel.Size = new System.Drawing.Size(214, 25);
-            this.MicSettingsHeaderLabel.TabIndex = 6;
-            this.MicSettingsHeaderLabel.Text = "Mic and Vocal Settings:";
             // 
             // TabGeneralGroup
             // 
@@ -6652,31 +6677,6 @@
             this.DummyLabel.TabIndex = 14;
             this.DummyLabel.Text = "DUMMY_LABEL";
             // 
-            // DisableInputHack
-            // 
-            this.DisableInputHack.AutoSize = true;
-            this.DisableInputHack.Location = new System.Drawing.Point(35, 90);
-            this.DisableInputHack.Name = "DisableInputHack";
-            this.DisableInputHack.Size = new System.Drawing.Size(258, 26);
-            this.DisableInputHack.TabIndex = 48;
-            this.DisableInputHack.Text = "Disable Input Hack / Disable SDL";
-            this.ToolTipMain.SetToolTip(this.DisableInputHack, resources.GetString("DisableInputHack.ToolTip"));
-            this.DisableInputHack.UseVisualStyleBackColor = true;
-            this.DisableInputHack.CheckedChanged += new System.EventHandler(this.DisableInputHack_CheckedChanged);
-            // 
-            // FixGuitarInputLogic
-            // 
-            this.FixGuitarInputLogic.AutoSize = true;
-            this.FixGuitarInputLogic.Location = new System.Drawing.Point(24, 22);
-            this.FixGuitarInputLogic.Margin = new System.Windows.Forms.Padding(2);
-            this.FixGuitarInputLogic.Name = "FixGuitarInputLogic";
-            this.FixGuitarInputLogic.Size = new System.Drawing.Size(178, 26);
-            this.FixGuitarInputLogic.TabIndex = 18;
-            this.FixGuitarInputLogic.Text = "Fix Guitar Input Logic";
-            this.ToolTipMain.SetToolTip(this.FixGuitarInputLogic, resources.GetString("FixGuitarInputLogic.ToolTip"));
-            this.FixGuitarInputLogic.UseVisualStyleBackColor = true;
-            this.FixGuitarInputLogic.CheckedChanged += new System.EventHandler(this.FixGuitarInputLogic_CheckedChanged);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6729,6 +6729,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabDebugGroup.ResumeLayout(false);
+            this.TabDebugGroup.PerformLayout();
+            this.TabInputGroup.ResumeLayout(false);
+            this.TabInputGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).EndInit();
             this.TabCreditsGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
@@ -6743,16 +6749,10 @@
             this.TGEditorInterface.PerformLayout();
             this.TGEditorAdvanced.ResumeLayout(false);
             this.TGEditorAdvanced.PerformLayout();
-            this.TabDebugGroup.ResumeLayout(false);
-            this.TabDebugGroup.PerformLayout();
             this.TabAutoLaunchGroup.ResumeLayout(false);
             this.TabAutoLaunchGroup.PerformLayout();
             this.TabALMainEditor.ResumeLayout(false);
             this.TabALMainEditor.PerformLayout();
-            this.TabInputGroup.ResumeLayout(false);
-            this.TabInputGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).EndInit();
             this.TabGeneralGroup.ResumeLayout(false);
             this.TabGeneralGroup.PerformLayout();
             this.TabBandGroup.ResumeLayout(false);
