@@ -30,7 +30,7 @@
             this.LogoBrandFretworks = new System.Windows.Forms.PictureBox();
             this.VersionInfoLabel = new System.Windows.Forms.Label();
             this.CreditsInfoLabel = new System.Windows.Forms.Label();
-            this.SelfKillWorker = new System.ComponentModel.BackgroundWorker();
+            this.PleaseWaitText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBrandIMF)).BeginInit();
@@ -52,7 +52,7 @@
             this.LogoImageMain.BackColor = System.Drawing.Color.Transparent;
             this.LogoImageMain.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.wtde_launcher_splash;
             this.LogoImageMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogoImageMain.Location = new System.Drawing.Point(229, 49);
+            this.LogoImageMain.Location = new System.Drawing.Point(229, 24);
             this.LogoImageMain.Name = "LogoImageMain";
             this.LogoImageMain.Size = new System.Drawing.Size(441, 117);
             this.LogoImageMain.TabIndex = 1;
@@ -84,7 +84,7 @@
             this.VersionInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.VersionInfoLabel.Font = new System.Drawing.Font("Lexend", 18F);
             this.VersionInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.VersionInfoLabel.Location = new System.Drawing.Point(229, 210);
+            this.VersionInfoLabel.Location = new System.Drawing.Point(225, 165);
             this.VersionInfoLabel.Name = "VersionInfoLabel";
             this.VersionInfoLabel.Size = new System.Drawing.Size(453, 37);
             this.VersionInfoLabel.TabIndex = 4;
@@ -97,16 +97,24 @@
             this.CreditsInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.CreditsInfoLabel.Font = new System.Drawing.Font("Lexend", 10F);
             this.CreditsInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.CreditsInfoLabel.Location = new System.Drawing.Point(391, 247);
+            this.CreditsInfoLabel.Location = new System.Drawing.Point(387, 202);
             this.CreditsInfoLabel.Name = "CreditsInfoLabel";
             this.CreditsInfoLabel.Size = new System.Drawing.Size(288, 44);
             this.CreditsInfoLabel.TabIndex = 5;
             this.CreditsInfoLabel.Text = "Made by IMF24, GHWT: DE by Fretworks\r\nThanks for supporting us!";
             this.CreditsInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // SelfKillWorker
+            // PleaseWaitText
             // 
-            this.SelfKillWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SelfKillWorker_DoWork);
+            this.PleaseWaitText.BackColor = System.Drawing.Color.Transparent;
+            this.PleaseWaitText.Font = new System.Drawing.Font("Lexend", 14F);
+            this.PleaseWaitText.ForeColor = System.Drawing.Color.White;
+            this.PleaseWaitText.Location = new System.Drawing.Point(225, 256);
+            this.PleaseWaitText.Name = "PleaseWaitText";
+            this.PleaseWaitText.Size = new System.Drawing.Size(453, 37);
+            this.PleaseWaitText.TabIndex = 6;
+            this.PleaseWaitText.Text = "Please Wait, Starting Launcher...";
+            this.PleaseWaitText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // IntroSplash
             // 
@@ -115,6 +123,7 @@
             this.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.bg_intro_splash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(687, 302);
+            this.Controls.Add(this.PleaseWaitText);
             this.Controls.Add(this.CreditsInfoLabel);
             this.Controls.Add(this.VersionInfoLabel);
             this.Controls.Add(this.LogoBrandFretworks);
@@ -128,8 +137,6 @@
             this.Name = "IntroSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IntroSplash";
-            this.Shown += new System.EventHandler(this.IntroSplash_MouseEnter);
-            this.MouseEnter += new System.EventHandler(this.IntroSplash_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBrandIMF)).EndInit();
@@ -147,6 +154,6 @@
         private System.Windows.Forms.PictureBox LogoBrandFretworks;
         private System.Windows.Forms.Label VersionInfoLabel;
         private System.Windows.Forms.Label CreditsInfoLabel;
-        private System.ComponentModel.BackgroundWorker SelfKillWorker;
+        private System.Windows.Forms.Label PleaseWaitText;
     }
 }

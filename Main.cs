@@ -32,6 +32,7 @@ using System.Windows.Forms;
 using MadMilkman.Ini;
 using NAudio.CoreAudioApi;
 using System.Threading;
+using System.Reflection;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -42,12 +43,17 @@ namespace WTDE_Launcher_V3 {
         ///  Main entry point for the V3 launcher.
         /// </summary>
         public Main() {
+            // Make sure we're in the correct starting directory before we begin!
+            string startDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            Directory.SetCurrentDirectory(startDir);
+            V3LauncherCore.AddDebugEntry($"Starting in the directory: {startDir}");
+
             try {
                 // Show the intro splash.
-                V3LauncherCore.AddDebugEntry("Showing intro form! Auto killing after 3 seconds...");
+                V3LauncherCore.AddDebugEntry("Showing intro form! Auto killing when launcher is ready...");
 
                 IntroSplash ish = new IntroSplash();
-                ish.ShowDialog();
+                ish.Show();
 
                 // Do some directory and file verification.
                 V3LauncherCore.MakeUpdaterINI();
@@ -144,6 +150,8 @@ namespace WTDE_Launcher_V3 {
                     MOTDText.Text = V3LauncherCore.GetMOTDText();
                     BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
                 }
+
+                ish.Close();
             } catch (Exception exc) {
                 var st = new StackTrace(exc, true);
                 var frame = st.GetFrame(0);

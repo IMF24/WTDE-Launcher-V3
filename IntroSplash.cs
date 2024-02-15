@@ -2,8 +2,7 @@
 //    W T D E       L A U N C H E R       V 3
 //       I N T R O       S P L A S H
 //
-//    Intro splash form shown that auto kills after 3 seconds, then the main
-//    form spawns.
+//    Intro splash form shown that auto kills when Main is done loading.
 // ----------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
@@ -28,17 +27,13 @@ namespace WTDE_Launcher_V3 {
             VersionInfoLabel.Text = $"Version {V3LauncherConstants.VERSION}";
         }
 
-        private void SelfKillWorker_DoWork(object sender, DoWorkEventArgs e) {
-            Thread.Sleep(3000);
-
-            this.Close();
-        }
-
-        private void IntroSplash_MouseEnter(object sender, EventArgs e) {
-            try {
-                SelfKillWorker.RunWorkerAsync();
-            } catch {
-                return;
+        // Add in double buffering.
+        protected override CreateParams CreateParams {
+            // Double buffer to prevent flickering.
+            get {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED
+                return cp;
             }
         }
     }

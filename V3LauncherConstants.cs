@@ -178,6 +178,8 @@ namespace WTDE_Launcher_V3 {
             "Now featuring functional HOPO and tap chords!",
             "\"What?! It's me!--I'm in Guitar Hero, guys\" -DanRock",
             "\"YOU DID NOT\" -Hex",
+            "\"Uh, it's fine? It is fine; Absolutely nothing bad has happened\" -Derpytron84",
+            "Smooth jazz will be deployed in 3... 2--Well, maybe not so smooth, though; This is GUITAR HERO, after all"
         };
 
         /// <summary>

@@ -46,7 +46,9 @@ namespace WTDE_Launcher_V3 {
 			// If Updater.ini exists, let's use that path to read the stuff.
 			string owd = Directory.GetCurrentDirectory();
 
-			UseUpdaterINIDirectory();
+            Directory.SetCurrentDirectory(V3LauncherCore.GetUpdaterINIDirectory());
+
+            V3LauncherCore.DebugLog.Add($"CURRENT DIRECTORY: {Directory.GetCurrentDirectory()}");
 
 			// Timer starts now!
 			var startTime = DateTime.Now.Millisecond;

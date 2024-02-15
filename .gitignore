@@ -1,19 +1,6 @@
-# Ignore stuff from bin folder
-bin/Debug/dev_settings_enable
-bin/Debug/Updater.ini
-bin/Debug/WTDE-Updater-V2.deps.json
-bin/Debug/WTDE-Updater-V2.dll
-bin/Debug/WTDE-Updater-V2.exe
-bin/Debug/WTDE-Updater-V2.pdb
-bin/Debug/WTDE-Updater-V2.runtimeconfig.json
-
-bin/Release/dev_settings_enable
-bin/Release/Updater.ini
-bin/Release/WTDE-Updater-V2.deps.json
-bin/Release/WTDE-Updater-V2.dll
-bin/Release/WTDE-Updater-V2.exe
-bin/Release/WTDE-Updater-V2.pdb
-bin/Release/WTDE-Updater-V2.runtimeconfig.json
+# Ignore stuff from bin and obj folder
+./bin/*
+./obj/*
 
 res/audio/boot_msg_marcus.mp3
 res/audio/boot_msg_shirley.mp3
