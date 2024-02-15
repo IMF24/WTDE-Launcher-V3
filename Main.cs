@@ -44,6 +44,7 @@ namespace WTDE_Launcher_V3 {
         /// </summary>
         public Main() {
             // Make sure we're in the correct starting directory before we begin!
+            // Apparently Fox has temp directory issues... trying to sort that out.
             string startDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             Directory.SetCurrentDirectory(startDir);
             V3LauncherCore.AddDebugEntry($"Starting in the directory: {startDir}");

@@ -1,6 +1,6 @@
 # Ignore stuff from bin and obj folder
-./bin/*
-./obj/*
+bin/
+obj/
 
 res/audio/boot_msg_marcus.mp3
 res/audio/boot_msg_shirley.mp3

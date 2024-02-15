@@ -151,20 +151,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BGConstants.cs" />
-    <Compile Include="CARManager.cs">
+    <Compile Include="Classes\BGConstants.cs" />
+    <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CARManager.Designer.cs">
+    <Compile Include="Managers\CARManager.Designer.cs">
       <DependentUpon>CARManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="DupeChecksumManager.cs">
+    <Compile Include="Managers\DupeChecksumManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DupeChecksumManager.Designer.cs">
+    <Compile Include="Managers\DupeChecksumManager.Designer.cs">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="INIFunctions.cs" />
+    <Compile Include="Classes\INIFunctions.cs" />
     <Compile Include="InputKeySelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,69 +183,69 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModFinder.cs">
+    <Compile Include="Managers\ModFinder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModFinder.Designer.cs">
+    <Compile Include="Managers\ModFinder.Designer.cs">
       <DependentUpon>ModFinder.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModInstaller.cs">
+    <Compile Include="Managers\ModInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModInstaller.Designer.cs">
+    <Compile Include="Managers\ModInstaller.Designer.cs">
       <DependentUpon>ModInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModManager.cs">
+    <Compile Include="Managers\ModManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModManager.Designer.cs">
+    <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveFileManager.cs">
+    <Compile Include="Managers\SaveFileManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveFileManager.Designer.cs">
+    <Compile Include="Managers\SaveFileManager.Designer.cs">
       <DependentUpon>SaveFileManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCMEditCategory.cs">
+    <Compile Include="Managers\SCMEditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCMEditCategory.Designer.cs">
+    <Compile Include="Managers\SCMEditCategory.Designer.cs">
       <DependentUpon>SCMEditCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCMNewCategory.cs">
+    <Compile Include="Managers\SCMNewCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCMNewCategory.Designer.cs">
+    <Compile Include="Managers\SCMNewCategory.Designer.cs">
       <DependentUpon>SCMNewCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="SCMSongProperties.cs">
+    <Compile Include="Managers\SCMSongProperties.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SCMSongProperties.Designer.cs">
+    <Compile Include="Managers\SCMSongProperties.Designer.cs">
       <DependentUpon>SCMSongProperties.cs</DependentUpon>
     </Compile>
-    <Compile Include="SongMasterManager.cs">
+    <Compile Include="Managers\SongMasterManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SongMasterManager.Designer.cs">
+    <Compile Include="Managers\SongMasterManager.Designer.cs">
       <DependentUpon>SongMasterManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="V3LauncherConstants.cs" />
-    <Compile Include="V3LauncherCore.cs" />
+    <Compile Include="Classes\V3LauncherConstants.cs" />
+    <Compile Include="Classes\V3LauncherCore.cs" />
     <Compile Include="WTDEDevSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WTDEDevSettingsDialog.Designer.cs">
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="XMLFunctions.cs" />
-    <EmbeddedResource Include="CARManager.resx">
+    <Compile Include="Classes\XMLFunctions.cs" />
+    <EmbeddedResource Include="Managers\CARManager.resx">
       <DependentUpon>CARManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DupeChecksumManager.resx">
+    <EmbeddedResource Include="Managers\DupeChecksumManager.resx">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputKeySelector.resx">
@@ -257,13 +257,13 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModFinder.resx">
+    <EmbeddedResource Include="Managers\ModFinder.resx">
       <DependentUpon>ModFinder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModInstaller.resx">
+    <EmbeddedResource Include="Managers\ModInstaller.resx">
       <DependentUpon>ModInstaller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModManager.resx">
+    <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -276,19 +276,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SaveFileManager.resx">
+    <EmbeddedResource Include="Managers\SaveFileManager.resx">
       <DependentUpon>SaveFileManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SCMEditCategory.resx">
+    <EmbeddedResource Include="Managers\SCMEditCategory.resx">
       <DependentUpon>SCMEditCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SCMNewCategory.resx">
+    <EmbeddedResource Include="Managers\SCMNewCategory.resx">
       <DependentUpon>SCMNewCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SCMSongProperties.resx">
+    <EmbeddedResource Include="Managers\SCMSongProperties.resx">
       <DependentUpon>SCMSongProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SongMasterManager.resx">
+    <EmbeddedResource Include="Managers\SongMasterManager.resx">
       <DependentUpon>SongMasterManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WTDEDevSettingsDialog.resx">
@@ -311,7 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <Compile Include="ModHandler.cs" />
+    <Compile Include="Classes\ModHandler.cs" />
     <None Include="res\img\fretworks_banner_s_af.png" />
     <None Include="res\img\social\af\youtube_af.png" />
     <None Include="res\img\social\af\wtde_site_af.png" />
