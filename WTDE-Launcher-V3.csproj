@@ -165,10 +165,10 @@
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\INIFunctions.cs" />
-    <Compile Include="InputKeySelector.cs">
+    <Compile Include="Managers\InputKeySelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputKeySelector.Designer.cs">
+    <Compile Include="Managers\InputKeySelector.Designer.cs">
       <DependentUpon>InputKeySelector.cs</DependentUpon>
     </Compile>
     <Compile Include="IntroSplash.cs">
@@ -200,6 +200,12 @@
     </Compile>
     <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.Designer.cs">
+      <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -235,10 +241,10 @@
     </Compile>
     <Compile Include="Classes\V3LauncherConstants.cs" />
     <Compile Include="Classes\V3LauncherCore.cs" />
-    <Compile Include="WTDEDevSettingsDialog.cs">
+    <Compile Include="Managers\WTDEDevSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WTDEDevSettingsDialog.Designer.cs">
+    <Compile Include="Managers\WTDEDevSettingsDialog.Designer.cs">
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\XMLFunctions.cs" />
@@ -248,7 +254,7 @@
     <EmbeddedResource Include="Managers\DupeChecksumManager.resx">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputKeySelector.resx">
+    <EmbeddedResource Include="Managers\InputKeySelector.resx">
       <DependentUpon>InputKeySelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IntroSplash.resx">
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Script Mod Managers\StarPowerModifierManager.resx">
+      <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -291,7 +300,7 @@
     <EmbeddedResource Include="Managers\SongMasterManager.resx">
       <DependentUpon>SongMasterManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WTDEDevSettingsDialog.resx">
+    <EmbeddedResource Include="Managers\WTDEDevSettingsDialog.resx">
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -312,6 +321,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="Classes\ModHandler.cs" />
+    <None Include="Resources\star_power.png" />
+    <None Include="Resources\StarChanger.zip" />
     <None Include="res\img\fretworks_banner_s_af.png" />
     <None Include="res\img\social\af\youtube_af.png" />
     <None Include="res\img\social\af\wtde_site_af.png" />

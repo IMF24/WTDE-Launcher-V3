@@ -37,6 +37,33 @@ namespace WTDE_Launcher_V3 {
                 var listViewItem = new ListViewItem(mod);
                 UserContentModsTree.Items.Add(listViewItem);
             }
+
+            PopulateScriptModMenu();
+        }
+
+        public void PopulateScriptModMenu() {
+            // Enable script mod editors if we have any valid ones.
+            IEnumerable<string> scriptModQuery =
+                from mod in ModHandler.UserContentMods
+                where mod[2] == "Script"
+                select mod[5];
+            List<string> scriptMods = scriptModQuery.ToList();
+
+            V3LauncherCore.AddDebugEntry($"Read script mods; found a total of {scriptMods.Count} mods", "Mod Manager");
+
+            scriptModEditorsToolStripMenuItem.Visible = (scriptMods.Count > 0);
+
+            // Disable all editors by default.
+            starPowerColorModifierToolStripMenuItem.Visible = false;
+
+            if (scriptMods.Count > 0) {
+                foreach (string mod in scriptMods) {
+                    if (mod.Contains("StarPowerModifier")) {
+                        V3LauncherCore.AddDebugEntry("Found SP modifier script, enabling SP color modifier dialog", "Mod Manager");
+                        starPowerColorModifierToolStripMenuItem.Visible = true;
+                    }
+                }
+            }
         }
 
         public void RefreshModsList() {
@@ -51,6 +78,8 @@ namespace WTDE_Launcher_V3 {
                 var listViewItem = new ListViewItem(mod);
                 UserContentModsTree.Items.Add(listViewItem);
             }
+
+            PopulateScriptModMenu();
 
             StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
         }
@@ -192,6 +221,11 @@ namespace WTDE_Launcher_V3 {
 
         private void wtdeGoogleDriveToolStripMenuItem_Click(object sender, EventArgs e) {
             V3LauncherCore.OpenSiteURL("https://drive.google.com/drive/folders/1fK1R6gmLfPFlEf1LciXQ59B2Kd34dAmc");
+        }
+
+        private void starPowerColorModifierToolStripMenuItem_Click(object sender, EventArgs e) {
+            StarPowerModifierManager spmm = new StarPowerModifierManager();
+            spmm.ShowDialog();
         }
     }
 }

@@ -62,6 +62,8 @@
             this.songsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songAndSongCategoryManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scriptModEditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.starPowerColorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.ModTreeContext.SuspendLayout();
@@ -177,7 +179,8 @@
             this.ModManagerMenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.modsToolStripMenuItem,
-            this.songsToolStripMenuItem});
+            this.songsToolStripMenuItem,
+            this.scriptModEditorsToolStripMenuItem});
             this.ModManagerMenuMain.Location = new System.Drawing.Point(0, 0);
             this.ModManagerMenuMain.Name = "ModManagerMenuMain";
             this.ModManagerMenuMain.Size = new System.Drawing.Size(1264, 24);
@@ -364,6 +367,22 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem.Text = "Manage Duplicate Song Checksums";
             this.manageDuplicateSongChecksumsToolStripMenuItem.Click += new System.EventHandler(this.manageDuplicateSongChecksumsToolStripMenuItem_Click);
             // 
+            // scriptModEditorsToolStripMenuItem
+            // 
+            this.scriptModEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.starPowerColorModifierToolStripMenuItem});
+            this.scriptModEditorsToolStripMenuItem.Name = "scriptModEditorsToolStripMenuItem";
+            this.scriptModEditorsToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
+            this.scriptModEditorsToolStripMenuItem.Text = "Script Mod Editors";
+            // 
+            // starPowerColorModifierToolStripMenuItem
+            // 
+            this.starPowerColorModifierToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.star_power;
+            this.starPowerColorModifierToolStripMenuItem.Name = "starPowerColorModifierToolStripMenuItem";
+            this.starPowerColorModifierToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.starPowerColorModifierToolStripMenuItem.Text = "Star Power Color Modifier...";
+            this.starPowerColorModifierToolStripMenuItem.Click += new System.EventHandler(this.starPowerColorModifierToolStripMenuItem_Click);
+            // 
             // StatusBarMain
             // 
             this.StatusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -447,5 +466,7 @@
         private System.Windows.Forms.ToolStripMenuItem ghwtNexusModsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wtdeGoogleDriveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem scriptModEditorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem starPowerColorModifierToolStripMenuItem;
     }
 }
