@@ -201,6 +201,12 @@
     <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.Designer.cs">
+      <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.resx">
+      <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\Script Mod Managers\StarPowerModifierManager.resx">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +330,13 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="Classes\ModHandler.cs" />
+    <None Include="Resources\highway.png" />
+    <None Include="res\img\icon\icon_difficulty_medium.png" />
+    <None Include="res\img\icon\icon_difficulty_hard.png" />
+    <None Include="res\img\icon\icon_difficulty_expert.png" />
+    <None Include="res\img\icon\icon_difficulty_easy.png" />
+    <None Include="res\img\icon\icon_difficulty_beginner.png" />
+    <None Include="res\img\logo_zedek.jpg" />
     <None Include="Resources\star_power.png" />
     <None Include="Resources\StarChanger.zip" />
     <None Include="res\img\fretworks_banner_s_af.png" />

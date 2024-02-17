@@ -51,16 +51,22 @@ namespace WTDE_Launcher_V3 {
 
             V3LauncherCore.AddDebugEntry($"Read script mods; found a total of {scriptMods.Count} mods", "Mod Manager");
 
-            scriptModEditorsToolStripMenuItem.Visible = (scriptMods.Count > 0);
+            scriptModEditorsToolStripMenuItem.Enabled = (scriptMods.Count > 0);
 
             // Disable all editors by default.
             starPowerColorModifierToolStripMenuItem.Visible = false;
+            extendedHyperspeedToolStripMenuItem.Visible = false;
 
             if (scriptMods.Count > 0) {
                 foreach (string mod in scriptMods) {
                     if (mod.Contains("StarPowerModifier")) {
                         V3LauncherCore.AddDebugEntry("Found SP modifier script, enabling SP color modifier dialog", "Mod Manager");
                         starPowerColorModifierToolStripMenuItem.Visible = true;
+                    }
+
+                    if (mod.Contains("ExtendedHyperspeed")) {
+                        V3LauncherCore.AddDebugEntry("Found extended hyperspeed script, enabling extended hyperspeed dialog", "Mod Manager");
+                        extendedHyperspeedToolStripMenuItem.Visible = true;
                     }
                 }
             }
@@ -226,6 +232,11 @@ namespace WTDE_Launcher_V3 {
         private void starPowerColorModifierToolStripMenuItem_Click(object sender, EventArgs e) {
             StarPowerModifierManager spmm = new StarPowerModifierManager();
             spmm.ShowDialog();
+        }
+
+        private void extendedHyperspeedToolStripMenuItem_Click(object sender, EventArgs e) {
+            ExtendedHyperspeedManager ehm = new ExtendedHyperspeedManager();
+            ehm.ShowDialog();
         }
     }
 }

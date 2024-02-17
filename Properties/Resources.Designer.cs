@@ -568,6 +568,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap highway {
+            get {
+                object obj = ResourceManager.GetObject("highway", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon {
             get {
                 object obj = ResourceManager.GetObject("icon", resourceCulture);
@@ -581,6 +591,56 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap icon_af {
             get {
                 object obj = ResourceManager.GetObject("icon_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_difficulty_beginner {
+            get {
+                object obj = ResourceManager.GetObject("icon_difficulty_beginner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_difficulty_easy {
+            get {
+                object obj = ResourceManager.GetObject("icon_difficulty_easy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_difficulty_expert {
+            get {
+                object obj = ResourceManager.GetObject("icon_difficulty_expert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_difficulty_hard {
+            get {
+                object obj = ResourceManager.GetObject("icon_difficulty_hard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_difficulty_medium {
+            get {
+                object obj = ResourceManager.GetObject("icon_difficulty_medium", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -681,6 +741,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap logo_xm {
             get {
                 object obj = ResourceManager.GetObject("logo_xm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_zedek {
+            get {
+                object obj = ResourceManager.GetObject("logo_zedek", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

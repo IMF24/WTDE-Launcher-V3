@@ -260,7 +260,7 @@ namespace WTDE_Launcher_V3 {
                     return downloadString.Split('\n')[1];
                 }
             } catch (Exception exc) {
-                DebugLog.Add($"Uh oh, WebClient issue! Exception: {exc}");
+                AddDebugEntry($"Uh oh, WebClient issue! Exception: {exc}");
                 return "???";
             }
         }
@@ -329,7 +329,7 @@ namespace WTDE_Launcher_V3 {
 
             if (!file.Sections["Launcher"].Keys.Contains("PlayBootVO") || file.Sections["Launcher"].Keys["PlayBootVO"].Value != "1") return;
 
-            DebugLog.Add("VO boot audio enabled, playing random audio (thanks Derpy!)");
+            AddDebugEntry("VO boot audio enabled, playing random audio (thanks Derpy!)");
 
             Random random = new Random();
             int selectedID;

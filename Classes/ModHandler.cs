@@ -48,7 +48,7 @@ namespace WTDE_Launcher_V3 {
 
             Directory.SetCurrentDirectory(V3LauncherCore.GetUpdaterINIDirectory());
 
-            V3LauncherCore.DebugLog.Add($"CURRENT DIRECTORY: {Directory.GetCurrentDirectory()}");
+            V3LauncherCore.AddDebugEntry($"CURRENT DIRECTORY: {Directory.GetCurrentDirectory()}");
 
 			// Timer starts now!
 			var startTime = DateTime.Now.Millisecond;
@@ -61,7 +61,7 @@ namespace WTDE_Launcher_V3 {
 
 			// Iterate through these files.
 			foreach (string file in files) {
-                V3LauncherCore.DebugLog.Add($"in dir, reading config file: {file}");
+                V3LauncherCore.AddDebugEntry($"in dir, reading config file: {file}");
 
 				IniFile iFile = new IniFile();
 
@@ -71,13 +71,13 @@ namespace WTDE_Launcher_V3 {
 				// Normalize slashes, split path, also figure out
 				// what type of INI file this is.
 				string currentINIFile = file.Replace("\\", "/").Split('/').Last().Replace("/", "").ToLower();
-                V3LauncherCore.DebugLog.Add($"current INI file is {currentINIFile}");
+                V3LauncherCore.AddDebugEntry($"current INI file is {currentINIFile}");
 
 				// What type of INI file is this?
 				string modName, modAuthor, modType, modVersion, modDescription;
 				switch (currentINIFile) {
 					case "song.ini":
-                        V3LauncherCore.DebugLog.Add("We found a song mod!");
+                        V3LauncherCore.AddDebugEntry("We found a song mod!");
 
 						try {
 							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["SongInfo"].Keys["Title"].Value;
@@ -107,7 +107,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "character.ini":
-                        V3LauncherCore.DebugLog.Add("We found a character mod!");
+                        V3LauncherCore.AddDebugEntry("We found a character mod!");
 
 						try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["CharacterInfo"].Keys["Name"].Value;
@@ -137,7 +137,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "instrument.ini":
-                        V3LauncherCore.DebugLog.Add("We found an instrument mod!");
+                        V3LauncherCore.AddDebugEntry("We found an instrument mod!");
 
                         try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["InstrumentInfo"].Keys["Name"].Value;
@@ -167,7 +167,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "highway.ini":
-                        V3LauncherCore.DebugLog.Add("We found a highway mod!");
+                        V3LauncherCore.AddDebugEntry("We found a highway mod!");
 
                         try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["HighwayInfo"].Keys["Name"].Value;
@@ -197,7 +197,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "category.ini":
-                        V3LauncherCore.DebugLog.Add("We found a song category mod!");
+                        V3LauncherCore.AddDebugEntry("We found a song category mod!");
 
                         try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["CategoryInfo"].Keys["Name"].Value;
@@ -227,7 +227,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "menumusic.ini":
-                        V3LauncherCore.DebugLog.Add("We found a main menu music mod!");
+                        V3LauncherCore.AddDebugEntry("We found a main menu music mod!");
 
                         try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["MenuMusicInfo"].Keys["FSBName"].Value;
@@ -257,7 +257,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "venue.ini":
-                        V3LauncherCore.DebugLog.Add("We found a venue mod!");
+                        V3LauncherCore.AddDebugEntry("We found a venue mod!");
 
                         try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["VenueInfo"].Keys["Name"].Value;
@@ -287,7 +287,7 @@ namespace WTDE_Launcher_V3 {
                         break;
 
 					case "gems.ini":
-                        V3LauncherCore.DebugLog.Add("We found a gem theme mod!");
+                        V3LauncherCore.AddDebugEntry("We found a gem theme mod!");
 
                         try {
                             modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["GemInfo"].Keys["Name"].Value;
@@ -318,7 +318,7 @@ namespace WTDE_Launcher_V3 {
 
 					case "Mod.ini":
 					case "mod.ini":
-                        V3LauncherCore.DebugLog.Add("We found a script mod!");
+                        V3LauncherCore.AddDebugEntry("We found a script mod!");
 
                         try {
                             modName = iFile.Sections["ModInfo"].Keys["Name"].Value;
@@ -357,7 +357,7 @@ namespace WTDE_Launcher_V3 {
 			// And the timer stops here!
 			var endTime = DateTime.Now.Millisecond;
 
-            V3LauncherCore.DebugLog.Add($"ALL DONE! Read and parsed {outArray.Count} mods in {(endTime - startTime).ToString("0.00")} sec");
+            V3LauncherCore.AddDebugEntry($"ALL DONE! Read and parsed {outArray.Count} mods in {(endTime - startTime).ToString("0.00")} sec");
 
 			UserContentMods = outArray;
 
@@ -380,9 +380,9 @@ namespace WTDE_Launcher_V3 {
 			foreach (var mod in UserContentMods) {
 				// Is this a venue mod?
 				if (mod[2] == "Venue") {
-                    V3LauncherCore.DebugLog.Add("--------------------------\nVENUE MOD FOUND\n--------------------------");
+                    V3LauncherCore.AddDebugEntry("--------------------------\nVENUE MOD FOUND\n--------------------------");
 
-                    V3LauncherCore.DebugLog.Add($"path being loaded: {mod[5]}");
+                    V3LauncherCore.AddDebugEntry($"path being loaded: {mod[5]}");
 
                     // It is, let's get its name and zone prefix!
                     file.Load(mod[5]);
@@ -393,7 +393,7 @@ namespace WTDE_Launcher_V3 {
 					V3LauncherConstants.VenueIDs[0].Add($"Mod: {venueName}");
 					V3LauncherConstants.VenueIDs[1].Add(venuePrefix);
 
-					V3LauncherCore.DebugLog.Add($"-- MOD INFORMATION ADDED: --\nVenue name: {venueName}\nZone prefix: {venuePrefix}\n-- END INFO ADDED --");
+					V3LauncherCore.AddDebugEntry($"-- MOD INFORMATION ADDED: --\nVenue name: {venueName}\nZone prefix: {venuePrefix}\n-- END INFO ADDED --");
 
 					venueMods.Add(new string[] { $"Mod: {venueName}", venuePrefix });
 
@@ -428,9 +428,9 @@ namespace WTDE_Launcher_V3 {
 			foreach (var mod in UserContentMods) {
 				// Is this a gem mod?
 				if (mod[2] == "Gem Theme") {
-					V3LauncherCore.DebugLog.Add("--------------------------\nGEM THEME MOD FOUND\n--------------------------");
+					V3LauncherCore.AddDebugEntry("--------------------------\nGEM THEME MOD FOUND\n--------------------------");
 
-					V3LauncherCore.DebugLog.Add($"path being loaded: {mod[5]}");
+					V3LauncherCore.AddDebugEntry($"path being loaded: {mod[5]}");
 
 					// It is, let's get its name and filename.
 					file.Load(mod[5]);

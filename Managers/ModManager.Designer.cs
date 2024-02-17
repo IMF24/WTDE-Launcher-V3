@@ -64,6 +64,7 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptModEditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.starPowerColorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.ModTreeContext.SuspendLayout();
@@ -370,7 +371,8 @@
             // scriptModEditorsToolStripMenuItem
             // 
             this.scriptModEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.starPowerColorModifierToolStripMenuItem});
+            this.starPowerColorModifierToolStripMenuItem,
+            this.extendedHyperspeedToolStripMenuItem});
             this.scriptModEditorsToolStripMenuItem.Name = "scriptModEditorsToolStripMenuItem";
             this.scriptModEditorsToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
             this.scriptModEditorsToolStripMenuItem.Text = "Script Mod Editors";
@@ -382,6 +384,14 @@
             this.starPowerColorModifierToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.starPowerColorModifierToolStripMenuItem.Text = "Star Power Color Modifier...";
             this.starPowerColorModifierToolStripMenuItem.Click += new System.EventHandler(this.starPowerColorModifierToolStripMenuItem_Click);
+            // 
+            // extendedHyperspeedToolStripMenuItem
+            // 
+            this.extendedHyperspeedToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.highway;
+            this.extendedHyperspeedToolStripMenuItem.Name = "extendedHyperspeedToolStripMenuItem";
+            this.extendedHyperspeedToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.extendedHyperspeedToolStripMenuItem.Text = "Extended Hyperspeed...";
+            this.extendedHyperspeedToolStripMenuItem.Click += new System.EventHandler(this.extendedHyperspeedToolStripMenuItem_Click);
             // 
             // StatusBarMain
             // 
@@ -468,5 +478,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem scriptModEditorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem starPowerColorModifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem extendedHyperspeedToolStripMenuItem;
     }
 }

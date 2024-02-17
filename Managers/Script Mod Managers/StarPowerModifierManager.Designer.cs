@@ -195,7 +195,8 @@
             this.BaseKickStarColor.Name = "BaseKickStarColor";
             this.BaseKickStarColor.Size = new System.Drawing.Size(24, 24);
             this.BaseKickStarColor.TabIndex = 16;
-            this.SPMToolTipMain.SetToolTip(this.BaseKickStarColor, "The base gem color for kick or open notes.");
+            this.SPMToolTipMain.SetToolTip(this.BaseKickStarColor, "The base gem color for kick or open notes. Same as the base gem color,\r\nbut appli" +
+        "es to open/kick drum notes.");
             // 
             // BaseKickColorLabel
             // 
@@ -224,7 +225,8 @@
             this.BaseStarColor.Name = "BaseStarColor";
             this.BaseStarColor.Size = new System.Drawing.Size(24, 24);
             this.BaseStarColor.TabIndex = 13;
-            this.SPMToolTipMain.SetToolTip(this.BaseStarColor, "The base gem color.");
+            this.SPMToolTipMain.SetToolTip(this.BaseStarColor, "The base gem color. This is the lower-most part of the note; in other words,\r\nit " +
+        "is indicative of the ring around the bottom of the note.");
             // 
             // BaseColorLabel
             // 
@@ -330,6 +332,7 @@
             this.BlueColor.Name = "BlueColor";
             this.BlueColor.Size = new System.Drawing.Size(24, 24);
             this.BlueColor.TabIndex = 30;
+            this.SPMToolTipMain.SetToolTip(this.BlueColor, "The color of the note flames while Star Power IS active.");
             // 
             // BlueFlameLabel
             // 
@@ -358,6 +361,7 @@
             this.OrangeColor.Name = "OrangeColor";
             this.OrangeColor.Size = new System.Drawing.Size(24, 24);
             this.OrangeColor.TabIndex = 27;
+            this.SPMToolTipMain.SetToolTip(this.OrangeColor, "The color of the note flames while Star Power is NOT active.");
             // 
             // HitFlameColors
             // 
