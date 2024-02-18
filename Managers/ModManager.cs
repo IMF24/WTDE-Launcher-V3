@@ -39,6 +39,8 @@ namespace WTDE_Launcher_V3 {
             }
 
             PopulateScriptModMenu();
+
+            XMLFunctions.ReturningFromDialog = true;
         }
 
         public void PopulateScriptModMenu() {

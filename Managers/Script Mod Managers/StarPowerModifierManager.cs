@@ -19,45 +19,65 @@ namespace WTDE_Launcher_V3 {
         public void ImportColors() {
             // -- STAR GEM COLOR ------------------------------
 
-            byte starRed = byte.Parse(INIFunctions.GetINIValue("StarColors", "Star_Red", "0"));
-            byte starGreen = byte.Parse(INIFunctions.GetINIValue("StarColors", "Star_Green", "255"));
-            byte starBlue = byte.Parse(INIFunctions.GetINIValue("StarColors", "Star_Blue", "255"));
-            byte starAlpha = byte.Parse(INIFunctions.GetINIValue("StarColors", "Star_Alpha", "255"));
+            int starRed = int.Parse(INIFunctions.GetINIValue("StarColors", "Star_Red", "0"));
+            int starGreen = int.Parse(INIFunctions.GetINIValue("StarColors", "Star_Green", "255"));
+            int starBlue = int.Parse(INIFunctions.GetINIValue("StarColors", "Star_Blue", "255"));
+            int starAlpha = int.Parse(INIFunctions.GetINIValue("StarColors", "Star_Alpha", "255"));
 
-            StarColor.BackColor = Color.FromArgb(starAlpha, starRed, starGreen, starBlue);
+            starRed = (starRed > 255) ? (int) Math.Round(starRed * (255M / starAlpha)) : starRed;
+            starGreen = (starGreen > 255) ? (int) Math.Round(starGreen * (255M / starAlpha)) : starGreen;
+            starBlue = (starBlue > 255) ? (int) Math.Round(starBlue * (255M / starAlpha)) : starBlue;
+
+            StarColor.BackColor = Color.FromArgb(255, starRed, starGreen, starBlue);
+            StarColorAlpha.Value = starAlpha;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             // -- KICK/OPEN NOTE STAR GEM COLOR ---------------
 
-            byte kickStarRed = byte.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Red", "0"));
-            byte kickStarGreen = byte.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Green", "255"));
-            byte kickStarBlue = byte.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Blue", "255"));
-            byte kickStarAlpha = byte.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Alpha", "255"));
+            int kickStarRed = int.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Red", "0"));
+            int kickStarGreen = int.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Green", "255"));
+            int kickStarBlue = int.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Blue", "255"));
+            int kickStarAlpha = int.Parse(INIFunctions.GetINIValue("StarColors", "KickStar_Alpha", "255"));
 
-            KickStarColor.BackColor = Color.FromArgb(kickStarAlpha, kickStarRed, kickStarGreen, kickStarBlue);
+            kickStarRed = (kickStarRed > 255) ? (int) Math.Round(kickStarRed * (255M / kickStarAlpha)) : kickStarRed;
+            kickStarGreen = (kickStarGreen > 255) ? (int) Math.Round(kickStarGreen * (255M / kickStarAlpha)) : kickStarGreen;
+            kickStarBlue = (kickStarBlue > 255) ? (int) Math.Round(kickStarBlue * (255M / kickStarAlpha)) : kickStarBlue;
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            // -- NOTE BASE STAR GEM COLOR ---------------
-
-            byte baseStarRed = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Red", "255"));
-            byte baseStarGreen = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Green", "255"));
-            byte baseStarBlue = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Blue", "255"));
-            byte baseStarAlpha = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Alpha", "255"));
-
-            BaseStarColor.BackColor = Color.FromArgb(baseStarAlpha, baseStarRed, baseStarGreen, baseStarBlue);
+            KickStarColor.BackColor = Color.FromArgb(255, kickStarRed, kickStarGreen, kickStarBlue);
+            KickStarColorAlpha.Value = kickStarAlpha;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             // -- NOTE BASE STAR GEM COLOR ---------------
 
-            byte kickBaseStarRed = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Red", "255"));
-            byte kickBaseStarGreen = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Green", "255"));
-            byte kickBaseStarBlue = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Blue", "255"));
-            byte kickBaseStarAlpha = byte.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Alpha", "255"));
+            int baseStarRed = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Red", "255"));
+            int baseStarGreen = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Green", "255"));
+            int baseStarBlue = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Blue", "255"));
+            int baseStarAlpha = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseStar_Alpha", "255"));
 
-            BaseKickStarColor.BackColor = Color.FromArgb(kickBaseStarAlpha, kickBaseStarRed, kickBaseStarGreen, kickBaseStarBlue);
+            baseStarRed = (baseStarRed > 255) ? (int) Math.Round(baseStarRed * (255M / baseStarAlpha)) : baseStarRed;
+            baseStarGreen = (baseStarGreen > 255) ? (int) Math.Round(baseStarGreen * (255M / baseStarAlpha)) : baseStarGreen;
+            baseStarBlue = (baseStarBlue > 255) ? (int) Math.Round(baseStarBlue * (255M / baseStarAlpha)) : baseStarBlue;
+
+            BaseStarColor.BackColor = Color.FromArgb(255, baseStarRed, baseStarGreen, baseStarBlue);
+            BaseStarColorAlpha.Value = baseStarAlpha;
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            // -- NOTE BASE STAR GEM COLOR ---------------
+
+            int kickBaseStarRed = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Red", "255"));
+            int kickBaseStarGreen = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Green", "255"));
+            int kickBaseStarBlue = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Blue", "255"));
+            int kickBaseStarAlpha = int.Parse(INIFunctions.GetINIValue("StarColors", "BaseKickStar_Alpha", "255"));
+
+            kickBaseStarRed = (kickBaseStarRed > 255) ? (int) Math.Round(kickBaseStarRed * (255M / kickBaseStarAlpha)) : kickBaseStarRed;
+            kickBaseStarGreen = (kickBaseStarGreen > 255) ? (int) Math.Round(kickBaseStarGreen * (255M / kickBaseStarAlpha)) : kickBaseStarGreen;
+            kickBaseStarBlue = (kickBaseStarBlue > 255) ? (int) Math.Round(kickBaseStarBlue * (255M / kickBaseStarAlpha)) : kickBaseStarBlue;
+
+            BaseKickStarColor.BackColor = Color.FromArgb(255, kickBaseStarRed, kickBaseStarGreen, kickBaseStarBlue);
+            BaseKickStarColorAlpha.Value = kickBaseStarAlpha;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -78,73 +98,93 @@ namespace WTDE_Launcher_V3 {
 
             // -- ORANGE FLAME COLOR ---------------
 
-            byte orangeFlameRed = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Red", "255"));
-            byte orangeFlameGreen = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Green", "127"));
-            byte orangeFlameBlue = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Blue", "0"));
-            byte orangeFlameAlpha = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Alpha", "255"));
+            int orangeFlameRed = int.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Red", "255"));
+            int orangeFlameGreen = int.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Green", "127"));
+            int orangeFlameBlue = int.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Blue", "0"));
+            int orangeFlameAlpha = int.Parse(INIFunctions.GetINIValue("FlameColors", "Orange_Alpha", "255"));
 
-            OrangeColor.BackColor = Color.FromArgb(orangeFlameAlpha, orangeFlameRed, orangeFlameGreen, orangeFlameBlue);
+            orangeFlameRed = (orangeFlameRed > 255) ? (int) Math.Round(orangeFlameRed * (255M / orangeFlameAlpha)) : orangeFlameRed;
+            orangeFlameGreen = (orangeFlameGreen > 255) ? (int) Math.Round(orangeFlameGreen * (255M / orangeFlameAlpha)) : orangeFlameGreen;
+            orangeFlameBlue = (orangeFlameBlue > 255) ? (int) Math.Round(orangeFlameBlue * (255M / orangeFlameAlpha)) : orangeFlameBlue;
+
+            OrangeColor.BackColor = Color.FromArgb(255, orangeFlameRed, orangeFlameGreen, orangeFlameBlue);
+            OrangeColorAlpha.Value = orangeFlameAlpha;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             // -- BLUE FLAME COLOR ---------------
 
-            byte blueFlameRed = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Red", "0"));
-            byte blueFlameGreen = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Green", "255"));
-            byte blueFlameBlue = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Blue", "255"));
-            byte blueFlameAlpha = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Alpha", "255"));
+            int blueFlameRed = int.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Red", "0"));
+            int blueFlameGreen = int.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Green", "255"));
+            int blueFlameBlue = int.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Blue", "255"));
+            int blueFlameAlpha = int.Parse(INIFunctions.GetINIValue("FlameColors", "Blue_Alpha", "255"));
 
-            BlueColor.BackColor = Color.FromArgb(blueFlameAlpha, blueFlameRed, blueFlameGreen, blueFlameBlue);
+            blueFlameRed = (blueFlameRed > 255) ? (int) Math.Round(blueFlameRed * (255M / blueFlameAlpha)) : blueFlameRed;
+            blueFlameGreen = (blueFlameGreen > 255) ? (int) Math.Round(blueFlameGreen * (255M / blueFlameAlpha)) : blueFlameGreen;
+            blueFlameBlue = (blueFlameBlue > 255) ? (int) Math.Round(blueFlameBlue * (255M / blueFlameAlpha)) : blueFlameBlue;
+
+            BlueColor.BackColor = Color.FromArgb(255, blueFlameRed, blueFlameGreen, blueFlameBlue);
+            BlueColorAlpha.Value = blueFlameAlpha;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             // -- SP LIGHTNING COLOR ---------------
 
-            byte lightningRed = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Red", "153"));
-            byte lightningGreen = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Green", "255"));
-            byte lightningBlue = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Blue", "255"));
-            byte lightningAlpha = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Alpha", "255"));
+            int lightningRed = int.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Red", "153"));
+            int lightningGreen = int.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Green", "255"));
+            int lightningBlue = int.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Blue", "255"));
+            int lightningAlpha = int.Parse(INIFunctions.GetINIValue("FlameColors", "Lightning_Alpha", "255"));
 
-            LightningColor.BackColor = Color.FromArgb(lightningAlpha, lightningRed, lightningGreen, lightningBlue);
+            lightningRed = (lightningRed > 255) ? (int) Math.Round(lightningRed * (255M / lightningAlpha)) : lightningRed;
+            lightningGreen = (lightningGreen > 255) ? (int) Math.Round(lightningGreen * (255M / lightningAlpha)) : lightningGreen;
+            lightningBlue = (lightningBlue > 255) ? (int) Math.Round(lightningBlue * (255M / lightningAlpha)) : lightningBlue;
+
+            LightningColor.BackColor = Color.FromArgb(255, lightningRed, lightningGreen, lightningBlue);
+            LightningColorAlpha.Value = lightningAlpha;
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
             // -- SP GLOW COLOR ---------------
 
-            byte glowRed = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Red", "204"));
-            byte glowGreen = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Green", "255"));
-            byte glowBlue = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Blue", "255"));
-            byte glowAlpha = byte.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Alpha", "255"));
+            int glowRed = int.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Red", "204"));
+            int glowGreen = int.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Green", "255"));
+            int glowBlue = int.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Blue", "255"));
+            int glowAlpha = int.Parse(INIFunctions.GetINIValue("FlameColors", "Glow_Alpha", "255"));
 
-            GlowColor.BackColor = Color.FromArgb(glowAlpha, glowRed, glowGreen, glowBlue);
+            glowRed = (glowRed > 255) ? (int) Math.Round(glowRed * (255M / glowAlpha)) : glowRed;
+            glowGreen = (glowGreen > 255) ? (int) Math.Round(glowGreen * (255M / glowAlpha)) : glowGreen;
+            glowBlue = (glowBlue > 255) ? (int) Math.Round(glowBlue * (255M / glowAlpha)) : glowBlue;
+
+            GlowColor.BackColor = Color.FromArgb(255, glowRed, glowGreen, glowBlue);
+            GlowColorAlpha.Value = glowAlpha;
         }
 
         public void WriteINISettings() {
-            INIFunctions.SaveINIValue("StarColors", "Star_Red", StarColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("StarColors", "Star_Green", StarColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("StarColors", "Star_Blue", StarColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("StarColors", "Star_Alpha", StarColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("StarColors", "Star_Red", Math.Round((StarColor.BackColor.R * (StarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "Star_Green", Math.Round((StarColor.BackColor.G * (StarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "Star_Blue", Math.Round((StarColor.BackColor.B * (StarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "Star_Alpha", StarColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("StarColors", "KickStar_Red", KickStarColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("StarColors", "KickStar_Green", KickStarColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("StarColors", "KickStar_Blue", KickStarColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("StarColors", "KickStar_Alpha", KickStarColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("StarColors", "KickStar_Red", Math.Round((KickStarColor.BackColor.R * (KickStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "KickStar_Green", Math.Round((KickStarColor.BackColor.G * (KickStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "KickStar_Blue", Math.Round((KickStarColor.BackColor.B * (KickStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "KickStar_Alpha", KickStarColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("StarColors", "BaseStar_Red", BaseStarColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("StarColors", "BaseStar_Green", BaseStarColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("StarColors", "BaseStar_Blue", BaseStarColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("StarColors", "BaseStar_Alpha", BaseStarColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseStar_Red", Math.Round((BaseStarColor.BackColor.R * (BaseStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseStar_Green", Math.Round((BaseStarColor.BackColor.G * (BaseStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseStar_Blue", Math.Round((BaseStarColor.BackColor.B * (BaseStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseStar_Alpha", BaseStarColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Red", BaseKickStarColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Green", BaseKickStarColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Blue", BaseKickStarColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Alpha", BaseKickStarColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Red", Math.Round((BaseKickStarColor.BackColor.R * (BaseKickStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Green", Math.Round((BaseKickStarColor.BackColor.G * (BaseKickStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Blue", Math.Round((BaseKickStarColor.BackColor.B * (BaseKickStarColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("StarColors", "BaseKickStar_Alpha", BaseKickStarColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -159,31 +199,31 @@ namespace WTDE_Launcher_V3 {
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("FlameColors", "Orange_Red", OrangeColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Orange_Green", OrangeColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Orange_Blue", OrangeColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Orange_Alpha", OrangeColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Orange_Red", Math.Round((OrangeColor.BackColor.R * (OrangeColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Orange_Green", Math.Round((OrangeColor.BackColor.G * (OrangeColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Orange_Blue", Math.Round((OrangeColor.BackColor.B * (OrangeColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Orange_Alpha", OrangeColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("FlameColors", "Blue_Red", BlueColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Blue_Green", BlueColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Blue_Blue", BlueColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Blue_Alpha", BlueColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Blue_Red", Math.Round((BlueColor.BackColor.R * (BlueColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Blue_Green", Math.Round((BlueColor.BackColor.G * (BlueColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Blue_Blue", Math.Round((BlueColor.BackColor.B * (BlueColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Blue_Alpha", BlueColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("FlameColors", "Lightning_Red", LightningColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Lightning_Green", LightningColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Lightning_Blue", LightningColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Lightning_Alpha", LightningColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Lightning_Red", Math.Round((LightningColor.BackColor.R * (LightningColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Lightning_Green", Math.Round((LightningColor.BackColor.G * (LightningColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Lightning_Blue", Math.Round((LightningColor.BackColor.B * (LightningColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Lightning_Alpha", LightningColorAlpha.Value.ToString());
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            INIFunctions.SaveINIValue("FlameColors", "Glow_Red", GlowColor.BackColor.R.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Glow_Green", GlowColor.BackColor.G.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Glow_Blue", GlowColor.BackColor.B.ToString());
-            INIFunctions.SaveINIValue("FlameColors", "Glow_Alpha", GlowColor.BackColor.A.ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Glow_Red", Math.Round((GlowColor.BackColor.R * (GlowColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Glow_Green", Math.Round((GlowColor.BackColor.G * (GlowColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Glow_Blue", Math.Round((GlowColor.BackColor.B * (GlowColorAlpha.Value / 255M))).ToString());
+            INIFunctions.SaveINIValue("FlameColors", "Glow_Alpha", GlowColorAlpha.Value.ToString());
         }
         private void OKButton_Click(object sender, EventArgs e) {
             WriteINISettings();
@@ -274,6 +314,42 @@ namespace WTDE_Launcher_V3 {
             cdlg.ShowDialog();
 
             GlowColor.BackColor = cdlg.Color;
+        }
+
+        private void StarColorDefaultAlpha_Click(object sender, EventArgs e) {
+            StarColorAlpha.Value = 255;
+        }
+
+        private void KickStarColorDefaultAlpha_Click(object sender, EventArgs e) {
+            KickStarColorAlpha.Value = 255;
+        }
+
+        private void BaseStarColorDefaultAlpha_Click(object sender, EventArgs e) {
+            BaseStarColorAlpha.Value = 255;
+        }
+
+        private void BaseKickStarColorDefaultAlpha_Click(object sender, EventArgs e) {
+            BaseKickStarColorAlpha.Value = 255;
+        }
+
+        private void OrangeColorDefaultAlpha_Click(object sender, EventArgs e) {
+            OrangeColorAlpha.Value = 255;
+        }
+
+        private void BlueColorDefaultAlpha_Click(object sender, EventArgs e) {
+            BlueColorAlpha.Value = 255;
+        }
+
+        private void LightningColorDefaultAlpha_Click(object sender, EventArgs e) {
+            LightningColorAlpha.Value = 255;
+        }
+
+        private void GlowColorDefaultAlpha_Click(object sender, EventArgs e) {
+            GlowColorAlpha.Value = 255;
+        }
+
+        private void ResetArrayID_Click(object sender, EventArgs e) {
+            FXArray.SelectedIndex = 0;
         }
     }
 }

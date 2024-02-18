@@ -810,6 +810,7 @@
             this.MicVideoDelay.TabIndex = 15;
             this.ToolTipMain.SetToolTip(this.MicVideoDelay, "In milliseconds, the offset of the notes while playing vocals.\r\nRecommended value" +
         " is -315.");
+            this.MicVideoDelay.ValueChanged += new System.EventHandler(this.MicVideoDelay_ValueChanged);
             // 
             // MicAudioDelay
             // 
@@ -830,6 +831,7 @@
             this.MicAudioDelay.TabIndex = 14;
             this.ToolTipMain.SetToolTip(this.MicAudioDelay, "In milliseconds, shifts the audio by the given interval while playing vocals.\r\nRe" +
         "commended value is -80.");
+            this.MicAudioDelay.ValueChanged += new System.EventHandler(this.MicAudioDelay_ValueChanged);
             // 
             // MicrophoneSelect
             // 
@@ -5308,7 +5310,7 @@
             this.TabInputGroup.Controls.Add(this.MicrophoneLabel);
             this.TabInputGroup.Controls.Add(this.MicSettingsHeaderLabel);
             this.TabInputGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabInputGroup.Location = new System.Drawing.Point(438, 287);
+            this.TabInputGroup.Location = new System.Drawing.Point(444, 287);
             this.TabInputGroup.Name = "TabInputGroup";
             this.TabInputGroup.Size = new System.Drawing.Size(662, 648);
             this.TabInputGroup.TabIndex = 15;

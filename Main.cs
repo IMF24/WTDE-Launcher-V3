@@ -296,7 +296,7 @@ namespace WTDE_Launcher_V3 {
             DisableVSync.Checked = INIFunctions.GetBooleanInverse(INIFunctions.GetINIValue("Graphics", "DisableVSync", "1"));
             WindowedMode.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "WindowedMode"));
             Borderless.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "Borderless"));
-            HighDetail.Checked = !(XMLFunctions.AspyrGetString("Options.GraphicsQuality") == "1");
+            HighDetail.Checked = !(XMLFunctions.AspyrGetString("Options.GraphicsQuality", "1") == "1");
 
             // -- GAMEPLAY OPTIONS --------
             HitSparks.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "HitSparks", "1"));
@@ -980,6 +980,7 @@ namespace WTDE_Launcher_V3 {
             ModManager mManager = new ModManager();
             mManager.ShowDialog();
 
+            // Is this a bug? I don't know, I think Fox had an issue with this...
             // Reload INI/XML settings again just in case.
             LoadINISettings();
         }
@@ -1161,6 +1162,14 @@ namespace WTDE_Launcher_V3 {
 
         private void DisableInputHack_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Debug", "DisableInputHack", INIFunctions.BoolToString(DisableInputHack.Checked));
+        }
+
+        private void MicAudioDelay_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Audio", "VocalAdjustment", MicAudioDelay.Value.ToString());
+        }
+
+        private void MicVideoDelay_ValueChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
         }
 
         private void SetDefaultVoxLag_Click(object sender, EventArgs e) {

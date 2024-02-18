@@ -20,6 +20,11 @@ namespace WTDE_Launcher_V3 {
     /// </summary>
     internal class XMLFunctions {
         /// <summary>
+        ///  Are we returning from a dialog? If so, DO NOT get anything new!
+        /// </summary>
+        public static bool ReturningFromDialog = false;
+
+        /// <summary>
         ///  Read an `s id=` string from AspyrConfig and return its value. Employs fallback measures if the
         ///  string is not found.
         /// </summary>
@@ -27,12 +32,12 @@ namespace WTDE_Launcher_V3 {
         /// <param name="fallback"></param>
         /// <returns></returns>
         public static string AspyrGetString(string sIDKey, string fallback = "") {
+            // This variable is what string we're going to return.
+            // This is mainly used for if the tag actually exists.
+            string returnString = "";
+
             try {
                 V3LauncherCore.AddDebugEntry($"Attempting to read value {sIDKey} from AspyrConfig...", "XML Functions: AspyrGetString");
-
-                // This variable is what string we're going to return.
-                // This is mainly used for if the tag actually exists.
-                string returnString = "";
 
                 // We now want to read through this file and see if the
                 // given tag exists. If it does, we'll give it back.
@@ -57,6 +62,8 @@ namespace WTDE_Launcher_V3 {
                 // Did we find the string we want?
                 // If we did, give it back. Also close the file too!
                 textReader.Close();
+                V3LauncherCore.AddDebugEntry($"Value of return string: {returnString}");
+
                 if (returnString != "") return returnString;
 
                 V3LauncherCore.AddDebugEntry("String not found, adding as fallback...", "XML Functions: AspyrGetString");

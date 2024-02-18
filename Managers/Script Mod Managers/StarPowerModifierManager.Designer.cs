@@ -64,7 +64,40 @@
             this.StarPowerFXHeader = new System.Windows.Forms.Label();
             this.SPLightningLabel = new System.Windows.Forms.Label();
             this.SPMToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.SPGemAlphaLabel = new System.Windows.Forms.Label();
+            this.StarColorAlpha = new System.Windows.Forms.TrackBar();
+            this.KickStarColorAlpha = new System.Windows.Forms.TrackBar();
+            this.SPKickAlphaLabel = new System.Windows.Forms.Label();
+            this.BaseStarColorAlpha = new System.Windows.Forms.TrackBar();
+            this.SPBaseAlphaLabel = new System.Windows.Forms.Label();
+            this.StarColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.KickStarColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.BaseStarColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.BaseKickStarColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.BaseKickStarColorAlpha = new System.Windows.Forms.TrackBar();
+            this.SPBaseKickAlphaLabel = new System.Windows.Forms.Label();
+            this.OrangeColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.OrangeColorAlpha = new System.Windows.Forms.TrackBar();
+            this.OrangeColorAlphaLabel = new System.Windows.Forms.Label();
+            this.BlueColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.BlueColorAlpha = new System.Windows.Forms.TrackBar();
+            this.BlueColorAlphaLabel = new System.Windows.Forms.Label();
+            this.LightningColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.LightningColorAlpha = new System.Windows.Forms.TrackBar();
+            this.LightningColorAlphaLabel = new System.Windows.Forms.Label();
+            this.GlowColorDefaultAlpha = new System.Windows.Forms.Button();
+            this.GlowColorAlpha = new System.Windows.Forms.TrackBar();
+            this.GlowColorAlphaLabel = new System.Windows.Forms.Label();
+            this.ResetArrayID = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StarColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KickStarColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BaseStarColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BaseKickStarColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrangeColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlueColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LightningColorAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GlowColorAlpha)).BeginInit();
             this.SuspendLayout();
             // 
             // InfoHeaderLabel
@@ -73,15 +106,15 @@
             this.InfoHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.InfoHeaderLabel.Location = new System.Drawing.Point(68, 6);
             this.InfoHeaderLabel.Name = "InfoHeaderLabel";
-            this.InfoHeaderLabel.Size = new System.Drawing.Size(485, 39);
+            this.InfoHeaderLabel.Size = new System.Drawing.Size(518, 39);
             this.InfoHeaderLabel.TabIndex = 2;
-            this.InfoHeaderLabel.Text = "Star Power Modifier: Alters the look of Star Power notes, lightning, and flame co" +
-    "lors.\r\n\r\nAuthor: IMF24, Zedek The Plague Doctor";
+            this.InfoHeaderLabel.Text = "Star Power Color Modifier: Alters the look of Star Power notes, lightning, and fl" +
+    "ame colors.\r\n\r\nAuthor: IMF24, Zedek The Plague Doctor";
             // 
             // ArrayIDLabel
             // 
             this.ArrayIDLabel.AutoSize = true;
-            this.ArrayIDLabel.Location = new System.Drawing.Point(22, 240);
+            this.ArrayIDLabel.Location = new System.Drawing.Point(329, 235);
             this.ArrayIDLabel.Name = "ArrayIDLabel";
             this.ArrayIDLabel.Size = new System.Drawing.Size(48, 13);
             this.ArrayIDLabel.TabIndex = 3;
@@ -157,7 +190,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(566, 378);
+            this.CancelButton.Location = new System.Drawing.Point(564, 451);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 11;
@@ -168,7 +201,7 @@
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(485, 378);
+            this.OKButton.Location = new System.Drawing.Point(483, 451);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 11;
@@ -249,7 +282,7 @@
             // 
             // ChangeHighwayTintColor
             // 
-            this.ChangeHighwayTintColor.Location = new System.Drawing.Point(521, 82);
+            this.ChangeHighwayTintColor.Location = new System.Drawing.Point(178, 228);
             this.ChangeHighwayTintColor.Name = "ChangeHighwayTintColor";
             this.ChangeHighwayTintColor.Size = new System.Drawing.Size(84, 23);
             this.ChangeHighwayTintColor.TabIndex = 22;
@@ -261,7 +294,7 @@
             // 
             this.HighwayColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.HighwayColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HighwayColor.Location = new System.Drawing.Point(614, 82);
+            this.HighwayColor.Location = new System.Drawing.Point(271, 228);
             this.HighwayColor.Name = "HighwayColor";
             this.HighwayColor.Size = new System.Drawing.Size(24, 24);
             this.HighwayColor.TabIndex = 21;
@@ -271,7 +304,7 @@
             // 
             this.HWTintColorHeader.AutoSize = true;
             this.HWTintColorHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.HWTintColorHeader.Location = new System.Drawing.Point(350, 64);
+            this.HWTintColorHeader.Location = new System.Drawing.Point(7, 210);
             this.HWTintColorHeader.Name = "HWTintColorHeader";
             this.HWTintColorHeader.Size = new System.Drawing.Size(105, 13);
             this.HWTintColorHeader.TabIndex = 20;
@@ -280,7 +313,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(365, 87);
+            this.label9.Location = new System.Drawing.Point(22, 233);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(116, 13);
             this.label9.TabIndex = 19;
@@ -290,7 +323,7 @@
             // 
             this.FlameLightningColsHeader.AutoSize = true;
             this.FlameLightningColsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.FlameLightningColsHeader.Location = new System.Drawing.Point(7, 215);
+            this.FlameLightningColsHeader.Location = new System.Drawing.Point(314, 210);
             this.FlameLightningColsHeader.Name = "FlameLightningColsHeader";
             this.FlameLightningColsHeader.Size = new System.Drawing.Size(164, 13);
             this.FlameLightningColsHeader.TabIndex = 23;
@@ -308,15 +341,15 @@
             "Old_Glory_fx",
             "Toxic_Waste_fx",
             "Diabolic_fx"});
-            this.FXArray.Location = new System.Drawing.Point(76, 237);
+            this.FXArray.Location = new System.Drawing.Point(383, 232);
             this.FXArray.Name = "FXArray";
-            this.FXArray.Size = new System.Drawing.Size(219, 21);
+            this.FXArray.Size = new System.Drawing.Size(202, 21);
             this.FXArray.TabIndex = 24;
             this.SPMToolTipMain.SetToolTip(this.FXArray, resources.GetString("FXArray.ToolTip"));
             // 
             // ChangeBlueFlameColor
             // 
-            this.ChangeBlueFlameColor.Location = new System.Drawing.Point(178, 328);
+            this.ChangeBlueFlameColor.Location = new System.Drawing.Point(178, 311);
             this.ChangeBlueFlameColor.Name = "ChangeBlueFlameColor";
             this.ChangeBlueFlameColor.Size = new System.Drawing.Size(84, 23);
             this.ChangeBlueFlameColor.TabIndex = 31;
@@ -328,7 +361,7 @@
             // 
             this.BlueColor.BackColor = System.Drawing.Color.Cyan;
             this.BlueColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BlueColor.Location = new System.Drawing.Point(271, 328);
+            this.BlueColor.Location = new System.Drawing.Point(271, 311);
             this.BlueColor.Name = "BlueColor";
             this.BlueColor.Size = new System.Drawing.Size(24, 24);
             this.BlueColor.TabIndex = 30;
@@ -337,7 +370,7 @@
             // BlueFlameLabel
             // 
             this.BlueFlameLabel.AutoSize = true;
-            this.BlueFlameLabel.Location = new System.Drawing.Point(22, 333);
+            this.BlueFlameLabel.Location = new System.Drawing.Point(22, 316);
             this.BlueFlameLabel.Name = "BlueFlameLabel";
             this.BlueFlameLabel.Size = new System.Drawing.Size(115, 13);
             this.BlueFlameLabel.TabIndex = 29;
@@ -345,7 +378,7 @@
             // 
             // ChangeOrangeFlameColor
             // 
-            this.ChangeOrangeFlameColor.Location = new System.Drawing.Point(178, 299);
+            this.ChangeOrangeFlameColor.Location = new System.Drawing.Point(178, 282);
             this.ChangeOrangeFlameColor.Name = "ChangeOrangeFlameColor";
             this.ChangeOrangeFlameColor.Size = new System.Drawing.Size(84, 23);
             this.ChangeOrangeFlameColor.TabIndex = 28;
@@ -357,7 +390,7 @@
             // 
             this.OrangeColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
             this.OrangeColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OrangeColor.Location = new System.Drawing.Point(271, 299);
+            this.OrangeColor.Location = new System.Drawing.Point(271, 282);
             this.OrangeColor.Name = "OrangeColor";
             this.OrangeColor.Size = new System.Drawing.Size(24, 24);
             this.OrangeColor.TabIndex = 27;
@@ -367,7 +400,7 @@
             // 
             this.HitFlameColors.AutoSize = true;
             this.HitFlameColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.HitFlameColors.Location = new System.Drawing.Point(7, 281);
+            this.HitFlameColors.Location = new System.Drawing.Point(7, 264);
             this.HitFlameColors.Name = "HitFlameColors";
             this.HitFlameColors.Size = new System.Drawing.Size(103, 13);
             this.HitFlameColors.TabIndex = 26;
@@ -376,7 +409,7 @@
             // OrangeFlameLabel
             // 
             this.OrangeFlameLabel.AutoSize = true;
-            this.OrangeFlameLabel.Location = new System.Drawing.Point(22, 304);
+            this.OrangeFlameLabel.Location = new System.Drawing.Point(22, 287);
             this.OrangeFlameLabel.Name = "OrangeFlameLabel";
             this.OrangeFlameLabel.Size = new System.Drawing.Size(123, 13);
             this.OrangeFlameLabel.TabIndex = 25;
@@ -384,7 +417,7 @@
             // 
             // ChangeGlowColor
             // 
-            this.ChangeGlowColor.Location = new System.Drawing.Point(521, 328);
+            this.ChangeGlowColor.Location = new System.Drawing.Point(178, 400);
             this.ChangeGlowColor.Name = "ChangeGlowColor";
             this.ChangeGlowColor.Size = new System.Drawing.Size(84, 23);
             this.ChangeGlowColor.TabIndex = 38;
@@ -396,7 +429,7 @@
             // 
             this.GlowColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GlowColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.GlowColor.Location = new System.Drawing.Point(614, 328);
+            this.GlowColor.Location = new System.Drawing.Point(271, 400);
             this.GlowColor.Name = "GlowColor";
             this.GlowColor.Size = new System.Drawing.Size(24, 24);
             this.GlowColor.TabIndex = 37;
@@ -406,7 +439,7 @@
             // SPBoardGlowLabel
             // 
             this.SPBoardGlowLabel.AutoSize = true;
-            this.SPBoardGlowLabel.Location = new System.Drawing.Point(365, 333);
+            this.SPBoardGlowLabel.Location = new System.Drawing.Point(22, 405);
             this.SPBoardGlowLabel.Name = "SPBoardGlowLabel";
             this.SPBoardGlowLabel.Size = new System.Drawing.Size(130, 13);
             this.SPBoardGlowLabel.TabIndex = 36;
@@ -414,7 +447,7 @@
             // 
             // ChangeLightningColor
             // 
-            this.ChangeLightningColor.Location = new System.Drawing.Point(521, 299);
+            this.ChangeLightningColor.Location = new System.Drawing.Point(178, 371);
             this.ChangeLightningColor.Name = "ChangeLightningColor";
             this.ChangeLightningColor.Size = new System.Drawing.Size(84, 23);
             this.ChangeLightningColor.TabIndex = 35;
@@ -426,7 +459,7 @@
             // 
             this.LightningColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.LightningColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LightningColor.Location = new System.Drawing.Point(614, 299);
+            this.LightningColor.Location = new System.Drawing.Point(271, 371);
             this.LightningColor.Name = "LightningColor";
             this.LightningColor.Size = new System.Drawing.Size(24, 24);
             this.LightningColor.TabIndex = 34;
@@ -437,7 +470,7 @@
             // 
             this.StarPowerFXHeader.AutoSize = true;
             this.StarPowerFXHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.StarPowerFXHeader.Location = new System.Drawing.Point(350, 281);
+            this.StarPowerFXHeader.Location = new System.Drawing.Point(7, 353);
             this.StarPowerFXHeader.Name = "StarPowerFXHeader";
             this.StarPowerFXHeader.Size = new System.Drawing.Size(150, 13);
             this.StarPowerFXHeader.TabIndex = 33;
@@ -446,17 +479,296 @@
             // SPLightningLabel
             // 
             this.SPLightningLabel.AutoSize = true;
-            this.SPLightningLabel.Location = new System.Drawing.Point(365, 304);
+            this.SPLightningLabel.Location = new System.Drawing.Point(22, 376);
             this.SPLightningLabel.Name = "SPLightningLabel";
             this.SPLightningLabel.Size = new System.Drawing.Size(97, 13);
             this.SPLightningLabel.TabIndex = 32;
             this.SPLightningLabel.Text = "SP Lightning Color:";
             // 
+            // SPGemAlphaLabel
+            // 
+            this.SPGemAlphaLabel.AutoSize = true;
+            this.SPGemAlphaLabel.Location = new System.Drawing.Point(314, 87);
+            this.SPGemAlphaLabel.Name = "SPGemAlphaLabel";
+            this.SPGemAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.SPGemAlphaLabel.TabIndex = 39;
+            this.SPGemAlphaLabel.Text = "Intensity:";
+            // 
+            // StarColorAlpha
+            // 
+            this.StarColorAlpha.LargeChange = 15;
+            this.StarColorAlpha.Location = new System.Drawing.Point(369, 82);
+            this.StarColorAlpha.Maximum = 510;
+            this.StarColorAlpha.Name = "StarColorAlpha";
+            this.StarColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.StarColorAlpha.SmallChange = 5;
+            this.StarColorAlpha.TabIndex = 40;
+            this.StarColorAlpha.TickFrequency = 15;
+            this.StarColorAlpha.Value = 255;
+            // 
+            // KickStarColorAlpha
+            // 
+            this.KickStarColorAlpha.LargeChange = 15;
+            this.KickStarColorAlpha.Location = new System.Drawing.Point(369, 111);
+            this.KickStarColorAlpha.Maximum = 510;
+            this.KickStarColorAlpha.Name = "KickStarColorAlpha";
+            this.KickStarColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.KickStarColorAlpha.SmallChange = 5;
+            this.KickStarColorAlpha.TabIndex = 42;
+            this.KickStarColorAlpha.TickFrequency = 15;
+            this.KickStarColorAlpha.Value = 255;
+            // 
+            // SPKickAlphaLabel
+            // 
+            this.SPKickAlphaLabel.AutoSize = true;
+            this.SPKickAlphaLabel.Location = new System.Drawing.Point(314, 116);
+            this.SPKickAlphaLabel.Name = "SPKickAlphaLabel";
+            this.SPKickAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.SPKickAlphaLabel.TabIndex = 41;
+            this.SPKickAlphaLabel.Text = "Intensity:";
+            // 
+            // BaseStarColorAlpha
+            // 
+            this.BaseStarColorAlpha.LargeChange = 15;
+            this.BaseStarColorAlpha.Location = new System.Drawing.Point(369, 140);
+            this.BaseStarColorAlpha.Maximum = 510;
+            this.BaseStarColorAlpha.Name = "BaseStarColorAlpha";
+            this.BaseStarColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.BaseStarColorAlpha.SmallChange = 5;
+            this.BaseStarColorAlpha.TabIndex = 44;
+            this.BaseStarColorAlpha.TickFrequency = 15;
+            this.BaseStarColorAlpha.Value = 255;
+            // 
+            // SPBaseAlphaLabel
+            // 
+            this.SPBaseAlphaLabel.AutoSize = true;
+            this.SPBaseAlphaLabel.Location = new System.Drawing.Point(314, 145);
+            this.SPBaseAlphaLabel.Name = "SPBaseAlphaLabel";
+            this.SPBaseAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.SPBaseAlphaLabel.TabIndex = 43;
+            this.SPBaseAlphaLabel.Text = "Intensity:";
+            // 
+            // StarColorDefaultAlpha
+            // 
+            this.StarColorDefaultAlpha.Location = new System.Drawing.Point(598, 82);
+            this.StarColorDefaultAlpha.Name = "StarColorDefaultAlpha";
+            this.StarColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.StarColorDefaultAlpha.TabIndex = 45;
+            this.StarColorDefaultAlpha.Text = "=";
+            this.StarColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.StarColorDefaultAlpha.Click += new System.EventHandler(this.StarColorDefaultAlpha_Click);
+            // 
+            // KickStarColorDefaultAlpha
+            // 
+            this.KickStarColorDefaultAlpha.Location = new System.Drawing.Point(598, 111);
+            this.KickStarColorDefaultAlpha.Name = "KickStarColorDefaultAlpha";
+            this.KickStarColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.KickStarColorDefaultAlpha.TabIndex = 46;
+            this.KickStarColorDefaultAlpha.Text = "=";
+            this.KickStarColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.KickStarColorDefaultAlpha.Click += new System.EventHandler(this.KickStarColorDefaultAlpha_Click);
+            // 
+            // BaseStarColorDefaultAlpha
+            // 
+            this.BaseStarColorDefaultAlpha.Location = new System.Drawing.Point(598, 140);
+            this.BaseStarColorDefaultAlpha.Name = "BaseStarColorDefaultAlpha";
+            this.BaseStarColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.BaseStarColorDefaultAlpha.TabIndex = 47;
+            this.BaseStarColorDefaultAlpha.Text = "=";
+            this.BaseStarColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.BaseStarColorDefaultAlpha.Click += new System.EventHandler(this.BaseStarColorDefaultAlpha_Click);
+            // 
+            // BaseKickStarColorDefaultAlpha
+            // 
+            this.BaseKickStarColorDefaultAlpha.Location = new System.Drawing.Point(598, 169);
+            this.BaseKickStarColorDefaultAlpha.Name = "BaseKickStarColorDefaultAlpha";
+            this.BaseKickStarColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.BaseKickStarColorDefaultAlpha.TabIndex = 50;
+            this.BaseKickStarColorDefaultAlpha.Text = "=";
+            this.BaseKickStarColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.BaseKickStarColorDefaultAlpha.Click += new System.EventHandler(this.BaseKickStarColorDefaultAlpha_Click);
+            // 
+            // BaseKickStarColorAlpha
+            // 
+            this.BaseKickStarColorAlpha.LargeChange = 15;
+            this.BaseKickStarColorAlpha.Location = new System.Drawing.Point(369, 169);
+            this.BaseKickStarColorAlpha.Maximum = 510;
+            this.BaseKickStarColorAlpha.Name = "BaseKickStarColorAlpha";
+            this.BaseKickStarColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.BaseKickStarColorAlpha.SmallChange = 5;
+            this.BaseKickStarColorAlpha.TabIndex = 49;
+            this.BaseKickStarColorAlpha.TickFrequency = 15;
+            this.BaseKickStarColorAlpha.Value = 255;
+            // 
+            // SPBaseKickAlphaLabel
+            // 
+            this.SPBaseKickAlphaLabel.AutoSize = true;
+            this.SPBaseKickAlphaLabel.Location = new System.Drawing.Point(314, 174);
+            this.SPBaseKickAlphaLabel.Name = "SPBaseKickAlphaLabel";
+            this.SPBaseKickAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.SPBaseKickAlphaLabel.TabIndex = 48;
+            this.SPBaseKickAlphaLabel.Text = "Intensity:";
+            // 
+            // OrangeColorDefaultAlpha
+            // 
+            this.OrangeColorDefaultAlpha.Location = new System.Drawing.Point(598, 282);
+            this.OrangeColorDefaultAlpha.Name = "OrangeColorDefaultAlpha";
+            this.OrangeColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.OrangeColorDefaultAlpha.TabIndex = 53;
+            this.OrangeColorDefaultAlpha.Text = "=";
+            this.OrangeColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.OrangeColorDefaultAlpha.Click += new System.EventHandler(this.OrangeColorDefaultAlpha_Click);
+            // 
+            // OrangeColorAlpha
+            // 
+            this.OrangeColorAlpha.LargeChange = 15;
+            this.OrangeColorAlpha.Location = new System.Drawing.Point(369, 282);
+            this.OrangeColorAlpha.Maximum = 510;
+            this.OrangeColorAlpha.Name = "OrangeColorAlpha";
+            this.OrangeColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.OrangeColorAlpha.SmallChange = 5;
+            this.OrangeColorAlpha.TabIndex = 52;
+            this.OrangeColorAlpha.TickFrequency = 15;
+            this.OrangeColorAlpha.Value = 255;
+            // 
+            // OrangeColorAlphaLabel
+            // 
+            this.OrangeColorAlphaLabel.AutoSize = true;
+            this.OrangeColorAlphaLabel.Location = new System.Drawing.Point(314, 287);
+            this.OrangeColorAlphaLabel.Name = "OrangeColorAlphaLabel";
+            this.OrangeColorAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.OrangeColorAlphaLabel.TabIndex = 51;
+            this.OrangeColorAlphaLabel.Text = "Intensity:";
+            // 
+            // BlueColorDefaultAlpha
+            // 
+            this.BlueColorDefaultAlpha.Location = new System.Drawing.Point(598, 311);
+            this.BlueColorDefaultAlpha.Name = "BlueColorDefaultAlpha";
+            this.BlueColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.BlueColorDefaultAlpha.TabIndex = 56;
+            this.BlueColorDefaultAlpha.Text = "=";
+            this.BlueColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.BlueColorDefaultAlpha.Click += new System.EventHandler(this.BlueColorDefaultAlpha_Click);
+            // 
+            // BlueColorAlpha
+            // 
+            this.BlueColorAlpha.LargeChange = 15;
+            this.BlueColorAlpha.Location = new System.Drawing.Point(369, 311);
+            this.BlueColorAlpha.Maximum = 510;
+            this.BlueColorAlpha.Name = "BlueColorAlpha";
+            this.BlueColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.BlueColorAlpha.SmallChange = 5;
+            this.BlueColorAlpha.TabIndex = 55;
+            this.BlueColorAlpha.TickFrequency = 15;
+            this.BlueColorAlpha.Value = 255;
+            // 
+            // BlueColorAlphaLabel
+            // 
+            this.BlueColorAlphaLabel.AutoSize = true;
+            this.BlueColorAlphaLabel.Location = new System.Drawing.Point(314, 316);
+            this.BlueColorAlphaLabel.Name = "BlueColorAlphaLabel";
+            this.BlueColorAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.BlueColorAlphaLabel.TabIndex = 54;
+            this.BlueColorAlphaLabel.Text = "Intensity:";
+            // 
+            // LightningColorDefaultAlpha
+            // 
+            this.LightningColorDefaultAlpha.Location = new System.Drawing.Point(598, 371);
+            this.LightningColorDefaultAlpha.Name = "LightningColorDefaultAlpha";
+            this.LightningColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.LightningColorDefaultAlpha.TabIndex = 59;
+            this.LightningColorDefaultAlpha.Text = "=";
+            this.LightningColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.LightningColorDefaultAlpha.Click += new System.EventHandler(this.LightningColorDefaultAlpha_Click);
+            // 
+            // LightningColorAlpha
+            // 
+            this.LightningColorAlpha.LargeChange = 15;
+            this.LightningColorAlpha.Location = new System.Drawing.Point(369, 371);
+            this.LightningColorAlpha.Maximum = 510;
+            this.LightningColorAlpha.Name = "LightningColorAlpha";
+            this.LightningColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.LightningColorAlpha.SmallChange = 5;
+            this.LightningColorAlpha.TabIndex = 58;
+            this.LightningColorAlpha.TickFrequency = 15;
+            this.LightningColorAlpha.Value = 255;
+            // 
+            // LightningColorAlphaLabel
+            // 
+            this.LightningColorAlphaLabel.AutoSize = true;
+            this.LightningColorAlphaLabel.Location = new System.Drawing.Point(314, 376);
+            this.LightningColorAlphaLabel.Name = "LightningColorAlphaLabel";
+            this.LightningColorAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.LightningColorAlphaLabel.TabIndex = 57;
+            this.LightningColorAlphaLabel.Text = "Intensity:";
+            // 
+            // GlowColorDefaultAlpha
+            // 
+            this.GlowColorDefaultAlpha.Location = new System.Drawing.Point(598, 400);
+            this.GlowColorDefaultAlpha.Name = "GlowColorDefaultAlpha";
+            this.GlowColorDefaultAlpha.Size = new System.Drawing.Size(41, 23);
+            this.GlowColorDefaultAlpha.TabIndex = 62;
+            this.GlowColorDefaultAlpha.Text = "=";
+            this.GlowColorDefaultAlpha.UseVisualStyleBackColor = true;
+            this.GlowColorDefaultAlpha.Click += new System.EventHandler(this.GlowColorDefaultAlpha_Click);
+            // 
+            // GlowColorAlpha
+            // 
+            this.GlowColorAlpha.LargeChange = 15;
+            this.GlowColorAlpha.Location = new System.Drawing.Point(369, 400);
+            this.GlowColorAlpha.Maximum = 510;
+            this.GlowColorAlpha.Name = "GlowColorAlpha";
+            this.GlowColorAlpha.Size = new System.Drawing.Size(216, 45);
+            this.GlowColorAlpha.SmallChange = 5;
+            this.GlowColorAlpha.TabIndex = 61;
+            this.GlowColorAlpha.TickFrequency = 15;
+            this.GlowColorAlpha.Value = 255;
+            // 
+            // GlowColorAlphaLabel
+            // 
+            this.GlowColorAlphaLabel.AutoSize = true;
+            this.GlowColorAlphaLabel.Location = new System.Drawing.Point(314, 405);
+            this.GlowColorAlphaLabel.Name = "GlowColorAlphaLabel";
+            this.GlowColorAlphaLabel.Size = new System.Drawing.Size(49, 13);
+            this.GlowColorAlphaLabel.TabIndex = 60;
+            this.GlowColorAlphaLabel.Text = "Intensity:";
+            // 
+            // ResetArrayID
+            // 
+            this.ResetArrayID.Location = new System.Drawing.Point(598, 230);
+            this.ResetArrayID.Name = "ResetArrayID";
+            this.ResetArrayID.Size = new System.Drawing.Size(41, 23);
+            this.ResetArrayID.TabIndex = 63;
+            this.ResetArrayID.Text = "=";
+            this.ResetArrayID.UseVisualStyleBackColor = true;
+            this.ResetArrayID.Click += new System.EventHandler(this.ResetArrayID_Click);
+            // 
             // StarPowerModifierManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(646, 406);
+            this.ClientSize = new System.Drawing.Size(647, 480);
+            this.Controls.Add(this.ResetArrayID);
+            this.Controls.Add(this.GlowColorDefaultAlpha);
+            this.Controls.Add(this.GlowColorAlpha);
+            this.Controls.Add(this.GlowColorAlphaLabel);
+            this.Controls.Add(this.LightningColorDefaultAlpha);
+            this.Controls.Add(this.LightningColorAlpha);
+            this.Controls.Add(this.LightningColorAlphaLabel);
+            this.Controls.Add(this.BlueColorDefaultAlpha);
+            this.Controls.Add(this.BlueColorAlpha);
+            this.Controls.Add(this.BlueColorAlphaLabel);
+            this.Controls.Add(this.OrangeColorDefaultAlpha);
+            this.Controls.Add(this.OrangeColorAlpha);
+            this.Controls.Add(this.OrangeColorAlphaLabel);
+            this.Controls.Add(this.BaseKickStarColorDefaultAlpha);
+            this.Controls.Add(this.SPBaseKickAlphaLabel);
+            this.Controls.Add(this.BaseStarColorDefaultAlpha);
+            this.Controls.Add(this.KickStarColorDefaultAlpha);
+            this.Controls.Add(this.StarColorDefaultAlpha);
+            this.Controls.Add(this.SPBaseAlphaLabel);
+            this.Controls.Add(this.SPKickAlphaLabel);
+            this.Controls.Add(this.SPGemAlphaLabel);
             this.Controls.Add(this.ChangeGlowColor);
             this.Controls.Add(this.GlowColor);
             this.Controls.Add(this.SPBoardGlowLabel);
@@ -495,14 +807,26 @@
             this.Controls.Add(this.SPGemColorLabel);
             this.Controls.Add(this.ArrayIDLabel);
             this.Controls.Add(this.InfoHeaderLabel);
+            this.Controls.Add(this.BaseKickStarColorAlpha);
+            this.Controls.Add(this.BaseStarColorAlpha);
+            this.Controls.Add(this.KickStarColorAlpha);
+            this.Controls.Add(this.StarColorAlpha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StarPowerModifierManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Script Mod Options: Star Power Modifier";
+            this.Text = "Script Mod Options: Star Power Color Modifier";
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StarColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KickStarColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BaseStarColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BaseKickStarColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrangeColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BlueColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LightningColorAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GlowColorAlpha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,5 +873,30 @@
         private System.Windows.Forms.Label StarPowerFXHeader;
         private System.Windows.Forms.Label SPLightningLabel;
         private System.Windows.Forms.ToolTip SPMToolTipMain;
+        private System.Windows.Forms.Label SPGemAlphaLabel;
+        private System.Windows.Forms.TrackBar StarColorAlpha;
+        private System.Windows.Forms.TrackBar KickStarColorAlpha;
+        private System.Windows.Forms.Label SPKickAlphaLabel;
+        private System.Windows.Forms.TrackBar BaseStarColorAlpha;
+        private System.Windows.Forms.Label SPBaseAlphaLabel;
+        private System.Windows.Forms.Button StarColorDefaultAlpha;
+        private System.Windows.Forms.Button KickStarColorDefaultAlpha;
+        private System.Windows.Forms.Button BaseStarColorDefaultAlpha;
+        private System.Windows.Forms.Button BaseKickStarColorDefaultAlpha;
+        private System.Windows.Forms.TrackBar BaseKickStarColorAlpha;
+        private System.Windows.Forms.Label SPBaseKickAlphaLabel;
+        private System.Windows.Forms.Button OrangeColorDefaultAlpha;
+        private System.Windows.Forms.TrackBar OrangeColorAlpha;
+        private System.Windows.Forms.Label OrangeColorAlphaLabel;
+        private System.Windows.Forms.Button BlueColorDefaultAlpha;
+        private System.Windows.Forms.TrackBar BlueColorAlpha;
+        private System.Windows.Forms.Label BlueColorAlphaLabel;
+        private System.Windows.Forms.Button LightningColorDefaultAlpha;
+        private System.Windows.Forms.TrackBar LightningColorAlpha;
+        private System.Windows.Forms.Label LightningColorAlphaLabel;
+        private System.Windows.Forms.Button GlowColorDefaultAlpha;
+        private System.Windows.Forms.TrackBar GlowColorAlpha;
+        private System.Windows.Forms.Label GlowColorAlphaLabel;
+        private System.Windows.Forms.Button ResetArrayID;
     }
 }
