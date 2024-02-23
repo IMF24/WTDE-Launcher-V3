@@ -6281,7 +6281,7 @@
             this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
             this.TabBandGroup.Controls.Add(this.TBBandLineup);
             this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(24, 554);
+            this.TabBandGroup.Location = new System.Drawing.Point(10, 9);
             this.TabBandGroup.Name = "TabBandGroup";
             this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
             this.TabBandGroup.TabIndex = 1;
@@ -6384,6 +6384,7 @@
             this.PreferredDrummerHighway.Name = "PreferredDrummerHighway";
             this.PreferredDrummerHighway.Size = new System.Drawing.Size(167, 23);
             this.PreferredDrummerHighway.TabIndex = 26;
+            this.ToolTipMain.SetToolTip(this.PreferredDrummerHighway, resources.GetString("PreferredDrummerHighway.ToolTip"));
             this.PreferredDrummerHighway.TextChanged += new System.EventHandler(this.PreferredDrummerHighway_TextChanged);
             // 
             // TBPDHLabel
@@ -6433,6 +6434,7 @@
             this.PreferredBassistHighway.Name = "PreferredBassistHighway";
             this.PreferredBassistHighway.Size = new System.Drawing.Size(167, 23);
             this.PreferredBassistHighway.TabIndex = 20;
+            this.ToolTipMain.SetToolTip(this.PreferredBassistHighway, resources.GetString("PreferredBassistHighway.ToolTip"));
             this.PreferredBassistHighway.TextChanged += new System.EventHandler(this.PreferredBassistHighway_TextChanged);
             // 
             // TBPBHLabel
@@ -6482,6 +6484,7 @@
             this.PreferredGuitaristHighway.Name = "PreferredGuitaristHighway";
             this.PreferredGuitaristHighway.Size = new System.Drawing.Size(167, 23);
             this.PreferredGuitaristHighway.TabIndex = 14;
+            this.ToolTipMain.SetToolTip(this.PreferredGuitaristHighway, resources.GetString("PreferredGuitaristHighway.ToolTip"));
             this.PreferredGuitaristHighway.TextChanged += new System.EventHandler(this.PreferredGuitaristHighway_TextChanged);
             // 
             // TBPGHLabel

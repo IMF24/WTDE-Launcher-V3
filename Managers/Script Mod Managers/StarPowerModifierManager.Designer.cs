@@ -64,6 +64,8 @@
             this.StarPowerFXHeader = new System.Windows.Forms.Label();
             this.SPLightningLabel = new System.Windows.Forms.Label();
             this.SPMToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.StarpowerColor = new System.Windows.Forms.Label();
+            this.NormalColor = new System.Windows.Forms.Label();
             this.SPGemAlphaLabel = new System.Windows.Forms.Label();
             this.StarColorAlpha = new System.Windows.Forms.TrackBar();
             this.KickStarColorAlpha = new System.Windows.Forms.TrackBar();
@@ -89,6 +91,12 @@
             this.GlowColorAlpha = new System.Windows.Forms.TrackBar();
             this.GlowColorAlphaLabel = new System.Windows.Forms.Label();
             this.ResetArrayID = new System.Windows.Forms.Button();
+            this.ResetAllSettingsButton = new System.Windows.Forms.Button();
+            this.ChangeStarpowerColor = new System.Windows.Forms.Button();
+            this.VoxStarpowerLabel = new System.Windows.Forms.Label();
+            this.ChangeNormalColor = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.VoxNormalLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StarColorAlpha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KickStarColorAlpha)).BeginInit();
@@ -114,7 +122,7 @@
             // ArrayIDLabel
             // 
             this.ArrayIDLabel.AutoSize = true;
-            this.ArrayIDLabel.Location = new System.Drawing.Point(329, 235);
+            this.ArrayIDLabel.Location = new System.Drawing.Point(331, 233);
             this.ArrayIDLabel.Name = "ArrayIDLabel";
             this.ArrayIDLabel.Size = new System.Drawing.Size(48, 13);
             this.ArrayIDLabel.TabIndex = 3;
@@ -190,7 +198,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(564, 451);
+            this.CancelButton.Location = new System.Drawing.Point(564, 532);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 11;
@@ -201,7 +209,7 @@
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(483, 451);
+            this.OKButton.Location = new System.Drawing.Point(483, 532);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 11;
@@ -341,7 +349,7 @@
             "Old_Glory_fx",
             "Toxic_Waste_fx",
             "Diabolic_fx"});
-            this.FXArray.Location = new System.Drawing.Point(383, 232);
+            this.FXArray.Location = new System.Drawing.Point(385, 230);
             this.FXArray.Name = "FXArray";
             this.FXArray.Size = new System.Drawing.Size(202, 21);
             this.FXArray.TabIndex = 24;
@@ -484,6 +492,26 @@
             this.SPLightningLabel.Size = new System.Drawing.Size(97, 13);
             this.SPLightningLabel.TabIndex = 32;
             this.SPLightningLabel.Text = "SP Lightning Color:";
+            // 
+            // StarpowerColor
+            // 
+            this.StarpowerColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.StarpowerColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StarpowerColor.Location = new System.Drawing.Point(271, 488);
+            this.StarpowerColor.Name = "StarpowerColor";
+            this.StarpowerColor.Size = new System.Drawing.Size(24, 24);
+            this.StarpowerColor.TabIndex = 69;
+            this.SPMToolTipMain.SetToolTip(this.StarpowerColor, "The color of the vocals highway while Star Power IS active.\r\n");
+            // 
+            // NormalColor
+            // 
+            this.NormalColor.BackColor = System.Drawing.Color.Black;
+            this.NormalColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NormalColor.Location = new System.Drawing.Point(271, 459);
+            this.NormalColor.Name = "NormalColor";
+            this.NormalColor.Size = new System.Drawing.Size(24, 24);
+            this.NormalColor.TabIndex = 66;
+            this.SPMToolTipMain.SetToolTip(this.NormalColor, "The color of the vocals highway while Star Power is NOT active.");
             // 
             // SPGemAlphaLabel
             // 
@@ -735,7 +763,7 @@
             // 
             // ResetArrayID
             // 
-            this.ResetArrayID.Location = new System.Drawing.Point(598, 230);
+            this.ResetArrayID.Location = new System.Drawing.Point(598, 229);
             this.ResetArrayID.Name = "ResetArrayID";
             this.ResetArrayID.Size = new System.Drawing.Size(41, 23);
             this.ResetArrayID.TabIndex = 63;
@@ -743,11 +771,76 @@
             this.ResetArrayID.UseVisualStyleBackColor = true;
             this.ResetArrayID.Click += new System.EventHandler(this.ResetArrayID_Click);
             // 
+            // ResetAllSettingsButton
+            // 
+            this.ResetAllSettingsButton.Location = new System.Drawing.Point(10, 532);
+            this.ResetAllSettingsButton.Name = "ResetAllSettingsButton";
+            this.ResetAllSettingsButton.Size = new System.Drawing.Size(467, 23);
+            this.ResetAllSettingsButton.TabIndex = 11;
+            this.ResetAllSettingsButton.Text = "Reset to Defaults";
+            this.ResetAllSettingsButton.UseVisualStyleBackColor = true;
+            this.ResetAllSettingsButton.Click += new System.EventHandler(this.ResetAllSettingsButton_Click);
+            // 
+            // ChangeStarpowerColor
+            // 
+            this.ChangeStarpowerColor.Location = new System.Drawing.Point(178, 488);
+            this.ChangeStarpowerColor.Name = "ChangeStarpowerColor";
+            this.ChangeStarpowerColor.Size = new System.Drawing.Size(84, 23);
+            this.ChangeStarpowerColor.TabIndex = 70;
+            this.ChangeStarpowerColor.Text = "Pick Color...";
+            this.ChangeStarpowerColor.UseVisualStyleBackColor = true;
+            this.ChangeStarpowerColor.Click += new System.EventHandler(this.ChangeStarpowerColor_Click);
+            // 
+            // VoxStarpowerLabel
+            // 
+            this.VoxStarpowerLabel.AutoSize = true;
+            this.VoxStarpowerLabel.Location = new System.Drawing.Point(22, 493);
+            this.VoxStarpowerLabel.Name = "VoxStarpowerLabel";
+            this.VoxStarpowerLabel.Size = new System.Drawing.Size(101, 13);
+            this.VoxStarpowerLabel.TabIndex = 68;
+            this.VoxStarpowerLabel.Text = "SP Active Highway:";
+            // 
+            // ChangeNormalColor
+            // 
+            this.ChangeNormalColor.Location = new System.Drawing.Point(178, 459);
+            this.ChangeNormalColor.Name = "ChangeNormalColor";
+            this.ChangeNormalColor.Size = new System.Drawing.Size(84, 23);
+            this.ChangeNormalColor.TabIndex = 67;
+            this.ChangeNormalColor.Text = "Pick Color...";
+            this.ChangeNormalColor.UseVisualStyleBackColor = true;
+            this.ChangeNormalColor.Click += new System.EventHandler(this.ChangeNormalColor_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(7, 441);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Vocals Highway:";
+            // 
+            // VoxNormalLabel
+            // 
+            this.VoxNormalLabel.AutoSize = true;
+            this.VoxNormalLabel.Location = new System.Drawing.Point(22, 464);
+            this.VoxNormalLabel.Name = "VoxNormalLabel";
+            this.VoxNormalLabel.Size = new System.Drawing.Size(109, 13);
+            this.VoxNormalLabel.TabIndex = 64;
+            this.VoxNormalLabel.Text = "SP Inactive Highway:";
+            // 
             // StarPowerModifierManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(647, 480);
+            this.ClientSize = new System.Drawing.Size(647, 561);
+            this.Controls.Add(this.ChangeStarpowerColor);
+            this.Controls.Add(this.StarpowerColor);
+            this.Controls.Add(this.VoxStarpowerLabel);
+            this.Controls.Add(this.ChangeNormalColor);
+            this.Controls.Add(this.NormalColor);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.VoxNormalLabel);
             this.Controls.Add(this.ResetArrayID);
             this.Controls.Add(this.GlowColorDefaultAlpha);
             this.Controls.Add(this.GlowColorAlpha);
@@ -796,6 +889,7 @@
             this.Controls.Add(this.ChangeBaseStarColor);
             this.Controls.Add(this.BaseStarColor);
             this.Controls.Add(this.BaseColorLabel);
+            this.Controls.Add(this.ResetAllSettingsButton);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.ChangeKickStarColor);
@@ -898,5 +992,13 @@
         private System.Windows.Forms.TrackBar GlowColorAlpha;
         private System.Windows.Forms.Label GlowColorAlphaLabel;
         private System.Windows.Forms.Button ResetArrayID;
+        private System.Windows.Forms.Button ResetAllSettingsButton;
+        private System.Windows.Forms.Button ChangeStarpowerColor;
+        private System.Windows.Forms.Label StarpowerColor;
+        private System.Windows.Forms.Label VoxStarpowerLabel;
+        private System.Windows.Forms.Button ChangeNormalColor;
+        private System.Windows.Forms.Label NormalColor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label VoxNormalLabel;
     }
 }

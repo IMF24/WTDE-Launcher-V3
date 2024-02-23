@@ -506,7 +506,7 @@ namespace WTDE_Launcher_V3 {
                 file.Load("Updater.ini");
 
                 return file.Sections["Updater"].Keys["GameDirectory"].Value;
-            } else return ".";
+            } else return Path.GetDirectoryName(".");
         }
     }
 }

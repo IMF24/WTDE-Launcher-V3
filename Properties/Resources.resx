@@ -355,6 +355,21 @@
   <data name="nexus_smaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\nexus_smaller.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="note_kick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_kick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="note_regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_regular.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="note_target_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_target_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="note_target_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_target_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="note_target_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_target_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="open_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\open_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -372,6 +387,9 @@
   </data>
   <data name="star_power" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\star_power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="theme_colors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\theme_colors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="white_overlay_d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\white_overlay_d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

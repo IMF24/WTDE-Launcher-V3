@@ -1,4 +1,12 @@
-﻿using System;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       S C R I P T       M O D       E D I T O R S
+//          E X T E N D E D       H Y P E R S P E E D       M O D I F I E R
+//
+//    Script mod editor dedicated to the ExtendedHyperspeed mod for more
+//    in-depth control of highway scroll speeds.
+// ----------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

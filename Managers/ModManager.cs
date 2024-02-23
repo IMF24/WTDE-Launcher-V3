@@ -240,5 +240,10 @@ namespace WTDE_Launcher_V3 {
             ExtendedHyperspeedManager ehm = new ExtendedHyperspeedManager();
             ehm.ShowDialog();
         }
+
+        private void gemThemeDesignerToolStripMenuItem_Click(object sender, EventArgs e) {
+            GemThemeCreator gtc = new GemThemeCreator();
+            gtc.ShowDialog();
+        }
     }
 }

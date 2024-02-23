@@ -207,6 +207,12 @@
     <Compile Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.Designer.cs">
       <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\Script Mod Managers\GemThemeCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Script Mod Managers\GemThemeCreator.Designer.cs">
+      <DependentUpon>GemThemeCreator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <EmbeddedResource Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.resx">
       <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Script Mod Managers\GemThemeCreator.resx">
+      <DependentUpon>GemThemeCreator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\Script Mod Managers\StarPowerModifierManager.resx">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +339,14 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="Classes\ModHandler.cs" />
+    <None Include="res\img\icon\theme_colors.png" />
+    <None Include="res\img\libre\note_target_03.png" />
+    <None Include="res\img\libre\note_target_02.png" />
+    <None Include="res\img\libre\note_target_01.png" />
+    <None Include="res\img\libre\note_kick.png" />
+    <None Include="res\img\libre\note_regular.png" />
+    <None Include="res\img\libre\note_color.png" />
+    <None Include="res\img\libre\note_white.png" />
     <None Include="Resources\highway.png" />
     <None Include="res\img\icon\icon_difficulty_medium.png" />
     <None Include="res\img\icon\icon_difficulty_hard.png" />

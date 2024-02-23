@@ -302,6 +302,35 @@ which adds support for HOPO chords, tap chords, and also improves the gameplay e
 overall. If this is turned OFF, the game will use the default input logic engine, but any form of
 post-GHWT features like HOPO chords will cease to function the proper way.</value>
   </data>
+  <data name="PreferredDrummerHighway.ToolTip" xml:space="preserve">
+    <value>What highway should the drummer always use? This value OVERRIDES any defined
+highway in a character mod's config folder.
+
+For built-in highways, refer to the "ID_Highways.txt" file in the Resources folder
+where you have installed GHWT.
+
+For modded highways, use the FOLDER NAME of the highway mod.
+</value>
+  </data>
+  <data name="PreferredBassistHighway.ToolTip" xml:space="preserve">
+    <value>What highway should the bassist always use? This value OVERRIDES any defined
+highway in a character mod's config folder.
+
+For built-in highways, refer to the "ID_Highways.txt" file in the Resources folder
+where you have installed GHWT.
+
+For modded highways, use the FOLDER NAME of the highway mod.
+</value>
+  </data>
+  <data name="PreferredGuitaristHighway.ToolTip" xml:space="preserve">
+    <value>What highway should the guitarist always use? This value OVERRIDES any defined
+highway in a character mod's config folder.
+
+For built-in highways, refer to the "ID_Highways.txt" file in the Resources folder
+where you have installed GHWT.
+
+For modded highways, use the FOLDER NAME of the highway mod.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

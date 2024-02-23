@@ -1,4 +1,11 @@
-﻿using MadMilkman.Ini;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       S C R I P T       M O D       E D I T O R S
+//          S T A R       P O W E R       C O L O R       M O D I F I E R
+//
+//    Script mod editor dedicated to the StarPowerModifier script mod for
+//    changing the appearance of various elements under Star Power.
+// ----------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3 {
     public partial class StarPowerModifierManager : Form {
@@ -157,6 +165,28 @@ namespace WTDE_Launcher_V3 {
 
             GlowColor.BackColor = Color.FromArgb(255, glowRed, glowGreen, glowBlue);
             GlowColorAlpha.Value = glowAlpha;
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            // -- VOCALS HIGHWAY (NO SP) COLOR ---------------
+
+            int voxNormalRed = int.Parse(INIFunctions.GetINIValue("VocalHighway", "Normal_Red", "0"));
+            int voxNormalGreen = int.Parse(INIFunctions.GetINIValue("VocalHighway", "Normal_Green", "0"));
+            int voxNormalBlue = int.Parse(INIFunctions.GetINIValue("VocalHighway", "Normal_Blue", "0"));
+            int voxNormalAlpha = int.Parse(INIFunctions.GetINIValue("VocalHighway", "Normal_Alpha", "255"));
+
+            NormalColor.BackColor = Color.FromArgb(voxNormalAlpha, voxNormalRed, voxNormalGreen, voxNormalBlue);
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            // -- VOCALS HIGHWAY (WITH SP) COLOR ---------------
+
+            int voxStarRed = int.Parse(INIFunctions.GetINIValue("VocalHighway", "StarPower_Red", "0"));
+            int voxStarGreen = int.Parse(INIFunctions.GetINIValue("VocalHighway", "StarPower_Green", "64"));
+            int voxStarBlue = int.Parse(INIFunctions.GetINIValue("VocalHighway", "StarPower_Blue", "64"));
+            int voxStarAlpha = int.Parse(INIFunctions.GetINIValue("VocalHighway", "StarPower_Alpha", "255"));
+
+            StarpowerColor.BackColor = Color.FromArgb(voxStarAlpha, voxStarRed, voxStarGreen, voxStarBlue);
         }
 
         public void WriteINISettings() {
@@ -224,7 +254,59 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("FlameColors", "Glow_Green", Math.Round((GlowColor.BackColor.G * (GlowColorAlpha.Value / 255M))).ToString());
             INIFunctions.SaveINIValue("FlameColors", "Glow_Blue", Math.Round((GlowColor.BackColor.B * (GlowColorAlpha.Value / 255M))).ToString());
             INIFunctions.SaveINIValue("FlameColors", "Glow_Alpha", GlowColorAlpha.Value.ToString());
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            INIFunctions.SaveINIValue("VocalHighway", "Normal_Red", NormalColor.BackColor.R.ToString());
+            INIFunctions.SaveINIValue("VocalHighway", "Normal_Green", NormalColor.BackColor.G.ToString());
+            INIFunctions.SaveINIValue("VocalHighway", "Normal_Blue", NormalColor.BackColor.B.ToString());
+            INIFunctions.SaveINIValue("VocalHighway", "Normal_Alpha", NormalColor.BackColor.A.ToString());
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            INIFunctions.SaveINIValue("VocalHighway", "StarPower_Red", StarpowerColor.BackColor.R.ToString());
+            INIFunctions.SaveINIValue("VocalHighway", "StarPower_Green", StarpowerColor.BackColor.G.ToString());
+            INIFunctions.SaveINIValue("VocalHighway", "StarPower_Blue", StarpowerColor.BackColor.B.ToString());
+            INIFunctions.SaveINIValue("VocalHighway", "StarPower_Alpha", StarpowerColor.BackColor.A.ToString());
         }
+
+        /// <summary>
+        ///  Resets all the settings to their defaults.
+        /// </summary>
+        public void ResetToDefault() {
+            StarColor.BackColor = Color.FromArgb(255, 0, 255, 255);
+            KickStarColor.BackColor = Color.FromArgb(255, 0, 255, 255);
+            BaseStarColor.BackColor = Color.FromArgb(255, 255, 255, 255);
+            BaseKickStarColor.BackColor = Color.FromArgb(255, 255, 255, 255);
+
+            HighwayColor.BackColor = Color.FromArgb(255, 64, 255, 255);
+            FXArray.SelectedIndex = 0;
+
+            OrangeColor.BackColor = Color.FromArgb(255, 255, 127, 0);
+            BlueColor.BackColor = Color.FromArgb(255, 0, 255, 255);
+
+            LightningColor.BackColor = Color.FromArgb(255, 153, 255, 255);
+            GlowColor.BackColor = Color.FromArgb(255, 204, 255, 255);
+
+            // - - - - - - - - - - - - - - -
+
+            StarColorAlpha.Value = 330;
+            KickStarColorAlpha.Value = 255;
+            BaseStarColorAlpha.Value = 255;
+            BaseKickStarColorAlpha.Value = 255;
+
+            OrangeColorAlpha.Value = 255;
+            BlueColorAlpha.Value = 255;
+
+            LightningColorAlpha.Value = 255;
+            GlowColorAlpha.Value = 340;
+
+            // - - - - - - - - - - - - - - -
+
+            NormalColor.BackColor = Color.FromArgb(255, 0, 0, 0);
+            StarpowerColor.BackColor = Color.FromArgb(255, 0, 64, 64);
+        }
+
         private void OKButton_Click(object sender, EventArgs e) {
             WriteINISettings();
             this.Close();
@@ -232,6 +314,14 @@ namespace WTDE_Launcher_V3 {
 
         private void CancelButton_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void ResetAllSettingsButton_Click(object sender, EventArgs e) {
+            string warnResetMsg = "Are you sure you want to reset your colors to the defaults?";
+
+            if (MessageBox.Show(warnResetMsg, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                ResetToDefault();
+            }
         }
 
         private void ChangeStarColor_Click(object sender, EventArgs e) {
@@ -350,6 +440,24 @@ namespace WTDE_Launcher_V3 {
 
         private void ResetArrayID_Click(object sender, EventArgs e) {
             FXArray.SelectedIndex = 0;
+        }
+
+        private void ChangeNormalColor_Click(object sender, EventArgs e) {
+            ColorDialog cdlg = new ColorDialog();
+            cdlg.AllowFullOpen = true;
+            cdlg.Color = NormalColor.BackColor;
+            cdlg.ShowDialog();
+
+            NormalColor.BackColor = cdlg.Color;
+        }
+
+        private void ChangeStarpowerColor_Click(object sender, EventArgs e) {
+            ColorDialog cdlg = new ColorDialog();
+            cdlg.AllowFullOpen = true;
+            cdlg.Color = StarpowerColor.BackColor;
+            cdlg.ShowDialog();
+
+            StarpowerColor.BackColor = cdlg.Color;
         }
     }
 }
