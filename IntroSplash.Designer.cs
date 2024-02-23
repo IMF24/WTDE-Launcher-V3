@@ -93,13 +93,12 @@
             // 
             // CreditsInfoLabel
             // 
-            this.CreditsInfoLabel.AutoSize = true;
             this.CreditsInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.CreditsInfoLabel.Font = new System.Drawing.Font("Lexend", 10F);
             this.CreditsInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.CreditsInfoLabel.Location = new System.Drawing.Point(387, 202);
+            this.CreditsInfoLabel.Location = new System.Drawing.Point(229, 202);
             this.CreditsInfoLabel.Name = "CreditsInfoLabel";
-            this.CreditsInfoLabel.Size = new System.Drawing.Size(288, 44);
+            this.CreditsInfoLabel.Size = new System.Drawing.Size(446, 54);
             this.CreditsInfoLabel.TabIndex = 5;
             this.CreditsInfoLabel.Text = "Made by IMF24, GHWT: DE by Fretworks\r\nThanks for supporting us!";
             this.CreditsInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -142,7 +141,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoBrandIMF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoBrandFretworks)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

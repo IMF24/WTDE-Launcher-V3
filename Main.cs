@@ -1175,7 +1175,44 @@ namespace WTDE_Launcher_V3 {
             XMLFunctions.AspyrWriteString("Options.VocalsVisualLag", MicVideoDelay.Value.ToString());
         }
 
+        /// <summary>
+        ///  Makes sure there are no matching inputs across both strums and frets.
+        /// </summary>
+        /// <param name="strums"></param>
+        /// <param name="frets"></param>
+        /// <returns></returns>
+        private bool VerifyNoAutoStrum(string strums, string frets) {
+            string[] fretInputs = frets.Split(' ');
+            string[] strumInputs = strums.Split(' ');
+
+            foreach (string fi in fretInputs) {
+                foreach (string si in strumInputs) {
+                    if (fi.Trim().ToUpper() == si.Trim().ToUpper()) return false;
+                }
+            }
+
+            return true;
+        }
+
         private void SaveKeybindsButton_Click(object sender, EventArgs e) {
+            // No more auto strum workarounds. Cry about it; I don't care.
+            if (!(VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarUpInputs.Text) &&
+                VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarDownInputs.Text) &&
+                VerifyNoAutoStrum(GuitarRedInputs.Text, GuitarUpInputs.Text) &&
+                VerifyNoAutoStrum(GuitarRedInputs.Text, GuitarDownInputs.Text) &&
+                VerifyNoAutoStrum(GuitarYellowInputs.Text, GuitarUpInputs.Text) &&
+                VerifyNoAutoStrum(GuitarYellowInputs.Text, GuitarDownInputs.Text) &&
+                VerifyNoAutoStrum(GuitarBlueInputs.Text, GuitarUpInputs.Text) &&
+                VerifyNoAutoStrum(GuitarBlueInputs.Text, GuitarDownInputs.Text) &&
+                VerifyNoAutoStrum(GuitarOrangeInputs.Text, GuitarUpInputs.Text) &&
+                VerifyNoAutoStrum(GuitarOrangeInputs.Text, GuitarDownInputs.Text))) {
+
+                MessageBox.Show("You cannot map strums and frets to the same inputs. Auto strum is not supported.",
+                                "Invalid Inputs", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
             // -- GUITAR INPUTS ----------------------
             V3LauncherCore.AspyrKeyEncode(
                 new List<string> {
