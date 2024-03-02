@@ -23,7 +23,7 @@ namespace WTDE_Launcher_V3 {
         /// <param name="s"></param>
         /// <returns></returns>
         public static bool GetBoolean(string s) {
-            return (s == "1") ? true : false;
+            return (s == "1");
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace WTDE_Launcher_V3 {
         /// <param name="s"></param>
         /// <returns></returns>
         public static bool GetBooleanInverse(string s) {
-            return (s == "1") ? false : true;
+            return !(s == "1");
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace WTDE_Launcher_V3 {
         /// <param name="t"></param>
         /// <returns></returns>
         public static bool GetBooleanCustomString(string s, string t) {
-            return (s == t) ? true : false;
+            return (s == t);
         }
 
         /// <summary>

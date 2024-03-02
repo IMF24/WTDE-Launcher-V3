@@ -528,6 +528,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gh3_sp_fx {
+            get {
+                object obj = ResourceManager.GetObject("gh3_sp_fx", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap github {
             get {
                 object obj = ResourceManager.GetObject("github", resourceCulture);
@@ -671,6 +681,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap logo_af {
             get {
                 object obj = ResourceManager.GetObject("logo_af", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_cobalt {
+            get {
+                object obj = ResourceManager.GetObject("logo_cobalt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

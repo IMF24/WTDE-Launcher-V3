@@ -13,7 +13,13 @@ using MadMilkman.Ini;
 using System.Drawing;
 
 namespace WTDE_Launcher_V3 {
+    /// <summary>
+    ///  Makes custom gem color palette script mods. Requires GHSDK to use.
+    /// </summary>
     public partial class GemThemeCreator : Form {
+        /// <summary>
+        ///  Makes custom gem color palette script mods. Requires GHSDK to use.
+        /// </summary>
         public GemThemeCreator() {
             InitializeComponent();
             SDKPath.Text = GetSDKPath();
@@ -459,6 +465,22 @@ namespace WTDE_Launcher_V3 {
 
         private void LoadColorsButton_Click(object sender, EventArgs e) {
             LoadGemColors();
+        }
+
+        private void SelectSDKPath_Click(object sender, EventArgs e) {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select Guitar Hero SDK Folder";
+            ofd.Filter = "Guitar Hero SDK Script|*sdk.js;*sdk.bat";
+            ofd.Multiselect = false;
+            ofd.ShowDialog();
+
+            string finalPath = ofd.FileName;
+            if (finalPath != "") {
+                finalPath = Path.GetDirectoryName(ofd.FileName);
+                INIFunctions.SaveINIValue("Launcher", "SDKPath", finalPath);
+
+                SDKPath.Text = finalPath;
+            }
         }
     }
 }

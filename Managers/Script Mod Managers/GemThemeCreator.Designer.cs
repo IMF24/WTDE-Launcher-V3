@@ -544,6 +544,7 @@
             this.SelectSDKPath.TabIndex = 44;
             this.SelectSDKPath.Text = "...";
             this.SelectSDKPath.UseVisualStyleBackColor = true;
+            this.SelectSDKPath.Click += new System.EventHandler(this.SelectSDKPath_Click);
             // 
             // GemTextPropsHeader
             // 

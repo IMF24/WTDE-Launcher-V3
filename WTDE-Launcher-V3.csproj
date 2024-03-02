@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BGConstants.cs" />
+    <Compile Include="Classes\NXFunctions.cs" />
     <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +202,12 @@
     <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\Script Mod Managers\AddGH3StarPowerFX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Script Mod Managers\AddGH3StarPowerFX.Designer.cs">
+      <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +225,18 @@
     </Compile>
     <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.Designer.cs">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\SelectHighwayMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SelectHighwayMod.Designer.cs">
+      <DependentUpon>SelectHighwayMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\SelectCharacterMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SelectCharacterMod.Designer.cs">
+      <DependentUpon>SelectCharacterMod.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -284,6 +303,9 @@
     <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Script Mod Managers\AddGH3StarPowerFX.resx">
+      <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.resx">
       <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +314,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\Script Mod Managers\StarPowerModifierManager.resx">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SelectHighwayMod.resx">
+      <DependentUpon>SelectHighwayMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SelectCharacterMod.resx">
+      <DependentUpon>SelectCharacterMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -339,6 +367,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="Classes\ModHandler.cs" />
+    <None Include="res\img\logo_cobalt.png" />
+    <None Include="res\img\menuicons\gh3_sp_fx.png" />
     <None Include="res\img\icon\theme_colors.png" />
     <None Include="res\img\libre\note_target_03.png" />
     <None Include="res\img\libre\note_target_02.png" />

@@ -97,6 +97,8 @@
             this.ChangeNormalColor = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.VoxNormalLabel = new System.Windows.Forms.Label();
+            this.LoadColorsButton = new System.Windows.Forms.Button();
+            this.SaveColorsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StarColorAlpha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KickStarColorAlpha)).BeginInit();
@@ -829,11 +831,31 @@
             this.VoxNormalLabel.TabIndex = 64;
             this.VoxNormalLabel.Text = "SP Inactive Highway:";
             // 
+            // LoadColorsButton
+            // 
+            this.LoadColorsButton.Location = new System.Drawing.Point(317, 503);
+            this.LoadColorsButton.Name = "LoadColorsButton";
+            this.LoadColorsButton.Size = new System.Drawing.Size(322, 23);
+            this.LoadColorsButton.TabIndex = 71;
+            this.LoadColorsButton.Text = "Load Color Palette";
+            this.LoadColorsButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveColorsButton
+            // 
+            this.SaveColorsButton.Location = new System.Drawing.Point(317, 474);
+            this.SaveColorsButton.Name = "SaveColorsButton";
+            this.SaveColorsButton.Size = new System.Drawing.Size(322, 23);
+            this.SaveColorsButton.TabIndex = 72;
+            this.SaveColorsButton.Text = "Save Color Palette";
+            this.SaveColorsButton.UseVisualStyleBackColor = true;
+            // 
             // StarPowerModifierManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(647, 561);
+            this.Controls.Add(this.SaveColorsButton);
+            this.Controls.Add(this.LoadColorsButton);
             this.Controls.Add(this.ChangeStarpowerColor);
             this.Controls.Add(this.StarpowerColor);
             this.Controls.Add(this.VoxStarpowerLabel);
@@ -1000,5 +1022,7 @@
         private System.Windows.Forms.Label NormalColor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label VoxNormalLabel;
+        private System.Windows.Forms.Button LoadColorsButton;
+        private System.Windows.Forms.Button SaveColorsButton;
     }
 }

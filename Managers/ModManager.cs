@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WTDE_Launcher_V3.Managers.Script_Mod_Managers;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -52,8 +53,6 @@ namespace WTDE_Launcher_V3 {
             List<string> scriptMods = scriptModQuery.ToList();
 
             V3LauncherCore.AddDebugEntry($"Read script mods; found a total of {scriptMods.Count} mods", "Mod Manager");
-
-            scriptModEditorsToolStripMenuItem.Enabled = (scriptMods.Count > 0);
 
             // Disable all editors by default.
             starPowerColorModifierToolStripMenuItem.Visible = false;
@@ -244,6 +243,11 @@ namespace WTDE_Launcher_V3 {
         private void gemThemeDesignerToolStripMenuItem_Click(object sender, EventArgs e) {
             GemThemeCreator gtc = new GemThemeCreator();
             gtc.ShowDialog();
+        }
+
+        private void assignGH3SPFXToCharacterModToolStripMenuItem_Click(object sender, EventArgs e) {
+            AddGH3StarPowerFX gh3SPFX = new AddGH3StarPowerFX();
+            gh3SPFX.ShowDialog();
         }
     }
 }

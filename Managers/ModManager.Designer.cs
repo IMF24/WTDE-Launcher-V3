@@ -63,9 +63,11 @@
             this.songAndSongCategoryManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptModEditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gemThemeDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignGH3SPFXToCharacterModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.starPowerColorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gemThemeDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.ModTreeContext.SuspendLayout();
@@ -372,18 +374,41 @@
             // scriptModEditorsToolStripMenuItem
             // 
             this.scriptModEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gemThemeDesignerToolStripMenuItem,
+            this.assignGH3SPFXToCharacterModToolStripMenuItem,
+            this.toolStripSeparator7,
             this.starPowerColorModifierToolStripMenuItem,
-            this.extendedHyperspeedToolStripMenuItem,
-            this.gemThemeDesignerToolStripMenuItem});
+            this.extendedHyperspeedToolStripMenuItem});
             this.scriptModEditorsToolStripMenuItem.Name = "scriptModEditorsToolStripMenuItem";
             this.scriptModEditorsToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
             this.scriptModEditorsToolStripMenuItem.Text = "Script Mod Editors";
+            // 
+            // gemThemeDesignerToolStripMenuItem
+            // 
+            this.gemThemeDesignerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.theme_colors;
+            this.gemThemeDesignerToolStripMenuItem.Name = "gemThemeDesignerToolStripMenuItem";
+            this.gemThemeDesignerToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.gemThemeDesignerToolStripMenuItem.Text = "Gem Theme Designer...";
+            this.gemThemeDesignerToolStripMenuItem.Click += new System.EventHandler(this.gemThemeDesignerToolStripMenuItem_Click);
+            // 
+            // assignGH3SPFXToCharacterModToolStripMenuItem
+            // 
+            this.assignGH3SPFXToCharacterModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.gh3_sp_fx;
+            this.assignGH3SPFXToCharacterModToolStripMenuItem.Name = "assignGH3SPFXToCharacterModToolStripMenuItem";
+            this.assignGH3SPFXToCharacterModToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
+            this.assignGH3SPFXToCharacterModToolStripMenuItem.Text = "Assign GH3 SP FX to Character Mod...";
+            this.assignGH3SPFXToCharacterModToolStripMenuItem.Click += new System.EventHandler(this.assignGH3SPFXToCharacterModToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(269, 6);
             // 
             // starPowerColorModifierToolStripMenuItem
             // 
             this.starPowerColorModifierToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.star_power;
             this.starPowerColorModifierToolStripMenuItem.Name = "starPowerColorModifierToolStripMenuItem";
-            this.starPowerColorModifierToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.starPowerColorModifierToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.starPowerColorModifierToolStripMenuItem.Text = "Star Power Color Modifier...";
             this.starPowerColorModifierToolStripMenuItem.Click += new System.EventHandler(this.starPowerColorModifierToolStripMenuItem_Click);
             // 
@@ -391,17 +416,9 @@
             // 
             this.extendedHyperspeedToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.highway;
             this.extendedHyperspeedToolStripMenuItem.Name = "extendedHyperspeedToolStripMenuItem";
-            this.extendedHyperspeedToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.extendedHyperspeedToolStripMenuItem.Size = new System.Drawing.Size(272, 22);
             this.extendedHyperspeedToolStripMenuItem.Text = "Extended Hyperspeed...";
             this.extendedHyperspeedToolStripMenuItem.Click += new System.EventHandler(this.extendedHyperspeedToolStripMenuItem_Click);
-            // 
-            // gemThemeDesignerToolStripMenuItem
-            // 
-            this.gemThemeDesignerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.theme_colors;
-            this.gemThemeDesignerToolStripMenuItem.Name = "gemThemeDesignerToolStripMenuItem";
-            this.gemThemeDesignerToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.gemThemeDesignerToolStripMenuItem.Text = "Gem Theme Designer...";
-            this.gemThemeDesignerToolStripMenuItem.Click += new System.EventHandler(this.gemThemeDesignerToolStripMenuItem_Click);
             // 
             // StatusBarMain
             // 
@@ -490,5 +507,7 @@
         private System.Windows.Forms.ToolStripMenuItem starPowerColorModifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extendedHyperspeedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gemThemeDesignerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assignGH3SPFXToCharacterModToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

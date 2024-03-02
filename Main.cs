@@ -318,6 +318,7 @@ namespace WTDE_Launcher_V3 {
                 V3LauncherConstants.LoadScreenThemes[1], V3LauncherConstants.LoadScreenThemes[0]);
             HUDTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HUDTheme", "ghwt_plus"),
                 V3LauncherConstants.HUDThemes[1], V3LauncherConstants.HUDThemes[0]);
+            TrainingScore.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "TrainingScore", "0"));
             YouRockTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "YouRockTheme", "ghwt"),
                 V3LauncherConstants.YouRockThemes[1], V3LauncherConstants.YouRockThemes[0]);
             PauseTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "PauseTheme", "ghwt"),
@@ -1197,15 +1198,15 @@ namespace WTDE_Launcher_V3 {
         private void SaveKeybindsButton_Click(object sender, EventArgs e) {
             // No more auto strum workarounds. Cry about it; I don't care.
             if (!(VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarUpInputs.Text) &&
-                VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarDownInputs.Text) &&
-                VerifyNoAutoStrum(GuitarRedInputs.Text, GuitarUpInputs.Text) &&
-                VerifyNoAutoStrum(GuitarRedInputs.Text, GuitarDownInputs.Text) &&
-                VerifyNoAutoStrum(GuitarYellowInputs.Text, GuitarUpInputs.Text) &&
-                VerifyNoAutoStrum(GuitarYellowInputs.Text, GuitarDownInputs.Text) &&
-                VerifyNoAutoStrum(GuitarBlueInputs.Text, GuitarUpInputs.Text) &&
-                VerifyNoAutoStrum(GuitarBlueInputs.Text, GuitarDownInputs.Text) &&
-                VerifyNoAutoStrum(GuitarOrangeInputs.Text, GuitarUpInputs.Text) &&
-                VerifyNoAutoStrum(GuitarOrangeInputs.Text, GuitarDownInputs.Text))) {
+                  VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarDownInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarRedInputs.Text, GuitarUpInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarRedInputs.Text, GuitarDownInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarYellowInputs.Text, GuitarUpInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarYellowInputs.Text, GuitarDownInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarBlueInputs.Text, GuitarUpInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarBlueInputs.Text, GuitarDownInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarOrangeInputs.Text, GuitarUpInputs.Text) &&
+                  VerifyNoAutoStrum(GuitarOrangeInputs.Text, GuitarDownInputs.Text))) {
 
                 MessageBox.Show("You cannot map strums and frets to the same inputs. Auto strum is not supported.",
                                 "Invalid Inputs", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1871,6 +1872,10 @@ namespace WTDE_Launcher_V3 {
                 V3LauncherConstants.HUDThemes[0].ToArray(), V3LauncherConstants.HUDThemes[1].ToArray()));
         }
 
+        private void TrainingScore_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "TrainingScore", INIFunctions.BoolToString(TrainingScore.Checked));
+        }
+
         private void YouRockTheme_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "YouRockTheme", INIFunctions.InterpretINISetting(YouRockTheme.Text,
                 V3LauncherConstants.YouRockThemes[0].ToArray(), V3LauncherConstants.YouRockThemes[1].ToArray()));
@@ -2080,35 +2085,43 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void PrefGtrSelectChar_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitarist, "Select Character Mod Folder");
+            SelectCharacterMod scm = new SelectCharacterMod(PreferredGuitarist);
+            scm.ShowDialog();
         }
 
         private void PrefBasSelectChar_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredBassist, "Select Character Mod Folder");
+            SelectCharacterMod scm = new SelectCharacterMod(PreferredBassist);
+            scm.ShowDialog();
         }
 
         private void PrefDrmSelectChar_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredDrummer, "Select Character Mod Folder");
+            SelectCharacterMod scm = new SelectCharacterMod(PreferredDrummer);
+            scm.ShowDialog();
         }
 
         private void PrefVoxSelectChar_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredSinger, "Select Character Mod Folder");
+            SelectCharacterMod scm = new SelectCharacterMod(PreferredSinger);
+            scm.ShowDialog();
         }
 
         private void PrefFVoxSelectChar_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredFemaleSinger, "Select Character Mod Folder");
+            SelectCharacterMod scm = new SelectCharacterMod(PreferredFemaleSinger);
+            scm.ShowDialog();
         }
 
         private void PrefGtrHwySelectHwy_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredGuitaristHighway, "Select Highway Mod Folder");
+            SelectHighwayMod shm = new SelectHighwayMod(PreferredGuitaristHighway);
+            shm.ShowDialog();
         }
 
         private void PrefBasHwySelectHwy_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredBassistHighway, "Select Highway Mod Folder");
+            SelectHighwayMod shm = new SelectHighwayMod(PreferredBassistHighway);
+            shm.ShowDialog();
         }
 
         private void PrefDrmHwySelectHwy_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(1, PreferredDrummerHighway, "Select Highway Mod Folder");
+            SelectHighwayMod shm = new SelectHighwayMod(PreferredDrummerHighway);
+            shm.ShowDialog();
         }
 
         #endregion

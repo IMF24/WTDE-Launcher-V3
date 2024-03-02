@@ -7,18 +7,9 @@
 // ----------------------------------------------------------------------------
 using System;
 using System.IO;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Compression;
-using Aspose.Zip.Saving;
-using SharpCompress.Archives.SevenZip;
-using Aspose.Zip.SevenZip;
 using Aspose.Zip.Rar;
 
 namespace WTDE_Launcher_V3 {
