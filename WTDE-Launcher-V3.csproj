@@ -153,6 +153,12 @@
   <ItemGroup>
     <Compile Include="Classes\BGConstants.cs" />
     <Compile Include="Classes\NXFunctions.cs" />
+    <Compile Include="IntroHelloScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntroHelloScreen.Designer.cs">
+      <DependentUpon>IntroHelloScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\XMLFunctions.cs" />
+    <EmbeddedResource Include="IntroHelloScreen.resx">
+      <DependentUpon>IntroHelloScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\CARManager.resx">
       <DependentUpon>CARManager.cs</DependentUpon>
     </EmbeddedResource>

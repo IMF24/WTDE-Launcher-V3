@@ -158,7 +158,7 @@ namespace WTDE_Launcher_V3 {
             "WE KNOW YOUR CONTROLLER WORKS IN CH",
             "Where's the KFC?",
             "Who eats waffles? Jimmy does",
-            (DateTime.Now.Month == 10) ? "It's not--Oh wait, it is Oktoberfest!" : $"It's not {DateTime.Now.ToString("MMMM")}fest, it's Oktoberfest",
+            (DateTime.Now.Month == 10) ? "It's not--Oh wait, it is Oktoberfest!" : $"It's not {DateTime.Now:MMMM}fest, it's Oktoberfest",
             "IMF is not the International Monetary Fund",
             "\"A PS2 ISO is not going to work, pal\" -Yopsito",
             "\"By using this pristine launcher you immediately become a Dodymensional being, put that to good use\" -Dody",

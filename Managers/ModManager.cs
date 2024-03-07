@@ -16,7 +16,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WTDE_Launcher_V3.Managers.Script_Mod_Managers;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>

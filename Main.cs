@@ -148,6 +148,15 @@ namespace WTDE_Launcher_V3 {
                 }
 
                 ish.Close();
+
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
+                // Show the welcome screen, if it hasn't been shown before.
+                if (INIFunctions.GetINIValue("Launcher", "HelloMessageShown", "0") == "0") {
+                    IntroHelloScreen ihs = new IntroHelloScreen();
+                    ihs.ShowDialog();
+                }
+
             } catch (Exception exc) {
                 var st = new StackTrace(exc, true);
                 var frame = st.GetFrame(0);
@@ -426,6 +435,11 @@ namespace WTDE_Launcher_V3 {
             AutoLaunchBot2.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot2", "1"));
             AutoLaunchBot3.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot3", "1"));
             AutoLaunchBot4.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "Bot4", "1"));
+
+            GamerTag1.Text = INIFunctions.GetINIValue("AutoLaunch", "GamerTag", "");
+            GamerTag2.Text = INIFunctions.GetINIValue("AutoLaunch", "GamerTag2", "");
+            GamerTag3.Text = INIFunctions.GetINIValue("AutoLaunch", "GamerTag3", "");
+            GamerTag4.Text = INIFunctions.GetINIValue("AutoLaunch", "GamerTag4", "");
 
             AutoLaunchHideHUD.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "HideHUD"));
             AutoLaunchSongTime.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("AutoLaunch", "SongTime"));
@@ -2149,6 +2163,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
 
+                    TALPTLPlayer1Label.Enabled = false;
+                    GamerTag1.Enabled = false;
+
                     // -- PLAYER 2 --------------------------
                     TALPlayer2Label.Enabled = false;
                     TALP2DLabel.Enabled = false;
@@ -2157,6 +2174,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart2.Enabled = false;
                     AutoLaunchDifficulty2.Enabled = false;
                     AutoLaunchBot2.Enabled = false;
+
+                    TALPTLPlayer2Label.Enabled = false;
+                    GamerTag2.Enabled = false;
 
                     // -- PLAYER 3 --------------------------
                     TALPlayer3Label.Enabled = false;
@@ -2167,6 +2187,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty3.Enabled = false;
                     AutoLaunchBot3.Enabled = false;
 
+                    TALPTLPlayer3Label.Enabled = false;
+                    GamerTag3.Enabled = false;
+
                     // -- PLAYER 4 --------------------------
                     TALPlayer4Label.Enabled = false;
                     TALP4DLabel.Enabled = false;
@@ -2175,6 +2198,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart4.Enabled = false;
                     AutoLaunchDifficulty4.Enabled = false;
                     AutoLaunchBot4.Enabled = false;
+
+                    TALPTLPlayer4Label.Enabled = false;
+                    GamerTag4.Enabled = false;
                     break;
 
                 case 2:
@@ -2187,6 +2213,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
 
+                    TALPTLPlayer1Label.Enabled = true;
+                    GamerTag1.Enabled = true;
+
                     // -- PLAYER 2 --------------------------
                     TALPlayer2Label.Enabled = true;
                     TALP2DLabel.Enabled = true;
@@ -2195,6 +2224,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart2.Enabled = true;
                     AutoLaunchDifficulty2.Enabled = true;
                     AutoLaunchBot2.Enabled = true;
+
+                    TALPTLPlayer2Label.Enabled = true;
+                    GamerTag2.Enabled = true;
 
                     // -- PLAYER 3 --------------------------
                     TALPlayer3Label.Enabled = false;
@@ -2205,6 +2237,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty3.Enabled = false;
                     AutoLaunchBot3.Enabled = false;
 
+                    TALPTLPlayer3Label.Enabled = false;
+                    GamerTag3.Enabled = false;
+
                     // -- PLAYER 4 --------------------------
                     TALPlayer4Label.Enabled = false;
                     TALP4DLabel.Enabled = false;
@@ -2213,6 +2248,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart4.Enabled = false;
                     AutoLaunchDifficulty4.Enabled = false;
                     AutoLaunchBot4.Enabled = false;
+
+                    TALPTLPlayer4Label.Enabled = false;
+                    GamerTag4.Enabled = false;
                     break;
 
                 case 3:
@@ -2225,6 +2263,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
 
+                    TALPTLPlayer1Label.Enabled = true;
+                    GamerTag1.Enabled = true;
+
                     // -- PLAYER 2 --------------------------
                     TALPlayer2Label.Enabled = true;
                     TALP2DLabel.Enabled = true;
@@ -2233,6 +2274,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart2.Enabled = true;
                     AutoLaunchDifficulty2.Enabled = true;
                     AutoLaunchBot2.Enabled = true;
+
+                    TALPTLPlayer2Label.Enabled = true;
+                    GamerTag2.Enabled = true;
 
                     // -- PLAYER 3 --------------------------
                     TALPlayer3Label.Enabled = true;
@@ -2243,6 +2287,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty3.Enabled = true;
                     AutoLaunchBot3.Enabled = true;
 
+                    TALPTLPlayer3Label.Enabled = true;
+                    GamerTag3.Enabled = true;
+
                     // -- PLAYER 4 --------------------------
                     TALPlayer4Label.Enabled = false;
                     TALP4DLabel.Enabled = false;
@@ -2251,6 +2298,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart4.Enabled = false;
                     AutoLaunchDifficulty4.Enabled = false;
                     AutoLaunchBot4.Enabled = false;
+
+                    TALPTLPlayer4Label.Enabled = false;
+                    GamerTag4.Enabled = false;
                     break;
 
                 case 4:
@@ -2263,6 +2313,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
 
+                    TALPTLPlayer1Label.Enabled = true;
+                    GamerTag1.Enabled = true;
+
                     // -- PLAYER 2 --------------------------
                     TALPlayer2Label.Enabled = true;
                     TALP2DLabel.Enabled = true;
@@ -2271,6 +2324,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart2.Enabled = true;
                     AutoLaunchDifficulty2.Enabled = true;
                     AutoLaunchBot2.Enabled = true;
+
+                    TALPTLPlayer2Label.Enabled = true;
+                    GamerTag2.Enabled = true;
 
                     // -- PLAYER 3 --------------------------
                     TALPlayer3Label.Enabled = true;
@@ -2281,6 +2337,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchDifficulty3.Enabled = true;
                     AutoLaunchBot3.Enabled = true;
 
+                    TALPTLPlayer3Label.Enabled = true;
+                    GamerTag3.Enabled = true;
+
                     // -- PLAYER 4 --------------------------
                     TALPlayer4Label.Enabled = true;
                     TALP4DLabel.Enabled = true;
@@ -2289,6 +2348,9 @@ namespace WTDE_Launcher_V3 {
                     AutoLaunchPart4.Enabled = true;
                     AutoLaunchDifficulty4.Enabled = true;
                     AutoLaunchBot4.Enabled = true;
+                    
+                    TALPTLPlayer4Label.Enabled = true;
+                    GamerTag4.Enabled = true;
                     break;
             }
         }
@@ -2363,6 +2425,22 @@ namespace WTDE_Launcher_V3 {
 
         private void AutoLaunchBot4_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Bot4", INIFunctions.BoolToString(AutoLaunchBot4.Checked));
+        }
+
+        private void GamerTag1_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "GamerTag", GamerTag1.Text);
+        }
+
+        private void GamerTag2_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "GamerTag2", GamerTag2.Text);
+        }
+
+        private void GamerTag3_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "GamerTag3", GamerTag3.Text);
+        }
+
+        private void GamerTag4_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "GamerTag4", GamerTag4.Text);
         }
 
         private void AutoLaunchHideHUD_CheckedChanged(object sender, EventArgs e) {

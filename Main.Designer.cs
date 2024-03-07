@@ -384,6 +384,30 @@
             this.GuitarStrumAnim = new System.Windows.Forms.ComboBox();
             this.TrainingScore = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
+            this.TALSaveWarningLabel = new System.Windows.Forms.Label();
+            this.TabALMainEditor = new System.Windows.Forms.Panel();
+            this.TALPTLSettings = new System.Windows.Forms.Label();
+            this.TALGeneralSettings = new System.Windows.Forms.Label();
+            this.TALP4DLabel = new System.Windows.Forms.Label();
+            this.TALSongLabel = new System.Windows.Forms.Label();
+            this.TALP4ILabel = new System.Windows.Forms.Label();
+            this.TALPlayer4Label = new System.Windows.Forms.Label();
+            this.TALPlayersLabel = new System.Windows.Forms.Label();
+            this.TALP3DLabel = new System.Windows.Forms.Label();
+            this.TALP3ILabel = new System.Windows.Forms.Label();
+            this.TALVenueLabel = new System.Windows.Forms.Label();
+            this.TALPlayer3Label = new System.Windows.Forms.Label();
+            this.TALAdvancedSettings = new System.Windows.Forms.Label();
+            this.TALP2DLabel = new System.Windows.Forms.Label();
+            this.TALPlayerSettings = new System.Windows.Forms.Label();
+            this.TALPlayer1Label = new System.Windows.Forms.Label();
+            this.TALP2ILabel = new System.Windows.Forms.Label();
+            this.TALPISettings = new System.Windows.Forms.Label();
+            this.TALPlayer2Label = new System.Windows.Forms.Label();
+            this.TALP1ILabel = new System.Windows.Forms.Label();
+            this.TALPDSettings = new System.Windows.Forms.Label();
+            this.TALP1DLabel = new System.Windows.Forms.Label();
             this.TabBandGroup = new System.Windows.Forms.GroupBox();
             this.PrefFVoxSelectChar = new System.Windows.Forms.Button();
             this.TBPrefFVoxLabel = new System.Windows.Forms.Label();
@@ -453,29 +477,6 @@
             this.BlackChalk = new System.Windows.Forms.PictureBox();
             this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
             this.IconLogoIMF = new System.Windows.Forms.PictureBox();
-            this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
-            this.TALSaveWarningLabel = new System.Windows.Forms.Label();
-            this.TabALMainEditor = new System.Windows.Forms.Panel();
-            this.TALGeneralSettings = new System.Windows.Forms.Label();
-            this.TALP4DLabel = new System.Windows.Forms.Label();
-            this.TALSongLabel = new System.Windows.Forms.Label();
-            this.TALP4ILabel = new System.Windows.Forms.Label();
-            this.TALPlayer4Label = new System.Windows.Forms.Label();
-            this.TALPlayersLabel = new System.Windows.Forms.Label();
-            this.TALP3DLabel = new System.Windows.Forms.Label();
-            this.TALP3ILabel = new System.Windows.Forms.Label();
-            this.TALVenueLabel = new System.Windows.Forms.Label();
-            this.TALPlayer3Label = new System.Windows.Forms.Label();
-            this.TALAdvancedSettings = new System.Windows.Forms.Label();
-            this.TALP2DLabel = new System.Windows.Forms.Label();
-            this.TALPlayerSettings = new System.Windows.Forms.Label();
-            this.TALPlayer1Label = new System.Windows.Forms.Label();
-            this.TALP2ILabel = new System.Windows.Forms.Label();
-            this.TALPISettings = new System.Windows.Forms.Label();
-            this.TALPlayer2Label = new System.Windows.Forms.Label();
-            this.TALP1ILabel = new System.Windows.Forms.Label();
-            this.TALPDSettings = new System.Windows.Forms.Label();
-            this.TALP1DLabel = new System.Windows.Forms.Label();
             this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
             this.TGForceHolidayLabel = new System.Windows.Forms.Label();
             this.TGAutoLoginLabel = new System.Windows.Forms.Label();
@@ -493,6 +494,14 @@
             this.MOTDText = new System.Windows.Forms.Label();
             this.MOTDBack = new System.Windows.Forms.PictureBox();
             this.DummyLabel = new System.Windows.Forms.Label();
+            this.TALPTLPlayer4Label = new System.Windows.Forms.Label();
+            this.TALPTLPlayer3Label = new System.Windows.Forms.Label();
+            this.TALPTLPlayer1Label = new System.Windows.Forms.Label();
+            this.TALPTLPlayer2Label = new System.Windows.Forms.Label();
+            this.GamerTag1 = new System.Windows.Forms.TextBox();
+            this.GamerTag2 = new System.Windows.Forms.TextBox();
+            this.GamerTag3 = new System.Windows.Forms.TextBox();
+            this.GamerTag4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -512,6 +521,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabAutoLaunchGroup.SuspendLayout();
+            this.TabALMainEditor.SuspendLayout();
             this.TabBandGroup.SuspendLayout();
             this.TabGraphicsGroup.SuspendLayout();
             this.TabGraphicsMainEditor.SuspendLayout();
@@ -527,8 +538,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
-            this.TabAutoLaunchGroup.SuspendLayout();
-            this.TabALMainEditor.SuspendLayout();
             this.TabGeneralGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).BeginInit();
@@ -2155,7 +2164,7 @@
             // AutoLaunchEncoreMode
             // 
             this.AutoLaunchEncoreMode.AutoSize = true;
-            this.AutoLaunchEncoreMode.Location = new System.Drawing.Point(17, 344);
+            this.AutoLaunchEncoreMode.Location = new System.Drawing.Point(17, 514);
             this.AutoLaunchEncoreMode.Name = "AutoLaunchEncoreMode";
             this.AutoLaunchEncoreMode.Size = new System.Drawing.Size(148, 26);
             this.AutoLaunchEncoreMode.TabIndex = 62;
@@ -2199,7 +2208,7 @@
             // AutoLaunchRawLoad
             // 
             this.AutoLaunchRawLoad.AutoSize = true;
-            this.AutoLaunchRawLoad.Location = new System.Drawing.Point(360, 312);
+            this.AutoLaunchRawLoad.Location = new System.Drawing.Point(360, 482);
             this.AutoLaunchRawLoad.Name = "AutoLaunchRawLoad";
             this.AutoLaunchRawLoad.Size = new System.Drawing.Size(225, 26);
             this.AutoLaunchRawLoad.TabIndex = 61;
@@ -2230,7 +2239,7 @@
             // AutoLaunchSongTime
             // 
             this.AutoLaunchSongTime.AutoSize = true;
-            this.AutoLaunchSongTime.Location = new System.Drawing.Point(174, 312);
+            this.AutoLaunchSongTime.Location = new System.Drawing.Point(174, 482);
             this.AutoLaunchSongTime.Name = "AutoLaunchSongTime";
             this.AutoLaunchSongTime.Size = new System.Drawing.Size(142, 26);
             this.AutoLaunchSongTime.TabIndex = 60;
@@ -2260,7 +2269,7 @@
             // AutoLaunchHideHUD
             // 
             this.AutoLaunchHideHUD.AutoSize = true;
-            this.AutoLaunchHideHUD.Location = new System.Drawing.Point(17, 312);
+            this.AutoLaunchHideHUD.Location = new System.Drawing.Point(17, 482);
             this.AutoLaunchHideHUD.Name = "AutoLaunchHideHUD";
             this.AutoLaunchHideHUD.Size = new System.Drawing.Size(96, 26);
             this.AutoLaunchHideHUD.TabIndex = 59;
@@ -5324,17 +5333,296 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
-            this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Location = new System.Drawing.Point(321, 60);
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabAutoLaunchGroup
+            // 
+            this.TabAutoLaunchGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabAutoLaunchGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabAutoLaunchGroup.Controls.Add(this.TALSaveWarningLabel);
+            this.TabAutoLaunchGroup.Controls.Add(this.TabALMainEditor);
+            this.TabAutoLaunchGroup.Controls.Add(this.AutoLaunchEnabled);
+            this.TabAutoLaunchGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(10, 9);
+            this.TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
+            this.TabAutoLaunchGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabAutoLaunchGroup.TabIndex = 2;
+            this.TabAutoLaunchGroup.TabStop = false;
+            this.TabAutoLaunchGroup.Text = "DEBUG: Auto Launch Tab";
+            // 
+            // TALSaveWarningLabel
+            // 
+            this.TALSaveWarningLabel.AutoSize = true;
+            this.TALSaveWarningLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.TALSaveWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.TALSaveWarningLabel.Location = new System.Drawing.Point(10, 11);
+            this.TALSaveWarningLabel.Name = "TALSaveWarningLabel";
+            this.TALSaveWarningLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TALSaveWarningLabel.Size = new System.Drawing.Size(579, 22);
+            this.TALSaveWarningLabel.TabIndex = 64;
+            this.TALSaveWarningLabel.Text = "Warning: This may erase your save data, so make sure to back it up first!";
+            // 
+            // TabALMainEditor
+            // 
+            this.TabALMainEditor.Controls.Add(this.GamerTag4);
+            this.TabALMainEditor.Controls.Add(this.GamerTag3);
+            this.TabALMainEditor.Controls.Add(this.GamerTag2);
+            this.TabALMainEditor.Controls.Add(this.GamerTag1);
+            this.TabALMainEditor.Controls.Add(this.TALPTLPlayer4Label);
+            this.TabALMainEditor.Controls.Add(this.TALPTLPlayer3Label);
+            this.TabALMainEditor.Controls.Add(this.TALPTLPlayer1Label);
+            this.TabALMainEditor.Controls.Add(this.TALPTLPlayer2Label);
+            this.TabALMainEditor.Controls.Add(this.TALPTLSettings);
+            this.TabALMainEditor.Controls.Add(this.TALGeneralSettings);
+            this.TabALMainEditor.Controls.Add(this.TALP4DLabel);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchEncoreMode);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty4);
+            this.TabALMainEditor.Controls.Add(this.TALSongLabel);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot4);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchRawLoad);
+            this.TabALMainEditor.Controls.Add(this.TALP4ILabel);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchPlayers);
+            this.TabALMainEditor.Controls.Add(this.TALPlayer4Label);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchSongTime);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart4);
+            this.TabALMainEditor.Controls.Add(this.TALPlayersLabel);
+            this.TabALMainEditor.Controls.Add(this.TALP3DLabel);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchHideHUD);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty3);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchSong);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot3);
+            this.TabALMainEditor.Controls.Add(this.ALSongSelectINI);
+            this.TabALMainEditor.Controls.Add(this.TALP3ILabel);
+            this.TabALMainEditor.Controls.Add(this.TALVenueLabel);
+            this.TabALMainEditor.Controls.Add(this.TALPlayer3Label);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchVenue);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart3);
+            this.TabALMainEditor.Controls.Add(this.TALAdvancedSettings);
+            this.TabALMainEditor.Controls.Add(this.TALP2DLabel);
+            this.TabALMainEditor.Controls.Add(this.TALPlayerSettings);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty2);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart1);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot2);
+            this.TabALMainEditor.Controls.Add(this.TALPlayer1Label);
+            this.TabALMainEditor.Controls.Add(this.TALP2ILabel);
+            this.TabALMainEditor.Controls.Add(this.TALPISettings);
+            this.TabALMainEditor.Controls.Add(this.TALPlayer2Label);
+            this.TabALMainEditor.Controls.Add(this.TALP1ILabel);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart2);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot1);
+            this.TabALMainEditor.Controls.Add(this.TALPDSettings);
+            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty1);
+            this.TabALMainEditor.Controls.Add(this.TALP1DLabel);
+            this.TabALMainEditor.Location = new System.Drawing.Point(6, 62);
+            this.TabALMainEditor.Name = "TabALMainEditor";
+            this.TabALMainEditor.Size = new System.Drawing.Size(649, 570);
+            this.TabALMainEditor.TabIndex = 63;
+            // 
+            // TALPTLSettings
+            // 
+            this.TALPTLSettings.AutoSize = true;
+            this.TALPTLSettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.TALPTLSettings.Location = new System.Drawing.Point(11, 278);
+            this.TALPTLSettings.Name = "TALPTLSettings";
+            this.TALPTLSettings.Size = new System.Drawing.Size(153, 22);
+            this.TALPTLSettings.TabIndex = 63;
+            this.TALPTLSettings.Text = "Player Tag Labels:";
+            // 
+            // TALGeneralSettings
+            // 
+            this.TALGeneralSettings.AutoSize = true;
+            this.TALGeneralSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TALGeneralSettings.Location = new System.Drawing.Point(3, 0);
+            this.TALGeneralSettings.Name = "TALGeneralSettings";
+            this.TALGeneralSettings.Size = new System.Drawing.Size(204, 25);
+            this.TALGeneralSettings.TabIndex = 1;
+            this.TALGeneralSettings.Text = "Auto Launch Settings:";
+            // 
+            // TALP4DLabel
+            // 
+            this.TALP4DLabel.AutoSize = true;
+            this.TALP4DLabel.Location = new System.Drawing.Point(358, 242);
+            this.TALP4DLabel.Name = "TALP4DLabel";
+            this.TALP4DLabel.Size = new System.Drawing.Size(74, 22);
+            this.TALP4DLabel.TabIndex = 58;
+            this.TALP4DLabel.Text = "Difficulty:";
+            // 
+            // TALSongLabel
+            // 
+            this.TALSongLabel.AutoSize = true;
+            this.TALSongLabel.Location = new System.Drawing.Point(146, 31);
+            this.TALSongLabel.Name = "TALSongLabel";
+            this.TALSongLabel.Size = new System.Drawing.Size(48, 22);
+            this.TALSongLabel.TabIndex = 5;
+            this.TALSongLabel.Text = "Song:";
+            // 
+            // TALP4ILabel
+            // 
+            this.TALP4ILabel.AutoSize = true;
+            this.TALP4ILabel.Location = new System.Drawing.Point(86, 242);
+            this.TALP4ILabel.Name = "TALP4ILabel";
+            this.TALP4ILabel.Size = new System.Drawing.Size(88, 22);
+            this.TALP4ILabel.TabIndex = 55;
+            this.TALP4ILabel.Text = "Instrument:";
+            // 
+            // TALPlayer4Label
+            // 
+            this.TALPlayer4Label.AutoSize = true;
+            this.TALPlayer4Label.Location = new System.Drawing.Point(13, 242);
+            this.TALPlayer4Label.Name = "TALPlayer4Label";
+            this.TALPlayer4Label.Size = new System.Drawing.Size(70, 22);
+            this.TALPlayer4Label.TabIndex = 54;
+            this.TALPlayer4Label.Text = "Player 4:";
+            // 
+            // TALPlayersLabel
+            // 
+            this.TALPlayersLabel.AutoSize = true;
+            this.TALPlayersLabel.Location = new System.Drawing.Point(13, 31);
+            this.TALPlayersLabel.Name = "TALPlayersLabel";
+            this.TALPlayersLabel.Size = new System.Drawing.Size(64, 22);
+            this.TALPlayersLabel.TabIndex = 10;
+            this.TALPlayersLabel.Text = "Players:";
+            // 
+            // TALP3DLabel
+            // 
+            this.TALP3DLabel.AutoSize = true;
+            this.TALP3DLabel.Location = new System.Drawing.Point(358, 205);
+            this.TALP3DLabel.Name = "TALP3DLabel";
+            this.TALP3DLabel.Size = new System.Drawing.Size(74, 22);
+            this.TALP3DLabel.TabIndex = 52;
+            this.TALP3DLabel.Text = "Difficulty:";
+            // 
+            // TALP3ILabel
+            // 
+            this.TALP3ILabel.AutoSize = true;
+            this.TALP3ILabel.Location = new System.Drawing.Point(86, 205);
+            this.TALP3ILabel.Name = "TALP3ILabel";
+            this.TALP3ILabel.Size = new System.Drawing.Size(88, 22);
+            this.TALP3ILabel.TabIndex = 49;
+            this.TALP3ILabel.Text = "Instrument:";
+            // 
+            // TALVenueLabel
+            // 
+            this.TALVenueLabel.AutoSize = true;
+            this.TALVenueLabel.Location = new System.Drawing.Point(392, 31);
+            this.TALVenueLabel.Name = "TALVenueLabel";
+            this.TALVenueLabel.Size = new System.Drawing.Size(54, 22);
+            this.TALVenueLabel.TabIndex = 31;
+            this.TALVenueLabel.Text = "Venue:";
+            // 
+            // TALPlayer3Label
+            // 
+            this.TALPlayer3Label.AutoSize = true;
+            this.TALPlayer3Label.Location = new System.Drawing.Point(13, 205);
+            this.TALPlayer3Label.Name = "TALPlayer3Label";
+            this.TALPlayer3Label.Size = new System.Drawing.Size(68, 22);
+            this.TALPlayer3Label.TabIndex = 48;
+            this.TALPlayer3Label.Text = "Player 3:";
+            // 
+            // TALAdvancedSettings
+            // 
+            this.TALAdvancedSettings.AutoSize = true;
+            this.TALAdvancedSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TALAdvancedSettings.Location = new System.Drawing.Point(3, 450);
+            this.TALAdvancedSettings.Name = "TALAdvancedSettings";
+            this.TALAdvancedSettings.Size = new System.Drawing.Size(179, 25);
+            this.TALAdvancedSettings.TabIndex = 33;
+            this.TALAdvancedSettings.Text = "Advanced Settings:";
+            // 
+            // TALP2DLabel
+            // 
+            this.TALP2DLabel.AutoSize = true;
+            this.TALP2DLabel.Location = new System.Drawing.Point(358, 169);
+            this.TALP2DLabel.Name = "TALP2DLabel";
+            this.TALP2DLabel.Size = new System.Drawing.Size(74, 22);
+            this.TALP2DLabel.TabIndex = 46;
+            this.TALP2DLabel.Text = "Difficulty:";
+            // 
+            // TALPlayerSettings
+            // 
+            this.TALPlayerSettings.AutoSize = true;
+            this.TALPlayerSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TALPlayerSettings.Location = new System.Drawing.Point(3, 75);
+            this.TALPlayerSettings.Name = "TALPlayerSettings";
+            this.TALPlayerSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TALPlayerSettings.Size = new System.Drawing.Size(147, 25);
+            this.TALPlayerSettings.TabIndex = 9;
+            this.TALPlayerSettings.Text = "Player Settings:";
+            // 
+            // TALPlayer1Label
+            // 
+            this.TALPlayer1Label.AutoSize = true;
+            this.TALPlayer1Label.Location = new System.Drawing.Point(13, 133);
+            this.TALPlayer1Label.Name = "TALPlayer1Label";
+            this.TALPlayer1Label.Size = new System.Drawing.Size(68, 22);
+            this.TALPlayer1Label.TabIndex = 16;
+            this.TALPlayer1Label.Text = "Player 1:";
+            // 
+            // TALP2ILabel
+            // 
+            this.TALP2ILabel.AutoSize = true;
+            this.TALP2ILabel.Location = new System.Drawing.Point(86, 169);
+            this.TALP2ILabel.Name = "TALP2ILabel";
+            this.TALP2ILabel.Size = new System.Drawing.Size(88, 22);
+            this.TALP2ILabel.TabIndex = 43;
+            this.TALP2ILabel.Text = "Instrument:";
+            // 
+            // TALPISettings
+            // 
+            this.TALPISettings.AutoSize = true;
+            this.TALPISettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.TALPISettings.Location = new System.Drawing.Point(79, 108);
+            this.TALPISettings.Name = "TALPISettings";
+            this.TALPISettings.Size = new System.Drawing.Size(162, 22);
+            this.TALPISettings.TabIndex = 25;
+            this.TALPISettings.Text = "Player Instruments:";
+            // 
+            // TALPlayer2Label
+            // 
+            this.TALPlayer2Label.AutoSize = true;
+            this.TALPlayer2Label.Location = new System.Drawing.Point(13, 169);
+            this.TALPlayer2Label.Name = "TALPlayer2Label";
+            this.TALPlayer2Label.Size = new System.Drawing.Size(69, 22);
+            this.TALPlayer2Label.TabIndex = 42;
+            this.TALPlayer2Label.Text = "Player 2:";
+            // 
+            // TALP1ILabel
+            // 
+            this.TALP1ILabel.AutoSize = true;
+            this.TALP1ILabel.Location = new System.Drawing.Point(86, 133);
+            this.TALP1ILabel.Name = "TALP1ILabel";
+            this.TALP1ILabel.Size = new System.Drawing.Size(88, 22);
+            this.TALP1ILabel.TabIndex = 34;
+            this.TALP1ILabel.Text = "Instrument:";
+            // 
+            // TALPDSettings
+            // 
+            this.TALPDSettings.AutoSize = true;
+            this.TALPDSettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
+            this.TALPDSettings.Location = new System.Drawing.Point(351, 108);
+            this.TALPDSettings.Name = "TALPDSettings";
+            this.TALPDSettings.Size = new System.Drawing.Size(151, 22);
+            this.TALPDSettings.TabIndex = 40;
+            this.TALPDSettings.Text = "Player Difficulties:";
+            // 
+            // TALP1DLabel
+            // 
+            this.TALP1DLabel.AutoSize = true;
+            this.TALP1DLabel.Location = new System.Drawing.Point(358, 133);
+            this.TALP1DLabel.Name = "TALP1DLabel";
+            this.TALP1DLabel.Size = new System.Drawing.Size(74, 22);
+            this.TALP1DLabel.TabIndex = 39;
+            this.TALP1DLabel.Text = "Difficulty:";
             // 
             // TabBandGroup
             // 
@@ -6220,266 +6508,6 @@
             this.IconLogoIMF.TabIndex = 22;
             this.IconLogoIMF.TabStop = false;
             // 
-            // TabAutoLaunchGroup
-            // 
-            this.TabAutoLaunchGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabAutoLaunchGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabAutoLaunchGroup.Controls.Add(this.TALSaveWarningLabel);
-            this.TabAutoLaunchGroup.Controls.Add(this.TabALMainEditor);
-            this.TabAutoLaunchGroup.Controls.Add(this.AutoLaunchEnabled);
-            this.TabAutoLaunchGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(100, 477);
-            this.TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
-            this.TabAutoLaunchGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabAutoLaunchGroup.TabIndex = 2;
-            this.TabAutoLaunchGroup.TabStop = false;
-            this.TabAutoLaunchGroup.Text = "DEBUG: Auto Launch Tab";
-            // 
-            // TALSaveWarningLabel
-            // 
-            this.TALSaveWarningLabel.AutoSize = true;
-            this.TALSaveWarningLabel.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.TALSaveWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.TALSaveWarningLabel.Location = new System.Drawing.Point(10, 11);
-            this.TALSaveWarningLabel.Name = "TALSaveWarningLabel";
-            this.TALSaveWarningLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TALSaveWarningLabel.Size = new System.Drawing.Size(579, 22);
-            this.TALSaveWarningLabel.TabIndex = 64;
-            this.TALSaveWarningLabel.Text = "Warning: This may erase your save data, so make sure to back it up first!";
-            // 
-            // TabALMainEditor
-            // 
-            this.TabALMainEditor.Controls.Add(this.TALGeneralSettings);
-            this.TabALMainEditor.Controls.Add(this.TALP4DLabel);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchEncoreMode);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty4);
-            this.TabALMainEditor.Controls.Add(this.TALSongLabel);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot4);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchRawLoad);
-            this.TabALMainEditor.Controls.Add(this.TALP4ILabel);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchPlayers);
-            this.TabALMainEditor.Controls.Add(this.TALPlayer4Label);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchSongTime);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart4);
-            this.TabALMainEditor.Controls.Add(this.TALPlayersLabel);
-            this.TabALMainEditor.Controls.Add(this.TALP3DLabel);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchHideHUD);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty3);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchSong);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot3);
-            this.TabALMainEditor.Controls.Add(this.ALSongSelectINI);
-            this.TabALMainEditor.Controls.Add(this.TALP3ILabel);
-            this.TabALMainEditor.Controls.Add(this.TALVenueLabel);
-            this.TabALMainEditor.Controls.Add(this.TALPlayer3Label);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchVenue);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart3);
-            this.TabALMainEditor.Controls.Add(this.TALAdvancedSettings);
-            this.TabALMainEditor.Controls.Add(this.TALP2DLabel);
-            this.TabALMainEditor.Controls.Add(this.TALPlayerSettings);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty2);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart1);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot2);
-            this.TabALMainEditor.Controls.Add(this.TALPlayer1Label);
-            this.TabALMainEditor.Controls.Add(this.TALP2ILabel);
-            this.TabALMainEditor.Controls.Add(this.TALPISettings);
-            this.TabALMainEditor.Controls.Add(this.TALPlayer2Label);
-            this.TabALMainEditor.Controls.Add(this.TALP1ILabel);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchPart2);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchBot1);
-            this.TabALMainEditor.Controls.Add(this.TALPDSettings);
-            this.TabALMainEditor.Controls.Add(this.AutoLaunchDifficulty1);
-            this.TabALMainEditor.Controls.Add(this.TALP1DLabel);
-            this.TabALMainEditor.Location = new System.Drawing.Point(6, 62);
-            this.TabALMainEditor.Name = "TabALMainEditor";
-            this.TabALMainEditor.Size = new System.Drawing.Size(649, 561);
-            this.TabALMainEditor.TabIndex = 63;
-            // 
-            // TALGeneralSettings
-            // 
-            this.TALGeneralSettings.AutoSize = true;
-            this.TALGeneralSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TALGeneralSettings.Location = new System.Drawing.Point(3, 0);
-            this.TALGeneralSettings.Name = "TALGeneralSettings";
-            this.TALGeneralSettings.Size = new System.Drawing.Size(204, 25);
-            this.TALGeneralSettings.TabIndex = 1;
-            this.TALGeneralSettings.Text = "Auto Launch Settings:";
-            // 
-            // TALP4DLabel
-            // 
-            this.TALP4DLabel.AutoSize = true;
-            this.TALP4DLabel.Location = new System.Drawing.Point(358, 242);
-            this.TALP4DLabel.Name = "TALP4DLabel";
-            this.TALP4DLabel.Size = new System.Drawing.Size(74, 22);
-            this.TALP4DLabel.TabIndex = 58;
-            this.TALP4DLabel.Text = "Difficulty:";
-            // 
-            // TALSongLabel
-            // 
-            this.TALSongLabel.AutoSize = true;
-            this.TALSongLabel.Location = new System.Drawing.Point(146, 31);
-            this.TALSongLabel.Name = "TALSongLabel";
-            this.TALSongLabel.Size = new System.Drawing.Size(48, 22);
-            this.TALSongLabel.TabIndex = 5;
-            this.TALSongLabel.Text = "Song:";
-            // 
-            // TALP4ILabel
-            // 
-            this.TALP4ILabel.AutoSize = true;
-            this.TALP4ILabel.Location = new System.Drawing.Point(86, 242);
-            this.TALP4ILabel.Name = "TALP4ILabel";
-            this.TALP4ILabel.Size = new System.Drawing.Size(88, 22);
-            this.TALP4ILabel.TabIndex = 55;
-            this.TALP4ILabel.Text = "Instrument:";
-            // 
-            // TALPlayer4Label
-            // 
-            this.TALPlayer4Label.AutoSize = true;
-            this.TALPlayer4Label.Location = new System.Drawing.Point(13, 242);
-            this.TALPlayer4Label.Name = "TALPlayer4Label";
-            this.TALPlayer4Label.Size = new System.Drawing.Size(70, 22);
-            this.TALPlayer4Label.TabIndex = 54;
-            this.TALPlayer4Label.Text = "Player 4:";
-            // 
-            // TALPlayersLabel
-            // 
-            this.TALPlayersLabel.AutoSize = true;
-            this.TALPlayersLabel.Location = new System.Drawing.Point(13, 31);
-            this.TALPlayersLabel.Name = "TALPlayersLabel";
-            this.TALPlayersLabel.Size = new System.Drawing.Size(64, 22);
-            this.TALPlayersLabel.TabIndex = 10;
-            this.TALPlayersLabel.Text = "Players:";
-            // 
-            // TALP3DLabel
-            // 
-            this.TALP3DLabel.AutoSize = true;
-            this.TALP3DLabel.Location = new System.Drawing.Point(358, 205);
-            this.TALP3DLabel.Name = "TALP3DLabel";
-            this.TALP3DLabel.Size = new System.Drawing.Size(74, 22);
-            this.TALP3DLabel.TabIndex = 52;
-            this.TALP3DLabel.Text = "Difficulty:";
-            // 
-            // TALP3ILabel
-            // 
-            this.TALP3ILabel.AutoSize = true;
-            this.TALP3ILabel.Location = new System.Drawing.Point(86, 205);
-            this.TALP3ILabel.Name = "TALP3ILabel";
-            this.TALP3ILabel.Size = new System.Drawing.Size(88, 22);
-            this.TALP3ILabel.TabIndex = 49;
-            this.TALP3ILabel.Text = "Instrument:";
-            // 
-            // TALVenueLabel
-            // 
-            this.TALVenueLabel.AutoSize = true;
-            this.TALVenueLabel.Location = new System.Drawing.Point(392, 31);
-            this.TALVenueLabel.Name = "TALVenueLabel";
-            this.TALVenueLabel.Size = new System.Drawing.Size(54, 22);
-            this.TALVenueLabel.TabIndex = 31;
-            this.TALVenueLabel.Text = "Venue:";
-            // 
-            // TALPlayer3Label
-            // 
-            this.TALPlayer3Label.AutoSize = true;
-            this.TALPlayer3Label.Location = new System.Drawing.Point(13, 205);
-            this.TALPlayer3Label.Name = "TALPlayer3Label";
-            this.TALPlayer3Label.Size = new System.Drawing.Size(68, 22);
-            this.TALPlayer3Label.TabIndex = 48;
-            this.TALPlayer3Label.Text = "Player 3:";
-            // 
-            // TALAdvancedSettings
-            // 
-            this.TALAdvancedSettings.AutoSize = true;
-            this.TALAdvancedSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TALAdvancedSettings.Location = new System.Drawing.Point(3, 280);
-            this.TALAdvancedSettings.Name = "TALAdvancedSettings";
-            this.TALAdvancedSettings.Size = new System.Drawing.Size(179, 25);
-            this.TALAdvancedSettings.TabIndex = 33;
-            this.TALAdvancedSettings.Text = "Advanced Settings:";
-            // 
-            // TALP2DLabel
-            // 
-            this.TALP2DLabel.AutoSize = true;
-            this.TALP2DLabel.Location = new System.Drawing.Point(358, 169);
-            this.TALP2DLabel.Name = "TALP2DLabel";
-            this.TALP2DLabel.Size = new System.Drawing.Size(74, 22);
-            this.TALP2DLabel.TabIndex = 46;
-            this.TALP2DLabel.Text = "Difficulty:";
-            // 
-            // TALPlayerSettings
-            // 
-            this.TALPlayerSettings.AutoSize = true;
-            this.TALPlayerSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TALPlayerSettings.Location = new System.Drawing.Point(3, 75);
-            this.TALPlayerSettings.Name = "TALPlayerSettings";
-            this.TALPlayerSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TALPlayerSettings.Size = new System.Drawing.Size(147, 25);
-            this.TALPlayerSettings.TabIndex = 9;
-            this.TALPlayerSettings.Text = "Player Settings:";
-            // 
-            // TALPlayer1Label
-            // 
-            this.TALPlayer1Label.AutoSize = true;
-            this.TALPlayer1Label.Location = new System.Drawing.Point(13, 133);
-            this.TALPlayer1Label.Name = "TALPlayer1Label";
-            this.TALPlayer1Label.Size = new System.Drawing.Size(68, 22);
-            this.TALPlayer1Label.TabIndex = 16;
-            this.TALPlayer1Label.Text = "Player 1:";
-            // 
-            // TALP2ILabel
-            // 
-            this.TALP2ILabel.AutoSize = true;
-            this.TALP2ILabel.Location = new System.Drawing.Point(86, 169);
-            this.TALP2ILabel.Name = "TALP2ILabel";
-            this.TALP2ILabel.Size = new System.Drawing.Size(88, 22);
-            this.TALP2ILabel.TabIndex = 43;
-            this.TALP2ILabel.Text = "Instrument:";
-            // 
-            // TALPISettings
-            // 
-            this.TALPISettings.AutoSize = true;
-            this.TALPISettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.TALPISettings.Location = new System.Drawing.Point(79, 108);
-            this.TALPISettings.Name = "TALPISettings";
-            this.TALPISettings.Size = new System.Drawing.Size(162, 22);
-            this.TALPISettings.TabIndex = 25;
-            this.TALPISettings.Text = "Player Instruments:";
-            // 
-            // TALPlayer2Label
-            // 
-            this.TALPlayer2Label.AutoSize = true;
-            this.TALPlayer2Label.Location = new System.Drawing.Point(13, 169);
-            this.TALPlayer2Label.Name = "TALPlayer2Label";
-            this.TALPlayer2Label.Size = new System.Drawing.Size(69, 22);
-            this.TALPlayer2Label.TabIndex = 42;
-            this.TALPlayer2Label.Text = "Player 2:";
-            // 
-            // TALP1ILabel
-            // 
-            this.TALP1ILabel.AutoSize = true;
-            this.TALP1ILabel.Location = new System.Drawing.Point(86, 133);
-            this.TALP1ILabel.Name = "TALP1ILabel";
-            this.TALP1ILabel.Size = new System.Drawing.Size(88, 22);
-            this.TALP1ILabel.TabIndex = 34;
-            this.TALP1ILabel.Text = "Instrument:";
-            // 
-            // TALPDSettings
-            // 
-            this.TALPDSettings.AutoSize = true;
-            this.TALPDSettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.TALPDSettings.Location = new System.Drawing.Point(351, 108);
-            this.TALPDSettings.Name = "TALPDSettings";
-            this.TALPDSettings.Size = new System.Drawing.Size(151, 22);
-            this.TALPDSettings.TabIndex = 40;
-            this.TALPDSettings.Text = "Player Difficulties:";
-            // 
-            // TALP1DLabel
-            // 
-            this.TALP1DLabel.AutoSize = true;
-            this.TALP1DLabel.Location = new System.Drawing.Point(358, 133);
-            this.TALP1DLabel.Name = "TALP1DLabel";
-            this.TALP1DLabel.Size = new System.Drawing.Size(74, 22);
-            this.TALP1DLabel.TabIndex = 39;
-            this.TALP1DLabel.Text = "Difficulty:";
-            // 
             // TabGeneralGroup
             // 
             this.TabGeneralGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -6701,6 +6729,86 @@
             this.DummyLabel.TabIndex = 14;
             this.DummyLabel.Text = "DUMMY_LABEL";
             // 
+            // TALPTLPlayer4Label
+            // 
+            this.TALPTLPlayer4Label.AutoSize = true;
+            this.TALPTLPlayer4Label.Location = new System.Drawing.Point(44, 414);
+            this.TALPTLPlayer4Label.Name = "TALPTLPlayer4Label";
+            this.TALPTLPlayer4Label.Size = new System.Drawing.Size(70, 22);
+            this.TALPTLPlayer4Label.TabIndex = 67;
+            this.TALPTLPlayer4Label.Text = "Player 4:";
+            // 
+            // TALPTLPlayer3Label
+            // 
+            this.TALPTLPlayer3Label.AutoSize = true;
+            this.TALPTLPlayer3Label.Location = new System.Drawing.Point(44, 377);
+            this.TALPTLPlayer3Label.Name = "TALPTLPlayer3Label";
+            this.TALPTLPlayer3Label.Size = new System.Drawing.Size(68, 22);
+            this.TALPTLPlayer3Label.TabIndex = 66;
+            this.TALPTLPlayer3Label.Text = "Player 3:";
+            // 
+            // TALPTLPlayer1Label
+            // 
+            this.TALPTLPlayer1Label.AutoSize = true;
+            this.TALPTLPlayer1Label.Location = new System.Drawing.Point(44, 305);
+            this.TALPTLPlayer1Label.Name = "TALPTLPlayer1Label";
+            this.TALPTLPlayer1Label.Size = new System.Drawing.Size(68, 22);
+            this.TALPTLPlayer1Label.TabIndex = 64;
+            this.TALPTLPlayer1Label.Text = "Player 1:";
+            // 
+            // TALPTLPlayer2Label
+            // 
+            this.TALPTLPlayer2Label.AutoSize = true;
+            this.TALPTLPlayer2Label.Location = new System.Drawing.Point(44, 341);
+            this.TALPTLPlayer2Label.Name = "TALPTLPlayer2Label";
+            this.TALPTLPlayer2Label.Size = new System.Drawing.Size(69, 22);
+            this.TALPTLPlayer2Label.TabIndex = 65;
+            this.TALPTLPlayer2Label.Text = "Player 2:";
+            // 
+            // GamerTag1
+            // 
+            this.GamerTag1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GamerTag1.Location = new System.Drawing.Point(121, 305);
+            this.GamerTag1.Name = "GamerTag1";
+            this.GamerTag1.Size = new System.Drawing.Size(226, 23);
+            this.GamerTag1.TabIndex = 68;
+            this.ToolTipMain.SetToolTip(this.GamerTag1, "Text label that will be shown above Player 1\'s highway.\r\nLeave blank to display n" +
+        "othing.");
+            this.GamerTag1.TextChanged += new System.EventHandler(this.GamerTag1_TextChanged);
+            // 
+            // GamerTag2
+            // 
+            this.GamerTag2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GamerTag2.Location = new System.Drawing.Point(121, 342);
+            this.GamerTag2.Name = "GamerTag2";
+            this.GamerTag2.Size = new System.Drawing.Size(226, 23);
+            this.GamerTag2.TabIndex = 69;
+            this.ToolTipMain.SetToolTip(this.GamerTag2, "Text label that will be shown above Player 2\'s highway.\r\nLeave blank to display n" +
+        "othing.");
+            this.GamerTag2.TextChanged += new System.EventHandler(this.GamerTag2_TextChanged);
+            // 
+            // GamerTag3
+            // 
+            this.GamerTag3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GamerTag3.Location = new System.Drawing.Point(121, 379);
+            this.GamerTag3.Name = "GamerTag3";
+            this.GamerTag3.Size = new System.Drawing.Size(226, 23);
+            this.GamerTag3.TabIndex = 70;
+            this.ToolTipMain.SetToolTip(this.GamerTag3, "Text label that will be shown above Player 3\'s highway.\r\nLeave blank to display n" +
+        "othing.");
+            this.GamerTag3.TextChanged += new System.EventHandler(this.GamerTag3_TextChanged);
+            // 
+            // GamerTag4
+            // 
+            this.GamerTag4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.GamerTag4.Location = new System.Drawing.Point(121, 415);
+            this.GamerTag4.Name = "GamerTag4";
+            this.GamerTag4.Size = new System.Drawing.Size(226, 23);
+            this.GamerTag4.TabIndex = 71;
+            this.ToolTipMain.SetToolTip(this.GamerTag4, "Text label that will be shown above Player 4\'s highway.\r\nLeave blank to display n" +
+        "othing.");
+            this.GamerTag4.TextChanged += new System.EventHandler(this.GamerTag4_TextChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -6753,6 +6861,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabAutoLaunchGroup.ResumeLayout(false);
+            this.TabAutoLaunchGroup.PerformLayout();
+            this.TabALMainEditor.ResumeLayout(false);
+            this.TabALMainEditor.PerformLayout();
             this.TabBandGroup.ResumeLayout(false);
             this.TabBandGroup.PerformLayout();
             this.TabGraphicsGroup.ResumeLayout(false);
@@ -6775,10 +6887,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
-            this.TabAutoLaunchGroup.ResumeLayout(false);
-            this.TabAutoLaunchGroup.PerformLayout();
-            this.TabALMainEditor.ResumeLayout(false);
-            this.TabALMainEditor.PerformLayout();
             this.TabGeneralGroup.ResumeLayout(false);
             this.TabGeneralGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).EndInit();
@@ -7261,6 +7369,15 @@
         private System.Windows.Forms.CheckBox FixGuitarInputLogic;
         private System.Windows.Forms.CheckBox DisableInputHack;
         private System.Windows.Forms.CheckBox TrainingScore;
+        private System.Windows.Forms.Label TALPTLSettings;
+        private System.Windows.Forms.TextBox GamerTag4;
+        private System.Windows.Forms.TextBox GamerTag3;
+        private System.Windows.Forms.TextBox GamerTag2;
+        private System.Windows.Forms.TextBox GamerTag1;
+        private System.Windows.Forms.Label TALPTLPlayer4Label;
+        private System.Windows.Forms.Label TALPTLPlayer3Label;
+        private System.Windows.Forms.Label TALPTLPlayer1Label;
+        private System.Windows.Forms.Label TALPTLPlayer2Label;
     }
 }
 
