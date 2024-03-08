@@ -33,6 +33,7 @@
             this.ProceedToLauncherButton = new System.Windows.Forms.Button();
             this.VersionInfoLabel = new System.Windows.Forms.Label();
             this.AboutLauncherLabel = new System.Windows.Forms.Label();
+            this.NeverShowAgain = new System.Windows.Forms.CheckBox();
             this.InfoPanelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogoImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoFretworks)).BeginInit();
@@ -44,6 +45,7 @@
             this.InfoPanelMain.BackColor = System.Drawing.Color.Transparent;
             this.InfoPanelMain.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_d_l;
             this.InfoPanelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.InfoPanelMain.Controls.Add(this.NeverShowAgain);
             this.InfoPanelMain.Controls.Add(this.AboutLauncherLabel);
             this.InfoPanelMain.Controls.Add(this.VersionInfoLabel);
             this.InfoPanelMain.Controls.Add(this.ProceedToLauncherButton);
@@ -114,7 +116,7 @@
             this.RunWTDEButton.Font = new System.Drawing.Font("Lexend", 14F);
             this.RunWTDEButton.ForeColor = System.Drawing.Color.White;
             this.RunWTDEButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.RunWTDEButton.Location = new System.Drawing.Point(182, 546);
+            this.RunWTDEButton.Location = new System.Drawing.Point(182, 520);
             this.RunWTDEButton.Name = "RunWTDEButton";
             this.RunWTDEButton.Size = new System.Drawing.Size(378, 54);
             this.RunWTDEButton.TabIndex = 5;
@@ -135,7 +137,7 @@
             this.ProceedToLauncherButton.Font = new System.Drawing.Font("Lexend", 14F);
             this.ProceedToLauncherButton.ForeColor = System.Drawing.Color.White;
             this.ProceedToLauncherButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.ProceedToLauncherButton.Location = new System.Drawing.Point(182, 478);
+            this.ProceedToLauncherButton.Location = new System.Drawing.Point(182, 459);
             this.ProceedToLauncherButton.Name = "ProceedToLauncherButton";
             this.ProceedToLauncherButton.Size = new System.Drawing.Size(378, 54);
             this.ProceedToLauncherButton.TabIndex = 6;
@@ -164,6 +166,18 @@
             this.AboutLauncherLabel.TabIndex = 8;
             this.AboutLauncherLabel.Text = "Made by IMF24, Fretworks";
             this.AboutLauncherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // NeverShowAgain
+            // 
+            this.NeverShowAgain.AutoSize = true;
+            this.NeverShowAgain.Font = new System.Drawing.Font("Lexend", 10F);
+            this.NeverShowAgain.ForeColor = System.Drawing.Color.White;
+            this.NeverShowAgain.Location = new System.Drawing.Point(240, 580);
+            this.NeverShowAgain.Name = "NeverShowAgain";
+            this.NeverShowAgain.Size = new System.Drawing.Size(263, 26);
+            this.NeverShowAgain.TabIndex = 9;
+            this.NeverShowAgain.Text = "Do not show this screen at startup.";
+            this.NeverShowAgain.UseVisualStyleBackColor = true;
             // 
             // IntroHelloScreen
             // 
@@ -200,5 +214,6 @@
         private System.Windows.Forms.Button RunWTDEButton;
         private System.Windows.Forms.Label AboutLauncherLabel;
         private System.Windows.Forms.Label VersionInfoLabel;
+        private System.Windows.Forms.CheckBox NeverShowAgain;
     }
 }

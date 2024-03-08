@@ -23,8 +23,14 @@ namespace WTDE_Launcher_V3 {
             VersionInfoLabel.Text = VersionInfoLabel.Text.Replace("ABC", V3LauncherConstants.VERSION);
         }
 
+        public void RunNeverShowAgain() {
+            if (NeverShowAgain.Checked) {
+                INIFunctions.SaveINIValue("Launcher", "HelloMessageShown", "1");
+            }
+        }
+
         private void RunWTDEButton_Click(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Launcher", "HelloMessageShown", "1");
+            RunNeverShowAgain();
             this.Close();
 
             // Move to game directory and start!
@@ -34,7 +40,7 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void ProceedToLauncherButton_Click(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Launcher", "HelloMessageShown", "1");
+            RunNeverShowAgain();
             this.Close();
         }
     }
