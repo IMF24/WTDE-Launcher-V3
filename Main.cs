@@ -180,14 +180,21 @@ namespace WTDE_Launcher_V3 {
         }
 
         /// <summary>
-        ///  Load all config data from GHWTDE.ini and AspyrConfig.xml.
+        ///  Makes a default GHWTDE.ini file for the user if they don't have one.
         /// </summary>
-        public void LoadINISettings() {
-            // Write a new default config if the user doesn't have one!
+        public void WriteDefaultConfig() {
             if (!File.Exists(V3LauncherConstants.WTDEConfigDir)) {
                 string fileContents = Properties.Resources.default_config.ToString();
                 File.WriteAllText(V3LauncherConstants.WTDEConfigDir, fileContents);
             }
+        }
+
+        /// <summary>
+        ///  Load all config data from GHWTDE.ini and AspyrConfig.xml.
+        /// </summary>
+        public void LoadINISettings() {
+            // Write a new default config if the user doesn't have one!
+            WriteDefaultConfig();
 
             // ---------------------------------
             // GENERAL TAB
@@ -328,6 +335,9 @@ namespace WTDE_Launcher_V3 {
             HUDTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HUDTheme", "ghwt_plus"),
                 V3LauncherConstants.HUDThemes[1], V3LauncherConstants.HUDThemes[0]);
             TrainingScore.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "TrainingScore", "0"));
+            AttackIconTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "AttackIconTheme", "ghwt"),
+                new string[] { "ghwt", "gh3", "ghm" },
+                new string[] { "GH: World Tour (Default)", "Guitar Hero III", "Guitar Hero: Metallica" });
             YouRockTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "YouRockTheme", "ghwt"),
                 V3LauncherConstants.YouRockThemes[1], V3LauncherConstants.YouRockThemes[0]);
             PauseTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "PauseTheme", "ghwt"),
@@ -1888,6 +1898,12 @@ namespace WTDE_Launcher_V3 {
 
         private void TrainingScore_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "TrainingScore", INIFunctions.BoolToString(TrainingScore.Checked));
+        }
+
+        private void AttackIconTheme_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "AttackIconTheme", INIFunctions.InterpretINISetting(AttackIconTheme.Text,
+                new string[] { "GH: World Tour (Default)", "Guitar Hero III", "Guitar Hero: Metallica" },
+                new string[] { "ghwt", "gh3", "ghm" }));
         }
 
         private void YouRockTheme_SelectedIndexChanged(object sender, EventArgs e) {

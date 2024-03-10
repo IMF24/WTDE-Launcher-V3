@@ -25,26 +25,32 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntroHelloScreen));
             this.InfoPanelMain = new System.Windows.Forms.Panel();
-            this.WTDELogoImage = new System.Windows.Forms.PictureBox();
-            this.MainInfoLabel = new System.Windows.Forms.Label();
-            this.IconLogoFretworks = new System.Windows.Forms.PictureBox();
-            this.IconLogoIMF = new System.Windows.Forms.PictureBox();
-            this.RunWTDEButton = new System.Windows.Forms.Button();
-            this.ProceedToLauncherButton = new System.Windows.Forms.Button();
-            this.VersionInfoLabel = new System.Windows.Forms.Label();
-            this.AboutLauncherLabel = new System.Windows.Forms.Label();
+            this.WhiteChalkLeft = new System.Windows.Forms.PictureBox();
             this.NeverShowAgain = new System.Windows.Forms.CheckBox();
+            this.AboutLauncherLabel = new System.Windows.Forms.Label();
+            this.VersionInfoLabel = new System.Windows.Forms.Label();
+            this.ProceedToLauncherButton = new System.Windows.Forms.Button();
+            this.RunWTDEButton = new System.Windows.Forms.Button();
+            this.IconLogoIMF = new System.Windows.Forms.PictureBox();
+            this.IconLogoFretworks = new System.Windows.Forms.PictureBox();
+            this.MainInfoLabel = new System.Windows.Forms.Label();
+            this.WTDELogoImage = new System.Windows.Forms.PictureBox();
+            this.WhiteChalkRight = new System.Windows.Forms.PictureBox();
             this.InfoPanelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WTDELogoImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoFretworks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhiteChalkLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoFretworks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WTDELogoImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhiteChalkRight)).BeginInit();
             this.SuspendLayout();
             // 
             // InfoPanelMain
             // 
             this.InfoPanelMain.BackColor = System.Drawing.Color.Transparent;
-            this.InfoPanelMain.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_d_l;
+            this.InfoPanelMain.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m;
             this.InfoPanelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.InfoPanelMain.Controls.Add(this.WhiteChalkRight);
+            this.InfoPanelMain.Controls.Add(this.WhiteChalkLeft);
             this.InfoPanelMain.Controls.Add(this.NeverShowAgain);
             this.InfoPanelMain.Controls.Add(this.AboutLauncherLabel);
             this.InfoPanelMain.Controls.Add(this.VersionInfoLabel);
@@ -54,75 +60,54 @@
             this.InfoPanelMain.Controls.Add(this.IconLogoFretworks);
             this.InfoPanelMain.Controls.Add(this.MainInfoLabel);
             this.InfoPanelMain.Controls.Add(this.WTDELogoImage);
-            this.InfoPanelMain.Location = new System.Drawing.Point(-11, -4);
+            this.InfoPanelMain.Location = new System.Drawing.Point(-9, -4);
             this.InfoPanelMain.Name = "InfoPanelMain";
-            this.InfoPanelMain.Size = new System.Drawing.Size(740, 645);
+            this.InfoPanelMain.Size = new System.Drawing.Size(740, 651);
             this.InfoPanelMain.TabIndex = 0;
             // 
-            // WTDELogoImage
+            // WhiteChalkLeft
             // 
-            this.WTDELogoImage.Image = global::WTDE_Launcher_V3.Properties.Resources.logo_wtde;
-            this.WTDELogoImage.Location = new System.Drawing.Point(267, 7);
-            this.WTDELogoImage.Name = "WTDELogoImage";
-            this.WTDELogoImage.Size = new System.Drawing.Size(192, 192);
-            this.WTDELogoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WTDELogoImage.TabIndex = 0;
-            this.WTDELogoImage.TabStop = false;
+            this.WhiteChalkLeft.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.chalk_left;
+            this.WhiteChalkLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WhiteChalkLeft.Location = new System.Drawing.Point(88, 74);
+            this.WhiteChalkLeft.Name = "WhiteChalkLeft";
+            this.WhiteChalkLeft.Size = new System.Drawing.Size(128, 64);
+            this.WhiteChalkLeft.TabIndex = 10;
+            this.WhiteChalkLeft.TabStop = false;
             // 
-            // MainInfoLabel
+            // NeverShowAgain
             // 
-            this.MainInfoLabel.AutoSize = true;
-            this.MainInfoLabel.Font = new System.Drawing.Font("Lexend", 10F);
-            this.MainInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.MainInfoLabel.Location = new System.Drawing.Point(84, 207);
-            this.MainInfoLabel.Name = "MainInfoLabel";
-            this.MainInfoLabel.Size = new System.Drawing.Size(565, 242);
-            this.MainInfoLabel.TabIndex = 1;
-            this.MainInfoLabel.Text = resources.GetString("MainInfoLabel.Text");
-            this.MainInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NeverShowAgain.AutoSize = true;
+            this.NeverShowAgain.Font = new System.Drawing.Font("Lexend", 10F);
+            this.NeverShowAgain.ForeColor = System.Drawing.Color.White;
+            this.NeverShowAgain.Location = new System.Drawing.Point(240, 580);
+            this.NeverShowAgain.Name = "NeverShowAgain";
+            this.NeverShowAgain.Size = new System.Drawing.Size(263, 26);
+            this.NeverShowAgain.TabIndex = 9;
+            this.NeverShowAgain.Text = "Do not show this screen at startup.";
+            this.NeverShowAgain.UseVisualStyleBackColor = true;
             // 
-            // IconLogoFretworks
+            // AboutLauncherLabel
             // 
-            this.IconLogoFretworks.BackColor = System.Drawing.Color.Transparent;
-            this.IconLogoFretworks.Image = global::WTDE_Launcher_V3.Properties.Resources.fretworks;
-            this.IconLogoFretworks.Location = new System.Drawing.Point(23, 520);
-            this.IconLogoFretworks.Name = "IconLogoFretworks";
-            this.IconLogoFretworks.Size = new System.Drawing.Size(80, 80);
-            this.IconLogoFretworks.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IconLogoFretworks.TabIndex = 2;
-            this.IconLogoFretworks.TabStop = false;
+            this.AboutLauncherLabel.Font = new System.Drawing.Font("Lexend", 10F);
+            this.AboutLauncherLabel.ForeColor = System.Drawing.Color.White;
+            this.AboutLauncherLabel.Location = new System.Drawing.Point(374, 613);
+            this.AboutLauncherLabel.Name = "AboutLauncherLabel";
+            this.AboutLauncherLabel.Size = new System.Drawing.Size(345, 22);
+            this.AboutLauncherLabel.TabIndex = 8;
+            this.AboutLauncherLabel.Text = "Made by IMF24, Fretworks";
+            this.AboutLauncherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // IconLogoIMF
+            // VersionInfoLabel
             // 
-            this.IconLogoIMF.BackColor = System.Drawing.Color.Transparent;
-            this.IconLogoIMF.Image = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
-            this.IconLogoIMF.Location = new System.Drawing.Point(639, 520);
-            this.IconLogoIMF.Name = "IconLogoIMF";
-            this.IconLogoIMF.Size = new System.Drawing.Size(80, 80);
-            this.IconLogoIMF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IconLogoIMF.TabIndex = 3;
-            this.IconLogoIMF.TabStop = false;
-            // 
-            // RunWTDEButton
-            // 
-            this.RunWTDEButton.BackColor = System.Drawing.Color.Transparent;
-            this.RunWTDEButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.RunWTDEButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RunWTDEButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RunWTDEButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.RunWTDEButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.RunWTDEButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.RunWTDEButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RunWTDEButton.Font = new System.Drawing.Font("Lexend", 14F);
-            this.RunWTDEButton.ForeColor = System.Drawing.Color.White;
-            this.RunWTDEButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.RunWTDEButton.Location = new System.Drawing.Point(182, 520);
-            this.RunWTDEButton.Name = "RunWTDEButton";
-            this.RunWTDEButton.Size = new System.Drawing.Size(378, 54);
-            this.RunWTDEButton.TabIndex = 5;
-            this.RunWTDEButton.Text = "I\'m fine, start the game!";
-            this.RunWTDEButton.UseVisualStyleBackColor = false;
-            this.RunWTDEButton.Click += new System.EventHandler(this.RunWTDEButton_Click);
+            this.VersionInfoLabel.Font = new System.Drawing.Font("Lexend", 10F);
+            this.VersionInfoLabel.ForeColor = System.Drawing.Color.White;
+            this.VersionInfoLabel.Location = new System.Drawing.Point(23, 613);
+            this.VersionInfoLabel.Name = "VersionInfoLabel";
+            this.VersionInfoLabel.Size = new System.Drawing.Size(345, 22);
+            this.VersionInfoLabel.TabIndex = 7;
+            this.VersionInfoLabel.Text = "GHWT: Definitive Edition Launcher VABC";
+            this.VersionInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ProceedToLauncherButton
             // 
@@ -145,44 +130,85 @@
             this.ProceedToLauncherButton.UseVisualStyleBackColor = false;
             this.ProceedToLauncherButton.Click += new System.EventHandler(this.ProceedToLauncherButton_Click);
             // 
-            // VersionInfoLabel
+            // RunWTDEButton
             // 
-            this.VersionInfoLabel.Font = new System.Drawing.Font("Lexend", 10F);
-            this.VersionInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.VersionInfoLabel.Location = new System.Drawing.Point(23, 613);
-            this.VersionInfoLabel.Name = "VersionInfoLabel";
-            this.VersionInfoLabel.Size = new System.Drawing.Size(345, 22);
-            this.VersionInfoLabel.TabIndex = 7;
-            this.VersionInfoLabel.Text = "GHWT: Definitive Edition Launcher VABC";
-            this.VersionInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RunWTDEButton.BackColor = System.Drawing.Color.Transparent;
+            this.RunWTDEButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.RunWTDEButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RunWTDEButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RunWTDEButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.RunWTDEButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.RunWTDEButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.RunWTDEButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RunWTDEButton.Font = new System.Drawing.Font("Lexend", 14F);
+            this.RunWTDEButton.ForeColor = System.Drawing.Color.White;
+            this.RunWTDEButton.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.RunWTDEButton.Location = new System.Drawing.Point(182, 520);
+            this.RunWTDEButton.Name = "RunWTDEButton";
+            this.RunWTDEButton.Size = new System.Drawing.Size(378, 54);
+            this.RunWTDEButton.TabIndex = 5;
+            this.RunWTDEButton.Text = "I\'m fine, start the game!";
+            this.RunWTDEButton.UseVisualStyleBackColor = false;
+            this.RunWTDEButton.Click += new System.EventHandler(this.RunWTDEButton_Click);
             // 
-            // AboutLauncherLabel
+            // IconLogoIMF
             // 
-            this.AboutLauncherLabel.Font = new System.Drawing.Font("Lexend", 10F);
-            this.AboutLauncherLabel.ForeColor = System.Drawing.Color.White;
-            this.AboutLauncherLabel.Location = new System.Drawing.Point(374, 613);
-            this.AboutLauncherLabel.Name = "AboutLauncherLabel";
-            this.AboutLauncherLabel.Size = new System.Drawing.Size(345, 22);
-            this.AboutLauncherLabel.TabIndex = 8;
-            this.AboutLauncherLabel.Text = "Made by IMF24, Fretworks";
-            this.AboutLauncherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.IconLogoIMF.BackColor = System.Drawing.Color.Transparent;
+            this.IconLogoIMF.Image = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
+            this.IconLogoIMF.Location = new System.Drawing.Point(639, 528);
+            this.IconLogoIMF.Name = "IconLogoIMF";
+            this.IconLogoIMF.Size = new System.Drawing.Size(80, 80);
+            this.IconLogoIMF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IconLogoIMF.TabIndex = 3;
+            this.IconLogoIMF.TabStop = false;
             // 
-            // NeverShowAgain
+            // IconLogoFretworks
             // 
-            this.NeverShowAgain.AutoSize = true;
-            this.NeverShowAgain.Font = new System.Drawing.Font("Lexend", 10F);
-            this.NeverShowAgain.ForeColor = System.Drawing.Color.White;
-            this.NeverShowAgain.Location = new System.Drawing.Point(240, 580);
-            this.NeverShowAgain.Name = "NeverShowAgain";
-            this.NeverShowAgain.Size = new System.Drawing.Size(263, 26);
-            this.NeverShowAgain.TabIndex = 9;
-            this.NeverShowAgain.Text = "Do not show this screen at startup.";
-            this.NeverShowAgain.UseVisualStyleBackColor = true;
+            this.IconLogoFretworks.BackColor = System.Drawing.Color.Transparent;
+            this.IconLogoFretworks.Image = global::WTDE_Launcher_V3.Properties.Resources.fretworks;
+            this.IconLogoFretworks.Location = new System.Drawing.Point(23, 528);
+            this.IconLogoFretworks.Name = "IconLogoFretworks";
+            this.IconLogoFretworks.Size = new System.Drawing.Size(80, 80);
+            this.IconLogoFretworks.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IconLogoFretworks.TabIndex = 2;
+            this.IconLogoFretworks.TabStop = false;
+            // 
+            // MainInfoLabel
+            // 
+            this.MainInfoLabel.AutoSize = true;
+            this.MainInfoLabel.Font = new System.Drawing.Font("Lexend", 10F);
+            this.MainInfoLabel.ForeColor = System.Drawing.Color.White;
+            this.MainInfoLabel.Location = new System.Drawing.Point(85, 206);
+            this.MainInfoLabel.Name = "MainInfoLabel";
+            this.MainInfoLabel.Size = new System.Drawing.Size(565, 242);
+            this.MainInfoLabel.TabIndex = 1;
+            this.MainInfoLabel.Text = resources.GetString("MainInfoLabel.Text");
+            this.MainInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // WTDELogoImage
+            // 
+            this.WTDELogoImage.Image = global::WTDE_Launcher_V3.Properties.Resources.logo_wtde;
+            this.WTDELogoImage.Location = new System.Drawing.Point(271, 7);
+            this.WTDELogoImage.Name = "WTDELogoImage";
+            this.WTDELogoImage.Size = new System.Drawing.Size(192, 192);
+            this.WTDELogoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WTDELogoImage.TabIndex = 0;
+            this.WTDELogoImage.TabStop = false;
+            // 
+            // WhiteChalkRight
+            // 
+            this.WhiteChalkRight.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.chalk_right;
+            this.WhiteChalkRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WhiteChalkRight.Location = new System.Drawing.Point(521, 74);
+            this.WhiteChalkRight.Name = "WhiteChalkRight";
+            this.WhiteChalkRight.Size = new System.Drawing.Size(128, 64);
+            this.WhiteChalkRight.TabIndex = 11;
+            this.WhiteChalkRight.TabStop = false;
             // 
             // IntroHelloScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.bg_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(720, 640);
@@ -196,9 +222,11 @@
             this.Text = "IntroHelloScreen";
             this.InfoPanelMain.ResumeLayout(false);
             this.InfoPanelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WTDELogoImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoFretworks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhiteChalkLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoFretworks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WTDELogoImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WhiteChalkRight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,5 +243,7 @@
         private System.Windows.Forms.Label AboutLauncherLabel;
         private System.Windows.Forms.Label VersionInfoLabel;
         private System.Windows.Forms.CheckBox NeverShowAgain;
+        private System.Windows.Forms.PictureBox WhiteChalkLeft;
+        private System.Windows.Forms.PictureBox WhiteChalkRight;
     }
 }

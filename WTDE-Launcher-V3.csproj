@@ -376,6 +376,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="Classes\ModHandler.cs" />
+    <None Include="res\img\chalk_left.png" />
+    <None Include="res\img\chalk_right.png" />
     <None Include="res\img\logo_cobalt.png" />
     <None Include="res\img\menuicons\gh3_sp_fx.png" />
     <None Include="res\img\icon\theme_colors.png" />
