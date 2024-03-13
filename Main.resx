@@ -240,19 +240,6 @@ fonts to compliment their original appearances in their respective games.</value
   •  Guitar Hero: Metallica: Tap notes are connected by a gray line.
   •  No Tap Trail: The tap trail will not be displayed.</value>
   </data>
-  <data name="AudioBuffLen.ToolTip" xml:space="preserve">
-    <value>In bytes, the length of the audio buffer used when decoding FMOD streams.
-Higher is usually better, but changing this or changing your speaker output
-frequency can potentially cause bad audio output.
-
-For most users, leave this on 4096. If audio begins to sound bad, turn this
-down to a lower value.</value>
-  </data>
-  <data name="MuteStreams.ToolTip" xml:space="preserve">
-    <value>When this is enabled, if a note is missed, it mutes out the current instrument track
-until another note is successfully hit. Unchecking this disables this behavior, and
-all audio tracks will be audible regardless of notes missed.</value>
-  </data>
   <data name="RichPresence.ToolTip" xml:space="preserve">
     <value>Uses Discord's rich presence feature.
 
@@ -565,6 +552,34 @@ GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
         dAG58XutFRzhTlbwR9tJl/gpK7jIT+ptBReQO/ZZeiJKsaRsIGqD4sx3pru5R9ggSvOB7OpWW8U4c8vs
         8KL1NOVeh09+5GKO+cZoW8WdjFxznpls6fj4+Pj4+Pj4xDpEfwEBzJ8BrinHKwAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="MuteStreams.ToolTip" xml:space="preserve">
+    <value>When this is enabled, if a note is missed, it mutes out the current instrument track
+until another note is successfully hit. Unchecking this disables this behavior, and
+all audio tracks will be audible regardless of notes missed.</value>
+  </data>
+  <data name="AudioBuffLen.ToolTip" xml:space="preserve">
+    <value>In bytes, the length of the audio buffer used when decoding FMOD streams.
+Higher is usually better, but changing this or changing your speaker output
+frequency can potentially cause bad audio output.
+
+For most users, leave this on 4096. If audio begins to sound bad, turn this
+down to a lower value.</value>
+  </data>
+  <data name="SPClapType.ToolTip" xml:space="preserve">
+    <value>When Star Power is active, what type of claps do you want to hear?
+
+  •  Default (Per Venue): While Star Power is active, the clap type is determinant on the venue.
+  •  Small, Interior: Quiet, soft claps. Typically heard in interior venues with small crowds.
+  •  Medium, Interior: Moderately quiet claps. Heard in venues with moderately sized crowds
+      in indoor venues, but still relatively quiet.
+  •  Medium, Exterior: Moderately loud claps. Usually heard in venues with moderately large
+      crowds, but still not a massive crowd.
+  •  Large, Exterior: Very loud claps. Heard in venues that are typically large, outdoor spaces,
+      or venues that would otherwise have very large claps.
+  •  No Claps: Disables crowd clapping entirely while Star Power is active.
+
+Note that this setting OVERRIDES any and all crowd clap types in venues by default if set that way.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>55</value>

@@ -171,7 +171,8 @@ namespace WTDE_Launcher_V3 {
                     return outValues[i].ToString();
                 }
             }
-            return "";
+
+            return value;
         }
     }
 }

@@ -199,14 +199,14 @@ namespace WTDE_Launcher_V3 {
             // ---------------------------------
             // GENERAL TAB
             // ---------------------------------
+
+            // -- BASIC OPTIONS --------
+            // Basic Settings
             RichPresence.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "RichPresence"));
             AllowHolidays.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "AllowHolidays"));
-            MuteStreams.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "MuteStreams"));
-            WhammyPitchShift.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "WhammyPitchShift"));
             DefaultQPODifficulty.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "DefaultQPODifficulty"),
                 new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" },
                 new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
-            AudioBuffLen.Text = XMLFunctions.AspyrGetString("Audio.BuffLen", "4096");
             Language.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "Language", "en"),
                 V3LauncherConstants.Languages[1], V3LauncherConstants.Languages[0]);
             AutoLogin.Text = INIFunctions.InterpretINISetting(XMLFunctions.AspyrGetString("AutoLogin", "PROMPT"),
@@ -216,9 +216,7 @@ namespace WTDE_Launcher_V3 {
             Holiday.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "Holiday", ""),
                 V3LauncherConstants.HolidayThemes[1], V3LauncherConstants.HolidayThemes[0]);
 
-            CheckForUpdates.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));   
-
-            // -- MAIN MENU TOGGLES --------
+            // Main Menu Toggles
             UseCareerOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseCareerOption"));
             UseQuickplayOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuickplayOption"));
             UseHeadToHeadOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseHeadToHeadOption"));
@@ -228,14 +226,41 @@ namespace WTDE_Launcher_V3 {
             UseOptionsOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseOptionsOption"));
             UseQuitOption.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "UseQuitOption"));
 
+            // Launcher Settings
+            CheckForUpdates.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));   
+
+            // -- AUDIO SETTINGS --------
+            MuteStreams.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "MuteStreams"));
+            WhammyPitchShift.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "WhammyPitchShift"));
+            StarPowerReverb.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Audio", "StarPowerReverb", "1"));
+            AudioBuffLen.Text = XMLFunctions.AspyrGetString("Audio.BuffLen", "4096");
+            SPClapType.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Audio", "SPClapType", "default"),
+                new string[] {
+                    "default",
+                    "small_int",
+                    "medium_int",
+                    "medium_ext",
+                    "large_ext",
+                    "none"
+                },
+                
+                new string[] {
+                    "Default (Per Venue)",
+                    "Small, Interior",
+                    "Medium, Interior",
+                    "Medium, Exterior",
+                    "Large, Exterior",
+                    "No Claps"
+                });
+
             // ---------------------------------
             // INPUT TAB
             // ---------------------------------
             MicrophoneSelect.Text = INIFunctions.GetINIValue("Audio", "MicDevice", "");
             DisableInputHack.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "DisableInputHack", "0"));
 
-            MicAudioDelay.Value = decimal.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "0"));
-            MicVideoDelay.Value = decimal.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "0"));
+            MicAudioDelay.Value = decimal.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "-80"));
+            MicVideoDelay.Value = decimal.Parse(XMLFunctions.AspyrGetString("Options.VocalsVisualLag", "-315"));
 
             // -- GUITAR KEYBOARD INPUTS --------
             GuitarGreenInputs.Text = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "GREEN");
@@ -322,6 +347,7 @@ namespace WTDE_Launcher_V3 {
             OptionsFrontRowCamera.Checked = INIFunctions.GetBoolean(XMLFunctions.AspyrGetString("Options.FrontRowCamera", "0"));
             OptionsCrowd.SelectedIndex = int.Parse(XMLFunctions.AspyrGetString("Options.Crowd", "2"));
             X360Zones.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "X360Zones", "0"));
+            RandomTrainingVenues.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "RandomTrainingVenues", "0"));
 
             // -- INTERFACE OPTIONS --------
             GemTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemTheme", "ghwt"),
@@ -1125,6 +1151,31 @@ namespace WTDE_Launcher_V3 {
             INIFunctions.SaveINIValue("Launcher", "CheckForUpdates", INIFunctions.BoolToString(CheckForUpdates.Checked));
         }
 
+        private void StarPowerReverb_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Audio", "StarPowerReverb", INIFunctions.BoolToString(StarPowerReverb.Checked));
+        }
+
+        private void SPClapType_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Audio", "SPClapType", INIFunctions.InterpretINISetting(SPClapType.Text,
+                new string[] {
+                    "Default (Per Venue)",
+                    "Small, Interior",
+                    "Medium, Interior",
+                    "Medium, Exterior",
+                    "Large, Exterior",
+                    "No Claps"
+                },
+
+                new string[] {
+                    "default",
+                    "small_int",
+                    "medium_int",
+                    "medium_ext",
+                    "large_ext",
+                    "none"
+                }));
+        }
+
         // -- MAIN MENU TOGGLES -----------------------------
 
         private void UseCareerOption_CheckedChanged(object sender, EventArgs e) {
@@ -1865,6 +1916,10 @@ namespace WTDE_Launcher_V3 {
         private void X360Zones_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "X360Zones", INIFunctions.BoolToString(X360Zones.Checked));
         }
+
+        private void RandomTrainingVenues_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "RandomTrainingVenues", INIFunctions.BoolToString(RandomTrainingVenues.Checked));
+        }
         #endregion
 
         // - - - - - - - - - - - - - - - - - - -
@@ -1879,6 +1934,10 @@ namespace WTDE_Launcher_V3 {
         private void GemColors_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "GemColors", INIFunctions.InterpretINISetting(GemColors.Text,
                 V3LauncherConstants.NoteThemeColors[0].ToArray(), V3LauncherConstants.NoteThemeColors[1].ToArray()));
+        }
+
+        private void GemColors_TextUpdate(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "GemColors", GemColors.Text);
         }
 
         private void SongIntroStyle_SelectedIndexChanged(object sender, EventArgs e) {
@@ -2592,6 +2651,10 @@ namespace WTDE_Launcher_V3 {
 
 
 
+
+
         #endregion
+
+        
     }
 }
