@@ -143,7 +143,11 @@ namespace WTDE_Launcher_V3 {
 
                     FretworksLogo.Image = Properties.Resources.fretworks_banner_s_af;
                 } else {
-                    MOTDText.Text = V3LauncherCore.GetMOTDText();
+                    if (UseMOTDWithImage) {
+                        V3LauncherCore.GetMOTDText(MOTDLabelImage, true, MOTDImage);
+                    } else {
+                        V3LauncherCore.GetMOTDText(MOTDText, false);
+                    }
                     BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
                 }
 
@@ -173,6 +177,8 @@ namespace WTDE_Launcher_V3 {
                 return;
             }
         }
+
+        public bool UseMOTDWithImage = true;
 
         private void OpenDevOnlySettings_Click(object sender, EventArgs e) {
             WTDEDevSettingsDialog dlg = new WTDEDevSettingsDialog();
@@ -571,8 +577,8 @@ namespace WTDE_Launcher_V3 {
             switch (tab) {
                 // -- MOTD LABEL TAB SWITCH ---------------------------------
                 case 0:
-                    MOTDText.Visible = true;
-                    MOTDBack.Visible = true;
+                    MOTDPanel.Visible = !UseMOTDWithImage;
+                    MOTDWithImagePanel.Visible = UseMOTDWithImage;
 
                     TabParentContainer.Visible = false;
                     TabParentContainer.Enabled = false;
@@ -606,8 +612,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- GENERAL TAB SWITCH ---------------------------------
                 case 1:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;
@@ -641,8 +647,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- INPUT TAB SWITCH ---------------------------------
                 case 2:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;
@@ -676,8 +682,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- GRAPHICS TAB SWITCH ---------------------------------
                 case 3:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;
@@ -711,8 +717,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- BAND TAB SWITCH ---------------------------------
                 case 4:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;
@@ -746,8 +752,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- AUTO LAUNCH TAB SWITCH ---------------------------------
                 case 5:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;
@@ -781,8 +787,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- DEBUG TAB SWITCH ---------------------------------
                 case 6:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;
@@ -816,8 +822,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- CREDITS TAB SWITCH ---------------------------------
                 case 7:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = false;
                     TabParentContainer.Enabled = false;
@@ -851,8 +857,8 @@ namespace WTDE_Launcher_V3 {
 
                 // -- PRE-TAB TAB SWITCH ---------------------------------
                 case 8:
-                    MOTDText.Visible = false;
-                    MOTDBack.Visible = false;
+                    MOTDPanel.Visible = false;
+                    MOTDWithImagePanel.Visible = false;
 
                     TabParentContainer.Visible = true;
                     TabParentContainer.Enabled = true;

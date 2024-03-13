@@ -26,6 +26,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using MadMilkman.Ini;
 using Microsoft.Win32;
+using System.Drawing;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -225,15 +226,23 @@ namespace WTDE_Launcher_V3 {
         /// <returns>
         ///  String of text containing the MOTD. Gives back fallback MOTD if it fails.
         /// </returns>
-        public static string GetMOTDText() {
+        public static void GetMOTDText(Label label, bool useImageBox = false, PictureBox pBox = null, string imageURL = "https://ghwt.de/Assets/notes_logo.png") {
             try {
                 using (WebClient client = new WebClient()) {
                     string downloadString = client.DownloadString("https://ghwt.de/meta/motd.txt");
-                    return downloadString;
+                    label.Text = downloadString;
+                }
+
+                if (useImageBox && pBox != null) {
+                    using (WebClient client = new WebClient()) {
+                        Stream imgStream = client.OpenRead(imageURL);
+                        Bitmap imgBitmap = new Bitmap(imgStream);
+                        pBox.Image = imgBitmap;
+                    }
                 }
             } catch (Exception exc) {
                 string retnString = $"MOTD not found, call IMF!\n\nHm... If you're seeing this, it means we probably couldn't establish a connection to the internet.\nIs the Wi-Fi plugged in and working?\n\nError information: {exc.Message}";
-                return retnString;
+                label.Text = retnString;
             }
         }
 

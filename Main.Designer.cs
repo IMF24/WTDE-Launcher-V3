@@ -498,7 +498,6 @@
             this.MainControlsBack = new System.Windows.Forms.PictureBox();
             this.TabButtonGroup = new System.Windows.Forms.Panel();
             this.MOTDText = new System.Windows.Forms.Label();
-            this.MOTDBack = new System.Windows.Forms.PictureBox();
             this.DummyLabel = new System.Windows.Forms.Label();
             this.TabGeneralSettingsTabs = new System.Windows.Forms.TabControl();
             this.TabGeneralTabsBasic = new System.Windows.Forms.TabPage();
@@ -512,6 +511,10 @@
             this.TGSPClapTypeLabel = new System.Windows.Forms.Label();
             this.RandomTrainingVenues = new System.Windows.Forms.CheckBox();
             this.StarPowerReverb = new System.Windows.Forms.CheckBox();
+            this.MOTDPanel = new System.Windows.Forms.Panel();
+            this.MOTDWithImagePanel = new System.Windows.Forms.Panel();
+            this.MOTDLabelImage = new System.Windows.Forms.Label();
+            this.MOTDImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -553,10 +556,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).BeginInit();
             this.TabGeneralSettingsTabs.SuspendLayout();
             this.TabGeneralTabsBasic.SuspendLayout();
             this.TabGeneralTabsAudio.SuspendLayout();
+            this.MOTDPanel.SuspendLayout();
+            this.MOTDWithImagePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -5372,7 +5377,7 @@
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
-            this.TabParentContainer.Location = new System.Drawing.Point(321, 60);
+            this.TabParentContainer.Location = new System.Drawing.Point(322, 59);
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
@@ -6736,7 +6741,7 @@
             this.TabButtonGroup.Controls.Add(this.TabButtonGraphics);
             this.TabButtonGroup.Controls.Add(this.TabButtonInput);
             this.TabButtonGroup.Controls.Add(this.TabButtonGeneral);
-            this.TabButtonGroup.Location = new System.Drawing.Point(321, 0);
+            this.TabButtonGroup.Location = new System.Drawing.Point(322, -1);
             this.TabButtonGroup.Name = "TabButtonGroup";
             this.TabButtonGroup.Size = new System.Drawing.Size(689, 63);
             this.TabButtonGroup.TabIndex = 12;
@@ -6747,23 +6752,11 @@
             this.MOTDText.BackColor = System.Drawing.Color.Transparent;
             this.MOTDText.Font = new System.Drawing.Font("Lexend", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MOTDText.ForeColor = System.Drawing.Color.White;
-            this.MOTDText.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.MOTDText.Location = new System.Drawing.Point(330, 9);
+            this.MOTDText.Location = new System.Drawing.Point(9, 13);
             this.MOTDText.Name = "MOTDText";
             this.MOTDText.Size = new System.Drawing.Size(668, 711);
             this.MOTDText.TabIndex = 3;
             this.MOTDText.Text = "MOTD text missing, call IMF!";
-            // 
-            // MOTDBack
-            // 
-            this.MOTDBack.BackColor = System.Drawing.Color.Transparent;
-            this.MOTDBack.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m;
-            this.MOTDBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MOTDBack.Location = new System.Drawing.Point(321, -9);
-            this.MOTDBack.Name = "MOTDBack";
-            this.MOTDBack.Size = new System.Drawing.Size(695, 747);
-            this.MOTDBack.TabIndex = 1;
-            this.MOTDBack.TabStop = false;
             // 
             // DummyLabel
             // 
@@ -6947,16 +6940,61 @@
             this.StarPowerReverb.UseVisualStyleBackColor = true;
             this.StarPowerReverb.CheckedChanged += new System.EventHandler(this.StarPowerReverb_CheckedChanged);
             // 
+            // MOTDPanel
+            // 
+            this.MOTDPanel.BackColor = System.Drawing.Color.Transparent;
+            this.MOTDPanel.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m;
+            this.MOTDPanel.Controls.Add(this.MOTDText);
+            this.MOTDPanel.Location = new System.Drawing.Point(321, -4);
+            this.MOTDPanel.Name = "MOTDPanel";
+            this.MOTDPanel.Size = new System.Drawing.Size(688, 738);
+            this.MOTDPanel.TabIndex = 16;
+            // 
+            // MOTDWithImagePanel
+            // 
+            this.MOTDWithImagePanel.BackColor = System.Drawing.Color.Transparent;
+            this.MOTDWithImagePanel.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m;
+            this.MOTDWithImagePanel.Controls.Add(this.MOTDImage);
+            this.MOTDWithImagePanel.Controls.Add(this.MOTDLabelImage);
+            this.MOTDWithImagePanel.Location = new System.Drawing.Point(321, -4);
+            this.MOTDWithImagePanel.Name = "MOTDWithImagePanel";
+            this.MOTDWithImagePanel.Size = new System.Drawing.Size(688, 738);
+            this.MOTDWithImagePanel.TabIndex = 17;
+            // 
+            // MOTDLabelImage
+            // 
+            this.MOTDLabelImage.AutoEllipsis = true;
+            this.MOTDLabelImage.BackColor = System.Drawing.Color.Transparent;
+            this.MOTDLabelImage.Font = new System.Drawing.Font("Lexend", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MOTDLabelImage.ForeColor = System.Drawing.Color.White;
+            this.MOTDLabelImage.Location = new System.Drawing.Point(9, 232);
+            this.MOTDLabelImage.Name = "MOTDLabelImage";
+            this.MOTDLabelImage.Size = new System.Drawing.Size(668, 492);
+            this.MOTDLabelImage.TabIndex = 3;
+            this.MOTDLabelImage.Text = "MOTD text missing, call IMF!";
+            // 
+            // MOTDImage
+            // 
+            this.MOTDImage.Location = new System.Drawing.Point(115, 3);
+            this.MOTDImage.Name = "MOTDImage";
+            this.MOTDImage.Size = new System.Drawing.Size(468, 217);
+            this.MOTDImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MOTDImage.TabIndex = 4;
+            this.MOTDImage.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.TabParentContainer);
+            this.Controls.Add(this.TabButtonGroup);
+            this.Controls.Add(this.MOTDWithImagePanel);
+            this.Controls.Add(this.MOTDPanel);
             this.Controls.Add(this.ModManagerButton);
             this.Controls.Add(this.DummyLabel);
             this.Controls.Add(this.OpenDevOnlySettings);
-            this.Controls.Add(this.TabParentContainer);
             this.Controls.Add(this.VersionInfoLabel);
             this.Controls.Add(this.FretworksLogo);
             this.Controls.Add(this.CheckUpdatesButton);
@@ -6965,9 +7003,6 @@
             this.Controls.Add(this.RunWTDEButton);
             this.Controls.Add(this.WTDELogo);
             this.Controls.Add(this.MainControlsBack);
-            this.Controls.Add(this.TabButtonGroup);
-            this.Controls.Add(this.MOTDText);
-            this.Controls.Add(this.MOTDBack);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -7030,12 +7065,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MOTDBack)).EndInit();
             this.TabGeneralSettingsTabs.ResumeLayout(false);
             this.TabGeneralTabsBasic.ResumeLayout(false);
             this.TabGeneralTabsBasic.PerformLayout();
             this.TabGeneralTabsAudio.ResumeLayout(false);
             this.TabGeneralTabsAudio.PerformLayout();
+            this.MOTDPanel.ResumeLayout(false);
+            this.MOTDWithImagePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7044,7 +7081,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox MainControlsBack;
-        private System.Windows.Forms.PictureBox MOTDBack;
         private System.Windows.Forms.PictureBox WTDELogo;
         private System.Windows.Forms.Label MOTDText;
         private System.Windows.Forms.Button RunWTDEButton;
@@ -7530,6 +7566,10 @@
         private System.Windows.Forms.Label TGSPClapTypeLabel;
         private System.Windows.Forms.CheckBox RandomTrainingVenues;
         private System.Windows.Forms.CheckBox StarPowerReverb;
+        private System.Windows.Forms.Panel MOTDPanel;
+        private System.Windows.Forms.Panel MOTDWithImagePanel;
+        private System.Windows.Forms.PictureBox MOTDImage;
+        private System.Windows.Forms.Label MOTDLabelImage;
     }
 }
 
