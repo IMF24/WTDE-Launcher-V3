@@ -515,6 +515,8 @@
             this.MOTDWithImagePanel = new System.Windows.Forms.Panel();
             this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
+            this.SaveBandProfButton = new System.Windows.Forms.Button();
+            this.LoadBandProfButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -5370,10 +5372,10 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
-            this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
@@ -5388,7 +5390,7 @@
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(13, 9);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(573, 195);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -6021,6 +6023,8 @@
             // 
             this.TabBandGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
             this.TabBandGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabBandGroup.Controls.Add(this.LoadBandProfButton);
+            this.TabBandGroup.Controls.Add(this.SaveBandProfButton);
             this.TabBandGroup.Controls.Add(this.ReplaceSpecialBands);
             this.TabBandGroup.Controls.Add(this.PrefFVoxSelectChar);
             this.TabBandGroup.Controls.Add(this.PreferredFemaleSinger);
@@ -6061,7 +6065,7 @@
             this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
             this.TabBandGroup.Controls.Add(this.TBBandLineup);
             this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(24, 555);
+            this.TabBandGroup.Location = new System.Drawing.Point(12, 9);
             this.TabBandGroup.Name = "TabBandGroup";
             this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
             this.TabBandGroup.TabIndex = 1;
@@ -6982,6 +6986,28 @@
             this.MOTDImage.TabIndex = 4;
             this.MOTDImage.TabStop = false;
             // 
+            // SaveBandProfButton
+            // 
+            this.SaveBandProfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SaveBandProfButton.Location = new System.Drawing.Point(391, 161);
+            this.SaveBandProfButton.Name = "SaveBandProfButton";
+            this.SaveBandProfButton.Size = new System.Drawing.Size(260, 24);
+            this.SaveBandProfButton.TabIndex = 44;
+            this.SaveBandProfButton.Text = "Save Band Profile...";
+            this.SaveBandProfButton.UseVisualStyleBackColor = true;
+            this.SaveBandProfButton.Click += new System.EventHandler(this.SaveBandProfButton_Click);
+            // 
+            // LoadBandProfButton
+            // 
+            this.LoadBandProfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LoadBandProfButton.Location = new System.Drawing.Point(391, 191);
+            this.LoadBandProfButton.Name = "LoadBandProfButton";
+            this.LoadBandProfButton.Size = new System.Drawing.Size(260, 24);
+            this.LoadBandProfButton.TabIndex = 45;
+            this.LoadBandProfButton.Text = "Load Band Profile...";
+            this.LoadBandProfButton.UseVisualStyleBackColor = true;
+            this.LoadBandProfButton.Click += new System.EventHandler(this.LoadBandProfButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -7570,6 +7596,8 @@
         private System.Windows.Forms.Panel MOTDWithImagePanel;
         private System.Windows.Forms.PictureBox MOTDImage;
         private System.Windows.Forms.Label MOTDLabelImage;
+        private System.Windows.Forms.Button LoadBandProfButton;
+        private System.Windows.Forms.Button SaveBandProfButton;
     }
 }
 
