@@ -385,7 +385,39 @@
             this.GamerTag3 = new System.Windows.Forms.TextBox();
             this.GamerTag4 = new System.Windows.Forms.TextBox();
             this.AttackIconTheme = new System.Windows.Forms.ComboBox();
+            this.MuteStreams = new System.Windows.Forms.CheckBox();
+            this.WhammyPitchShift = new System.Windows.Forms.CheckBox();
+            this.AudioBuffLen = new System.Windows.Forms.ComboBox();
+            this.SPClapType = new System.Windows.Forms.ComboBox();
+            this.RandomTrainingVenues = new System.Windows.Forms.CheckBox();
+            this.StarPowerReverb = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabBandGroup = new System.Windows.Forms.GroupBox();
+            this.LoadBandProfButton = new System.Windows.Forms.Button();
+            this.SaveBandProfButton = new System.Windows.Forms.Button();
+            this.PrefFVoxSelectChar = new System.Windows.Forms.Button();
+            this.TBPrefFVoxLabel = new System.Windows.Forms.Label();
+            this.TBCelebIntrosHeader = new System.Windows.Forms.Label();
+            this.TBBasStrums = new System.Windows.Forms.Label();
+            this.TBStrumAnimsHeader = new System.Windows.Forms.Label();
+            this.TBPrefStageLabel = new System.Windows.Forms.Label();
+            this.PrefVoxSelectChar = new System.Windows.Forms.Button();
+            this.TBPrefVoxLabel = new System.Windows.Forms.Label();
+            this.PrefDrmHwySelectHwy = new System.Windows.Forms.Button();
+            this.TBPDHLabel = new System.Windows.Forms.Label();
+            this.PrefDrmSelectChar = new System.Windows.Forms.Button();
+            this.TBPrefDrmLabel = new System.Windows.Forms.Label();
+            this.PrefBasHwySelectHwy = new System.Windows.Forms.Button();
+            this.TBPBHLabel = new System.Windows.Forms.Label();
+            this.PrefBasSelectChar = new System.Windows.Forms.Button();
+            this.TBPrefBasLabel = new System.Windows.Forms.Label();
+            this.PrefGtrHwySelectHwy = new System.Windows.Forms.Button();
+            this.TBPGHLabel = new System.Windows.Forms.Label();
+            this.PrefGtrSelectChar = new System.Windows.Forms.Button();
+            this.TBGtrStrums = new System.Windows.Forms.Label();
+            this.TBPrefHighwaysHeader = new System.Windows.Forms.Label();
+            this.TBPrefGtrLabel = new System.Windows.Forms.Label();
+            this.TBBandLineup = new System.Windows.Forms.Label();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
             this.TGEditorBasic = new System.Windows.Forms.TabPage();
@@ -412,6 +444,20 @@
             this.DOFBlurLabel = new System.Windows.Forms.Label();
             this.DOFQualityLabel = new System.Windows.Forms.Label();
             this.TODProfileLabel = new System.Windows.Forms.Label();
+            this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
+            this.TabGeneralSettingsTabs = new System.Windows.Forms.TabControl();
+            this.TabGeneralTabsBasic = new System.Windows.Forms.TabPage();
+            this.TGBasicSettings = new System.Windows.Forms.Label();
+            this.TGForceHolidayLabel = new System.Windows.Forms.Label();
+            this.TGAutoLoginLabel = new System.Windows.Forms.Label();
+            this.TGDefaultQPODiff = new System.Windows.Forms.Label();
+            this.TGLanguageLabel = new System.Windows.Forms.Label();
+            this.TGLauncherOptions = new System.Windows.Forms.Label();
+            this.TGMMOHeader = new System.Windows.Forms.Label();
+            this.TabGeneralTabsAudio = new System.Windows.Forms.TabPage();
+            this.TGSPClapTypeLabel = new System.Windows.Forms.Label();
+            this.TGAudioSettings = new System.Windows.Forms.Label();
+            this.TGAudioBLen = new System.Windows.Forms.Label();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
             this.TabALMainEditor = new System.Windows.Forms.Panel();
@@ -440,30 +486,6 @@
             this.TALP1ILabel = new System.Windows.Forms.Label();
             this.TALPDSettings = new System.Windows.Forms.Label();
             this.TALP1DLabel = new System.Windows.Forms.Label();
-            this.TabBandGroup = new System.Windows.Forms.GroupBox();
-            this.PrefFVoxSelectChar = new System.Windows.Forms.Button();
-            this.TBPrefFVoxLabel = new System.Windows.Forms.Label();
-            this.TBCelebIntrosHeader = new System.Windows.Forms.Label();
-            this.TBBasStrums = new System.Windows.Forms.Label();
-            this.TBStrumAnimsHeader = new System.Windows.Forms.Label();
-            this.TBPrefStageLabel = new System.Windows.Forms.Label();
-            this.PrefVoxSelectChar = new System.Windows.Forms.Button();
-            this.TBPrefVoxLabel = new System.Windows.Forms.Label();
-            this.PrefDrmHwySelectHwy = new System.Windows.Forms.Button();
-            this.TBPDHLabel = new System.Windows.Forms.Label();
-            this.PrefDrmSelectChar = new System.Windows.Forms.Button();
-            this.TBPrefDrmLabel = new System.Windows.Forms.Label();
-            this.PrefBasHwySelectHwy = new System.Windows.Forms.Button();
-            this.TBPBHLabel = new System.Windows.Forms.Label();
-            this.PrefBasSelectChar = new System.Windows.Forms.Button();
-            this.TBPrefBasLabel = new System.Windows.Forms.Label();
-            this.PrefGtrHwySelectHwy = new System.Windows.Forms.Button();
-            this.TBPGHLabel = new System.Windows.Forms.Label();
-            this.PrefGtrSelectChar = new System.Windows.Forms.Button();
-            this.TBGtrStrums = new System.Windows.Forms.Label();
-            this.TBPrefHighwaysHeader = new System.Windows.Forms.Label();
-            this.TBPrefGtrLabel = new System.Windows.Forms.Label();
-            this.TBBandLineup = new System.Windows.Forms.Label();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabInputGroup = new System.Windows.Forms.GroupBox();
             this.KeyBindsHeaderIcon = new System.Windows.Forms.PictureBox();
@@ -484,14 +506,6 @@
             this.BlackChalk = new System.Windows.Forms.PictureBox();
             this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
             this.IconLogoIMF = new System.Windows.Forms.PictureBox();
-            this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
-            this.TGForceHolidayLabel = new System.Windows.Forms.Label();
-            this.TGAutoLoginLabel = new System.Windows.Forms.Label();
-            this.TGLanguageLabel = new System.Windows.Forms.Label();
-            this.TGLauncherOptions = new System.Windows.Forms.Label();
-            this.TGMMOHeader = new System.Windows.Forms.Label();
-            this.TGDefaultQPODiff = new System.Windows.Forms.Label();
-            this.TGBasicSettings = new System.Windows.Forms.Label();
             this.VersionInfoLabel = new System.Windows.Forms.Label();
             this.FretworksLogo = new System.Windows.Forms.PictureBox();
             this.WTDELogo = new System.Windows.Forms.PictureBox();
@@ -499,24 +513,19 @@
             this.TabButtonGroup = new System.Windows.Forms.Panel();
             this.MOTDText = new System.Windows.Forms.Label();
             this.DummyLabel = new System.Windows.Forms.Label();
-            this.TabGeneralSettingsTabs = new System.Windows.Forms.TabControl();
-            this.TabGeneralTabsBasic = new System.Windows.Forms.TabPage();
-            this.TabGeneralTabsAudio = new System.Windows.Forms.TabPage();
-            this.MuteStreams = new System.Windows.Forms.CheckBox();
-            this.WhammyPitchShift = new System.Windows.Forms.CheckBox();
-            this.AudioBuffLen = new System.Windows.Forms.ComboBox();
-            this.TGAudioBLen = new System.Windows.Forms.Label();
-            this.TGAudioSettings = new System.Windows.Forms.Label();
-            this.SPClapType = new System.Windows.Forms.ComboBox();
-            this.TGSPClapTypeLabel = new System.Windows.Forms.Label();
-            this.RandomTrainingVenues = new System.Windows.Forms.CheckBox();
-            this.StarPowerReverb = new System.Windows.Forms.CheckBox();
             this.MOTDPanel = new System.Windows.Forms.Panel();
             this.MOTDWithImagePanel = new System.Windows.Forms.Panel();
-            this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
-            this.SaveBandProfButton = new System.Windows.Forms.Button();
-            this.LoadBandProfButton = new System.Windows.Forms.Button();
+            this.MOTDLabelImage = new System.Windows.Forms.Label();
+            this.PreferredGamerTagText1 = new System.Windows.Forms.TextBox();
+            this.TGGamerTags = new System.Windows.Forms.Label();
+            this.TGPrefGamerTag1 = new System.Windows.Forms.Label();
+            this.TGPrefGamerTag2 = new System.Windows.Forms.Label();
+            this.PreferredGamerTagText2 = new System.Windows.Forms.TextBox();
+            this.TGPrefGamerTag4 = new System.Windows.Forms.Label();
+            this.PreferredGamerTagText4 = new System.Windows.Forms.TextBox();
+            this.TGPrefGamerTag3 = new System.Windows.Forms.Label();
+            this.PreferredGamerTagText3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -536,15 +545,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabBandGroup.SuspendLayout();
             this.TabGraphicsGroup.SuspendLayout();
             this.TabGraphicsMainEditor.SuspendLayout();
             this.TGEditorBasic.SuspendLayout();
             this.TGEditorGameplay.SuspendLayout();
             this.TGEditorInterface.SuspendLayout();
             this.TGEditorAdvanced.SuspendLayout();
+            this.TabGeneralGroup.SuspendLayout();
+            this.TabGeneralSettingsTabs.SuspendLayout();
+            this.TabGeneralTabsBasic.SuspendLayout();
+            this.TabGeneralTabsAudio.SuspendLayout();
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
-            this.TabBandGroup.SuspendLayout();
             this.TabDebugGroup.SuspendLayout();
             this.TabInputGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
@@ -553,14 +566,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
-            this.TabGeneralGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
-            this.TabGeneralSettingsTabs.SuspendLayout();
-            this.TabGeneralTabsBasic.SuspendLayout();
-            this.TabGeneralTabsAudio.SuspendLayout();
             this.MOTDPanel.SuspendLayout();
             this.MOTDWithImagePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).BeginInit();
@@ -5367,14 +5376,97 @@
             this.ToolTipMain.SetToolTip(this.AttackIconTheme, "Affects the style of the power up attack icons in Battle Mode.\r\n\r\n");
             this.AttackIconTheme.SelectedIndexChanged += new System.EventHandler(this.AttackIconTheme_SelectedIndexChanged);
             // 
+            // MuteStreams
+            // 
+            this.MuteStreams.AutoSize = true;
+            this.MuteStreams.Location = new System.Drawing.Point(19, 28);
+            this.MuteStreams.Name = "MuteStreams";
+            this.MuteStreams.Size = new System.Drawing.Size(219, 26);
+            this.MuteStreams.TabIndex = 4;
+            this.MuteStreams.Text = "Mute Split Tracks Upon Miss";
+            this.ToolTipMain.SetToolTip(this.MuteStreams, resources.GetString("MuteStreams.ToolTip"));
+            this.MuteStreams.UseVisualStyleBackColor = true;
+            // 
+            // WhammyPitchShift
+            // 
+            this.WhammyPitchShift.AutoSize = true;
+            this.WhammyPitchShift.Location = new System.Drawing.Point(19, 60);
+            this.WhammyPitchShift.Name = "WhammyPitchShift";
+            this.WhammyPitchShift.Size = new System.Drawing.Size(167, 26);
+            this.WhammyPitchShift.TabIndex = 5;
+            this.WhammyPitchShift.Text = "Whammy Pitch Shift";
+            this.ToolTipMain.SetToolTip(this.WhammyPitchShift, "Enables or disables the wah effect on audio caused by whammy.");
+            this.WhammyPitchShift.UseVisualStyleBackColor = true;
+            // 
+            // AudioBuffLen
+            // 
+            this.AudioBuffLen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AudioBuffLen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AudioBuffLen.FormattingEnabled = true;
+            this.AudioBuffLen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AudioBuffLen.Items.AddRange(new object[] {
+            "1024",
+            "2048",
+            "4096"});
+            this.AudioBuffLen.Location = new System.Drawing.Point(244, 129);
+            this.AudioBuffLen.Name = "AudioBuffLen";
+            this.AudioBuffLen.Size = new System.Drawing.Size(106, 23);
+            this.AudioBuffLen.TabIndex = 9;
+            this.ToolTipMain.SetToolTip(this.AudioBuffLen, resources.GetString("AudioBuffLen.ToolTip"));
+            // 
+            // SPClapType
+            // 
+            this.SPClapType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SPClapType.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SPClapType.FormattingEnabled = true;
+            this.SPClapType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SPClapType.Items.AddRange(new object[] {
+            "Default (Per Venue)",
+            "Small, Interior",
+            "Medium, Interior",
+            "Medium, Exterior",
+            "Large, Exterior",
+            "No Claps"});
+            this.SPClapType.Location = new System.Drawing.Point(191, 163);
+            this.SPClapType.Name = "SPClapType";
+            this.SPClapType.Size = new System.Drawing.Size(159, 23);
+            this.SPClapType.TabIndex = 12;
+            this.ToolTipMain.SetToolTip(this.SPClapType, resources.GetString("SPClapType.ToolTip"));
+            this.SPClapType.SelectedIndexChanged += new System.EventHandler(this.SPClapType_SelectedIndexChanged);
+            // 
+            // RandomTrainingVenues
+            // 
+            this.RandomTrainingVenues.AutoSize = true;
+            this.RandomTrainingVenues.Location = new System.Drawing.Point(19, 306);
+            this.RandomTrainingVenues.Name = "RandomTrainingVenues";
+            this.RandomTrainingVenues.Size = new System.Drawing.Size(198, 26);
+            this.RandomTrainingVenues.TabIndex = 21;
+            this.RandomTrainingVenues.Text = "Random Practice Venues";
+            this.ToolTipMain.SetToolTip(this.RandomTrainingVenues, "While in Practice Mode, instead of always loading into the Recording Studio,\r\nthi" +
+        "s will load the user into ANY venue, a la Guitar Hero: Warriors of Rock.");
+            this.RandomTrainingVenues.UseVisualStyleBackColor = true;
+            this.RandomTrainingVenues.CheckedChanged += new System.EventHandler(this.RandomTrainingVenues_CheckedChanged);
+            // 
+            // StarPowerReverb
+            // 
+            this.StarPowerReverb.AutoSize = true;
+            this.StarPowerReverb.Location = new System.Drawing.Point(19, 92);
+            this.StarPowerReverb.Name = "StarPowerReverb";
+            this.StarPowerReverb.Size = new System.Drawing.Size(180, 26);
+            this.StarPowerReverb.TabIndex = 14;
+            this.StarPowerReverb.Text = "Star Power Reverb FX";
+            this.ToolTipMain.SetToolTip(this.StarPowerReverb, "Enables or disables the audio reverb effects while Star Power is active.");
+            this.StarPowerReverb.UseVisualStyleBackColor = true;
+            this.StarPowerReverb.CheckedChanged += new System.EventHandler(this.StarPowerReverb_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
-            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
@@ -5383,6 +5475,309 @@
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabBandGroup
+            // 
+            this.TabBandGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabBandGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabBandGroup.Controls.Add(this.LoadBandProfButton);
+            this.TabBandGroup.Controls.Add(this.SaveBandProfButton);
+            this.TabBandGroup.Controls.Add(this.ReplaceSpecialBands);
+            this.TabBandGroup.Controls.Add(this.PrefFVoxSelectChar);
+            this.TabBandGroup.Controls.Add(this.PreferredFemaleSinger);
+            this.TabBandGroup.Controls.Add(this.TBPrefFVoxLabel);
+            this.TabBandGroup.Controls.Add(this.AlwaysCelebIntro);
+            this.TabBandGroup.Controls.Add(this.AlwaysVOIntro);
+            this.TabBandGroup.Controls.Add(this.AlwaysSplashText);
+            this.TabBandGroup.Controls.Add(this.SongSpecificIntros);
+            this.TabBandGroup.Controls.Add(this.TBCelebIntrosHeader);
+            this.TabBandGroup.Controls.Add(this.TBBasStrums);
+            this.TabBandGroup.Controls.Add(this.TBStrumAnimsHeader);
+            this.TabBandGroup.Controls.Add(this.PreferredStage);
+            this.TabBandGroup.Controls.Add(this.TBPrefStageLabel);
+            this.TabBandGroup.Controls.Add(this.PrefVoxSelectChar);
+            this.TabBandGroup.Controls.Add(this.PreferredSinger);
+            this.TabBandGroup.Controls.Add(this.TBPrefVoxLabel);
+            this.TabBandGroup.Controls.Add(this.PrefDrmHwySelectHwy);
+            this.TabBandGroup.Controls.Add(this.PreferredDrummerHighway);
+            this.TabBandGroup.Controls.Add(this.TBPDHLabel);
+            this.TabBandGroup.Controls.Add(this.PrefDrmSelectChar);
+            this.TabBandGroup.Controls.Add(this.PreferredDrummer);
+            this.TabBandGroup.Controls.Add(this.TBPrefDrmLabel);
+            this.TabBandGroup.Controls.Add(this.PrefBasHwySelectHwy);
+            this.TabBandGroup.Controls.Add(this.PreferredBassistHighway);
+            this.TabBandGroup.Controls.Add(this.TBPBHLabel);
+            this.TabBandGroup.Controls.Add(this.PrefBasSelectChar);
+            this.TabBandGroup.Controls.Add(this.PreferredBassist);
+            this.TabBandGroup.Controls.Add(this.TBPrefBasLabel);
+            this.TabBandGroup.Controls.Add(this.PrefGtrHwySelectHwy);
+            this.TabBandGroup.Controls.Add(this.PreferredGuitaristHighway);
+            this.TabBandGroup.Controls.Add(this.TBPGHLabel);
+            this.TabBandGroup.Controls.Add(this.PrefGtrSelectChar);
+            this.TabBandGroup.Controls.Add(this.PreferredGuitarist);
+            this.TabBandGroup.Controls.Add(this.TBGtrStrums);
+            this.TabBandGroup.Controls.Add(this.TBPrefHighwaysHeader);
+            this.TabBandGroup.Controls.Add(this.BassStrumAnim);
+            this.TabBandGroup.Controls.Add(this.GuitarStrumAnim);
+            this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
+            this.TabBandGroup.Controls.Add(this.TBBandLineup);
+            this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabBandGroup.Location = new System.Drawing.Point(14, 533);
+            this.TabBandGroup.Name = "TabBandGroup";
+            this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabBandGroup.TabIndex = 1;
+            this.TabBandGroup.TabStop = false;
+            this.TabBandGroup.Text = "DEBUG: Band Tab";
+            // 
+            // LoadBandProfButton
+            // 
+            this.LoadBandProfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LoadBandProfButton.Location = new System.Drawing.Point(391, 191);
+            this.LoadBandProfButton.Name = "LoadBandProfButton";
+            this.LoadBandProfButton.Size = new System.Drawing.Size(260, 24);
+            this.LoadBandProfButton.TabIndex = 45;
+            this.LoadBandProfButton.Text = "Load Band Profile...";
+            this.LoadBandProfButton.UseVisualStyleBackColor = true;
+            this.LoadBandProfButton.Click += new System.EventHandler(this.LoadBandProfButton_Click);
+            // 
+            // SaveBandProfButton
+            // 
+            this.SaveBandProfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SaveBandProfButton.Location = new System.Drawing.Point(391, 161);
+            this.SaveBandProfButton.Name = "SaveBandProfButton";
+            this.SaveBandProfButton.Size = new System.Drawing.Size(260, 24);
+            this.SaveBandProfButton.TabIndex = 44;
+            this.SaveBandProfButton.Text = "Save Band Profile...";
+            this.SaveBandProfButton.UseVisualStyleBackColor = true;
+            this.SaveBandProfButton.Click += new System.EventHandler(this.SaveBandProfButton_Click);
+            // 
+            // PrefFVoxSelectChar
+            // 
+            this.PrefFVoxSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefFVoxSelectChar.Location = new System.Drawing.Point(338, 160);
+            this.PrefFVoxSelectChar.Name = "PrefFVoxSelectChar";
+            this.PrefFVoxSelectChar.Size = new System.Drawing.Size(28, 25);
+            this.PrefFVoxSelectChar.TabIndex = 42;
+            this.PrefFVoxSelectChar.Text = "...";
+            this.PrefFVoxSelectChar.UseVisualStyleBackColor = true;
+            this.PrefFVoxSelectChar.Click += new System.EventHandler(this.PrefFVoxSelectChar_Click);
+            // 
+            // TBPrefFVoxLabel
+            // 
+            this.TBPrefFVoxLabel.AutoSize = true;
+            this.TBPrefFVoxLabel.Location = new System.Drawing.Point(24, 161);
+            this.TBPrefFVoxLabel.Name = "TBPrefFVoxLabel";
+            this.TBPrefFVoxLabel.Size = new System.Drawing.Size(147, 22);
+            this.TBPrefFVoxLabel.TabIndex = 40;
+            this.TBPrefFVoxLabel.Text = "Pref. Female Singer:";
+            // 
+            // TBCelebIntrosHeader
+            // 
+            this.TBCelebIntrosHeader.AutoSize = true;
+            this.TBCelebIntrosHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TBCelebIntrosHeader.Location = new System.Drawing.Point(17, 356);
+            this.TBCelebIntrosHeader.Name = "TBCelebIntrosHeader";
+            this.TBCelebIntrosHeader.Size = new System.Drawing.Size(153, 25);
+            this.TBCelebIntrosHeader.TabIndex = 35;
+            this.TBCelebIntrosHeader.Text = "Celebrity Intros:";
+            // 
+            // TBBasStrums
+            // 
+            this.TBBasStrums.AutoSize = true;
+            this.TBBasStrums.Location = new System.Drawing.Point(26, 321);
+            this.TBBasStrums.Name = "TBBasStrums";
+            this.TBBasStrums.Size = new System.Drawing.Size(172, 22);
+            this.TBBasStrums.TabIndex = 34;
+            this.TBBasStrums.Text = "Bass Strum Animations:";
+            // 
+            // TBStrumAnimsHeader
+            // 
+            this.TBStrumAnimsHeader.AutoSize = true;
+            this.TBStrumAnimsHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TBStrumAnimsHeader.Location = new System.Drawing.Point(17, 258);
+            this.TBStrumAnimsHeader.Name = "TBStrumAnimsHeader";
+            this.TBStrumAnimsHeader.Size = new System.Drawing.Size(172, 25);
+            this.TBStrumAnimsHeader.TabIndex = 33;
+            this.TBStrumAnimsHeader.Text = "Strum Animations:";
+            // 
+            // TBPrefStageLabel
+            // 
+            this.TBPrefStageLabel.AutoSize = true;
+            this.TBPrefStageLabel.Location = new System.Drawing.Point(24, 191);
+            this.TBPrefStageLabel.Name = "TBPrefStageLabel";
+            this.TBPrefStageLabel.Size = new System.Drawing.Size(124, 22);
+            this.TBPrefStageLabel.TabIndex = 31;
+            this.TBPrefStageLabel.Text = "Preferred Venue:";
+            // 
+            // PrefVoxSelectChar
+            // 
+            this.PrefVoxSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefVoxSelectChar.Location = new System.Drawing.Point(338, 129);
+            this.PrefVoxSelectChar.Name = "PrefVoxSelectChar";
+            this.PrefVoxSelectChar.Size = new System.Drawing.Size(28, 25);
+            this.PrefVoxSelectChar.TabIndex = 30;
+            this.PrefVoxSelectChar.Text = "...";
+            this.PrefVoxSelectChar.UseVisualStyleBackColor = true;
+            this.PrefVoxSelectChar.Click += new System.EventHandler(this.PrefVoxSelectChar_Click);
+            // 
+            // TBPrefVoxLabel
+            // 
+            this.TBPrefVoxLabel.AutoSize = true;
+            this.TBPrefVoxLabel.Location = new System.Drawing.Point(24, 130);
+            this.TBPrefVoxLabel.Name = "TBPrefVoxLabel";
+            this.TBPrefVoxLabel.Size = new System.Drawing.Size(130, 22);
+            this.TBPrefVoxLabel.TabIndex = 28;
+            this.TBPrefVoxLabel.Text = "Pref. Male Singer:";
+            // 
+            // PrefDrmHwySelectHwy
+            // 
+            this.PrefDrmHwySelectHwy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefDrmHwySelectHwy.Location = new System.Drawing.Point(628, 99);
+            this.PrefDrmHwySelectHwy.Name = "PrefDrmHwySelectHwy";
+            this.PrefDrmHwySelectHwy.Size = new System.Drawing.Size(28, 25);
+            this.PrefDrmHwySelectHwy.TabIndex = 27;
+            this.PrefDrmHwySelectHwy.Text = "...";
+            this.PrefDrmHwySelectHwy.UseVisualStyleBackColor = true;
+            this.PrefDrmHwySelectHwy.Click += new System.EventHandler(this.PrefDrmHwySelectHwy_Click);
+            // 
+            // TBPDHLabel
+            // 
+            this.TBPDHLabel.AutoSize = true;
+            this.TBPDHLabel.Location = new System.Drawing.Point(380, 99);
+            this.TBPDHLabel.Name = "TBPDHLabel";
+            this.TBPDHLabel.Size = new System.Drawing.Size(73, 22);
+            this.TBPDHLabel.TabIndex = 25;
+            this.TBPDHLabel.Text = "Highway:";
+            // 
+            // PrefDrmSelectChar
+            // 
+            this.PrefDrmSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefDrmSelectChar.Location = new System.Drawing.Point(338, 98);
+            this.PrefDrmSelectChar.Name = "PrefDrmSelectChar";
+            this.PrefDrmSelectChar.Size = new System.Drawing.Size(28, 25);
+            this.PrefDrmSelectChar.TabIndex = 24;
+            this.PrefDrmSelectChar.Text = "...";
+            this.PrefDrmSelectChar.UseVisualStyleBackColor = true;
+            this.PrefDrmSelectChar.Click += new System.EventHandler(this.PrefDrmSelectChar_Click);
+            // 
+            // TBPrefDrmLabel
+            // 
+            this.TBPrefDrmLabel.AutoSize = true;
+            this.TBPrefDrmLabel.Location = new System.Drawing.Point(24, 99);
+            this.TBPrefDrmLabel.Name = "TBPrefDrmLabel";
+            this.TBPrefDrmLabel.Size = new System.Drawing.Size(147, 22);
+            this.TBPrefDrmLabel.TabIndex = 22;
+            this.TBPrefDrmLabel.Text = "Preferred Drummer:";
+            // 
+            // PrefBasHwySelectHwy
+            // 
+            this.PrefBasHwySelectHwy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefBasHwySelectHwy.Location = new System.Drawing.Point(628, 69);
+            this.PrefBasHwySelectHwy.Name = "PrefBasHwySelectHwy";
+            this.PrefBasHwySelectHwy.Size = new System.Drawing.Size(28, 25);
+            this.PrefBasHwySelectHwy.TabIndex = 21;
+            this.PrefBasHwySelectHwy.Text = "...";
+            this.PrefBasHwySelectHwy.UseVisualStyleBackColor = true;
+            this.PrefBasHwySelectHwy.Click += new System.EventHandler(this.PrefBasHwySelectHwy_Click);
+            // 
+            // TBPBHLabel
+            // 
+            this.TBPBHLabel.AutoSize = true;
+            this.TBPBHLabel.Location = new System.Drawing.Point(380, 69);
+            this.TBPBHLabel.Name = "TBPBHLabel";
+            this.TBPBHLabel.Size = new System.Drawing.Size(73, 22);
+            this.TBPBHLabel.TabIndex = 19;
+            this.TBPBHLabel.Text = "Highway:";
+            // 
+            // PrefBasSelectChar
+            // 
+            this.PrefBasSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefBasSelectChar.Location = new System.Drawing.Point(338, 68);
+            this.PrefBasSelectChar.Name = "PrefBasSelectChar";
+            this.PrefBasSelectChar.Size = new System.Drawing.Size(28, 25);
+            this.PrefBasSelectChar.TabIndex = 18;
+            this.PrefBasSelectChar.Text = "...";
+            this.PrefBasSelectChar.UseVisualStyleBackColor = true;
+            this.PrefBasSelectChar.Click += new System.EventHandler(this.PrefBasSelectChar_Click);
+            // 
+            // TBPrefBasLabel
+            // 
+            this.TBPrefBasLabel.AutoSize = true;
+            this.TBPrefBasLabel.Location = new System.Drawing.Point(24, 69);
+            this.TBPrefBasLabel.Name = "TBPrefBasLabel";
+            this.TBPrefBasLabel.Size = new System.Drawing.Size(132, 22);
+            this.TBPrefBasLabel.TabIndex = 16;
+            this.TBPrefBasLabel.Text = "Preferred Bassist:";
+            // 
+            // PrefGtrHwySelectHwy
+            // 
+            this.PrefGtrHwySelectHwy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefGtrHwySelectHwy.Location = new System.Drawing.Point(628, 39);
+            this.PrefGtrHwySelectHwy.Name = "PrefGtrHwySelectHwy";
+            this.PrefGtrHwySelectHwy.Size = new System.Drawing.Size(28, 25);
+            this.PrefGtrHwySelectHwy.TabIndex = 15;
+            this.PrefGtrHwySelectHwy.Text = "...";
+            this.PrefGtrHwySelectHwy.UseVisualStyleBackColor = true;
+            this.PrefGtrHwySelectHwy.Click += new System.EventHandler(this.PrefGtrHwySelectHwy_Click);
+            // 
+            // TBPGHLabel
+            // 
+            this.TBPGHLabel.AutoSize = true;
+            this.TBPGHLabel.Location = new System.Drawing.Point(380, 39);
+            this.TBPGHLabel.Name = "TBPGHLabel";
+            this.TBPGHLabel.Size = new System.Drawing.Size(73, 22);
+            this.TBPGHLabel.TabIndex = 13;
+            this.TBPGHLabel.Text = "Highway:";
+            // 
+            // PrefGtrSelectChar
+            // 
+            this.PrefGtrSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PrefGtrSelectChar.Location = new System.Drawing.Point(338, 38);
+            this.PrefGtrSelectChar.Name = "PrefGtrSelectChar";
+            this.PrefGtrSelectChar.Size = new System.Drawing.Size(28, 25);
+            this.PrefGtrSelectChar.TabIndex = 12;
+            this.PrefGtrSelectChar.Text = "...";
+            this.PrefGtrSelectChar.UseVisualStyleBackColor = true;
+            this.PrefGtrSelectChar.Click += new System.EventHandler(this.PrefGtrSelectChar_Click);
+            // 
+            // TBGtrStrums
+            // 
+            this.TBGtrStrums.AutoSize = true;
+            this.TBGtrStrums.Location = new System.Drawing.Point(24, 287);
+            this.TBGtrStrums.Name = "TBGtrStrums";
+            this.TBGtrStrums.Size = new System.Drawing.Size(182, 22);
+            this.TBGtrStrums.TabIndex = 10;
+            this.TBGtrStrums.Text = "Guitar Strum Animations:";
+            // 
+            // TBPrefHighwaysHeader
+            // 
+            this.TBPrefHighwaysHeader.AutoSize = true;
+            this.TBPrefHighwaysHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TBPrefHighwaysHeader.Location = new System.Drawing.Point(369, 14);
+            this.TBPrefHighwaysHeader.Name = "TBPrefHighwaysHeader";
+            this.TBPrefHighwaysHeader.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TBPrefHighwaysHeader.Size = new System.Drawing.Size(186, 25);
+            this.TBPrefHighwaysHeader.TabIndex = 9;
+            this.TBPrefHighwaysHeader.Text = "Preferred Highways:";
+            // 
+            // TBPrefGtrLabel
+            // 
+            this.TBPrefGtrLabel.AutoSize = true;
+            this.TBPrefGtrLabel.Location = new System.Drawing.Point(24, 39);
+            this.TBPrefGtrLabel.Name = "TBPrefGtrLabel";
+            this.TBPrefGtrLabel.Size = new System.Drawing.Size(142, 22);
+            this.TBPrefGtrLabel.TabIndex = 5;
+            this.TBPrefGtrLabel.Text = "Preferred Guitarist:";
+            // 
+            // TBBandLineup
+            // 
+            this.TBBandLineup.AutoSize = true;
+            this.TBBandLineup.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TBBandLineup.Location = new System.Drawing.Point(17, 14);
+            this.TBBandLineup.Name = "TBBandLineup";
+            this.TBBandLineup.Size = new System.Drawing.Size(126, 25);
+            this.TBBandLineup.TabIndex = 1;
+            this.TBBandLineup.Text = "Band Lineup:";
             // 
             // TabGraphicsGroup
             // 
@@ -5704,6 +6099,185 @@
             this.TODProfileLabel.TabIndex = 24;
             this.TODProfileLabel.Text = "Time of Day Profile:";
             // 
+            // TabGeneralGroup
+            // 
+            this.TabGeneralGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
+            this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGeneralGroup.Location = new System.Drawing.Point(10, 10);
+            this.TabGeneralGroup.Name = "TabGeneralGroup";
+            this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabGeneralGroup.TabIndex = 0;
+            this.TabGeneralGroup.TabStop = false;
+            this.TabGeneralGroup.Text = "DEBUG: General Tab";
+            // 
+            // TabGeneralSettingsTabs
+            // 
+            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsBasic);
+            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsAudio);
+            this.TabGeneralSettingsTabs.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGeneralSettingsTabs.Location = new System.Drawing.Point(6, 12);
+            this.TabGeneralSettingsTabs.Name = "TabGeneralSettingsTabs";
+            this.TabGeneralSettingsTabs.SelectedIndex = 0;
+            this.TabGeneralSettingsTabs.Size = new System.Drawing.Size(648, 630);
+            this.TabGeneralSettingsTabs.TabIndex = 27;
+            // 
+            // TabGeneralTabsBasic
+            // 
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag4);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText4);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag3);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText3);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag2);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText2);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag1);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGGamerTags);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText1);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGBasicSettings);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGForceHolidayLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.RichPresence);
+            this.TabGeneralTabsBasic.Controls.Add(this.Holiday);
+            this.TabGeneralTabsBasic.Controls.Add(this.AllowHolidays);
+            this.TabGeneralTabsBasic.Controls.Add(this.StatusHandler);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGAutoLoginLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.AutoLogin);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGDefaultQPODiff);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGLanguageLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.DefaultQPODifficulty);
+            this.TabGeneralTabsBasic.Controls.Add(this.Language);
+            this.TabGeneralTabsBasic.Controls.Add(this.CheckForUpdates);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGLauncherOptions);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGMMOHeader);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseQuitOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseCareerOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseOptionsOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseQuickplayOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseCAROption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseHeadToHeadOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseMusicStudioOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseOnlineOption);
+            this.TabGeneralTabsBasic.Location = new System.Drawing.Point(4, 30);
+            this.TabGeneralTabsBasic.Name = "TabGeneralTabsBasic";
+            this.TabGeneralTabsBasic.Padding = new System.Windows.Forms.Padding(3);
+            this.TabGeneralTabsBasic.Size = new System.Drawing.Size(640, 596);
+            this.TabGeneralTabsBasic.TabIndex = 4;
+            this.TabGeneralTabsBasic.Text = "Basic Options";
+            this.TabGeneralTabsBasic.UseVisualStyleBackColor = true;
+            // 
+            // TGBasicSettings
+            // 
+            this.TGBasicSettings.AutoSize = true;
+            this.TGBasicSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGBasicSettings.Location = new System.Drawing.Point(3, 0);
+            this.TGBasicSettings.Name = "TGBasicSettings";
+            this.TGBasicSettings.Size = new System.Drawing.Size(140, 25);
+            this.TGBasicSettings.TabIndex = 1;
+            this.TGBasicSettings.Text = "Basic Settings:";
+            // 
+            // TGForceHolidayLabel
+            // 
+            this.TGForceHolidayLabel.AutoSize = true;
+            this.TGForceHolidayLabel.Location = new System.Drawing.Point(15, 196);
+            this.TGForceHolidayLabel.Name = "TGForceHolidayLabel";
+            this.TGForceHolidayLabel.Size = new System.Drawing.Size(158, 22);
+            this.TGForceHolidayLabel.TabIndex = 26;
+            this.TGForceHolidayLabel.Text = "Force Holiday Theme:";
+            // 
+            // TGAutoLoginLabel
+            // 
+            this.TGAutoLoginLabel.AutoSize = true;
+            this.TGAutoLoginLabel.Location = new System.Drawing.Point(15, 162);
+            this.TGAutoLoginLabel.Name = "TGAutoLoginLabel";
+            this.TGAutoLoginLabel.Size = new System.Drawing.Size(87, 22);
+            this.TGAutoLoginLabel.TabIndex = 23;
+            this.TGAutoLoginLabel.Text = "Auto Login:";
+            // 
+            // TGDefaultQPODiff
+            // 
+            this.TGDefaultQPODiff.AutoSize = true;
+            this.TGDefaultQPODiff.Location = new System.Drawing.Point(15, 94);
+            this.TGDefaultQPODiff.Name = "TGDefaultQPODiff";
+            this.TGDefaultQPODiff.Size = new System.Drawing.Size(200, 22);
+            this.TGDefaultQPODiff.TabIndex = 5;
+            this.TGDefaultQPODiff.Text = "Default Quickplay Difficulty:";
+            // 
+            // TGLanguageLabel
+            // 
+            this.TGLanguageLabel.AutoSize = true;
+            this.TGLanguageLabel.Location = new System.Drawing.Point(15, 128);
+            this.TGLanguageLabel.Name = "TGLanguageLabel";
+            this.TGLanguageLabel.Size = new System.Drawing.Size(81, 22);
+            this.TGLanguageLabel.TabIndex = 21;
+            this.TGLanguageLabel.Text = "Language:";
+            // 
+            // TGLauncherOptions
+            // 
+            this.TGLauncherOptions.AutoSize = true;
+            this.TGLauncherOptions.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGLauncherOptions.Location = new System.Drawing.Point(3, 301);
+            this.TGLauncherOptions.Name = "TGLauncherOptions";
+            this.TGLauncherOptions.Size = new System.Drawing.Size(172, 25);
+            this.TGLauncherOptions.TabIndex = 18;
+            this.TGLauncherOptions.Text = "Launcher Options:";
+            // 
+            // TGMMOHeader
+            // 
+            this.TGMMOHeader.AutoSize = true;
+            this.TGMMOHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGMMOHeader.Location = new System.Drawing.Point(370, 0);
+            this.TGMMOHeader.Name = "TGMMOHeader";
+            this.TGMMOHeader.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TGMMOHeader.Size = new System.Drawing.Size(184, 25);
+            this.TGMMOHeader.TabIndex = 9;
+            this.TGMMOHeader.Text = "Main Menu Options:";
+            // 
+            // TabGeneralTabsAudio
+            // 
+            this.TabGeneralTabsAudio.Controls.Add(this.StarPowerReverb);
+            this.TabGeneralTabsAudio.Controls.Add(this.SPClapType);
+            this.TabGeneralTabsAudio.Controls.Add(this.TGSPClapTypeLabel);
+            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioSettings);
+            this.TabGeneralTabsAudio.Controls.Add(this.AudioBuffLen);
+            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioBLen);
+            this.TabGeneralTabsAudio.Controls.Add(this.WhammyPitchShift);
+            this.TabGeneralTabsAudio.Controls.Add(this.MuteStreams);
+            this.TabGeneralTabsAudio.Location = new System.Drawing.Point(4, 30);
+            this.TabGeneralTabsAudio.Name = "TabGeneralTabsAudio";
+            this.TabGeneralTabsAudio.Padding = new System.Windows.Forms.Padding(3);
+            this.TabGeneralTabsAudio.Size = new System.Drawing.Size(640, 596);
+            this.TabGeneralTabsAudio.TabIndex = 5;
+            this.TabGeneralTabsAudio.Text = "Audio Settings";
+            this.TabGeneralTabsAudio.UseVisualStyleBackColor = true;
+            // 
+            // TGSPClapTypeLabel
+            // 
+            this.TGSPClapTypeLabel.AutoSize = true;
+            this.TGSPClapTypeLabel.Location = new System.Drawing.Point(15, 162);
+            this.TGSPClapTypeLabel.Name = "TGSPClapTypeLabel";
+            this.TGSPClapTypeLabel.Size = new System.Drawing.Size(161, 22);
+            this.TGSPClapTypeLabel.TabIndex = 13;
+            this.TGSPClapTypeLabel.Text = "Star Power Clap Type:";
+            // 
+            // TGAudioSettings
+            // 
+            this.TGAudioSettings.AutoSize = true;
+            this.TGAudioSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGAudioSettings.Location = new System.Drawing.Point(3, 0);
+            this.TGAudioSettings.Name = "TGAudioSettings";
+            this.TGAudioSettings.Size = new System.Drawing.Size(143, 25);
+            this.TGAudioSettings.TabIndex = 11;
+            this.TGAudioSettings.Text = "Audio Settings:";
+            // 
+            // TGAudioBLen
+            // 
+            this.TGAudioBLen.AutoSize = true;
+            this.TGAudioBLen.Location = new System.Drawing.Point(15, 128);
+            this.TGAudioBLen.Name = "TGAudioBLen";
+            this.TGAudioBLen.Size = new System.Drawing.Size(150, 22);
+            this.TGAudioBLen.TabIndex = 10;
+            this.TGAudioBLen.Text = "Audio Buffer Length:";
+            // 
             // TabAutoLaunchGroup
             // 
             this.TabAutoLaunchGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -6019,287 +6593,6 @@
             this.TALP1DLabel.TabIndex = 39;
             this.TALP1DLabel.Text = "Difficulty:";
             // 
-            // TabBandGroup
-            // 
-            this.TabBandGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabBandGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabBandGroup.Controls.Add(this.LoadBandProfButton);
-            this.TabBandGroup.Controls.Add(this.SaveBandProfButton);
-            this.TabBandGroup.Controls.Add(this.ReplaceSpecialBands);
-            this.TabBandGroup.Controls.Add(this.PrefFVoxSelectChar);
-            this.TabBandGroup.Controls.Add(this.PreferredFemaleSinger);
-            this.TabBandGroup.Controls.Add(this.TBPrefFVoxLabel);
-            this.TabBandGroup.Controls.Add(this.AlwaysCelebIntro);
-            this.TabBandGroup.Controls.Add(this.AlwaysVOIntro);
-            this.TabBandGroup.Controls.Add(this.AlwaysSplashText);
-            this.TabBandGroup.Controls.Add(this.SongSpecificIntros);
-            this.TabBandGroup.Controls.Add(this.TBCelebIntrosHeader);
-            this.TabBandGroup.Controls.Add(this.TBBasStrums);
-            this.TabBandGroup.Controls.Add(this.TBStrumAnimsHeader);
-            this.TabBandGroup.Controls.Add(this.PreferredStage);
-            this.TabBandGroup.Controls.Add(this.TBPrefStageLabel);
-            this.TabBandGroup.Controls.Add(this.PrefVoxSelectChar);
-            this.TabBandGroup.Controls.Add(this.PreferredSinger);
-            this.TabBandGroup.Controls.Add(this.TBPrefVoxLabel);
-            this.TabBandGroup.Controls.Add(this.PrefDrmHwySelectHwy);
-            this.TabBandGroup.Controls.Add(this.PreferredDrummerHighway);
-            this.TabBandGroup.Controls.Add(this.TBPDHLabel);
-            this.TabBandGroup.Controls.Add(this.PrefDrmSelectChar);
-            this.TabBandGroup.Controls.Add(this.PreferredDrummer);
-            this.TabBandGroup.Controls.Add(this.TBPrefDrmLabel);
-            this.TabBandGroup.Controls.Add(this.PrefBasHwySelectHwy);
-            this.TabBandGroup.Controls.Add(this.PreferredBassistHighway);
-            this.TabBandGroup.Controls.Add(this.TBPBHLabel);
-            this.TabBandGroup.Controls.Add(this.PrefBasSelectChar);
-            this.TabBandGroup.Controls.Add(this.PreferredBassist);
-            this.TabBandGroup.Controls.Add(this.TBPrefBasLabel);
-            this.TabBandGroup.Controls.Add(this.PrefGtrHwySelectHwy);
-            this.TabBandGroup.Controls.Add(this.PreferredGuitaristHighway);
-            this.TabBandGroup.Controls.Add(this.TBPGHLabel);
-            this.TabBandGroup.Controls.Add(this.PrefGtrSelectChar);
-            this.TabBandGroup.Controls.Add(this.PreferredGuitarist);
-            this.TabBandGroup.Controls.Add(this.TBGtrStrums);
-            this.TabBandGroup.Controls.Add(this.TBPrefHighwaysHeader);
-            this.TabBandGroup.Controls.Add(this.BassStrumAnim);
-            this.TabBandGroup.Controls.Add(this.GuitarStrumAnim);
-            this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
-            this.TabBandGroup.Controls.Add(this.TBBandLineup);
-            this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(12, 9);
-            this.TabBandGroup.Name = "TabBandGroup";
-            this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabBandGroup.TabIndex = 1;
-            this.TabBandGroup.TabStop = false;
-            this.TabBandGroup.Text = "DEBUG: Band Tab";
-            // 
-            // PrefFVoxSelectChar
-            // 
-            this.PrefFVoxSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefFVoxSelectChar.Location = new System.Drawing.Point(338, 160);
-            this.PrefFVoxSelectChar.Name = "PrefFVoxSelectChar";
-            this.PrefFVoxSelectChar.Size = new System.Drawing.Size(28, 25);
-            this.PrefFVoxSelectChar.TabIndex = 42;
-            this.PrefFVoxSelectChar.Text = "...";
-            this.PrefFVoxSelectChar.UseVisualStyleBackColor = true;
-            this.PrefFVoxSelectChar.Click += new System.EventHandler(this.PrefFVoxSelectChar_Click);
-            // 
-            // TBPrefFVoxLabel
-            // 
-            this.TBPrefFVoxLabel.AutoSize = true;
-            this.TBPrefFVoxLabel.Location = new System.Drawing.Point(24, 161);
-            this.TBPrefFVoxLabel.Name = "TBPrefFVoxLabel";
-            this.TBPrefFVoxLabel.Size = new System.Drawing.Size(147, 22);
-            this.TBPrefFVoxLabel.TabIndex = 40;
-            this.TBPrefFVoxLabel.Text = "Pref. Female Singer:";
-            // 
-            // TBCelebIntrosHeader
-            // 
-            this.TBCelebIntrosHeader.AutoSize = true;
-            this.TBCelebIntrosHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TBCelebIntrosHeader.Location = new System.Drawing.Point(17, 356);
-            this.TBCelebIntrosHeader.Name = "TBCelebIntrosHeader";
-            this.TBCelebIntrosHeader.Size = new System.Drawing.Size(153, 25);
-            this.TBCelebIntrosHeader.TabIndex = 35;
-            this.TBCelebIntrosHeader.Text = "Celebrity Intros:";
-            // 
-            // TBBasStrums
-            // 
-            this.TBBasStrums.AutoSize = true;
-            this.TBBasStrums.Location = new System.Drawing.Point(26, 321);
-            this.TBBasStrums.Name = "TBBasStrums";
-            this.TBBasStrums.Size = new System.Drawing.Size(172, 22);
-            this.TBBasStrums.TabIndex = 34;
-            this.TBBasStrums.Text = "Bass Strum Animations:";
-            // 
-            // TBStrumAnimsHeader
-            // 
-            this.TBStrumAnimsHeader.AutoSize = true;
-            this.TBStrumAnimsHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TBStrumAnimsHeader.Location = new System.Drawing.Point(17, 258);
-            this.TBStrumAnimsHeader.Name = "TBStrumAnimsHeader";
-            this.TBStrumAnimsHeader.Size = new System.Drawing.Size(172, 25);
-            this.TBStrumAnimsHeader.TabIndex = 33;
-            this.TBStrumAnimsHeader.Text = "Strum Animations:";
-            // 
-            // TBPrefStageLabel
-            // 
-            this.TBPrefStageLabel.AutoSize = true;
-            this.TBPrefStageLabel.Location = new System.Drawing.Point(24, 191);
-            this.TBPrefStageLabel.Name = "TBPrefStageLabel";
-            this.TBPrefStageLabel.Size = new System.Drawing.Size(124, 22);
-            this.TBPrefStageLabel.TabIndex = 31;
-            this.TBPrefStageLabel.Text = "Preferred Venue:";
-            // 
-            // PrefVoxSelectChar
-            // 
-            this.PrefVoxSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefVoxSelectChar.Location = new System.Drawing.Point(338, 129);
-            this.PrefVoxSelectChar.Name = "PrefVoxSelectChar";
-            this.PrefVoxSelectChar.Size = new System.Drawing.Size(28, 25);
-            this.PrefVoxSelectChar.TabIndex = 30;
-            this.PrefVoxSelectChar.Text = "...";
-            this.PrefVoxSelectChar.UseVisualStyleBackColor = true;
-            this.PrefVoxSelectChar.Click += new System.EventHandler(this.PrefVoxSelectChar_Click);
-            // 
-            // TBPrefVoxLabel
-            // 
-            this.TBPrefVoxLabel.AutoSize = true;
-            this.TBPrefVoxLabel.Location = new System.Drawing.Point(24, 130);
-            this.TBPrefVoxLabel.Name = "TBPrefVoxLabel";
-            this.TBPrefVoxLabel.Size = new System.Drawing.Size(130, 22);
-            this.TBPrefVoxLabel.TabIndex = 28;
-            this.TBPrefVoxLabel.Text = "Pref. Male Singer:";
-            // 
-            // PrefDrmHwySelectHwy
-            // 
-            this.PrefDrmHwySelectHwy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefDrmHwySelectHwy.Location = new System.Drawing.Point(628, 99);
-            this.PrefDrmHwySelectHwy.Name = "PrefDrmHwySelectHwy";
-            this.PrefDrmHwySelectHwy.Size = new System.Drawing.Size(28, 25);
-            this.PrefDrmHwySelectHwy.TabIndex = 27;
-            this.PrefDrmHwySelectHwy.Text = "...";
-            this.PrefDrmHwySelectHwy.UseVisualStyleBackColor = true;
-            this.PrefDrmHwySelectHwy.Click += new System.EventHandler(this.PrefDrmHwySelectHwy_Click);
-            // 
-            // TBPDHLabel
-            // 
-            this.TBPDHLabel.AutoSize = true;
-            this.TBPDHLabel.Location = new System.Drawing.Point(380, 99);
-            this.TBPDHLabel.Name = "TBPDHLabel";
-            this.TBPDHLabel.Size = new System.Drawing.Size(73, 22);
-            this.TBPDHLabel.TabIndex = 25;
-            this.TBPDHLabel.Text = "Highway:";
-            // 
-            // PrefDrmSelectChar
-            // 
-            this.PrefDrmSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefDrmSelectChar.Location = new System.Drawing.Point(338, 98);
-            this.PrefDrmSelectChar.Name = "PrefDrmSelectChar";
-            this.PrefDrmSelectChar.Size = new System.Drawing.Size(28, 25);
-            this.PrefDrmSelectChar.TabIndex = 24;
-            this.PrefDrmSelectChar.Text = "...";
-            this.PrefDrmSelectChar.UseVisualStyleBackColor = true;
-            this.PrefDrmSelectChar.Click += new System.EventHandler(this.PrefDrmSelectChar_Click);
-            // 
-            // TBPrefDrmLabel
-            // 
-            this.TBPrefDrmLabel.AutoSize = true;
-            this.TBPrefDrmLabel.Location = new System.Drawing.Point(24, 99);
-            this.TBPrefDrmLabel.Name = "TBPrefDrmLabel";
-            this.TBPrefDrmLabel.Size = new System.Drawing.Size(147, 22);
-            this.TBPrefDrmLabel.TabIndex = 22;
-            this.TBPrefDrmLabel.Text = "Preferred Drummer:";
-            // 
-            // PrefBasHwySelectHwy
-            // 
-            this.PrefBasHwySelectHwy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefBasHwySelectHwy.Location = new System.Drawing.Point(628, 69);
-            this.PrefBasHwySelectHwy.Name = "PrefBasHwySelectHwy";
-            this.PrefBasHwySelectHwy.Size = new System.Drawing.Size(28, 25);
-            this.PrefBasHwySelectHwy.TabIndex = 21;
-            this.PrefBasHwySelectHwy.Text = "...";
-            this.PrefBasHwySelectHwy.UseVisualStyleBackColor = true;
-            this.PrefBasHwySelectHwy.Click += new System.EventHandler(this.PrefBasHwySelectHwy_Click);
-            // 
-            // TBPBHLabel
-            // 
-            this.TBPBHLabel.AutoSize = true;
-            this.TBPBHLabel.Location = new System.Drawing.Point(380, 69);
-            this.TBPBHLabel.Name = "TBPBHLabel";
-            this.TBPBHLabel.Size = new System.Drawing.Size(73, 22);
-            this.TBPBHLabel.TabIndex = 19;
-            this.TBPBHLabel.Text = "Highway:";
-            // 
-            // PrefBasSelectChar
-            // 
-            this.PrefBasSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefBasSelectChar.Location = new System.Drawing.Point(338, 68);
-            this.PrefBasSelectChar.Name = "PrefBasSelectChar";
-            this.PrefBasSelectChar.Size = new System.Drawing.Size(28, 25);
-            this.PrefBasSelectChar.TabIndex = 18;
-            this.PrefBasSelectChar.Text = "...";
-            this.PrefBasSelectChar.UseVisualStyleBackColor = true;
-            this.PrefBasSelectChar.Click += new System.EventHandler(this.PrefBasSelectChar_Click);
-            // 
-            // TBPrefBasLabel
-            // 
-            this.TBPrefBasLabel.AutoSize = true;
-            this.TBPrefBasLabel.Location = new System.Drawing.Point(24, 69);
-            this.TBPrefBasLabel.Name = "TBPrefBasLabel";
-            this.TBPrefBasLabel.Size = new System.Drawing.Size(132, 22);
-            this.TBPrefBasLabel.TabIndex = 16;
-            this.TBPrefBasLabel.Text = "Preferred Bassist:";
-            // 
-            // PrefGtrHwySelectHwy
-            // 
-            this.PrefGtrHwySelectHwy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefGtrHwySelectHwy.Location = new System.Drawing.Point(628, 39);
-            this.PrefGtrHwySelectHwy.Name = "PrefGtrHwySelectHwy";
-            this.PrefGtrHwySelectHwy.Size = new System.Drawing.Size(28, 25);
-            this.PrefGtrHwySelectHwy.TabIndex = 15;
-            this.PrefGtrHwySelectHwy.Text = "...";
-            this.PrefGtrHwySelectHwy.UseVisualStyleBackColor = true;
-            this.PrefGtrHwySelectHwy.Click += new System.EventHandler(this.PrefGtrHwySelectHwy_Click);
-            // 
-            // TBPGHLabel
-            // 
-            this.TBPGHLabel.AutoSize = true;
-            this.TBPGHLabel.Location = new System.Drawing.Point(380, 39);
-            this.TBPGHLabel.Name = "TBPGHLabel";
-            this.TBPGHLabel.Size = new System.Drawing.Size(73, 22);
-            this.TBPGHLabel.TabIndex = 13;
-            this.TBPGHLabel.Text = "Highway:";
-            // 
-            // PrefGtrSelectChar
-            // 
-            this.PrefGtrSelectChar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PrefGtrSelectChar.Location = new System.Drawing.Point(338, 38);
-            this.PrefGtrSelectChar.Name = "PrefGtrSelectChar";
-            this.PrefGtrSelectChar.Size = new System.Drawing.Size(28, 25);
-            this.PrefGtrSelectChar.TabIndex = 12;
-            this.PrefGtrSelectChar.Text = "...";
-            this.PrefGtrSelectChar.UseVisualStyleBackColor = true;
-            this.PrefGtrSelectChar.Click += new System.EventHandler(this.PrefGtrSelectChar_Click);
-            // 
-            // TBGtrStrums
-            // 
-            this.TBGtrStrums.AutoSize = true;
-            this.TBGtrStrums.Location = new System.Drawing.Point(24, 287);
-            this.TBGtrStrums.Name = "TBGtrStrums";
-            this.TBGtrStrums.Size = new System.Drawing.Size(182, 22);
-            this.TBGtrStrums.TabIndex = 10;
-            this.TBGtrStrums.Text = "Guitar Strum Animations:";
-            // 
-            // TBPrefHighwaysHeader
-            // 
-            this.TBPrefHighwaysHeader.AutoSize = true;
-            this.TBPrefHighwaysHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TBPrefHighwaysHeader.Location = new System.Drawing.Point(369, 14);
-            this.TBPrefHighwaysHeader.Name = "TBPrefHighwaysHeader";
-            this.TBPrefHighwaysHeader.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TBPrefHighwaysHeader.Size = new System.Drawing.Size(186, 25);
-            this.TBPrefHighwaysHeader.TabIndex = 9;
-            this.TBPrefHighwaysHeader.Text = "Preferred Highways:";
-            // 
-            // TBPrefGtrLabel
-            // 
-            this.TBPrefGtrLabel.AutoSize = true;
-            this.TBPrefGtrLabel.Location = new System.Drawing.Point(24, 39);
-            this.TBPrefGtrLabel.Name = "TBPrefGtrLabel";
-            this.TBPrefGtrLabel.Size = new System.Drawing.Size(142, 22);
-            this.TBPrefGtrLabel.TabIndex = 5;
-            this.TBPrefGtrLabel.Text = "Preferred Guitarist:";
-            // 
-            // TBBandLineup
-            // 
-            this.TBBandLineup.AutoSize = true;
-            this.TBBandLineup.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TBBandLineup.Location = new System.Drawing.Point(17, 14);
-            this.TBBandLineup.Name = "TBBandLineup";
-            this.TBBandLineup.Size = new System.Drawing.Size(126, 25);
-            this.TBBandLineup.TabIndex = 1;
-            this.TBBandLineup.Text = "Band Lineup:";
-            // 
             // TabDebugGroup
             // 
             this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -6597,86 +6890,6 @@
             this.IconLogoIMF.TabIndex = 22;
             this.IconLogoIMF.TabStop = false;
             // 
-            // TabGeneralGroup
-            // 
-            this.TabGeneralGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
-            this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralGroup.Location = new System.Drawing.Point(303, 335);
-            this.TabGeneralGroup.Name = "TabGeneralGroup";
-            this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabGeneralGroup.TabIndex = 0;
-            this.TabGeneralGroup.TabStop = false;
-            this.TabGeneralGroup.Text = "DEBUG: General Tab";
-            // 
-            // TGForceHolidayLabel
-            // 
-            this.TGForceHolidayLabel.AutoSize = true;
-            this.TGForceHolidayLabel.Location = new System.Drawing.Point(15, 196);
-            this.TGForceHolidayLabel.Name = "TGForceHolidayLabel";
-            this.TGForceHolidayLabel.Size = new System.Drawing.Size(158, 22);
-            this.TGForceHolidayLabel.TabIndex = 26;
-            this.TGForceHolidayLabel.Text = "Force Holiday Theme:";
-            // 
-            // TGAutoLoginLabel
-            // 
-            this.TGAutoLoginLabel.AutoSize = true;
-            this.TGAutoLoginLabel.Location = new System.Drawing.Point(15, 162);
-            this.TGAutoLoginLabel.Name = "TGAutoLoginLabel";
-            this.TGAutoLoginLabel.Size = new System.Drawing.Size(87, 22);
-            this.TGAutoLoginLabel.TabIndex = 23;
-            this.TGAutoLoginLabel.Text = "Auto Login:";
-            // 
-            // TGLanguageLabel
-            // 
-            this.TGLanguageLabel.AutoSize = true;
-            this.TGLanguageLabel.Location = new System.Drawing.Point(15, 128);
-            this.TGLanguageLabel.Name = "TGLanguageLabel";
-            this.TGLanguageLabel.Size = new System.Drawing.Size(81, 22);
-            this.TGLanguageLabel.TabIndex = 21;
-            this.TGLanguageLabel.Text = "Language:";
-            // 
-            // TGLauncherOptions
-            // 
-            this.TGLauncherOptions.AutoSize = true;
-            this.TGLauncherOptions.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGLauncherOptions.Location = new System.Drawing.Point(3, 301);
-            this.TGLauncherOptions.Name = "TGLauncherOptions";
-            this.TGLauncherOptions.Size = new System.Drawing.Size(172, 25);
-            this.TGLauncherOptions.TabIndex = 18;
-            this.TGLauncherOptions.Text = "Launcher Options:";
-            // 
-            // TGMMOHeader
-            // 
-            this.TGMMOHeader.AutoSize = true;
-            this.TGMMOHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGMMOHeader.Location = new System.Drawing.Point(370, 0);
-            this.TGMMOHeader.Name = "TGMMOHeader";
-            this.TGMMOHeader.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TGMMOHeader.Size = new System.Drawing.Size(184, 25);
-            this.TGMMOHeader.TabIndex = 9;
-            this.TGMMOHeader.Text = "Main Menu Options:";
-            // 
-            // TGDefaultQPODiff
-            // 
-            this.TGDefaultQPODiff.AutoSize = true;
-            this.TGDefaultQPODiff.Location = new System.Drawing.Point(15, 94);
-            this.TGDefaultQPODiff.Name = "TGDefaultQPODiff";
-            this.TGDefaultQPODiff.Size = new System.Drawing.Size(200, 22);
-            this.TGDefaultQPODiff.TabIndex = 5;
-            this.TGDefaultQPODiff.Text = "Default Quickplay Difficulty:";
-            // 
-            // TGBasicSettings
-            // 
-            this.TGBasicSettings.AutoSize = true;
-            this.TGBasicSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGBasicSettings.Location = new System.Drawing.Point(3, 0);
-            this.TGBasicSettings.Name = "TGBasicSettings";
-            this.TGBasicSettings.Size = new System.Drawing.Size(140, 25);
-            this.TGBasicSettings.TabIndex = 1;
-            this.TGBasicSettings.Text = "Basic Settings:";
-            // 
             // VersionInfoLabel
             // 
             this.VersionInfoLabel.AutoEllipsis = true;
@@ -6771,179 +6984,6 @@
             this.DummyLabel.TabIndex = 14;
             this.DummyLabel.Text = "DUMMY_LABEL";
             // 
-            // TabGeneralSettingsTabs
-            // 
-            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsBasic);
-            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsAudio);
-            this.TabGeneralSettingsTabs.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralSettingsTabs.Location = new System.Drawing.Point(6, 12);
-            this.TabGeneralSettingsTabs.Name = "TabGeneralSettingsTabs";
-            this.TabGeneralSettingsTabs.SelectedIndex = 0;
-            this.TabGeneralSettingsTabs.Size = new System.Drawing.Size(648, 630);
-            this.TabGeneralSettingsTabs.TabIndex = 27;
-            // 
-            // TabGeneralTabsBasic
-            // 
-            this.TabGeneralTabsBasic.Controls.Add(this.TGBasicSettings);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGForceHolidayLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.RichPresence);
-            this.TabGeneralTabsBasic.Controls.Add(this.Holiday);
-            this.TabGeneralTabsBasic.Controls.Add(this.AllowHolidays);
-            this.TabGeneralTabsBasic.Controls.Add(this.StatusHandler);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGAutoLoginLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.AutoLogin);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGDefaultQPODiff);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGLanguageLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.DefaultQPODifficulty);
-            this.TabGeneralTabsBasic.Controls.Add(this.Language);
-            this.TabGeneralTabsBasic.Controls.Add(this.CheckForUpdates);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGLauncherOptions);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGMMOHeader);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseQuitOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseCareerOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseOptionsOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseQuickplayOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseCAROption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseHeadToHeadOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseMusicStudioOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseOnlineOption);
-            this.TabGeneralTabsBasic.Location = new System.Drawing.Point(4, 30);
-            this.TabGeneralTabsBasic.Name = "TabGeneralTabsBasic";
-            this.TabGeneralTabsBasic.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGeneralTabsBasic.Size = new System.Drawing.Size(640, 596);
-            this.TabGeneralTabsBasic.TabIndex = 4;
-            this.TabGeneralTabsBasic.Text = "Basic Options";
-            this.TabGeneralTabsBasic.UseVisualStyleBackColor = true;
-            // 
-            // TabGeneralTabsAudio
-            // 
-            this.TabGeneralTabsAudio.Controls.Add(this.StarPowerReverb);
-            this.TabGeneralTabsAudio.Controls.Add(this.SPClapType);
-            this.TabGeneralTabsAudio.Controls.Add(this.TGSPClapTypeLabel);
-            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioSettings);
-            this.TabGeneralTabsAudio.Controls.Add(this.AudioBuffLen);
-            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioBLen);
-            this.TabGeneralTabsAudio.Controls.Add(this.WhammyPitchShift);
-            this.TabGeneralTabsAudio.Controls.Add(this.MuteStreams);
-            this.TabGeneralTabsAudio.Location = new System.Drawing.Point(4, 30);
-            this.TabGeneralTabsAudio.Name = "TabGeneralTabsAudio";
-            this.TabGeneralTabsAudio.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGeneralTabsAudio.Size = new System.Drawing.Size(640, 596);
-            this.TabGeneralTabsAudio.TabIndex = 5;
-            this.TabGeneralTabsAudio.Text = "Audio Settings";
-            this.TabGeneralTabsAudio.UseVisualStyleBackColor = true;
-            // 
-            // MuteStreams
-            // 
-            this.MuteStreams.AutoSize = true;
-            this.MuteStreams.Location = new System.Drawing.Point(19, 28);
-            this.MuteStreams.Name = "MuteStreams";
-            this.MuteStreams.Size = new System.Drawing.Size(219, 26);
-            this.MuteStreams.TabIndex = 4;
-            this.MuteStreams.Text = "Mute Split Tracks Upon Miss";
-            this.ToolTipMain.SetToolTip(this.MuteStreams, resources.GetString("MuteStreams.ToolTip"));
-            this.MuteStreams.UseVisualStyleBackColor = true;
-            // 
-            // WhammyPitchShift
-            // 
-            this.WhammyPitchShift.AutoSize = true;
-            this.WhammyPitchShift.Location = new System.Drawing.Point(19, 60);
-            this.WhammyPitchShift.Name = "WhammyPitchShift";
-            this.WhammyPitchShift.Size = new System.Drawing.Size(167, 26);
-            this.WhammyPitchShift.TabIndex = 5;
-            this.WhammyPitchShift.Text = "Whammy Pitch Shift";
-            this.ToolTipMain.SetToolTip(this.WhammyPitchShift, "Enables or disables the wah effect on audio caused by whammy.");
-            this.WhammyPitchShift.UseVisualStyleBackColor = true;
-            // 
-            // AudioBuffLen
-            // 
-            this.AudioBuffLen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AudioBuffLen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AudioBuffLen.FormattingEnabled = true;
-            this.AudioBuffLen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AudioBuffLen.Items.AddRange(new object[] {
-            "1024",
-            "2048",
-            "4096"});
-            this.AudioBuffLen.Location = new System.Drawing.Point(244, 129);
-            this.AudioBuffLen.Name = "AudioBuffLen";
-            this.AudioBuffLen.Size = new System.Drawing.Size(106, 23);
-            this.AudioBuffLen.TabIndex = 9;
-            this.ToolTipMain.SetToolTip(this.AudioBuffLen, resources.GetString("AudioBuffLen.ToolTip"));
-            // 
-            // TGAudioBLen
-            // 
-            this.TGAudioBLen.AutoSize = true;
-            this.TGAudioBLen.Location = new System.Drawing.Point(15, 128);
-            this.TGAudioBLen.Name = "TGAudioBLen";
-            this.TGAudioBLen.Size = new System.Drawing.Size(150, 22);
-            this.TGAudioBLen.TabIndex = 10;
-            this.TGAudioBLen.Text = "Audio Buffer Length:";
-            // 
-            // TGAudioSettings
-            // 
-            this.TGAudioSettings.AutoSize = true;
-            this.TGAudioSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGAudioSettings.Location = new System.Drawing.Point(3, 0);
-            this.TGAudioSettings.Name = "TGAudioSettings";
-            this.TGAudioSettings.Size = new System.Drawing.Size(143, 25);
-            this.TGAudioSettings.TabIndex = 11;
-            this.TGAudioSettings.Text = "Audio Settings:";
-            // 
-            // SPClapType
-            // 
-            this.SPClapType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SPClapType.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SPClapType.FormattingEnabled = true;
-            this.SPClapType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SPClapType.Items.AddRange(new object[] {
-            "Default (Per Venue)",
-            "Small, Interior",
-            "Medium, Interior",
-            "Medium, Exterior",
-            "Large, Exterior",
-            "No Claps"});
-            this.SPClapType.Location = new System.Drawing.Point(191, 163);
-            this.SPClapType.Name = "SPClapType";
-            this.SPClapType.Size = new System.Drawing.Size(159, 23);
-            this.SPClapType.TabIndex = 12;
-            this.ToolTipMain.SetToolTip(this.SPClapType, resources.GetString("SPClapType.ToolTip"));
-            this.SPClapType.SelectedIndexChanged += new System.EventHandler(this.SPClapType_SelectedIndexChanged);
-            // 
-            // TGSPClapTypeLabel
-            // 
-            this.TGSPClapTypeLabel.AutoSize = true;
-            this.TGSPClapTypeLabel.Location = new System.Drawing.Point(15, 162);
-            this.TGSPClapTypeLabel.Name = "TGSPClapTypeLabel";
-            this.TGSPClapTypeLabel.Size = new System.Drawing.Size(161, 22);
-            this.TGSPClapTypeLabel.TabIndex = 13;
-            this.TGSPClapTypeLabel.Text = "Star Power Clap Type:";
-            // 
-            // RandomTrainingVenues
-            // 
-            this.RandomTrainingVenues.AutoSize = true;
-            this.RandomTrainingVenues.Location = new System.Drawing.Point(19, 306);
-            this.RandomTrainingVenues.Name = "RandomTrainingVenues";
-            this.RandomTrainingVenues.Size = new System.Drawing.Size(198, 26);
-            this.RandomTrainingVenues.TabIndex = 21;
-            this.RandomTrainingVenues.Text = "Random Practice Venues";
-            this.ToolTipMain.SetToolTip(this.RandomTrainingVenues, "While in Practice Mode, instead of always loading into the Recording Studio,\r\nthi" +
-        "s will load the user into ANY venue, a la Guitar Hero: Warriors of Rock.");
-            this.RandomTrainingVenues.UseVisualStyleBackColor = true;
-            this.RandomTrainingVenues.CheckedChanged += new System.EventHandler(this.RandomTrainingVenues_CheckedChanged);
-            // 
-            // StarPowerReverb
-            // 
-            this.StarPowerReverb.AutoSize = true;
-            this.StarPowerReverb.Location = new System.Drawing.Point(19, 92);
-            this.StarPowerReverb.Name = "StarPowerReverb";
-            this.StarPowerReverb.Size = new System.Drawing.Size(180, 26);
-            this.StarPowerReverb.TabIndex = 14;
-            this.StarPowerReverb.Text = "Star Power Reverb FX";
-            this.ToolTipMain.SetToolTip(this.StarPowerReverb, "Enables or disables the audio reverb effects while Star Power is active.");
-            this.StarPowerReverb.UseVisualStyleBackColor = true;
-            this.StarPowerReverb.CheckedChanged += new System.EventHandler(this.StarPowerReverb_CheckedChanged);
-            // 
             // MOTDPanel
             // 
             this.MOTDPanel.BackColor = System.Drawing.Color.Transparent;
@@ -6965,6 +7005,15 @@
             this.MOTDWithImagePanel.Size = new System.Drawing.Size(688, 738);
             this.MOTDWithImagePanel.TabIndex = 17;
             // 
+            // MOTDImage
+            // 
+            this.MOTDImage.Location = new System.Drawing.Point(115, 3);
+            this.MOTDImage.Name = "MOTDImage";
+            this.MOTDImage.Size = new System.Drawing.Size(468, 217);
+            this.MOTDImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.MOTDImage.TabIndex = 4;
+            this.MOTDImage.TabStop = false;
+            // 
             // MOTDLabelImage
             // 
             this.MOTDLabelImage.AutoEllipsis = true;
@@ -6977,36 +7026,91 @@
             this.MOTDLabelImage.TabIndex = 3;
             this.MOTDLabelImage.Text = "MOTD text missing, call IMF!";
             // 
-            // MOTDImage
+            // PreferredGamerTagText1
             // 
-            this.MOTDImage.Location = new System.Drawing.Point(115, 3);
-            this.MOTDImage.Name = "MOTDImage";
-            this.MOTDImage.Size = new System.Drawing.Size(468, 217);
-            this.MOTDImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.MOTDImage.TabIndex = 4;
-            this.MOTDImage.TabStop = false;
+            this.PreferredGamerTagText1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PreferredGamerTagText1.Location = new System.Drawing.Point(391, 332);
+            this.PreferredGamerTagText1.Name = "PreferredGamerTagText1";
+            this.PreferredGamerTagText1.Size = new System.Drawing.Size(238, 23);
+            this.PreferredGamerTagText1.TabIndex = 27;
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText1, resources.GetString("PreferredGamerTagText1.ToolTip"));
+            this.PreferredGamerTagText1.TextChanged += new System.EventHandler(this.PreferredGamerTagText1_TextChanged);
             // 
-            // SaveBandProfButton
+            // TGGamerTags
             // 
-            this.SaveBandProfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SaveBandProfButton.Location = new System.Drawing.Point(391, 161);
-            this.SaveBandProfButton.Name = "SaveBandProfButton";
-            this.SaveBandProfButton.Size = new System.Drawing.Size(260, 24);
-            this.SaveBandProfButton.TabIndex = 44;
-            this.SaveBandProfButton.Text = "Save Band Profile...";
-            this.SaveBandProfButton.UseVisualStyleBackColor = true;
-            this.SaveBandProfButton.Click += new System.EventHandler(this.SaveBandProfButton_Click);
+            this.TGGamerTags.AutoSize = true;
+            this.TGGamerTags.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGGamerTags.Location = new System.Drawing.Point(314, 302);
+            this.TGGamerTags.Name = "TGGamerTags";
+            this.TGGamerTags.Size = new System.Drawing.Size(121, 25);
+            this.TGGamerTags.TabIndex = 28;
+            this.TGGamerTags.Text = "User Names:";
             // 
-            // LoadBandProfButton
+            // TGPrefGamerTag1
             // 
-            this.LoadBandProfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LoadBandProfButton.Location = new System.Drawing.Point(391, 191);
-            this.LoadBandProfButton.Name = "LoadBandProfButton";
-            this.LoadBandProfButton.Size = new System.Drawing.Size(260, 24);
-            this.LoadBandProfButton.TabIndex = 45;
-            this.LoadBandProfButton.Text = "Load Band Profile...";
-            this.LoadBandProfButton.UseVisualStyleBackColor = true;
-            this.LoadBandProfButton.Click += new System.EventHandler(this.LoadBandProfButton_Click);
+            this.TGPrefGamerTag1.AutoSize = true;
+            this.TGPrefGamerTag1.Location = new System.Drawing.Point(328, 332);
+            this.TGPrefGamerTag1.Name = "TGPrefGamerTag1";
+            this.TGPrefGamerTag1.Size = new System.Drawing.Size(55, 22);
+            this.TGPrefGamerTag1.TabIndex = 29;
+            this.TGPrefGamerTag1.Text = "User 1:";
+            // 
+            // TGPrefGamerTag2
+            // 
+            this.TGPrefGamerTag2.AutoSize = true;
+            this.TGPrefGamerTag2.Location = new System.Drawing.Point(327, 360);
+            this.TGPrefGamerTag2.Name = "TGPrefGamerTag2";
+            this.TGPrefGamerTag2.Size = new System.Drawing.Size(56, 22);
+            this.TGPrefGamerTag2.TabIndex = 31;
+            this.TGPrefGamerTag2.Text = "User 2:";
+            // 
+            // PreferredGamerTagText2
+            // 
+            this.PreferredGamerTagText2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PreferredGamerTagText2.Location = new System.Drawing.Point(391, 361);
+            this.PreferredGamerTagText2.Name = "PreferredGamerTagText2";
+            this.PreferredGamerTagText2.Size = new System.Drawing.Size(238, 23);
+            this.PreferredGamerTagText2.TabIndex = 30;
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText2, resources.GetString("PreferredGamerTagText2.ToolTip"));
+            this.PreferredGamerTagText2.TextChanged += new System.EventHandler(this.PreferredGamerTagText2_TextChanged);
+            // 
+            // TGPrefGamerTag4
+            // 
+            this.TGPrefGamerTag4.AutoSize = true;
+            this.TGPrefGamerTag4.Location = new System.Drawing.Point(327, 418);
+            this.TGPrefGamerTag4.Name = "TGPrefGamerTag4";
+            this.TGPrefGamerTag4.Size = new System.Drawing.Size(57, 22);
+            this.TGPrefGamerTag4.TabIndex = 35;
+            this.TGPrefGamerTag4.Text = "User 4:";
+            // 
+            // PreferredGamerTagText4
+            // 
+            this.PreferredGamerTagText4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PreferredGamerTagText4.Location = new System.Drawing.Point(391, 419);
+            this.PreferredGamerTagText4.Name = "PreferredGamerTagText4";
+            this.PreferredGamerTagText4.Size = new System.Drawing.Size(238, 23);
+            this.PreferredGamerTagText4.TabIndex = 34;
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText4, resources.GetString("PreferredGamerTagText4.ToolTip"));
+            this.PreferredGamerTagText4.TextChanged += new System.EventHandler(this.PreferredGamerTagText4_TextChanged);
+            // 
+            // TGPrefGamerTag3
+            // 
+            this.TGPrefGamerTag3.AutoSize = true;
+            this.TGPrefGamerTag3.Location = new System.Drawing.Point(328, 389);
+            this.TGPrefGamerTag3.Name = "TGPrefGamerTag3";
+            this.TGPrefGamerTag3.Size = new System.Drawing.Size(55, 22);
+            this.TGPrefGamerTag3.TabIndex = 33;
+            this.TGPrefGamerTag3.Text = "User 3:";
+            // 
+            // PreferredGamerTagText3
+            // 
+            this.PreferredGamerTagText3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PreferredGamerTagText3.Location = new System.Drawing.Point(391, 390);
+            this.PreferredGamerTagText3.Name = "PreferredGamerTagText3";
+            this.PreferredGamerTagText3.Size = new System.Drawing.Size(238, 23);
+            this.PreferredGamerTagText3.TabIndex = 32;
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText3, resources.GetString("PreferredGamerTagText3.ToolTip"));
+            this.PreferredGamerTagText3.TextChanged += new System.EventHandler(this.PreferredGamerTagText3_TextChanged);
             // 
             // Main
             // 
@@ -7060,6 +7164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabBandGroup.ResumeLayout(false);
+            this.TabBandGroup.PerformLayout();
             this.TabGraphicsGroup.ResumeLayout(false);
             this.TabGraphicsMainEditor.ResumeLayout(false);
             this.TGEditorBasic.ResumeLayout(false);
@@ -7070,12 +7176,16 @@
             this.TGEditorInterface.PerformLayout();
             this.TGEditorAdvanced.ResumeLayout(false);
             this.TGEditorAdvanced.PerformLayout();
+            this.TabGeneralGroup.ResumeLayout(false);
+            this.TabGeneralSettingsTabs.ResumeLayout(false);
+            this.TabGeneralTabsBasic.ResumeLayout(false);
+            this.TabGeneralTabsBasic.PerformLayout();
+            this.TabGeneralTabsAudio.ResumeLayout(false);
+            this.TabGeneralTabsAudio.PerformLayout();
             this.TabAutoLaunchGroup.ResumeLayout(false);
             this.TabAutoLaunchGroup.PerformLayout();
             this.TabALMainEditor.ResumeLayout(false);
             this.TabALMainEditor.PerformLayout();
-            this.TabBandGroup.ResumeLayout(false);
-            this.TabBandGroup.PerformLayout();
             this.TabDebugGroup.ResumeLayout(false);
             this.TabDebugGroup.PerformLayout();
             this.TabInputGroup.ResumeLayout(false);
@@ -7086,16 +7196,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
-            this.TabGeneralGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
-            this.TabGeneralSettingsTabs.ResumeLayout(false);
-            this.TabGeneralTabsBasic.ResumeLayout(false);
-            this.TabGeneralTabsBasic.PerformLayout();
-            this.TabGeneralTabsAudio.ResumeLayout(false);
-            this.TabGeneralTabsAudio.PerformLayout();
             this.MOTDPanel.ResumeLayout(false);
             this.MOTDWithImagePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).EndInit();
@@ -7598,6 +7702,15 @@
         private System.Windows.Forms.Label MOTDLabelImage;
         private System.Windows.Forms.Button LoadBandProfButton;
         private System.Windows.Forms.Button SaveBandProfButton;
+        private System.Windows.Forms.Label TGPrefGamerTag1;
+        private System.Windows.Forms.Label TGGamerTags;
+        private System.Windows.Forms.TextBox PreferredGamerTagText1;
+        private System.Windows.Forms.Label TGPrefGamerTag4;
+        private System.Windows.Forms.TextBox PreferredGamerTagText4;
+        private System.Windows.Forms.Label TGPrefGamerTag3;
+        private System.Windows.Forms.TextBox PreferredGamerTagText3;
+        private System.Windows.Forms.Label TGPrefGamerTag2;
+        private System.Windows.Forms.TextBox PreferredGamerTagText2;
     }
 }
 
