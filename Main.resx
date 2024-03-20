@@ -346,66 +346,6 @@ down to a lower value.</value>
 
 Note that this setting OVERRIDES any and all crowd clap types in venues by default if set that way.</value>
   </data>
-  <data name="PreferredGamerTagText4.ToolTip" xml:space="preserve">
-    <value>Who will be seen as the default guitarist?
-
-For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
-in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
-indexes, visit the Rock Star Creator Character Manager.
-
-For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
-name of the folder, select the folder selector ("...") button to the right of this text box.
-
-For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
-
-If this is blank or the specified character does not exist, the game will, at random, select any character.
-</value>
-  </data>
-  <data name="PreferredGamerTagText3.ToolTip" xml:space="preserve">
-    <value>Who will be seen as the default guitarist?
-
-For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
-in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
-indexes, visit the Rock Star Creator Character Manager.
-
-For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
-name of the folder, select the folder selector ("...") button to the right of this text box.
-
-For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
-
-If this is blank or the specified character does not exist, the game will, at random, select any character.
-</value>
-  </data>
-  <data name="PreferredGamerTagText2.ToolTip" xml:space="preserve">
-    <value>Who will be seen as the default guitarist?
-
-For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
-in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
-indexes, visit the Rock Star Creator Character Manager.
-
-For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
-name of the folder, select the folder selector ("...") button to the right of this text box.
-
-For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
-
-If this is blank or the specified character does not exist, the game will, at random, select any character.
-</value>
-  </data>
-  <data name="PreferredGamerTagText1.ToolTip" xml:space="preserve">
-    <value>Who will be seen as the default guitarist?
-
-For Rock Star Creator characters, use "custom_character_x", where x is the index of the character seen
-in ALPHABETICAL ORDER in your Profiles folder. If you wish to view these characters and get their
-indexes, visit the Rock Star Creator Character Manager.
-
-For character mods, use the name of the FOLDER in your mods folder. If you're unsure on the
-name of the folder, select the folder selector ("...") button to the right of this text box.
-
-For built-in characters, visit the "ID_Characters.txt" file in the Resources directory of your game folder.
-
-If this is blank or the specified character does not exist, the game will, at random, select any character.
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

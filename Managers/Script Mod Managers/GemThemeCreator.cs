@@ -102,6 +102,8 @@ namespace WTDE_Launcher_V3 {
                             $"NoteKickBase={NoteKickBase.BackColor.R}, {NoteKickBase.BackColor.G}, {NoteKickBase.BackColor.B}\n" +
                             $"IntensityKB={NoteKickBaseIntensity.Value}\n\n" +
 
+                            // ------------------------------
+
                              "[Targets]\n" +
                             $"TargetGreenDark={NoteGreenNowD.BackColor.R}, {NoteGreenNowD.BackColor.G}, {NoteGreenNowD.BackColor.B}\n" +
                             $"IntensityTGD={NoteGreenNowDIntensity.Value}\n" +
@@ -122,8 +124,14 @@ namespace WTDE_Launcher_V3 {
                             $"TargetOrangeDark={NoteOrangeNowD.BackColor.R}, {NoteOrangeNowD.BackColor.G}, {NoteOrangeNowD.BackColor.B}\n" +
                             $"IntensityTOD={NoteOrangeNowDIntensity.Value}\n" +
                             $"TargetOrangeBrite={NoteOrangeNowB.BackColor.R}, {NoteOrangeNowB.BackColor.G}, {NoteOrangeNowB.BackColor.B}\n" +
-                            $"IntensityTOB={NoteOrangeNowBIntensity.Value}\n\n" +
-                            
+                            $"IntensityTOB={NoteOrangeNowBIntensity.Value}\n" +
+                            $"TargetPurpleDark={NotePurpleNowD.BackColor.R}, {NotePurpleNowD.BackColor.G}, {NotePurpleNowD.BackColor.B}\n" +
+                            $"IntensityTPD={NotePurpleNowDIntensity.Value}\n" +
+                            $"TargetPurpleBrite={NotePurpleNowB.BackColor.R}, {NotePurpleNowB.BackColor.G}, {NotePurpleNowB.BackColor.B}\n" +
+                            $"IntensityTPB={NotePurpleNowBIntensity.Value}\n\n" +
+
+                            // ------------------------------
+
                              "[Data]\n" +
                             $"Name={ThemeName.Text}\n" +
                             $"QBKey={ThemeQBKey.Text}"
@@ -150,79 +158,88 @@ namespace WTDE_Launcher_V3 {
                 file.Load(ofd.FileName);
 
                 if (file.Sections.Contains("Gems") && file.Sections.Contains("Targets") && file.Sections.Contains("Data")) {
-                    ThemeName.Text = file.Sections["Data"].Keys["Name"].Value;
-                    ThemeQBKey.Text = file.Sections["Data"].Keys["QBKey"].Value;
+                    try {
+                        ThemeName.Text = file.Sections["Data"].Keys["Name"].Value;
+                        ThemeQBKey.Text = file.Sections["Data"].Keys["QBKey"].Value;
 
-                    // ---------------------------------------------
-                    // GEM COLOR VALUES
-                    // ---------------------------------------------
-                    NoteGreen.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteGreen"].Value);
-                    NoteGreenBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteGreenBase"].Value);
+                        // ---------------------------------------------
+                        // GEM COLOR VALUES
+                        // ---------------------------------------------
+                        NoteGreen.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteGreen"].Value);
+                        NoteGreenBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteGreenBase"].Value);
 
-                    NoteRed.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteRed"].Value);
-                    NoteRedBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteRedBase"].Value);
+                        NoteRed.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteRed"].Value);
+                        NoteRedBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteRedBase"].Value);
 
-                    NoteYellow.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteYellow"].Value);
-                    NoteYellowBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteYellowBase"].Value);
+                        NoteYellow.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteYellow"].Value);
+                        NoteYellowBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteYellowBase"].Value);
 
-                    NoteBlue.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteBlue"].Value);
-                    NoteBlueBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteBlueBase"].Value);
+                        NoteBlue.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteBlue"].Value);
+                        NoteBlueBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteBlueBase"].Value);
 
-                    NoteOrange.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteOrange"].Value);
-                    NoteOrangeBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteOrangeBase"].Value);
+                        NoteOrange.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteOrange"].Value);
+                        NoteOrangeBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteOrangeBase"].Value);
 
-                    NoteKick.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteKick"].Value);
-                    NoteKickBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteKickBase"].Value);
+                        NoteKick.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteKick"].Value);
+                        NoteKickBase.BackColor = ColorFromString(file.Sections["Gems"].Keys["NoteKickBase"].Value);
 
-                    // ---------------------------------------------
-                    // TARGET COLOR VALUES
-                    // ---------------------------------------------
-                    NoteGreenNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetGreenDark"].Value);
-                    NoteGreenNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetGreenBrite"].Value);
+                        // ---------------------------------------------
+                        // TARGET COLOR VALUES
+                        // ---------------------------------------------
+                        NoteGreenNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetGreenDark"].Value);
+                        NoteGreenNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetGreenBrite"].Value);
 
-                    NoteRedNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetRedDark"].Value);
-                    NoteRedNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetRedBrite"].Value);
+                        NoteRedNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetRedDark"].Value);
+                        NoteRedNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetRedBrite"].Value);
 
-                    NoteYellowNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetYellowDark"].Value);
-                    NoteYellowNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetYellowBrite"].Value);
+                        NoteYellowNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetYellowDark"].Value);
+                        NoteYellowNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetYellowBrite"].Value);
 
-                    NoteBlueNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetBlueDark"].Value);
-                    NoteBlueNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetBlueBrite"].Value);
+                        NoteBlueNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetBlueDark"].Value);
+                        NoteBlueNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetBlueBrite"].Value);
 
-                    NoteOrangeNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetOrangeDark"].Value);
-                    NoteOrangeNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetOrangeBrite"].Value);
+                        NoteOrangeNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetOrangeDark"].Value);
+                        NoteOrangeNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetOrangeBrite"].Value);
 
-                    // ---------------------------------------------
-                    // INTENSITY VALUES
-                    // ---------------------------------------------
+                        NotePurpleNowD.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetPurpleDark"].Value);
+                        NotePurpleNowB.BackColor = ColorFromString(file.Sections["Targets"].Keys["TargetPurpleBrite"].Value);
 
-                    // -- GEM INTENSITY SLIDERS
-                    NoteGreenIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityG"].Value);
-                    NoteRedIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityR"].Value);
-                    NoteYellowIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityY"].Value);
-                    NoteBlueIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityB"].Value);
-                    NoteOrangeIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityO"].Value);
-                    NoteKickIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityK"].Value);
+                        // ---------------------------------------------
+                        // INTENSITY VALUES
+                        // ---------------------------------------------
 
-                    NoteGreenBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityGB"].Value);
-                    NoteRedBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityRB"].Value);
-                    NoteYellowBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityYB"].Value);
-                    NoteBlueBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityBB"].Value);
-                    NoteOrangeBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityOB"].Value);
-                    NoteKickBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityKB"].Value);
+                        // -- GEM INTENSITY SLIDERS
+                        NoteGreenIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityG"].Value);
+                        NoteRedIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityR"].Value);
+                        NoteYellowIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityY"].Value);
+                        NoteBlueIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityB"].Value);
+                        NoteOrangeIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityO"].Value);
+                        NoteKickIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityK"].Value);
 
-                    // -- TARGET INTENSITY SLIDERS
-                    NoteGreenNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTGD"].Value);
-                    NoteRedNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTRD"].Value);
-                    NoteYellowNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTYD"].Value);
-                    NoteBlueNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTBD"].Value);
-                    NoteOrangeNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTOD"].Value);
+                        NoteGreenBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityGB"].Value);
+                        NoteRedBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityRB"].Value);
+                        NoteYellowBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityYB"].Value);
+                        NoteBlueBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityBB"].Value);
+                        NoteOrangeBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityOB"].Value);
+                        NoteKickBaseIntensity.Value = int.Parse(file.Sections["Gems"].Keys["IntensityKB"].Value);
 
-                    NoteGreenNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTGB"].Value);
-                    NoteRedNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTRB"].Value);
-                    NoteYellowNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTYB"].Value);
-                    NoteBlueNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTBB"].Value);
-                    NoteOrangeNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTOB"].Value);
+                        // -- TARGET INTENSITY SLIDERS
+                        NoteGreenNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTGD"].Value);
+                        NoteRedNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTRD"].Value);
+                        NoteYellowNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTYD"].Value);
+                        NoteBlueNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTBD"].Value);
+                        NoteOrangeNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTOD"].Value);
+                        NotePurpleNowDIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTPD"].Value);
+
+                        NoteGreenNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTGB"].Value);
+                        NoteRedNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTRB"].Value);
+                        NoteYellowNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTYB"].Value);
+                        NoteBlueNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTBB"].Value);
+                        NoteOrangeNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTOB"].Value);
+                        NotePurpleNowBIntensity.Value = int.Parse(file.Sections["Targets"].Keys["IntensityTPB"].Value);
+                    } catch (Exception exc) {
+                        V3LauncherCore.AddDebugEntry($"Issue importing gem color profile: {exc.Message}", "Gem Theme Designer");
+                    }
                 }
             }
         }
@@ -277,6 +294,7 @@ namespace WTDE_Launcher_V3 {
                 sw.Write(AddColorStruct("col_now_yellow_dark", NoteYellowNowD, NoteYellowNowDIntensity));
                 sw.Write(AddColorStruct("col_now_blue_dark", NoteBlueNowD, NoteBlueNowDIntensity));
                 sw.Write(AddColorStruct("col_now_orange_dark", NoteOrangeNowD, NoteOrangeNowDIntensity));
+                sw.Write(AddColorStruct("col_now_purple_dark", NotePurpleNowD, NotePurpleNowDIntensity));
 
                 // -- TARGET COLORS (HELD DOWN)
                 sw.Write(AddColorStruct("col_now_green_brite", NoteGreenNowB, NoteGreenNowBIntensity));
@@ -284,10 +302,7 @@ namespace WTDE_Launcher_V3 {
                 sw.Write(AddColorStruct("col_now_yellow_brite", NoteYellowNowB, NoteYellowNowBIntensity));
                 sw.Write(AddColorStruct("col_now_blue_brite", NoteBlueNowB, NoteBlueNowBIntensity));
                 sw.Write(AddColorStruct("col_now_orange_brite", NoteOrangeNowB, NoteOrangeNowBIntensity));
-
-                // -- DUMMY EXTRA STUFF
-                sw.Write(AddColorStruct("col_now_purple_dark", NoteGreenNowD, NoteGreenNowDIntensity));
-                sw.Write(AddColorStruct("col_now_purple_brite", NoteGreenNowB, NoteGreenNowBIntensity));
+                sw.Write(AddColorStruct("col_now_purple_brite", NotePurpleNowB, NotePurpleNowBIntensity));
 
                 // -- END STRUCT ARRAY
                 sw.Write(AddEndOfStruct());
@@ -480,6 +495,92 @@ namespace WTDE_Launcher_V3 {
                 INIFunctions.SaveINIValue("Launcher", "SDKPath", finalPath);
 
                 SDKPath.Text = finalPath;
+            }
+        }
+
+        private void NotePurpleNowD_Click(object sender, EventArgs e) {
+            AssignColorToLabel(NotePurpleNowD);
+        }
+
+        private void NotePurpleNowB_Click(object sender, EventArgs e) {
+            AssignColorToLabel(NotePurpleNowB);
+        }
+
+        private void ResetToDefaultOptions_Click(object sender, EventArgs e) {
+            // RESET ALL COLORS!
+            string resetConfirmMsg = "Are you sure you want to reset all colors to their defaults? This cannot be undone!";
+            string saveChangesMsg = "Do you want to save your changes before resetting?";
+            if (MessageBox.Show(resetConfirmMsg, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                if (MessageBox.Show(saveChangesMsg, "Save Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) SaveGemColors();
+                
+                // Reset the colors back to their defaults!
+                Color white = Color.White;
+
+                // -- GEM COLORS -----------------------
+                NoteGreen.BackColor = Color.FromArgb(255, 0, 255, 0);
+                NoteGreenBase.BackColor = white;
+                NoteRed.BackColor = Color.FromArgb(255, 255, 0, 0);
+                NoteRedBase.BackColor = white;
+                NoteYellow.BackColor = Color.FromArgb(255, 255, 255, 0);
+                NoteYellowBase.BackColor = white;
+                NoteBlue.BackColor = Color.FromArgb(255, 0, 128, 255);
+                NoteBlueBase.BackColor = white;
+                NoteOrange.BackColor = Color.FromArgb(255, 255, 179, 0);
+                NoteOrangeBase.BackColor = white;
+                NoteKick.BackColor = Color.FromArgb(255, 191, 0, 255);
+                NoteKickBase.BackColor = white;
+
+                // -- GEM COLOR INTENSITIES -----------------------
+                NoteGreenIntensity.Value = 255;
+                NoteRedIntensity.Value = 306;
+                NoteYellowIntensity.Value = 293;
+                NoteBlueIntensity.Value = 383;
+                NoteOrangeIntensity.Value = 332;
+                NoteKickIntensity.Value = 255;
+
+                NoteGreenBaseIntensity.Value = 255;
+                NoteRedBaseIntensity.Value = 255;
+                NoteYellowBaseIntensity.Value = 255;
+                NoteBlueBaseIntensity.Value = 255;
+                NoteOrangeBaseIntensity.Value = 255;
+                NoteKickBaseIntensity.Value = 255;
+
+                // -- TARGET COLORS -----------------------
+                Color green = Color.Lime;
+                Color red = Color.Red;
+                Color yellow = Color.Yellow;
+                Color blue = Color.FromArgb(255, 0, 128, 255);
+                Color orange = Color.FromArgb(255, 255, 128, 0);
+                Color purple = Color.FromArgb(255, 128, 0, 255);
+
+                NoteGreenNowD.BackColor = green;
+                NoteRedNowD.BackColor = red;
+                NoteYellowNowD.BackColor = yellow;
+                NoteBlueNowD.BackColor = blue;
+                NoteOrangeNowD.BackColor = orange;
+                NotePurpleNowD.BackColor = purple;
+
+                NoteGreenNowB.BackColor = green;
+                NoteRedNowB.BackColor = red;
+                NoteYellowNowB.BackColor = yellow;
+                NoteBlueNowB.BackColor = blue;
+                NoteOrangeNowB.BackColor = orange;
+                NotePurpleNowB.BackColor = purple;
+
+                // -- TARGET COLOR INTENSITIES -----------------------
+                NoteGreenNowDIntensity.Value = 255;
+                NoteRedNowDIntensity.Value = 255;
+                NoteYellowNowDIntensity.Value = 255;
+                NoteBlueNowDIntensity.Value = 255;
+                NoteOrangeNowDIntensity.Value = 255;
+                NotePurpleNowDIntensity.Value = 255;
+
+                NoteGreenNowBIntensity.Value = 510;
+                NoteRedNowBIntensity.Value = 510;
+                NoteYellowNowBIntensity.Value = 510;
+                NoteBlueNowBIntensity.Value = 510;
+                NoteOrangeNowBIntensity.Value = 510;
+                NotePurpleNowBIntensity.Value = 510;
             }
         }
     }

@@ -99,6 +99,11 @@
             this.NoteOrangeNowDIntensity = new System.Windows.Forms.TrackBar();
             this.LoadColorsButton = new System.Windows.Forms.Button();
             this.SaveColorsButton = new System.Windows.Forms.Button();
+            this.NotePurpleNowBIntensity = new System.Windows.Forms.TrackBar();
+            this.NotePurpleNowDIntensity = new System.Windows.Forms.TrackBar();
+            this.NotePurpleNowB = new System.Windows.Forms.Label();
+            this.NotePurpleNowD = new System.Windows.Forms.Label();
+            this.NoteCupImage6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.NoteGreenImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoteRedImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoteYellowImage)).BeginInit();
@@ -133,6 +138,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.NoteYellowNowDIntensity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoteOrangeNowBIntensity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoteOrangeNowDIntensity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotePurpleNowBIntensity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotePurpleNowDIntensity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteCupImage6)).BeginInit();
             this.SuspendLayout();
             // 
             // NoteGreenImage
@@ -523,7 +531,7 @@
             this.SDKPathLabel.AutoSize = true;
             this.SDKPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.SDKPathLabel.ForeColor = System.Drawing.Color.Red;
-            this.SDKPathLabel.Location = new System.Drawing.Point(12, 563);
+            this.SDKPathLabel.Location = new System.Drawing.Point(13, 690);
             this.SDKPathLabel.Name = "SDKPathLabel";
             this.SDKPathLabel.Size = new System.Drawing.Size(66, 13);
             this.SDKPathLabel.TabIndex = 42;
@@ -531,14 +539,14 @@
             // 
             // SDKPath
             // 
-            this.SDKPath.Location = new System.Drawing.Point(84, 560);
+            this.SDKPath.Location = new System.Drawing.Point(85, 687);
             this.SDKPath.Name = "SDKPath";
             this.SDKPath.Size = new System.Drawing.Size(318, 20);
             this.SDKPath.TabIndex = 43;
             // 
             // SelectSDKPath
             // 
-            this.SelectSDKPath.Location = new System.Drawing.Point(408, 558);
+            this.SelectSDKPath.Location = new System.Drawing.Point(409, 685);
             this.SelectSDKPath.Name = "SelectSDKPath";
             this.SelectSDKPath.Size = new System.Drawing.Size(28, 23);
             this.SelectSDKPath.TabIndex = 44;
@@ -621,26 +629,27 @@
             // 
             // ResetToDefaultOptions
             // 
-            this.ResetToDefaultOptions.Location = new System.Drawing.Point(9, 588);
+            this.ResetToDefaultOptions.Location = new System.Drawing.Point(10, 715);
             this.ResetToDefaultOptions.Name = "ResetToDefaultOptions";
-            this.ResetToDefaultOptions.Size = new System.Drawing.Size(588, 24);
+            this.ResetToDefaultOptions.Size = new System.Drawing.Size(427, 24);
             this.ResetToDefaultOptions.TabIndex = 52;
             this.ResetToDefaultOptions.Text = "Reset to Default";
             this.ResetToDefaultOptions.UseVisualStyleBackColor = true;
+            this.ResetToDefaultOptions.Click += new System.EventHandler(this.ResetToDefaultOptions_Click);
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(603, 589);
+            this.OKButton.Location = new System.Drawing.Point(443, 716);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(75, 23);
+            this.OKButton.Size = new System.Drawing.Size(236, 23);
             this.OKButton.TabIndex = 53;
-            this.OKButton.Text = "OK";
+            this.OKButton.Text = "OK / Compile Script Mod";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(684, 589);
+            this.CancelButton.Location = new System.Drawing.Point(685, 716);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 54;
@@ -936,7 +945,7 @@
             // 
             // LoadColorsButton
             // 
-            this.LoadColorsButton.Location = new System.Drawing.Point(603, 558);
+            this.LoadColorsButton.Location = new System.Drawing.Point(604, 685);
             this.LoadColorsButton.Name = "LoadColorsButton";
             this.LoadColorsButton.Size = new System.Drawing.Size(156, 24);
             this.LoadColorsButton.TabIndex = 77;
@@ -946,7 +955,7 @@
             // 
             // SaveColorsButton
             // 
-            this.SaveColorsButton.Location = new System.Drawing.Point(441, 558);
+            this.SaveColorsButton.Location = new System.Drawing.Point(442, 685);
             this.SaveColorsButton.Name = "SaveColorsButton";
             this.SaveColorsButton.Size = new System.Drawing.Size(156, 24);
             this.SaveColorsButton.TabIndex = 78;
@@ -954,11 +963,74 @@
             this.SaveColorsButton.UseVisualStyleBackColor = true;
             this.SaveColorsButton.Click += new System.EventHandler(this.SaveColorsButton_Click);
             // 
+            // NotePurpleNowBIntensity
+            // 
+            this.NotePurpleNowBIntensity.Location = new System.Drawing.Point(583, 588);
+            this.NotePurpleNowBIntensity.Maximum = 510;
+            this.NotePurpleNowBIntensity.Minimum = 1;
+            this.NotePurpleNowBIntensity.Name = "NotePurpleNowBIntensity";
+            this.NotePurpleNowBIntensity.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.NotePurpleNowBIntensity.Size = new System.Drawing.Size(45, 79);
+            this.NotePurpleNowBIntensity.SmallChange = 5;
+            this.NotePurpleNowBIntensity.TabIndex = 83;
+            this.NotePurpleNowBIntensity.TickFrequency = 70;
+            this.NotePurpleNowBIntensity.Value = 510;
+            // 
+            // NotePurpleNowDIntensity
+            // 
+            this.NotePurpleNowDIntensity.Location = new System.Drawing.Point(549, 588);
+            this.NotePurpleNowDIntensity.Maximum = 510;
+            this.NotePurpleNowDIntensity.Minimum = 1;
+            this.NotePurpleNowDIntensity.Name = "NotePurpleNowDIntensity";
+            this.NotePurpleNowDIntensity.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.NotePurpleNowDIntensity.Size = new System.Drawing.Size(45, 79);
+            this.NotePurpleNowDIntensity.SmallChange = 5;
+            this.NotePurpleNowDIntensity.TabIndex = 82;
+            this.NotePurpleNowDIntensity.TickFrequency = 70;
+            this.NotePurpleNowDIntensity.Value = 255;
+            // 
+            // NotePurpleNowB
+            // 
+            this.NotePurpleNowB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.NotePurpleNowB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NotePurpleNowB.Location = new System.Drawing.Point(581, 559);
+            this.NotePurpleNowB.Name = "NotePurpleNowB";
+            this.NotePurpleNowB.Size = new System.Drawing.Size(24, 24);
+            this.NotePurpleNowB.TabIndex = 81;
+            this.NotePurpleNowB.Click += new System.EventHandler(this.NotePurpleNowB_Click);
+            // 
+            // NotePurpleNowD
+            // 
+            this.NotePurpleNowD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.NotePurpleNowD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NotePurpleNowD.Location = new System.Drawing.Point(549, 559);
+            this.NotePurpleNowD.Name = "NotePurpleNowD";
+            this.NotePurpleNowD.Size = new System.Drawing.Size(24, 24);
+            this.NotePurpleNowD.TabIndex = 80;
+            this.NotePurpleNowD.Click += new System.EventHandler(this.NotePurpleNowD_Click);
+            // 
+            // NoteCupImage6
+            // 
+            this.NoteCupImage6.BackColor = System.Drawing.Color.Transparent;
+            this.NoteCupImage6.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.note_kick;
+            this.NoteCupImage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NoteCupImage6.Location = new System.Drawing.Point(448, 524);
+            this.NoteCupImage6.Name = "NoteCupImage6";
+            this.NoteCupImage6.Size = new System.Drawing.Size(256, 32);
+            this.NoteCupImage6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.NoteCupImage6.TabIndex = 79;
+            this.NoteCupImage6.TabStop = false;
+            // 
             // GemThemeCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(766, 619);
+            this.ClientSize = new System.Drawing.Size(766, 746);
+            this.Controls.Add(this.NotePurpleNowBIntensity);
+            this.Controls.Add(this.NotePurpleNowDIntensity);
+            this.Controls.Add(this.NotePurpleNowB);
+            this.Controls.Add(this.NotePurpleNowD);
+            this.Controls.Add(this.NoteCupImage6);
             this.Controls.Add(this.SaveColorsButton);
             this.Controls.Add(this.LoadColorsButton);
             this.Controls.Add(this.NoteOrangeNowBIntensity);
@@ -1074,6 +1146,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.NoteYellowNowDIntensity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoteOrangeNowBIntensity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoteOrangeNowDIntensity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotePurpleNowBIntensity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotePurpleNowDIntensity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteCupImage6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1155,5 +1230,10 @@
         private System.Windows.Forms.TrackBar NoteOrangeNowDIntensity;
         private System.Windows.Forms.Button LoadColorsButton;
         private System.Windows.Forms.Button SaveColorsButton;
+        private System.Windows.Forms.TrackBar NotePurpleNowBIntensity;
+        private System.Windows.Forms.TrackBar NotePurpleNowDIntensity;
+        private System.Windows.Forms.Label NotePurpleNowB;
+        private System.Windows.Forms.Label NotePurpleNowD;
+        private System.Windows.Forms.PictureBox NoteCupImage6;
     }
 }

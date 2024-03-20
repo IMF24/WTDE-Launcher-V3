@@ -7033,7 +7033,7 @@
             this.PreferredGamerTagText1.Name = "PreferredGamerTagText1";
             this.PreferredGamerTagText1.Size = new System.Drawing.Size(238, 23);
             this.PreferredGamerTagText1.TabIndex = 27;
-            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText1, resources.GetString("PreferredGamerTagText1.ToolTip"));
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText1, "Text shown in the helper pills for the first controller.");
             this.PreferredGamerTagText1.TextChanged += new System.EventHandler(this.PreferredGamerTagText1_TextChanged);
             // 
             // TGGamerTags
@@ -7071,7 +7071,7 @@
             this.PreferredGamerTagText2.Name = "PreferredGamerTagText2";
             this.PreferredGamerTagText2.Size = new System.Drawing.Size(238, 23);
             this.PreferredGamerTagText2.TabIndex = 30;
-            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText2, resources.GetString("PreferredGamerTagText2.ToolTip"));
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText2, "Text shown in the helper pills for the second controller.");
             this.PreferredGamerTagText2.TextChanged += new System.EventHandler(this.PreferredGamerTagText2_TextChanged);
             // 
             // TGPrefGamerTag4
@@ -7090,7 +7090,7 @@
             this.PreferredGamerTagText4.Name = "PreferredGamerTagText4";
             this.PreferredGamerTagText4.Size = new System.Drawing.Size(238, 23);
             this.PreferredGamerTagText4.TabIndex = 34;
-            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText4, resources.GetString("PreferredGamerTagText4.ToolTip"));
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText4, "Text shown in the helper pills for the fourth controller.");
             this.PreferredGamerTagText4.TextChanged += new System.EventHandler(this.PreferredGamerTagText4_TextChanged);
             // 
             // TGPrefGamerTag3
@@ -7109,7 +7109,7 @@
             this.PreferredGamerTagText3.Name = "PreferredGamerTagText3";
             this.PreferredGamerTagText3.Size = new System.Drawing.Size(238, 23);
             this.PreferredGamerTagText3.TabIndex = 32;
-            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText3, resources.GetString("PreferredGamerTagText3.ToolTip"));
+            this.ToolTipMain.SetToolTip(this.PreferredGamerTagText3, "Text shown in the helper pills for the third controller.");
             this.PreferredGamerTagText3.TextChanged += new System.EventHandler(this.PreferredGamerTagText3_TextChanged);
             // 
             // Main

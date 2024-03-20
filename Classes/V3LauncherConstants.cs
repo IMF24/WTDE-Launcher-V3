@@ -447,7 +447,7 @@ namespace WTDE_Launcher_V3 {
         /// <summary>
         ///  Private InputKeySelector object.
         /// </summary>
-        private static InputKeySelector IKS = new InputKeySelector();
+        private static readonly InputKeySelector IKS = new InputKeySelector();
 
         /// <summary>
         ///  List of keyboard keys, their internal Aspyr numerical IDs, and their key button objects.
