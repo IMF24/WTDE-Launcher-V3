@@ -17,7 +17,7 @@ namespace WTDE_Launcher_V3 {
 	/// <summary>
 	///  Main logic class for reading the user's mods folder.
 	/// </summary>
-	class ModHandler {
+	internal class ModHandler {
         /// <summary>
         ///  List of all of the user's installed mods and their paths.
         ///  <br/><br/>

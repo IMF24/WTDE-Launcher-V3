@@ -190,6 +190,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\Mod Type Editors\CharacterModEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Mod Type Editors\CharacterModEditor.Designer.cs">
+      <DependentUpon>CharacterModEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\ModFinder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Mod Type Editors\CharacterModEditor.resx">
+      <DependentUpon>CharacterModEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModFinder.resx">
       <DependentUpon>ModFinder.cs</DependentUpon>

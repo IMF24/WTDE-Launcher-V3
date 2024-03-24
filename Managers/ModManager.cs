@@ -114,12 +114,28 @@ namespace WTDE_Launcher_V3 {
             RefreshModsList();
         }
 
+        public void OpenSelectedModConfig() {
+            string modType = UserContentModsTree.SelectedItems[0].SubItems[2].Text;
+            string iniPath = this.SelectedModConfig;
+
+            switch (modType) {
+                case "Character":
+                    CharacterModEditor cme = new CharacterModEditor(iniPath);
+                    cme.ShowDialog();
+                    break;
+
+                default:
+                    Process.Start("notepad.exe", iniPath);
+                    break;
+            }
+        }
+
         private void openSelectedModConfigToolStripMenuItem_Click(object sender, EventArgs e) {
-            Process.Start("notepad.exe", this.SelectedModConfig);
+            OpenSelectedModConfig();
         }
 
         private void openSelectedModConfigToolStripMenuItem1_Click(object sender, EventArgs e) {
-            Process.Start("notepad.exe", this.SelectedModConfig);
+            OpenSelectedModConfig();
         }
 
         private void openSelectedModFolderToolStripMenuItem_Click(object sender, EventArgs e) {

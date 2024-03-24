@@ -142,7 +142,8 @@
             "Guitar Hero: Warriors of Rock",
             "DJ Hero",
             "GHWT: Definitive Edition",
-            "Tony Hawk Series"});
+            "Tony Hawk Series",
+            "Random Characters"});
             this.GameSortFilter.Location = new System.Drawing.Point(76, 44);
             this.GameSortFilter.Name = "GameSortFilter";
             this.GameSortFilter.Size = new System.Drawing.Size(288, 21);
