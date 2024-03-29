@@ -78,6 +78,11 @@ namespace WTDE_Launcher_V3 {
 			// This is the output list we'll give back:
 			List<string[]> outArray = new List<string[]>();
 
+			// 0 length list? Return the empty output array.
+			if (files.Length <= 0) {
+				return outArray;
+			}
+
 			// Iterate through these files.
 			foreach (string file in files) {
 				V3LauncherCore.AddDebugEntry($"in dir, reading config file: {file}", "Mod Handler: ReadMods");
@@ -376,7 +381,7 @@ namespace WTDE_Launcher_V3 {
 			// And the timer stops here!
 			var endTime = DateTime.Now.Second;
 
-			V3LauncherCore.AddDebugEntry($"ALL DONE! Read and parsed {outArray.Count} mods in {(endTime - startTime).ToString("0.00")} sec", "Mod Handler: ReadMods");
+			V3LauncherCore.AddDebugEntry($"ALL DONE! Read and parsed {outArray.Count} mods in {endTime - startTime:0.00} sec", "Mod Handler: ReadMods");
 
 			UserContentMods = outArray;
 

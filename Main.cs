@@ -85,6 +85,14 @@ namespace WTDE_Launcher_V3 {
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
 
+                // Can we update the game? Do we have an internet connection?
+                if (!IsNetworkConnected) {
+                    CheckUpdatesButton.Enabled = false;
+                    if (EnableAFDTheme) ChangeControlTooltip(CheckUpdatesButton, "WTDX cannot be updated! Your subscription has expired.");
+                    else ChangeControlTooltip(CheckUpdatesButton, "Can't update WTDE! Is the network working? Make sure you check if you have a valid internet\n" +
+                                                                  "connection, relaunch the program, then try again.");
+                }
+
                 // April Fools Day stuff!               
                 if (EnableAFDTheme && !IsFirstBoot) {
                     this.BackgroundImage = Properties.Resources.bg_1_af;
@@ -144,14 +152,6 @@ namespace WTDE_Launcher_V3 {
                 } else {
                     V3LauncherCore.GetMOTDText(MOTDLabelImage, UseMOTDWithImage, MOTDImage);
                     BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
-                }
-
-                // Can we update the game? Do we have an internet connection?
-                if (!IsNetworkConnected) {
-                    CheckUpdatesButton.Enabled = false;
-                    if (EnableAFDTheme) ChangeControlTooltip(CheckUpdatesButton, "WTDX cannot be updated! Your subscription has expired.");
-                    else ChangeControlTooltip(CheckUpdatesButton, "Can't update WTDE! Is the network working? Make sure you check if you have a valid internet\n" +
-                                                                  "connection, relaunch the program, then try again.");
                 }
 
                 ish.Close();

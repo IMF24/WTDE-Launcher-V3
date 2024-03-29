@@ -27,6 +27,8 @@
             this.ModInfoName = new System.Windows.Forms.TextBox();
             this.InfoHeaderLabel = new System.Windows.Forms.Label();
             this.ModInfoGroup = new System.Windows.Forms.GroupBox();
+            this.ModPathLabel = new System.Windows.Forms.Label();
+            this.ModPathSideLabel = new System.Windows.Forms.Label();
             this.ModVersionLabel = new System.Windows.Forms.Label();
             this.ModInfoVersion = new System.Windows.Forms.TextBox();
             this.ModAuthorLabel = new System.Windows.Forms.Label();
@@ -40,8 +42,6 @@
             this.CharBioLabel = new System.Windows.Forms.Label();
             this.CharNameLabel = new System.Windows.Forms.Label();
             this.CharacterName = new System.Windows.Forms.TextBox();
-            this.ModPathSideLabel = new System.Windows.Forms.Label();
-            this.ModPathLabel = new System.Windows.Forms.Label();
             this.ModInfoGroup.SuspendLayout();
             this.CharacterInfoGroup.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +81,25 @@
             this.ModInfoGroup.TabIndex = 2;
             this.ModInfoGroup.TabStop = false;
             this.ModInfoGroup.Text = "Mod Information";
+            // 
+            // ModPathLabel
+            // 
+            this.ModPathLabel.AutoSize = true;
+            this.ModPathLabel.ForeColor = System.Drawing.Color.Gray;
+            this.ModPathLabel.Location = new System.Drawing.Point(103, 23);
+            this.ModPathLabel.Name = "ModPathLabel";
+            this.ModPathLabel.Size = new System.Drawing.Size(93, 13);
+            this.ModPathLabel.TabIndex = 9;
+            this.ModPathLabel.Text = "MOD_DIR_HERE";
+            // 
+            // ModPathSideLabel
+            // 
+            this.ModPathSideLabel.AutoSize = true;
+            this.ModPathSideLabel.Location = new System.Drawing.Point(41, 23);
+            this.ModPathSideLabel.Name = "ModPathSideLabel";
+            this.ModPathSideLabel.Size = new System.Drawing.Size(56, 13);
+            this.ModPathSideLabel.TabIndex = 8;
+            this.ModPathSideLabel.Text = "Mod Path:";
             // 
             // ModVersionLabel
             // 
@@ -198,25 +217,6 @@
             this.CharacterName.Size = new System.Drawing.Size(423, 20);
             this.CharacterName.TabIndex = 8;
             // 
-            // ModPathSideLabel
-            // 
-            this.ModPathSideLabel.AutoSize = true;
-            this.ModPathSideLabel.Location = new System.Drawing.Point(41, 23);
-            this.ModPathSideLabel.Name = "ModPathSideLabel";
-            this.ModPathSideLabel.Size = new System.Drawing.Size(56, 13);
-            this.ModPathSideLabel.TabIndex = 8;
-            this.ModPathSideLabel.Text = "Mod Path:";
-            // 
-            // ModPathLabel
-            // 
-            this.ModPathLabel.AutoSize = true;
-            this.ModPathLabel.ForeColor = System.Drawing.Color.Gray;
-            this.ModPathLabel.Location = new System.Drawing.Point(103, 23);
-            this.ModPathLabel.Name = "ModPathLabel";
-            this.ModPathLabel.Size = new System.Drawing.Size(93, 13);
-            this.ModPathLabel.TabIndex = 9;
-            this.ModPathLabel.Text = "MOD_DIR_HERE";
-            // 
             // CharacterModEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -225,7 +225,10 @@
             this.Controls.Add(this.CharacterInfoGroup);
             this.Controls.Add(this.ModInfoGroup);
             this.Controls.Add(this.InfoHeaderLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CharacterModEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mod Manager: Edit Character Mod Data";

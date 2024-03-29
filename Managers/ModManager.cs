@@ -118,6 +118,8 @@ namespace WTDE_Launcher_V3 {
             string modType = UserContentModsTree.SelectedItems[0].SubItems[2].Text;
             string iniPath = this.SelectedModConfig;
 
+            // WIP, return to this later
+            /*
             switch (modType) {
                 case "Character":
                     CharacterModEditor cme = new CharacterModEditor(iniPath);
@@ -128,6 +130,8 @@ namespace WTDE_Launcher_V3 {
                     Process.Start("notepad.exe", iniPath);
                     break;
             }
+            */
+            Process.Start("notepad.exe", iniPath);
         }
 
         private void openSelectedModConfigToolStripMenuItem_Click(object sender, EventArgs e) {
