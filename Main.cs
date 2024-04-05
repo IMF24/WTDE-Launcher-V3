@@ -1085,8 +1085,8 @@ namespace WTDE_Launcher_V3 {
         }
 
         private void VersionInfoLabel_Click(object sender, EventArgs e) {
-            // AFD theme? Don't change it!
-            if (EnableAFDTheme) return;
+            // AFD theme? Using custom background? Don't change it!
+            if (EnableAFDTheme && !BGConstants.IsCustomBG) return;
 
             V3LauncherCore.AddDebugEntry("AFD theme NOT active, change BG");
 
@@ -1107,7 +1107,7 @@ namespace WTDE_Launcher_V3 {
                 // Update the background image.
                 this.BackgroundImage = BGConstants.V3LauncherBackgrounds[BGConstants.BGIndex];
 
-                // And right opens the social link for that person.
+            // And right opens the social link for that person.
             } else if (me.Button == MouseButtons.Right) {
                 V3LauncherCore.OpenSiteURL(BGConstants.V3LauncherSocials[BGConstants.BGIndex]);
             }

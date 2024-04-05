@@ -6,12 +6,14 @@
 //    activating various backgrounds when commanded, and also loading specific
 //    backgrounds for the artists and developers for this launcher!
 // ----------------------------------------------------------------------------
-using MadMilkman.Ini;
 using System;
+using System.IO;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3 {
     /// <summary>
@@ -24,6 +26,11 @@ namespace WTDE_Launcher_V3 {
         ///  What is the current background?
         /// </summary>
         public static int BGIndex = 0;
+
+        /// <summary>
+        ///  Is there a custom background set?
+        /// </summary>
+        public static bool IsCustomBG = false;
 
         /// <summary>
         ///  List of backgrounds. This is handled in the background swapper. THESE MUST BE INDEXED PROPERLY!
@@ -101,7 +108,49 @@ namespace WTDE_Launcher_V3 {
         public static void AutoDateBackground(System.Windows.Forms.Form form, System.Windows.Forms.Label label, System.Windows.Forms.PictureBox pictureBox) {
             if ((INIFunctions.GetINIValue("Config", "Holiday", "") != "") &&
                 (INIFunctions.GetINIValue("Config", "Holiday") == "aprilfools")) return;
-            
+
+            // Imports a custom background image from the defined path in GHWTDE.ini.
+            // Read GHWTDE.ini; do we have a custom background path defined?
+            IniFile file = new IniFile();
+            file.Load(V3LauncherConstants.WTDEConfigDir);
+
+            if (file.Sections.Contains("Launcher")) {
+                if (file.Sections["Launcher"].Keys.Contains("CustomBGPath")) {
+                    string pathToCheck = file.Sections["Launcher"].Keys["CustomBGPath"].Value;
+                    // Does this file even exist?
+                    if (pathToCheck != null && File.Exists(pathToCheck)) {
+                        // Yes it does, let's make a new bitmap and assign the background to it!
+                        // We'll go ahead and scale it to 1280 X 768 to make it fit the screen better.
+                        Bitmap newBGImage = new Bitmap(pathToCheck);
+                        Bitmap scaledImage = new Bitmap(newBGImage, 1280, 768);
+                        form.BackgroundImage = scaledImage;
+
+                        // Custom author text?
+                        if (file.Sections["Launcher"].Keys.Contains("CustomBGAuthor")) {
+                            string newBGAuthor = file.Sections["Launcher"].Keys["CustomBGAuthor"].Value;
+
+                            // If so, use it!
+                            if (newBGAuthor != null) {
+                                label.Text = label.Text.Replace("BG_AUTHOR", newBGAuthor);
+                                // Otherwise, we'll just say the author is N/A.
+                            } else {
+                                label.Text = label.Text.Replace("BG_AUTHOR", "N/A");
+                            }
+
+                            // Also add the version and latest version text!
+                            label.Text = label.Text.Replace("ABC", V3LauncherConstants.VERSION);
+                            label.Text = label.Text.Replace("LATEST_VERSION", V3LauncherCore.GetLatestVersion());
+                        }
+
+                        IsCustomBG = true;
+                        return;
+                    } else {
+                        V3LauncherCore.AddDebugEntry("I/O: The path for the defined custom background does not exist.");
+                        V3LauncherCore.AddDebugEntry("Falling back to auto-date background...");
+                    }
+                }
+            }
+
             // What month is it?
             switch (DateTime.Now.Month) {
                 // Valentine's Day logo and background.
@@ -209,9 +258,6 @@ namespace WTDE_Launcher_V3 {
                     }
                     break;
             }
-            
-            IniFile file = new IniFile();
-            file.Load(V3LauncherConstants.WTDEConfigDir);
             
             // Is there a preferred background set?
             if (file.Sections.Contains("Launcher")) {
