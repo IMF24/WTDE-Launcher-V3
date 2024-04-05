@@ -232,6 +232,12 @@
     <Compile Include="Managers\Script Mod Managers\GemThemeCreator.Designer.cs">
       <DependentUpon>GemThemeCreator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\Script Mod Managers\ModifyCustomBands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\Script Mod Managers\ModifyCustomBands.Designer.cs">
+      <DependentUpon>ModifyCustomBands.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\Script Mod Managers\GemThemeCreator.resx">
       <DependentUpon>GemThemeCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\Script Mod Managers\ModifyCustomBands.resx">
+      <DependentUpon>ModifyCustomBands.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\Script Mod Managers\StarPowerModifierManager.resx">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>

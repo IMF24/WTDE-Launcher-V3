@@ -41,8 +41,8 @@ Hopefully that covers most of the bases. There'll be more details to come in the
 - Spanish Translations: Yopsito, Raccoon_333
 
 ### Notice
-[.NET Framework](https://dotnet.microsoft.com) developed by [Microsoft](https://microsoft.com)
+[.NET](https://dot.net) developed by [Microsoft](https://microsoft.com) and the .NET Foundation.
 
 GHWT: DE and Fretworks are not affiliated with Activision, Neversoft, RedOctane, Beenox, or Underground Development in any way, shape, or form.
 
-GHWT: DE is and always will be a non-profit fan-made project.
+GHWT: DE is and always will be a free, non-profit fan-made project.

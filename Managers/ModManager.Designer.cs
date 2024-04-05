@@ -70,6 +70,7 @@
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.modifyAndCreateBandLineupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -376,6 +377,7 @@
             this.scriptModEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gemThemeDesignerToolStripMenuItem,
             this.assignGH3SPFXToCharacterModToolStripMenuItem,
+            this.modifyAndCreateBandLineupsToolStripMenuItem,
             this.toolStripSeparator7,
             this.starPowerColorModifierToolStripMenuItem,
             this.extendedHyperspeedToolStripMenuItem});
@@ -436,6 +438,12 @@
             this.StatusLabelMain.Size = new System.Drawing.Size(473, 17);
             this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
     "nagers";
+            // 
+            // modifyAndCreateBandLineupsToolStripMenuItem
+            // 
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Name = "modifyAndCreateBandLineupsToolStripMenuItem";
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Text = "Modify and Create Band Lineups...";
             // 
             // ModManager
             // 
@@ -509,5 +517,6 @@
         private System.Windows.Forms.ToolStripMenuItem gemThemeDesignerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assignGH3SPFXToCharacterModToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem modifyAndCreateBandLineupsToolStripMenuItem;
     }
 }

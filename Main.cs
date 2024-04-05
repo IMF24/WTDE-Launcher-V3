@@ -198,7 +198,7 @@ namespace WTDE_Launcher_V3 {
         /// <summary>
         ///  Are we enabling the April Fools' Day theme?
         /// </summary>
-        public bool EnableAFDTheme = INIFunctions.GetINIValue("Config", "Holiday", "") == "aprilfools" || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1);
+        public bool EnableAFDTheme = ((INIFunctions.GetINIValue("Config", "Holiday", "") == "aprilfools") || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1));
 
         /// <summary>
         ///  Is there an available internet connection?
@@ -1088,14 +1088,18 @@ namespace WTDE_Launcher_V3 {
             // AFD theme? Don't change it!
             if (EnableAFDTheme) return;
 
+            V3LauncherCore.AddDebugEntry("AFD theme NOT active, change BG");
+
             // Which mouse button did we push?
             MouseEventArgs me = (MouseEventArgs) e;
 
             // Left triggers the background to swap.
-            if (me.Button == MouseButtons.Left && ((DateTime.Now.Month != 4) && (DateTime.Now.Day != 1))) {
+            if (me.Button == MouseButtons.Left) {
                 // Are we at the end of the BG cycle?
                 if (BGConstants.BGIndex + 1 == BGConstants.V3LauncherBackgrounds.Length) BGConstants.BGIndex = 0;
                 else BGConstants.BGIndex++;
+
+                V3LauncherCore.AddDebugEntry($"BG index is currently {BGConstants.BGIndex}");
 
                 // Update the version info.
                 VersionInfoLabel.Text = $"GHWT: DE Launcher V{V3LauncherConstants.VERSION} by IMF24\nBG Image: {BGConstants.V3LauncherBGAuthors[BGConstants.BGIndex]}\nWTDE Latest Version: {V3LauncherCore.GetLatestVersion()}";

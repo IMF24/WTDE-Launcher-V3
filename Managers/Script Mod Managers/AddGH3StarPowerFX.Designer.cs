@@ -24,9 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddGH3StarPowerFX));
-            this.AvatarImageBox = new System.Windows.Forms.PictureBox();
+            this.AvatarImageIMF = new System.Windows.Forms.PictureBox();
             this.InfoHeaderLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.AvatarImageCobalt = new System.Windows.Forms.PictureBox();
             this.OutputModsList = new System.Windows.Forms.ListBox();
             this.CharModsHeader = new System.Windows.Forms.Label();
             this.ActionButtonHeader = new System.Windows.Forms.Label();
@@ -41,19 +41,19 @@
             this.CharModMemory = new System.Windows.Forms.Label();
             this.SPParticlesLabel = new System.Windows.Forms.Label();
             this.StarPowerFXList = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.AvatarImageBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarImageIMF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarImageCobalt)).BeginInit();
             this.SuspendLayout();
             // 
-            // AvatarImageBox
+            // AvatarImageIMF
             // 
-            this.AvatarImageBox.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
-            this.AvatarImageBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AvatarImageBox.Location = new System.Drawing.Point(10, 6);
-            this.AvatarImageBox.Name = "AvatarImageBox";
-            this.AvatarImageBox.Size = new System.Drawing.Size(52, 52);
-            this.AvatarImageBox.TabIndex = 43;
-            this.AvatarImageBox.TabStop = false;
+            this.AvatarImageIMF.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
+            this.AvatarImageIMF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AvatarImageIMF.Location = new System.Drawing.Point(10, 6);
+            this.AvatarImageIMF.Name = "AvatarImageIMF";
+            this.AvatarImageIMF.Size = new System.Drawing.Size(52, 52);
+            this.AvatarImageIMF.TabIndex = 43;
+            this.AvatarImageIMF.TabStop = false;
             // 
             // InfoHeaderLabel
             // 
@@ -66,15 +66,15 @@
             this.InfoHeaderLabel.Text = "Assign GH3 SP FX: Adds Guitar Hero III Star Power particles to modded characters." +
     " Requires GHSDK to use.\r\n\r\nAuthor: IMF24, Cobalt";
             // 
-            // pictureBox1
+            // AvatarImageCobalt
             // 
-            this.pictureBox1.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_cobalt;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(52, 52);
-            this.pictureBox1.TabIndex = 44;
-            this.pictureBox1.TabStop = false;
+            this.AvatarImageCobalt.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_cobalt;
+            this.AvatarImageCobalt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AvatarImageCobalt.Location = new System.Drawing.Point(68, 6);
+            this.AvatarImageCobalt.Name = "AvatarImageCobalt";
+            this.AvatarImageCobalt.Size = new System.Drawing.Size(52, 52);
+            this.AvatarImageCobalt.TabIndex = 44;
+            this.AvatarImageCobalt.TabStop = false;
             // 
             // OutputModsList
             // 
@@ -238,8 +238,8 @@
             this.Controls.Add(this.ActionButtonHeader);
             this.Controls.Add(this.OutputModsList);
             this.Controls.Add(this.CharModsHeader);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.AvatarImageBox);
+            this.Controls.Add(this.AvatarImageCobalt);
+            this.Controls.Add(this.AvatarImageIMF);
             this.Controls.Add(this.InfoHeaderLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -247,9 +247,9 @@
             this.MinimizeBox = false;
             this.Name = "AddGH3StarPowerFX";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Script Mod Options: Assign GH3 Star Power FX to Character Mods";
-            ((System.ComponentModel.ISupportInitialize)(this.AvatarImageBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Script Mod Editor: Assign GH3 Star Power FX to Character Mods";
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarImageIMF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarImageCobalt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,9 +257,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox AvatarImageBox;
+        private System.Windows.Forms.PictureBox AvatarImageIMF;
         private System.Windows.Forms.Label InfoHeaderLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox AvatarImageCobalt;
         private System.Windows.Forms.ListBox OutputModsList;
         private System.Windows.Forms.Label CharModsHeader;
         private System.Windows.Forms.Label ActionButtonHeader;

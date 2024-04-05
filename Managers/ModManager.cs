@@ -144,6 +144,7 @@ namespace WTDE_Launcher_V3 {
 
         private void openSelectedModFolderToolStripMenuItem_Click(object sender, EventArgs e) {
             try {
+                V3LauncherCore.AddDebugEntry($"Length of selected mod config path: {SelectedModConfig.Length}", "Mod Manager");
                 Process.Start("explorer.exe", Path.GetDirectoryName(this.SelectedModConfig));
             } catch {
                 return;
@@ -152,6 +153,7 @@ namespace WTDE_Launcher_V3 {
 
         private void openSelectedModFolderToolStripMenuItem1_Click(object sender, EventArgs e) {
             try {
+                V3LauncherCore.AddDebugEntry($"Length of selected mod config path: {SelectedModConfig.Length}", "Mod Manager");
                 Process.Start("explorer.exe", Path.GetDirectoryName(this.SelectedModConfig));
             } catch {
                 return;

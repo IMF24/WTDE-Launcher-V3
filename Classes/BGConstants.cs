@@ -99,7 +99,8 @@ namespace WTDE_Launcher_V3 {
         /// <param name="form"></param>
         /// <param name="label"></param>
         public static void AutoDateBackground(System.Windows.Forms.Form form, System.Windows.Forms.Label label, System.Windows.Forms.PictureBox pictureBox) {
-            if (INIFunctions.GetINIValue("Config", "Holiday", "") != "") return;
+            if ((INIFunctions.GetINIValue("Config", "Holiday", "") != "") &&
+                (INIFunctions.GetINIValue("Config", "Holiday") == "aprilfools")) return;
             
             // What month is it?
             switch (DateTime.Now.Month) {
@@ -220,6 +221,8 @@ namespace WTDE_Launcher_V3 {
                 }
             }
             form.BackgroundImage = V3LauncherBackgrounds[BGIndex];
+
+            V3LauncherCore.AddDebugEntry($"Label ID: {label}");
 
             label.Text = label.Text.Replace("ABC", V3LauncherConstants.VERSION);
             label.Text = label.Text.Replace("BG_AUTHOR", V3LauncherBGAuthors[BGIndex]);
