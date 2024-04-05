@@ -117,7 +117,9 @@ namespace WTDE_Launcher_V3.Core {
             IniFile file = new IniFile();
             file.Load(V3LauncherConstants.WTDEConfigDir);
 
-            if (file.Sections.Contains("Launcher")) {
+            V3LauncherCore.AddDebugEntry($"Is dev settings enabled? {V3LauncherCore.EnableDeveloperSettings}", "BG Constants: AutoDateBackground");
+
+            if (V3LauncherCore.EnableDeveloperSettings && file.Sections.Contains("Launcher")) {
                 if (file.Sections["Launcher"].Keys.Contains("CustomBGPath")) {
                     string pathToCheck = file.Sections["Launcher"].Keys["CustomBGPath"].Value;
                     // Does this file even exist?

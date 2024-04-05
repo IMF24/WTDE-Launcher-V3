@@ -70,6 +70,11 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         /// <summary>
+        ///  Enable developer features?
+        /// </summary>
+        public static bool EnableDeveloperSettings = AllowDevSettings(false);
+
+        /// <summary>
         ///  Allows for developer settings window. NEVER ALLOW THIS IN PUBLIC BUILDS.
         /// </summary>
         /// <returns></returns>
