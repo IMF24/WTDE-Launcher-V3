@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     /// <summary>
     ///  V3 launcher's on screen keyboard dialog box for selecting a keyboard
     ///  binding. Adds the binding to the given label.

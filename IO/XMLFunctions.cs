@@ -4,6 +4,9 @@
 //
 //    Various functions for dealing with XML files.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +17,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using System.IO;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.IO {
     /// <summary>
     ///  Various functions for dealing with XML files.
     /// </summary>

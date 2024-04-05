@@ -6,6 +6,10 @@
 //    Adds Star Power particles from Guitar Hero III onto character mods.
 //    Requires GHSDK to use properly.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +22,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers.ScriptMods {
     /// <summary>
     ///  Adds Star Power particles from Guitar Hero III onto character mods.
     ///  Requires GHSDK to use properly.

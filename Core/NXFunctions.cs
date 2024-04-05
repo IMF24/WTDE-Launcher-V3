@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Internal class of functions that are used for some script mod builders.
     /// </summary>

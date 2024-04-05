@@ -1,4 +1,4 @@
-﻿namespace WTDE_Launcher_V3 {
+﻿namespace WTDE_Launcher_V3.Core {
     partial class Main {
         /// <summary>
         /// Required designer variable.

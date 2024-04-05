@@ -151,8 +151,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\BGConstants.cs" />
-    <Compile Include="Classes\NXFunctions.cs" />
+    <Compile Include="Core\BGConstants.cs" />
+    <Compile Include="Core\NXFunctions.cs" />
     <Compile Include="IntroHelloScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,7 +171,7 @@
     <Compile Include="Managers\DupeChecksumManager.Designer.cs">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\INIFunctions.cs" />
+    <Compile Include="IO\INIFunctions.cs" />
     <Compile Include="Managers\InputKeySelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,10 +190,10 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Mod Type Editors\CharacterModEditor.cs">
+    <Compile Include="Managers\ModTypes\CharacterModEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Managers\Mod Type Editors\CharacterModEditor.Designer.cs">
+    <Compile Include="Managers\ModTypes\CharacterModEditor.Designer.cs">
       <DependentUpon>CharacterModEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\ModFinder.cs">
@@ -214,34 +214,34 @@
     <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\AddGH3StarPowerFX.cs">
+    <Compile Include="Managers\ScriptMods\AddGH3StarPowerFX.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\AddGH3StarPowerFX.Designer.cs">
+    <Compile Include="Managers\ScriptMods\AddGH3StarPowerFX.Designer.cs">
       <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.cs">
+    <Compile Include="Managers\ScriptMods\ExtendedHyperspeedManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.Designer.cs">
+    <Compile Include="Managers\ScriptMods\ExtendedHyperspeedManager.Designer.cs">
       <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\GemThemeCreator.cs">
+    <Compile Include="Managers\ScriptMods\GemThemeCreator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\GemThemeCreator.Designer.cs">
+    <Compile Include="Managers\ScriptMods\GemThemeCreator.Designer.cs">
       <DependentUpon>GemThemeCreator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\ModifyCustomBands.cs">
+    <Compile Include="Managers\ScriptMods\ModifyCustomBands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\ModifyCustomBands.Designer.cs">
+    <Compile Include="Managers\ScriptMods\ModifyCustomBands.Designer.cs">
       <DependentUpon>ModifyCustomBands.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.cs">
+    <Compile Include="Managers\ScriptMods\StarPowerModifierManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Managers\Script Mod Managers\StarPowerModifierManager.Designer.cs">
+    <Compile Include="Managers\ScriptMods\StarPowerModifierManager.Designer.cs">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\SelectHighwayMod.cs">
@@ -288,15 +288,15 @@
     <Compile Include="Managers\SongMasterManager.Designer.cs">
       <DependentUpon>SongMasterManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\V3LauncherConstants.cs" />
-    <Compile Include="Classes\V3LauncherCore.cs" />
+    <Compile Include="Core\V3LauncherConstants.cs" />
+    <Compile Include="Core\V3LauncherCore.cs" />
     <Compile Include="Managers\WTDEDevSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Managers\WTDEDevSettingsDialog.Designer.cs">
       <DependentUpon>WTDEDevSettingsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\XMLFunctions.cs" />
+    <Compile Include="IO\XMLFunctions.cs" />
     <EmbeddedResource Include="IntroHelloScreen.resx">
       <DependentUpon>IntroHelloScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,7 +315,7 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\Mod Type Editors\CharacterModEditor.resx">
+    <EmbeddedResource Include="Managers\ModTypes\CharacterModEditor.resx">
       <DependentUpon>CharacterModEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModFinder.resx">
@@ -327,19 +327,19 @@
     <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\Script Mod Managers\AddGH3StarPowerFX.resx">
+    <EmbeddedResource Include="Managers\ScriptMods\AddGH3StarPowerFX.resx">
       <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\Script Mod Managers\ExtendedHyperspeedManager.resx">
+    <EmbeddedResource Include="Managers\ScriptMods\ExtendedHyperspeedManager.resx">
       <DependentUpon>ExtendedHyperspeedManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\Script Mod Managers\GemThemeCreator.resx">
+    <EmbeddedResource Include="Managers\ScriptMods\GemThemeCreator.resx">
       <DependentUpon>GemThemeCreator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\Script Mod Managers\ModifyCustomBands.resx">
+    <EmbeddedResource Include="Managers\ScriptMods\ModifyCustomBands.resx">
       <DependentUpon>ModifyCustomBands.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\Script Mod Managers\StarPowerModifierManager.resx">
+    <EmbeddedResource Include="Managers\ScriptMods\StarPowerModifierManager.resx">
       <DependentUpon>StarPowerModifierManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\SelectHighwayMod.resx">
@@ -393,7 +393,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <Compile Include="Classes\ModHandler.cs" />
+    <Compile Include="IO\ModHandler.cs" />
     <None Include="res\img\chalk_left.png" />
     <None Include="res\img\chalk_right.png" />
     <None Include="res\img\logo_cobalt.png" />

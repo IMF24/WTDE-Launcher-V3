@@ -5,20 +5,24 @@
 //    The Mod Manager's mod finder, which searches through the user's MODS
 //    folder for specific mods based on specific filters.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     public partial class ModFinder : Form {
         public ModFinder() {
             InitializeComponent();

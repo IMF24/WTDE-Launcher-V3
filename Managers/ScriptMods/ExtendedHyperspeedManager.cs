@@ -6,6 +6,9 @@
 //    Script mod editor dedicated to the ExtendedHyperspeed mod for more
 //    in-depth control of highway scroll speeds.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers.ScriptMods {
     public partial class ExtendedHyperspeedManager : Form {
         public ExtendedHyperspeedManager() {
             InitializeComponent();

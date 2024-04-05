@@ -17,6 +17,10 @@
     will also be visually polished to make it look the best it possibly can!
     
 ------------------------------------------------------------------------------------------------ */
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+using WTDE_Launcher_V3.Managers;
+
 // Various required imports.
 using System;
 using System.IO;
@@ -30,7 +34,7 @@ using System.Reflection;
 using NAudio.CoreAudioApi;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Main entry class for the V3 launcher. The Form's name is Main.
     /// </summary>

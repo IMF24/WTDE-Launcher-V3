@@ -6,6 +6,10 @@
 //    Script mod editor dedicated to the StarPowerModifier script mod for
 //    changing the appearance of various elements under Star Power.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -18,7 +22,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers.ScriptMods {
     public partial class StarPowerModifierManager : Form {
         public StarPowerModifierManager() {
             InitializeComponent();

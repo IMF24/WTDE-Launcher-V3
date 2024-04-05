@@ -4,6 +4,9 @@
 //
 //    Various functions for dealing with INI files.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.IO {
     /// <summary>
     ///  Various functions for dealing with INI files.
     /// </summary>

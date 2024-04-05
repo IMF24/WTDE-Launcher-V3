@@ -1,4 +1,11 @@
-﻿using System;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       M O D       T Y P E       E D I T O R S
+//          C H A R A C T E R       M O D       E D I T O R
+//
+//    User friendly designed dialog for editing character mod INI data.
+// ----------------------------------------------------------------------------
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers.ModTypes {
     public partial class CharacterModEditor : Form {
 
         public CharacterModEditor(string modDir) {

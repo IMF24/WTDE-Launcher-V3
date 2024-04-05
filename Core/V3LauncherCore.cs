@@ -12,6 +12,9 @@
 //    - Reads various data from ghwt.de and the GHWT: DE Volatile repository.
 //    - And many other important things!
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 // Any various imports we may require.
 using System;
 using System.IO;
@@ -27,7 +30,7 @@ using MadMilkman.Ini;
 using Microsoft.Win32;
 using System.Drawing;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Internal class of important functions used by the V3 launcher. This has
     ///  the code for update checking, mod folder scanning, etc.

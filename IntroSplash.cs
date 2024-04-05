@@ -15,7 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Intro splash form shown that auto kills after 3 seconds, then the main form spawns.
     /// </summary>

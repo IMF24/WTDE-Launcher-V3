@@ -1,4 +1,4 @@
-﻿namespace WTDE_Launcher_V3 {
+﻿namespace WTDE_Launcher_V3.Managers.ModTypes {
     partial class CharacterModEditor {
         /// <summary>
         /// Required designer variable.

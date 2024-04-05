@@ -6,6 +6,9 @@
 //    The Mod Manager's song and song category mod manager's dialog for editing
 //    pre-existing category mods.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -19,7 +22,7 @@ using System.Windows.Forms;
 using System.Drawing.Imaging;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     /// <summary>
     ///  The Mod Manager's song and song category mod manager's dialog for editing
     ///  pre-existing category mods.

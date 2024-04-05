@@ -5,6 +5,9 @@
 //    Quick welcome screen to the end user if this is the first time the
 //    launcher program has booted up.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     public partial class IntroHelloScreen : Form {
         public IntroHelloScreen() {
             InitializeComponent();

@@ -5,6 +5,10 @@
 //    The Mod Manager's song and song category mod manager, which lets the user
 //    more easily sort and categorize their songs.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -21,7 +25,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     /// <summary>
     ///  The Mod Manager's song and song category mod manager, which lets the user
     ///  more easily sort and categorize their songs.

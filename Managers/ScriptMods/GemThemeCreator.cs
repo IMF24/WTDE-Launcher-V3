@@ -5,6 +5,10 @@
 //
 //    Makes custom gem color palette script mods. Requires GHSDK to use.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Diagnostics;
@@ -12,7 +16,7 @@ using System.Windows.Forms;
 using MadMilkman.Ini;
 using System.Drawing;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers.ScriptMods {
     /// <summary>
     ///  Makes custom gem color palette script mods. Requires GHSDK to use.
     /// </summary>

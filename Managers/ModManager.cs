@@ -5,6 +5,12 @@
 //    The Mod Manager, meant for the user to manage their mods with a
 //    relatively user-friendly dialog.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+using WTDE_Launcher_V3.Managers.ModTypes;
+using WTDE_Launcher_V3.Managers.ScriptMods;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -17,7 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     /// <summary>
     ///  The Mod Manager, meant for the user to manage their mods with a relatively user-friendly dialog.
     /// </summary>

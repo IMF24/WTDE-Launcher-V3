@@ -6,6 +6,10 @@
 //    The Mod Manager's song and song category mod manager's dialog for editing
 //    the song properties of an existing song mod.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -19,7 +23,7 @@ using System.Windows.Forms;
 using MadMilkman.Ini;
 using System.Runtime.Versioning;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     public partial class SCMSongProperties : Form {
         public List<string> CategoryNames = new List<string>() { 
             "GHWT: Definitive Edition",

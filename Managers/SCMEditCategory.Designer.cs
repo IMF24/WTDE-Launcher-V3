@@ -1,4 +1,4 @@
-﻿namespace WTDE_Launcher_V3 {
+﻿namespace WTDE_Launcher_V3.Managers {
     partial class SCMEditCategory {
         /// <summary>
         /// Required designer variable.

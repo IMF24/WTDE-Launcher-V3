@@ -8,6 +8,9 @@
 //    We primarily won't be changing these. If we do, we'll change anything at
 //    start up, then leave them be from there on.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Managers;
+
 // Various imports. We might not need all these, but it's nice to have them.
 using System;
 using System.Collections.Generic;
@@ -15,7 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Internal class of global constants for the V3 launcher. Contains locations of
     ///  necessary config files, and other various constant variables.

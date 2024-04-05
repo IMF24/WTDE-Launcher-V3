@@ -1,4 +1,4 @@
-﻿namespace WTDE_Launcher_V3 {
+﻿namespace WTDE_Launcher_V3.Managers.ScriptMods {
     partial class AddGH3StarPowerFX {
         /// <summary>
         /// Required designer variable.

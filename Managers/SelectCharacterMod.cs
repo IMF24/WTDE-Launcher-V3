@@ -4,6 +4,9 @@
 //
 //    Dialog for selecting characters.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -15,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     /// <summary>
     ///  Dialog for selecting characters.
     /// </summary>

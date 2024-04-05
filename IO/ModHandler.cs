@@ -4,6 +4,9 @@
 //
 //    Main logic class for reading the user's mods folder.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -13,7 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.IO {
 	/// <summary>
 	///  Main logic class for reading the user's mods folder.
 	/// </summary>

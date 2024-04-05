@@ -5,6 +5,10 @@
 //    The Mod Manager's duplicate checksum manager, allowing a way to resolve
 //    conflicting song mods that have the same checksum as others.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -18,7 +22,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     /// <summary>
     ///  The Mod Manager's duplicate checksum manager, allowing a way to resolve
     ///  conflicting song mods that have the same checksum as others.

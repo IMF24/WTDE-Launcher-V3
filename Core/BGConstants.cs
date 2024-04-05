@@ -6,6 +6,9 @@
 //    activating various backgrounds when commanded, and also loading specific
 //    backgrounds for the artists and developers for this launcher!
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.Drawing;
@@ -15,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MadMilkman.Ini;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  This class holds various logic when working with the background. Controls
     ///  activating various backgrounds when commanded, and also loading specific

@@ -5,6 +5,9 @@
 //    The Mod Manager's mod installer, allowing the user to very easily install
 //    new mods for their WTDE installation.
 // ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.IO;
+
 using System;
 using System.IO;
 using System.ComponentModel;
@@ -12,7 +15,7 @@ using System.Windows.Forms;
 using System.IO.Compression;
 using Aspose.Zip.Rar;
 
-namespace WTDE_Launcher_V3 {
+namespace WTDE_Launcher_V3.Managers {
     public partial class ModInstaller : Form {
         public ModInstaller() {
             InitializeComponent();
