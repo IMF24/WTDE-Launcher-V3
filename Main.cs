@@ -92,9 +92,14 @@ namespace WTDE_Launcher_V3.Core {
                 // Can we update the game? Do we have an internet connection?
                 if (!IsNetworkConnected) {
                     CheckUpdatesButton.Enabled = false;
+                    CheckUpdatesButton.ForeColor = Color.Black;
                     if (EnableAFDTheme) ChangeControlTooltip(CheckUpdatesButton, "WTDX cannot be updated! Your subscription has expired.");
                     else ChangeControlTooltip(CheckUpdatesButton, "Can't update WTDE! Is the network working? Make sure you check if you have a valid internet\n" +
                                                                   "connection, relaunch the program, then try again.");
+                    UseMOTDWithImage = false;
+                    V3LauncherCore.GetMOTDText(MOTDText);
+                } else {
+                    V3LauncherCore.GetMOTDText(MOTDLabelImage, UseMOTDWithImage, MOTDImage);
                 }
 
                 // April Fools Day stuff!               
@@ -105,6 +110,12 @@ namespace WTDE_Launcher_V3.Core {
                     IconLogoDELauncher.BackgroundImage = Properties.Resources.icon_af;
 
                     MOTDText.Text = "Well, this is embarrassing.\n\n" +
+                                    "We regret to inform you, but Guitar Hero World Tour: Definitive Edition is no more.\n" +
+                                    "It's now Guitar Hero World Tour Deluxe. In order to play, you require a Premium Rocker subscription in order to play the game.\n\n" +
+                                    "If you feel as if you've received this message in error, please contact our hotline. Our unpaid interns will get back to you as soon as possible.\n\n" +
+                                    "We're sorry for the inconvenience! D:";
+
+                    MOTDLabelImage.Text = "Well, this is embarrassing.\n\n" +
                                     "We regret to inform you, but Guitar Hero World Tour: Definitive Edition is no more.\n" +
                                     "It's now Guitar Hero World Tour Deluxe. In order to play, you require a Premium Rocker subscription in order to play the game.\n\n" +
                                     "If you feel as if you've received this message in error, please contact our hotline. Our unpaid interns will get back to you as soon as possible.\n\n" +
@@ -154,7 +165,6 @@ namespace WTDE_Launcher_V3.Core {
 
                     FretworksLogo.Image = Properties.Resources.fretworks_banner_s_af;
                 } else {
-                    V3LauncherCore.GetMOTDText(MOTDLabelImage, UseMOTDWithImage, MOTDImage);
                     BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
                 }
 
@@ -192,22 +202,22 @@ namespace WTDE_Launcher_V3.Core {
         ///  <br/>
         ///  - Set this to false to get an MOTD container with text only.
         /// </summary>
-        public bool UseMOTDWithImage = true;
+        public static bool UseMOTDWithImage = true;
         
         /// <summary>
         ///  Is this the hello message going to be shown, or has it been shown before?
         /// </summary>
-        public bool IsFirstBoot = INIFunctions.GetINIValue("Launcher", "HelloMessageShown", "0") == "0";
+        public static bool IsFirstBoot = INIFunctions.GetINIValue("Launcher", "HelloMessageShown", "0") == "0";
 
         /// <summary>
         ///  Are we enabling the April Fools' Day theme?
         /// </summary>
-        public bool EnableAFDTheme = ((INIFunctions.GetINIValue("Config", "Holiday", "") == "aprilfools") || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1));
+        public static bool EnableAFDTheme = ((INIFunctions.GetINIValue("Config", "Holiday", "") == "aprilfools") || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1));
 
         /// <summary>
         ///  Is there an available internet connection?
         /// </summary>
-        public bool IsNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
+        public static bool IsNetworkConnected = V3LauncherCore.IsConnectedToInternet();
 
         /// <summary>
         ///  Change the text tooltip of a control.
@@ -403,7 +413,7 @@ namespace WTDE_Launcher_V3.Core {
 
             // -- INTERFACE OPTIONS --------
             GemTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemTheme", "ghwt"),
-                V3LauncherConstants.NoteStyles[1].ToArray(), V3LauncherConstants.NoteStyles[0].ToArray());
+                V3LauncherConstants.NoteStyles[1], V3LauncherConstants.NoteStyles[0]);
             GemColors.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemColors", "standard_gems"),
                 V3LauncherConstants.NoteThemeColors[1], V3LauncherConstants.NoteThemeColors[0]);
             SongIntroStyle.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "SongIntroStyle", "ghwt"),
@@ -422,6 +432,9 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.PauseMenuThemes[1], V3LauncherConstants.PauseMenuThemes[0]);
             HelperPillTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HelperPillTheme", "wtde"),
                 V3LauncherConstants.HelperPillThemes[1], V3LauncherConstants.HelperPillThemes[0]);
+            TrainingSectionFont.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "TrainingSectionFont", "ghwt"),
+                V3LauncherConstants.TrainingSectionThemes[1], V3LauncherConstants.TrainingSectionThemes[0]);
+            TrainingAccuracy.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "TrainingAccuracy", "0"));
             TapTrailTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "TapTrailTheme", "ghwt"),
                 V3LauncherConstants.TapTrailThemes[1], V3LauncherConstants.TapTrailThemes[0]);
             HitFlameTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HitFlameTheme", "ghwt"),
@@ -446,11 +459,11 @@ namespace WTDE_Launcher_V3.Core {
             ApplyBandLogo.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "ApplyBandLogo", "1"));
             EnableCamPulse.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "EnableCamPulse", "1"));
             DefaultTODProfile.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "DefaultTODProfile", "ghwt"),
-                V3LauncherConstants.TODProfiles[1].ToArray(), V3LauncherConstants.TODProfiles[0].ToArray());
+                V3LauncherConstants.TODProfiles[1], V3LauncherConstants.TODProfiles[0]);
             DOFQuality.SelectedIndex = int.Parse(INIFunctions.GetINIValue("Graphics", "DOFQuality", "2"));
             DOFBlur.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "DOFBlur", "6.0"));
             FlareStyle.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "FlareStyle", "wtde"),
-                V3LauncherConstants.FlareStyles[1].ToArray(), V3LauncherConstants.FlareStyles[0].ToArray());
+                V3LauncherConstants.FlareStyles[1], V3LauncherConstants.FlareStyles[0]);
 
             // ---------------------------------
             // BAND TAB
@@ -461,7 +474,7 @@ namespace WTDE_Launcher_V3.Core {
             PreferredSinger.Text = INIFunctions.GetINIValue("Band", "PreferredSinger", "");
             PreferredFemaleSinger.Text = INIFunctions.GetINIValue("Band", "PreferredFemaleSinger", "");
             PreferredStage.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "PreferredStage", ""),
-                V3LauncherConstants.VenueIDs[1].ToArray(), V3LauncherConstants.VenueIDs[0].ToArray());
+                V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
             ReplaceSpecialBands.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Band", "ReplaceSpecialBands"));
 
             PreferredGuitaristHighway.Text = INIFunctions.GetINIValue("Band", "PreferredGuitaristHighway", "");
@@ -489,7 +502,7 @@ namespace WTDE_Launcher_V3.Core {
             AutoLaunchPlayers.Text = INIFunctions.GetINIValue("AutoLaunch", "Players", "1");
             AutoLaunchSong.Text = INIFunctions.GetINIValue("AutoLaunch", "Song", "random");
             AutoLaunchVenue.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Venue"),
-                V3LauncherConstants.VenueIDs[1].ToArray(), V3LauncherConstants.VenueIDs[0].ToArray());
+                V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
 
             string[][] autoLaunchInstruments = {
                 new string[] { "guitar", "bass", "drum", "vocals" },
@@ -1090,9 +1103,9 @@ namespace WTDE_Launcher_V3.Core {
 
         private void VersionInfoLabel_Click(object sender, EventArgs e) {
             // AFD theme? Using custom background? Don't change it!
-            if (EnableAFDTheme && !BGConstants.IsCustomBG) return;
+            if (EnableAFDTheme || BGConstants.IsCustomBG) return;
 
-            V3LauncherCore.AddDebugEntry("AFD theme NOT active, change BG");
+            V3LauncherCore.AddDebugEntry("AFD theme nor custom BG is active, DO change the background");
 
             // Which mouse button did we push?
             MouseEventArgs me = (MouseEventArgs) e;
@@ -2050,6 +2063,15 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.PauseMenuThemes[0].ToArray(), V3LauncherConstants.PauseMenuThemes[1].ToArray()));
         }
 
+        private void TrainingSectionFont_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "TrainingSectionFont", INIFunctions.InterpretINISetting(TrainingSectionFont.Text,
+                V3LauncherConstants.TrainingSectionThemes[0], V3LauncherConstants.TrainingSectionThemes[1]));
+        }
+
+        private void TrainingAccuracy_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "TrainingAccuracy", INIFunctions.BoolToString(TrainingAccuracy.Checked));
+        }
+
         private void HelperPillTheme_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "HelperPillTheme", INIFunctions.InterpretINISetting(HelperPillTheme.Text,
                 V3LauncherConstants.HelperPillThemes[0].ToArray(), V3LauncherConstants.HelperPillThemes[1].ToArray()));
@@ -2803,6 +2825,8 @@ namespace WTDE_Launcher_V3.Core {
         private void ButtonDiscord_Click(object sender, EventArgs e) {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
+
+
 
 
         #endregion

@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Internal class of functions that are used for some script mod builders.
+    ///  Currently only has functionality for QBKey generation, but this will
+    ///  be expanded in the future.
     /// </summary>
     internal class NXFunctions {
         /// <summary>
@@ -88,7 +90,12 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Interpret a text string into a QBKey string.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="text">
+        ///  The string of text to be translated into a QBKey.
+        /// </param>
+        /// <returns>
+        ///  A string representation of a Neversoft QBKey generated from the standard Neversoft CRC32 table.
+        /// </returns>
         public static string MakeQBKeyFromString(string text) {
             // If the string begins with 0x, return it as-is!
             if (text.StartsWith("0x") && text.Length <= 10) {
@@ -109,7 +116,12 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Interpret a byte array into a QBKey string.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="textBytes">
+        ///  A byte array of text bytes to be converted into a Neversoft QBKey.
+        /// </param>
+        /// <returns>
+        ///  A string representation of a Neversoft QBKey generated from the standard Neversoft CRC32 table.
+        /// </returns>
         public static string MakeQBKeyFromBytes(byte[] textBytes) {
             Console.Write("Text bytes for QBKey: { ");
             foreach (byte b in textBytes) Console.Write(b + ", ");

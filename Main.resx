@@ -346,6 +346,16 @@ down to a lower value.</value>
 
 Note that this setting OVERRIDES any and all crowd clap types in venues by default if set that way.</value>
   </data>
+  <data name="TrainingAccuracy.ToolTip" xml:space="preserve">
+    <value>While in Practice Mode, this will show a total percent accuracy meter to the
+left of the highway, along with a meter of notes hit over notes in total.
+
+As you play the section in practice, this meter will start at 0% and approach
+100%, as well as the number of notes you have managed to hit over the
+total number of notes in the section(s) you are playing.
+
+This feature was seen in Guitar Hero 5 and later.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -388,7 +398,7 @@ Note that this setting OVERRIDES any and all crowd clap types in venues by defau
     <value>GHWT: Definitive Edition by Fretworks, EST. 2021
 GHWT: Definitive Edition Launcher by IMF24
 
-Made in C# on .NET Framework 4.6.2
+Made in C# 7.3 on .NET 4.6.2
 
 Thank you to everyone who helped me pitch in ideas for this launcher. Without you, all of this would've been impossible.
 

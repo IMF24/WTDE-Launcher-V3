@@ -63,7 +63,10 @@ namespace WTDE_Launcher_V3.IO {
 		///  paths in that folder, including its mod name, author, version, type, description,
 		///  INI file path, and folder path.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>
+		///  A list of string arrays containing all mod information. For more information about what the returned list of
+		///  string array contains, view more details on the <see cref="UserContentMods"/> field.
+		/// </returns>
 		public static List<string[]> ReadMods() {
 			// If Updater.ini exists, let's use that path to read the stuff.
 			string owd = Directory.GetCurrentDirectory();
@@ -437,16 +440,18 @@ namespace WTDE_Launcher_V3.IO {
 			Script = 8
 		}
 
-		/// <summary>
-		///  Finds all mods of a various type.
-		/// </summary>
-		/// <param name="modType">
-		///  The type of mod to search for.
-		/// </param>
-		/// <returns>
-		///  Returns a list of all of the mods matching the given type.
-		/// </returns>
-		public static List<string[]> GetModsByType(ModTypes modType) {
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Finds all mods of a various type.
+        /// </summary>
+        /// <param name="modType">
+        ///  The type of mod to search for.
+        /// </param>
+        /// <returns>
+        ///  Returns a list of all of the mods matching the given type.
+        /// </returns>
+        public static List<string[]> GetModsByType(ModTypes modType) {
 			// What type of mod do we want to find?
 			string[] modTypes = new string[] {
 				"Song", "Character", "Instrument", "Highway", "Venue",
@@ -454,17 +459,43 @@ namespace WTDE_Launcher_V3.IO {
 			};
 			string modTypeToFind = modTypes[(int) modType];
 
-			// Now let's do some searching!
-			List<string[]> outMods = new List<string[]>();
-			foreach (string[] mod in UserContentMods) {
-				if (mod[2] == modTypeToFind) {
-					outMods.Add(mod);
-				}
-			}
+			// Now let's do some searching! LINQ makes this pretty elegant.
+			IEnumerable<string[]> outMods =
+				from mod in UserContentMods
+				where mod[2] == modTypeToFind
+				select mod;
 
 			// And let's give the list back when we're done!
-			return outMods;
+			return outMods.ToList();
 		}
+
+        /// <summary>
+        ///  Finds all mods of a various type.
+        /// </summary>
+        /// <param name="modType">
+        ///  The type of mod to search for.
+        /// </param>
+        /// <returns>
+        ///  Returns a list of all of the mods matching the given type.
+        /// </returns>
+        public static List<string[]> GetModsByType(int modType) {
+			// What type of mod do we want to find?
+			if (modType > 8 || modType < 0) modType = 0;
+            string[] modTypes = new string[] {
+                "Song", "Character", "Instrument", "Highway", "Venue",
+                "Menu Music", "Song Category", "Gem Theme", "Script"
+            };
+            string modTypeToFind = modTypes[modType];
+
+            // Now let's do some searching! LINQ makes this pretty elegant.
+            IEnumerable<string[]> outMods =
+                from mod in UserContentMods
+                where mod[2] == modTypeToFind
+                select mod;
+
+            // And let's give the list back when we're done!
+            return outMods.ToList();
+        }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -482,7 +513,7 @@ namespace WTDE_Launcher_V3.IO {
 			foreach (var mod in UserContentMods) {
 				// Is this a venue mod?
 				if (mod[2] == "Venue") {
-					V3LauncherCore.AddDebugEntry("--------------------------\nVENUE MOD FOUND\n--------------------------", "Mod Handler: AppendVenueMods");
+					V3LauncherCore.AddDebugEntry("\n--------------------------\nVENUE MOD FOUND\n--------------------------", "Mod Handler: AppendVenueMods");
 
 					V3LauncherCore.AddDebugEntry($"path being loaded: {mod[5]}", "Mod Handler: AppendVenueMods");
 
@@ -530,7 +561,7 @@ namespace WTDE_Launcher_V3.IO {
 			foreach (var mod in UserContentMods) {
 				// Is this a gem mod?
 				if (mod[2] == "Gem Theme") {
-					V3LauncherCore.AddDebugEntry("--------------------------\nGEM THEME MOD FOUND\n--------------------------", "Mod Handler: AppendGemMods");
+					V3LauncherCore.AddDebugEntry("\n--------------------------\nGEM THEME MOD FOUND\n--------------------------", "Mod Handler: AppendGemMods");
 
 					V3LauncherCore.AddDebugEntry($"path being loaded: {mod[5]}", "Mod Handler: AppendGemMods");
 

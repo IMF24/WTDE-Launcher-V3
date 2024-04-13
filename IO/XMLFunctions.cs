@@ -8,6 +8,7 @@
 using WTDE_Launcher_V3.Core;
 
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,10 @@ using System.Xml;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using System.IO;
 
 namespace WTDE_Launcher_V3.IO {
     /// <summary>
-    ///  Various functions for dealing with XML files.
+    ///  Various functions for dealing with XML files. Allows for easy manipulation of AspyrConfig.xml.
     /// </summary>
     internal class XMLFunctions {
         /// <summary>
@@ -31,9 +31,16 @@ namespace WTDE_Launcher_V3.IO {
         ///  Read an `s id=` string from AspyrConfig and return its value. Employs fallback measures if the
         ///  string is not found.
         /// </summary>
-        /// <param name="sIDKey"></param>
-        /// <param name="fallback"></param>
-        /// <returns></returns>
+        /// <param name="sIDKey">
+        ///  The `s id=` key to read a value from.
+        /// </param>
+        /// <param name="fallback">
+        ///  The value to return and write if the tag doesn't exist.
+        /// </param>
+        /// <returns>
+        ///  The string from the associated `s id=` tag. If it does not exist, it is written to AspyrConfig with the given
+        ///  fallback string. The fallback string is returned if the tag did not exist.
+        /// </returns>
         public static string AspyrGetString(string sIDKey, string fallback = "") {
             // This variable is what string we're going to return.
             // This is mainly used for if the tag actually exists.
@@ -46,22 +53,21 @@ namespace WTDE_Launcher_V3.IO {
                 // given tag exists. If it does, we'll give it back.
                 XmlTextReader textReader = new XmlTextReader(V3LauncherConstants.AspyrConfigDir);
                 while (textReader.Read()) {
-                    // What type of node is this?
-                    switch (textReader.NodeType) {
+                    // Is this an element node?
+                    if (textReader.NodeType == XmlNodeType.Element) {
                         // Element nodes are what we want to look inside of.
-                        case XmlNodeType.Element:
-                            // Read the attribute and figure out if the "id" attribute has the given key.
-                            // If it is the key we specified, read the string, and ready it for return.
-                            if (textReader.GetAttribute("id") == sIDKey) {
-                                returnString = textReader.ReadString();
-                                V3LauncherCore.AddDebugEntry($"String for {sIDKey} was found! Read value was {returnString}", "XML Functions: AspyrGetString");
-                                break;
-                            }
+                        // Read the attribute and figure out if the "id" attribute has the given key.
+                        // If it is the key we specified, read the string, and ready it for return.
+                        if (textReader.GetAttribute("id") == sIDKey) {
+                            returnString = textReader.ReadString();
+                            V3LauncherCore.AddDebugEntry($"String for {sIDKey} was found! Read value was {returnString}", "XML Functions: AspyrGetString");
                             break;
+                        }
                     }
 
                     V3LauncherCore.AddDebugEntry("Nothing found yet, keep looking...", "XML Functions: AspyrGetString");
                 }
+
                 // Did we find the string we want?
                 // If we did, give it back. Also close the file too!
                 textReader.Close();
@@ -107,8 +113,12 @@ namespace WTDE_Launcher_V3.IO {
         /// <summary>
         ///  Write a value to the given `s id=` tag in AspyrConfig. The tag is created if it doesn't exist.
         /// </summary>
-        /// <param name="sIDKey"></param>
-        /// <param name="value"></param>
+        /// <param name="sIDKey">
+        ///  The `s id=` key in AspyrConfig to write to in the XML file.
+        /// </param>
+        /// <param name="value">
+        ///  The value to write to the tag.
+        /// </param>
         public static void AspyrWriteString(string sIDKey, string value) {
             try {
                 V3LauncherCore.AddDebugEntry($"Writing s id tag {sIDKey} with value {value}...", "XML Functions: AspyrWriteString");

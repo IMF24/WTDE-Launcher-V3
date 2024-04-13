@@ -769,6 +769,35 @@ namespace WTDE_Launcher_V3.Core {
         };
 
         /// <summary>
+        ///  List of different Practice Mode section font styles.
+        /// </summary>
+        public static string[][] TrainingSectionThemes = new string[][] { 
+            // Practice Mode section font theme names.
+            new string[] {
+                "GH: World Tour (Default)",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Van Halen",
+                "Guitar Hero 5",
+                "Band Hero",
+                "Guitar Hero: Warriors of Rock",
+                "Guitar Hero II"
+            },
+
+            // Practice Mode section font theme IDs.
+            new string[] {
+                "ghwt",
+                "ghm",
+                "ghsh",
+                "ghvh",
+                "gh5",
+                "bh",
+                "ghwor",
+                "gh2"
+            }
+        };
+
+        /// <summary>
         ///  List of pause menu themes.
         /// </summary>
         public static string[][] PauseMenuThemes = new string[][] {

@@ -29,6 +29,7 @@ using System.Diagnostics;
 using MadMilkman.Ini;
 using Microsoft.Win32;
 using System.Drawing;
+using System.Security.Policy;
 
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
@@ -41,16 +42,21 @@ namespace WTDE_Launcher_V3.Core {
         /// </summary>
         public static List<string> DebugLog = new List<string>() {
             "~=-=~=-=~      W T D E     L A U N C H E R     V 3      ~=-=~=-=~",
-           $"   WTDE Launcher Execution Debug Log - WTDE Launcher Version {V3LauncherConstants.VERSION}",
-           $"   Date of Execution: {DateTime.Now}",
+           $"  WTDE Launcher Execution Debug Log - WTDE Launcher Version {V3LauncherConstants.VERSION}",
+           $"  Date of Execution: {DateTime.Now}",
             "~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~=-=~"
         };
 
         /// <summary>
         ///  Add entry to the debug log. Prefix is surrounded in square brackets ( [] ).
         /// </summary>
-        /// <param name="entry"></param>
-        /// <param name="prefix"></param>
+        /// <param name="entry">
+        ///  The string of text to append to the debug log.
+        /// </param>
+        /// <param name="prefix">
+        ///  Optional: A differentiating prefix to append to the start of the entry to help differentiate what certain
+        ///  aspects were doing.
+        /// </param>
         public static void AddDebugEntry(string entry, string prefix = "V3 Launcher") {
             DebugLog.Add($"[{prefix}] {entry}");
             string saveDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Logs/debug_launcher.txt";
@@ -70,14 +76,16 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         /// <summary>
-        ///  Enable developer features?
+        ///  Should we enable developer features?
         /// </summary>
         public static bool EnableDeveloperSettings = AllowDevSettings(false);
 
         /// <summary>
         ///  Allows for developer settings window. NEVER ALLOW THIS IN PUBLIC BUILDS.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///  True if developer settings were allowed. False if not. If disableAnyway was enabled, always returns false.
+        /// </returns>
         public static bool AllowDevSettings(bool disableAnyway = true) {
             if (!disableAnyway) {
                 if (File.Exists("dev_settings_enable")) {
@@ -97,7 +105,10 @@ namespace WTDE_Launcher_V3.Core {
         ///  Attempt to guess the user's GHWT installation path. Reads the Windows Registry to see if it can find the
         ///  installation. If it can, it returns that path. If not, return the current working directory.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///  A string path to the user's guessed Guitar Hero: World Tour installation folder. If the registry key was
+        ///  not found, returns the current working directory.
+        /// </returns>
         public static string GHWTInstallPathGuess() {
             using (RegistryKey key = Registry.LocalMachine.OpenSubKey("Software\\Wow6432Node\\Aspyr\\Guitar Hero World Tour")) {
                 if (key != null) {
@@ -227,9 +238,36 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         /// <summary>
+        ///  Returns true or false if we are currently connected to the internet.
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsConnectedToInternet() {
+            try {
+                using (WebClient client = new WebClient()) {
+                    string testDLString = client.DownloadString("https://ghwt.de/meta/motd.txt");
+                }
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        /// <summary>
         ///  Returns the MOTD text from the GHWT: DE website. This content is located at https://ghwt.de/meta/motd.txt. Returns placeholder
         ///  MOTD upon failure to establish an internet connection.
         /// </summary>
+        /// <param name="label">
+        ///  The label to populate with the retrieved MOTD text.
+        /// </param>
+        /// <param name="useImageBox">
+        ///  Do we use the MOTD with image panel layout?
+        /// </param>
+        /// <param name="pBox">
+        ///  The <see cref="PictureBox"/> control to change the image for.
+        /// </param>
+        /// <param name="imageURL">
+        ///  The direct URL to an image file that will be downloaded and populated into the given <see cref="PictureBox"/>.
+        /// </param>
         /// <returns>
         ///  String of text containing the MOTD. Gives back fallback MOTD if it fails.
         /// </returns>
@@ -256,7 +294,9 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Opens a specific website. This handles all the complicated stuff to do this.
         /// </summary>
-        /// <param name="site"></param>
+        /// <param name="site">
+        ///  The URL of the website to open.
+        /// </param>
         public static void OpenSiteURL(string site) {
             var url = site;
             var psi = new System.Diagnostics.ProcessStartInfo();
@@ -268,7 +308,10 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Get the latest version of WTDE from the hashlist.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///  A version string returned from GHWT: DE's volatile repository hash list file. Returns a string of "???" if
+        ///  there is no internet connection or the version retrieval failed in any way.
+        /// </returns>
         public static string GetLatestVersion() {
             try {
                 using (WebClient client = new WebClient()) {
@@ -284,7 +327,9 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Update the form with the correct window title based on the various seasonal themes.
         /// </summary>
-        /// <param name="form"></param>
+        /// <param name="form">
+        ///  The Windows Form to change the title text for.
+        /// </param>
         public static void SetWindowTitle(System.Windows.Forms.Form form) {
             // Random number selection.
             Random random = new Random();
@@ -366,8 +411,12 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Returns true or false if a string contains only numeric digits.
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        /// <param name="str">
+        ///  The string to check if it consists only of numeric digits.
+        /// </param>
+        /// <returns>
+        ///  True if the string contains only numeric characters. False if the string does not.
+        /// </returns>
         public static bool IsDigitsOnly(string str) {
             foreach (char c in str) {
                 if (c < '0' || c > '9')
@@ -379,6 +428,7 @@ namespace WTDE_Launcher_V3.Core {
 
         /// <summary>
         ///  Takes a list of inputs along with a binding string and translates it into Aspyr's keybind codes.
+        ///  Raise Exception if the number of given inputs and input bindings do not match.
         /// </summary>
         /// <param name="inputs">
         ///  Array of strings of input bindings, corresponding to the inputList argument.
@@ -387,7 +437,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Array of strings of inputs, corresponding to the inputs argument.
         /// </param>
         /// <param name="mappingString">
-        ///  The string to be written to AspyrConfig.
+        ///  The `s id=` string to be written to AspyrConfig.
         /// </param>
         public static void AspyrKeyEncode(List<string> inputs, List<string> inputList, string mappingString) {
             if (inputs.Count != inputList.Count) throw new Exception("The number of inputs given do not match each other.");
@@ -431,8 +481,12 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Take an Aspyr keyboard mapping string and decode a specific input from it.
         /// </summary>
-        /// <param name="sIDKeyBindString"></param>
-        /// <param name="inputKey"></param>
+        /// <param name="sIDKeyBindString">
+        ///  The `s id=` key to translate all keybinds from.
+        /// </param>
+        /// <param name="inputKey">
+        ///  The specific input to decode into a keyboard key.
+        /// </param>
         /// <returns>
         ///  Returns a set of decoded keyboard inputs from the given string.
         /// </returns>
@@ -480,9 +534,27 @@ namespace WTDE_Launcher_V3.Core {
         ///  <br/>
         ///  Mode 0 is for file browsing, mode 1 is for folder/directory browsing.
         /// </summary>
-        /// <param name="mode"></param>
-        /// <param name="textBox"></param>
-        /// <param name="filter"></param>
+        /// <param name="mode">
+        ///  The mode to read data in.
+        ///  <br/>
+        ///  - Mode 0: Read data from an open file dialog.
+        ///  <br/>
+        ///  - Mode 1: Read data from a folder browser dialog. Use of this mode is discouraged since the folder browser
+        ///  dialog in .NET 4.6.2 is not the most user-friendly dialog, and it is not very flexible.
+        /// </param>
+        /// <param name="textBox">
+        ///  The <see cref="TextBox"/> control to change the text inside of.
+        /// </param>
+        /// <param name="title">
+        ///  Mode 0 only: Sets the title of the open file dialog.
+        /// </param>
+        /// <param name="stripPath">
+        ///  Optional: If this is true, the returned path from either mode 0 or 1 will be stripped of its
+        ///  entire path, and only the last part of the path will be returned.
+        /// </param>
+        /// <param name="filter">
+        ///  Optional: Mode 0 only: The file filter to hold the open file dialog to. Default filter string is for all files (*.*).
+        /// </param>
         public static void TextBoxReadFromDialog(int mode, TextBox textBox, string title, bool stripPath = true, string filter = "All Files|*.*") {
             string resultingValue;
             string oldText = textBox.Text;
@@ -515,7 +587,10 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Returns the path to GHWT as defined in Updater.ini if it exists. Otherwise, returns the current directory.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///  The path of where the Updater.ini file used by the program is located. If the Updater.ini file does not exist, this
+        ///  returns the current directory. The fallback behavior should not be relied upon as it may cause exceptions to be thrown.
+        /// </returns>
         public static string GetUpdaterINIDirectory() {
             if (File.Exists("Updater.ini")) {
                 IniFile file = new IniFile();

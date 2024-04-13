@@ -50,8 +50,7 @@ namespace WTDE_Launcher_V3.Core {
             Properties.Resources.bg_9,
             Properties.Resources.bg_10,
             Properties.Resources.bg_11,
-            Properties.Resources.bg_12,
-            Properties.Resources.bg_13
+            Properties.Resources.bg_12
         };
 
         /// <summary>
@@ -68,7 +67,6 @@ namespace WTDE_Launcher_V3.Core {
             "Hex",
             "DanRock",
             "StrangerX-01",
-            "Raccoon_333",
             "Derpytron84",
             "Fox (FoxInari)"
         };
@@ -87,7 +85,6 @@ namespace WTDE_Launcher_V3.Core {
             "https://www.youtube.com/@hex21510",
             "https://youtube.com/@DanRockProductions",
             "https://youtube.com/@strangerxo1591",
-            "https://youtube.com/@raccoon_333",
             "https://youtube.com/@DerpyTheShreddingProto",
             "https://youtube.com/@Fox-Judy"
         };
@@ -106,8 +103,15 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Update the background and logo image based on the time of year of BG artists' birthdays!
         /// </summary>
-        /// <param name="form"></param>
-        /// <param name="label"></param>
+        /// <param name="form">
+        ///  The Windows Form to be affected by the background change.
+        /// </param>
+        /// <param name="label">
+        ///  The label to be affected by this function. This is intended for the version info label on the lower left.
+        /// </param>
+        /// <param name="pictureBox">
+        ///  The picture box to be affected by this function. This is intended for the logo image on the top left.
+        /// </param>
         public static void AutoDateBackground(System.Windows.Forms.Form form, System.Windows.Forms.Label label, System.Windows.Forms.PictureBox pictureBox) {
             if ((INIFunctions.GetINIValue("Config", "Holiday", "") != "") &&
                 (INIFunctions.GetINIValue("Config", "Holiday") == "aprilfools")) return;
@@ -126,6 +130,7 @@ namespace WTDE_Launcher_V3.Core {
                     if (pathToCheck != null && File.Exists(pathToCheck)) {
                         // Yes it does, let's make a new bitmap and assign the background to it!
                         // We'll go ahead and scale it to 1280 X 768 to make it fit the screen better.
+                        V3LauncherCore.AddDebugEntry($"Path to custom BG image: {pathToCheck}", "BG Constants: AutoDateBackground");
                         Bitmap newBGImage = new Bitmap(pathToCheck);
                         Bitmap scaledImage = new Bitmap(newBGImage, 1280, 768);
                         form.BackgroundImage = scaledImage;
@@ -150,8 +155,8 @@ namespace WTDE_Launcher_V3.Core {
                         IsCustomBG = true;
                         return;
                     } else {
-                        V3LauncherCore.AddDebugEntry("I/O: The path for the defined custom background does not exist.");
-                        V3LauncherCore.AddDebugEntry("Falling back to auto-date background...");
+                        V3LauncherCore.AddDebugEntry("I/O: The path for the defined custom background does not exist.", "BG Constants: AutoDateBackground");
+                        V3LauncherCore.AddDebugEntry("Falling back to auto-date background...", "BG Constants: AutoDateBackground");
                     }
                 }
             }

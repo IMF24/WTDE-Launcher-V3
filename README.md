@@ -29,11 +29,26 @@ in WTDE update 1.0.3. My V2 launcher replaced it in 1.1, and it has been long ov
 
 Hopefully that covers most of the bases. There'll be more details to come in the future, so stay tuned!
 
+<!-- NEW AND RETURNING FEATURES BANNER -->
+![](readme_assets/readme_banner_features.png)
+This launcher program is designed to retain every facet of the 2.X launcher seen in GHWT: DE up until release 1.3.0.7 with launcher update 2.2.2, along with some much needed overhauls!
+
+Here's a run-down of some of the **NEW** features of the 3.X launcher:
+- The visual interface has been **completely overhauled**! In the V2 launcher, while it was feature-packed, it visually was not that pleasant to look at. Now, in update 3.0 and later, the interface now has a clean, visually polished design for your viewing pleasure!
+- All of the features that the 2.X launcher contained have been ported over to the 3.X launcher. This includes settings, managers, and more!
+- A few of the editors seen in the 2.X launcher have been upgraded:
+  - **Rock Star Creator Character Manager:** Now supports assigning CAR characters into preferred band member slots. No longer do you have to guess their character index!
+  - **Duplicate Checksum Manager:** More straightforward design and makes more sense compared to its introduction in version 2.1!
+- The **Mod Manager** has been **VASTLY** expanded into so much more than it was before!
+  - The Mod Installer now truly supports 7Z and RAR files alongsize ZIP files.
+  - There is now a **BRAND NEW** manager for finding your mods in your mods folder by various filters. Get in-depth and find specific installed mods you need to get ahold of!
+  - Another new manager: the **Song and Song Category Manager**! In the abandoned 2.2.3 update of the launcher, there was a work-in-progress manager for song and song category management. In 3.0, this manager has been finished IN FULL and is now completely usable!
+
 <!-- CREDITS BANNER -->
 ![](readme_assets/readme_banner_credits.png)
 ### Main Credits
 - Made by [IMF24](https://youtube.com/@IMF24), [Fretworks](https://gitgud.io/fretworks)
-- Built in C# in [Visual Studio](https://visualstudio.microsoft.com/) on the [.NET Framework](https://dotnet.microsoft.com)
+- Built in C# in [Visual Studio](https://visualstudio.microsoft.com) on [.NET 4.6.2](https://dot.net)
 - Background Image Art by [Fox / FoxInari](https://youtube.com/@Fox-Judy)
 
 ### Translation Credits
