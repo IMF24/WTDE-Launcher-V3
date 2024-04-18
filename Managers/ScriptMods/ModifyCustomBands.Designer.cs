@@ -64,8 +64,11 @@
             this.SelectSDKPath = new System.Windows.Forms.Button();
             this.SDKPath = new System.Windows.Forms.TextBox();
             this.SDKPathLabel = new System.Windows.Forms.Label();
+            this.MainEditorField = new System.Windows.Forms.Panel();
+            this.BGWorkMain = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageCobalt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageIMF)).BeginInit();
+            this.MainEditorField.SuspendLayout();
             this.SuspendLayout();
             // 
             // AvatarImageCobalt
@@ -106,6 +109,7 @@
             this.BandLayoutsList.Name = "BandLayoutsList";
             this.BandLayoutsList.Size = new System.Drawing.Size(322, 433);
             this.BandLayoutsList.TabIndex = 48;
+            this.BandLayoutsList.SelectedIndexChanged += new System.EventHandler(this.BandLayoutsList_SelectedIndexChanged);
             // 
             // BandLayoutsHeader
             // 
@@ -141,7 +145,7 @@
             // 
             this.BandPropsHeader.AutoSize = true;
             this.BandPropsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BandPropsHeader.Location = new System.Drawing.Point(350, 65);
+            this.BandPropsHeader.Location = new System.Drawing.Point(0, 4);
             this.BandPropsHeader.Name = "BandPropsHeader";
             this.BandPropsHeader.Size = new System.Drawing.Size(143, 13);
             this.BandPropsHeader.TabIndex = 52;
@@ -150,7 +154,7 @@
             // GtrMemberLabel
             // 
             this.GtrMemberLabel.AutoSize = true;
-            this.GtrMemberLabel.Location = new System.Drawing.Point(379, 148);
+            this.GtrMemberLabel.Location = new System.Drawing.Point(29, 87);
             this.GtrMemberLabel.Name = "GtrMemberLabel";
             this.GtrMemberLabel.Size = new System.Drawing.Size(48, 13);
             this.GtrMemberLabel.TabIndex = 53;
@@ -158,7 +162,7 @@
             // 
             // BandGuitarist
             // 
-            this.BandGuitarist.Location = new System.Drawing.Point(433, 145);
+            this.BandGuitarist.Location = new System.Drawing.Point(83, 84);
             this.BandGuitarist.Name = "BandGuitarist";
             this.BandGuitarist.Size = new System.Drawing.Size(253, 20);
             this.BandGuitarist.TabIndex = 54;
@@ -166,7 +170,7 @@
             // HideGuitarist
             // 
             this.HideGuitarist.AutoSize = true;
-            this.HideGuitarist.Location = new System.Drawing.Point(732, 147);
+            this.HideGuitarist.Location = new System.Drawing.Point(382, 86);
             this.HideGuitarist.Name = "HideGuitarist";
             this.HideGuitarist.Size = new System.Drawing.Size(95, 17);
             this.HideGuitarist.TabIndex = 55;
@@ -175,7 +179,7 @@
             // 
             // SelectGuitaristChar
             // 
-            this.SelectGuitaristChar.Location = new System.Drawing.Point(692, 144);
+            this.SelectGuitaristChar.Location = new System.Drawing.Point(342, 83);
             this.SelectGuitaristChar.Name = "SelectGuitaristChar";
             this.SelectGuitaristChar.Size = new System.Drawing.Size(26, 23);
             this.SelectGuitaristChar.TabIndex = 56;
@@ -184,7 +188,7 @@
             // 
             // SelectBassistChar
             // 
-            this.SelectBassistChar.Location = new System.Drawing.Point(692, 170);
+            this.SelectBassistChar.Location = new System.Drawing.Point(342, 109);
             this.SelectBassistChar.Name = "SelectBassistChar";
             this.SelectBassistChar.Size = new System.Drawing.Size(26, 23);
             this.SelectBassistChar.TabIndex = 60;
@@ -194,7 +198,7 @@
             // HideBassist
             // 
             this.HideBassist.AutoSize = true;
-            this.HideBassist.Location = new System.Drawing.Point(732, 173);
+            this.HideBassist.Location = new System.Drawing.Point(382, 112);
             this.HideBassist.Name = "HideBassist";
             this.HideBassist.Size = new System.Drawing.Size(95, 17);
             this.HideBassist.TabIndex = 59;
@@ -203,7 +207,7 @@
             // 
             // BandBassist
             // 
-            this.BandBassist.Location = new System.Drawing.Point(433, 171);
+            this.BandBassist.Location = new System.Drawing.Point(83, 110);
             this.BandBassist.Name = "BandBassist";
             this.BandBassist.Size = new System.Drawing.Size(253, 20);
             this.BandBassist.TabIndex = 58;
@@ -211,7 +215,7 @@
             // BasMemberLabel
             // 
             this.BasMemberLabel.AutoSize = true;
-            this.BasMemberLabel.Location = new System.Drawing.Point(384, 174);
+            this.BasMemberLabel.Location = new System.Drawing.Point(34, 113);
             this.BasMemberLabel.Name = "BasMemberLabel";
             this.BasMemberLabel.Size = new System.Drawing.Size(43, 13);
             this.BasMemberLabel.TabIndex = 57;
@@ -219,7 +223,7 @@
             // 
             // SelectDrummerChar
             // 
-            this.SelectDrummerChar.Location = new System.Drawing.Point(692, 196);
+            this.SelectDrummerChar.Location = new System.Drawing.Point(342, 135);
             this.SelectDrummerChar.Name = "SelectDrummerChar";
             this.SelectDrummerChar.Size = new System.Drawing.Size(26, 23);
             this.SelectDrummerChar.TabIndex = 64;
@@ -229,7 +233,7 @@
             // HideDrummer
             // 
             this.HideDrummer.AutoSize = true;
-            this.HideDrummer.Location = new System.Drawing.Point(732, 199);
+            this.HideDrummer.Location = new System.Drawing.Point(382, 138);
             this.HideDrummer.Name = "HideDrummer";
             this.HideDrummer.Size = new System.Drawing.Size(95, 17);
             this.HideDrummer.TabIndex = 63;
@@ -238,7 +242,7 @@
             // 
             // BandDrummer
             // 
-            this.BandDrummer.Location = new System.Drawing.Point(433, 197);
+            this.BandDrummer.Location = new System.Drawing.Point(83, 136);
             this.BandDrummer.Name = "BandDrummer";
             this.BandDrummer.Size = new System.Drawing.Size(253, 20);
             this.BandDrummer.TabIndex = 62;
@@ -246,7 +250,7 @@
             // DrmMemberLabel
             // 
             this.DrmMemberLabel.AutoSize = true;
-            this.DrmMemberLabel.Location = new System.Drawing.Point(375, 200);
+            this.DrmMemberLabel.Location = new System.Drawing.Point(25, 139);
             this.DrmMemberLabel.Name = "DrmMemberLabel";
             this.DrmMemberLabel.Size = new System.Drawing.Size(52, 13);
             this.DrmMemberLabel.TabIndex = 61;
@@ -254,7 +258,7 @@
             // 
             // BandName
             // 
-            this.BandName.Location = new System.Drawing.Point(445, 85);
+            this.BandName.Location = new System.Drawing.Point(95, 24);
             this.BandName.Name = "BandName";
             this.BandName.Size = new System.Drawing.Size(377, 20);
             this.BandName.TabIndex = 66;
@@ -263,7 +267,7 @@
             // BandNameLabel
             // 
             this.BandNameLabel.AutoSize = true;
-            this.BandNameLabel.Location = new System.Drawing.Point(373, 88);
+            this.BandNameLabel.Location = new System.Drawing.Point(23, 27);
             this.BandNameLabel.Name = "BandNameLabel";
             this.BandNameLabel.Size = new System.Drawing.Size(66, 13);
             this.BandNameLabel.TabIndex = 65;
@@ -273,7 +277,7 @@
             // 
             this.BandMembersHeader.AutoSize = true;
             this.BandMembersHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BandMembersHeader.Location = new System.Drawing.Point(350, 125);
+            this.BandMembersHeader.Location = new System.Drawing.Point(0, 64);
             this.BandMembersHeader.Name = "BandMembersHeader";
             this.BandMembersHeader.Size = new System.Drawing.Size(94, 13);
             this.BandMembersHeader.TabIndex = 67;
@@ -281,7 +285,7 @@
             // 
             // SelectSingerChar
             // 
-            this.SelectSingerChar.Location = new System.Drawing.Point(692, 222);
+            this.SelectSingerChar.Location = new System.Drawing.Point(342, 161);
             this.SelectSingerChar.Name = "SelectSingerChar";
             this.SelectSingerChar.Size = new System.Drawing.Size(26, 23);
             this.SelectSingerChar.TabIndex = 71;
@@ -291,7 +295,7 @@
             // HideSinger
             // 
             this.HideSinger.AutoSize = true;
-            this.HideSinger.Location = new System.Drawing.Point(732, 225);
+            this.HideSinger.Location = new System.Drawing.Point(382, 164);
             this.HideSinger.Name = "HideSinger";
             this.HideSinger.Size = new System.Drawing.Size(95, 17);
             this.HideSinger.TabIndex = 70;
@@ -300,7 +304,7 @@
             // 
             // BandSinger
             // 
-            this.BandSinger.Location = new System.Drawing.Point(433, 223);
+            this.BandSinger.Location = new System.Drawing.Point(83, 162);
             this.BandSinger.Name = "BandSinger";
             this.BandSinger.Size = new System.Drawing.Size(253, 20);
             this.BandSinger.TabIndex = 69;
@@ -308,7 +312,7 @@
             // VoxMemberLabel
             // 
             this.VoxMemberLabel.AutoSize = true;
-            this.VoxMemberLabel.Location = new System.Drawing.Point(380, 226);
+            this.VoxMemberLabel.Location = new System.Drawing.Point(30, 165);
             this.VoxMemberLabel.Name = "VoxMemberLabel";
             this.VoxMemberLabel.Size = new System.Drawing.Size(47, 13);
             this.VoxMemberLabel.TabIndex = 68;
@@ -318,7 +322,7 @@
             // 
             this.AdvancedPropsHeader.AutoSize = true;
             this.AdvancedPropsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.AdvancedPropsHeader.Location = new System.Drawing.Point(350, 261);
+            this.AdvancedPropsHeader.Location = new System.Drawing.Point(0, 200);
             this.AdvancedPropsHeader.Name = "AdvancedPropsHeader";
             this.AdvancedPropsHeader.Size = new System.Drawing.Size(118, 13);
             this.AdvancedPropsHeader.TabIndex = 72;
@@ -327,7 +331,7 @@
             // AllowPlayerChars
             // 
             this.AllowPlayerChars.AutoSize = true;
-            this.AllowPlayerChars.Location = new System.Drawing.Point(367, 282);
+            this.AllowPlayerChars.Location = new System.Drawing.Point(17, 221);
             this.AllowPlayerChars.Name = "AllowPlayerChars";
             this.AllowPlayerChars.Size = new System.Drawing.Size(182, 17);
             this.AllowPlayerChars.TabIndex = 73;
@@ -337,7 +341,7 @@
             // VocalistHasGuitar
             // 
             this.VocalistHasGuitar.AutoSize = true;
-            this.VocalistHasGuitar.Location = new System.Drawing.Point(367, 305);
+            this.VocalistHasGuitar.Location = new System.Drawing.Point(17, 244);
             this.VocalistHasGuitar.Name = "VocalistHasGuitar";
             this.VocalistHasGuitar.Size = new System.Drawing.Size(116, 17);
             this.VocalistHasGuitar.TabIndex = 74;
@@ -347,7 +351,7 @@
             // VocalistHasBass
             // 
             this.VocalistHasBass.AutoSize = true;
-            this.VocalistHasBass.Location = new System.Drawing.Point(367, 328);
+            this.VocalistHasBass.Location = new System.Drawing.Point(17, 267);
             this.VocalistHasBass.Name = "VocalistHasBass";
             this.VocalistHasBass.Size = new System.Drawing.Size(111, 17);
             this.VocalistHasBass.TabIndex = 75;
@@ -356,7 +360,7 @@
             // 
             // LoadingClip
             // 
-            this.LoadingClip.Location = new System.Drawing.Point(438, 349);
+            this.LoadingClip.Location = new System.Drawing.Point(88, 288);
             this.LoadingClip.Name = "LoadingClip";
             this.LoadingClip.Size = new System.Drawing.Size(199, 20);
             this.LoadingClip.TabIndex = 77;
@@ -364,7 +368,7 @@
             // LoadingClipLabel
             // 
             this.LoadingClipLabel.AutoSize = true;
-            this.LoadingClipLabel.Location = new System.Drawing.Point(364, 352);
+            this.LoadingClipLabel.Location = new System.Drawing.Point(14, 291);
             this.LoadingClipLabel.Name = "LoadingClipLabel";
             this.LoadingClipLabel.Size = new System.Drawing.Size(68, 13);
             this.LoadingClipLabel.TabIndex = 76;
@@ -373,7 +377,7 @@
             // ApplyToSongsHeader
             // 
             this.ApplyToSongsHeader.AutoSize = true;
-            this.ApplyToSongsHeader.Location = new System.Drawing.Point(364, 375);
+            this.ApplyToSongsHeader.Location = new System.Drawing.Point(14, 314);
             this.ApplyToSongsHeader.Name = "ApplyToSongsHeader";
             this.ApplyToSongsHeader.Size = new System.Drawing.Size(247, 13);
             this.ApplyToSongsHeader.TabIndex = 78;
@@ -381,7 +385,7 @@
             // 
             // ApplyToSongs
             // 
-            this.ApplyToSongs.Location = new System.Drawing.Point(376, 395);
+            this.ApplyToSongs.Location = new System.Drawing.Point(26, 334);
             this.ApplyToSongs.MaxLength = 65536;
             this.ApplyToSongs.Multiline = true;
             this.ApplyToSongs.Name = "ApplyToSongs";
@@ -434,6 +438,45 @@
             this.SDKPathLabel.TabIndex = 82;
             this.SDKPathLabel.Text = "SDK Path:";
             // 
+            // MainEditorField
+            // 
+            this.MainEditorField.Controls.Add(this.BandPropsHeader);
+            this.MainEditorField.Controls.Add(this.GtrMemberLabel);
+            this.MainEditorField.Controls.Add(this.BandGuitarist);
+            this.MainEditorField.Controls.Add(this.HideGuitarist);
+            this.MainEditorField.Controls.Add(this.SelectGuitaristChar);
+            this.MainEditorField.Controls.Add(this.ApplyToSongs);
+            this.MainEditorField.Controls.Add(this.BasMemberLabel);
+            this.MainEditorField.Controls.Add(this.ApplyToSongsHeader);
+            this.MainEditorField.Controls.Add(this.BandBassist);
+            this.MainEditorField.Controls.Add(this.LoadingClip);
+            this.MainEditorField.Controls.Add(this.HideBassist);
+            this.MainEditorField.Controls.Add(this.LoadingClipLabel);
+            this.MainEditorField.Controls.Add(this.SelectBassistChar);
+            this.MainEditorField.Controls.Add(this.VocalistHasBass);
+            this.MainEditorField.Controls.Add(this.DrmMemberLabel);
+            this.MainEditorField.Controls.Add(this.VocalistHasGuitar);
+            this.MainEditorField.Controls.Add(this.BandDrummer);
+            this.MainEditorField.Controls.Add(this.AllowPlayerChars);
+            this.MainEditorField.Controls.Add(this.HideDrummer);
+            this.MainEditorField.Controls.Add(this.AdvancedPropsHeader);
+            this.MainEditorField.Controls.Add(this.SelectDrummerChar);
+            this.MainEditorField.Controls.Add(this.SelectSingerChar);
+            this.MainEditorField.Controls.Add(this.BandNameLabel);
+            this.MainEditorField.Controls.Add(this.HideSinger);
+            this.MainEditorField.Controls.Add(this.BandName);
+            this.MainEditorField.Controls.Add(this.BandSinger);
+            this.MainEditorField.Controls.Add(this.BandMembersHeader);
+            this.MainEditorField.Controls.Add(this.VoxMemberLabel);
+            this.MainEditorField.Location = new System.Drawing.Point(349, 61);
+            this.MainEditorField.Name = "MainEditorField";
+            this.MainEditorField.Size = new System.Drawing.Size(480, 476);
+            this.MainEditorField.TabIndex = 85;
+            // 
+            // BGWorkMain
+            // 
+            this.BGWorkMain.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorkMain_DoWork);
+            // 
             // ModifyCustomBands
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,34 +487,6 @@
             this.Controls.Add(this.SDKPathLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OKButton);
-            this.Controls.Add(this.ApplyToSongs);
-            this.Controls.Add(this.ApplyToSongsHeader);
-            this.Controls.Add(this.LoadingClip);
-            this.Controls.Add(this.LoadingClipLabel);
-            this.Controls.Add(this.VocalistHasBass);
-            this.Controls.Add(this.VocalistHasGuitar);
-            this.Controls.Add(this.AllowPlayerChars);
-            this.Controls.Add(this.AdvancedPropsHeader);
-            this.Controls.Add(this.SelectSingerChar);
-            this.Controls.Add(this.HideSinger);
-            this.Controls.Add(this.BandSinger);
-            this.Controls.Add(this.VoxMemberLabel);
-            this.Controls.Add(this.BandMembersHeader);
-            this.Controls.Add(this.BandName);
-            this.Controls.Add(this.BandNameLabel);
-            this.Controls.Add(this.SelectDrummerChar);
-            this.Controls.Add(this.HideDrummer);
-            this.Controls.Add(this.BandDrummer);
-            this.Controls.Add(this.DrmMemberLabel);
-            this.Controls.Add(this.SelectBassistChar);
-            this.Controls.Add(this.HideBassist);
-            this.Controls.Add(this.BandBassist);
-            this.Controls.Add(this.BasMemberLabel);
-            this.Controls.Add(this.SelectGuitaristChar);
-            this.Controls.Add(this.HideGuitarist);
-            this.Controls.Add(this.BandGuitarist);
-            this.Controls.Add(this.GtrMemberLabel);
-            this.Controls.Add(this.BandPropsHeader);
             this.Controls.Add(this.EraseBandButton);
             this.Controls.Add(this.NewBandButton);
             this.Controls.Add(this.BandLayoutsHeader);
@@ -479,6 +494,7 @@
             this.Controls.Add(this.AvatarImageCobalt);
             this.Controls.Add(this.AvatarImageIMF);
             this.Controls.Add(this.InfoHeaderLabel);
+            this.Controls.Add(this.MainEditorField);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -488,6 +504,8 @@
             this.Text = "Script Mod Editor: Band Lineup Editor";
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageCobalt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarImageIMF)).EndInit();
+            this.MainEditorField.ResumeLayout(false);
+            this.MainEditorField.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,5 +553,7 @@
         private System.Windows.Forms.Button SelectSDKPath;
         private System.Windows.Forms.TextBox SDKPath;
         private System.Windows.Forms.Label SDKPathLabel;
+        private System.Windows.Forms.Panel MainEditorField;
+        private System.ComponentModel.BackgroundWorker BGWorkMain;
     }
 }

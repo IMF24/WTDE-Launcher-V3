@@ -29,6 +29,7 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         /// </summary>
         public ModifyCustomBands() {
             InitializeComponent();
+            BGWorkMain.RunWorkerAsync();
         }
 
         /// <summary>
@@ -44,12 +45,17 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         /// <summary>
         ///  How many new bands have we made?
         /// </summary>
-        private int NewBandsCreated = 1;
+        private int NewBandsCreated = 0;
 
         /// <summary>
         ///  Adds a new band to the queue.
         /// </summary>
         public void CreateNewBand() {
+            NewBandsCreated++;
+
+            // TODO: Need to account for changed properties when we make a new band layout.
+            // We should write a function to ensure we save everything, THEN make a new layout.
+
             Bands.Add(new BandLayout($"New_Band_{NewBandsCreated}", "RandomCharacter", "RandomCharacter", "RandomCharacter", "RandomCharacter"));
             BandLayoutsList.Items.Add($"Band: New_Band_{NewBandsCreated}");
 
@@ -61,7 +67,85 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
 
             AllowPlayerChars.Checked = true;
 
-            NewBandsCreated++;
+            ActiveBandIndex = 0;
+
+            UpdateControlState();
+        }
+
+        /// <summary>
+        ///  Delete the selected band from the queue.
+        /// </summary>
+        public void EraseSelectedBand() {
+            if (Bands.Count <= 0 || ActiveBandIndex < 0) return;
+
+            string confirmDeleteMsg = "Are you sure you want to delete this band layout? This cannot be undone!";
+
+            if (MessageBox.Show(confirmDeleteMsg, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                var idx = ActiveBandIndex;
+
+                Console.WriteLine($"active band index: {idx}");
+                BandLayoutsList.Items.RemoveAt(idx);
+                Bands.RemoveAt(idx);
+
+                BandLayoutsList.SelectedItems.Clear();
+                ActiveBandIndex = 0;
+            }
+
+            UpdateControlState();
+        }
+
+        /// <summary>
+        ///  Updates the control states.
+        /// </summary>
+        public void UpdateControlState() {
+            if (Bands.Count <= 0 || BandLayoutsList.Items.Count <= 0) {
+                EraseBandButton.Enabled = false;
+                MainEditorField.Enabled = false;
+            } else {
+                EraseBandButton.Enabled = true;
+                MainEditorField.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        ///  Loads band data from memory at the currently held memory index.
+        /// </summary>
+        public void LoadBandDataFromMemory() {
+            var idx = ActiveBandIndex;
+            if (idx < 0) return;
+
+            BandLayout layout = Bands[idx];
+
+            if (layout == null) return;
+
+            BandName.Text = layout.Name;
+            
+            BandGuitarist.Text = layout.Guitarist;
+            HideGuitarist.Checked = layout.HideGuitarist;
+
+            BandBassist.Text = layout.Bassist;
+            HideBassist.Checked = layout.HideBassist;
+
+            BandDrummer.Text = layout.Drummer;
+            HideDrummer.Checked = layout.HideDrummer;
+
+            BandSinger.Text = layout.Vocalist;
+            HideSinger.Checked = layout.HideSinger;
+
+            AllowPlayerChars.Checked = layout.AllowPlayerSelectedCharacters;
+
+            VocalistHasGuitar.Checked = layout.VocalistHasGuitar;
+            VocalistHasBass.Checked = layout.VocalistHasBass;
+
+            LoadingClip.Text = layout.LoadingClip;
+
+            ApplyToSongs.Lines = layout.SongsToApplyTo;
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        private void BGWorkMain_DoWork(object sender, DoWorkEventArgs e) {
+            UpdateControlState();
         }
 
         private void NewBandButton_Click(object sender, EventArgs e) {
@@ -69,16 +153,25 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         }
 
         private void EraseBandButton_Click(object sender, EventArgs e) {
-
+            EraseSelectedBand();
         }
 
         private void BandName_TextChanged(object sender, EventArgs e) {
             var idx = ActiveBandIndex;
-
+            Console.WriteLine($"active band index: {idx}");
             Bands[idx].Name = BandName.Text;
             BandLayoutsList.Items[idx] = $"Band: {BandName.Text}";
         }
+
+        private void BandLayoutsList_SelectedIndexChanged(object sender, EventArgs e) {
+            ActiveBandIndex = BandLayoutsList.SelectedIndex;
+            LoadBandDataFromMemory();
+        }
     }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    //    B A N D       L A Y O U T       C L A S S
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     /// <summary>
     ///  Used for creating band layouts.
@@ -184,7 +277,9 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         ///  Interpret this BandLayout object into an ROQ struct that can be
         ///  written for use in script mods.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///  An ROQ struct in a string format that can be written for a script mod.
+        /// </returns>
         public override string ToString() {
             string structString = $"SectionStruct {Name.Trim().Replace(" ", "_")}\n{{    StructHeader\n    {{";
 
