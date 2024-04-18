@@ -15,6 +15,8 @@
     away from Python, and we're moving the launcher BACK to the C# language, built on the .NET
     framework. All the functionality of the V2 launcher will be re-imported into here, and it
     will also be visually polished to make it look the best it possibly can!
+
+    This launcher is written in C# 7.3 on .NET 4.6.2.
     
 ------------------------------------------------------------------------------------------------ */
 // V3 launcher imports.
@@ -24,7 +26,6 @@ using WTDE_Launcher_V3.Managers;
 // Various required imports.
 using System;
 using System.IO;
-using System.Net.NetworkInformation;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Drawing;
@@ -148,7 +149,7 @@ namespace WTDE_Launcher_V3.Core {
 
                     CreditsMainInfo.Text = "GHWT Deluxe by Fretworkers, EST. 1969\n" +
                                            "GHWT Deluxe Destroyer by International Monetary Fund 24\n\n" +
-                                           "Made in C# on .NET Framework 4.6.2\n\n" +
+                                           "Made in Cb 9999999999999999999.99999999 on .ORG 9.99.999\n\n" +
                                            "This isn't even your launcher to deface! It's vandalism! It's pure vandalism! You wouldn't do that if this was YOUR launcher, would you? If I came around your house, smashing your property and telly to bits, you'd be furious! And rightfully so! Unbelievable!\n\n" +
                                            "You really shouldn't be here... I'm leaving now. You'll be GLaD you did.\n\n" +
                                            "GHWT: DX and Fretworkers are not associated with AlwaysSoft, Inactive Vision Wizard, RedOctave, Beeswax, or Above Ground Deployment in any way, shape, or form.\n" +

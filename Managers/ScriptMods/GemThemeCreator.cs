@@ -319,7 +319,7 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         }
 
         public string AddStructHeader(string themeName) {
-            return $"Unknown [GHWT_HEADER]\n\nSectionArray {themeName}\n{{\n    ArrayStruct\n    [\n";
+            return $"Unknown [GHWT_HEADER]\n\nSectionArray {themeName.Replace(" ", "_")}\n{{\n    ArrayStruct\n    [\n";
         }
 
         public string AddEndOfStruct() {
@@ -344,7 +344,7 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
 
         public string InsertGemThemeScript(string strippedName) {
             string title = ThemeName.Text;
-            string qbKey = ThemeQBKey.Text;
+            string qbKey = ThemeQBKey.Text.Replace(" ", "_");
 
             return $"script {strippedName}_Load [\n" +
                    $"    :i $printf$ %s(\"Adding gem theme {title}...\")\n\n" +

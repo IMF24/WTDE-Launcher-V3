@@ -394,6 +394,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\icon\instruments.png" />
     <None Include="res\img\chalk_left.png" />
     <None Include="res\img\chalk_right.png" />
     <None Include="res\img\logo_cobalt.png" />

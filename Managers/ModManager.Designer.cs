@@ -65,12 +65,12 @@
             this.scriptModEditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gemThemeDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignGH3SPFXToCharacterModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyAndCreateBandLineupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.starPowerColorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
-            this.modifyAndCreateBandLineupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -401,6 +401,14 @@
             this.assignGH3SPFXToCharacterModToolStripMenuItem.Text = "Assign GH3 SP FX to Character Mod(s)...";
             this.assignGH3SPFXToCharacterModToolStripMenuItem.Click += new System.EventHandler(this.assignGH3SPFXToCharacterModToolStripMenuItem_Click);
             // 
+            // modifyAndCreateBandLineupsToolStripMenuItem
+            // 
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.instruments;
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Name = "modifyAndCreateBandLineupsToolStripMenuItem";
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Text = "Modify and Create Band Lineups...";
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Click += new System.EventHandler(this.modifyAndCreateBandLineupsToolStripMenuItem_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
@@ -438,12 +446,6 @@
             this.StatusLabelMain.Size = new System.Drawing.Size(473, 17);
             this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
     "nagers";
-            // 
-            // modifyAndCreateBandLineupsToolStripMenuItem
-            // 
-            this.modifyAndCreateBandLineupsToolStripMenuItem.Name = "modifyAndCreateBandLineupsToolStripMenuItem";
-            this.modifyAndCreateBandLineupsToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
-            this.modifyAndCreateBandLineupsToolStripMenuItem.Text = "Modify and Create Band Lineups...";
             // 
             // ModManager
             // 

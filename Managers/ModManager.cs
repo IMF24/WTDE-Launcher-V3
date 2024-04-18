@@ -276,5 +276,10 @@ namespace WTDE_Launcher_V3.Managers {
             AddGH3StarPowerFX gh3SPFX = new AddGH3StarPowerFX();
             gh3SPFX.ShowDialog();
         }
+
+        private void modifyAndCreateBandLineupsToolStripMenuItem_Click(object sender, EventArgs e) {
+            ModifyCustomBands mcb = new ModifyCustomBands();
+            mcb.ShowDialog();
+        }
     }
 }
