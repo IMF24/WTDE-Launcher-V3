@@ -397,6 +397,7 @@
             this.PreferredGamerTagText3 = new System.Windows.Forms.TextBox();
             this.TrainingSectionFont = new System.Windows.Forms.ComboBox();
             this.TrainingAccuracy = new System.Windows.Forms.CheckBox();
+            this.ShowAllSPBulbs = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
@@ -529,7 +530,7 @@
             this.MOTDWithImagePanel = new System.Windows.Forms.Panel();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.MOTDLabelImage = new System.Windows.Forms.Label();
-            this.ShowAllSPBulbs = new System.Windows.Forms.CheckBox();
+            this.DevSettingsONLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -5537,6 +5538,18 @@
             this.TrainingAccuracy.UseVisualStyleBackColor = true;
             this.TrainingAccuracy.CheckedChanged += new System.EventHandler(this.TrainingAccuracy_CheckedChanged);
             // 
+            // ShowAllSPBulbs
+            // 
+            this.ShowAllSPBulbs.AutoSize = true;
+            this.ShowAllSPBulbs.Location = new System.Drawing.Point(19, 357);
+            this.ShowAllSPBulbs.Name = "ShowAllSPBulbs";
+            this.ShowAllSPBulbs.Size = new System.Drawing.Size(240, 26);
+            this.ShowAllSPBulbs.TabIndex = 35;
+            this.ShowAllSPBulbs.Text = "Keep Secondary SP Amp Bulbs";
+            this.ToolTipMain.SetToolTip(this.ShowAllSPBulbs, resources.GetString("ShowAllSPBulbs.ToolTip"));
+            this.ShowAllSPBulbs.UseVisualStyleBackColor = true;
+            this.ShowAllSPBulbs.CheckedChanged += new System.EventHandler(this.ShowAllSPBulbs_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
@@ -7163,17 +7176,19 @@
             this.MOTDLabelImage.TabIndex = 3;
             this.MOTDLabelImage.Text = "MOTD text missing, call IMF!";
             // 
-            // ShowAllSPBulbs
+            // DevSettingsONLabel
             // 
-            this.ShowAllSPBulbs.AutoSize = true;
-            this.ShowAllSPBulbs.Location = new System.Drawing.Point(19, 357);
-            this.ShowAllSPBulbs.Name = "ShowAllSPBulbs";
-            this.ShowAllSPBulbs.Size = new System.Drawing.Size(240, 26);
-            this.ShowAllSPBulbs.TabIndex = 35;
-            this.ShowAllSPBulbs.Text = "Keep Secondary SP Amp Bulbs";
-            this.ToolTipMain.SetToolTip(this.ShowAllSPBulbs, resources.GetString("ShowAllSPBulbs.ToolTip"));
-            this.ShowAllSPBulbs.UseVisualStyleBackColor = true;
-            this.ShowAllSPBulbs.CheckedChanged += new System.EventHandler(this.ShowAllSPBulbs_CheckedChanged);
+            this.DevSettingsONLabel.AutoEllipsis = true;
+            this.DevSettingsONLabel.AutoSize = true;
+            this.DevSettingsONLabel.BackColor = System.Drawing.Color.Transparent;
+            this.DevSettingsONLabel.Font = new System.Drawing.Font("Lexend", 12F);
+            this.DevSettingsONLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(64)))));
+            this.DevSettingsONLabel.Image = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_d_l;
+            this.DevSettingsONLabel.Location = new System.Drawing.Point(10, 518);
+            this.DevSettingsONLabel.Name = "DevSettingsONLabel";
+            this.DevSettingsONLabel.Size = new System.Drawing.Size(287, 25);
+            this.DevSettingsONLabel.TabIndex = 18;
+            this.DevSettingsONLabel.Text = "Dev. Settings: Dev. Settings Enabled";
             // 
             // Main
             // 
@@ -7181,6 +7196,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.DevSettingsONLabel);
             this.Controls.Add(this.TabParentContainer);
             this.Controls.Add(this.TabButtonGroup);
             this.Controls.Add(this.MOTDWithImagePanel);
@@ -7204,7 +7220,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GHWT: Definitive Edition Launcher - V3.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
-            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).EndInit();
@@ -7779,6 +7794,7 @@
         private System.Windows.Forms.ComboBox TrainingSectionFont;
         private System.Windows.Forms.CheckBox TrainingAccuracy;
         private System.Windows.Forms.CheckBox ShowAllSPBulbs;
+        private System.Windows.Forms.Label DevSettingsONLabel;
     }
 }
 

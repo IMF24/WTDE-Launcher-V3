@@ -48,9 +48,21 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         private int NewBandsCreated = 0;
 
         /// <summary>
+        ///  Are we adding a new band? If so, DO NOT change anything yet!
+        /// </summary>
+        private bool AddingNewBand = false;
+
+        /// <summary>
         ///  Adds a new band to the queue.
         /// </summary>
         public void CreateNewBand() {
+            AddingNewBand = true;
+            if (BandLayoutsList.SelectedItems.Count > 0) {
+                BandLayoutsList.SelectedItems.Clear();
+            }
+
+            if (ActiveBandIndex < 0 || ActiveBandIndex >= Bands.Count) ActiveBandIndex = 0;
+            
             NewBandsCreated++;
 
             // TODO: Need to account for changed properties when we make a new band layout.
@@ -65,11 +77,12 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
             BandDrummer.Text = "RandomCharacter";
             BandSinger.Text = "RandomCharacter";
 
+            ActiveBandIndex = Bands.Count;
+
             AllowPlayerChars.Checked = true;
 
-            ActiveBandIndex = 0;
-
             UpdateControlState();
+            AddingNewBand = false;
         }
 
         /// <summary>
@@ -111,8 +124,10 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         ///  Loads band data from memory at the currently held memory index.
         /// </summary>
         public void LoadBandDataFromMemory() {
+            if (AddingNewBand) return;
+
             var idx = ActiveBandIndex;
-            if (idx < 0) return;
+            if (idx < 0 || idx >= Bands.Count) return;
 
             BandLayout layout = Bands[idx];
 
@@ -142,10 +157,48 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
             ApplyToSongs.Lines = layout.SongsToApplyTo;
         }
 
+        /// <summary>
+        ///  Stores the data in the main editor into memory.
+        /// </summary>
+        public void StoreEditorDataToMemory() {
+            if (AddingNewBand) return;
+
+            var idx = ActiveBandIndex;
+            if (idx < 0 || idx >= Bands.Count) return;
+
+            // At the given index, store all of our data!
+            Bands[idx].Name = BandName.Text;
+
+            Bands[idx].Guitarist = BandGuitarist.Text;
+            Bands[idx].HideGuitarist = HideGuitarist.Checked;
+
+            Bands[idx].Bassist = BandBassist.Text;
+            Bands[idx].HideBassist = HideBassist.Checked;
+
+            Bands[idx].Drummer = BandDrummer.Text;
+            Bands[idx].HideDrummer = HideDrummer.Checked;
+
+            Bands[idx].Vocalist = BandSinger.Text;
+            Bands[idx].HideSinger = HideSinger.Checked;
+
+            Bands[idx].AllowPlayerSelectedCharacters = AllowPlayerChars.Checked;
+
+            Bands[idx].VocalistHasGuitar = VocalistHasGuitar.Checked;
+            Bands[idx].VocalistHasBass = VocalistHasBass.Checked;
+
+            Bands[idx].LoadingClip = LoadingClip.Text;
+
+            Bands[idx].SongsToApplyTo = ApplyToSongs.Lines;
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         private void BGWorkMain_DoWork(object sender, DoWorkEventArgs e) {
-            UpdateControlState();
+            BackgroundWorker worker = (BackgroundWorker) sender;
+            while (!worker.CancellationPending) {
+                UpdateControlState();
+                if (Bands.Count > 0) StoreEditorDataToMemory();
+            }
         }
 
         private void NewBandButton_Click(object sender, EventArgs e) {
@@ -157,6 +210,8 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         }
 
         private void BandName_TextChanged(object sender, EventArgs e) {
+            if (AddingNewBand) return;
+
             var idx = ActiveBandIndex;
             Console.WriteLine($"active band index: {idx}");
             Bands[idx].Name = BandName.Text;
@@ -164,9 +219,37 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         }
 
         private void BandLayoutsList_SelectedIndexChanged(object sender, EventArgs e) {
+            if (AddingNewBand) return;
+
             ActiveBandIndex = BandLayoutsList.SelectedIndex;
             LoadBandDataFromMemory();
         }
+
+        // - - - - - - - -   SELECT  BAND  MEMBER  CHARACTERS   - - - - - - - - \\
+        
+        private void SelectGuitaristChar_Click(object sender, EventArgs e) {
+            SelectCharacterMod scm = new SelectCharacterMod(BandGuitarist);
+            scm.ShowDialog();
+        }
+
+        private void SelectBassistChar_Click(object sender, EventArgs e) {
+            SelectCharacterMod scm = new SelectCharacterMod(BandBassist);
+            scm.ShowDialog();
+        }
+
+        private void SelectDrummerChar_Click(object sender, EventArgs e) {
+            SelectCharacterMod scm = new SelectCharacterMod(BandDrummer);
+            scm.ShowDialog();
+        }
+
+        private void SelectSingerChar_Click(object sender, EventArgs e) {
+            SelectCharacterMod scm = new SelectCharacterMod(BandSinger);
+            scm.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - \\
+
+
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -206,72 +289,72 @@ namespace WTDE_Launcher_V3.Managers.ScriptMods {
         /// <summary>
         ///  Name of the band.
         /// </summary>
-        public string Name;
+        public string Name { get; set; }
 
         /// <summary>
         ///  Name of the guitarist.
         /// </summary>
-        public string Guitarist;
+        public string Guitarist { get; set; }
 
         /// <summary>
         ///  Hide the guitarist?
         /// </summary>
-        public bool HideGuitarist = false;
+        public bool HideGuitarist { get; set; } = false;
 
         /// <summary>
         ///  Name of the bassist.
         /// </summary>
-        public string Bassist;
+        public string Bassist { get; set; }
 
         /// <summary>
         ///  Hide the bassist?
         /// </summary>
-        public bool HideBassist = false;
+        public bool HideBassist { get; set; } = false;
 
         /// <summary>
         ///  Name of the drummer.
         /// </summary>
-        public string Drummer;
+        public string Drummer { get; set; }
 
         /// <summary>
         ///  Hide the drummer?
         /// </summary>
-        public bool HideDrummer = false;
+        public bool HideDrummer { get; set; } = false;
 
         /// <summary>
         ///  Name of the vocalist.
         /// </summary>
-        public string Vocalist;
+        public string Vocalist { get; set; }
 
         /// <summary>
         ///  Hide the vocalist?
         /// </summary>
-        public bool HideSinger = false;
+        public bool HideSinger { get; set; } = false;
 
         /// <summary>
         ///  Allow the use of player selected characters?
         /// </summary>
-        public bool AllowPlayerSelectedCharacters = true;
+        public bool AllowPlayerSelectedCharacters { get; set; } = true;
 
         /// <summary>
         ///  Should the vocalist have a guitar instrument?
         /// </summary>
-        public bool VocalistHasGuitar = false;
+        public bool VocalistHasGuitar { get; set; } = false;
 
         /// <summary>
         ///  Should the vocalist have a bass instrument?
         /// </summary>
-        public bool VocalistHasBass = false;
+        public bool VocalistHasBass { get; set; } = false;
 
         /// <summary>
         ///  Loading clip to be run when the band is created.
         /// </summary>
-        public string LoadingClip = "";
+        public string LoadingClip { get; set; } = "";
 
         /// <summary>
         ///  Array of song checksums to apply the band layout to.
         /// </summary>
-        public string[] SongsToApplyTo = new string[] { };
+        public string[] SongsToApplyTo { get; set; } = new string[] { };
 
         /// <summary>
         ///  Interpret this BandLayout object into an ROQ struct that can be

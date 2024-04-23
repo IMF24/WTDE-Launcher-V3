@@ -185,6 +185,7 @@
             this.SelectGuitaristChar.TabIndex = 56;
             this.SelectGuitaristChar.Text = "...";
             this.SelectGuitaristChar.UseVisualStyleBackColor = true;
+            this.SelectGuitaristChar.Click += new System.EventHandler(this.SelectGuitaristChar_Click);
             // 
             // SelectBassistChar
             // 
@@ -194,6 +195,7 @@
             this.SelectBassistChar.TabIndex = 60;
             this.SelectBassistChar.Text = "...";
             this.SelectBassistChar.UseVisualStyleBackColor = true;
+            this.SelectBassistChar.Click += new System.EventHandler(this.SelectBassistChar_Click);
             // 
             // HideBassist
             // 
@@ -229,6 +231,7 @@
             this.SelectDrummerChar.TabIndex = 64;
             this.SelectDrummerChar.Text = "...";
             this.SelectDrummerChar.UseVisualStyleBackColor = true;
+            this.SelectDrummerChar.Click += new System.EventHandler(this.SelectDrummerChar_Click);
             // 
             // HideDrummer
             // 
@@ -291,6 +294,7 @@
             this.SelectSingerChar.TabIndex = 71;
             this.SelectSingerChar.Text = "...";
             this.SelectSingerChar.UseVisualStyleBackColor = true;
+            this.SelectSingerChar.Click += new System.EventHandler(this.SelectSingerChar_Click);
             // 
             // HideSinger
             // 
@@ -468,9 +472,9 @@
             this.MainEditorField.Controls.Add(this.BandSinger);
             this.MainEditorField.Controls.Add(this.BandMembersHeader);
             this.MainEditorField.Controls.Add(this.VoxMemberLabel);
-            this.MainEditorField.Location = new System.Drawing.Point(349, 61);
+            this.MainEditorField.Location = new System.Drawing.Point(347, 61);
             this.MainEditorField.Name = "MainEditorField";
-            this.MainEditorField.Size = new System.Drawing.Size(480, 476);
+            this.MainEditorField.Size = new System.Drawing.Size(482, 476);
             this.MainEditorField.TabIndex = 85;
             // 
             // BGWorkMain

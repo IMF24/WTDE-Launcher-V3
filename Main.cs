@@ -86,6 +86,7 @@ namespace WTDE_Launcher_V3.Core {
                 // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
                 OpenDevOnlySettings.Enabled = V3LauncherCore.AllowDevSettings();
                 OpenDevOnlySettings.Visible = V3LauncherCore.AllowDevSettings();
+                DevSettingsONLabel.Visible = V3LauncherCore.AllowDevSettings(false);
 
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
@@ -2104,8 +2105,7 @@ namespace WTDE_Launcher_V3.Core {
             INIFunctions.SaveINIValue("Graphics", "HighwayVignetteOpacity", HighwayVignetteOpacity.Value.ToString());
         }
 
-        private void ShowAllSPBulbs_CheckedChanged(object sender, EventArgs e)
-        {
+        private void ShowAllSPBulbs_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "ShowAllSPBulbs", INIFunctions.BoolToString(ShowAllSPBulbs.Checked));
         }
         #endregion
@@ -2838,11 +2838,5 @@ namespace WTDE_Launcher_V3.Core {
 
         #endregion
 
-       
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
