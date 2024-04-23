@@ -445,6 +445,7 @@ namespace WTDE_Launcher_V3.Core {
             HighwayOpacity.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "HighwayOpacity", "100"));
             BlackHighway.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "BlackHighway", "0"));
             HighwayVignetteOpacity.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "HighwayVignetteOpacity", "0"));
+            ShowAllSPBulbs.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "ShowAllSPBulbs"));
 
             // -- ADVANCED GRAPHICS --------
             DisableDOF.Checked = INIFunctions.GetBooleanInverse(INIFunctions.GetINIValue("Graphics", "DisableDOF", "0"));
