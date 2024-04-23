@@ -356,6 +356,11 @@ total number of notes in the section(s) you are playing.
 
 This feature was seen in Guitar Hero 5 and later.</value>
   </data>
+  <data name="ShowAllSPBulbs.ToolTip" xml:space="preserve">
+    <value>While playing songs, all 6 of the Star Power amp bulbs will be shown above the Rock Meter
+as opposed to only the first 3. Additionally, the bulbs will not be hidden at any point,
+even if your Star Power capacity climbs above or below 50%.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

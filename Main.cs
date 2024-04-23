@@ -2103,6 +2103,11 @@ namespace WTDE_Launcher_V3.Core {
         private void HighwayVignetteOpacity_ValueChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "HighwayVignetteOpacity", HighwayVignetteOpacity.Value.ToString());
         }
+
+        private void ShowAllSPBulbs_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Graphics", "ShowAllSPBulbs", INIFunctions.BoolToString(ShowAllSPBulbs.Checked));
+        }
         #endregion
 
         // - - - - - - - - - - - - - - - - - - -
@@ -2830,8 +2835,14 @@ namespace WTDE_Launcher_V3.Core {
 
 
 
+
         #endregion
 
-        
+       
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -395,6 +395,8 @@
             this.PreferredGamerTagText2 = new System.Windows.Forms.TextBox();
             this.PreferredGamerTagText4 = new System.Windows.Forms.TextBox();
             this.PreferredGamerTagText3 = new System.Windows.Forms.TextBox();
+            this.TrainingSectionFont = new System.Windows.Forms.ComboBox();
+            this.TrainingAccuracy = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
@@ -404,6 +406,7 @@
             this.TGEditorGameplay = new System.Windows.Forms.TabPage();
             this.CrowdDensityLabel = new System.Windows.Forms.Label();
             this.TGEditorInterface = new System.Windows.Forms.TabPage();
+            this.TrainSectStyleLabel = new System.Windows.Forms.Label();
             this.BMIconThemeLabel = new System.Windows.Forms.Label();
             this.HWVignetteLabel = new System.Windows.Forms.Label();
             this.HWAlphaLabel = new System.Windows.Forms.Label();
@@ -526,9 +529,7 @@
             this.MOTDWithImagePanel = new System.Windows.Forms.Panel();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.MOTDLabelImage = new System.Windows.Forms.Label();
-            this.TrainSectStyleLabel = new System.Windows.Forms.Label();
-            this.TrainingSectionFont = new System.Windows.Forms.ComboBox();
-            this.TrainingAccuracy = new System.Windows.Forms.CheckBox();
+            this.ShowAllSPBulbs = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -5502,6 +5503,40 @@
             this.ToolTipMain.SetToolTip(this.PreferredGamerTagText3, "Text shown in the helper pills for the third controller.");
             this.PreferredGamerTagText3.TextChanged += new System.EventHandler(this.PreferredGamerTagText3_TextChanged);
             // 
+            // TrainingSectionFont
+            // 
+            this.TrainingSectionFont.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TrainingSectionFont.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TrainingSectionFont.FormattingEnabled = true;
+            this.TrainingSectionFont.Items.AddRange(new object[] {
+            "GH: World Tour (Default)",
+            "Guitar Hero: Metallica",
+            "Guitar Hero: Smash Hits",
+            "Guitar Hero: Van Halen",
+            "Guitar Hero 5",
+            "Band Hero",
+            "Guitar Hero: Warriors of Rock",
+            "Guitar Hero II"});
+            this.TrainingSectionFont.Location = new System.Drawing.Point(198, 207);
+            this.TrainingSectionFont.Name = "TrainingSectionFont";
+            this.TrainingSectionFont.Size = new System.Drawing.Size(179, 23);
+            this.TrainingSectionFont.TabIndex = 31;
+            this.ToolTipMain.SetToolTip(this.TrainingSectionFont, "Changes the font of the section names on the top center of the\r\nscreen while in P" +
+        "ractice Mode.");
+            this.TrainingSectionFont.SelectedIndexChanged += new System.EventHandler(this.TrainingSectionFont_SelectedIndexChanged);
+            // 
+            // TrainingAccuracy
+            // 
+            this.TrainingAccuracy.AutoSize = true;
+            this.TrainingAccuracy.Location = new System.Drawing.Point(396, 204);
+            this.TrainingAccuracy.Name = "TrainingAccuracy";
+            this.TrainingAccuracy.Size = new System.Drawing.Size(234, 26);
+            this.TrainingAccuracy.TabIndex = 34;
+            this.TrainingAccuracy.Text = "Show Practice Accuracy Meter";
+            this.ToolTipMain.SetToolTip(this.TrainingAccuracy, resources.GetString("TrainingAccuracy.ToolTip"));
+            this.TrainingAccuracy.UseVisualStyleBackColor = true;
+            this.TrainingAccuracy.CheckedChanged += new System.EventHandler(this.TrainingAccuracy_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
@@ -5618,6 +5653,7 @@
             // 
             // TGEditorInterface
             // 
+            this.TGEditorInterface.Controls.Add(this.ShowAllSPBulbs);
             this.TGEditorInterface.Controls.Add(this.TrainingAccuracy);
             this.TGEditorInterface.Controls.Add(this.TrainSectStyleLabel);
             this.TGEditorInterface.Controls.Add(this.TrainingSectionFont);
@@ -5657,6 +5693,15 @@
             this.TGEditorInterface.TabIndex = 2;
             this.TGEditorInterface.Text = "Interface Options";
             this.TGEditorInterface.UseVisualStyleBackColor = true;
+            // 
+            // TrainSectStyleLabel
+            // 
+            this.TrainSectStyleLabel.AutoSize = true;
+            this.TrainSectStyleLabel.Location = new System.Drawing.Point(15, 206);
+            this.TrainSectStyleLabel.Name = "TrainSectStyleLabel";
+            this.TrainSectStyleLabel.Size = new System.Drawing.Size(160, 22);
+            this.TrainSectStyleLabel.TabIndex = 32;
+            this.TrainSectStyleLabel.Text = "Practice Section Style:";
             // 
             // BMIconThemeLabel
             // 
@@ -6944,7 +6989,7 @@
             // CreditsVersionLabel
             // 
             this.CreditsVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 14F);
+            this.CreditsVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.CreditsVersionLabel.Location = new System.Drawing.Point(95, 219);
             this.CreditsVersionLabel.Name = "CreditsVersionLabel";
             this.CreditsVersionLabel.Size = new System.Drawing.Size(500, 23);
@@ -7118,48 +7163,17 @@
             this.MOTDLabelImage.TabIndex = 3;
             this.MOTDLabelImage.Text = "MOTD text missing, call IMF!";
             // 
-            // TrainSectStyleLabel
+            // ShowAllSPBulbs
             // 
-            this.TrainSectStyleLabel.AutoSize = true;
-            this.TrainSectStyleLabel.Location = new System.Drawing.Point(15, 206);
-            this.TrainSectStyleLabel.Name = "TrainSectStyleLabel";
-            this.TrainSectStyleLabel.Size = new System.Drawing.Size(160, 22);
-            this.TrainSectStyleLabel.TabIndex = 32;
-            this.TrainSectStyleLabel.Text = "Practice Section Style:";
-            // 
-            // TrainingSectionFont
-            // 
-            this.TrainingSectionFont.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TrainingSectionFont.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TrainingSectionFont.FormattingEnabled = true;
-            this.TrainingSectionFont.Items.AddRange(new object[] {
-            "GH: World Tour (Default)",
-            "Guitar Hero: Metallica",
-            "Guitar Hero: Smash Hits",
-            "Guitar Hero: Van Halen",
-            "Guitar Hero 5",
-            "Band Hero",
-            "Guitar Hero: Warriors of Rock",
-            "Guitar Hero II"});
-            this.TrainingSectionFont.Location = new System.Drawing.Point(198, 207);
-            this.TrainingSectionFont.Name = "TrainingSectionFont";
-            this.TrainingSectionFont.Size = new System.Drawing.Size(179, 23);
-            this.TrainingSectionFont.TabIndex = 31;
-            this.ToolTipMain.SetToolTip(this.TrainingSectionFont, "Changes the font of the section names on the top center of the\r\nscreen while in P" +
-        "ractice Mode.");
-            this.TrainingSectionFont.SelectedIndexChanged += new System.EventHandler(this.TrainingSectionFont_SelectedIndexChanged);
-            // 
-            // TrainingAccuracy
-            // 
-            this.TrainingAccuracy.AutoSize = true;
-            this.TrainingAccuracy.Location = new System.Drawing.Point(396, 204);
-            this.TrainingAccuracy.Name = "TrainingAccuracy";
-            this.TrainingAccuracy.Size = new System.Drawing.Size(234, 26);
-            this.TrainingAccuracy.TabIndex = 34;
-            this.TrainingAccuracy.Text = "Show Practice Accuracy Meter";
-            this.ToolTipMain.SetToolTip(this.TrainingAccuracy, resources.GetString("TrainingAccuracy.ToolTip"));
-            this.TrainingAccuracy.UseVisualStyleBackColor = true;
-            this.TrainingAccuracy.CheckedChanged += new System.EventHandler(this.TrainingAccuracy_CheckedChanged);
+            this.ShowAllSPBulbs.AutoSize = true;
+            this.ShowAllSPBulbs.Location = new System.Drawing.Point(19, 357);
+            this.ShowAllSPBulbs.Name = "ShowAllSPBulbs";
+            this.ShowAllSPBulbs.Size = new System.Drawing.Size(240, 26);
+            this.ShowAllSPBulbs.TabIndex = 35;
+            this.ShowAllSPBulbs.Text = "Keep Secondary SP Amp Bulbs";
+            this.ToolTipMain.SetToolTip(this.ShowAllSPBulbs, resources.GetString("ShowAllSPBulbs.ToolTip"));
+            this.ShowAllSPBulbs.UseVisualStyleBackColor = true;
+            this.ShowAllSPBulbs.CheckedChanged += new System.EventHandler(this.ShowAllSPBulbs_CheckedChanged);
             // 
             // Main
             // 
@@ -7190,6 +7204,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GHWT: Definitive Edition Launcher - V3.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).EndInit();
@@ -7763,6 +7778,7 @@
         private System.Windows.Forms.Label TrainSectStyleLabel;
         private System.Windows.Forms.ComboBox TrainingSectionFont;
         private System.Windows.Forms.CheckBox TrainingAccuracy;
+        private System.Windows.Forms.CheckBox ShowAllSPBulbs;
     }
 }
 
