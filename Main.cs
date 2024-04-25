@@ -1045,7 +1045,7 @@ namespace WTDE_Launcher_V3.Core {
             // Do we have a mode to boot into?
             if (AutoLaunchGameMode.Text.Trim() == "") {
                 okStatus = false;
-                autoLaunchErrors.Add("No game mode specified");
+                autoLaunchErrors.Add("No game mode specified.");
             }
 
             // ------------
@@ -1066,7 +1066,13 @@ namespace WTDE_Launcher_V3.Core {
             // for the following switch.
             int numPlayers = int.Parse(AutoLaunchPlayers.Text);
 
+            int numDrums2P = playerParts2.Where(s => s == "Drums - PART DRUMS").Count();
             int numVocals2P = playerParts2.Where(s => s == "Vocals - PART VOCALS").Count();
+
+            int numGuitar3P = playerParts3.Where(s => s == "Lead Guitar - PART GUITAR").Count();
+            int numBass3P = playerParts3.Where(s => s == "Bass Guitar - PART BASS").Count();
+            int numDrum3P = playerParts3.Where(s => s == "Drums - PART DRUMS").Count();
+            int numVocals3P = playerParts3.Where(s => s == "Vocals - PART VOCALS").Count();
 
             int numGuitar4P = playerParts4.Where(s => s == "Lead Guitar - PART GUITAR").Count();
             int numBass4P = playerParts4.Where(s => s == "Bass Guitar - PART BASS").Count();
@@ -1141,12 +1147,12 @@ namespace WTDE_Launcher_V3.Core {
                         okStatus = false;
                         autoLaunchErrors.Add("Must have EXACTLY 2 players specified for battle mode play.");
 
-                        // We're safe, let's test other things now.
+                    // We're safe, let's test other things now.
                     } else {
-                        // Are we on vocals?
-                        if (numVocals2P > 0) {
+                        // Are we on drums or vocals?
+                        if (numDrums2P > 0 || numVocals2P > 0) {
                             okStatus = false;
-                            autoLaunchErrors.Add("Cannot enter battle mode on vocals.");
+                            autoLaunchErrors.Add("Cannot enter battle mode on drums or vocals.");
 
                         // Are the parts not the same?
                         } else {
@@ -1208,12 +1214,13 @@ namespace WTDE_Launcher_V3.Core {
                 }
             }
 
-            // If our auto launch configuration isn't valid, do not proceed!
-            if (!AutoLaunchVerifyOK()) return;
-
-            // If Auto Launch is enabled, warn the user!
-            // Back up their save data if we're instructed to do so.
+            // Do we have auto launch enabled?
             if (AutoLaunchEnabled.Checked) {
+                // If our auto launch configuration isn't valid, do not proceed!
+                if (!AutoLaunchVerifyOK()) return;
+
+                // If Auto Launch is enabled, warn the user!
+                // Back up their save data if we're instructed to do so.
                 string autoLaunchEnabledWarning = "You have Auto Launch functionality enabled. Running the game may cause your save data " +
                                                   "to be lost.\n\nIn the event something goes wrong, do you want to create a backup copy " +
                                                   "of your save data?";
@@ -1227,7 +1234,6 @@ namespace WTDE_Launcher_V3.Core {
                     MessageBox.Show(saveBackedUp, "Save Backed Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
 
             // Go to the user's WTDE install folder and start the game up!
             ModHandler.UseUpdaterINIDirectory();

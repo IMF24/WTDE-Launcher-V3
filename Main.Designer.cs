@@ -7218,8 +7218,7 @@
             this.AutoLaunchGameMode.Name = "AutoLaunchGameMode";
             this.AutoLaunchGameMode.Size = new System.Drawing.Size(190, 23);
             this.AutoLaunchGameMode.TabIndex = 73;
-            this.ToolTipMain.SetToolTip(this.AutoLaunchGameMode, "What venue do you want to boot into? Modded venues will show\r\nat the far bottom o" +
-        "f the dropdown list.");
+            this.ToolTipMain.SetToolTip(this.AutoLaunchGameMode, resources.GetString("AutoLaunchGameMode.ToolTip"));
             this.AutoLaunchGameMode.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchGameMode_SelectedIndexChanged);
             // 
             // Main
