@@ -506,6 +506,8 @@ namespace WTDE_Launcher_V3.Core {
             AutoLaunchSong.Text = INIFunctions.GetINIValue("AutoLaunch", "Song", "random");
             AutoLaunchVenue.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Venue"),
                 V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
+            AutoLaunchGameMode.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "GameMode", ""),
+                V3LauncherConstants.AutoLaunchModes[1], V3LauncherConstants.AutoLaunchModes[0]);
 
             string[][] autoLaunchInstruments = {
                 new string[] { "guitar", "bass", "drum", "vocals" },
@@ -965,6 +967,7 @@ namespace WTDE_Launcher_V3.Core {
                 Console.WriteLine($"Uh oh! Hit a problem! Probably nothing severe...\nException details: {ex.Message}");
             }
         }
+        
         private void Main_FormClosed(object sender, FormClosedEventArgs e) {
             ExitActions();
         }
@@ -1016,6 +1019,162 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        /// <summary>
+        ///  Verifies if the settings for auto launch are valid.
+        /// </summary>
+        /// <returns>
+        ///  True if the settings are valid, false if they are not. If false, a dialog of warning messages will be shown.
+        /// </returns>
+        public bool AutoLaunchVerifyOK() {
+            bool okStatus = true;
+            List<string> autoLaunchErrors = new List<string> { };
+
+            // Do we have a song to boot into?
+            if (AutoLaunchSong.Text.Trim() == "") {
+                okStatus = false;
+                autoLaunchErrors.Add("No song checksum specified.");
+            }
+
+            // Do we have a venue specified?
+            // We should never be false here.
+            if (AutoLaunchVenue.Text.Trim() == "") {
+                okStatus = false;
+                autoLaunchErrors.Add("No venue specified.");
+            }
+
+            // Do we have a mode to boot into?
+            if (AutoLaunchGameMode.Text.Trim() == "") {
+                okStatus = false;
+                autoLaunchErrors.Add("No game mode specified");
+            }
+
+            // ------------
+            // MODE PART VALIDATION
+            // ------------
+            // Player parts.
+            var p1Part = AutoLaunchPart1.Text;
+            var p2Part = AutoLaunchPart2.Text;
+            var p3Part = AutoLaunchPart3.Text;
+            var p4Part = AutoLaunchPart4.Text;
+
+            string[] playerParts2 = new string[] { p1Part, p2Part };
+            string[] playerParts3 = new string[] { p1Part, p2Part, p3Part };
+            string[] playerParts4 = new string[] { p1Part, p2Part, p3Part, p4Part };
+
+            // How many of each part do we have?
+            // We'll use this to verify the number of each instrument
+            // for the following switch.
+            int numPlayers = int.Parse(AutoLaunchPlayers.Text);
+
+            int numVocals2P = playerParts2.Where(s => s == "Vocals - PART VOCALS").Count();
+
+            int numGuitar4P = playerParts4.Where(s => s == "Lead Guitar - PART GUITAR").Count();
+            int numBass4P = playerParts4.Where(s => s == "Bass Guitar - PART BASS").Count();
+            int numDrum4P = playerParts4.Where(s => s == "Drums - PART DRUMS").Count();
+            int numVocals4P = playerParts4.Where(s => s == "Vocals - PART VOCALS").Count();
+
+            switch (AutoLaunchGameMode.SelectedIndex) {
+                // -- BAND QUICKPLAY -----------------
+                case 0:
+                    switch (numPlayers) {
+                        // -- 1 PLAYER -------------------
+                        case 1:
+                            // Safe, probably
+                            break;
+
+                        // -- 2 PLAYERS ------------------
+                        case 2:
+                            // Just check the first 2 parts against each other.
+                            if (p1Part == p2Part) {
+                                okStatus = false;
+                                autoLaunchErrors.Add("Instrument parts cannot be duplicated for band quickplay.");
+                            }
+                            break;
+
+                        // -- 3 PLAYERS ------------------
+                        case 3:
+                            // Check if any of these 3 parts are equal to each other.
+                            if ((p1Part == p2Part) || (p1Part == p3Part) || (p2Part == p3Part)) {
+                                okStatus = false;
+                                autoLaunchErrors.Add("Instrument parts cannot be duplicated for band quickplay.");
+                            }
+                            break;
+
+                        // -- 4 PLAYERS ------------------
+                        case 4:
+                            if (numGuitar4P != 1 || numBass4P != 1 || numDrum4P != 1 || numVocals4P != 1) {
+                                okStatus = false;
+                                autoLaunchErrors.Add("Instrument parts cannot be duplicated for band quickplay.");
+                            }
+                            break;
+                    }
+                    break;
+
+                // -- 2P FACE OFF AND PFO ------------
+                case 1: case 2:
+                    // We only want to check players 1 and 2 for this.
+                    if (int.Parse(AutoLaunchPlayers.Text) != 2) {
+                        okStatus = false;
+                        autoLaunchErrors.Add("Must have EXACTLY 2 players specified for face off or pro face off play.");
+                    
+                    // We're safe, let's test other things now.
+                    } else {
+                        // Are we on vocals?
+                        if (numVocals2P > 0) {
+                            okStatus = false;
+                            autoLaunchErrors.Add("Cannot enter face off modes on vocals.");
+                        
+                        // Are the parts not the same?
+                        } else {
+                            if (p1Part != p2Part) {
+                                okStatus = false;
+                                autoLaunchErrors.Add("Parts cannot be different for face off or pro face off play.");
+                            }
+                        }
+                    }
+                    break;
+
+                // -- 2P BATTLE ----------------------
+                case 3:
+                    // We only want to check players 1 and 2 for this.
+                    if (int.Parse(AutoLaunchPlayers.Text) != 2) {
+                        okStatus = false;
+                        autoLaunchErrors.Add("Must have EXACTLY 2 players specified for battle mode play.");
+
+                        // We're safe, let's test other things now.
+                    } else {
+                        // Are we on vocals?
+                        if (numVocals2P > 0) {
+                            okStatus = false;
+                            autoLaunchErrors.Add("Cannot enter battle mode on vocals.");
+
+                        // Are the parts not the same?
+                        } else {
+                            if (p1Part != p2Part) {
+                                okStatus = false;
+                                autoLaunchErrors.Add("Parts cannot be different for battle mode play.");
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            // Did we have any errors?
+            // If so, show a warning dialog!
+            if (!okStatus || autoLaunchErrors.Count > 0) {
+                string autoErrorText = "You have errors in your auto launch configuration! The following problems were found:\n";
+
+                foreach (string error in autoLaunchErrors) {
+                    autoErrorText += $"\n- {error}";
+                }
+                
+                MessageBox.Show(autoErrorText, "Auto Launch Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // And give the status back!
+            return okStatus;
+        }
+
         // ----------------------------------------------------------
         // LEFT SIDE BUTTONS & CONTROLS
         // ----------------------------------------------------------
@@ -1049,6 +1208,9 @@ namespace WTDE_Launcher_V3.Core {
                 }
             }
 
+            // If our auto launch configuration isn't valid, do not proceed!
+            if (!AutoLaunchVerifyOK()) return;
+
             // If Auto Launch is enabled, warn the user!
             // Back up their save data if we're instructed to do so.
             if (AutoLaunchEnabled.Checked) {
@@ -1065,6 +1227,7 @@ namespace WTDE_Launcher_V3.Core {
                     MessageBox.Show(saveBackedUp, "Save Backed Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
 
             // Go to the user's WTDE install folder and start the game up!
             ModHandler.UseUpdaterINIDirectory();
@@ -2634,6 +2797,11 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
         }
 
+        private void AutoLaunchGameMode_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("AutoLaunch", "GameMode", INIFunctions.InterpretINISetting(AutoLaunchGameMode.Text,
+                V3LauncherConstants.AutoLaunchModes[0], V3LauncherConstants.AutoLaunchModes[1]));
+        }
+
         private void AutoLaunchPart1_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Part", INIFunctions.InterpretINISetting(AutoLaunchPart1.Text,
                 V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
@@ -2837,8 +3005,9 @@ namespace WTDE_Launcher_V3.Core {
 
 
 
+
         #endregion
 
-       
+        
     }
 }

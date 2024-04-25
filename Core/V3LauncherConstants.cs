@@ -926,5 +926,26 @@ namespace WTDE_Launcher_V3.Core {
                 "none"
             }
         };
+
+        /// <summary>
+        ///  List of game modes used for auto launch.
+        /// </summary>
+        public static string[][] AutoLaunchModes = new string[][] { 
+            // Mode names.
+            new string[] {
+                "Band Quickplay",
+                "2P Face Off",
+                "2P Pro Face Off",
+                "2P Battle"
+            },
+            
+            // Mode checksums.
+            new string[] { 
+                "",
+                "p2_faceoff",
+                "p2_pro_faceoff",
+                "p2_battle"
+            }
+        };
     }
 }
