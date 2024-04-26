@@ -961,6 +961,7 @@ namespace WTDE_Launcher_V3.Core {
         /// </summary>
         public void ExitActions() {
             V3LauncherCore.DebugLog.Add("\n\nWe're done in the launcher for now!\nThanks for using it! :D");
+            Console.WriteLine("\n\nWe're done in the launcher for now!\nThanks for using it! :D");
             try {
                 V3LauncherCore.WriteDebugLog();
             } catch (Exception ex) {
@@ -2792,10 +2793,14 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         private void ALSongSelectINI_Click(object sender, EventArgs e) {
-            V3LauncherCore.TextBoxReadFromDialog(0, AutoLaunchSong, "Select song.ini File", false, "song.ini Files|*song.ini");
-            IniFile file = new IniFile();
-            file.Load(AutoLaunchSong.Text);
-            AutoLaunchSong.Text = file.Sections["SongInfo"].Keys["Checksum"].Value;
+            try {
+                V3LauncherCore.TextBoxReadFromDialog(0, AutoLaunchSong, "Select song.ini File", false, "song.ini Files|*song.ini");
+                IniFile file = new IniFile();
+                file.Load(AutoLaunchSong.Text);
+                AutoLaunchSong.Text = file.Sections["SongInfo"].Keys["Checksum"].Value;
+            } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry($"Auto launch: Error reading INI, don't worry about it // {exc.Message}");
+            }
         }
 
         private void AutoLaunchVenue_SelectedIndexChanged(object sender, EventArgs e) {

@@ -63,6 +63,8 @@ namespace WTDE_Launcher_V3.Core {
             using (StreamWriter sw = new StreamWriter(saveDir, true)) {
                 sw.WriteLine($"[{prefix}] {entry}");
             }
+
+            Console.WriteLine($"[{prefix}] {entry}");
         }
 
         /// <summary>
@@ -556,32 +558,36 @@ namespace WTDE_Launcher_V3.Core {
         ///  Optional: Mode 0 only: The file filter to hold the open file dialog to. Default filter string is for all files (*.*).
         /// </param>
         public static void TextBoxReadFromDialog(int mode, TextBox textBox, string title, bool stripPath = true, string filter = "All Files|*.*") {
-            string resultingValue;
-            string oldText = textBox.Text;
-            if (mode == 0) {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = filter;
-                dialog.Title = title;
+            try {
+                string resultingValue;
+                string oldText = textBox.Text;
+                if (mode == 0) {
+                    OpenFileDialog dialog = new OpenFileDialog();
+                    dialog.Filter = filter;
+                    dialog.Title = title;
 
-                dialog.ShowDialog();
+                    dialog.ShowDialog();
 
-                resultingValue = (dialog.FileName != "") ? (stripPath) ? dialog.FileName.Replace("\\", "/").Split('/').Last() : dialog.FileName : oldText;
-            } else {
-                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                    resultingValue = (dialog.FileName != "") ? (stripPath) ? dialog.FileName.Replace("\\", "/").Split('/').Last() : dialog.FileName : oldText;
+                } else {
+                    FolderBrowserDialog dialog = new FolderBrowserDialog();
 
-                /*
-                if (File.Exists("Updater.ini")) {
-                    IniFile file = new IniFile();
-                    file.Load("Updater.ini");
-                    dialog.SelectedPath = Path.Combine(file.Sections["Updater"].Keys["GameDirectory"].Value, "DATA/MODS");
+                    /*
+                    if (File.Exists("Updater.ini")) {
+                        IniFile file = new IniFile();
+                        file.Load("Updater.ini");
+                        dialog.SelectedPath = Path.Combine(file.Sections["Updater"].Keys["GameDirectory"].Value, "DATA/MODS");
+                    }
+                    */
+
+                    dialog.ShowDialog();
+
+                    resultingValue = (dialog.SelectedPath != "") ? (stripPath) ? dialog.SelectedPath.Replace("\\", "/").Split('/').Last() : dialog.SelectedPath : oldText;
                 }
-                */
-
-                dialog.ShowDialog();
-
-                resultingValue = (dialog.SelectedPath != "") ? (stripPath) ? dialog.SelectedPath.Replace("\\", "/").Split('/').Last() : dialog.SelectedPath : oldText;
+                textBox.Text = resultingValue;
+            } catch (Exception exc) {
+                AddDebugEntry($"Error in reading dialog from text box: {exc.Message}", "V3 Launcher Core: TextBoxReadFromDialog");
             }
-            textBox.Text = resultingValue;
         }
 
         /// <summary>

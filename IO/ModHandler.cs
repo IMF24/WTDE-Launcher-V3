@@ -11,6 +11,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -76,7 +77,8 @@ namespace WTDE_Launcher_V3.IO {
 			V3LauncherCore.AddDebugEntry($"CURRENT DIRECTORY: {Directory.GetCurrentDirectory()}", "Mod Handler: ReadMods");
 
 			// Timer starts now!
-			var startTime = DateTime.Now.Second;
+			var stopWatch = new Stopwatch();
+			stopWatch.Start();
 
 			// Read the user's MODS directory for ALL INI FILES.
 			string[] files = Directory.GetFiles("DATA/MODS", "*.ini", SearchOption.AllDirectories);
@@ -385,9 +387,9 @@ namespace WTDE_Launcher_V3.IO {
 			}
 
 			// And the timer stops here!
-			var endTime = DateTime.Now.Second;
+			stopWatch.Stop();
 
-			V3LauncherCore.AddDebugEntry($"ALL DONE! Read and parsed {outArray.Count} mods in {endTime - startTime:0.00} sec", "Mod Handler: ReadMods");
+			V3LauncherCore.AddDebugEntry($"ALL DONE! Read and parsed {outArray.Count} mods in {stopWatch.Elapsed.TotalSeconds:0.00} sec", "Mod Handler: ReadMods");
 
 			UserContentMods = outArray;
 
