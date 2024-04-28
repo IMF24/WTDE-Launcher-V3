@@ -26,6 +26,7 @@ namespace WTDE_Launcher_V3.Core {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Spawn debug console?
             if (INIFunctions.GetINIValue("Launcher", "Console") == "1") {
                 InitializeConsole();
             }
