@@ -316,6 +316,8 @@ namespace WTDE_Launcher_V3.Core {
                     "Large, Exterior",
                     "No Claps"
                 });
+            SPActivationSFX.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Audio", "SPActivationSFX", "default"),
+                V3LauncherConstants.StarPowerActivationSounds[1], V3LauncherConstants.StarPowerActivationSounds[0]);
 
             // ---------------------------------
             // INPUT TAB
@@ -1419,6 +1421,12 @@ namespace WTDE_Launcher_V3.Core {
                     "large_ext",
                     "none"
                 }));
+        }
+
+        private void SPActivationSFX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Audio", "SPActivationSFX", INIFunctions.InterpretINISetting(SPActivationSFX.Text,
+                V3LauncherConstants.StarPowerActivationSounds[0], V3LauncherConstants.StarPowerActivationSounds[1]));
         }
 
         private void PreferredGamerTagText1_TextChanged(object sender, EventArgs e) {
@@ -3011,6 +3019,7 @@ namespace WTDE_Launcher_V3.Core {
         private void ButtonDiscord_Click(object sender, EventArgs e) {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
+
 
 
 

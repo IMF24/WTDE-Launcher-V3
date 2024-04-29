@@ -398,10 +398,12 @@
             this.TrainingSectionFont = new System.Windows.Forms.ComboBox();
             this.TrainingAccuracy = new System.Windows.Forms.CheckBox();
             this.ShowAllSPBulbs = new System.Windows.Forms.CheckBox();
+            this.AutoLaunchGameMode = new System.Windows.Forms.ComboBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
             this.TabALMainEditor = new System.Windows.Forms.Panel();
+            this.TALGameModeLabel = new System.Windows.Forms.Label();
             this.TALPTLPlayer4Label = new System.Windows.Forms.Label();
             this.TALPTLPlayer3Label = new System.Windows.Forms.Label();
             this.TALPTLPlayer1Label = new System.Windows.Forms.Label();
@@ -531,8 +533,8 @@
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.DevSettingsONLabel = new System.Windows.Forms.Label();
-            this.TALGameModeLabel = new System.Windows.Forms.Label();
-            this.AutoLaunchGameMode = new System.Windows.Forms.ComboBox();
+            this.TGStarActivateLabel = new System.Windows.Forms.Label();
+            this.SPActivationSFX = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -5552,14 +5554,32 @@
             this.ShowAllSPBulbs.UseVisualStyleBackColor = true;
             this.ShowAllSPBulbs.CheckedChanged += new System.EventHandler(this.ShowAllSPBulbs_CheckedChanged);
             // 
+            // AutoLaunchGameMode
+            // 
+            this.AutoLaunchGameMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AutoLaunchGameMode.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AutoLaunchGameMode.FormattingEnabled = true;
+            this.AutoLaunchGameMode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AutoLaunchGameMode.Items.AddRange(new object[] {
+            "Band Quickplay",
+            "2P Face Off",
+            "2P Pro Face Off",
+            "2P Battle"});
+            this.AutoLaunchGameMode.Location = new System.Drawing.Point(452, 62);
+            this.AutoLaunchGameMode.Name = "AutoLaunchGameMode";
+            this.AutoLaunchGameMode.Size = new System.Drawing.Size(190, 23);
+            this.AutoLaunchGameMode.TabIndex = 73;
+            this.ToolTipMain.SetToolTip(this.AutoLaunchGameMode, resources.GetString("AutoLaunchGameMode.ToolTip"));
+            this.AutoLaunchGameMode.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchGameMode_SelectedIndexChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
-            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
@@ -5577,7 +5597,7 @@
             this.TabAutoLaunchGroup.Controls.Add(this.TabALMainEditor);
             this.TabAutoLaunchGroup.Controls.Add(this.AutoLaunchEnabled);
             this.TabAutoLaunchGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(14, 10);
+            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(115, 485);
             this.TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
             this.TabAutoLaunchGroup.Size = new System.Drawing.Size(662, 648);
             this.TabAutoLaunchGroup.TabIndex = 2;
@@ -5653,6 +5673,15 @@
             this.TabALMainEditor.Name = "TabALMainEditor";
             this.TabALMainEditor.Size = new System.Drawing.Size(649, 570);
             this.TabALMainEditor.TabIndex = 63;
+            // 
+            // TALGameModeLabel
+            // 
+            this.TALGameModeLabel.AutoSize = true;
+            this.TALGameModeLabel.Location = new System.Drawing.Point(395, 61);
+            this.TALGameModeLabel.Name = "TALGameModeLabel";
+            this.TALGameModeLabel.Size = new System.Drawing.Size(51, 22);
+            this.TALGameModeLabel.TabIndex = 72;
+            this.TALGameModeLabel.Text = "Mode:";
             // 
             // TALPTLPlayer4Label
             // 
@@ -6225,7 +6254,7 @@
             this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
             this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralGroup.Location = new System.Drawing.Point(270, 377);
+            this.TabGeneralGroup.Location = new System.Drawing.Point(3, 6);
             this.TabGeneralGroup.Name = "TabGeneralGroup";
             this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGeneralGroup.TabIndex = 0;
@@ -6400,6 +6429,8 @@
             // 
             // TabGeneralTabsAudio
             // 
+            this.TabGeneralTabsAudio.Controls.Add(this.TGStarActivateLabel);
+            this.TabGeneralTabsAudio.Controls.Add(this.SPActivationSFX);
             this.TabGeneralTabsAudio.Controls.Add(this.StarPowerReverb);
             this.TabGeneralTabsAudio.Controls.Add(this.SPClapType);
             this.TabGeneralTabsAudio.Controls.Add(this.TGSPClapTypeLabel);
@@ -7194,32 +7225,36 @@
             this.DevSettingsONLabel.TabIndex = 18;
             this.DevSettingsONLabel.Text = "Dev. Settings: Dev. Settings Enabled";
             // 
-            // TALGameModeLabel
+            // TGStarActivateLabel
             // 
-            this.TALGameModeLabel.AutoSize = true;
-            this.TALGameModeLabel.Location = new System.Drawing.Point(395, 61);
-            this.TALGameModeLabel.Name = "TALGameModeLabel";
-            this.TALGameModeLabel.Size = new System.Drawing.Size(51, 22);
-            this.TALGameModeLabel.TabIndex = 72;
-            this.TALGameModeLabel.Text = "Mode:";
+            this.TGStarActivateLabel.AutoSize = true;
+            this.TGStarActivateLabel.Location = new System.Drawing.Point(15, 197);
+            this.TGStarActivateLabel.Name = "TGStarActivateLabel";
+            this.TGStarActivateLabel.Size = new System.Drawing.Size(135, 22);
+            this.TGStarActivateLabel.TabIndex = 25;
+            this.TGStarActivateLabel.Text = "SP Activation SFX:";
             // 
-            // AutoLaunchGameMode
+            // SPActivationSFX
             // 
-            this.AutoLaunchGameMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AutoLaunchGameMode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AutoLaunchGameMode.FormattingEnabled = true;
-            this.AutoLaunchGameMode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AutoLaunchGameMode.Items.AddRange(new object[] {
-            "Band Quickplay",
-            "2P Face Off",
-            "2P Pro Face Off",
-            "2P Battle"});
-            this.AutoLaunchGameMode.Location = new System.Drawing.Point(452, 62);
-            this.AutoLaunchGameMode.Name = "AutoLaunchGameMode";
-            this.AutoLaunchGameMode.Size = new System.Drawing.Size(190, 23);
-            this.AutoLaunchGameMode.TabIndex = 73;
-            this.ToolTipMain.SetToolTip(this.AutoLaunchGameMode, resources.GetString("AutoLaunchGameMode.ToolTip"));
-            this.AutoLaunchGameMode.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchGameMode_SelectedIndexChanged);
+            this.SPActivationSFX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SPActivationSFX.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SPActivationSFX.FormattingEnabled = true;
+            this.SPActivationSFX.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SPActivationSFX.Items.AddRange(new object[] {
+            "HUD Theme Dependent",
+            "Guitar Hero: World Tour",
+            "Guitar Hero III",
+            "Guitar Hero: Metallica",
+            "Band Hero",
+            "GH: Warriors of Rock",
+            "No Sounds"});
+            this.SPActivationSFX.Location = new System.Drawing.Point(191, 198);
+            this.SPActivationSFX.Name = "SPActivationSFX";
+            this.SPActivationSFX.Size = new System.Drawing.Size(159, 23);
+            this.SPActivationSFX.TabIndex = 24;
+            this.ToolTipMain.SetToolTip(this.SPActivationSFX, "Sets the type of Star Power activation sounds to play when you deploy Star Power." +
+        "");
+            this.SPActivationSFX.SelectedIndexChanged += new System.EventHandler(this.SPActivationSFX_SelectedIndexChanged);
             // 
             // Main
             // 
@@ -7828,6 +7863,8 @@
         private System.Windows.Forms.Label DevSettingsONLabel;
         private System.Windows.Forms.Label TALGameModeLabel;
         private System.Windows.Forms.ComboBox AutoLaunchGameMode;
+        private System.Windows.Forms.Label TGStarActivateLabel;
+        private System.Windows.Forms.ComboBox SPActivationSFX;
     }
 }
 

@@ -947,5 +947,32 @@ namespace WTDE_Launcher_V3.Core {
                 "p2_battle"
             }
         };
+
+        /// <summary>
+        ///  List of Star Power activation sounds.
+        /// </summary>
+        public static string[][] StarPowerActivationSounds = new string[][] { 
+            // SFX names.
+            new string[] {
+                "HUD Theme Dependent",
+                "Guitar Hero: World Tour",
+                "Guitar Hero III",
+                "Guitar Hero: Metallica",
+                "Band Hero",
+                "GH: Warriors of Rock",
+                "No Sounds"
+            },
+            
+            // SFX checksums.
+            new string[] {
+                "default",
+                "ghwt",
+                "gh3",
+                "ghm",
+                "bh",
+                "ghwor",
+                "none"
+            }
+        };
     }
 }
