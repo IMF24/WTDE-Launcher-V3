@@ -5577,12 +5577,12 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
-            this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Location = new System.Drawing.Point(322, 59);
             this.TabParentContainer.Name = "TabParentContainer";
@@ -6254,7 +6254,7 @@
             this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
             this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralGroup.Location = new System.Drawing.Point(3, 6);
+            this.TabGeneralGroup.Location = new System.Drawing.Point(295, 366);
             this.TabGeneralGroup.Name = "TabGeneralGroup";
             this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGeneralGroup.TabIndex = 0;
@@ -6830,7 +6830,7 @@
             this.TabInputGroup.Controls.Add(this.MicrophoneLabel);
             this.TabInputGroup.Controls.Add(this.MicSettingsHeaderLabel);
             this.TabInputGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabInputGroup.Location = new System.Drawing.Point(444, 287);
+            this.TabInputGroup.Location = new System.Drawing.Point(6, 6);
             this.TabInputGroup.Name = "TabInputGroup";
             this.TabInputGroup.Size = new System.Drawing.Size(662, 648);
             this.TabInputGroup.TabIndex = 15;
