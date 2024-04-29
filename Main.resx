@@ -346,16 +346,6 @@ down to a lower value.</value>
 
 Note that this setting OVERRIDES any and all crowd clap types in venues by default if set that way.</value>
   </data>
-  <data name="TrainingAccuracy.ToolTip" xml:space="preserve">
-    <value>While in Practice Mode, this will show a total percent accuracy meter to the
-left of the highway, along with a meter of notes hit over notes in total.
-
-As you play the section in practice, this meter will start at 0% and approach
-100%, as well as the number of notes you have managed to hit over the
-total number of notes in the section(s) you are playing.
-
-This feature was seen in Guitar Hero 5 and later.</value>
-  </data>
   <data name="ShowAllSPBulbs.ToolTip" xml:space="preserve">
     <value>While playing songs, all 6 of the Star Power amp bulbs will be shown above the Rock Meter
 as opposed to only the first 3. Additionally, the bulbs will not be hidden at any point,
@@ -370,6 +360,19 @@ even if your Star Power capacity climbs above or below 50%.</value>
 
 The launcher will run a verification of your settings to make sure you
 have set up your band and game configuration properly!</value>
+  </data>
+  <data name="TrainingAccuracy.ToolTip" xml:space="preserve">
+    <value>In Practice Mode, a meter will be displayed on the left hand side of the highway that will display the
+current accuracy with which you have hit the section, along with the total number of notes hit.
+  •  Off: Do not show the accuracy meter.
+  •  On, Normal Mode: As the section plays, the percentage will start at 0%, and increase towards
+     100%. In addition, the notes accuracy meter will be the total number of notes you've hit over
+     the total number of notes in the section range.
+  •  On, Average Mode: As the section plays, the game will take a collective average of all the notes
+     that you've hit along with all the notes that have passed, and take the average percentage of all
+     the notes you've hit divided by the notes passed.
+
+Both modes do not alter your final result from the selected section range, and is purely a visual tweak.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

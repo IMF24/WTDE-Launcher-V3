@@ -396,7 +396,6 @@
             this.PreferredGamerTagText4 = new System.Windows.Forms.TextBox();
             this.PreferredGamerTagText3 = new System.Windows.Forms.TextBox();
             this.TrainingSectionFont = new System.Windows.Forms.ComboBox();
-            this.TrainingAccuracy = new System.Windows.Forms.CheckBox();
             this.ShowAllSPBulbs = new System.Windows.Forms.CheckBox();
             this.AutoLaunchGameMode = new System.Windows.Forms.ComboBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
@@ -535,6 +534,8 @@
             this.DevSettingsONLabel = new System.Windows.Forms.Label();
             this.TGStarActivateLabel = new System.Windows.Forms.Label();
             this.SPActivationSFX = new System.Windows.Forms.ComboBox();
+            this.TrainingAccyLabel = new System.Windows.Forms.Label();
+            this.TrainingAccuracy = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -1338,7 +1339,7 @@
             0,
             0,
             0});
-            this.HighwayOpacity.Location = new System.Drawing.Point(302, 307);
+            this.HighwayOpacity.Location = new System.Drawing.Point(302, 332);
             this.HighwayOpacity.Name = "HighwayOpacity";
             this.HighwayOpacity.Size = new System.Drawing.Size(55, 23);
             this.HighwayOpacity.TabIndex = 24;
@@ -1359,7 +1360,7 @@
             0,
             0,
             0});
-            this.HighwayVignetteOpacity.Location = new System.Drawing.Point(302, 333);
+            this.HighwayVignetteOpacity.Location = new System.Drawing.Point(302, 358);
             this.HighwayVignetteOpacity.Name = "HighwayVignetteOpacity";
             this.HighwayVignetteOpacity.Size = new System.Drawing.Size(55, 23);
             this.HighwayVignetteOpacity.TabIndex = 26;
@@ -1844,7 +1845,7 @@
             // BlackHighway
             // 
             this.BlackHighway.AutoSize = true;
-            this.BlackHighway.Location = new System.Drawing.Point(396, 305);
+            this.BlackHighway.Location = new System.Drawing.Point(396, 330);
             this.BlackHighway.Name = "BlackHighway";
             this.BlackHighway.Size = new System.Drawing.Size(160, 26);
             this.BlackHighway.TabIndex = 27;
@@ -5530,22 +5531,10 @@
         "ractice Mode.");
             this.TrainingSectionFont.SelectedIndexChanged += new System.EventHandler(this.TrainingSectionFont_SelectedIndexChanged);
             // 
-            // TrainingAccuracy
-            // 
-            this.TrainingAccuracy.AutoSize = true;
-            this.TrainingAccuracy.Location = new System.Drawing.Point(396, 204);
-            this.TrainingAccuracy.Name = "TrainingAccuracy";
-            this.TrainingAccuracy.Size = new System.Drawing.Size(234, 26);
-            this.TrainingAccuracy.TabIndex = 34;
-            this.TrainingAccuracy.Text = "Show Practice Accuracy Meter";
-            this.ToolTipMain.SetToolTip(this.TrainingAccuracy, resources.GetString("TrainingAccuracy.ToolTip"));
-            this.TrainingAccuracy.UseVisualStyleBackColor = true;
-            this.TrainingAccuracy.CheckedChanged += new System.EventHandler(this.TrainingAccuracy_CheckedChanged);
-            // 
             // ShowAllSPBulbs
             // 
             this.ShowAllSPBulbs.AutoSize = true;
-            this.ShowAllSPBulbs.Location = new System.Drawing.Point(19, 357);
+            this.ShowAllSPBulbs.Location = new System.Drawing.Point(19, 382);
             this.ShowAllSPBulbs.Name = "ShowAllSPBulbs";
             this.ShowAllSPBulbs.Size = new System.Drawing.Size(240, 26);
             this.ShowAllSPBulbs.TabIndex = 35;
@@ -5577,10 +5566,10 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
-            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
@@ -5921,7 +5910,7 @@
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(546, 239);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(8, 6);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -6014,8 +6003,9 @@
             // 
             // TGEditorInterface
             // 
-            this.TGEditorInterface.Controls.Add(this.ShowAllSPBulbs);
+            this.TGEditorInterface.Controls.Add(this.TrainingAccyLabel);
             this.TGEditorInterface.Controls.Add(this.TrainingAccuracy);
+            this.TGEditorInterface.Controls.Add(this.ShowAllSPBulbs);
             this.TGEditorInterface.Controls.Add(this.TrainSectStyleLabel);
             this.TGEditorInterface.Controls.Add(this.TrainingSectionFont);
             this.TGEditorInterface.Controls.Add(this.BMIconThemeLabel);
@@ -6076,7 +6066,7 @@
             // HWVignetteLabel
             // 
             this.HWVignetteLabel.AutoSize = true;
-            this.HWVignetteLabel.Location = new System.Drawing.Point(15, 332);
+            this.HWVignetteLabel.Location = new System.Drawing.Point(15, 357);
             this.HWVignetteLabel.Name = "HWVignetteLabel";
             this.HWVignetteLabel.Size = new System.Drawing.Size(369, 22);
             this.HWVignetteLabel.TabIndex = 25;
@@ -6085,7 +6075,7 @@
             // HWAlphaLabel
             // 
             this.HWAlphaLabel.AutoSize = true;
-            this.HWAlphaLabel.Location = new System.Drawing.Point(15, 307);
+            this.HWAlphaLabel.Location = new System.Drawing.Point(15, 332);
             this.HWAlphaLabel.Name = "HWAlphaLabel";
             this.HWAlphaLabel.Size = new System.Drawing.Size(368, 22);
             this.HWAlphaLabel.TabIndex = 23;
@@ -6830,7 +6820,7 @@
             this.TabInputGroup.Controls.Add(this.MicrophoneLabel);
             this.TabInputGroup.Controls.Add(this.MicSettingsHeaderLabel);
             this.TabInputGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabInputGroup.Location = new System.Drawing.Point(6, 6);
+            this.TabInputGroup.Location = new System.Drawing.Point(405, 334);
             this.TabInputGroup.Name = "TabInputGroup";
             this.TabInputGroup.Size = new System.Drawing.Size(662, 648);
             this.TabInputGroup.TabIndex = 15;
@@ -7255,6 +7245,31 @@
             this.ToolTipMain.SetToolTip(this.SPActivationSFX, "Sets the type of Star Power activation sounds to play when you deploy Star Power." +
         "");
             this.SPActivationSFX.SelectedIndexChanged += new System.EventHandler(this.SPActivationSFX_SelectedIndexChanged);
+            // 
+            // TrainingAccyLabel
+            // 
+            this.TrainingAccyLabel.AutoSize = true;
+            this.TrainingAccyLabel.Location = new System.Drawing.Point(15, 306);
+            this.TrainingAccyLabel.Name = "TrainingAccyLabel";
+            this.TrainingAccyLabel.Size = new System.Drawing.Size(177, 22);
+            this.TrainingAccyLabel.TabIndex = 37;
+            this.TrainingAccyLabel.Text = "Practice Accuracy Meter:";
+            // 
+            // TrainingAccuracy
+            // 
+            this.TrainingAccuracy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TrainingAccuracy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TrainingAccuracy.FormattingEnabled = true;
+            this.TrainingAccuracy.Items.AddRange(new object[] {
+            "Off",
+            "On, Normal Mode",
+            "On, Average Mode"});
+            this.TrainingAccuracy.Location = new System.Drawing.Point(198, 307);
+            this.TrainingAccuracy.Name = "TrainingAccuracy";
+            this.TrainingAccuracy.Size = new System.Drawing.Size(179, 23);
+            this.TrainingAccuracy.TabIndex = 36;
+            this.ToolTipMain.SetToolTip(this.TrainingAccuracy, resources.GetString("TrainingAccuracy.ToolTip"));
+            this.TrainingAccuracy.SelectedIndexChanged += new System.EventHandler(this.TrainingAccuracy_SelectedIndexChanged);
             // 
             // Main
             // 
@@ -7858,13 +7873,14 @@
         private System.Windows.Forms.TextBox PreferredGamerTagText2;
         private System.Windows.Forms.Label TrainSectStyleLabel;
         private System.Windows.Forms.ComboBox TrainingSectionFont;
-        private System.Windows.Forms.CheckBox TrainingAccuracy;
         private System.Windows.Forms.CheckBox ShowAllSPBulbs;
         private System.Windows.Forms.Label DevSettingsONLabel;
         private System.Windows.Forms.Label TALGameModeLabel;
         private System.Windows.Forms.ComboBox AutoLaunchGameMode;
         private System.Windows.Forms.Label TGStarActivateLabel;
         private System.Windows.Forms.ComboBox SPActivationSFX;
+        private System.Windows.Forms.Label TrainingAccyLabel;
+        private System.Windows.Forms.ComboBox TrainingAccuracy;
     }
 }
 

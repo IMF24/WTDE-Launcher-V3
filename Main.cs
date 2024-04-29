@@ -438,11 +438,11 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.HelperPillThemes[1], V3LauncherConstants.HelperPillThemes[0]);
             TrainingSectionFont.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "TrainingSectionFont", "ghwt"),
                 V3LauncherConstants.TrainingSectionThemes[1], V3LauncherConstants.TrainingSectionThemes[0]);
-            TrainingAccuracy.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "TrainingAccuracy", "0"));
             TapTrailTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "TapTrailTheme", "ghwt"),
                 V3LauncherConstants.TapTrailThemes[1], V3LauncherConstants.TapTrailThemes[0]);
             HitFlameTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "HitFlameTheme", "ghwt"),
                 V3LauncherConstants.HitFlameStyles[1], V3LauncherConstants.HitFlameStyles[0]);
+            TrainingAccuracy.SelectedIndex = int.Parse(INIFunctions.GetINIValue("Graphics", "TrainingAccuracy"));
             SustainFX.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "SustainFX", "1"));
             HighwayOpacity.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "HighwayOpacity", "100"));
             BlackHighway.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "BlackHighway", "0"));
@@ -2256,8 +2256,9 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.TrainingSectionThemes[0], V3LauncherConstants.TrainingSectionThemes[1]));
         }
 
-        private void TrainingAccuracy_CheckedChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "TrainingAccuracy", INIFunctions.BoolToString(TrainingAccuracy.Checked));
+        private void TrainingAccuracy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("Graphics", "TrainingAccuracy", TrainingAccuracy.SelectedIndex.ToString());
         }
 
         private void HelperPillTheme_SelectedIndexChanged(object sender, EventArgs e) {
@@ -3033,8 +3034,9 @@ namespace WTDE_Launcher_V3.Core {
 
 
 
+
         #endregion
 
-        
+       
     }
 }
