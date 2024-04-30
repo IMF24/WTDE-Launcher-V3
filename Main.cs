@@ -497,6 +497,8 @@ namespace WTDE_Launcher_V3.Core {
             AlwaysSplashText.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "AlwaysSplashText", "1"));
             AlwaysCelebIntro.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "AlwaysCelebIntro", "1"));
             AlwaysVOIntro.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("CelebritiesIntros", "AlwaysVOIntro"));
+            CustomFirstName.Text = INIFunctions.GetINIValue("CelebritiesIntros", "CustomFirstName", "");
+            CustomLastName.Text = INIFunctions.GetINIValue("CelebritiesIntros", "CustomLastName", "");
 
             // ---------------------------------
             // AUTO LAUNCH TAB
@@ -2583,6 +2585,39 @@ namespace WTDE_Launcher_V3.Core {
             shm.ShowDialog();
         }
 
+        // - - - - - - - - - - - - - - - - - - -
+        // CELEBRITY INTROS OPTIONS
+        // - - - - - - - - - - - - - - - - - - -
+
+        private void SongSpecificIntros_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("CelebritiesIntros", "SongSpecificIntros", INIFunctions.BoolToString(SongSpecificIntros.Checked));
+        }
+
+        private void AlwaysSplashText_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("CelebritiesIntros", "AlwaysSplashText", INIFunctions.BoolToString(AlwaysSplashText.Checked));
+        }
+
+        private void AlwaysVOIntro_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("CelebritiesIntros", "AlwaysVOIntro", INIFunctions.BoolToString(AlwaysVOIntro.Checked));
+        }
+
+        private void AlwaysCelebIntro_CheckedChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("CelebritiesIntros", "AlwaysCelebIntro", INIFunctions.BoolToString(AlwaysCelebIntro.Checked));
+        }
+        private void CustomFirstName_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("CelebritiesIntros", "CustomFirstName", CustomFirstName.Text);
+        }
+
+        private void CustomLastName_TextChanged(object sender, EventArgs e)
+        {
+            INIFunctions.SaveINIValue("CelebritiesIntros", "CustomLastName", CustomLastName.Text);
+        } 
+
         #endregion
 
         // ----------------------------------------------------------
@@ -3035,8 +3070,11 @@ namespace WTDE_Launcher_V3.Core {
 
 
 
+
         #endregion
 
        
+
+        
     }
 }
