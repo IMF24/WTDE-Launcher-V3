@@ -263,7 +263,7 @@ namespace WTDE_Launcher_V3.Core {
             RichPresence.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "RichPresence"));
             AllowHolidays.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "AllowHolidays"));
             DefaultQPODifficulty.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "DefaultQPODifficulty"),
-                new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" },
+                new string[] { "easy_rhythm", "easy", "medium", "hard", "expert" },
                 new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" });
             Language.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Config", "Language", "en"),
                 V3LauncherConstants.Languages[1], V3LauncherConstants.Languages[0]);
