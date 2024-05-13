@@ -61,11 +61,14 @@ namespace WTDE_Launcher_V3.IO {
                         if (textReader.GetAttribute("id") == sIDKey) {
                             returnString = textReader.ReadString();
                             V3LauncherCore.AddDebugEntry($"String for {sIDKey} was found! Read value was {returnString}", "XML Functions: AspyrGetString");
+
+                            return returnString;
+
                             break;
                         }
                     }
 
-                    V3LauncherCore.AddDebugEntry("Nothing found yet, keep looking...", "XML Functions: AspyrGetString");
+                    //~ V3LauncherCore.AddDebugEntry("Nothing found yet, keep looking...", "XML Functions: AspyrGetString");
                 }
 
                 // Did we find the string we want?
@@ -151,7 +154,7 @@ namespace WTDE_Launcher_V3.IO {
                             return;
                         }
 
-                        V3LauncherCore.AddDebugEntry("Attribute not found in existing nodes, still looking...", "XML Functions: AspyrWriteString");
+                        //~ V3LauncherCore.AddDebugEntry("Attribute not found in existing nodes, still looking...", "XML Functions: AspyrWriteString");
                     }
                 }
 

@@ -6,7 +6,7 @@
       \/  \/   \/ /___,'\__/      \____/\_/ \_/\___/\_\ \/\____/\/ /_/\__/\/ \_/      \_/ |____/ 
     
     GHWT: Definitive Edition Launcher Version 3 - By IMF24
-     - - - - - - - - - - - - - - - - - - - - - - - - - -
+     - - - - - - - - - - - - -  - - - - - - - - - - - - -
     
     The 3rd generation launcher program for Guitar Hero World Tour: Definitive Edition, but now
     expanded even further and made as pretty as Uzis' original launcher!

@@ -34,6 +34,7 @@
             this.IGNCharsHeader = new System.Windows.Forms.Label();
             this.SortByCateLabel = new System.Windows.Forms.Label();
             this.GameSortFilter = new System.Windows.Forms.ComboBox();
+            this.ExportCharListButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InfoHeaderLabel
@@ -69,7 +70,7 @@
             // 
             this.RefreshCharModsButton.Location = new System.Drawing.Point(397, 386);
             this.RefreshCharModsButton.Name = "RefreshCharModsButton";
-            this.RefreshCharModsButton.Size = new System.Drawing.Size(345, 23);
+            this.RefreshCharModsButton.Size = new System.Drawing.Size(157, 23);
             this.RefreshCharModsButton.TabIndex = 3;
             this.RefreshCharModsButton.Text = "Refresh List";
             this.RefreshCharModsButton.UseVisualStyleBackColor = true;
@@ -150,11 +151,22 @@
             this.GameSortFilter.TabIndex = 9;
             this.GameSortFilter.SelectedIndexChanged += new System.EventHandler(this.GameSortFilter_SelectedIndexChanged);
             // 
+            // ExportCharListButton
+            // 
+            this.ExportCharListButton.Location = new System.Drawing.Point(582, 386);
+            this.ExportCharListButton.Name = "ExportCharListButton";
+            this.ExportCharListButton.Size = new System.Drawing.Size(157, 23);
+            this.ExportCharListButton.TabIndex = 10;
+            this.ExportCharListButton.Text = "Export Character List...";
+            this.ExportCharListButton.UseVisualStyleBackColor = true;
+            this.ExportCharListButton.Click += new System.EventHandler(this.ExportCharListButton_Click);
+            // 
             // SelectCharacterMod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(751, 444);
+            this.Controls.Add(this.ExportCharListButton);
             this.Controls.Add(this.GameSortFilter);
             this.Controls.Add(this.SortByCateLabel);
             this.Controls.Add(this.IGNCharsHeader);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.Label IGNCharsHeader;
         private System.Windows.Forms.Label SortByCateLabel;
         private System.Windows.Forms.ComboBox GameSortFilter;
+        private System.Windows.Forms.Button ExportCharListButton;
     }
 }
