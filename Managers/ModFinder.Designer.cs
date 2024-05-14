@@ -28,37 +28,38 @@
             this.ModFinderHeader = new System.Windows.Forms.Label();
             this.FindSongs = new System.Windows.Forms.RadioButton();
             this.ModTypeGroup = new System.Windows.Forms.GroupBox();
-            this.FindCharacters = new System.Windows.Forms.RadioButton();
-            this.FindInstruments = new System.Windows.Forms.RadioButton();
-            this.FindVenues = new System.Windows.Forms.RadioButton();
-            this.FindCategories = new System.Windows.Forms.RadioButton();
-            this.FindHighways = new System.Windows.Forms.RadioButton();
-            this.FindMenuMusics = new System.Windows.Forms.RadioButton();
-            this.FindGemThemes = new System.Windows.Forms.RadioButton();
-            this.FindScripts = new System.Windows.Forms.RadioButton();
             this.FindAllMods = new System.Windows.Forms.RadioButton();
+            this.FindScripts = new System.Windows.Forms.RadioButton();
+            this.FindGemThemes = new System.Windows.Forms.RadioButton();
+            this.FindMenuMusics = new System.Windows.Forms.RadioButton();
+            this.FindHighways = new System.Windows.Forms.RadioButton();
+            this.FindCategories = new System.Windows.Forms.RadioButton();
+            this.FindVenues = new System.Windows.Forms.RadioButton();
+            this.FindInstruments = new System.Windows.Forms.RadioButton();
+            this.FindCharacters = new System.Windows.Forms.RadioButton();
             this.PathLabel = new System.Windows.Forms.Label();
             this.SearchFiltersGroup = new System.Windows.Forms.GroupBox();
-            this.PathFilter = new System.Windows.Forms.TextBox();
-            this.ModNameLabel = new System.Windows.Forms.Label();
-            this.ModName = new System.Windows.Forms.TextBox();
-            this.ModAuthor = new System.Windows.Forms.TextBox();
-            this.ModAuthorLabel = new System.Windows.Forms.Label();
-            this.ModVersion = new System.Windows.Forms.TextBox();
-            this.ModVersionLabel = new System.Windows.Forms.Label();
+            this.CaseSensitiveWarning = new System.Windows.Forms.Label();
             this.ModDescription = new System.Windows.Forms.TextBox();
             this.ModDescLabel = new System.Windows.Forms.Label();
+            this.ModVersion = new System.Windows.Forms.TextBox();
+            this.ModVersionLabel = new System.Windows.Forms.Label();
+            this.ModAuthor = new System.Windows.Forms.TextBox();
+            this.ModAuthorLabel = new System.Windows.Forms.Label();
+            this.ModName = new System.Windows.Forms.TextBox();
+            this.ModNameLabel = new System.Windows.Forms.Label();
+            this.PathFilter = new System.Windows.Forms.TextBox();
             this.SearchResultsHeader = new System.Windows.Forms.Label();
             this.FindResultsList = new System.Windows.Forms.ListBox();
             this.FindModsButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.CaseSensitiveWarning = new System.Windows.Forms.Label();
             this.CopySelectedPath = new System.Windows.Forms.Button();
             this.OpenSelectedFolder = new System.Windows.Forms.Button();
             this.DeleteSelectedMod = new System.Windows.Forms.Button();
             this.OpenSelectedConfig = new System.Windows.Forms.Button();
             this.ActionsHeader = new System.Windows.Forms.Label();
             this.FinderToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.ExportResultList = new System.Windows.Forms.Button();
             this.ModTypeGroup.SuspendLayout();
             this.SearchFiltersGroup.SuspendLayout();
             this.SuspendLayout();
@@ -103,86 +104,6 @@
             this.ModTypeGroup.Text = "Mod Type";
             this.FinderToolTipMain.SetToolTip(this.ModTypeGroup, "Filter the mod search down to a certain mod type.");
             // 
-            // FindCharacters
-            // 
-            this.FindCharacters.AutoSize = true;
-            this.FindCharacters.Location = new System.Drawing.Point(219, 19);
-            this.FindCharacters.Name = "FindCharacters";
-            this.FindCharacters.Size = new System.Drawing.Size(71, 17);
-            this.FindCharacters.TabIndex = 4;
-            this.FindCharacters.Text = "Character";
-            this.FindCharacters.UseVisualStyleBackColor = true;
-            // 
-            // FindInstruments
-            // 
-            this.FindInstruments.AutoSize = true;
-            this.FindInstruments.Location = new System.Drawing.Point(324, 19);
-            this.FindInstruments.Name = "FindInstruments";
-            this.FindInstruments.Size = new System.Drawing.Size(74, 17);
-            this.FindInstruments.TabIndex = 5;
-            this.FindInstruments.Text = "Instrument";
-            this.FindInstruments.UseVisualStyleBackColor = true;
-            // 
-            // FindVenues
-            // 
-            this.FindVenues.AutoSize = true;
-            this.FindVenues.Location = new System.Drawing.Point(18, 42);
-            this.FindVenues.Name = "FindVenues";
-            this.FindVenues.Size = new System.Drawing.Size(56, 17);
-            this.FindVenues.TabIndex = 6;
-            this.FindVenues.Text = "Venue";
-            this.FindVenues.UseVisualStyleBackColor = true;
-            // 
-            // FindCategories
-            // 
-            this.FindCategories.AutoSize = true;
-            this.FindCategories.Location = new System.Drawing.Point(96, 19);
-            this.FindCategories.Name = "FindCategories";
-            this.FindCategories.Size = new System.Drawing.Size(95, 17);
-            this.FindCategories.TabIndex = 7;
-            this.FindCategories.Text = "Song Category";
-            this.FindCategories.UseVisualStyleBackColor = true;
-            // 
-            // FindHighways
-            // 
-            this.FindHighways.AutoSize = true;
-            this.FindHighways.Location = new System.Drawing.Point(433, 19);
-            this.FindHighways.Name = "FindHighways";
-            this.FindHighways.Size = new System.Drawing.Size(66, 17);
-            this.FindHighways.TabIndex = 8;
-            this.FindHighways.Text = "Highway";
-            this.FindHighways.UseVisualStyleBackColor = true;
-            // 
-            // FindMenuMusics
-            // 
-            this.FindMenuMusics.AutoSize = true;
-            this.FindMenuMusics.Location = new System.Drawing.Point(96, 42);
-            this.FindMenuMusics.Name = "FindMenuMusics";
-            this.FindMenuMusics.Size = new System.Drawing.Size(83, 17);
-            this.FindMenuMusics.TabIndex = 9;
-            this.FindMenuMusics.Text = "Menu Music";
-            this.FindMenuMusics.UseVisualStyleBackColor = true;
-            // 
-            // FindGemThemes
-            // 
-            this.FindGemThemes.AutoSize = true;
-            this.FindGemThemes.Location = new System.Drawing.Point(219, 42);
-            this.FindGemThemes.Name = "FindGemThemes";
-            this.FindGemThemes.Size = new System.Drawing.Size(83, 17);
-            this.FindGemThemes.TabIndex = 10;
-            this.FindGemThemes.Text = "Gem Theme";
-            this.FindGemThemes.UseVisualStyleBackColor = true;
-            // 
-            // FindScripts
-            // 
-            this.FindScripts.AutoSize = true;
-            this.FindScripts.Location = new System.Drawing.Point(324, 42);
-            this.FindScripts.Name = "FindScripts";
-            this.FindScripts.Size = new System.Drawing.Size(52, 17);
-            this.FindScripts.TabIndex = 11;
-            this.FindScripts.Text = "Script";
-            this.FindScripts.UseVisualStyleBackColor = true;
-            // 
             // FindAllMods
             // 
             this.FindAllMods.AutoSize = true;
@@ -194,6 +115,86 @@
             this.FindAllMods.TabStop = true;
             this.FindAllMods.Text = "Any";
             this.FindAllMods.UseVisualStyleBackColor = true;
+            // 
+            // FindScripts
+            // 
+            this.FindScripts.AutoSize = true;
+            this.FindScripts.Location = new System.Drawing.Point(324, 42);
+            this.FindScripts.Name = "FindScripts";
+            this.FindScripts.Size = new System.Drawing.Size(52, 17);
+            this.FindScripts.TabIndex = 11;
+            this.FindScripts.Text = "Script";
+            this.FindScripts.UseVisualStyleBackColor = true;
+            // 
+            // FindGemThemes
+            // 
+            this.FindGemThemes.AutoSize = true;
+            this.FindGemThemes.Location = new System.Drawing.Point(219, 42);
+            this.FindGemThemes.Name = "FindGemThemes";
+            this.FindGemThemes.Size = new System.Drawing.Size(83, 17);
+            this.FindGemThemes.TabIndex = 10;
+            this.FindGemThemes.Text = "Gem Theme";
+            this.FindGemThemes.UseVisualStyleBackColor = true;
+            // 
+            // FindMenuMusics
+            // 
+            this.FindMenuMusics.AutoSize = true;
+            this.FindMenuMusics.Location = new System.Drawing.Point(96, 42);
+            this.FindMenuMusics.Name = "FindMenuMusics";
+            this.FindMenuMusics.Size = new System.Drawing.Size(83, 17);
+            this.FindMenuMusics.TabIndex = 9;
+            this.FindMenuMusics.Text = "Menu Music";
+            this.FindMenuMusics.UseVisualStyleBackColor = true;
+            // 
+            // FindHighways
+            // 
+            this.FindHighways.AutoSize = true;
+            this.FindHighways.Location = new System.Drawing.Point(433, 19);
+            this.FindHighways.Name = "FindHighways";
+            this.FindHighways.Size = new System.Drawing.Size(66, 17);
+            this.FindHighways.TabIndex = 8;
+            this.FindHighways.Text = "Highway";
+            this.FindHighways.UseVisualStyleBackColor = true;
+            // 
+            // FindCategories
+            // 
+            this.FindCategories.AutoSize = true;
+            this.FindCategories.Location = new System.Drawing.Point(96, 19);
+            this.FindCategories.Name = "FindCategories";
+            this.FindCategories.Size = new System.Drawing.Size(95, 17);
+            this.FindCategories.TabIndex = 7;
+            this.FindCategories.Text = "Song Category";
+            this.FindCategories.UseVisualStyleBackColor = true;
+            // 
+            // FindVenues
+            // 
+            this.FindVenues.AutoSize = true;
+            this.FindVenues.Location = new System.Drawing.Point(18, 42);
+            this.FindVenues.Name = "FindVenues";
+            this.FindVenues.Size = new System.Drawing.Size(56, 17);
+            this.FindVenues.TabIndex = 6;
+            this.FindVenues.Text = "Venue";
+            this.FindVenues.UseVisualStyleBackColor = true;
+            // 
+            // FindInstruments
+            // 
+            this.FindInstruments.AutoSize = true;
+            this.FindInstruments.Location = new System.Drawing.Point(324, 19);
+            this.FindInstruments.Name = "FindInstruments";
+            this.FindInstruments.Size = new System.Drawing.Size(74, 17);
+            this.FindInstruments.TabIndex = 5;
+            this.FindInstruments.Text = "Instrument";
+            this.FindInstruments.UseVisualStyleBackColor = true;
+            // 
+            // FindCharacters
+            // 
+            this.FindCharacters.AutoSize = true;
+            this.FindCharacters.Location = new System.Drawing.Point(219, 19);
+            this.FindCharacters.Name = "FindCharacters";
+            this.FindCharacters.Size = new System.Drawing.Size(71, 17);
+            this.FindCharacters.TabIndex = 4;
+            this.FindCharacters.Text = "Character";
+            this.FindCharacters.UseVisualStyleBackColor = true;
             // 
             // PathLabel
             // 
@@ -225,47 +226,32 @@
             this.SearchFiltersGroup.Text = "Search Filters";
             this.FinderToolTipMain.SetToolTip(this.SearchFiltersGroup, "Various other filters to apply to the search query.");
             // 
-            // PathFilter
+            // CaseSensitiveWarning
             // 
-            this.PathFilter.Location = new System.Drawing.Point(110, 34);
-            this.PathFilter.Name = "PathFilter";
-            this.PathFilter.Size = new System.Drawing.Size(389, 20);
-            this.PathFilter.TabIndex = 6;
-            this.FinderToolTipMain.SetToolTip(this.PathFilter, "Look for a specific path/folder/file name.");
+            this.CaseSensitiveWarning.AutoSize = true;
+            this.CaseSensitiveWarning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.CaseSensitiveWarning.Location = new System.Drawing.Point(6, 16);
+            this.CaseSensitiveWarning.Name = "CaseSensitiveWarning";
+            this.CaseSensitiveWarning.Size = new System.Drawing.Size(187, 15);
+            this.CaseSensitiveWarning.TabIndex = 15;
+            this.CaseSensitiveWarning.Text = "Note: Fields are case-insensitive.";
             // 
-            // ModNameLabel
+            // ModDescription
             // 
-            this.ModNameLabel.AutoSize = true;
-            this.ModNameLabel.Location = new System.Drawing.Point(40, 72);
-            this.ModNameLabel.Name = "ModNameLabel";
-            this.ModNameLabel.Size = new System.Drawing.Size(62, 13);
-            this.ModNameLabel.TabIndex = 7;
-            this.ModNameLabel.Text = "Mod Name:";
+            this.ModDescription.Location = new System.Drawing.Point(110, 139);
+            this.ModDescription.Name = "ModDescription";
+            this.ModDescription.Size = new System.Drawing.Size(389, 20);
+            this.ModDescription.TabIndex = 14;
+            this.FinderToolTipMain.SetToolTip(this.ModDescription, "Searches the ModInfo section for a mod\'s description.");
             // 
-            // ModName
+            // ModDescLabel
             // 
-            this.ModName.Location = new System.Drawing.Point(110, 69);
-            this.ModName.Name = "ModName";
-            this.ModName.Size = new System.Drawing.Size(389, 20);
-            this.ModName.TabIndex = 8;
-            this.FinderToolTipMain.SetToolTip(this.ModName, "Searches the ModInfo section for a mod\'s name.");
-            // 
-            // ModAuthor
-            // 
-            this.ModAuthor.Location = new System.Drawing.Point(110, 92);
-            this.ModAuthor.Name = "ModAuthor";
-            this.ModAuthor.Size = new System.Drawing.Size(389, 20);
-            this.ModAuthor.TabIndex = 10;
-            this.FinderToolTipMain.SetToolTip(this.ModAuthor, "Searches the ModInfo section for a mod\'s author.");
-            // 
-            // ModAuthorLabel
-            // 
-            this.ModAuthorLabel.AutoSize = true;
-            this.ModAuthorLabel.Location = new System.Drawing.Point(37, 95);
-            this.ModAuthorLabel.Name = "ModAuthorLabel";
-            this.ModAuthorLabel.Size = new System.Drawing.Size(65, 13);
-            this.ModAuthorLabel.TabIndex = 9;
-            this.ModAuthorLabel.Text = "Mod Author:";
+            this.ModDescLabel.AutoSize = true;
+            this.ModDescLabel.Location = new System.Drawing.Point(15, 142);
+            this.ModDescLabel.Name = "ModDescLabel";
+            this.ModDescLabel.Size = new System.Drawing.Size(87, 13);
+            this.ModDescLabel.TabIndex = 13;
+            this.ModDescLabel.Text = "Mod Description:";
             // 
             // ModVersion
             // 
@@ -284,22 +270,47 @@
             this.ModVersionLabel.TabIndex = 11;
             this.ModVersionLabel.Text = "Mod Version:";
             // 
-            // ModDescription
+            // ModAuthor
             // 
-            this.ModDescription.Location = new System.Drawing.Point(110, 139);
-            this.ModDescription.Name = "ModDescription";
-            this.ModDescription.Size = new System.Drawing.Size(389, 20);
-            this.ModDescription.TabIndex = 14;
-            this.FinderToolTipMain.SetToolTip(this.ModDescription, "Searches the ModInfo section for a mod\'s description.");
+            this.ModAuthor.Location = new System.Drawing.Point(110, 92);
+            this.ModAuthor.Name = "ModAuthor";
+            this.ModAuthor.Size = new System.Drawing.Size(389, 20);
+            this.ModAuthor.TabIndex = 10;
+            this.FinderToolTipMain.SetToolTip(this.ModAuthor, "Searches the ModInfo section for a mod\'s author.");
             // 
-            // ModDescLabel
+            // ModAuthorLabel
             // 
-            this.ModDescLabel.AutoSize = true;
-            this.ModDescLabel.Location = new System.Drawing.Point(15, 142);
-            this.ModDescLabel.Name = "ModDescLabel";
-            this.ModDescLabel.Size = new System.Drawing.Size(87, 13);
-            this.ModDescLabel.TabIndex = 13;
-            this.ModDescLabel.Text = "Mod Description:";
+            this.ModAuthorLabel.AutoSize = true;
+            this.ModAuthorLabel.Location = new System.Drawing.Point(37, 95);
+            this.ModAuthorLabel.Name = "ModAuthorLabel";
+            this.ModAuthorLabel.Size = new System.Drawing.Size(65, 13);
+            this.ModAuthorLabel.TabIndex = 9;
+            this.ModAuthorLabel.Text = "Mod Author:";
+            // 
+            // ModName
+            // 
+            this.ModName.Location = new System.Drawing.Point(110, 69);
+            this.ModName.Name = "ModName";
+            this.ModName.Size = new System.Drawing.Size(389, 20);
+            this.ModName.TabIndex = 8;
+            this.FinderToolTipMain.SetToolTip(this.ModName, "Searches the ModInfo section for a mod\'s name.");
+            // 
+            // ModNameLabel
+            // 
+            this.ModNameLabel.AutoSize = true;
+            this.ModNameLabel.Location = new System.Drawing.Point(40, 72);
+            this.ModNameLabel.Name = "ModNameLabel";
+            this.ModNameLabel.Size = new System.Drawing.Size(62, 13);
+            this.ModNameLabel.TabIndex = 7;
+            this.ModNameLabel.Text = "Mod Name:";
+            // 
+            // PathFilter
+            // 
+            this.PathFilter.Location = new System.Drawing.Point(110, 34);
+            this.PathFilter.Name = "PathFilter";
+            this.PathFilter.Size = new System.Drawing.Size(389, 20);
+            this.PathFilter.TabIndex = 6;
+            this.FinderToolTipMain.SetToolTip(this.PathFilter, "Look for a specific path/folder/file name.");
             // 
             // SearchResultsHeader
             // 
@@ -343,16 +354,6 @@
             this.FinderToolTipMain.SetToolTip(this.CloseButton, "Closes this window.");
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // CaseSensitiveWarning
-            // 
-            this.CaseSensitiveWarning.AutoSize = true;
-            this.CaseSensitiveWarning.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.CaseSensitiveWarning.Location = new System.Drawing.Point(6, 16);
-            this.CaseSensitiveWarning.Name = "CaseSensitiveWarning";
-            this.CaseSensitiveWarning.Size = new System.Drawing.Size(187, 15);
-            this.CaseSensitiveWarning.TabIndex = 15;
-            this.CaseSensitiveWarning.Text = "Note: Fields are case-insensitive.";
             // 
             // CopySelectedPath
             // 
@@ -408,11 +409,23 @@
             this.ActionsHeader.TabIndex = 15;
             this.ActionsHeader.Text = "Actions:";
             // 
+            // ExportResultList
+            // 
+            this.ExportResultList.Location = new System.Drawing.Point(394, 433);
+            this.ExportResultList.Name = "ExportResultList";
+            this.ExportResultList.Size = new System.Drawing.Size(136, 23);
+            this.ExportResultList.TabIndex = 16;
+            this.ExportResultList.Text = "Export Result List...";
+            this.FinderToolTipMain.SetToolTip(this.ExportResultList, "Writes all results to a text file on the disk.");
+            this.ExportResultList.UseVisualStyleBackColor = true;
+            this.ExportResultList.Click += new System.EventHandler(this.ExportResultList_Click);
+            // 
             // ModFinder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 628);
+            this.Controls.Add(this.ExportResultList);
             this.Controls.Add(this.ActionsHeader);
             this.Controls.Add(this.OpenSelectedConfig);
             this.Controls.Add(this.DeleteSelectedMod);
@@ -477,5 +490,6 @@
         private System.Windows.Forms.Button OpenSelectedConfig;
         private System.Windows.Forms.Label ActionsHeader;
         private System.Windows.Forms.ToolTip FinderToolTipMain;
+        private System.Windows.Forms.Button ExportResultList;
     }
 }

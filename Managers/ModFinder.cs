@@ -182,11 +182,13 @@ namespace WTDE_Launcher_V3.Managers {
 
         public void UpdateActionButtons() {
             bool enableButton = (FindResultsList.Items.Count > 0 && FindResultsList.SelectedItems.Count > 0);
+            bool enableExportButton = (FindResultsList.Items.Count > 0);
 
             CopySelectedPath.Enabled = enableButton;
             OpenSelectedConfig.Enabled = enableButton;
             OpenSelectedFolder.Enabled = enableButton;
             DeleteSelectedMod.Enabled = enableButton;
+            ExportResultList.Enabled = enableExportButton;
         }
 
         private void CopySelectedPath_Click(object sender, EventArgs e) {
@@ -217,6 +219,31 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void FindResultsList_SelectedIndexChanged(object sender, EventArgs e) {
             UpdateActionButtons();
+        }
+
+        public void WriteResultList()
+        {
+            if (FindResultsList.Items.Count <= 0) return;
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Save Result Text File";
+            sfd.Filter = "Text Files|*.txt|All Files|*.*";
+            
+            sfd.ShowDialog();
+
+            if (sfd.FileName != "")
+            {
+                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8)) {
+                    sw.WriteLine("Exported Results:\n");
+
+                    foreach (var item in FindResultsList.Items) { sw.WriteLine(item.ToString()); }
+                }
+            }
+        }
+
+        private void ExportResultList_Click(object sender, EventArgs e)
+        {
+            WriteResultList();
         }
     }
 }
