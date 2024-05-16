@@ -43,6 +43,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageSaveFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rockStarCreatorCharacterManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyzeDebugLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.closeModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -197,6 +198,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageSaveFilesToolStripMenuItem,
             this.rockStarCreatorCharacterManagerToolStripMenuItem,
+            this.analyzeDebugLogToolStripMenuItem,
             this.toolStripSeparator4,
             this.closeModManagerToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -218,6 +220,14 @@
             this.rockStarCreatorCharacterManagerToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.rockStarCreatorCharacterManagerToolStripMenuItem.Text = "Rock Star Creator Character Manager";
             this.rockStarCreatorCharacterManagerToolStripMenuItem.Click += new System.EventHandler(this.rockStarCreatorCharacterManagerToolStripMenuItem_Click);
+            // 
+            // analyzeDebugLogToolStripMenuItem
+            // 
+            this.analyzeDebugLogToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.icon_dbg_analyze;
+            this.analyzeDebugLogToolStripMenuItem.Name = "analyzeDebugLogToolStripMenuItem";
+            this.analyzeDebugLogToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.analyzeDebugLogToolStripMenuItem.Text = "Analyze WTDE Debug Logs...";
+            this.analyzeDebugLogToolStripMenuItem.Click += new System.EventHandler(this.analyzeDebugLogToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -520,5 +530,6 @@
         private System.Windows.Forms.ToolStripMenuItem assignGH3SPFXToCharacterModToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem modifyAndCreateBandLineupsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analyzeDebugLogToolStripMenuItem;
     }
 }

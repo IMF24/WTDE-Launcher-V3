@@ -177,7 +177,7 @@ namespace WTDE_Launcher_V3.IO {
             file.Sections[section].Keys[key].Value = value;
             file.Save(V3LauncherConstants.WTDEConfigDir);
         }
-
+        
         /// <summary>
         ///  Takes an input string, and interprets it into something displayable to the end user OR
         ///  a string that can be written to GHWTDE.ini. Both input arrays MUST match in length.

@@ -618,6 +618,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_dbg_analyze {
+            get {
+                object obj = ResourceManager.GetObject("icon_dbg_analyze", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_difficulty_beginner {
             get {
                 object obj = ResourceManager.GetObject("icon_difficulty_beginner", resourceCulture);

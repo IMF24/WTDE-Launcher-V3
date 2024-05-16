@@ -1360,7 +1360,7 @@ namespace WTDE_Launcher_V3.Core {
         private void DefaultQPODifficulty_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "DefaultQPODifficulty", INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text,
                 new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
-                new string[] { "easy_rhythm", "easy", "normal", "hard", "expert" }));
+                new string[] { "easy_rhythm", "easy", "medium", "hard", "expert" }));
         }
 
         private void AudioBuffLen_SelectedIndexChanged(object sender, EventArgs e) {

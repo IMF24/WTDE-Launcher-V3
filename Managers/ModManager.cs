@@ -281,5 +281,10 @@ namespace WTDE_Launcher_V3.Managers {
             ModifyCustomBands mcb = new ModifyCustomBands();
             mcb.ShowDialog();
         }
+
+        private void analyzeDebugLogToolStripMenuItem_Click(object sender, EventArgs e) {
+            DebugLogAnalyzer dla = new DebugLogAnalyzer();
+            dla.ShowDialog();
+        }
     }
 }

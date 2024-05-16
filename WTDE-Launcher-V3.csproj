@@ -159,11 +159,18 @@
     <Compile Include="IntroHelloScreen.Designer.cs">
       <DependentUpon>IntroHelloScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO\Data\DataReader.cs" />
     <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Managers\CARManager.Designer.cs">
       <DependentUpon>CARManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\DebugLogAnalyzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\DebugLogAnalyzer.Designer.cs">
+      <DependentUpon>DebugLogAnalyzer.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\DupeChecksumManager.cs">
       <SubType>Form</SubType>
@@ -303,6 +310,12 @@
     <EmbeddedResource Include="Managers\CARManager.resx">
       <DependentUpon>CARManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\DebugLogAnalyzer.dje.resx">
+      <DependentUpon>DebugLogAnalyzer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\DebugLogAnalyzer.resx">
+      <DependentUpon>DebugLogAnalyzer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\DupeChecksumManager.resx">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,6 +407,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\icon\icon_dbg_analyze.png" />
     <None Include="res\img\icon\instruments.png" />
     <None Include="res\img\chalk_left.png" />
     <None Include="res\img\chalk_right.png" />
