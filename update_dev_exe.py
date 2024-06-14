@@ -22,7 +22,7 @@ while (not OS.path.exists(f"{dest}/Packages/ghde_content/Content")):
     dest = input("? Enter the path to the WTDE developers repository. >> ")
 
 # Remove the old one and copy the new one!
-out_dir = OS.path.join(dest, "GHWT_Definitive_Launcher.exe")
+out_dir = OS.path.join(dest, "Packages/ghde_content/Content/GHWT_Definitive_Launcher.exe")
 if (OS.path.exists(out_dir)): OS.remove(out_dir)
 SHUT.copy(src, out_dir)
 
