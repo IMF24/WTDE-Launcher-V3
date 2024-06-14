@@ -40,6 +40,14 @@ namespace WTDE_Launcher_V3.Core {
             Application.Run(new Main());
         }
 
+        // --------------------------------
+        // Debug console junk, lovely
+        // --------------------------------
+
+        /// <summary>
+        ///  Initialize the console!
+        /// </summary>
+        /// <param name="alwaysCreateNewConsole"></param>
         public static void InitializeConsole(bool alwaysCreateNewConsole = true) {
             bool consoleAttached = true;
             if (alwaysCreateNewConsole || (AttachConsole(4294967295u) == 0u && (long)Marshal.GetLastWin32Error() != 5L)) {
@@ -51,6 +59,9 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        /// <summary>
+        ///  Initialize the output stream!
+        /// </summary>
         public static void InitializeOutStream() {
             FileStream fs = CreateFileStream("CONOUT$", 1073741824u, 2u, FileAccess.Write);
             if (fs != null) {
@@ -61,6 +72,9 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        /// <summary>
+        ///  Initialize the input stream!
+        /// </summary>
         public static void InitializeInStream() {
             FileStream fs = CreateFileStream("CONIN$", 2147483648u, 1u, FileAccess.Read);
             if (fs != null) {
@@ -68,6 +82,14 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        /// <summary>
+        ///  Make a file stream. What?
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="win32DesiredAccess"></param>
+        /// <param name="win32ShareMode"></param>
+        /// <param name="dotNetFileAccess"></param>
+        /// <returns></returns>
         public static FileStream CreateFileStream(string name, uint win32DesiredAccess, uint win32ShareMode, FileAccess dotNetFileAccess) {
             SafeFileHandle file = new SafeFileHandle(CreateFileW(name, win32DesiredAccess, win32ShareMode, IntPtr.Zero, 3u, 128u, IntPtr.Zero), true);
             if (!file.IsInvalid) {
@@ -75,6 +97,10 @@ namespace WTDE_Launcher_V3.Core {
             }
             return null;
         }
+
+        // --------------------------------
+        // DLL IMPORTS FOR CONSOLE STUFF
+        // --------------------------------
 
         [DllImport("kernel32.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Auto, SetLastError = true)]
         static extern public int AllocConsole();

@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\BGConstants.cs" />
+    <Compile Include="Core\Helpers.cs" />
     <Compile Include="Core\NXFunctions.cs" />
     <Compile Include="IntroHelloScreen.cs">
       <SubType>Form</SubType>
@@ -160,6 +161,7 @@
       <DependentUpon>IntroHelloScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="IO\Data\DataReader.cs" />
+    <Compile Include="IO\INI.cs" />
     <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>

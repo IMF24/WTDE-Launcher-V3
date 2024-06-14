@@ -72,6 +72,19 @@
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewByModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.songModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.characterModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.instrumentModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.songCategoryModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainMenuMusicModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.highwayModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gemThemeModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scriptModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.noFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.venueModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -185,6 +198,7 @@
             this.ModManagerMenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.modsToolStripMenuItem,
+            this.viewToolStripMenuItem,
             this.songsToolStripMenuItem,
             this.scriptModEditorsToolStripMenuItem});
             this.ModManagerMenuMain.Location = new System.Drawing.Point(0, 0);
@@ -223,10 +237,12 @@
             // 
             // analyzeDebugLogToolStripMenuItem
             // 
+            this.analyzeDebugLogToolStripMenuItem.Enabled = false;
             this.analyzeDebugLogToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.icon_dbg_analyze;
             this.analyzeDebugLogToolStripMenuItem.Name = "analyzeDebugLogToolStripMenuItem";
             this.analyzeDebugLogToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.analyzeDebugLogToolStripMenuItem.Text = "Analyze WTDE Debug Logs...";
+            this.analyzeDebugLogToolStripMenuItem.Visible = false;
             this.analyzeDebugLogToolStripMenuItem.Click += new System.EventHandler(this.analyzeDebugLogToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
@@ -413,10 +429,12 @@
             // 
             // modifyAndCreateBandLineupsToolStripMenuItem
             // 
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Enabled = false;
             this.modifyAndCreateBandLineupsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.instruments;
             this.modifyAndCreateBandLineupsToolStripMenuItem.Name = "modifyAndCreateBandLineupsToolStripMenuItem";
             this.modifyAndCreateBandLineupsToolStripMenuItem.Size = new System.Drawing.Size(285, 22);
             this.modifyAndCreateBandLineupsToolStripMenuItem.Text = "Modify and Create Band Lineups...";
+            this.modifyAndCreateBandLineupsToolStripMenuItem.Visible = false;
             this.modifyAndCreateBandLineupsToolStripMenuItem.Click += new System.EventHandler(this.modifyAndCreateBandLineupsToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
@@ -456,6 +474,118 @@
             this.StatusLabelMain.Size = new System.Drawing.Size(473, 17);
             this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
     "nagers";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewByModToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // viewByModToolStripMenuItem
+            // 
+            this.viewByModToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.songModsToolStripMenuItem,
+            this.songCategoryModsToolStripMenuItem,
+            this.characterModsToolStripMenuItem,
+            this.highwayModsToolStripMenuItem,
+            this.instrumentModsToolStripMenuItem,
+            this.mainMenuMusicModsToolStripMenuItem,
+            this.gemThemeModsToolStripMenuItem,
+            this.venueModsToolStripMenuItem,
+            this.scriptModsToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.noFilterToolStripMenuItem});
+            this.viewByModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
+            this.viewByModToolStripMenuItem.Name = "viewByModToolStripMenuItem";
+            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewByModToolStripMenuItem.Text = "View By Mod Type";
+            // 
+            // songModsToolStripMenuItem
+            // 
+            this.songModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.music_note;
+            this.songModsToolStripMenuItem.Name = "songModsToolStripMenuItem";
+            this.songModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.songModsToolStripMenuItem.Text = "Song Mods";
+            this.songModsToolStripMenuItem.Click += new System.EventHandler(this.songModsToolStripMenuItem_Click);
+            // 
+            // characterModsToolStripMenuItem
+            // 
+            this.characterModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.rsc_manager;
+            this.characterModsToolStripMenuItem.Name = "characterModsToolStripMenuItem";
+            this.characterModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.characterModsToolStripMenuItem.Text = "Character Mods";
+            this.characterModsToolStripMenuItem.Click += new System.EventHandler(this.characterModsToolStripMenuItem_Click);
+            // 
+            // instrumentModsToolStripMenuItem
+            // 
+            this.instrumentModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.instruments;
+            this.instrumentModsToolStripMenuItem.Name = "instrumentModsToolStripMenuItem";
+            this.instrumentModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.instrumentModsToolStripMenuItem.Text = "Instrument Mods";
+            this.instrumentModsToolStripMenuItem.Click += new System.EventHandler(this.instrumentModsToolStripMenuItem_Click);
+            // 
+            // songCategoryModsToolStripMenuItem
+            // 
+            this.songCategoryModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.folder;
+            this.songCategoryModsToolStripMenuItem.Name = "songCategoryModsToolStripMenuItem";
+            this.songCategoryModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.songCategoryModsToolStripMenuItem.Text = "Song Category Mods";
+            this.songCategoryModsToolStripMenuItem.Click += new System.EventHandler(this.songCategoryModsToolStripMenuItem_Click);
+            // 
+            // mainMenuMusicModsToolStripMenuItem
+            // 
+            this.mainMenuMusicModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.music_note;
+            this.mainMenuMusicModsToolStripMenuItem.Name = "mainMenuMusicModsToolStripMenuItem";
+            this.mainMenuMusicModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.mainMenuMusicModsToolStripMenuItem.Text = "Main Menu Music Mods";
+            this.mainMenuMusicModsToolStripMenuItem.Click += new System.EventHandler(this.mainMenuMusicModsToolStripMenuItem_Click);
+            // 
+            // highwayModsToolStripMenuItem
+            // 
+            this.highwayModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.highway;
+            this.highwayModsToolStripMenuItem.Name = "highwayModsToolStripMenuItem";
+            this.highwayModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.highwayModsToolStripMenuItem.Text = "Highway Mods";
+            this.highwayModsToolStripMenuItem.Click += new System.EventHandler(this.highwayModsToolStripMenuItem_Click);
+            // 
+            // gemThemeModsToolStripMenuItem
+            // 
+            this.gemThemeModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.note_regular;
+            this.gemThemeModsToolStripMenuItem.Name = "gemThemeModsToolStripMenuItem";
+            this.gemThemeModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.gemThemeModsToolStripMenuItem.Text = "Gem Theme Mods";
+            this.gemThemeModsToolStripMenuItem.Click += new System.EventHandler(this.gemThemeModsToolStripMenuItem_Click);
+            // 
+            // scriptModsToolStripMenuItem
+            // 
+            this.scriptModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.edit_meta_data;
+            this.scriptModsToolStripMenuItem.Name = "scriptModsToolStripMenuItem";
+            this.scriptModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.scriptModsToolStripMenuItem.Text = "Script Mods";
+            this.scriptModsToolStripMenuItem.Click += new System.EventHandler(this.scriptModsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(200, 6);
+            // 
+            // noFilterToolStripMenuItem
+            // 
+            this.noFilterToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
+            this.noFilterToolStripMenuItem.Name = "noFilterToolStripMenuItem";
+            this.noFilterToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.noFilterToolStripMenuItem.Text = "No Filter";
+            this.noFilterToolStripMenuItem.Click += new System.EventHandler(this.noFilterToolStripMenuItem_Click);
+            // 
+            // venueModsToolStripMenuItem
+            // 
+            this.venueModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.friend_list_manager;
+            this.venueModsToolStripMenuItem.Name = "venueModsToolStripMenuItem";
+            this.venueModsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.venueModsToolStripMenuItem.Text = "Venue Mods";
+            this.venueModsToolStripMenuItem.Click += new System.EventHandler(this.venueModsToolStripMenuItem_Click);
             // 
             // ModManager
             // 
@@ -531,5 +661,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem modifyAndCreateBandLineupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analyzeDebugLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewByModToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem songModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem songCategoryModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem characterModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem highwayModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem instrumentModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mainMenuMusicModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gemThemeModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem venueModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scriptModsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem noFilterToolStripMenuItem;
     }
 }

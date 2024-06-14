@@ -57,6 +57,7 @@ namespace WTDE_Launcher_V3.Managers {
                 new string[] { "QB or Engine Error: An error in creating a frontend menu. Contact a developer.", "005A02CE" },
                 new string[] { "Engine Error: Hook to strcmp used by Havok is failing, usually a missing piece of text. Contact a developer.", "007C9D58" },
                 new string[] { "WTDE and Engine Error: You (most likely) have too many songs tied to a single category. Remove some out of them!", "006B7897" },
+                new string[] { "Engine or Texture Error: An error has occurred with a texture dictionary in some aspect. Contact a developer.", "0065A7DE" },
 
                 new string[] { "Melody Error: Internal chart parser detected a Guitar Hero Live guitar track. This is not supported; delete ANY AND ALL GHL tracks to fix it!", "GHLGuitar" }
             },
@@ -101,86 +102,60 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // Valid log, let's scan it!
                 } else {
-                    bool hasPassedMainContent = false;
 
-                    // Scan the file and find any crashes!
+                    // Read each line and parse it!
+                    int linesDone = 0;
                     foreach (string line in content) {
 
-                        if (hasPassedMainContent) {
+                        // We want to scan over our various mod exception types.
+                        for (var i = 0; i < ModExceptionTypes.Count; i++) {
 
-                            //~ Console.WriteLine($"Scanning line: {line}");
+                            // First up, let's scan for generic errors.
+                            if (i == 0) {
 
-                            for (var i = 0; i < ModExceptionTypes.Count; i++) {
-                                // Scan generic mod exceptions with crash addresses.
-                                if (i == 0) {
+                                // Do not parse index 0! That's the text we'll give back.
+                                // Rather, we should check like this:
+                                // CRITICAL: !! -- FATAL ERROR AT {address[j]} -- !!
+                                // Make sure we call ToLower() on this!
+                                Console.WriteLine($"line text: {line.ToLower()}");
 
+                                foreach (string[] errorInfo in ModExceptionTypes[0]) {
+                                    for (var j = 1; j < errorInfo.Length; j++) {
+                                        string toCheck = $"CRITICAL: !! -- FATAL ERROR AT {errorInfo[j]} -- !!";
 
-                                    if (!hasPassedMainContent) continue;
+                                        Console.WriteLine($"string to check: {toCheck.ToLower()}");
 
-                                    foreach (string[] errorInfo in ModExceptionTypes[i]) {
-                                        for (var j = 1; j < errorInfo.Length; j++) {
-
-                                            string crashAddressString = $"CRITICAL: !! -- FATAL ERROR AT 0x{errorInfo[j].ToLower()} -- !!";
-
-                                            //~ Console.WriteLine($"Checking for string: {crashAddressString}");
-
-                                            if (hasPassedMainContent) {
-                                                if (line.ToLower().Contains(crashAddressString.ToLower())) {
-                                                    Console.WriteLine($"Crash address string was: {crashAddressString}");
-                                                    Console.WriteLine($"Line that contained the string: {line}");
-
-                                                    textOutList.Add(errorInfo[0]);
-
-                                                    break;
-                                                } else if (line.ToLower().Contains("CRITICAL: !! -- FATAL ERROR AT".ToLower())) {
-                                                    Console.WriteLine($"Crash address string was: {crashAddressString}");
-                                                    Console.WriteLine($"Line that contained the string: {line}");
-
-                                                    textOutList.Add($"I can't give a lot of info on this, but I found a crash address: {line} // Please contact a developer for further information.");
-
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    foreach (string[] errorInfo in ModExceptionTypes[i]) {
-
-                                        if (!hasPassedMainContent) continue;
-
-                                        for (var j = 1; j < errorInfo.Length; j++) {
-                                            string crashAddressString = errorInfo[j];
-
-                                            //~ Console.WriteLine($"Checking for string: {crashAddressString}");
-
-                                            if (line.ToLower().Contains(crashAddressString.ToLower())) {
-                                                Console.WriteLine($"Crash address string was: {crashAddressString}");
-                                                Console.WriteLine($"Line that contained the string: {line}");
-
-                                                textOutList.Add(errorInfo[0]);
-                                            }
+                                        if (line.ToLower().Contains(toCheck.ToLower())) {
+                                            Console.WriteLine($"Error found: {errorInfo[j]} // On line: {line}");
+                                            textOutList.Add(errorInfo[0]);
                                         }
                                     }
                                 }
+
+                            } else {
+
+
                             }
                         }
 
-                        ScanProgressBar.Value++;
-                        ScanProgressPercent.Text = $"{Math.Round(((decimal)ScanProgressBar.Value / ScanProgressBar.Maximum) * 100M, 0)}%";
+                        // Update the progress bar stuff.
+                        linesDone++;
+                        ScanProgressBar.Value = linesDone;
+
+                        decimal totalProgress = (linesDone / (decimal) content.Length) * 100;
+                        string resultStr = Math.Round(totalProgress, 0).ToString() + "%";
+
+                        ScanProgressPercent.Text = resultStr;
 
                         Application.DoEvents();
-
-                        if (line.Contains("<!> TODO: FIXME <!>") && !hasPassedMainContent) {
-                            hasPassedMainContent = true;
-                        } else continue;
                     }
 
-                    if (AnalyzeOutputText.Text.Length <= 0) {
-                        textOutList.Add("Sorry, this doesn't tell me anything. Everything looks fine.");
-                    }
+                    // - - - - - - - - - - - - - - - - - - -
 
+                    // Now let's show the results!
                     AnalyzeOutputText.Lines = textOutList.ToArray();
                 }
+
             // No file to open? Tell the user!
             } else {
                 string errorMsg = "You didn't specify a debug log path!\n\nPlease input a path to a WTDE debug log and try again.";

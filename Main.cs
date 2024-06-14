@@ -3,7 +3,7 @@
     / / /\ \ \/__   \/   \/__\      / /   /_\  /\ /\  /\ \ \/ __\ /\  /\/__\/__\    /\   /\___ / 
     \ \/  \/ /  / /\/ /\ /_\       / /   //_\\/ / \ \/  \/ / /   / /_/ /_\ / \//    \ \ / / |_ \ 
      \  /\  /  / / / /_///__      / /___/  _  \ \_/ / /\  / /___/ __  //__/ _  \     \ V / ___) |
-      \/  \/   \/ /___,'\__/      \____/\_/ \_/\___/\_\ \/\____/\/ /_/\__/\/ \_/      \_/ |____/ 
+      \/  \/   \/ /____/\__/      \____/\_/ \_/\___/\_\ \/\____/\/ /_/\__/\/ \_/      \_/ |____/ 
     
     GHWT: Definitive Edition Launcher Version 3 - By IMF24
      - - - - - - - - - - - - -  - - - - - - - - - - - - -
@@ -90,6 +90,14 @@ namespace WTDE_Launcher_V3.Core {
 
                 // Also, should we automatically update when the program starts?
                 V3LauncherCore.AutoCheckForUpdates();
+
+                // Show update needed?
+                //~ bool showUpdateNeeded = V3LauncherCore.IsWTDEUpToDate();
+                //~ Console.WriteLine($"is update needed? {showUpdateNeeded}");
+                //~ UpdateAvailableLabel.Visible = !showUpdateNeeded;
+                //~ UpdateAvailableLabel.BringToFront();
+                //~ UpdateAvailableLabel.Text = UpdateAvailableLabel.Text.Replace("VXYZ", V3LauncherCore.GetLatestVersion());
+                UpdateAvailableLabel.Visible = false;
 
                 // Can we update the game? Do we have an internet connection?
                 if (!IsNetworkConnected) {
@@ -180,14 +188,34 @@ namespace WTDE_Launcher_V3.Core {
                     ihs.ShowDialog();
                 }
 
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
+                // INI file class testing! It works beautifully! :D
+                //~ INI testIni = new INI("C:/Users/ifire/Desktop/test_ini_file.ini", true, true);
+                //~ string testValue = testIni.GetString("TestSection", "TestValue", "Something Different");
+                //~ decimal testNumber = testIni.GetDecimal("TestSection", "TestNumber");
+                //~ int testInt = testIni.GetInt("TestSection", "AnotherNumber2", 16);
+
+                //~ testIni.SetInt("TestSection", "AnotherTest", 24);
+
+                //~ Console.WriteLine($"test INI value: {testValue}");
+                //~ Console.WriteLine($"test decimal value: {testNumber}");
+                //~ Console.WriteLine($"test int value: {testInt}");
+
+                //~ testNumber += 15;
+
+                //~ Console.WriteLine($"test decimal value after addition: {testNumber}");
+
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
             } catch (Exception exc) {
                 var st = new StackTrace(exc, true);
                 var frame = st.GetFrame(0);
                 var line = frame.GetFileLineNumber();
 
-                V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.InnerException.Message}");
+                V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
                 
-                MessageBox.Show($"Uh oh, something went wrong!\n\nError information: {exc.Message}\n\nMore details:\n{exc.InnerException.Message}\nLine: line {line}\nFrame: {frame}");
+                MessageBox.Show($"Uh oh, something went wrong!\n\n----------------\n\nError information: {exc.Message}\n\n----------------\n\nLine: line {line}\nFrame: {frame}");
 
                 V3LauncherCore.WriteDebugLog();
 

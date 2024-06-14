@@ -236,7 +236,7 @@ namespace WTDE_Launcher_V3.Core {
                 // Derpy's background
                 case 6:
                     if (DateTime.Now.Day == 2) {
-                        BGIndex = 11;
+                        BGIndex = 10;
                     }
                     break;
 

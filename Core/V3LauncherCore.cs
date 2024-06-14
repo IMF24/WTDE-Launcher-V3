@@ -240,6 +240,54 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         /// <summary>
+        ///  Verifies if GHWT: DE is update to date or not, returns a boolean.
+        /// </summary>
+        /// <returns>
+        ///  True if the MD5 hashes of tb.pab.xen in the user folder and the public repo's hash list match, false if they do not.
+        /// </returns>
+        public static bool IsWTDEUpToDate() {
+            // No internet connection? Return true; we can't evaluate it.
+            if (!IsConnectedToInternet()) return true;
+
+            // Let's get the user's MD5 hash of tb.pab.xen first.
+            IniFile file = new IniFile();
+            file.Load("Updater.ini");
+
+            string wtdeDir = file.Sections["Updater"].Keys["GameDirectory"].Value;
+            string userMD5 = "", repoMD5 = "";
+
+            // Check the USER MD5 hash of tb.pab.xen.
+            using (var md5 = MD5.Create()) {
+                using (var tbFile = File.OpenRead($"{wtdeDir}/DATA/PAK/tb.pab.xen")) {
+                    var hash = md5.ComputeHash(tbFile);
+                    userMD5 = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
+            }
+
+            // Now read the Git hash list hash!
+            using (WebClient client = new WebClient()) {
+                string downloadString = client.DownloadString(V3LauncherConstants.WTDEHashList);
+                string[] hashListData = downloadString.Split(new char[] { '\r', '\n' });
+
+                bool tbPABFound = false;
+
+                foreach (string item in hashListData) {
+                    // We found it, let's get its hash!
+                    if (tbPABFound) {
+                        repoMD5 = item;
+                        break;
+                    }
+
+                    // Is this tb.pab.xen?
+                    tbPABFound = item.Contains("tb.pab.xen");
+                }
+            }
+
+            // Run the comparison, give it back!
+            return (userMD5 == repoMD5);
+        }
+
+        /// <summary>
         ///  Returns true or false if we are currently connected to the internet.
         /// </summary>
         /// <returns></returns>

@@ -78,7 +78,7 @@ namespace WTDE_Launcher_V3.Managers {
             }
         }
 
-        public void RefreshModsList() {
+        public void RefreshModsList(bool filterMods = false, string filterType = "Any") {
             UserContentModsTree.Items.Clear();
             StatusLabelMain.Text = "Refreshing mods list...";
 
@@ -86,14 +86,28 @@ namespace WTDE_Launcher_V3.Managers {
 
             ModHandler.ReadMods();
 
-            foreach (string[] mod in ModHandler.UserContentMods) {
-                var listViewItem = new ListViewItem(mod);
-                UserContentModsTree.Items.Add(listViewItem);
+            // Just list the items!
+            if (!filterMods) {
+                foreach (string[] mod in ModHandler.UserContentMods) {
+
+                    var listViewItem = new ListViewItem(mod);
+                    UserContentModsTree.Items.Add(listViewItem);
+                }
+
+            // If we made it here, DO NOT just normally list them!
+            // We want to filter them first, so let's do that!
+            } else {
+                foreach (string[] mod in ModHandler.UserContentMods) { 
+                    if (mod[2].ToLower() == filterType.ToLower()) {
+                        var listViewItem = new ListViewItem(mod);
+                        UserContentModsTree.Items.Add(listViewItem);
+                    }
+                }
             }
 
             PopulateScriptModMenu();
 
-            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods";
+            StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods, {UserContentModsTree.Items.Count} matching current filter(s)";
         }
 
         private void UserContentModsTree_SelectedIndexChanged(object sender, EventArgs e) {
@@ -285,6 +299,52 @@ namespace WTDE_Launcher_V3.Managers {
         private void analyzeDebugLogToolStripMenuItem_Click(object sender, EventArgs e) {
             DebugLogAnalyzer dla = new DebugLogAnalyzer();
             dla.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+        // MOD LISTING FILTERS
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+
+        private void songModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Song");
+        }
+
+        private void songCategoryModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Song Category");
+        }
+
+        private void characterModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Character");
+        }
+
+        private void highwayModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Highway");
+        }
+
+        private void instrumentModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Instrument");
+        }
+
+        private void mainMenuMusicModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Menu Music");
+        }
+
+        private void gemThemeModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Gem Theme");
+        }
+
+        private void venueModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Venue");
+        }
+
+        private void scriptModsToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList(true, "Script");
+        }
+        
+        // -------------------
+
+        private void noFilterToolStripMenuItem_Click(object sender, EventArgs e) {
+            RefreshModsList();
         }
     }
 }
