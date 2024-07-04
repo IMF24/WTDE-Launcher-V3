@@ -48,6 +48,9 @@
     <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Costura.Fody.5.7.0\lib\netstandard1.0\Costura.dll</HintPath>
     </Reference>
+    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="MadMilkman.Ini, Version=1.0.6.0, Culture=neutral, PublicKeyToken=4e0b5157a7ffbb74, processorArchitecture=MSIL">
       <HintPath>packages\MadMilkman.Ini.1.0.6.0\lib\net20\MadMilkman.Ini.dll</HintPath>
     </Reference>
@@ -59,6 +62,9 @@
     </Reference>
     <Reference Include="Pfim, Version=0.11.2.0, Culture=neutral, PublicKeyToken=c0ebc20d008ae134, processorArchitecture=MSIL">
       <HintPath>packages\Pfim.0.11.2\lib\netstandard2.0\Pfim.dll</HintPath>
+    </Reference>
+    <Reference Include="Scintilla.NET, Version=5.3.2.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Scintilla.NET.5.3.2.9\lib\net45\Scintilla.NET.dll</HintPath>
     </Reference>
     <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>packages\SharpCompress.0.24.0\lib\net45\SharpCompress.dll</HintPath>
@@ -174,6 +180,12 @@
     <Compile Include="Managers\DebugLogAnalyzer.Designer.cs">
       <DependentUpon>DebugLogAnalyzer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\DEConfigFilesEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\DEConfigFilesEditor.Designer.cs">
+      <DependentUpon>DEConfigFilesEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\DupeChecksumManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +234,12 @@
     </Compile>
     <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\QBScriptEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\QBScriptEditor.Designer.cs">
+      <DependentUpon>QBScriptEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\ScriptMods\AddGH3StarPowerFX.cs">
       <SubType>Form</SubType>
@@ -318,6 +336,9 @@
     <EmbeddedResource Include="Managers\DebugLogAnalyzer.resx">
       <DependentUpon>DebugLogAnalyzer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\DEConfigFilesEditor.resx">
+      <DependentUpon>DEConfigFilesEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\DupeChecksumManager.resx">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\QBScriptEditor.resx">
+      <DependentUpon>QBScriptEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ScriptMods\AddGH3StarPowerFX.resx">
       <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>
@@ -409,6 +433,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\logos\node_roq.png" />
+    <None Include="res\img\logos\node_qbc.png" />
     <None Include="res\img\icon\icon_dbg_analyze.png" />
     <None Include="res\img\icon\instruments.png" />
     <None Include="res\img\chalk_left.png" />
@@ -528,6 +554,8 @@
     <Error Condition="!Exists('packages\Fody.6.5.5\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Fody.6.5.5\build\Fody.targets'))" />
     <Error Condition="!Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.5.7.0\build\Costura.Fody.props'))" />
     <Error Condition="!Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Costura.Fody.5.7.0\build\Costura.Fody.targets'))" />
+    <Error Condition="!Exists('packages\Scintilla.NET.5.3.2.9\build\scintilla.net.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Scintilla.NET.5.3.2.9\build\scintilla.net.targets'))" />
   </Target>
   <Import Project="packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
+  <Import Project="packages\Scintilla.NET.5.3.2.9\build\scintilla.net.targets" Condition="Exists('packages\Scintilla.NET.5.3.2.9\build\scintilla.net.targets')" />
 </Project>

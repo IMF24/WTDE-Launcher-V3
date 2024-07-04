@@ -418,8 +418,8 @@ namespace WTDE_Launcher_V3.Core {
             // ---------------------------------
 
             // -- BASIC OPTIONS --------
-            VideoWidth.Value = decimal.Parse(XMLFunctions.AspyrGetString("Video.Width", "1280"));
-            VideoHeight.Value = decimal.Parse(XMLFunctions.AspyrGetString("Video.Height", "720"));
+            VideoWidth.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "ResolutionX", Screen.PrimaryScreen.Bounds.Width.ToString()));
+            VideoHeight.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "ResolutionY", Screen.PrimaryScreen.Bounds.Height.ToString()));
             UseNativeRes.Text = $"Native Resolution ({Screen.FromControl(this).Bounds.Width} X {Screen.FromControl(this).Bounds.Height})";
             FPSLimit.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "FPSLimit"));
 
@@ -1696,8 +1696,7 @@ namespace WTDE_Launcher_V3.Core {
         private void ResetKeybindsButton_Click(object sender, EventArgs e) {
             string resetKeysWarning = "Are you sure you want to reset your keyboard bindings to the default?\n\nThis cannot be undone!";
 
-            if (MessageBox.Show(resetKeysWarning, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
+            if (MessageBox.Show(resetKeysWarning, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                 XMLFunctions.AspyrWriteString("Keyboard_Guitar", V3LauncherConstants.ASPYR_INPUT_GUITAR_DEFAULT);
                 XMLFunctions.AspyrWriteString("Keyboard_Drum", V3LauncherConstants.ASPYR_INPUT_DRUMS_BACKUP);
                 XMLFunctions.AspyrWriteString("Keyboard_Mic", V3LauncherConstants.ASPYR_INPUT_MIC_BACKUP);

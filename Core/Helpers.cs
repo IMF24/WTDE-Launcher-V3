@@ -30,5 +30,32 @@ namespace WTDE_Launcher_V3.Core {
         public static string NormalizeSlashes(string path) {
             return (path == null) ? Directory.GetCurrentDirectory() : path.Replace("\\", "/");
         }
+
+        /// <summary>
+        ///  Change a file path's extension to a different one!
+        /// </summary>
+        /// <param name="path">
+        ///  The original file path to be changed.
+        /// </param>
+        /// <param name="extension">
+        ///  The new extension for the file.
+        /// </param>
+        /// <returns>
+        ///  A new path string that is the exact same path, but with the file extension changed.
+        /// </returns>
+        public static string ChangeFileExtension(string path, string extension) {
+
+            if (path == null || extension == null) return path;
+
+            string fileName = Path.GetFileNameWithoutExtension(path);
+            if (fileName == null) return path;
+
+            string fullOldPath = Path.GetDirectoryName(path);
+
+            string newFileName = fileName + extension;
+            string outPath = Path.Combine(fullOldPath, newFileName);
+
+            return outPath ?? path;
+        }
     }
 }

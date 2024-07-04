@@ -346,5 +346,15 @@ namespace WTDE_Launcher_V3.Managers {
         private void noFilterToolStripMenuItem_Click(object sender, EventArgs e) {
             RefreshModsList();
         }
+
+        private void iNIAndXMLEditorToolStripMenuItem_Click(object sender, EventArgs e) {
+            DEConfigFilesEditor defc = new DEConfigFilesEditor();
+            defc.ShowDialog();
+        }
+
+        private void qBScriptEditorToolStripMenuItem_Click(object sender, EventArgs e) {
+            QBScriptEditor qbse = new QBScriptEditor();
+            qbse.ShowDialog();
+        }
     }
 }
