@@ -1,7 +1,8 @@
-# Ignore stuff from bin, obj, and .vs folders
+# Ignore stuff from bin, obj, .vs, and .vscode folders
 bin/
 obj/
 .vs/
+.vscode/
 
 res/audio/boot_msg_marcus.mp3
 res/audio/boot_msg_shirley.mp3
