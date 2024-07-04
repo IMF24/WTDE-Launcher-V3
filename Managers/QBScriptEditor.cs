@@ -1,19 +1,20 @@
-﻿using WTDE_Launcher_V3.Core;
+﻿// ----------------------------------------------------------------------------
+//    W T D E       L A U N C H E R       V 3
+//       Q B       S C R I P T       E D I T O R
+//
+//    The Mod Manager's QB script editor, allowing the user to write QB scripts
+//    and create script mods, right in the launcher.
+// ----------------------------------------------------------------------------
+// V3 launcher imports.
+using WTDE_Launcher_V3.Core;
 using WTDE_Launcher_V3.IO;
 
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using System.Data.Odbc;
-using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 
 namespace WTDE_Launcher_V3.Managers {
@@ -21,9 +22,11 @@ namespace WTDE_Launcher_V3.Managers {
         public QBScriptEditor() {
             InitializeComponent();
 
-            //~ MakeNewScript();
             // Make sure that the QB script editor area has a HUGE limit!
             QBScriptNameTextBox.MaxLength = int.MaxValue;
+
+            // Initialize control accesibility!
+            UpdateControlStatus();
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -58,6 +61,34 @@ namespace WTDE_Launcher_V3.Managers {
         /// </summary>
         public bool ScriptBeingChanged = false;
 
+        /// <summary>
+        ///  Was a script just deleted from memory?
+        /// </summary>
+        public bool JustDeletedScript = false;
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Updates the control statuses.
+        /// </summary>
+        public void UpdateControlStatus() {
+            // No scripts loaded? If not, disable any and all editing!
+            bool disableEditing = !(ScriptNames.Count <= 0 || ScriptExtensions.Count <= 0 || ScriptContents.Count <= 0);
+
+            // -- VARIOUS CONTROL DISABLES
+            QBFilesList.Enabled = disableEditing;
+            QBScriptEditorArea.Enabled = disableEditing;
+            QBScriptNameTextBox.Enabled = disableEditing;
+            QuickActionsMenu.Enabled = disableEditing;
+            EnableSyntaxHighlighting.Enabled = disableEditing;
+            ScriptFileExtension.Enabled = disableEditing;
+            DeleteSelScriptListButton.Enabled = disableEditing;
+
+            // -- MENU DISABLES
+            TopMenuEdit.Enabled = disableEditing;
+            TopMenuTemplate.Enabled = disableEditing;
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
@@ -71,6 +102,7 @@ namespace WTDE_Launcher_V3.Managers {
         /// </param>
         public void SetSyntaxColoring(QBFileSyntax syntax, object sender) {
 
+            // Input text. We want to scan over it!
             string inText = (sender as RichTextBox).Text;
             RichTextBox fctb = (sender as RichTextBox);
 
@@ -99,7 +131,7 @@ namespace WTDE_Launcher_V3.Managers {
                     // -------------------------
                     // LOGIC AND OPERATORS HIGHLIGHTING
                     // -------------------------
-                    string roqOperators = "\b(AND|OR|NOT|\\=|\\+|\\-|\\*|\\/|\\<|\\>|\\<\\=|\\>\\=|\\!\\=|\\!\\=\\=)\b";
+                    string roqOperators = "<=.*<.*>.*>=.*!=.*!==.*=.*\\+.*-.*\\*.*/.*AND.*OR.*NOT";
                     MatchCollection roqOperatorMatches = Regex.Matches(inText, roqOperators);
 
                     // -------------------------
@@ -157,6 +189,18 @@ namespace WTDE_Launcher_V3.Managers {
                     string roqLocalVars = "%GLOBAL%";
                     MatchCollection roqLocalVarMatches = Regex.Matches(inText, roqLocalVars);
 
+                    // -------------------------
+                    // GLOBAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    string roqGlobalVars = "~\\$([A-Za-z0-9]+(_[A-Za-z0-9]+)+)\\$";
+                    MatchCollection roqGlobalVarMatches = Regex.Matches(inText, roqGlobalVars);
+
+                    // -------------------------
+                    // HEXADECIMAL HIGHLIGHTING
+                    // -------------------------
+                    string roqHexes = "0x.*[A-Fa-f0-9]+";
+                    MatchCollection roqHexMatches = Regex.Matches(inText, roqHexes);
+
                     // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
                     // Next up: Save the original caret position before we start coloring!
@@ -194,6 +238,11 @@ namespace WTDE_Launcher_V3.Managers {
                     HandleHighlighting(fctb, roqFloatMatches, Color.Red);
 
                     // -------------------------
+                    // HEXADECIMAL HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, roqHexMatches, Color.FromArgb(255, 255, 128, 0));
+
+                    // -------------------------
                     // 2 POINT VECTOR HIGHLIGHTING
                     // -------------------------
                     HandleHighlighting(fctb, roqVec2Matches, Color.Red);
@@ -217,6 +266,11 @@ namespace WTDE_Launcher_V3.Managers {
                     // LOCAL VARIABLE HIGHLIGHTING
                     // -------------------------
                     HandleHighlighting(fctb, roqLocalVarMatches, Color.Brown);
+
+                    // -------------------------
+                    // GLOBAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, roqGlobalVarMatches, Color.FromArgb(255, 16, 119, 182));
 
                     // -------------------------
                     // HEADER STUFF HIGHLIGHTING
@@ -298,9 +352,47 @@ namespace WTDE_Launcher_V3.Managers {
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
+        ///  Compiles the current script in the text editor area!
+        /// </summary>
+        public void CompileCurrentScript() {
+
+            // Save file dialog stuff! Ask where we want to save the QB file.
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Save Compiled QB File";
+            sfd.Filter = "QB Files|*.qb.xen";
+            sfd.ShowDialog();
+
+            string qbFilePath = sfd.FileName;
+
+            // No file? Leave early!
+            if (qbFilePath == "") return;
+
+            // Update status bar!
+            StatusTextMain.Text = $"Compiling script {qbFilePath}";
+            Application.DoEvents();
+
+            // So before we do anything, we need to save our current
+            // source file to a TXT file so we can compile it.
+
+            string txtFilePath = Helpers.ChangeFileExtension(qbFilePath, ".txt");
+
+            File.WriteAllText(txtFilePath, QBScriptEditorArea.Text);
+
+            // node sdk.js compile infile outfile
+            string cmd = $"/C node {Path.Combine(SDKPath, "sdk.js")} compile {txtFilePath} {qbFilePath}";
+            var process = Process.Start("cmd.exe", cmd);
+            process.WaitForExit();
+
+            // Update status bar!
+            StatusTextMain.Text = "Script compile complete";
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
         ///  Makes a new script file and adds it to the list(s).
         /// </summary>
-        public void MakeNewScript(string content, string name = "NewQBScript") {
+        public void MakeNewScript(string content = ROQScriptTemplates.NewScriptDefault, string name = "NewQBScript") {
             // OK, so we want to make a new script. Cool!
             // In order to properly do this, we'll have to be pretty careful.
             // First and foremost, BEFORE WE DO ANYTHING ELSE,
@@ -315,6 +407,9 @@ namespace WTDE_Launcher_V3.Managers {
                 // We do not, so let's make a new one outright!
                 ScriptNames.Add(name);
                 ScriptContents.Add(content);
+                ScriptExtensions.Add(".txt");
+
+                UpdateControlStatus();
 
                 QBFilesList.Items.Add(name);
                 QBScriptNameTextBox.Text = name;
@@ -332,6 +427,9 @@ namespace WTDE_Launcher_V3.Managers {
                 // Next up, we need to make new, blank items.
                 ScriptContents.Add(content);
                 ScriptNames.Add(name);
+                ScriptExtensions.Add(".txt");
+
+                UpdateControlStatus();
 
                 QBFilesList.Items.Add(name);
                 QBScriptNameTextBox.Text = name;
@@ -350,10 +448,13 @@ namespace WTDE_Launcher_V3.Managers {
 
             // And finally, allow the editor to save data again!
             ScriptBeingChanged = false;
+
+            // And begin syntax highlighting if it's enabled!
+            SetSyntaxColoring(QBFileSyntax.ROQ, QBScriptEditorArea);
         }
 
         private void newScriptToolStripMenuItem_Click(object sender, EventArgs e) {
-            MakeNewScript("");
+            MakeNewScript();
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -391,9 +492,85 @@ namespace WTDE_Launcher_V3.Managers {
 
             // And finally, set our global file index to the selected one,
             // and enable the files to be saved again!
+            // We have also no longer just deleted a script, cool!
             QBFileIndex = selectedIdx;
             ScriptBeingChanged = false;
+            JustDeletedScript = false;
 
+            UpdateControlStatus();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Delete a script from memory and the QB file list!
+        /// </summary>
+        public void DeleteCurrentScript() {
+            // Just in case anything may go wrong, let's just set
+            // ScriptBeingChanged to true.
+            // We SHOULD avoid data loss this way. Hopefully.
+            ScriptBeingChanged = true;
+
+            // Ask if we should delete!
+            string deleteConfirm = "Are you sure you want to delete this script?";
+            bool shouldDelete = MessageBox.Show(deleteConfirm, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+
+            // Are we going to delete this script?
+            if (shouldDelete) {
+                string saveConfirm = "Do you want to save your script before closing it?";
+                bool shouldSave = MessageBox.Show(saveConfirm, "Save Script?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+
+                // Do we want to save the currently loaded script?
+                if (shouldSave) {
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.Title = "Save QB Script Source";
+                    sfd.Filter = "QB Script Source|*.txt;*.q|ROQ Source|*.txt|QBC Source|*.q";
+
+                    sfd.ShowDialog();
+
+                    if (sfd.FileName != "") {
+                        File.WriteAllText(sfd.FileName, QBScriptEditorArea.Text);
+                    }
+                }
+
+                // Now we need to CAREFULLY delete the script. Gently.
+                // Don't do this rough. Or else there'll be consequences.
+                // Like memory loss. And no one wants that; not even computers.
+
+                // OK, jokes aside, let's acutally delete stuff.
+                // But we DO need to be careful about this!
+
+                // Index of the file we want to delete.
+                int idxToDelete = QBFileIndex;
+
+                // Delete all items from the memory lists!
+                ScriptContents.RemoveAt(idxToDelete);
+                ScriptNames.RemoveAt(idxToDelete);
+                ScriptExtensions.RemoveAt(idxToDelete);
+                QBFilesList.Items.RemoveAt(idxToDelete);
+
+                // Reset the text areas, just in case.
+                QBScriptEditorArea.Text = "";
+                QBScriptNameTextBox.Text = "";
+                ScriptFileExtension.SelectedIndex = 0;
+
+                // Now update our controls' Enabled statuses!
+                UpdateControlStatus();
+
+                // Our stuff has been removed at this point. Great!
+                // Now we need to reset QBFileIndex to be a different value.
+
+                // Let's just make it be -1 for now.
+                // If we do this, HOPEFULLY we don't lose anything by doing so.
+                // This may cause errors, though. Hm...
+                QBFileIndex = 0;
+            }
+
+            // And set ScriptBeingChanged back to false!
+            ScriptBeingChanged = false;
+
+            // We just deleted a script. Set our field for it!
+            JustDeletedScript = true;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -471,7 +648,7 @@ namespace WTDE_Launcher_V3.Managers {
 
             switch (syntax) {
                 // Import as ROQ.
-                case QBFileSyntax.ROQ:                    
+                case QBFileSyntax.ROQ:
 
                     // Now, make the command we want to use to pass to the SDK!
                     cmd = $"/C node {Path.Combine(SDKPath, "sdk.js")} decompile {ofd.FileName}";
@@ -519,14 +696,14 @@ namespace WTDE_Launcher_V3.Managers {
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         private void QBScriptNameTextBox_TextChanged(object sender, EventArgs e) {
-            if (ScriptBeingChanged) return;
+            if (ScriptBeingChanged || JustDeletedScript) return;
 
             QBFilesList.Items[QBFileIndex] = QBScriptNameTextBox.Text;
             ScriptNames[QBFileIndex] = QBScriptNameTextBox.Text;
         }
 
         private void QBFilesList_SelectedIndexChanged(object sender, EventArgs e) {
-            if (ScriptBeingChanged) return;
+            if (ScriptBeingChanged || JustDeletedScript) return;
 
             LoadScriptInList();
         }
@@ -548,10 +725,183 @@ namespace WTDE_Launcher_V3.Managers {
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         private void QBScriptEditorArea_TextChanged(object sender, EventArgs e) {
-            if (ScriptBeingChanged || ScriptContents.Count <= 0 || ScriptNames.Count <= 0) return;
+            if (ScriptBeingChanged || JustDeletedScript || ScriptContents.Count <= 0 || ScriptNames.Count <= 0 || ScriptExtensions.Count <= 0) return;
 
             SetSyntaxColoring(QBFileSyntax.ROQ, sender);
             ScriptContents[QBFileIndex] = QBScriptEditorArea.Text;
         }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Paste a template into the text editor area!
+        /// </summary>
+        /// <param name="text">
+        ///  Text to paste.
+        /// </param>
+        public void PasteTemplate(string text) {
+            Clipboard.SetText(text);
+            QBScriptEditorArea.Text += "\n" + text;
+
+            Application.DoEvents();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        private void NewScriptButton_Click(object sender, EventArgs e) {
+            MakeNewScript();
+        }
+
+        private void UndoButton_Click(object sender, EventArgs e) {
+            QBScriptEditorArea.Undo();
+        }
+
+        private void RedoButton_Click(object sender, EventArgs e) {
+            QBScriptEditorArea.Redo();
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e) {
+            QBScriptEditorArea.Undo();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e) {
+            QBScriptEditorArea.Redo();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // ROQ: GLOBAL DECLARATIONS
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // -- INTEGER (SECTIONINTEGER)
+        private void integerGlobalSectionIntegerToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.GlobalIntDeclaration);
+        }
+
+        // -- FLOAT (SECTIONFLOAT)
+        private void floatSectionFloatToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.GlobalFloatDeclaration);
+        }
+
+        // -- STRING (SECTIONSTRING)
+        private void stringSectionStringToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.GlobalStringDeclaration);
+        }
+
+        // -- QBKEY (SECTIONQBKEY)
+        private void qBKeySectionQBKeyToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.GlobalQBKeyDeclaration);
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // ROQ: SCRIPT ELEMENTS
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // -- IF STATEMENTS
+        private void ifStatementToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.IfStatement);
+        }
+
+        // -- WHILE / LOOP_TO LOOP
+        private void whileLoopToLoopToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.WhileLoopToStatement);
+        }
+
+
+
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // QUICK ACTIONS MENU
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // -- COMPILE SCRIPT
+        //      This only compiles the CURRENT script
+        private void compileScriptToolStripMenuItem_Click(object sender, EventArgs e) {
+            CompileCurrentScript();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // QB FILE LIST BUTTON HELPERS
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        private void AddNewScriptListButton_Click(object sender, EventArgs e) {
+            MakeNewScript();
+        }
+
+        private void DeleteSelScriptListButton_Click(object sender, EventArgs e) {
+            DeleteCurrentScript();
+        }
+    }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    //    R O Q       S C R I P T       T E M P L A T E S
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    public class ROQScriptTemplates {
+        /// <summary>
+        ///  Template for a global integer declaration.
+        /// </summary>
+        public const string GlobalIntDeclaration = "SectionInteger my_integer 0";
+
+        /// <summary>
+        ///  Template for a global string declaration.
+        /// </summary>
+        public const string GlobalStringDeclaration = "SectionString my_string \"\"";
+
+        /// <summary>
+        ///  Template for a global QBKey declaration.
+        /// </summary>
+        public const string GlobalQBKeyDeclaration = "SectionQBKey my_qbkey my_value";
+
+        /// <summary>
+        ///  Template for a global float declaration.
+        /// </summary>
+        public const string GlobalFloatDeclaration = "SectionFloat my_float 0.0";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for an if statement. Only contains the if condition and endif.
+        /// </summary>
+        public const string IfStatement = ":i if ($true$)\n\t// If true\n:i endif";
+
+        /// <summary>
+        ///  Template for an if / else statement. Contains the if condition, else block, and endif.
+        /// </summary>
+        public const string IfElseStatement = ":i if ($true$)\n\t// If true\n:i else\n\t// If false\n:i endif";
+
+        /// <summary>
+        ///  Template for an if / elseif / else statement. Contains the if condition, elseif condition, else block, and endif.
+        /// </summary>
+        public const string IfElseIfStatement = ":i if ($true$)\n\t// If 1st condition is true\n:i elseif ($false$)\n\t// If 2nd condition is true\n:i else\n\t// If all above are false\n:i endif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a while / loop_to loop.
+        /// </summary>
+        public const string WhileLoopToStatement = ":i $i$ = %i(0)\n:i while\n\t// Loop body\n\n\t:i $i$ = (%GLOBAL%$i$ + %i(1))\n:i loop_to %i(5)";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a script declaration.
+        /// </summary>
+        public const string ScriptTemplate = "Script script_name [\n\n\t:i endfunction\n]";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  The new script defaults that will be pasted in.
+        /// </summary>
+        public const string NewScriptDefault = "// For more help, visit the wiki for a brief guide on QB scripting:\n" +
+                                               "//  https://ghwt.de/wiki/#/sdk/\n" +
+                                               "// \n" +
+                                               "// Ask for help on our Discord server for more!\n" +
+                                               "//  https://discord.gg/HVECPzkV4u\n\n" +
+                                               "Unknown [GHWT_HEADER]\n\n" +
+                                               "Script NewQBScript_Load [\n" +
+                                               "\t:i $printf$ %s(\"Hello World!\")\n" +
+                                               "\t:i endfunction\n" +
+                                               "]\n";
     }
 }

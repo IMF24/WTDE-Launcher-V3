@@ -433,6 +433,19 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\menuicons\add_black.png" />
+    <None Include="Resources\github_logo.png" />
+    <None Include="Resources\discord_logo.png" />
+    <None Include="Resources\alert.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\close_file.png" />
+    <None Include="Resources\exit_program.png" />
+    <None Include="Resources\save_file_as.png" />
+    <None Include="Resources\new_file.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\undo.png" />
     <None Include="res\img\logos\node_roq.png" />
     <None Include="res\img\logos\node_qbc.png" />
     <None Include="res\img\icon\icon_dbg_analyze.png" />
