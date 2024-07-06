@@ -79,17 +79,21 @@
             this.NewScriptButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.EnableSyntaxHighlighting = new System.Windows.Forms.CheckBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.QuickActionsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.QuickActionsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.compileScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.clearScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.convertToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qBCToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rOQToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AddNewScriptListButton = new System.Windows.Forms.Button();
             this.DeleteSelScriptListButton = new System.Windows.Forms.Button();
             this.TopMenuStrip.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
             this.TopToolBar.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.QuickActionsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopMenuStrip
@@ -487,7 +491,8 @@
             // StatusTextMain
             // 
             this.StatusTextMain.Name = "StatusTextMain";
-            this.StatusTextMain.Size = new System.Drawing.Size(0, 17);
+            this.StatusTextMain.Size = new System.Drawing.Size(95, 17);
+            this.StatusTextMain.Text = "TEXT GOES HERE";
             // 
             // QBScriptEditorArea
             // 
@@ -541,23 +546,25 @@
             this.EnableSyntaxHighlighting.Text = "Syntax Highlighting";
             this.EnableSyntaxHighlighting.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // QuickActionsMenuStrip
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.QuickActionsMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.QuickActionsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.QuickActionsMenu});
-            this.menuStrip1.Location = new System.Drawing.Point(891, 90);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(101, 24);
-            this.menuStrip1.TabIndex = 14;
-            this.menuStrip1.Text = "menuStrip1";
+            this.QuickActionsMenuStrip.Location = new System.Drawing.Point(891, 90);
+            this.QuickActionsMenuStrip.Name = "QuickActionsMenuStrip";
+            this.QuickActionsMenuStrip.Size = new System.Drawing.Size(221, 24);
+            this.QuickActionsMenuStrip.TabIndex = 14;
+            this.QuickActionsMenuStrip.Text = "Quick Actions";
             // 
             // QuickActionsMenu
             // 
             this.QuickActionsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.compileScriptToolStripMenuItem,
             this.toolStripSeparator6,
-            this.clearScriptToolStripMenuItem});
+            this.clearScriptToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.convertToToolStripMenuItem});
             this.QuickActionsMenu.Name = "QuickActionsMenu";
             this.QuickActionsMenu.Size = new System.Drawing.Size(93, 20);
             this.QuickActionsMenu.Text = "Quick Actions";
@@ -566,21 +573,52 @@
             // 
             this.compileScriptToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
             this.compileScriptToolStripMenuItem.Name = "compileScriptToolStripMenuItem";
-            this.compileScriptToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.compileScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.compileScriptToolStripMenuItem.Text = "Compile Script...";
             this.compileScriptToolStripMenuItem.Click += new System.EventHandler(this.compileScriptToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // clearScriptToolStripMenuItem
             // 
             this.clearScriptToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
             this.clearScriptToolStripMenuItem.Name = "clearScriptToolStripMenuItem";
-            this.clearScriptToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.clearScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearScriptToolStripMenuItem.Text = "Clear Script";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            // 
+            // convertToToolStripMenuItem
+            // 
+            this.convertToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.qBCToolStripMenuItem1,
+            this.rOQToolStripMenuItem1});
+            this.convertToToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
+            this.convertToToolStripMenuItem.Name = "convertToToolStripMenuItem";
+            this.convertToToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.convertToToolStripMenuItem.Text = "Convert To";
+            // 
+            // qBCToolStripMenuItem1
+            // 
+            this.qBCToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.node_qbc;
+            this.qBCToolStripMenuItem1.Name = "qBCToolStripMenuItem1";
+            this.qBCToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.qBCToolStripMenuItem1.Text = "QBC";
+            this.qBCToolStripMenuItem1.Click += new System.EventHandler(this.qBCToolStripMenuItem1_Click);
+            // 
+            // rOQToolStripMenuItem1
+            // 
+            this.rOQToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.node_roq;
+            this.rOQToolStripMenuItem1.Name = "rOQToolStripMenuItem1";
+            this.rOQToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.rOQToolStripMenuItem1.Text = "ROQ";
+            this.rOQToolStripMenuItem1.Click += new System.EventHandler(this.rOQToolStripMenuItem1_Click);
             // 
             // AddNewScriptListButton
             // 
@@ -623,7 +661,7 @@
             this.Controls.Add(this.InfoHeaderLabel);
             this.Controls.Add(this.QBFilesList);
             this.Controls.Add(this.TopMenuStrip);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.QuickActionsMenuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.TopMenuStrip;
@@ -636,8 +674,8 @@
             this.StatusBarMain.PerformLayout();
             this.TopToolBar.ResumeLayout(false);
             this.TopToolBar.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.QuickActionsMenuStrip.ResumeLayout(false);
+            this.QuickActionsMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,7 +737,7 @@
         private System.Windows.Forms.CheckBox EnableSyntaxHighlighting;
         private System.Windows.Forms.ToolStripButton NewScriptButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip QuickActionsMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem QuickActionsMenu;
         private System.Windows.Forms.ToolStripMenuItem compileScriptToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
@@ -707,5 +745,9 @@
         private System.Windows.Forms.ToolStripMenuItem TopMenuEdit;
         private System.Windows.Forms.Button AddNewScriptListButton;
         private System.Windows.Forms.Button DeleteSelScriptListButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem convertToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qBCToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rOQToolStripMenuItem1;
     }
 }

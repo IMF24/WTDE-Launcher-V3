@@ -16,19 +16,13 @@ Whoa, dude, this thing is VERY snazzy!
 
 This is the **new and improved** GitHub repository for my GHWT: Definitive Edition Launcher Version 3!
 
-If you recall the last time we made this thing, we built it in the GameMaker IDE, using the GML scripting language.
-While that was an easy approach at first, it became evident that this launcher would need to be recreated in a new,
-more sensible way. It could have been built in Python again, but the executable became quite bloated over its various updates, and we needed something to build this launcher on that would be flexible and scalable as time went on.
+If you recall the last time we made this thing, we built it in the GameMaker IDE, using the GML scripting language. While that was an easy approach at first, it became evident that this launcher would need to be recreated in a new, more sensible way. It could have been built in Python again, but the executable became quite bloated over its various updates, and we needed something to build this launcher on that would be flexible and scalable as time went on.
 
-So, in light of that, I decided to rebuild this launcher entirely from the ground up, but instead of creating it
-in GML or Python again, I elected to build it on something new to me: C# (C Sharp) using .NET.
+So, in light of that, I decided to rebuild this launcher entirely from the ground up, but instead of creating it in GML or Python again, I elected to build it on something new to me: C# (C Sharp) using .NET.
 
-That's right! We've come full circle; we're back to a C#, .NET based launcher, and it will be rebuilt from the
-ground up *entirely* in C#!
+That's right! We've come full circle; we're back to a C#, .NET based launcher, and it will be rebuilt from the ground up *entirely* in C#!
 
-The goal of the V3 launcher is to have all of the functionality and capability of the [V2 launcher](https://github.com/IMF24/WTDE-Launcher),
-but with a much more visually polished look, much to the style of Uzis's original launcher for WTDE, included back
-in WTDE update 1.0.3. My V2 launcher replaced it in 1.1, and it has been long overdue for a visual facelift.
+The goal of the V3 launcher is to have all of the functionality and capability of the [V2 launcher](https://github.com/IMF24/WTDE-Launcher), but with a much more visually polished look, much to the style of Uzis's original launcher for WTDE, included back in WTDE update 1.0.3. My V2 launcher replaced it in 1.1, and it has been long overdue for a visual facelift.
 
 Hopefully that covers most of the bases. There'll be more details to come in the future, so stay tuned!
 

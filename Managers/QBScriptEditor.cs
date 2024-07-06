@@ -18,9 +18,15 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace WTDE_Launcher_V3.Managers {
+    /// <summary>
+    ///  The Mod Manager's QB script editor, allowing the user to write QB scripts 
+    ///  and create script mods, right in the launcher.
+    /// </summary>
     public partial class QBScriptEditor : Form {
         public QBScriptEditor() {
             InitializeComponent();
+
+            StatusTextMain.Text = "";
 
             // Make sure that the QB script editor area has a HUGE limit!
             QBScriptNameTextBox.MaxLength = int.MaxValue;
@@ -66,6 +72,11 @@ namespace WTDE_Launcher_V3.Managers {
         /// </summary>
         public bool JustDeletedScript = false;
 
+        /// <summary>
+        ///  Is a script currently being syntax highlighted?
+        /// </summary>
+        public bool ScriptBeingHighlighted = false;
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
@@ -101,10 +112,24 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Object sender for this method. It is ASSUMED that this is a RichTextBox control.
         /// </param>
         public void SetSyntaxColoring(QBFileSyntax syntax, object sender) {
+            // No highlighting enabled? Then just leave!
+            if (!EnableSyntaxHighlighting.Checked) return;
+
+            // We're currently highlighting, make sure the program knows that!
+            ScriptBeingHighlighted = true;
+
+            // Set status bar text, print to console!
+            V3LauncherCore.AddDebugEntry($"Doing syntax highlighting for script, using {syntax} syntax", "QB Script Editor");
+            StatusTextMain.Text = "Doing syntax highlighting...";
 
             // Input text. We want to scan over it!
             string inText = (sender as RichTextBox).Text;
             RichTextBox fctb = (sender as RichTextBox);
+
+            // Original caret positioning.
+            int originalIndex = fctb.SelectionStart;
+            int originalLength = fctb.SelectionLength;
+            Color originalColor = Color.Black;
 
             // Now we want to do some highlighting!
             // We'll use regular expressions to determine our highlighting.
@@ -174,7 +199,7 @@ namespace WTDE_Launcher_V3.Managers {
                     // -------------------------
                     // TYPE HIGHLIGHTING
                     // -------------------------
-                    string roqTypes = @"\b(SectionInteger|SectionFloat|SectionString|SectionArray|SectionStruct|SectionQBKey|ArrayArray|ArrayInteger|ArrayFloat|ArrayQBKey|ArrayStruct|StructInt|StructQBKey|StructFloat|StructString|StructArray}StructStruct|StructHeader|Floats|SectionFloatsX2|StructFloatsX2|SectionFloatsX3|StructFloatsX3|SectionStringW|StructStringW)\b";
+                    string roqTypes = @"\b(SectionInteger|SectionFloat|SectionString|SectionArray|SectionStruct|SectionQBKey|ArrayArray|ArrayInteger|ArrayFloat|ArrayQBKey|ArrayStruct|StructInt|StructQBKey|StructFloat|StructString|StructArray}StructStruct|StructHeader|Floats|SectionFloatsX2|StructFloatsX2|SectionFloatsX3|StructFloatsX3|SectionStringW|StructStringW|SectionQBStringQs|StructQBStringQs)\b";
                     MatchCollection roqTypeMatches = Regex.Matches(inText, roqTypes);
 
                     // -------------------------
@@ -203,10 +228,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                     // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                    // Next up: Save the original caret position before we start coloring!
-                    int originalIndex = fctb.SelectionStart;
-                    int originalLength = fctb.SelectionLength;
-                    Color originalColor = Color.Black;
+                    V3LauncherCore.AddDebugEntry("Adjusting text colors based on regex matches", "QB Script Editor");
 
                     // We MUST focus on a label before highlighting anything!
                     // This helps avoid blinking.
@@ -309,8 +331,146 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // QBC syntax.
                 case QBFileSyntax.QBC:
+
+                    // -------------------------
+                    // KEYWORDS HIGHLIGHTING
+                    // -------------------------
+                    string qbcKeywords = @"\b(if|elseif|else|endif|switch|case|default|endswitch|begin|repeat|break|return|script|endscript)\b";
+                    MatchCollection qbcKeywordMatches = Regex.Matches(inText, qbcKeywords);
+
+                    // -------------------------
+                    // COMMENT HIGHLIGHTING
+                    //  (Inline and multi-line)
+                    // -------------------------
+                    string qbcComments = @"(\/\/.+?$|\/\*.+?\*\/)";
+                    MatchCollection qbcCommentMatches = Regex.Matches(inText, qbcComments, RegexOptions.Multiline);
+
+                    // -------------------------
+                    // LOCAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    string qbcLocalVars = "<([A-Za-z0-9]+(_[A-Za-z0-9]+)+)>";
+                    MatchCollection qbcLocalVarMatches = Regex.Matches(inText, qbcLocalVars);
+
+                    // -------------------------
+                    // GLOBAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    string qbcGlobalVars = "\\$([A-Za-z0-9]+(_[A-Za-z0-9]+)+)";
+                    MatchCollection qbcGlobalVarMatches = Regex.Matches(inText, qbcGlobalVars);
+
+                    // -------------------------
+                    // GLOBAL AS LOCAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    string qbcGlobalAsLocalVars = "\\$<([A-Za-z0-9]+(_[A-Za-z0-9]+)+)>";
+                    MatchCollection qbcGlobalAsLocalVarMatches = Regex.Matches(inText, qbcGlobalAsLocalVars);
+
+                    // -------------------------
+                    // INTEGER HIGHLIGHTING
+                    // -------------------------
+                    string qbcIntegers = "(%i\\([0-9]+\\)|[0-9]+)";
+                    MatchCollection qbcIntegerMatches = Regex.Matches(inText, qbcIntegers);
+
+                    // -------------------------
+                    // FLOAT HIGHLIGHTING
+                    // -------------------------
+                    string qbcFloats = "(%f\\([0-9]*\\.[0-9]+\\)|[0-9]*\\.[0-9]+)";
+                    MatchCollection qbcFloatMatches = Regex.Matches(inText, qbcFloats);
+
+                    // -------------------------
+                    // STRING HIGHLIGHTING
+                    // -------------------------
+                    string qbcStrings = "'(?:[^\\\\']|\\\\\\\\|\\\\')*'";
+                    MatchCollection qbcStringMatches = Regex.Matches(inText, qbcStrings);
+
+                    // -------------------------
+                    // HEXADECIMAL HIGHLIGHTING
+                    // -------------------------
+                    string qbcHexes = "0x.*[A-Fa-f0-9]+";
+                    MatchCollection qbcHexMatches = Regex.Matches(inText, qbcHexes);
+
+                    // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                    V3LauncherCore.AddDebugEntry("Adjusting text colors based on regex matches", "QB Script Editor");
+
+                    // We MUST focus on a label before highlighting anything!
+                    // This helps avoid blinking.
+                    InfoHeaderLabel.Focus();
+
+                    // Next, we'll remove any previous highlighting.
+                    // This ensures that modified words don't remain highlighted.
+                    fctb.SelectionStart = 0;
+                    fctb.SelectionLength = fctb.Text.Length;
+                    fctb.SelectionColor = originalColor;
+
+                    // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                    // Now we want to scan for any matches!
+
+                    // -------------------------
+                    // STRING HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcStringMatches, Color.Brown);
+
+                    // -------------------------
+                    // INTEGER HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcIntegerMatches, Color.Red);
+
+                    // -------------------------
+                    // FLOAT HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcFloatMatches, Color.Red);
+
+                    // -------------------------
+                    // HEXADECIMAL HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcHexMatches, Color.FromArgb(255, 255, 128, 0));
+
+                    // -------------------------
+                    // LOCAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcLocalVarMatches, Color.Brown);
+
+                    // -------------------------
+                    // GLOBAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcGlobalVarMatches, Color.FromArgb(255, 96, 74, 123));
+
+                    // -------------------------
+                    // GLOBAL AS LOCAL VARIABLE HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcGlobalAsLocalVarMatches, Color.FromArgb(255, 16, 119, 182));
+
+                    // -------------------------
+                    // KEYWORDS HIGHLIGHTING
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcKeywordMatches, Color.Blue);
+
+                    // -------------------------
+                    // COMMENT HIGHLIGHTING
+                    //  (Inline and multi-line)
+                    // -------------------------
+                    HandleHighlighting(fctb, qbcCommentMatches, Color.Green);
+
+                    // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                    // Restore the original colors.
+                    fctb.SelectionStart = originalIndex;
+                    fctb.SelectionLength = originalLength;
+                    fctb.SelectionColor = originalColor;
+
+                    // Give the focus back!
+                    fctb.Focus();
+
                     break;
             }
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            V3LauncherCore.AddDebugEntry("Script highlighting finished", "QB Script Editor");
+            StatusTextMain.Text = "Script highlighting finished";
+
+            // Done highlighting, let the program know!
+            ScriptBeingHighlighted = false;
         }
 
         /// <summary>
@@ -392,7 +552,7 @@ namespace WTDE_Launcher_V3.Managers {
         /// <summary>
         ///  Makes a new script file and adds it to the list(s).
         /// </summary>
-        public void MakeNewScript(string content = ROQScriptTemplates.NewScriptDefault, string name = "NewQBScript") {
+        public void MakeNewScript(QBFileSyntax syntax = QBFileSyntax.ROQ, string content = ROQScriptTemplates.NewScriptDefault, string name = "NewQBScript") {
             // OK, so we want to make a new script. Cool!
             // In order to properly do this, we'll have to be pretty careful.
             // First and foremost, BEFORE WE DO ANYTHING ELSE,
@@ -612,14 +772,15 @@ namespace WTDE_Launcher_V3.Managers {
             string text = File.ReadAllText(ofd.FileName);
             string ext = Path.GetExtension(ofd.FileName);
 
-            // Make the script and import it!
-            MakeNewScript(text, name);
-
             bool isQBC = (ext == ".q");
+            QBFileSyntax syntax = (isQBC) ? QBFileSyntax.QBC : QBFileSyntax.ROQ;
 
             ScriptFileExtension.SelectedIndex = (isQBC) ? 1 : 0;
 
-            SetSyntaxColoring((isQBC) ? QBFileSyntax.QBC : QBFileSyntax.ROQ, QBScriptEditorArea);
+            // Make the script and import it!
+            MakeNewScript(syntax, text, name);
+
+            if (!ScriptBeingHighlighted) SetSyntaxColoring(syntax, QBScriptEditorArea);
         }
 
         /// <summary>
@@ -661,11 +822,11 @@ namespace WTDE_Launcher_V3.Managers {
                         string importedLines = File.ReadAllText(outTxtFile);
                         string fileName = Path.GetFileNameWithoutExtension(outTxtFile);
 
-                        MakeNewScript(importedLines, fileName);
+                        MakeNewScript(QBFileSyntax.ROQ, importedLines, fileName);
                         ScriptFileExtension.SelectedIndex = 0;
                     }
 
-                    SetSyntaxColoring(QBFileSyntax.ROQ, QBScriptEditorArea);
+                    if (!ScriptBeingHighlighted) SetSyntaxColoring(QBFileSyntax.ROQ, QBScriptEditorArea);
 
                     break;
 
@@ -683,14 +844,145 @@ namespace WTDE_Launcher_V3.Managers {
                         string importedLines = File.ReadAllText(outQFile);
                         string fileName = Path.GetFileName(outQFile).Replace(".q", "");
 
-                        MakeNewScript(importedLines, fileName);
+                        MakeNewScript(QBFileSyntax.QBC, importedLines, fileName);
                         ScriptFileExtension.SelectedIndex = 1;
                     }
 
+                    if (!ScriptBeingHighlighted) SetSyntaxColoring(QBFileSyntax.QBC, QBScriptEditorArea);
+
+                    break;
+            }
+        }
+
+        /// <summary>
+        ///  Convert a QB file from one syntax to another! If the same syntax type is specified for
+        ///  both arguments, no conversion is performed.
+        /// </summary>
+        /// <param name="inSyntax">
+        ///  The input syntax type.
+        /// </param>
+        /// <param name="outSyntax">
+        ///  The output syntax type.
+        /// </param>
+        public void ConvertQBFileSyntax(QBFileSyntax inSyntax, QBFileSyntax outSyntax) {
+            // Same input syntaxes? Just return!
+            if (inSyntax == outSyntax) return;
+
+            // Ask the user if we want to convert this script?
+            string convertConfirm = "Are you sure you want to convert this script?";
+            bool convertScript = MessageBox.Show(convertConfirm, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+
+            // We don't want to convert the script, bail!
+            if (!convertScript) return;
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            // Some boiler plate variables. We'll make use of these later!
+            string tempQFile, qbcCmd, compiledQFile, roqDecompCmd, decompiledROQFile;
+            string tempTxtFile, roqCmd, compiledTxtFile, qbcDecompCmd, decompiledQBCFile;
+            string decompiledContent;
+            Process process;
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            // Show status bar text!
+            // Also update our status variables too.
+            StatusTextMain.Text = "Converting script, please wait...";
+            ScriptBeingChanged = true;
+
+            // Now which kind of syntax do we want to convert to?
+            switch (outSyntax) {
+
+                // QBC -> ROQ (why would anyone do this?)
+                case QBFileSyntax.ROQ:
+
+                    // So first up, compile the file using QBC.
+                    // We'll make this temporary, and we'll re-decompile using ROQ.
+
+                    // Now, if you're actually going from QBC to ROQ, you might ought
+                    // to ask yourself why you're doing that.
+                    // But oh well, we'll at least honor the request.
+
+                    tempQFile = "./TMP_ROQ_CONVERSION.q";
+                    File.WriteAllText(tempQFile, QBScriptEditorArea.Text.Replace("\t", "    "));
+                    qbcCmd = $"/C node {Path.Combine(SDKPath, "nodeqbc/QBC.js")} compile {tempQFile}";
+                    process = Process.Start("cmd.exe", qbcCmd);
+                    process.WaitForExit();
+
+                    // ----------------
+
+                    // Next, we want to re-decompile it using ROQ.
+                    compiledQFile = "./TMP_ROQ_CONVERSION.qb.xen";
+                    roqDecompCmd = $"/C node {Path.Combine(SDKPath, "sdk.js")} decompile {compiledQFile}";
+                    process = Process.Start("cmd.exe", roqDecompCmd);
+                    process.WaitForExit();
+
+                    // ----------------
+
+                    // Now let's read the converted file!
+                    decompiledROQFile = "./TMP_ROQ_CONVERSION.txt";
+                    decompiledContent = File.ReadAllText(decompiledROQFile);
+
+                    // At this point, we have our content loaded into memory.
+                    // Now we just need to clean up the files we made!
+                    File.Delete(tempQFile);
+                    File.Delete(compiledQFile);
+                    File.Delete(decompiledROQFile);
+
+                    // ----------------
+
+                    QBScriptEditorArea.Text = decompiledContent;
+                    SetSyntaxColoring(QBFileSyntax.ROQ, QBScriptEditorArea);
+
+                    break;
+
+                // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+                // ROQ -> QBC (Wes would be jumping for joy (he already is))
+                // Yay, you made the right decision! :D
+                case QBFileSyntax.QBC:
+
+                    // So we chose the more sane conversion. Awesome!
+                    // So what we'll do is compile the file first using ROQ, then
+                    // we'll re-decompile it as QBC.
+
+                    tempTxtFile = "./TMP_QBC_CONVERSION.txt";
+                    File.WriteAllText(tempTxtFile, QBScriptEditorArea.Text.Replace("\t", "    "));
+                    roqCmd = $"/C node {Path.Combine(SDKPath, "sdk.js")} compile {tempTxtFile}";
+                    process = Process.Start("cmd.exe", roqCmd);
+                    process.WaitForExit();
+
+                    // ----------------
+
+                    // Next, we want to re-decompile it using QBC.
+                    compiledTxtFile = "./TMP_QBC_CONVERSION.qb.xen";
+                    qbcDecompCmd = $"/C node {Path.Combine(SDKPath, "nodeqbc/QBC.js")} decompile {compiledTxtFile}";
+                    process = Process.Start("cmd.exe", qbcDecompCmd);
+                    process.WaitForExit();
+
+                    // ----------------
+
+                    // Now let's read the converted file!
+                    decompiledQBCFile = "./TMP_QBC_CONVERSION.q";
+                    decompiledContent = File.ReadAllText(decompiledQBCFile);
+
+                    // At this point, we have our content loaded into memory.
+                    // Now we just need to clean up the files we made!
+                    File.Delete(tempTxtFile);
+                    File.Delete(compiledTxtFile);
+                    File.Delete(decompiledQBCFile);
+
+                    // ----------------
+
+                    QBScriptEditorArea.Text = decompiledContent;
                     SetSyntaxColoring(QBFileSyntax.QBC, QBScriptEditorArea);
 
                     break;
             }
+
+            // Update our status and status globals again!
+            StatusTextMain.Text = "Script conversion complete";
+            ScriptBeingChanged = false;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -727,8 +1019,8 @@ namespace WTDE_Launcher_V3.Managers {
         private void QBScriptEditorArea_TextChanged(object sender, EventArgs e) {
             if (ScriptBeingChanged || JustDeletedScript || ScriptContents.Count <= 0 || ScriptNames.Count <= 0 || ScriptExtensions.Count <= 0) return;
 
-            SetSyntaxColoring(QBFileSyntax.ROQ, sender);
-            ScriptContents[QBFileIndex] = QBScriptEditorArea.Text;
+            if (!ScriptBeingHighlighted) SetSyntaxColoring(QBFileSyntax.ROQ, sender);
+            ScriptContents[QBFileIndex] = QBScriptEditorArea.Text.Replace("\t", "    ");
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -817,6 +1109,16 @@ namespace WTDE_Launcher_V3.Managers {
         //      This only compiles the CURRENT script
         private void compileScriptToolStripMenuItem_Click(object sender, EventArgs e) {
             CompileCurrentScript();
+        }
+
+        // -- CONVERT TO QBC
+        private void qBCToolStripMenuItem1_Click(object sender, EventArgs e) {
+            ConvertQBFileSyntax((ScriptFileExtension.Text == ".txt") ? QBFileSyntax.ROQ : QBFileSyntax.QBC, QBFileSyntax.QBC);
+        }
+
+        // -- CONVERT TO ROQ
+        private void rOQToolStripMenuItem1_Click(object sender, EventArgs e) {
+            ConvertQBFileSyntax((ScriptFileExtension.Text == ".q") ? QBFileSyntax.QBC : QBFileSyntax.ROQ, QBFileSyntax.ROQ);
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -

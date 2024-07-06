@@ -109,6 +109,16 @@ namespace WTDE_Launcher_V3.Core {
                     UseMOTDWithImage = false;
                     V3LauncherCore.GetMOTDText(MOTDText);
                 } else {
+                    // HACK: We can use MaximumSize and AutoSize together here
+                    // to trick Windows Forms. It works, though!
+                    // This gives us a scrollable label that looks really clean.
+
+                    // We pull this off by putting a normal label in a panel,
+                    // setting AutoScroll for the panel to be true, and then we
+                    // set the label's maximum size and make it auto resize too.
+                    MOTDLabelImage.MaximumSize = new Size(650, 0);
+                    MOTDLabelImage.AutoSize = true;
+                    
                     V3LauncherCore.GetMOTDText(MOTDLabelImage, UseMOTDWithImage, MOTDImage);
                 }
 
@@ -314,6 +324,8 @@ namespace WTDE_Launcher_V3.Core {
 
             // Launcher Settings
             CheckForUpdates.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));
+            ExitOnSave.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "ExitOnSave", "1"));
+            DebugConsoleLauncher.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "Console"));
 
             // User Names
             PreferredGamerTagText1.Text = INIFunctions.GetINIValue("Config", "PreferredGamerTagText1", "");
@@ -1369,6 +1381,8 @@ namespace WTDE_Launcher_V3.Core {
         // GENERAL TAB AUTO UPDATE
         // ----------------------------------------------------------
         #region General Tab Auto Update
+
+        // -- BASIC OPTIONS -----------------------------
         private void RichPresence_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "RichPresence", INIFunctions.BoolToString(RichPresence.Checked));
         }
@@ -1391,9 +1405,7 @@ namespace WTDE_Launcher_V3.Core {
                 new string[] { "easy_rhythm", "easy", "medium", "hard", "expert" }));
         }
 
-        private void AudioBuffLen_SelectedIndexChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
-        }
+        
 
         private void Language_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "Language", INIFunctions.InterpretINISetting(Language.Text,
@@ -1409,6 +1421,7 @@ namespace WTDE_Launcher_V3.Core {
             }
             XMLFunctions.AspyrWriteString("AutoLogin", valueToWrite.ToUpper());
         }
+
         private void Holiday_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "Holiday", INIFunctions.InterpretINISetting(Holiday.Text,
                 V3LauncherConstants.HolidayThemes[0], V3LauncherConstants.HolidayThemes[1]));
@@ -1417,6 +1430,24 @@ namespace WTDE_Launcher_V3.Core {
         private void StatusHandler_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "StatusHandler", INIFunctions.BoolToString(StatusHandler.Checked));
         }
+
+        private void PreferredGamerTagText1_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText1", PreferredGamerTagText1.Text);
+        }
+
+        private void PreferredGamerTagText2_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText2", PreferredGamerTagText2.Text);
+        }
+
+        private void PreferredGamerTagText3_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText3", PreferredGamerTagText3.Text);
+        }
+
+        private void PreferredGamerTagText4_TextChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText4", PreferredGamerTagText4.Text);
+        }
+
+        // -- LAUNCHER OPTIONS -----------------------------
 
         private void CheckForUpdates_CheckedChanged(object sender, EventArgs e) {
             if (!CheckForUpdates.Checked) {
@@ -1427,6 +1458,16 @@ namespace WTDE_Launcher_V3.Core {
             }
             INIFunctions.SaveINIValue("Launcher", "CheckForUpdates", INIFunctions.BoolToString(CheckForUpdates.Checked));
         }
+
+        private void ExitOnSave_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Launcher", "ExitOnSave", INIFunctions.BoolToString(ExitOnSave.Checked));
+        }
+
+        private void DebugConsoleLauncher_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Launcher", "Console", INIFunctions.BoolToString(DebugConsoleLauncher.Checked));
+        }
+
+        // -- AUDIO OPTIONS -----------------------------
 
         private void StarPowerReverb_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Audio", "StarPowerReverb", INIFunctions.BoolToString(StarPowerReverb.Checked));
@@ -1453,26 +1494,13 @@ namespace WTDE_Launcher_V3.Core {
                 }));
         }
 
-        private void SPActivationSFX_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void SPActivationSFX_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Audio", "SPActivationSFX", INIFunctions.InterpretINISetting(SPActivationSFX.Text,
                 V3LauncherConstants.StarPowerActivationSounds[0], V3LauncherConstants.StarPowerActivationSounds[1]));
         }
 
-        private void PreferredGamerTagText1_TextChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText1", PreferredGamerTagText1.Text);
-        }
-
-        private void PreferredGamerTagText2_TextChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText2", PreferredGamerTagText2.Text);
-        }
-
-        private void PreferredGamerTagText3_TextChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText3", PreferredGamerTagText3.Text);
-        }
-
-        private void PreferredGamerTagText4_TextChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Config", "PreferredGamerTagText4", PreferredGamerTagText4.Text);
+        private void AudioBuffLen_SelectedIndexChanged(object sender, EventArgs e) {
+            XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
         }
 
         // -- MAIN MENU TOGGLES -----------------------------
@@ -3091,16 +3119,7 @@ namespace WTDE_Launcher_V3.Core {
         }
 
 
-
-
-
-
-
-
-
         #endregion
-
-       
 
         
     }

@@ -241,6 +241,12 @@
     <Compile Include="Managers\QBScriptEditor.Designer.cs">
       <DependentUpon>QBScriptEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\QSECompileScriptMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\QSECompileScriptMod.Designer.cs">
+      <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\ScriptMods\AddGH3StarPowerFX.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\QBScriptEditor.resx">
       <DependentUpon>QBScriptEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\QSECompileScriptMod.resx">
+      <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ScriptMods\AddGH3StarPowerFX.resx">
       <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>

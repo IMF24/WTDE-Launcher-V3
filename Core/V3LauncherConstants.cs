@@ -960,6 +960,7 @@ namespace WTDE_Launcher_V3.Core {
                 "Guitar Hero: Metallica",
                 "Band Hero",
                 "GH: Warriors of Rock",
+                "GHWT + GHM",
                 "No Sounds"
             },
             
@@ -971,6 +972,7 @@ namespace WTDE_Launcher_V3.Core {
                 "ghm",
                 "bh",
                 "ghwor",
+                "wt_ghm",
                 "none"
             }
         };
