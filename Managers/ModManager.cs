@@ -45,10 +45,154 @@ namespace WTDE_Launcher_V3.Managers {
             }
 
             PopulateScriptModMenu();
+            RegisterUserEditors();
 
             XMLFunctions.ReturningFromDialog = true;
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Register any user-made editors with the Mod Manager!
+        /// </summary>
+        public void RegisterUserEditors() {
+
+            V3LauncherCore.AddDebugEntry("Registering user custom editors...", "Mod Manager");
+
+            // We want to inject our user editors here!
+            // First off, does the directory we need exist?
+            string managersDir = "./launcher_managers";
+
+            // If not, just hide the menu and return.
+            if (!Directory.Exists(managersDir)) {
+                V3LauncherCore.AddDebugEntry("No editors to register", "Mod Manager");
+                UserEditorsMenu.Enabled = false;
+                UserEditorsMenu.Visible = false;
+                return;
+            }
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            V3LauncherCore.AddDebugEntry("Checking for editor config files...", "Mod Manager");
+
+            // All right, the directory existed, cool!
+
+            // The first thing we want to do is get all INI files in the
+            // directory with the launcher managers in it.
+            string[] iniFiles = Directory.GetFiles(managersDir, "*manager.ini", SearchOption.AllDirectories);
+
+            // If this array was empty, just return.
+            if (iniFiles.Length <= 0) {
+                V3LauncherCore.AddDebugEntry("No INI files were found in the managers directory", "Mod Manager");
+                UserEditorsMenu.Enabled = false;
+                UserEditorsMenu.Visible = false;
+                return;
+            }
+
+            // OK, safe! Now go through each one!
+            // We want to read their data and create our menu items based
+            // on the content within them.
+
+            V3LauncherCore.AddDebugEntry("Parsing configs and creating menu commands...", "Mod Manager");
+
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            ToolStripMenuItem[] menuCommands = new ToolStripMenuItem[iniFiles.Length];
+            BinaryExecutables.Clear();
+            UserEditorsMenu.DropDownItems.Clear();
+
+            for (var i = 0; i < iniFiles.Length; i++) {
+                // Initialize our menu command we want to edit!
+                menuCommands[i] = new ToolStripMenuItem();
+
+                // Read the data from the current INI file!
+                // Our hand-made INI class will be really handy for this.
+                INI currentIni = new INI(iniFiles[i]);
+                string managerFolder = Path.GetDirectoryName(iniFiles[i]);
+
+                string commandName = currentIni.GetString("ManagerInfo", "Name", "Custom Manager");
+                string objectName = currentIni.GetString("ManagerInfo", "VariableName", $"userManagerMenuCommand{i}");
+                string imagePath = currentIni.GetString("ManagerInfo", "Image");
+                string executableName = currentIni.GetString("ManagerInfo", "ProgramFile");
+
+                imagePath = Path.Combine(managerFolder, imagePath);
+                executableName = Path.Combine(managerFolder, executableName);
+
+                // --------------------
+
+                // If the executable does not exist, DO NOT FINISH SETTING THIS ONE UP!
+                // This is a bad manager setup, and we should not show it.
+                // To account for it, we'll simply hide the command.
+                // Also set the file to something absurdly long that no one will ever run.
+                if (!File.Exists(executableName)) {
+                    V3LauncherCore.AddDebugEntry($"ERROR: Executable did NOT exist for manager {iniFiles[i]}.", "Mod Manager");
+                    menuCommands[i].Visible = false;
+                    menuCommands[i].Enabled = false;
+                    BinaryExecutables.Add("./DUMMY_EXECUTABLE_DO_NOT_RUN_THIS_WILL_FAIL_ALWAYS.dummy_file_exe");
+                    continue;
+                }
+
+                // --------------------
+
+                menuCommands[i].Name = objectName;
+                menuCommands[i].Text = commandName;
+                menuCommands[i].Click += new EventHandler(UserManagerMenuCommandHandler);
+
+                // --------------------
+
+                // Set the image!
+                // If the image path existed, let's make a new Bitmap and
+                // assign it to this menu command.
+                if (File.Exists(imagePath)) {
+                    Bitmap commandImage = new Bitmap(imagePath);
+                    menuCommands[i].Image = commandImage;
+                } else {
+                    menuCommands[i].Image = null;
+                }
+
+                // --------------------
+
+                // Inject the executable name!
+                BinaryExecutables.Add(executableName);
+
+                // --------------------
+
+                string newManagerInfo = $"ID {i}: New custom editor added:\nName: {commandName}\nObject reference: {objectName}\nEXE file: {executableName}\nImage file: {imagePath}";
+                V3LauncherCore.AddDebugEntry(newManagerInfo, "Mod Manager");
+
+            }
+
+            // At the end of the loop, set our commands for the menu!
+            UserEditorsMenu.DropDownItems.AddRange(menuCommands);
+
+            stopwatch.Stop();
+            V3LauncherCore.AddDebugEntry($"All custom managers configured! Took {stopwatch.Elapsed.TotalSeconds:0.00} seconds");
+        }
+
+        /// <summary>
+        ///  List of binary exectuable files that will be run based on the selected command index.
+        /// </summary>
+        public List<string> BinaryExecutables = new List<string>();
+
+        private void UserManagerMenuCommandHandler(object sender, EventArgs e) {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem) sender;
+
+            int idxOfCommand = UserEditorsMenu.DropDownItems.IndexOf(clickedItem);
+
+            if (idxOfCommand < 0 || idxOfCommand >= UserEditorsMenu.DropDownItems.Count) return;
+
+            string fileToRun = BinaryExecutables[idxOfCommand];
+            if (!File.Exists(fileToRun)) return;
+
+            Process.Start("cmd.exe", $"/C start ./{fileToRun}");
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Populates the Script Mod Editors menu!
+        /// </summary>
         public void PopulateScriptModMenu() {
             // Enable script mod editors if we have any valid ones.
             IEnumerable<string> scriptModQuery =
@@ -78,6 +222,15 @@ namespace WTDE_Launcher_V3.Managers {
             }
         }
 
+        /// <summary>
+        ///  Refresh the mods list!
+        /// </summary>
+        /// <param name="filterMods">
+        ///  Do we want to filter mods?
+        /// </param>
+        /// <param name="filterType">
+        ///  The mod type string to filter by.
+        /// </param>
         public void RefreshModsList(bool filterMods = false, string filterType = "Any") {
             UserContentModsTree.Items.Clear();
             StatusLabelMain.Text = "Refreshing mods list...";
@@ -106,6 +259,7 @@ namespace WTDE_Launcher_V3.Managers {
             }
 
             PopulateScriptModMenu();
+            RegisterUserEditors();
 
             StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods, {UserContentModsTree.Items.Count} matching current filter(s)";
         }

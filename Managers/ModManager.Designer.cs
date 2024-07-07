@@ -40,7 +40,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModManagerMenuMain = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.manageSaveFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rockStarCreatorCharacterManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyzeDebugLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +49,7 @@
             this.qBScriptEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.closeModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ModsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.installModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +63,7 @@
             this.copySelectedModFolderPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteModToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.viewByModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songCategoryModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,10 +76,10 @@
             this.scriptModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.noFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.songsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SongsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.songAndSongCategoryManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDuplicateSongChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scriptModEditorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScriptModsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.gemThemeDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignGH3SPFXToCharacterModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyAndCreateBandLineupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,6 +88,7 @@
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.UserEditorsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -199,20 +200,21 @@
             // ModManagerMenuMain
             // 
             this.ModManagerMenuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.modsToolStripMenuItem,
-            this.viewToolStripMenuItem,
-            this.songsToolStripMenuItem,
-            this.scriptModEditorsToolStripMenuItem});
+            this.FileMenu,
+            this.ModsMenu,
+            this.ViewMenu,
+            this.SongsMenu,
+            this.ScriptModsMenu,
+            this.UserEditorsMenu});
             this.ModManagerMenuMain.Location = new System.Drawing.Point(0, 0);
             this.ModManagerMenuMain.Name = "ModManagerMenuMain";
             this.ModManagerMenuMain.Size = new System.Drawing.Size(1264, 24);
             this.ModManagerMenuMain.TabIndex = 1;
             this.ModManagerMenuMain.Text = "ModManagerMenuMain";
             // 
-            // fileToolStripMenuItem
+            // FileMenu
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageSaveFilesToolStripMenuItem,
             this.rockStarCreatorCharacterManagerToolStripMenuItem,
             this.analyzeDebugLogToolStripMenuItem,
@@ -221,9 +223,9 @@
             this.qBScriptEditorToolStripMenuItem,
             this.toolStripSeparator4,
             this.closeModManagerToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.FileMenu.Name = "FileMenu";
+            this.FileMenu.Size = new System.Drawing.Size(37, 20);
+            this.FileMenu.Text = "File";
             // 
             // manageSaveFilesToolStripMenuItem
             // 
@@ -285,9 +287,9 @@
             this.closeModManagerToolStripMenuItem.Text = "Close Mod Manager";
             this.closeModManagerToolStripMenuItem.Click += new System.EventHandler(this.closeModManagerToolStripMenuItem_Click);
             // 
-            // modsToolStripMenuItem
+            // ModsMenu
             // 
-            this.modsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ModsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openModsFolderToolStripMenuItem,
             this.installModsToolStripMenuItem,
             this.refreshModsToolStripMenuItem,
@@ -301,9 +303,9 @@
             this.copySelectedModFolderPathToolStripMenuItem,
             this.toolStripSeparator3,
             this.deleteModToolStripMenuItem1});
-            this.modsToolStripMenuItem.Name = "modsToolStripMenuItem";
-            this.modsToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.modsToolStripMenuItem.Text = "Mods";
+            this.ModsMenu.Name = "ModsMenu";
+            this.ModsMenu.Size = new System.Drawing.Size(49, 20);
+            this.ModsMenu.Text = "Mods";
             // 
             // openModsFolderToolStripMenuItem
             // 
@@ -400,13 +402,13 @@
             this.deleteModToolStripMenuItem1.Text = "Delete Mod...";
             this.deleteModToolStripMenuItem1.Click += new System.EventHandler(this.deleteModToolStripMenuItem1_Click);
             // 
-            // viewToolStripMenuItem
+            // ViewMenu
             // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ViewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewByModToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
+            this.ViewMenu.Name = "ViewMenu";
+            this.ViewMenu.Size = new System.Drawing.Size(44, 20);
+            this.ViewMenu.Text = "View";
             // 
             // viewByModToolStripMenuItem
             // 
@@ -424,7 +426,7 @@
             this.noFilterToolStripMenuItem});
             this.viewByModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
             this.viewByModToolStripMenuItem.Name = "viewByModToolStripMenuItem";
-            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewByModToolStripMenuItem.Text = "View By Mod Type";
             // 
             // songModsToolStripMenuItem
@@ -512,14 +514,14 @@
             this.noFilterToolStripMenuItem.Text = "No Filter";
             this.noFilterToolStripMenuItem.Click += new System.EventHandler(this.noFilterToolStripMenuItem_Click);
             // 
-            // songsToolStripMenuItem
+            // SongsMenu
             // 
-            this.songsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SongsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.songAndSongCategoryManagerToolStripMenuItem,
             this.manageDuplicateSongChecksumsToolStripMenuItem});
-            this.songsToolStripMenuItem.Name = "songsToolStripMenuItem";
-            this.songsToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.songsToolStripMenuItem.Text = "Songs";
+            this.SongsMenu.Name = "SongsMenu";
+            this.SongsMenu.Size = new System.Drawing.Size(51, 20);
+            this.SongsMenu.Text = "Songs";
             // 
             // songAndSongCategoryManagerToolStripMenuItem
             // 
@@ -537,18 +539,18 @@
             this.manageDuplicateSongChecksumsToolStripMenuItem.Text = "Manage Duplicate Song Checksums";
             this.manageDuplicateSongChecksumsToolStripMenuItem.Click += new System.EventHandler(this.manageDuplicateSongChecksumsToolStripMenuItem_Click);
             // 
-            // scriptModEditorsToolStripMenuItem
+            // ScriptModsMenu
             // 
-            this.scriptModEditorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ScriptModsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gemThemeDesignerToolStripMenuItem,
             this.assignGH3SPFXToCharacterModToolStripMenuItem,
             this.modifyAndCreateBandLineupsToolStripMenuItem,
             this.toolStripSeparator7,
             this.starPowerColorModifierToolStripMenuItem,
             this.extendedHyperspeedToolStripMenuItem});
-            this.scriptModEditorsToolStripMenuItem.Name = "scriptModEditorsToolStripMenuItem";
-            this.scriptModEditorsToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
-            this.scriptModEditorsToolStripMenuItem.Text = "Script Mod Editors";
+            this.ScriptModsMenu.Name = "ScriptModsMenu";
+            this.ScriptModsMenu.Size = new System.Drawing.Size(116, 20);
+            this.ScriptModsMenu.Text = "Script Mod Editors";
             // 
             // gemThemeDesignerToolStripMenuItem
             // 
@@ -614,6 +616,12 @@
             this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
     "nagers";
             // 
+            // UserEditorsMenu
+            // 
+            this.UserEditorsMenu.Name = "UserEditorsMenu";
+            this.UserEditorsMenu.Size = new System.Drawing.Size(126, 20);
+            this.UserEditorsMenu.Text = "User Custom Editors";
+            // 
             // ModManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -649,9 +657,9 @@
         private System.Windows.Forms.ColumnHeader ModDescription;
         private System.Windows.Forms.ColumnHeader ModPath;
         private System.Windows.Forms.MenuStrip ModManagerMenuMain;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem songsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileMenu;
+        private System.Windows.Forms.ToolStripMenuItem ModsMenu;
+        private System.Windows.Forms.ToolStripMenuItem SongsMenu;
         private System.Windows.Forms.StatusStrip StatusBarMain;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabelMain;
         private System.Windows.Forms.ToolStripMenuItem refreshModsToolStripMenuItem;
@@ -680,7 +688,7 @@
         private System.Windows.Forms.ToolStripMenuItem ghwtNexusModsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wtdeGoogleDriveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem scriptModEditorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ScriptModsMenu;
         private System.Windows.Forms.ToolStripMenuItem starPowerColorModifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extendedHyperspeedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gemThemeDesignerToolStripMenuItem;
@@ -688,7 +696,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem modifyAndCreateBandLineupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analyzeDebugLogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ViewMenu;
         private System.Windows.Forms.ToolStripMenuItem viewByModToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem songModsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem songCategoryModsToolStripMenuItem;
@@ -704,5 +712,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem iNIAndXMLEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem qBScriptEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UserEditorsMenu;
     }
 }
