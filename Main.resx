@@ -374,19 +374,6 @@ current accuracy with which you have hit the section, along with the total numbe
 
 Both modes do not alter your final result from the selected section range, and is purely a visual tweak.</value>
   </data>
-  <data name="CreditsMainInfo.Text" xml:space="preserve">
-    <value>GHWT: Definitive Edition Made by Fretworks, EST. 2021
-GHWT: Definitive Edition Launcher Made by IMF24 and Fox
-
-Made in C# 7.3 on .NET 4.6.2
-
-Thank you to everyone who helped me pitch in ideas for this launcher. Without you, all of this would've been impossible.
-
-A huge thanks to all of the developers, development testers, and of course, YOU, the community!
-
-GHWT: DE and Fretworks are not associated with Neversoft, Activision Blizzard, RedOctane, Beenox, or Underground Development in any way, shape, or form.
-GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ButtonDiscord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -572,6 +559,19 @@ GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
         8KL1NOVeh09+5GKO+cZoW8WdjFxznpls6fj4+Pj4+Pj4xDpEfwEBzJ8BrinHKwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="CreditsMainInfo.Text" xml:space="preserve">
+    <value>GHWT: Definitive Edition Made by Fretworks, EST. 2021
+GHWT: Definitive Edition Launcher Made by IMF24 and Fox
+
+Made in C# 7.3 on .NET 4.6.2
+
+Thank you to everyone who helped me pitch in ideas for this launcher. Without you, all of this would've been impossible.
+
+A huge thanks to all of the developers, development testers, and of course, YOU, the community!
+
+GHWT: DE and Fretworks are not associated with Neversoft, Activision Blizzard, RedOctane, Beenox, or Underground Development in any way, shape, or form.
+GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
+  </data>
   <data name="KeyBindsHeaderIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -608,6 +608,17 @@ GHWT: DE is and always will be a free, fan-made, non-profit project.</value>
         vVXECcKUuNL5gMBfqUxK/H8JMLKdgJlZ4oJghMDj8+UG2o6HyfF3UmCYwN9L4d9B7iGsrKysrKysrKys
         rKZeM2b8D9V2rP/UNhS7AAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="DevSettingsONLabel.ToolTip" xml:space="preserve">
+    <value>Your launcher is running with the developer settings enabled!
+
+This has enabled some various locked features that are not
+visible to the public's eyes. These features may contain WIP,
+incomplete, or experimental features, or even just little extra
+features that are developer-exclusive.
+
+Note: Ensure that your dev_settings_enable file is NEVER, EVER
+shared with the eyes of the public.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>55</value>

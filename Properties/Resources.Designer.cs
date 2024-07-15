@@ -618,6 +618,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap github_dark {
+            get {
+                object obj = ResourceManager.GetObject("github_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap google_drive {
             get {
                 object obj = ResourceManager.GetObject("google_drive", resourceCulture);
@@ -1061,6 +1071,16 @@ namespace WTDE_Launcher_V3.Properties {
         internal static System.Drawing.Bitmap open_file {
             get {
                 object obj = ResourceManager.GetObject("open_file", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plugin {
+            get {
+                object obj = ResourceManager.GetObject("plugin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

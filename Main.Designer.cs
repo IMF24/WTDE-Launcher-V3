@@ -402,7 +402,20 @@
             this.TrainingAccuracy = new System.Windows.Forms.ComboBox();
             this.CustomFirstName = new System.Windows.Forms.TextBox();
             this.CustomLastName = new System.Windows.Forms.TextBox();
+            this.ButtonFretworks = new System.Windows.Forms.Button();
+            this.ButtonDiscord = new System.Windows.Forms.Button();
+            this.ButtonWTDESite = new System.Windows.Forms.Button();
+            this.ButtonGitHub = new System.Windows.Forms.Button();
+            this.ButtonYouTube = new System.Windows.Forms.Button();
+            this.ExitOnSave = new System.Windows.Forms.CheckBox();
+            this.DebugConsoleLauncher = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabCreditsGroup = new System.Windows.Forms.Panel();
+            this.CreditsMainInfo = new System.Windows.Forms.Label();
+            this.CreditsVersionLabel = new System.Windows.Forms.Label();
+            this.BlackChalk = new System.Windows.Forms.PictureBox();
+            this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
+            this.IconLogoIMF = new System.Windows.Forms.PictureBox();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
             this.TGEditorBasic = new System.Windows.Forms.TabPage();
@@ -516,17 +529,6 @@
             this.TALPDSettings = new System.Windows.Forms.Label();
             this.TALP1DLabel = new System.Windows.Forms.Label();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
-            this.TabCreditsGroup = new System.Windows.Forms.Panel();
-            this.ButtonFretworks = new System.Windows.Forms.Button();
-            this.CreditsMainInfo = new System.Windows.Forms.Label();
-            this.ButtonDiscord = new System.Windows.Forms.Button();
-            this.ButtonWTDESite = new System.Windows.Forms.Button();
-            this.ButtonGitHub = new System.Windows.Forms.Button();
-            this.ButtonYouTube = new System.Windows.Forms.Button();
-            this.CreditsVersionLabel = new System.Windows.Forms.Label();
-            this.BlackChalk = new System.Windows.Forms.PictureBox();
-            this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
-            this.IconLogoIMF = new System.Windows.Forms.PictureBox();
             this.VersionInfoLabel = new System.Windows.Forms.Label();
             this.FretworksLogo = new System.Windows.Forms.PictureBox();
             this.WTDELogo = new System.Windows.Forms.PictureBox();
@@ -536,13 +538,20 @@
             this.DummyLabel = new System.Windows.Forms.Label();
             this.MOTDPanel = new System.Windows.Forms.Panel();
             this.MOTDWithImagePanel = new System.Windows.Forms.Panel();
+            this.ImageLabelScrollView = new System.Windows.Forms.Panel();
+            this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.DevSettingsONLabel = new System.Windows.Forms.Label();
             this.UpdateAvailableLabel = new System.Windows.Forms.Label();
-            this.ImageLabelScrollView = new System.Windows.Forms.Panel();
-            this.MOTDLabelImage = new System.Windows.Forms.Label();
-            this.ExitOnSave = new System.Windows.Forms.CheckBox();
-            this.DebugConsoleLauncher = new System.Windows.Forms.CheckBox();
+            this.QPODifficultyIconImage = new System.Windows.Forms.PictureBox();
+            this.ALDiffIconP1 = new System.Windows.Forms.PictureBox();
+            this.ALDiffIconP2 = new System.Windows.Forms.PictureBox();
+            this.ALDiffIconP4 = new System.Windows.Forms.PictureBox();
+            this.ALDiffIconP3 = new System.Windows.Forms.PictureBox();
+            this.ALInstIconP4 = new System.Windows.Forms.PictureBox();
+            this.ALInstIconP3 = new System.Windows.Forms.PictureBox();
+            this.ALInstIconP2 = new System.Windows.Forms.PictureBox();
+            this.ALInstIconP1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -562,6 +571,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabCreditsGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
             this.TabGraphicsGroup.SuspendLayout();
             this.TabGraphicsMainEditor.SuspendLayout();
             this.TGEditorBasic.SuspendLayout();
@@ -579,18 +592,23 @@
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
             this.TabDebugGroup.SuspendLayout();
-            this.TabCreditsGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).BeginInit();
             this.TabButtonGroup.SuspendLayout();
             this.MOTDPanel.SuspendLayout();
             this.MOTDWithImagePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).BeginInit();
             this.ImageLabelScrollView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP1)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -2139,9 +2157,9 @@
             "Medium",
             "Hard",
             "Expert"});
-            this.DefaultQPODifficulty.Location = new System.Drawing.Point(244, 95);
+            this.DefaultQPODifficulty.Location = new System.Drawing.Point(260, 95);
             this.DefaultQPODifficulty.Name = "DefaultQPODifficulty";
-            this.DefaultQPODifficulty.Size = new System.Drawing.Size(106, 23);
+            this.DefaultQPODifficulty.Size = new System.Drawing.Size(90, 23);
             this.DefaultQPODifficulty.TabIndex = 6;
             this.ToolTipMain.SetToolTip(this.DefaultQPODifficulty, "In the Quickplay Options menu, what difficulty do you want\r\nthe game to start you" +
         " out on by default?");
@@ -2196,9 +2214,9 @@
             "Medium",
             "Hard",
             "Expert"});
-            this.AutoLaunchDifficulty4.Location = new System.Drawing.Point(434, 268);
+            this.AutoLaunchDifficulty4.Location = new System.Drawing.Point(459, 268);
             this.AutoLaunchDifficulty4.Name = "AutoLaunchDifficulty4";
-            this.AutoLaunchDifficulty4.Size = new System.Drawing.Size(101, 23);
+            this.AutoLaunchDifficulty4.Size = new System.Drawing.Size(80, 23);
             this.AutoLaunchDifficulty4.TabIndex = 57;
             this.ToolTipMain.SetToolTip(this.AutoLaunchDifficulty4, "What difficulty will Player 4 be playing on?");
             this.AutoLaunchDifficulty4.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty4_SelectedIndexChanged);
@@ -2269,9 +2287,9 @@
             "Bass Guitar - PART BASS",
             "Drums - PART DRUMS",
             "Vocals - PART VOCALS"});
-            this.AutoLaunchPart4.Location = new System.Drawing.Point(180, 268);
+            this.AutoLaunchPart4.Location = new System.Drawing.Point(202, 268);
             this.AutoLaunchPart4.Name = "AutoLaunchPart4";
-            this.AutoLaunchPart4.Size = new System.Drawing.Size(167, 23);
+            this.AutoLaunchPart4.Size = new System.Drawing.Size(145, 23);
             this.AutoLaunchPart4.TabIndex = 53;
             this.ToolTipMain.SetToolTip(this.AutoLaunchPart4, "What instrument will Player 4 be playing?");
             this.AutoLaunchPart4.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart4_SelectedIndexChanged);
@@ -2300,9 +2318,9 @@
             "Medium",
             "Hard",
             "Expert"});
-            this.AutoLaunchDifficulty3.Location = new System.Drawing.Point(434, 231);
+            this.AutoLaunchDifficulty3.Location = new System.Drawing.Point(459, 231);
             this.AutoLaunchDifficulty3.Name = "AutoLaunchDifficulty3";
-            this.AutoLaunchDifficulty3.Size = new System.Drawing.Size(101, 23);
+            this.AutoLaunchDifficulty3.Size = new System.Drawing.Size(80, 23);
             this.AutoLaunchDifficulty3.TabIndex = 51;
             this.ToolTipMain.SetToolTip(this.AutoLaunchDifficulty3, "What difficulty will Player 3 be playing on?");
             this.AutoLaunchDifficulty3.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty3_SelectedIndexChanged);
@@ -2427,9 +2445,9 @@
             "Bass Guitar - PART BASS",
             "Drums - PART DRUMS",
             "Vocals - PART VOCALS"});
-            this.AutoLaunchPart3.Location = new System.Drawing.Point(180, 231);
+            this.AutoLaunchPart3.Location = new System.Drawing.Point(202, 231);
             this.AutoLaunchPart3.Name = "AutoLaunchPart3";
-            this.AutoLaunchPart3.Size = new System.Drawing.Size(167, 23);
+            this.AutoLaunchPart3.Size = new System.Drawing.Size(145, 23);
             this.AutoLaunchPart3.TabIndex = 47;
             this.ToolTipMain.SetToolTip(this.AutoLaunchPart3, "What instrument will Player 3 be playing?");
             this.AutoLaunchPart3.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart3_SelectedIndexChanged);
@@ -2446,9 +2464,9 @@
             "Medium",
             "Hard",
             "Expert"});
-            this.AutoLaunchDifficulty2.Location = new System.Drawing.Point(434, 195);
+            this.AutoLaunchDifficulty2.Location = new System.Drawing.Point(459, 195);
             this.AutoLaunchDifficulty2.Name = "AutoLaunchDifficulty2";
-            this.AutoLaunchDifficulty2.Size = new System.Drawing.Size(101, 23);
+            this.AutoLaunchDifficulty2.Size = new System.Drawing.Size(80, 23);
             this.AutoLaunchDifficulty2.TabIndex = 45;
             this.ToolTipMain.SetToolTip(this.AutoLaunchDifficulty2, "What difficulty will Player 2 be playing on?");
             this.AutoLaunchDifficulty2.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty2_SelectedIndexChanged);
@@ -2464,9 +2482,9 @@
             "Bass Guitar - PART BASS",
             "Drums - PART DRUMS",
             "Vocals - PART VOCALS"});
-            this.AutoLaunchPart1.Location = new System.Drawing.Point(180, 159);
+            this.AutoLaunchPart1.Location = new System.Drawing.Point(202, 159);
             this.AutoLaunchPart1.Name = "AutoLaunchPart1";
-            this.AutoLaunchPart1.Size = new System.Drawing.Size(167, 23);
+            this.AutoLaunchPart1.Size = new System.Drawing.Size(145, 23);
             this.AutoLaunchPart1.TabIndex = 7;
             this.ToolTipMain.SetToolTip(this.AutoLaunchPart1, "What instrument will Player 1 be playing?");
             this.AutoLaunchPart1.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart1_SelectedIndexChanged);
@@ -2494,9 +2512,9 @@
             "Bass Guitar - PART BASS",
             "Drums - PART DRUMS",
             "Vocals - PART VOCALS"});
-            this.AutoLaunchPart2.Location = new System.Drawing.Point(180, 195);
+            this.AutoLaunchPart2.Location = new System.Drawing.Point(202, 195);
             this.AutoLaunchPart2.Name = "AutoLaunchPart2";
-            this.AutoLaunchPart2.Size = new System.Drawing.Size(167, 23);
+            this.AutoLaunchPart2.Size = new System.Drawing.Size(145, 23);
             this.AutoLaunchPart2.TabIndex = 41;
             this.ToolTipMain.SetToolTip(this.AutoLaunchPart2, "What instrument will Player 2 be playing?");
             this.AutoLaunchPart2.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchPart2_SelectedIndexChanged);
@@ -2525,9 +2543,9 @@
             "Medium",
             "Hard",
             "Expert"});
-            this.AutoLaunchDifficulty1.Location = new System.Drawing.Point(434, 159);
+            this.AutoLaunchDifficulty1.Location = new System.Drawing.Point(459, 159);
             this.AutoLaunchDifficulty1.Name = "AutoLaunchDifficulty1";
-            this.AutoLaunchDifficulty1.Size = new System.Drawing.Size(101, 23);
+            this.AutoLaunchDifficulty1.Size = new System.Drawing.Size(80, 23);
             this.AutoLaunchDifficulty1.TabIndex = 38;
             this.ToolTipMain.SetToolTip(this.AutoLaunchDifficulty1, "What difficulty will Player 1 be playing on?");
             this.AutoLaunchDifficulty1.SelectedIndexChanged += new System.EventHandler(this.AutoLaunchDifficulty1_SelectedIndexChanged);
@@ -5637,22 +5655,220 @@
         "he name card.");
             this.CustomLastName.TextChanged += new System.EventHandler(this.CustomLastName_TextChanged);
             // 
+            // ButtonFretworks
+            // 
+            this.ButtonFretworks.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonFretworks.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ButtonFretworks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonFretworks.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonFretworks.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ButtonFretworks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ButtonFretworks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ButtonFretworks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonFretworks.Font = new System.Drawing.Font("Lexend", 16F);
+            this.ButtonFretworks.ForeColor = System.Drawing.Color.White;
+            this.ButtonFretworks.Image = global::WTDE_Launcher_V3.Properties.Resources.fretworks;
+            this.ButtonFretworks.Location = new System.Drawing.Point(410, 653);
+            this.ButtonFretworks.Name = "ButtonFretworks";
+            this.ButtonFretworks.Size = new System.Drawing.Size(64, 64);
+            this.ButtonFretworks.TabIndex = 31;
+            this.ToolTipMain.SetToolTip(this.ButtonFretworks, "Fretworks\' GitGud\r\n\r\nhttps://gitgud.io/fretworks");
+            this.ButtonFretworks.UseVisualStyleBackColor = false;
+            this.ButtonFretworks.Click += new System.EventHandler(this.ButtonFretworks_Click);
+            // 
+            // ButtonDiscord
+            // 
+            this.ButtonDiscord.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonDiscord.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ButtonDiscord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonDiscord.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDiscord.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ButtonDiscord.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ButtonDiscord.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ButtonDiscord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDiscord.Font = new System.Drawing.Font("Lexend", 16F);
+            this.ButtonDiscord.ForeColor = System.Drawing.Color.White;
+            this.ButtonDiscord.Image = ((System.Drawing.Image)(resources.GetObject("ButtonDiscord.Image")));
+            this.ButtonDiscord.Location = new System.Drawing.Point(499, 653);
+            this.ButtonDiscord.Name = "ButtonDiscord";
+            this.ButtonDiscord.Size = new System.Drawing.Size(64, 64);
+            this.ButtonDiscord.TabIndex = 29;
+            this.ToolTipMain.SetToolTip(this.ButtonDiscord, "GHWT: Definitive Edition Discord Server\r\n\r\nhttps://discord.gg/HVECPzkV4u");
+            this.ButtonDiscord.UseVisualStyleBackColor = false;
+            this.ButtonDiscord.Click += new System.EventHandler(this.ButtonDiscord_Click);
+            // 
+            // ButtonWTDESite
+            // 
+            this.ButtonWTDESite.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonWTDESite.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ButtonWTDESite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonWTDESite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonWTDESite.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ButtonWTDESite.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ButtonWTDESite.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ButtonWTDESite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonWTDESite.Font = new System.Drawing.Font("Lexend", 16F);
+            this.ButtonWTDESite.ForeColor = System.Drawing.Color.White;
+            this.ButtonWTDESite.Image = ((System.Drawing.Image)(resources.GetObject("ButtonWTDESite.Image")));
+            this.ButtonWTDESite.Location = new System.Drawing.Point(321, 653);
+            this.ButtonWTDESite.Name = "ButtonWTDESite";
+            this.ButtonWTDESite.Size = new System.Drawing.Size(64, 64);
+            this.ButtonWTDESite.TabIndex = 28;
+            this.ToolTipMain.SetToolTip(this.ButtonWTDESite, "GHWT: Definitive Edition Website\r\n\r\nhttps://ghwt.de");
+            this.ButtonWTDESite.UseVisualStyleBackColor = false;
+            this.ButtonWTDESite.Click += new System.EventHandler(this.ButtonWTDESite_Click);
+            // 
+            // ButtonGitHub
+            // 
+            this.ButtonGitHub.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonGitHub.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ButtonGitHub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonGitHub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonGitHub.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ButtonGitHub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ButtonGitHub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ButtonGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonGitHub.Font = new System.Drawing.Font("Lexend", 16F);
+            this.ButtonGitHub.ForeColor = System.Drawing.Color.White;
+            this.ButtonGitHub.Image = ((System.Drawing.Image)(resources.GetObject("ButtonGitHub.Image")));
+            this.ButtonGitHub.Location = new System.Drawing.Point(228, 653);
+            this.ButtonGitHub.Name = "ButtonGitHub";
+            this.ButtonGitHub.Size = new System.Drawing.Size(64, 64);
+            this.ButtonGitHub.TabIndex = 27;
+            this.ToolTipMain.SetToolTip(this.ButtonGitHub, "IMF\'s GitHub\r\n\r\nhttps://github.com/IMF24");
+            this.ButtonGitHub.UseVisualStyleBackColor = false;
+            this.ButtonGitHub.Click += new System.EventHandler(this.ButtonGitHub_Click);
+            // 
+            // ButtonYouTube
+            // 
+            this.ButtonYouTube.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonYouTube.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
+            this.ButtonYouTube.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonYouTube.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonYouTube.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.ButtonYouTube.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ButtonYouTube.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ButtonYouTube.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonYouTube.Font = new System.Drawing.Font("Lexend", 16F);
+            this.ButtonYouTube.ForeColor = System.Drawing.Color.White;
+            this.ButtonYouTube.Image = ((System.Drawing.Image)(resources.GetObject("ButtonYouTube.Image")));
+            this.ButtonYouTube.Location = new System.Drawing.Point(135, 653);
+            this.ButtonYouTube.Name = "ButtonYouTube";
+            this.ButtonYouTube.Size = new System.Drawing.Size(64, 64);
+            this.ButtonYouTube.TabIndex = 26;
+            this.ToolTipMain.SetToolTip(this.ButtonYouTube, "IMF\'s YouTube\r\n\r\nhttps://youtube.com/@IMF24");
+            this.ButtonYouTube.UseVisualStyleBackColor = false;
+            this.ButtonYouTube.Click += new System.EventHandler(this.ButtonYouTube_Click);
+            // 
+            // ExitOnSave
+            // 
+            this.ExitOnSave.AutoSize = true;
+            this.ExitOnSave.Location = new System.Drawing.Point(19, 362);
+            this.ExitOnSave.Name = "ExitOnSave";
+            this.ExitOnSave.Size = new System.Drawing.Size(213, 26);
+            this.ExitOnSave.TabIndex = 36;
+            this.ExitOnSave.Text = "Close When Starting WTDE";
+            this.ToolTipMain.SetToolTip(this.ExitOnSave, "When you press the \"Start WTDE\" button, do you want the launcher to close?");
+            this.ExitOnSave.UseVisualStyleBackColor = true;
+            this.ExitOnSave.CheckedChanged += new System.EventHandler(this.ExitOnSave_CheckedChanged);
+            // 
+            // DebugConsoleLauncher
+            // 
+            this.DebugConsoleLauncher.AutoSize = true;
+            this.DebugConsoleLauncher.Location = new System.Drawing.Point(19, 394);
+            this.DebugConsoleLauncher.Name = "DebugConsoleLauncher";
+            this.DebugConsoleLauncher.Size = new System.Drawing.Size(132, 26);
+            this.DebugConsoleLauncher.TabIndex = 37;
+            this.DebugConsoleLauncher.Text = "Debug Console";
+            this.ToolTipMain.SetToolTip(this.DebugConsoleLauncher, "Shows the debug console when the launcher starts up.");
+            this.DebugConsoleLauncher.UseVisualStyleBackColor = true;
+            this.DebugConsoleLauncher.CheckedChanged += new System.EventHandler(this.DebugConsoleLauncher_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
+            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
+            this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
+            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
-            this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
-            this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Location = new System.Drawing.Point(321, 63);
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabCreditsGroup
+            // 
+            this.TabCreditsGroup.BackColor = System.Drawing.Color.Transparent;
+            this.TabCreditsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d_l;
+            this.TabCreditsGroup.Controls.Add(this.ButtonFretworks);
+            this.TabCreditsGroup.Controls.Add(this.CreditsMainInfo);
+            this.TabCreditsGroup.Controls.Add(this.ButtonDiscord);
+            this.TabCreditsGroup.Controls.Add(this.ButtonWTDESite);
+            this.TabCreditsGroup.Controls.Add(this.ButtonGitHub);
+            this.TabCreditsGroup.Controls.Add(this.ButtonYouTube);
+            this.TabCreditsGroup.Controls.Add(this.CreditsVersionLabel);
+            this.TabCreditsGroup.Controls.Add(this.BlackChalk);
+            this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
+            this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
+            this.TabCreditsGroup.Location = new System.Drawing.Point(626, 109);
+            this.TabCreditsGroup.Name = "TabCreditsGroup";
+            this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
+            this.TabCreditsGroup.TabIndex = 14;
+            // 
+            // CreditsMainInfo
+            // 
+            this.CreditsMainInfo.Font = new System.Drawing.Font("Lexend", 11F);
+            this.CreditsMainInfo.Location = new System.Drawing.Point(42, 259);
+            this.CreditsMainInfo.Name = "CreditsMainInfo";
+            this.CreditsMainInfo.Size = new System.Drawing.Size(604, 386);
+            this.CreditsMainInfo.TabIndex = 30;
+            this.CreditsMainInfo.Text = resources.GetString("CreditsMainInfo.Text");
+            // 
+            // CreditsVersionLabel
+            // 
+            this.CreditsVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreditsVersionLabel.Location = new System.Drawing.Point(95, 219);
+            this.CreditsVersionLabel.Name = "CreditsVersionLabel";
+            this.CreditsVersionLabel.Size = new System.Drawing.Size(500, 23);
+            this.CreditsVersionLabel.TabIndex = 25;
+            this.CreditsVersionLabel.Text = "GHWT: Definitive Edition Launcher - Version 3.0";
+            this.CreditsVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BlackChalk
+            // 
+            this.BlackChalk.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.black_chalk;
+            this.BlackChalk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BlackChalk.Location = new System.Drawing.Point(15, 206);
+            this.BlackChalk.Name = "BlackChalk";
+            this.BlackChalk.Size = new System.Drawing.Size(658, 50);
+            this.BlackChalk.TabIndex = 24;
+            this.BlackChalk.TabStop = false;
+            // 
+            // IconLogoDELauncher
+            // 
+            this.IconLogoDELauncher.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon;
+            this.IconLogoDELauncher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconLogoDELauncher.Location = new System.Drawing.Point(381, 12);
+            this.IconLogoDELauncher.Name = "IconLogoDELauncher";
+            this.IconLogoDELauncher.Size = new System.Drawing.Size(192, 192);
+            this.IconLogoDELauncher.TabIndex = 23;
+            this.IconLogoDELauncher.TabStop = false;
+            // 
+            // IconLogoIMF
+            // 
+            this.IconLogoIMF.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
+            this.IconLogoIMF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconLogoIMF.Location = new System.Drawing.Point(135, 12);
+            this.IconLogoIMF.Name = "IconLogoIMF";
+            this.IconLogoIMF.Size = new System.Drawing.Size(192, 192);
+            this.IconLogoIMF.TabIndex = 22;
+            this.IconLogoIMF.TabStop = false;
             // 
             // TabGraphicsGroup
             // 
@@ -5660,7 +5876,7 @@
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(495, 290);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(491, 286);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -6415,7 +6631,7 @@
             this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
             this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralGroup.Location = new System.Drawing.Point(295, 373);
+            this.TabGeneralGroup.Location = new System.Drawing.Point(291, 394);
             this.TabGeneralGroup.Name = "TabGeneralGroup";
             this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGeneralGroup.TabIndex = 0;
@@ -6435,6 +6651,7 @@
             // 
             // TabGeneralTabsBasic
             // 
+            this.TabGeneralTabsBasic.Controls.Add(this.QPODifficultyIconImage);
             this.TabGeneralTabsBasic.Controls.Add(this.DebugConsoleLauncher);
             this.TabGeneralTabsBasic.Controls.Add(this.ExitOnSave);
             this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag4);
@@ -6655,7 +6872,7 @@
             this.TabAutoLaunchGroup.Controls.Add(this.TabALMainEditor);
             this.TabAutoLaunchGroup.Controls.Add(this.AutoLaunchEnabled);
             this.TabAutoLaunchGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(115, 485);
+            this.TabAutoLaunchGroup.Location = new System.Drawing.Point(102, 495);
             this.TabAutoLaunchGroup.Name = "TabAutoLaunchGroup";
             this.TabAutoLaunchGroup.Size = new System.Drawing.Size(662, 648);
             this.TabAutoLaunchGroup.TabIndex = 2;
@@ -6676,6 +6893,14 @@
             // 
             // TabALMainEditor
             // 
+            this.TabALMainEditor.Controls.Add(this.ALInstIconP4);
+            this.TabALMainEditor.Controls.Add(this.ALInstIconP3);
+            this.TabALMainEditor.Controls.Add(this.ALInstIconP2);
+            this.TabALMainEditor.Controls.Add(this.ALInstIconP1);
+            this.TabALMainEditor.Controls.Add(this.ALDiffIconP4);
+            this.TabALMainEditor.Controls.Add(this.ALDiffIconP3);
+            this.TabALMainEditor.Controls.Add(this.ALDiffIconP2);
+            this.TabALMainEditor.Controls.Add(this.ALDiffIconP1);
             this.TabALMainEditor.Controls.Add(this.TALGameModeLabel);
             this.TabALMainEditor.Controls.Add(this.AutoLaunchGameMode);
             this.TabALMainEditor.Controls.Add(this.GamerTag4);
@@ -6800,7 +7025,7 @@
             // TALP4DLabel
             // 
             this.TALP4DLabel.AutoSize = true;
-            this.TALP4DLabel.Location = new System.Drawing.Point(358, 268);
+            this.TALP4DLabel.Location = new System.Drawing.Point(356, 268);
             this.TALP4DLabel.Name = "TALP4DLabel";
             this.TALP4DLabel.Size = new System.Drawing.Size(74, 22);
             this.TALP4DLabel.TabIndex = 58;
@@ -6818,7 +7043,7 @@
             // TALP4ILabel
             // 
             this.TALP4ILabel.AutoSize = true;
-            this.TALP4ILabel.Location = new System.Drawing.Point(86, 268);
+            this.TALP4ILabel.Location = new System.Drawing.Point(84, 268);
             this.TALP4ILabel.Name = "TALP4ILabel";
             this.TALP4ILabel.Size = new System.Drawing.Size(88, 22);
             this.TALP4ILabel.TabIndex = 55;
@@ -6845,7 +7070,7 @@
             // TALP3DLabel
             // 
             this.TALP3DLabel.AutoSize = true;
-            this.TALP3DLabel.Location = new System.Drawing.Point(358, 231);
+            this.TALP3DLabel.Location = new System.Drawing.Point(356, 231);
             this.TALP3DLabel.Name = "TALP3DLabel";
             this.TALP3DLabel.Size = new System.Drawing.Size(74, 22);
             this.TALP3DLabel.TabIndex = 52;
@@ -6854,7 +7079,7 @@
             // TALP3ILabel
             // 
             this.TALP3ILabel.AutoSize = true;
-            this.TALP3ILabel.Location = new System.Drawing.Point(86, 231);
+            this.TALP3ILabel.Location = new System.Drawing.Point(84, 231);
             this.TALP3ILabel.Name = "TALP3ILabel";
             this.TALP3ILabel.Size = new System.Drawing.Size(88, 22);
             this.TALP3ILabel.TabIndex = 49;
@@ -6891,7 +7116,7 @@
             // TALP2DLabel
             // 
             this.TALP2DLabel.AutoSize = true;
-            this.TALP2DLabel.Location = new System.Drawing.Point(358, 195);
+            this.TALP2DLabel.Location = new System.Drawing.Point(356, 195);
             this.TALP2DLabel.Name = "TALP2DLabel";
             this.TALP2DLabel.Size = new System.Drawing.Size(74, 22);
             this.TALP2DLabel.TabIndex = 46;
@@ -6920,7 +7145,7 @@
             // TALP2ILabel
             // 
             this.TALP2ILabel.AutoSize = true;
-            this.TALP2ILabel.Location = new System.Drawing.Point(86, 195);
+            this.TALP2ILabel.Location = new System.Drawing.Point(84, 195);
             this.TALP2ILabel.Name = "TALP2ILabel";
             this.TALP2ILabel.Size = new System.Drawing.Size(88, 22);
             this.TALP2ILabel.TabIndex = 43;
@@ -6930,7 +7155,7 @@
             // 
             this.TALPISettings.AutoSize = true;
             this.TALPISettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.TALPISettings.Location = new System.Drawing.Point(79, 134);
+            this.TALPISettings.Location = new System.Drawing.Point(77, 134);
             this.TALPISettings.Name = "TALPISettings";
             this.TALPISettings.Size = new System.Drawing.Size(162, 22);
             this.TALPISettings.TabIndex = 25;
@@ -6948,7 +7173,7 @@
             // TALP1ILabel
             // 
             this.TALP1ILabel.AutoSize = true;
-            this.TALP1ILabel.Location = new System.Drawing.Point(86, 159);
+            this.TALP1ILabel.Location = new System.Drawing.Point(84, 159);
             this.TALP1ILabel.Name = "TALP1ILabel";
             this.TALP1ILabel.Size = new System.Drawing.Size(88, 22);
             this.TALP1ILabel.TabIndex = 34;
@@ -6958,7 +7183,7 @@
             // 
             this.TALPDSettings.AutoSize = true;
             this.TALPDSettings.Font = new System.Drawing.Font("Lexend", 10F, System.Drawing.FontStyle.Bold);
-            this.TALPDSettings.Location = new System.Drawing.Point(351, 134);
+            this.TALPDSettings.Location = new System.Drawing.Point(349, 134);
             this.TALPDSettings.Name = "TALPDSettings";
             this.TALPDSettings.Size = new System.Drawing.Size(151, 22);
             this.TALPDSettings.TabIndex = 40;
@@ -6967,7 +7192,7 @@
             // TALP1DLabel
             // 
             this.TALP1DLabel.AutoSize = true;
-            this.TALP1DLabel.Location = new System.Drawing.Point(358, 159);
+            this.TALP1DLabel.Location = new System.Drawing.Point(356, 159);
             this.TALP1DLabel.Name = "TALP1DLabel";
             this.TALP1DLabel.Size = new System.Drawing.Size(74, 22);
             this.TALP1DLabel.TabIndex = 39;
@@ -6997,186 +7222,12 @@
             this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
             this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
             this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(178, 413);
+            this.TabDebugGroup.Location = new System.Drawing.Point(177, 443);
             this.TabDebugGroup.Name = "TabDebugGroup";
             this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
             this.TabDebugGroup.TabIndex = 3;
             this.TabDebugGroup.TabStop = false;
             this.TabDebugGroup.Text = "DEBUG: Debug Tab";
-            // 
-            // TabCreditsGroup
-            // 
-            this.TabCreditsGroup.BackColor = System.Drawing.Color.Transparent;
-            this.TabCreditsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d_l;
-            this.TabCreditsGroup.Controls.Add(this.ButtonFretworks);
-            this.TabCreditsGroup.Controls.Add(this.CreditsMainInfo);
-            this.TabCreditsGroup.Controls.Add(this.ButtonDiscord);
-            this.TabCreditsGroup.Controls.Add(this.ButtonWTDESite);
-            this.TabCreditsGroup.Controls.Add(this.ButtonGitHub);
-            this.TabCreditsGroup.Controls.Add(this.ButtonYouTube);
-            this.TabCreditsGroup.Controls.Add(this.CreditsVersionLabel);
-            this.TabCreditsGroup.Controls.Add(this.BlackChalk);
-            this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
-            this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
-            this.TabCreditsGroup.Location = new System.Drawing.Point(626, 109);
-            this.TabCreditsGroup.Name = "TabCreditsGroup";
-            this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
-            this.TabCreditsGroup.TabIndex = 14;
-            // 
-            // ButtonFretworks
-            // 
-            this.ButtonFretworks.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonFretworks.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.ButtonFretworks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonFretworks.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonFretworks.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ButtonFretworks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ButtonFretworks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.ButtonFretworks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonFretworks.Font = new System.Drawing.Font("Lexend", 16F);
-            this.ButtonFretworks.ForeColor = System.Drawing.Color.White;
-            this.ButtonFretworks.Image = global::WTDE_Launcher_V3.Properties.Resources.fretworks;
-            this.ButtonFretworks.Location = new System.Drawing.Point(410, 653);
-            this.ButtonFretworks.Name = "ButtonFretworks";
-            this.ButtonFretworks.Size = new System.Drawing.Size(64, 64);
-            this.ButtonFretworks.TabIndex = 31;
-            this.ToolTipMain.SetToolTip(this.ButtonFretworks, "Fretworks\' GitGud\r\n\r\nhttps://gitgud.io/fretworks");
-            this.ButtonFretworks.UseVisualStyleBackColor = false;
-            this.ButtonFretworks.Click += new System.EventHandler(this.ButtonFretworks_Click);
-            // 
-            // CreditsMainInfo
-            // 
-            this.CreditsMainInfo.Font = new System.Drawing.Font("Lexend", 11F);
-            this.CreditsMainInfo.Location = new System.Drawing.Point(42, 259);
-            this.CreditsMainInfo.Name = "CreditsMainInfo";
-            this.CreditsMainInfo.Size = new System.Drawing.Size(604, 386);
-            this.CreditsMainInfo.TabIndex = 30;
-            this.CreditsMainInfo.Text = resources.GetString("CreditsMainInfo.Text");
-            // 
-            // ButtonDiscord
-            // 
-            this.ButtonDiscord.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonDiscord.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.ButtonDiscord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonDiscord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonDiscord.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ButtonDiscord.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ButtonDiscord.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.ButtonDiscord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonDiscord.Font = new System.Drawing.Font("Lexend", 16F);
-            this.ButtonDiscord.ForeColor = System.Drawing.Color.White;
-            this.ButtonDiscord.Image = ((System.Drawing.Image)(resources.GetObject("ButtonDiscord.Image")));
-            this.ButtonDiscord.Location = new System.Drawing.Point(499, 653);
-            this.ButtonDiscord.Name = "ButtonDiscord";
-            this.ButtonDiscord.Size = new System.Drawing.Size(64, 64);
-            this.ButtonDiscord.TabIndex = 29;
-            this.ToolTipMain.SetToolTip(this.ButtonDiscord, "GHWT: Definitive Edition Discord Server\r\n\r\nhttps://discord.gg/HVECPzkV4u");
-            this.ButtonDiscord.UseVisualStyleBackColor = false;
-            this.ButtonDiscord.Click += new System.EventHandler(this.ButtonDiscord_Click);
-            // 
-            // ButtonWTDESite
-            // 
-            this.ButtonWTDESite.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonWTDESite.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.ButtonWTDESite.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonWTDESite.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonWTDESite.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ButtonWTDESite.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ButtonWTDESite.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.ButtonWTDESite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonWTDESite.Font = new System.Drawing.Font("Lexend", 16F);
-            this.ButtonWTDESite.ForeColor = System.Drawing.Color.White;
-            this.ButtonWTDESite.Image = ((System.Drawing.Image)(resources.GetObject("ButtonWTDESite.Image")));
-            this.ButtonWTDESite.Location = new System.Drawing.Point(321, 653);
-            this.ButtonWTDESite.Name = "ButtonWTDESite";
-            this.ButtonWTDESite.Size = new System.Drawing.Size(64, 64);
-            this.ButtonWTDESite.TabIndex = 28;
-            this.ToolTipMain.SetToolTip(this.ButtonWTDESite, "GHWT: Definitive Edition Website\r\n\r\nhttps://ghwt.de");
-            this.ButtonWTDESite.UseVisualStyleBackColor = false;
-            this.ButtonWTDESite.Click += new System.EventHandler(this.ButtonWTDESite_Click);
-            // 
-            // ButtonGitHub
-            // 
-            this.ButtonGitHub.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonGitHub.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.ButtonGitHub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonGitHub.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonGitHub.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ButtonGitHub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ButtonGitHub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.ButtonGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonGitHub.Font = new System.Drawing.Font("Lexend", 16F);
-            this.ButtonGitHub.ForeColor = System.Drawing.Color.White;
-            this.ButtonGitHub.Image = ((System.Drawing.Image)(resources.GetObject("ButtonGitHub.Image")));
-            this.ButtonGitHub.Location = new System.Drawing.Point(228, 653);
-            this.ButtonGitHub.Name = "ButtonGitHub";
-            this.ButtonGitHub.Size = new System.Drawing.Size(64, 64);
-            this.ButtonGitHub.TabIndex = 27;
-            this.ToolTipMain.SetToolTip(this.ButtonGitHub, "IMF\'s GitHub\r\n\r\nhttps://github.com/IMF24");
-            this.ButtonGitHub.UseVisualStyleBackColor = false;
-            this.ButtonGitHub.Click += new System.EventHandler(this.ButtonGitHub_Click);
-            // 
-            // ButtonYouTube
-            // 
-            this.ButtonYouTube.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonYouTube.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.dark_overlay_m_l;
-            this.ButtonYouTube.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonYouTube.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonYouTube.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.ButtonYouTube.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ButtonYouTube.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.ButtonYouTube.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonYouTube.Font = new System.Drawing.Font("Lexend", 16F);
-            this.ButtonYouTube.ForeColor = System.Drawing.Color.White;
-            this.ButtonYouTube.Image = ((System.Drawing.Image)(resources.GetObject("ButtonYouTube.Image")));
-            this.ButtonYouTube.Location = new System.Drawing.Point(135, 653);
-            this.ButtonYouTube.Name = "ButtonYouTube";
-            this.ButtonYouTube.Size = new System.Drawing.Size(64, 64);
-            this.ButtonYouTube.TabIndex = 26;
-            this.ToolTipMain.SetToolTip(this.ButtonYouTube, "IMF\'s YouTube\r\n\r\nhttps://youtube.com/@IMF24");
-            this.ButtonYouTube.UseVisualStyleBackColor = false;
-            this.ButtonYouTube.Click += new System.EventHandler(this.ButtonYouTube_Click);
-            // 
-            // CreditsVersionLabel
-            // 
-            this.CreditsVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreditsVersionLabel.Location = new System.Drawing.Point(95, 219);
-            this.CreditsVersionLabel.Name = "CreditsVersionLabel";
-            this.CreditsVersionLabel.Size = new System.Drawing.Size(500, 23);
-            this.CreditsVersionLabel.TabIndex = 25;
-            this.CreditsVersionLabel.Text = "GHWT: Definitive Edition Launcher - Version 3.0";
-            this.CreditsVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BlackChalk
-            // 
-            this.BlackChalk.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.black_chalk;
-            this.BlackChalk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BlackChalk.Location = new System.Drawing.Point(15, 206);
-            this.BlackChalk.Name = "BlackChalk";
-            this.BlackChalk.Size = new System.Drawing.Size(658, 50);
-            this.BlackChalk.TabIndex = 24;
-            this.BlackChalk.TabStop = false;
-            // 
-            // IconLogoDELauncher
-            // 
-            this.IconLogoDELauncher.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon;
-            this.IconLogoDELauncher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.IconLogoDELauncher.Location = new System.Drawing.Point(381, 12);
-            this.IconLogoDELauncher.Name = "IconLogoDELauncher";
-            this.IconLogoDELauncher.Size = new System.Drawing.Size(192, 192);
-            this.IconLogoDELauncher.TabIndex = 23;
-            this.IconLogoDELauncher.TabStop = false;
-            // 
-            // IconLogoIMF
-            // 
-            this.IconLogoIMF.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
-            this.IconLogoIMF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.IconLogoIMF.Location = new System.Drawing.Point(135, 12);
-            this.IconLogoIMF.Name = "IconLogoIMF";
-            this.IconLogoIMF.Size = new System.Drawing.Size(192, 192);
-            this.IconLogoIMF.TabIndex = 22;
-            this.IconLogoIMF.TabStop = false;
             // 
             // VersionInfoLabel
             // 
@@ -7293,6 +7344,27 @@
             this.MOTDWithImagePanel.Size = new System.Drawing.Size(688, 738);
             this.MOTDWithImagePanel.TabIndex = 17;
             // 
+            // ImageLabelScrollView
+            // 
+            this.ImageLabelScrollView.AutoScroll = true;
+            this.ImageLabelScrollView.Controls.Add(this.MOTDLabelImage);
+            this.ImageLabelScrollView.Location = new System.Drawing.Point(6, 226);
+            this.ImageLabelScrollView.Name = "ImageLabelScrollView";
+            this.ImageLabelScrollView.Size = new System.Drawing.Size(672, 493);
+            this.ImageLabelScrollView.TabIndex = 6;
+            // 
+            // MOTDLabelImage
+            // 
+            this.MOTDLabelImage.AutoEllipsis = true;
+            this.MOTDLabelImage.BackColor = System.Drawing.Color.Transparent;
+            this.MOTDLabelImage.Font = new System.Drawing.Font("Lexend", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MOTDLabelImage.ForeColor = System.Drawing.Color.White;
+            this.MOTDLabelImage.Location = new System.Drawing.Point(4, 0);
+            this.MOTDLabelImage.Name = "MOTDLabelImage";
+            this.MOTDLabelImage.Size = new System.Drawing.Size(651, 483);
+            this.MOTDLabelImage.TabIndex = 3;
+            this.MOTDLabelImage.Text = "MOTD text missing, call IMF!";
+            // 
             // MOTDImage
             // 
             this.MOTDImage.Location = new System.Drawing.Point(115, 3);
@@ -7315,6 +7387,7 @@
             this.DevSettingsONLabel.Size = new System.Drawing.Size(287, 25);
             this.DevSettingsONLabel.TabIndex = 18;
             this.DevSettingsONLabel.Text = "Dev. Settings: Dev. Settings Enabled";
+            this.ToolTipMain.SetToolTip(this.DevSettingsONLabel, resources.GetString("DevSettingsONLabel.ToolTip"));
             // 
             // UpdateAvailableLabel
             // 
@@ -7330,50 +7403,87 @@
             this.UpdateAvailableLabel.TabIndex = 19;
             this.UpdateAvailableLabel.Text = "A newer version of WTDE is available for download! The latest version is VXYZ.";
             // 
-            // ImageLabelScrollView
+            // QPODifficultyIconImage
             // 
-            this.ImageLabelScrollView.AutoScroll = true;
-            this.ImageLabelScrollView.Controls.Add(this.MOTDLabelImage);
-            this.ImageLabelScrollView.Location = new System.Drawing.Point(6, 226);
-            this.ImageLabelScrollView.Name = "ImageLabelScrollView";
-            this.ImageLabelScrollView.Size = new System.Drawing.Size(672, 493);
-            this.ImageLabelScrollView.TabIndex = 6;
+            this.QPODifficultyIconImage.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon_difficulty_beginner;
+            this.QPODifficultyIconImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.QPODifficultyIconImage.Location = new System.Drawing.Point(228, 93);
+            this.QPODifficultyIconImage.Name = "QPODifficultyIconImage";
+            this.QPODifficultyIconImage.Size = new System.Drawing.Size(24, 24);
+            this.QPODifficultyIconImage.TabIndex = 38;
+            this.QPODifficultyIconImage.TabStop = false;
             // 
-            // MOTDLabelImage
+            // ALDiffIconP1
             // 
-            this.MOTDLabelImage.AutoEllipsis = true;
-            this.MOTDLabelImage.BackColor = System.Drawing.Color.Transparent;
-            this.MOTDLabelImage.Font = new System.Drawing.Font("Lexend", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MOTDLabelImage.ForeColor = System.Drawing.Color.White;
-            this.MOTDLabelImage.Location = new System.Drawing.Point(4, 0);
-            this.MOTDLabelImage.Name = "MOTDLabelImage";
-            this.MOTDLabelImage.Size = new System.Drawing.Size(651, 483);
-            this.MOTDLabelImage.TabIndex = 3;
-            this.MOTDLabelImage.Text = "MOTD text missing, call IMF!";
+            this.ALDiffIconP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALDiffIconP1.Location = new System.Drawing.Point(431, 158);
+            this.ALDiffIconP1.Name = "ALDiffIconP1";
+            this.ALDiffIconP1.Size = new System.Drawing.Size(24, 24);
+            this.ALDiffIconP1.TabIndex = 74;
+            this.ALDiffIconP1.TabStop = false;
             // 
-            // ExitOnSave
+            // ALDiffIconP2
             // 
-            this.ExitOnSave.AutoSize = true;
-            this.ExitOnSave.Location = new System.Drawing.Point(19, 362);
-            this.ExitOnSave.Name = "ExitOnSave";
-            this.ExitOnSave.Size = new System.Drawing.Size(213, 26);
-            this.ExitOnSave.TabIndex = 36;
-            this.ExitOnSave.Text = "Close When Starting WTDE";
-            this.ToolTipMain.SetToolTip(this.ExitOnSave, "When you press the \"Start WTDE\" button, do you want the launcher to close?");
-            this.ExitOnSave.UseVisualStyleBackColor = true;
-            this.ExitOnSave.CheckedChanged += new System.EventHandler(this.ExitOnSave_CheckedChanged);
+            this.ALDiffIconP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALDiffIconP2.Location = new System.Drawing.Point(431, 194);
+            this.ALDiffIconP2.Name = "ALDiffIconP2";
+            this.ALDiffIconP2.Size = new System.Drawing.Size(24, 24);
+            this.ALDiffIconP2.TabIndex = 75;
+            this.ALDiffIconP2.TabStop = false;
             // 
-            // DebugConsoleLauncher
+            // ALDiffIconP4
             // 
-            this.DebugConsoleLauncher.AutoSize = true;
-            this.DebugConsoleLauncher.Location = new System.Drawing.Point(19, 394);
-            this.DebugConsoleLauncher.Name = "DebugConsoleLauncher";
-            this.DebugConsoleLauncher.Size = new System.Drawing.Size(132, 26);
-            this.DebugConsoleLauncher.TabIndex = 37;
-            this.DebugConsoleLauncher.Text = "Debug Console";
-            this.ToolTipMain.SetToolTip(this.DebugConsoleLauncher, "Shows the debug console when the launcher starts up.");
-            this.DebugConsoleLauncher.UseVisualStyleBackColor = true;
-            this.DebugConsoleLauncher.CheckedChanged += new System.EventHandler(this.DebugConsoleLauncher_CheckedChanged);
+            this.ALDiffIconP4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALDiffIconP4.Location = new System.Drawing.Point(431, 267);
+            this.ALDiffIconP4.Name = "ALDiffIconP4";
+            this.ALDiffIconP4.Size = new System.Drawing.Size(24, 24);
+            this.ALDiffIconP4.TabIndex = 77;
+            this.ALDiffIconP4.TabStop = false;
+            // 
+            // ALDiffIconP3
+            // 
+            this.ALDiffIconP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALDiffIconP3.Location = new System.Drawing.Point(431, 231);
+            this.ALDiffIconP3.Name = "ALDiffIconP3";
+            this.ALDiffIconP3.Size = new System.Drawing.Size(24, 24);
+            this.ALDiffIconP3.TabIndex = 76;
+            this.ALDiffIconP3.TabStop = false;
+            // 
+            // ALInstIconP4
+            // 
+            this.ALInstIconP4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALInstIconP4.Location = new System.Drawing.Point(175, 269);
+            this.ALInstIconP4.Name = "ALInstIconP4";
+            this.ALInstIconP4.Size = new System.Drawing.Size(20, 20);
+            this.ALInstIconP4.TabIndex = 81;
+            this.ALInstIconP4.TabStop = false;
+            // 
+            // ALInstIconP3
+            // 
+            this.ALInstIconP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALInstIconP3.Location = new System.Drawing.Point(175, 233);
+            this.ALInstIconP3.Name = "ALInstIconP3";
+            this.ALInstIconP3.Size = new System.Drawing.Size(20, 20);
+            this.ALInstIconP3.TabIndex = 80;
+            this.ALInstIconP3.TabStop = false;
+            // 
+            // ALInstIconP2
+            // 
+            this.ALInstIconP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALInstIconP2.Location = new System.Drawing.Point(175, 196);
+            this.ALInstIconP2.Name = "ALInstIconP2";
+            this.ALInstIconP2.Size = new System.Drawing.Size(20, 20);
+            this.ALInstIconP2.TabIndex = 79;
+            this.ALInstIconP2.TabStop = false;
+            // 
+            // ALInstIconP1
+            // 
+            this.ALInstIconP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ALInstIconP1.Location = new System.Drawing.Point(175, 160);
+            this.ALInstIconP1.Name = "ALInstIconP1";
+            this.ALInstIconP1.Size = new System.Drawing.Size(20, 20);
+            this.ALInstIconP1.TabIndex = 78;
+            this.ALInstIconP1.TabStop = false;
             // 
             // Main
             // 
@@ -7429,6 +7539,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabCreditsGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
             this.TabGraphicsGroup.ResumeLayout(false);
             this.TabGraphicsMainEditor.ResumeLayout(false);
             this.TGEditorBasic.ResumeLayout(false);
@@ -7457,18 +7571,23 @@
             this.TabALMainEditor.PerformLayout();
             this.TabDebugGroup.ResumeLayout(false);
             this.TabDebugGroup.PerformLayout();
-            this.TabCreditsGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FretworksLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WTDELogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainControlsBack)).EndInit();
             this.TabButtonGroup.ResumeLayout(false);
             this.MOTDPanel.ResumeLayout(false);
             this.MOTDWithImagePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).EndInit();
             this.ImageLabelScrollView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7994,6 +8113,15 @@
         private System.Windows.Forms.Label MOTDLabelImage;
         private System.Windows.Forms.CheckBox DebugConsoleLauncher;
         private System.Windows.Forms.CheckBox ExitOnSave;
+        private System.Windows.Forms.PictureBox QPODifficultyIconImage;
+        private System.Windows.Forms.PictureBox ALInstIconP4;
+        private System.Windows.Forms.PictureBox ALInstIconP3;
+        private System.Windows.Forms.PictureBox ALInstIconP2;
+        private System.Windows.Forms.PictureBox ALInstIconP1;
+        private System.Windows.Forms.PictureBox ALDiffIconP4;
+        private System.Windows.Forms.PictureBox ALDiffIconP3;
+        private System.Windows.Forms.PictureBox ALDiffIconP2;
+        private System.Windows.Forms.PictureBox ALDiffIconP1;
     }
 }
 

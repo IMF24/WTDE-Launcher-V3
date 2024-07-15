@@ -14,13 +14,10 @@ using WTDE_Launcher_V3.Managers.ScriptMods;
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WTDE_Launcher_V3.Managers {
@@ -29,14 +26,13 @@ namespace WTDE_Launcher_V3.Managers {
     /// </summary>
     public partial class ModManager : Form {
         /// <summary>
-        ///  What mod is selected? This property holds that mod's config file path.
+        ///  The Mod Manager, meant for the user to manage their mods with a relatively user-friendly dialog.
         /// </summary>
-        public string SelectedModConfig = "";
-
         public ModManager() {
             InitializeComponent();
 
             this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - Mod Manager";
+            if (V3LauncherCore.EnableDeveloperSettings) this.Text += " | Dev. Settings Enabled";
 
             // Populate the mod list.
             foreach (string[] mod in ModHandler.UserContentMods) {
@@ -46,8 +42,40 @@ namespace WTDE_Launcher_V3.Managers {
 
             PopulateScriptModMenu();
             RegisterUserEditors();
+            EnableDevSettingsItems();
 
             XMLFunctions.ReturningFromDialog = true;
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  What mod is selected? This property holds that mod's config file path.
+        /// </summary>
+        public string SelectedModConfig = "";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Enables various other stuff in the Mod Manager if the dev settings file is present.
+        /// </summary>
+        public void EnableDevSettingsItems() {
+            // Are the dev settings failed?
+            bool isEnabled = V3LauncherCore.EnableDeveloperSettings;
+
+            // -- FILE MENU
+            analyzeDebugLogToolStripMenuItem.Visible = isEnabled;
+            analyzeDebugLogToolStripMenuItem.Enabled = isEnabled;
+            // -----------------------------
+            qBScriptEditorToolStripMenuItem.Visible = isEnabled;
+            qBScriptEditorToolStripMenuItem.Enabled = isEnabled;
+            // -----------------------------
+            managePluginsToolStripMenuItem.Visible = isEnabled;
+            managePluginsToolStripMenuItem.Enabled = isEnabled;
+
+            // -- SCRIPT MOD EDITORS MENU
+            modifyAndCreateBandLineupsToolStripMenuItem.Visible = isEnabled;
+            modifyAndCreateBandLineupsToolStripMenuItem.Enabled = isEnabled;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -175,6 +203,11 @@ namespace WTDE_Launcher_V3.Managers {
         /// </summary>
         public List<string> BinaryExecutables = new List<string>();
 
+        /// <summary>
+        ///  Event handler method for the User Custom Editors menu commands. The starting file for the V3 launcher's execution. We start here!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserManagerMenuCommandHandler(object sender, EventArgs e) {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem) sender;
 
@@ -501,6 +534,8 @@ namespace WTDE_Launcher_V3.Managers {
             RefreshModsList();
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+
         private void iNIAndXMLEditorToolStripMenuItem_Click(object sender, EventArgs e) {
             DEConfigFilesEditor defc = new DEConfigFilesEditor();
             defc.ShowDialog();
@@ -509,6 +544,21 @@ namespace WTDE_Launcher_V3.Managers {
         private void qBScriptEditorToolStripMenuItem_Click(object sender, EventArgs e) {
             QBScriptEditor qbse = new QBScriptEditor();
             qbse.ShowDialog();
+        }
+
+        private void managePluginsToolStripMenuItem_Click(object sender, EventArgs e) {
+            ModManagerPluginManager mmpm = new ModManagerPluginManager();
+            mmpm.ShowDialog();
+
+            RegisterUserEditors();
+        }
+
+        private void wTDEDiscordServerToolStripMenuItem_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
+        }
+
+        private void iMFsGitHubToolStripMenuItem_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://github.com/IMF24");
         }
     }
 }

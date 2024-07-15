@@ -166,6 +166,37 @@ namespace WTDE_Launcher_V3.IO {
             INIInternalFile.Sections[sect].Keys[key].Value = value.ToString();
             INIInternalFile.Save(FilePath);
         }
+        
+        // - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Checks if the INI file has a given section in its list of sections.
+        /// </summary>
+        /// <param name="sect">
+        ///  The section to look for.
+        /// </param>
+        /// <returns>
+        ///  True if the section was found, false if it was not.
+        /// </returns>
+        public bool HasSection(string sect) {
+            return INIInternalFile.Sections.Contains(sect);
+        }
+
+        /// <summary>
+        ///  Checks if the INI file has a given key in the given section.
+        /// </summary>
+        /// <param name="sect">
+        ///  The section to look for.
+        /// </param>
+        /// <param name="key">
+        ///  The key to look for in the specified section.
+        /// </param>
+        /// <returns>
+        ///  True if the key was found in the section, false if it was not.
+        /// </returns>
+        public bool HasKey(string sect, string key) {
+            return INIInternalFile.Sections.Contains(sect) && INIInternalFile.Sections[sect].Keys.Contains(key);
+        }
 
         // - - - - - - - - - - - - - - - - - - - - -
 

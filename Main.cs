@@ -200,6 +200,31 @@ namespace WTDE_Launcher_V3.Core {
 
                 // - - - - - - - - - - - - - - - - - - - - - - -
 
+                // Show intro popups 5 times each to make the user READ;
+                // sad that we have to do this. But oh well.
+
+                if (!IsFirstBoot) {
+                    int timesPopupsShown = int.Parse(INIFunctions.GetINIValue("Launcher", "IntroPopupsTimesShown", "0"));
+                    if (timesPopupsShown < 5) {
+                        // -- INTRO POPUP 1
+                        string bootPopup1 = "Heads up!\n\n" +
+                                            "This launcher is designed for tweaking of most settings, but not every setting is shown in this program. For instance, to bind your controllers, please visit the Bind Controllers menu in the Options Menu in-game.";
+                    
+                        // -- INTRO POPUP 2
+                        string bootPopup2 = "Heads up!\n\n" +
+                                            "Should you run into any issues using this launcher, please create an issue thread on the GitHub page for the launcher, or visit the help line channels in our Discord server.\n\n" +
+                                            "Remember: Do NOT drop a debug_launcher.txt file without providing context.";
+
+                        MessageBox.Show(bootPopup1, "Heads Up!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(bootPopup2, "Heads Up!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        timesPopupsShown++;
+                        INIFunctions.SaveINIValue("Launcher", "IntroPopupsTimesShown", timesPopupsShown.ToString());
+                    }
+                }
+
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
                 // INI file class testing! It works beautifully! :D
                 //~ INI testIni = new INI("C:/Users/ifire/Desktop/test_ini_file.ini", true, true);
                 //~ string testValue = testIni.GetString("TestSection", "TestValue", "Something Different");
@@ -225,13 +250,18 @@ namespace WTDE_Launcher_V3.Core {
 
                 V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
                 
-                MessageBox.Show($"Uh oh, something went wrong!\n\n----------------\n\nError information: {exc.Message}\n\n----------------\n\nLine: line {line}\nFrame: {frame}");
+                bool restartExecution = MessageBox.Show($"Uh oh, something went wrong!\n\n----------------\n\nError information: {exc.Message}\n\n----------------\n\nLine: line {line}\nFrame: {frame}\n\n----------------\n\nDo you want to restart the launcher and try again?", "Boot Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes;
 
-                V3LauncherCore.WriteDebugLog();
+                if (restartExecution) {
+                    this.Close();
+                    Application.Restart();
+                } else {
+                    V3LauncherCore.WriteDebugLog();
 
-                this.Close();
-                Application.Exit();
-                return;
+                    this.Close();
+                    Application.Exit();
+                    return;
+                }
             }
         }
 
@@ -258,6 +288,27 @@ namespace WTDE_Launcher_V3.Core {
         ///  Is there an available internet connection?
         /// </summary>
         public static bool IsNetworkConnected = V3LauncherCore.IsConnectedToInternet();
+
+        /// <summary>
+        ///  Array of difficulty icon images.
+        /// </summary>
+        public Bitmap[] DifficultyIcons = new Bitmap[] {
+            Properties.Resources.icon_difficulty_beginner,
+            Properties.Resources.icon_difficulty_easy,
+            Properties.Resources.icon_difficulty_medium,
+            Properties.Resources.icon_difficulty_hard,
+            Properties.Resources.icon_difficulty_expert
+        };
+
+        /// <summary>
+        ///  Array of instrument icon images.
+        /// </summary>
+        public Bitmap[] InstrumentIcons = new Bitmap[] {
+            Properties.Resources.mixer_icon_guitar,
+            Properties.Resources.mixer_icon_bass,
+            Properties.Resources.mixer_icon_drums,
+            Properties.Resources.mixer_icon_vocals
+        };
 
         /// <summary>
         ///  Change the text tooltip of a control.
@@ -1403,9 +1454,8 @@ namespace WTDE_Launcher_V3.Core {
             INIFunctions.SaveINIValue("Config", "DefaultQPODifficulty", INIFunctions.InterpretINISetting(DefaultQPODifficulty.Text,
                 new string[] { "Beginner", "Easy", "Medium", "Hard", "Expert" },
                 new string[] { "easy_rhythm", "easy", "medium", "hard", "expert" }));
+            QPODifficultyIconImage.BackgroundImage = DifficultyIcons[DefaultQPODifficulty.SelectedIndex];
         }
-
-        
 
         private void Language_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Config", "Language", INIFunctions.InterpretINISetting(Language.Text,
@@ -2153,19 +2203,19 @@ namespace WTDE_Launcher_V3.Core {
         // - - - - - - - - - - - - - - - - - - -
         #region Graphics Settings: Basic Options
         private void VideoWidth_ValueChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
+            INIFunctions.SaveINIValue("Graphics", "ResolutionX", VideoWidth.Value.ToString());
         }
 
         private void VideoHeight_ValueChanged(object sender, EventArgs e) {
-            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
+            INIFunctions.SaveINIValue("Graphics", "ResolutionY", VideoHeight.Value.ToString());
         }
 
         private void UseNativeRes_Click(object sender, EventArgs e) {
             VideoWidth.Value = Screen.FromControl(this).Bounds.Width;
             VideoHeight.Value = Screen.FromControl(this).Bounds.Height;
 
-            XMLFunctions.AspyrWriteString("Video.Width", VideoWidth.Value.ToString());
-            XMLFunctions.AspyrWriteString("Video.Height", VideoHeight.Value.ToString());
+            INIFunctions.SaveINIValue("Graphics", "ResolutionX", VideoWidth.Value.ToString());
+            INIFunctions.SaveINIValue("Graphics", "ResolutionY", VideoHeight.Value.ToString());
         }
 
         private void FPSLimit_ValueChanged(object sender, EventArgs e) {
@@ -2688,6 +2738,9 @@ namespace WTDE_Launcher_V3.Core {
             INIFunctions.SaveINIValue("AutoLaunch", "Players", AutoLaunchPlayers.Text);
             // Update selectable player configs.
             switch (int.Parse(AutoLaunchPlayers.Text)) {
+                // - - - - - - - - - - - - - - - - - - -
+                //  1     P L A Y E R
+                // - - - - - - - - - - - - - - - - - - -
                 case 1:
                     // -- PLAYER 1 --------------------------
                     TALPlayer1Label.Enabled = true;
@@ -2697,6 +2750,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart1.Enabled = true;
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
+
+                    ALInstIconP1.Enabled = true;
+                    ALDiffIconP1.Enabled = true;
 
                     TALPTLPlayer1Label.Enabled = false;
                     GamerTag1.Enabled = false;
@@ -2710,6 +2766,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty2.Enabled = false;
                     AutoLaunchBot2.Enabled = false;
 
+                    ALInstIconP2.Enabled = false;
+                    ALDiffIconP2.Enabled = false;
+
                     TALPTLPlayer2Label.Enabled = false;
                     GamerTag2.Enabled = false;
 
@@ -2722,6 +2781,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty3.Enabled = false;
                     AutoLaunchBot3.Enabled = false;
 
+                    ALInstIconP3.Enabled = false;
+                    ALDiffIconP3.Enabled = false;
+
                     TALPTLPlayer3Label.Enabled = false;
                     GamerTag3.Enabled = false;
 
@@ -2734,10 +2796,16 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty4.Enabled = false;
                     AutoLaunchBot4.Enabled = false;
 
+                    ALInstIconP4.Enabled = false;
+                    ALDiffIconP4.Enabled = false;
+
                     TALPTLPlayer4Label.Enabled = false;
                     GamerTag4.Enabled = false;
                     break;
 
+                // - - - - - - - - - - - - - - - - - - -
+                //  2     P L A Y E R S
+                // - - - - - - - - - - - - - - - - - - -
                 case 2:
                     // -- PLAYER 1 --------------------------
                     TALPlayer1Label.Enabled = true;
@@ -2747,6 +2815,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart1.Enabled = true;
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
+
+                    ALInstIconP1.Enabled = true;
+                    ALDiffIconP1.Enabled = true;
 
                     TALPTLPlayer1Label.Enabled = true;
                     GamerTag1.Enabled = true;
@@ -2759,6 +2830,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart2.Enabled = true;
                     AutoLaunchDifficulty2.Enabled = true;
                     AutoLaunchBot2.Enabled = true;
+
+                    ALInstIconP2.Enabled = true;
+                    ALDiffIconP2.Enabled = true;
 
                     TALPTLPlayer2Label.Enabled = true;
                     GamerTag2.Enabled = true;
@@ -2772,6 +2846,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty3.Enabled = false;
                     AutoLaunchBot3.Enabled = false;
 
+                    ALInstIconP3.Enabled = false;
+                    ALDiffIconP3.Enabled = false;
+
                     TALPTLPlayer3Label.Enabled = false;
                     GamerTag3.Enabled = false;
 
@@ -2784,10 +2861,16 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty4.Enabled = false;
                     AutoLaunchBot4.Enabled = false;
 
+                    ALInstIconP4.Enabled = false;
+                    ALDiffIconP4.Enabled = false;
+
                     TALPTLPlayer4Label.Enabled = false;
                     GamerTag4.Enabled = false;
                     break;
 
+                // - - - - - - - - - - - - - - - - - - -
+                //  3     P L A Y E R S
+                // - - - - - - - - - - - - - - - - - - -
                 case 3:
                     // -- PLAYER 1 --------------------------
                     TALPlayer1Label.Enabled = true;
@@ -2797,6 +2880,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart1.Enabled = true;
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
+
+                    ALInstIconP1.Enabled = true;
+                    ALDiffIconP1.Enabled = true;
 
                     TALPTLPlayer1Label.Enabled = true;
                     GamerTag1.Enabled = true;
@@ -2810,6 +2896,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty2.Enabled = true;
                     AutoLaunchBot2.Enabled = true;
 
+                    ALInstIconP2.Enabled = true;
+                    ALDiffIconP2.Enabled = true;
+
                     TALPTLPlayer2Label.Enabled = true;
                     GamerTag2.Enabled = true;
 
@@ -2821,6 +2910,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart3.Enabled = true;
                     AutoLaunchDifficulty3.Enabled = true;
                     AutoLaunchBot3.Enabled = true;
+
+                    ALInstIconP3.Enabled = true;
+                    ALDiffIconP3.Enabled = true;
 
                     TALPTLPlayer3Label.Enabled = true;
                     GamerTag3.Enabled = true;
@@ -2834,10 +2926,16 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty4.Enabled = false;
                     AutoLaunchBot4.Enabled = false;
 
+                    ALInstIconP4.Enabled = false;
+                    ALDiffIconP4.Enabled = false;
+
                     TALPTLPlayer4Label.Enabled = false;
                     GamerTag4.Enabled = false;
                     break;
 
+                // - - - - - - - - - - - - - - - - - - -
+                //  4     P L A Y E R S
+                // - - - - - - - - - - - - - - - - - - -
                 case 4:
                     // -- PLAYER 1 --------------------------
                     TALPlayer1Label.Enabled = true;
@@ -2847,6 +2945,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart1.Enabled = true;
                     AutoLaunchDifficulty1.Enabled = true;
                     AutoLaunchBot1.Enabled = true;
+
+                    ALInstIconP1.Enabled = true;
+                    ALDiffIconP1.Enabled = true;
 
                     TALPTLPlayer1Label.Enabled = true;
                     GamerTag1.Enabled = true;
@@ -2860,6 +2961,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty2.Enabled = true;
                     AutoLaunchBot2.Enabled = true;
 
+                    ALInstIconP2.Enabled = true;
+                    ALDiffIconP2.Enabled = true;
+
                     TALPTLPlayer2Label.Enabled = true;
                     GamerTag2.Enabled = true;
 
@@ -2872,6 +2976,9 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchDifficulty3.Enabled = true;
                     AutoLaunchBot3.Enabled = true;
 
+                    ALInstIconP3.Enabled = true;
+                    ALDiffIconP3.Enabled = true;
+
                     TALPTLPlayer3Label.Enabled = true;
                     GamerTag3.Enabled = true;
 
@@ -2883,7 +2990,10 @@ namespace WTDE_Launcher_V3.Core {
                     AutoLaunchPart4.Enabled = true;
                     AutoLaunchDifficulty4.Enabled = true;
                     AutoLaunchBot4.Enabled = true;
-                    
+
+                    ALInstIconP4.Enabled = true;
+                    ALDiffIconP4.Enabled = true;
+
                     TALPTLPlayer4Label.Enabled = true;
                     GamerTag4.Enabled = true;
                     break;
@@ -2922,10 +3032,12 @@ namespace WTDE_Launcher_V3.Core {
         private void AutoLaunchPart1_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Part", INIFunctions.InterpretINISetting(AutoLaunchPart1.Text,
                 V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+            ALInstIconP1.BackgroundImage = InstrumentIcons[AutoLaunchPart1.SelectedIndex];
         }
 
         private void AutoLaunchDifficulty1_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Difficulty", AutoLaunchDifficulty1.Text.ToLower());
+            ALDiffIconP1.BackgroundImage = DifficultyIcons[AutoLaunchDifficulty1.SelectedIndex];
         }
 
         private void AutoLaunchBot1_CheckedChanged(object sender, EventArgs e) {
@@ -2935,10 +3047,12 @@ namespace WTDE_Launcher_V3.Core {
         private void AutoLaunchPart2_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Part2", INIFunctions.InterpretINISetting(AutoLaunchPart2.Text,
                 V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+            ALInstIconP2.BackgroundImage = InstrumentIcons[AutoLaunchPart2.SelectedIndex];
         }
 
         private void AutoLaunchDifficulty2_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Difficulty2", AutoLaunchDifficulty2.Text.ToLower());
+            ALDiffIconP2.BackgroundImage = DifficultyIcons[AutoLaunchDifficulty2.SelectedIndex];
         }
 
         private void AutoLaunchBot2_CheckedChanged(object sender, EventArgs e) {
@@ -2948,10 +3062,12 @@ namespace WTDE_Launcher_V3.Core {
         private void AutoLaunchPart3_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Part3", INIFunctions.InterpretINISetting(AutoLaunchPart3.Text,
                 V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+            ALInstIconP3.BackgroundImage = InstrumentIcons[AutoLaunchPart3.SelectedIndex];
         }
 
         private void AutoLaunchDifficulty3_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Difficulty3", AutoLaunchDifficulty3.Text.ToLower());
+            ALDiffIconP3.BackgroundImage = DifficultyIcons[AutoLaunchDifficulty3.SelectedIndex];
         }
 
         private void AutoLaunchBot3_CheckedChanged(object sender, EventArgs e) {
@@ -2961,10 +3077,12 @@ namespace WTDE_Launcher_V3.Core {
         private void AutoLaunchPart4_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Part4", INIFunctions.InterpretINISetting(AutoLaunchPart4.Text,
                 V3LauncherConstants.InstrumentPartNames[0], V3LauncherConstants.InstrumentPartNames[1]));
+            ALInstIconP4.BackgroundImage = InstrumentIcons[AutoLaunchPart4.SelectedIndex];
         }
 
         private void AutoLaunchDifficulty4_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Difficulty4", AutoLaunchDifficulty4.Text.ToLower());
+            ALDiffIconP4.BackgroundImage = DifficultyIcons[AutoLaunchDifficulty4.SelectedIndex];
         }
 
         private void AutoLaunchBot4_CheckedChanged(object sender, EventArgs e) {

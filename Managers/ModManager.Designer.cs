@@ -47,6 +47,8 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.iNIAndXMLEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qBScriptEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.managePluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.closeModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModsMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,9 +88,16 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.starPowerColorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserEditorsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.modManagerHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.wTDEDiscordServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iMFsGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
-            this.UserEditorsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -205,6 +214,7 @@
             this.ViewMenu,
             this.SongsMenu,
             this.ScriptModsMenu,
+            this.helpToolStripMenuItem,
             this.UserEditorsMenu});
             this.ModManagerMenuMain.Location = new System.Drawing.Point(0, 0);
             this.ModManagerMenuMain.Name = "ModManagerMenuMain";
@@ -221,6 +231,8 @@
             this.toolStripSeparator9,
             this.iNIAndXMLEditorToolStripMenuItem,
             this.qBScriptEditorToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.managePluginsToolStripMenuItem,
             this.toolStripSeparator4,
             this.closeModManagerToolStripMenuItem});
             this.FileMenu.Name = "FileMenu";
@@ -273,6 +285,19 @@
             this.qBScriptEditorToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.qBScriptEditorToolStripMenuItem.Text = "QB Script Editor...";
             this.qBScriptEditorToolStripMenuItem.Click += new System.EventHandler(this.qBScriptEditorToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(266, 6);
+            // 
+            // managePluginsToolStripMenuItem
+            // 
+            this.managePluginsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.plugin;
+            this.managePluginsToolStripMenuItem.Name = "managePluginsToolStripMenuItem";
+            this.managePluginsToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.managePluginsToolStripMenuItem.Text = "Manage Plugins...";
+            this.managePluginsToolStripMenuItem.Click += new System.EventHandler(this.managePluginsToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -599,6 +624,65 @@
             this.extendedHyperspeedToolStripMenuItem.Text = "Extended Hyperspeed...";
             this.extendedHyperspeedToolStripMenuItem.Click += new System.EventHandler(this.extendedHyperspeedToolStripMenuItem_Click);
             // 
+            // UserEditorsMenu
+            // 
+            this.UserEditorsMenu.Name = "UserEditorsMenu";
+            this.UserEditorsMenu.Size = new System.Drawing.Size(126, 20);
+            this.UserEditorsMenu.Text = "User Custom Editors";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutModManagerToolStripMenuItem,
+            this.toolStripSeparator11,
+            this.modManagerHelpToolStripMenuItem,
+            this.toolStripSeparator12,
+            this.wTDEDiscordServerToolStripMenuItem,
+            this.iMFsGitHubToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutModManagerToolStripMenuItem
+            // 
+            this.aboutModManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.about;
+            this.aboutModManagerToolStripMenuItem.Name = "aboutModManagerToolStripMenuItem";
+            this.aboutModManagerToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aboutModManagerToolStripMenuItem.Text = "About Mod Manager";
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(182, 6);
+            // 
+            // modManagerHelpToolStripMenuItem
+            // 
+            this.modManagerHelpToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.help;
+            this.modManagerHelpToolStripMenuItem.Name = "modManagerHelpToolStripMenuItem";
+            this.modManagerHelpToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.modManagerHelpToolStripMenuItem.Text = "Mod Manager Help";
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(182, 6);
+            // 
+            // wTDEDiscordServerToolStripMenuItem
+            // 
+            this.wTDEDiscordServerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.discord;
+            this.wTDEDiscordServerToolStripMenuItem.Name = "wTDEDiscordServerToolStripMenuItem";
+            this.wTDEDiscordServerToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.wTDEDiscordServerToolStripMenuItem.Text = "WTDE Discord Server";
+            this.wTDEDiscordServerToolStripMenuItem.Click += new System.EventHandler(this.wTDEDiscordServerToolStripMenuItem_Click);
+            // 
+            // iMFsGitHubToolStripMenuItem
+            // 
+            this.iMFsGitHubToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.github_dark;
+            this.iMFsGitHubToolStripMenuItem.Name = "iMFsGitHubToolStripMenuItem";
+            this.iMFsGitHubToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.iMFsGitHubToolStripMenuItem.Text = "IMF\'s GitHub";
+            this.iMFsGitHubToolStripMenuItem.Click += new System.EventHandler(this.iMFsGitHubToolStripMenuItem_Click);
+            // 
             // StatusBarMain
             // 
             this.StatusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -615,12 +699,6 @@
             this.StatusLabelMain.Size = new System.Drawing.Size(473, 17);
             this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
     "nagers";
-            // 
-            // UserEditorsMenu
-            // 
-            this.UserEditorsMenu.Name = "UserEditorsMenu";
-            this.UserEditorsMenu.Size = new System.Drawing.Size(126, 20);
-            this.UserEditorsMenu.Text = "User Custom Editors";
             // 
             // ModManager
             // 
@@ -713,5 +791,14 @@
         private System.Windows.Forms.ToolStripMenuItem iNIAndXMLEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem qBScriptEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UserEditorsMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem managePluginsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutModManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem modManagerHelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripMenuItem wTDEDiscordServerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iMFsGitHubToolStripMenuItem;
     }
 }

@@ -31,8 +31,12 @@ namespace WTDE_Launcher_V3.Managers {
             // Make sure that the QB script editor area has a HUGE limit!
             QBScriptNameTextBox.MaxLength = int.MaxValue;
 
-            // Initialize control accesibility!
+            // Initialize control accessibility!
             UpdateControlStatus();
+
+            // Set our theme!
+            // EXTREMELY WIP, CHECK BACK LATER
+            //~ UpdateTheme(Themes.Dark);
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -76,6 +80,99 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Is a script currently being syntax highlighted?
         /// </summary>
         public bool ScriptBeingHighlighted = false;
+
+        /// <summary>
+        ///  Themes that the script editor can use.
+        /// </summary>
+        public enum Themes {
+            /// <summary>
+            ///  Light theme, mostly white.
+            /// </summary>
+            Light = 0,
+
+            /// <summary>
+            ///  Dark theme, mostly blue gray and near-black.
+            /// </summary>
+            Dark = 1
+        }
+
+        /// <summary>
+        ///  Controls the visual theme of the editor.
+        /// </summary>
+        public Themes Theme = Themes.Light;
+
+        /// <summary>
+        ///  The currently selected QB file syntax.
+        /// </summary>
+        public QBFileSyntax CurrentSyntax = QBFileSyntax.ROQ;
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Updates the theme to the editor with the designated one.
+        /// </summary>
+        /// <param name="theme">
+        ///  Theme to change to.
+        /// </param>
+        public void UpdateTheme(Themes theme) {
+            Theme = theme;
+            switch (theme) {
+                // - - - - - - - - - - - - -
+                // LIGHT THEME
+                // - - - - - - - - - - - - -
+                case Themes.Light:
+
+                    // Main form background and default foreground colors.
+                    this.BackColor = SystemColors.Window;
+                    this.ForeColor = SystemColors.WindowText;
+
+                    // Text editor area.
+                    QBScriptEditorArea.BackColor = Color.White;
+                    QBScriptEditorArea.ForeColor = Color.Black;
+
+                    // QB file listing.
+                    QBFilesList.BackColor = SystemColors.Window;
+                    QBFilesList.ForeColor = SystemColors.WindowText;
+
+                    break;
+
+                // - - - - - - - - - - - - -
+                // DARK THEME
+                // - - - - - - - - - - - - -
+                case Themes.Dark:
+
+                    // These are some colors that we'll use a few times.
+                    Color darkColor = Color.FromArgb(255, 19, 22, 27);
+
+                    // - - - - - - - - - - - - -
+
+                    // Main form background and default foreground colors.
+                    this.BackColor = Color.FromArgb(255, 16, 18, 22);
+                    this.ForeColor = Color.White;
+
+                    // Text editor area.
+                    QBScriptEditorArea.BackColor = Color.FromArgb(255, 19, 22, 27);
+                    QBScriptEditorArea.ForeColor = Color.White;
+
+                    // QB file listing.
+                    QBFilesList.BackColor = darkColor;
+                    QBFilesList.ForeColor = Color.White;
+
+                    // - - - - - - - - - - - - -
+
+                    // Top menu bar, top tool bar, and status bar.
+                    TopMenuStrip.ForeColor = Color.Black;
+                    QuickActionsMenu.ForeColor = Color.Black;
+
+                    TopToolBar.BackColor = darkColor;
+                    TopToolBar.ForeColor = Color.White;
+
+                    StatusBarMain.BackColor = darkColor;
+                    StatusBarMain.ForeColor = Color.White;
+
+                    break;
+            }
+        }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -129,7 +226,7 @@ namespace WTDE_Launcher_V3.Managers {
             // Original caret positioning.
             int originalIndex = fctb.SelectionStart;
             int originalLength = fctb.SelectionLength;
-            Color originalColor = Color.Black;
+            Color originalColor = (Theme == Themes.Dark) ? Color.White : Color.Black;
 
             // Now we want to do some highlighting!
             // We'll use regular expressions to determine our highlighting.
@@ -247,62 +344,74 @@ namespace WTDE_Launcher_V3.Managers {
                     // -------------------------
                     // STRING HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqStringMatches, Color.Brown);
+                    Color roqStringCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.String : ROQLightColorTemplate.String;
+                    HandleHighlighting(fctb, roqStringMatches, roqStringCol);
 
                     // -------------------------
                     // INTEGER HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqIntegerMatches, Color.Red);
+                    Color roqIntegerCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Integer : ROQLightColorTemplate.Integer;
+                    HandleHighlighting(fctb, roqIntegerMatches, roqIntegerCol);
 
                     // -------------------------
                     // FLOAT HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqFloatMatches, Color.Red);
+                    Color roqFloatCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Float : ROQLightColorTemplate.Float;
+                    HandleHighlighting(fctb, roqFloatMatches, roqFloatCol);
 
                     // -------------------------
                     // HEXADECIMAL HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqHexMatches, Color.FromArgb(255, 255, 128, 0));
+                    Color roqHexCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Hexadecimal : ROQLightColorTemplate.Hexadecimal;
+                    HandleHighlighting(fctb, roqHexMatches, roqHexCol);
 
                     // -------------------------
                     // 2 POINT VECTOR HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqVec2Matches, Color.Red);
+                    Color roqVec2Col = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Vec2 : ROQLightColorTemplate.Vec2;
+                    HandleHighlighting(fctb, roqVec2Matches, roqVec2Col);
 
                     // -------------------------
                     // 3 POINT VECTOR HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqVec3Matches, Color.Red);
+                    Color roqVec3Col = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Vec3 : ROQLightColorTemplate.Vec3;
+                    HandleHighlighting(fctb, roqVec3Matches, roqVec3Col);
 
                     // -------------------------
                     // TYPE HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqTypeMatches, Color.DarkCyan);
+                    Color roqTypeCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Type : ROQLightColorTemplate.Type;
+                    HandleHighlighting(fctb, roqTypeMatches, roqTypeCol);
 
                     // -------------------------
                     // VARIABLE HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqVariableMatches, Color.FromArgb(255, 96, 74, 123));
+                    Color roqVariableCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Variable : ROQLightColorTemplate.Variable;
+                    HandleHighlighting(fctb, roqVariableMatches, roqVariableCol);
 
                     // -------------------------
                     // LOCAL VARIABLE HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqLocalVarMatches, Color.Brown);
+                    Color roqLocalVariableCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.LocalVariable : ROQLightColorTemplate.LocalVariable;
+                    HandleHighlighting(fctb, roqLocalVarMatches, roqLocalVariableCol);
 
                     // -------------------------
                     // GLOBAL VARIABLE HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqGlobalVarMatches, Color.FromArgb(255, 16, 119, 182));
+                    Color roqGlobalVariableCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.GlobalVariable : ROQLightColorTemplate.GlobalVariable;
+                    HandleHighlighting(fctb, roqGlobalVarMatches, roqGlobalVariableCol);
 
                     // -------------------------
                     // HEADER STUFF HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqHeaderMatches, Color.Blue);
+                    Color roqHeaderCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Header : ROQLightColorTemplate.Header;
+                    HandleHighlighting(fctb, roqHeaderMatches, roqHeaderCol);
 
                     // -------------------------
                     // KEYWORDS HIGHLIGHTING
                     // -------------------------
-                    HandleHighlighting(fctb, roqKeywordMatches, Color.Blue);
+                    Color roqKeywordCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Keyword : ROQLightColorTemplate.Keyword;
+                    HandleHighlighting(fctb, roqKeywordMatches, roqKeywordCol);
 
                     // -------------------------
                     // LOGIC AND OPERATORS HIGHLIGHTING
@@ -313,7 +422,8 @@ namespace WTDE_Launcher_V3.Managers {
                     // COMMENT HIGHLIGHTING
                     //  (Inline and multi-line)
                     // -------------------------
-                    HandleHighlighting(fctb, roqCommentMatches, Color.Green);
+                    Color roqCommentCol = (Theme == Themes.Dark) ? ROQDarkColorTemplate.Comment : ROQLightColorTemplate.Comment;
+                    HandleHighlighting(fctb, roqCommentMatches, roqCommentCol);
 
                     // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -573,9 +683,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                 QBFilesList.Items.Add(name);
                 QBScriptNameTextBox.Text = name;
-                QBScriptEditorArea.Text = content;
-
-                QBFileIndex = 0;
+                QBScriptEditorArea.Text = content;                
 
             } else {
                 // We DO have scripts already made.
@@ -600,14 +708,15 @@ namespace WTDE_Launcher_V3.Managers {
                 int idx = QBFileIndex;
                 ScriptNames[idx] = qbFileName;
                 ScriptContents[idx] = qbFileLines;
-
-                // Now set our QBFileIndex field to be the last script.
-                QBFileIndex = QBFilesList.Items.Count - 1;
-                QBFilesList.SelectedIndex = QBFileIndex;
             }
+
+            // Now set our QBFileIndex field to be the last script.
+            QBFileIndex = QBFilesList.Items.Count - 1;
+            QBFilesList.SelectedIndex = QBFileIndex;
 
             // And finally, allow the editor to save data again!
             ScriptBeingChanged = false;
+            JustDeletedScript = false;
 
             // And begin syntax highlighting if it's enabled!
             SetSyntaxColoring(QBFileSyntax.ROQ, QBScriptEditorArea);
@@ -868,8 +977,8 @@ namespace WTDE_Launcher_V3.Managers {
             // Same input syntaxes? Just return!
             if (inSyntax == outSyntax) return;
 
-            // Ask the user if we want to convert this script?
-            string convertConfirm = "Are you sure you want to convert this script?";
+            // Ask the user if we want to convert this script.
+            string convertConfirm = "Are you sure you want to convert this script?\n\nWarning: Your script comments will NOT be preserved!";
             bool convertScript = MessageBox.Show(convertConfirm, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
 
             // We don't want to convert the script, bail!
@@ -1012,15 +1121,96 @@ namespace WTDE_Launcher_V3.Managers {
             ImportPlainTextFile();
         }
 
+        private void fontStyleToolStripMenuItem_Click(object sender, EventArgs e) {
+            FontDialog fnt = new FontDialog();
+            fnt.Font = QBScriptEditorArea.Font;
+            fnt.ShowDialog();
+            QBScriptEditorArea.Font = fnt.Font;
+            SetSyntaxColoring(CurrentSyntax, QBScriptEditorArea);
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
         // QB SCRIPT EDITOR AREA EVENTS
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+        // -- TEXT CHANGED IN EDITOR
         private void QBScriptEditorArea_TextChanged(object sender, EventArgs e) {
             if (ScriptBeingChanged || JustDeletedScript || ScriptContents.Count <= 0 || ScriptNames.Count <= 0 || ScriptExtensions.Count <= 0) return;
 
+            InjectSnippetFromCode();
             if (!ScriptBeingHighlighted) SetSyntaxColoring(QBFileSyntax.ROQ, sender);
+
             ScriptContents[QBFileIndex] = QBScriptEditorArea.Text.Replace("\t", "    ");
+        }
+
+        /// <summary>
+        ///  Inject a code snippet from the code, if defined!
+        /// </summary>
+        public void InjectSnippetFromCode() {
+            // The signaling string for a snippet insert is @snip:.
+            // If we find this, insert a snippet!
+
+            // Now, based on the given snippet shorthand, insert our text!
+
+            // -- ROQ SNIPPETS
+            if (CurrentSyntax == QBFileSyntax.ROQ) {
+                InsertSnippetInCode("ifs", ROQScriptTemplates.IfStatement);
+                InsertSnippetInCode("ifes", ROQScriptTemplates.IfElseStatement);
+                InsertSnippetInCode("elif", ROQScriptTemplates.IfElseIfStatement);
+
+                InsertSnippetInCode("while", ROQScriptTemplates.WhileLoopToStatement);
+                InsertSnippetInCode("loop", ROQScriptTemplates.WhileLoopToStatement);
+
+                InsertSnippetInCode("switch", ROQScriptTemplates.SwitchStatement);
+
+                InsertSnippetInCode("script", ROQScriptTemplates.ScriptTemplate);
+
+                InsertSnippetInCode("noparam", ROQScriptTemplates.ParameterCheck);
+                InsertSnippetInCode("arrit", ROQScriptTemplates.IterateOverArray);
+                InsertSnippetInCode("strcont", ROQScriptTemplates.StructContainsElement);
+
+                InsertSnippetInCode("iniv", ROQScriptTemplates.DEGetINIValue);
+                InsertSnippetInCode("inis", ROQScriptTemplates.DEGetINIString);
+
+            // -- QBC SNIPPETS
+            } else if (CurrentSyntax == QBFileSyntax.QBC) {
+
+            }
+        }
+
+        /// <summary>
+        ///  Inserts a code snippet based if the QB script editor contains a certain snippet delimiter.
+        /// </summary>
+        /// <param name="delimiter">
+        ///  The snippet delimiter.
+        /// </param>
+        /// <param name="templateToInsert">
+        ///  The template string to insert.
+        /// </param>
+        private void InsertSnippetInCode(string delimiter, string templateToInsert) {
+            if (QBScriptEditorArea.Text.Contains("@snip:" + delimiter)) {
+                int oldCursorIdx = QBScriptEditorArea.SelectionStart;
+                QBScriptEditorArea.Text = QBScriptEditorArea.Text.Replace("@snip:" + delimiter, templateToInsert);
+                QBScriptEditorArea.SelectionStart = oldCursorIdx + delimiter.Length;
+            }
+        }
+
+        // -- SCRIPT EXTENSION
+        private void ScriptFileExtension_SelectedIndexChanged(object sender, EventArgs e) {
+            switch (ScriptFileExtension.SelectedIndex) {
+                // -- ROQ (default)
+                case 0: default:
+                    CurrentSyntax = QBFileSyntax.ROQ;
+                    break;
+
+                // -- QBC
+                case 1:
+                    CurrentSyntax = QBFileSyntax.QBC;
+                    break;
+            }
+
+            // Re-apply syntax coloring to reflect our changes.
+            SetSyntaxColoring(CurrentSyntax, QBScriptEditorArea);
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1032,8 +1222,7 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Text to paste.
         /// </param>
         public void PasteTemplate(string text) {
-            Clipboard.SetText(text);
-            QBScriptEditorArea.Text += "\n" + text;
+            QBScriptEditorArea.SelectedText += text;
 
             Application.DoEvents();
         }
@@ -1042,22 +1231,6 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void NewScriptButton_Click(object sender, EventArgs e) {
             MakeNewScript();
-        }
-
-        private void UndoButton_Click(object sender, EventArgs e) {
-            QBScriptEditorArea.Undo();
-        }
-
-        private void RedoButton_Click(object sender, EventArgs e) {
-            QBScriptEditorArea.Redo();
-        }
-
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e) {
-            QBScriptEditorArea.Undo();
-        }
-
-        private void redoToolStripMenuItem_Click(object sender, EventArgs e) {
-            QBScriptEditorArea.Redo();
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1088,6 +1261,13 @@ namespace WTDE_Launcher_V3.Managers {
         // ROQ: SCRIPT ELEMENTS
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+        // -- DEFINE SCRIPT
+        private void defineScriptToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.ScriptTemplate);
+        }
+
+        // - - - - - - - - - - - - - - - - -
+
         // -- IF STATEMENTS
         private void ifStatementToolStripMenuItem_Click(object sender, EventArgs e) {
             PasteTemplate(ROQScriptTemplates.IfStatement);
@@ -1098,8 +1278,29 @@ namespace WTDE_Launcher_V3.Managers {
             PasteTemplate(ROQScriptTemplates.WhileLoopToStatement);
         }
 
+        // -- SWITCH STATEMENT
+        private void switchStatementToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.SwitchStatement);
+        }
 
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // ROQ: SCRIPT ELEMENTS: CODE SNIPPETS
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+        // -- PARAMETER CHECK
+        private void parameterCheckToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.ParameterCheck);
+        }
+
+        // -- ITERATE OVER ARRAY
+        private void iterateOverArrayToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.IterateOverArray);
+        }
+
+        // -- STRUCT CONTAINS ELEMENT
+        private void structContainsElementToolStripMenuItem_Click(object sender, EventArgs e) {
+            PasteTemplate(ROQScriptTemplates.StructContainsElement);          
+        }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
         // QUICK ACTIONS MENU
@@ -1132,13 +1333,18 @@ namespace WTDE_Launcher_V3.Managers {
         private void DeleteSelScriptListButton_Click(object sender, EventArgs e) {
             DeleteCurrentScript();
         }
+
+        
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     //    R O Q       S C R I P T       T E M P L A T E S
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    public class ROQScriptTemplates {
+    /// <summary>
+    ///  Template class for ROQ script templates. Cannot be created.
+    /// </summary>
+    abstract public class ROQScriptTemplates {
         /// <summary>
         ///  Template for a global integer declaration.
         /// </summary>
@@ -1186,9 +1392,67 @@ namespace WTDE_Launcher_V3.Managers {
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
+        ///  Template for a switch statement.
+        /// </summary>
+        public const string SwitchStatement = ":i switch (%GLOBAL%$variable$)\n\t:i case $value1$\n\t\t// Case 1 body\n\t\t:i endcase\n\n\tcase $value2$\n\t\t// Case 2 body\n\t\t:i endcase\n\n\tdefault\n\t\t// Default case\n:i end_switch";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
         ///  Template for a script declaration.
         /// </summary>
         public const string ScriptTemplate = "Script script_name [\n\n\t:i endfunction\n]";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a parameter check using GotParam.
+        /// </summary>
+        public const string ParameterCheck = ":i if NOT $GotParam$ $PARAM_NAME$\n\t// Parameter was not found\n\t:i return\n:i endif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template to iterate over an array with a while / loop_to loop.
+        /// </summary>
+        public const string IterateOverArray = ":i $array_name$ = $INPUT_ARRAY_HERE$\n" +
+                                               ":i $GetArraySize$ %GLOBAL%$array_name$\n" +
+                                               ":i $i$ = %i(0)\n\n" +
+                                               ":i while\n" +
+                                                   "\t:i $element$ = (%GLOBAL%$array_name$ :a{ %GLOBAL%$i$ :a})\n\n" +
+                                                   "\t// Loop body here\n\n" +
+                                                   "\t:i $i$ = (%GLOBAL%$i$ + %i(1))\n" +
+                                               ":i loop_to %GLOBAL%$array_size$";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for checking if a given item exists in a struct.
+        /// </summary>
+        public const string StructContainsElement = ":i $struct$ = $INPUT_STRUCT_HERE$\n" +
+                                                    ":i if $StructureContains$ $structure$ = %GLOBAL%$struct$ $STRUCT_ELEMENT_HERE$\n" +
+                                                    "\t// Struct did contain the element\n" +
+                                                    ":i else\n" +
+                                                    "\t// Struct did NOT contain the element\n" +
+                                                    ":i endif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for reading a value from GHWTDE.ini. This uses any non-string value.
+        /// </summary>
+        public const string DEGetINIValue = ":i $DE_GetINIValue$ $section$ = %s(\"SECTION_NAME_HERE\") $key$ = %s(\"KEY_NAME_HERE\") $default$ = %i(1)\n" +
+                                            ":i if (%GLOBAL%$value$ = %i(1))\n" +
+                                            "\t// If value is 1\n" +
+                                            ":i endif";
+
+        /// <summary>
+        ///  Template for reading a value from GHWTDE.ini. This uses string values.
+        /// </summary>
+        public const string DEGetINIString = ":i $DE_GetINIString$ $section$ = %s(\"SECTION_NAME_HERE\") $key$ = %s(\"KEY_NAME_HERE\") $default$ = %s(\"DEFAULT\")\n" +
+                                             ":i if NOT (%GLOBAL%$string_value$ = %s(\"DEFAULT\"))\n" +
+                                             "\t// If value is 1\n" +
+                                             ":i endif";
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -1205,5 +1469,164 @@ namespace WTDE_Launcher_V3.Managers {
                                                "\t:i $printf$ %s(\"Hello World!\")\n" +
                                                "\t:i endfunction\n" +
                                                "]\n";
+    }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    //    S Y N T A X       C O L O R I N G       T E M P L A T E S
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    /// <summary>
+    ///  Template class for ROQ's syntax highlighting for the light theme.
+    /// </summary>
+    abstract public class ROQLightColorTemplate {
+        /// <summary>
+        ///  Color for strings. <code>%s("") | ""</code>
+        /// </summary>
+        public static Color String = Color.Brown;
+
+        /// <summary>
+        ///  Color for integers. <code>%i(7) | 12</code>
+        /// </summary>
+        public static Color Integer = Color.Red;
+
+        /// <summary>
+        ///  Color for floats. <code>%f(3.6) | 8.5</code>
+        /// </summary>
+        public static Color Float = Color.Red;
+
+        /// <summary>
+        ///  Color for hexadecimal values, such as QBKeys. <code>0x1234ABCD</code>
+        /// </summary>
+        public static Color Hexadecimal = Color.FromArgb(255, 255, 128, 0);
+
+        /// <summary>
+        ///  Color for 2 point vectors. <code>%vec2(1.0, 1.0)</code>
+        /// </summary>
+        public static Color Vec2 = Color.Red;
+
+        /// <summary>
+        ///  Color for 3 point vectors. <code>%vec3(1.0, 1.0, 1.0)</code>
+        /// </summary>
+        public static Color Vec3 = Color.Red;
+
+        /// <summary>
+        ///  Color for data types. <code>SectionInteger | StructInt | SectionQBKey | StructQBKey | ArrayStruct</code>
+        /// </summary>
+        public static Color Type = Color.DarkCyan;
+
+        /// <summary>
+        ///  Color for local variables. <code>:i $variable$ = %i(20)</code>
+        /// </summary>
+        public static Color Variable = Color.FromArgb(255, 96, 74, 123);
+
+        /// <summary>
+        ///  Color for the "%GLOBAL%" modifier in front of local variables.
+        ///  <code>
+        ///   :i $variable$ = %i(10)
+        ///   :i $variable$ = (%GLOBAL%$variable$ * %i(2))
+        ///  </code>
+        /// </summary>
+        public static Color LocalVariable = Color.Brown;
+
+        /// <summary>
+        ///  Color for globally defined variables.
+        ///  <code>
+        ///   SectionInteger my_number 172
+        ///  </code>
+        /// </summary>
+        public static Color GlobalVariable = Color.FromArgb(255, 16, 119, 182);
+
+        /// <summary>
+        ///  Color for the header of an ROQ script. <code>Unknown [GHWT_HEADER]</code>
+        /// </summary>
+        public static Color Header = Color.Blue;
+
+        /// <summary>
+        ///  Color for keywords in scripts. <code>if | else | elseif | endif | switch | end_switch | while | loop_to</code>
+        /// </summary>
+        public static Color Keyword = Color.Blue;
+
+        /// <summary>
+        ///  Color for comments in scripts. <code>// This is a comment</code>
+        /// </summary>
+        public static Color Comment = Color.Green;
+    }
+
+    /// <summary>
+    ///  Template class for ROQ's syntax highlighting for the dark theme.
+    /// </summary>
+    abstract public class ROQDarkColorTemplate {
+        /// <summary>
+        ///  Color for strings. <code>%s("") | ""</code>
+        /// </summary>
+        public static Color String = Color.Purple;
+
+        /// <summary>
+        ///  Color for integers. <code>%i(7) | 12</code>
+        /// </summary>
+        public static Color Integer = Color.Red;
+
+        /// <summary>
+        ///  Color for floats. <code>%f(3.6) | 8.5</code>
+        /// </summary>
+        public static Color Float = Color.Red;
+
+        /// <summary>
+        ///  Color for hexadecimal values, such as QBKeys. <code>0x1234ABCD</code>
+        /// </summary>
+        public static Color Hexadecimal = Color.FromArgb(255, 255, 128, 0);
+
+        /// <summary>
+        ///  Color for 2 point vectors. <code>%vec2(1.0, 1.0)</code>
+        /// </summary>
+        public static Color Vec2 = Color.Red;
+
+        /// <summary>
+        ///  Color for 3 point vectors. <code>%vec3(1.0, 1.0, 1.0)</code>
+        /// </summary>
+        public static Color Vec3 = Color.Red;
+
+        /// <summary>
+        ///  Color for data types. <code>SectionInteger | StructInt | SectionQBKey | StructQBKey | ArrayStruct</code>
+        /// </summary>
+        public static Color Type = Color.DarkCyan;
+
+        /// <summary>
+        ///  Color for local variables. <code>:i $variable$ = %i(20)</code>
+        /// </summary>
+        public static Color Variable = Color.LightSlateGray;
+
+        /// <summary>
+        ///  Color for the "%GLOBAL%" modifier in front of local variables.
+        ///  <code>
+        ///   :i $variable$ = %i(10)
+        ///   :i $variable$ = (%GLOBAL%$variable$ * %i(2))
+        ///  </code>
+        /// </summary>
+        public static Color LocalVariable = Color.LightGray;
+
+        /// <summary>
+        ///  Color for globally defined variables.
+        ///  <code>
+        ///   SectionInteger my_number 172
+        ///  </code>
+        /// </summary>
+        public static Color GlobalVariable = Color.FromArgb(255, 255, 109, 124);
+
+        /// <summary>
+        ///  Color for the header of an ROQ script. <code>Unknown [GHWT_HEADER]</code>
+        /// </summary>
+        public static Color Header = Color.FromArgb(255, 51, 119, 153);
+
+        /// <summary>
+        ///  Color for keywords in scripts. <code>if | else | elseif | endif | switch | end_switch | while | loop_to</code>
+        /// </summary>
+        public static Color Keyword = Color.FromArgb(255, 51, 119, 153);
+
+        /// <summary>
+        ///  Color for comments in scripts. <code>// This is a comment</code>
+        /// </summary>
+        public static Color Comment = Color.FromArgb(255, 128, 255, 204);
+
     }
 }

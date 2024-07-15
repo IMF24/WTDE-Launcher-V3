@@ -29,7 +29,6 @@ using System.Diagnostics;
 using MadMilkman.Ini;
 using Microsoft.Win32;
 using System.Drawing;
-using System.Security.Policy;
 
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
@@ -321,7 +320,7 @@ namespace WTDE_Launcher_V3.Core {
         /// <returns>
         ///  String of text containing the MOTD. Gives back fallback MOTD if it fails.
         /// </returns>
-        public static void GetMOTDText(Label label, bool useImageBox = false, PictureBox pBox = null, string imageURL = "https://ghwt.de/Assets/notes_logo.png") {
+        public static void GetMOTDText(Label label, bool useImageBox = false, PictureBox pBox = null, string imageURL = "https://ghwt.de/Assets/hkx_logo.png") {
             try {
                 using (WebClient client = new WebClient()) {
                     string downloadString = client.DownloadString("https://ghwt.de/meta/motd.txt");

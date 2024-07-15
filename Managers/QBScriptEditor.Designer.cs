@@ -40,6 +40,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exportScriptModToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TopMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TopMenuTemplate = new System.Windows.Forms.ToolStripMenuItem();
             this.rOQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.declareGlobalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,11 @@
             this.arrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.structToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qBKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.codeSnippetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parameterCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iterateOverArrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.structContainsElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qBCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.declareGlobalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.defineScriptToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -217,9 +223,18 @@
             // 
             // TopMenuEdit
             // 
+            this.TopMenuEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontStyleToolStripMenuItem});
             this.TopMenuEdit.Name = "TopMenuEdit";
             this.TopMenuEdit.Size = new System.Drawing.Size(39, 20);
             this.TopMenuEdit.Text = "Edit";
+            // 
+            // fontStyleToolStripMenuItem
+            // 
+            this.fontStyleToolStripMenuItem.Name = "fontStyleToolStripMenuItem";
+            this.fontStyleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontStyleToolStripMenuItem.Text = "Font Style...";
+            this.fontStyleToolStripMenuItem.Click += new System.EventHandler(this.fontStyleToolStripMenuItem_Click);
             // 
             // TopMenuTemplate
             // 
@@ -299,6 +314,7 @@
             this.defineScriptToolStripMenuItem.Name = "defineScriptToolStripMenuItem";
             this.defineScriptToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.defineScriptToolStripMenuItem.Text = "Define Script";
+            this.defineScriptToolStripMenuItem.Click += new System.EventHandler(this.defineScriptToolStripMenuItem_Click);
             // 
             // scriptElementToolStripMenuItem
             // 
@@ -306,7 +322,9 @@
             this.ifStatementToolStripMenuItem,
             this.whileLoopToLoopToolStripMenuItem,
             this.switchStatementToolStripMenuItem,
-            this.variableDeclarationToolStripMenuItem});
+            this.variableDeclarationToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.codeSnippetsToolStripMenuItem});
             this.scriptElementToolStripMenuItem.Name = "scriptElementToolStripMenuItem";
             this.scriptElementToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.scriptElementToolStripMenuItem.Text = "Script Element";
@@ -330,6 +348,7 @@
             this.switchStatementToolStripMenuItem.Name = "switchStatementToolStripMenuItem";
             this.switchStatementToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.switchStatementToolStripMenuItem.Text = "Switch Statement";
+            this.switchStatementToolStripMenuItem.Click += new System.EventHandler(this.switchStatementToolStripMenuItem_Click);
             // 
             // variableDeclarationToolStripMenuItem
             // 
@@ -379,6 +398,42 @@
             this.qBKeyToolStripMenuItem.Name = "qBKeyToolStripMenuItem";
             this.qBKeyToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.qBKeyToolStripMenuItem.Text = "QBKey";
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(178, 6);
+            // 
+            // codeSnippetsToolStripMenuItem
+            // 
+            this.codeSnippetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parameterCheckToolStripMenuItem,
+            this.iterateOverArrayToolStripMenuItem,
+            this.structContainsElementToolStripMenuItem});
+            this.codeSnippetsToolStripMenuItem.Name = "codeSnippetsToolStripMenuItem";
+            this.codeSnippetsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.codeSnippetsToolStripMenuItem.Text = "Code Snippets";
+            // 
+            // parameterCheckToolStripMenuItem
+            // 
+            this.parameterCheckToolStripMenuItem.Name = "parameterCheckToolStripMenuItem";
+            this.parameterCheckToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.parameterCheckToolStripMenuItem.Text = "Parameter Check";
+            this.parameterCheckToolStripMenuItem.Click += new System.EventHandler(this.parameterCheckToolStripMenuItem_Click);
+            // 
+            // iterateOverArrayToolStripMenuItem
+            // 
+            this.iterateOverArrayToolStripMenuItem.Name = "iterateOverArrayToolStripMenuItem";
+            this.iterateOverArrayToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.iterateOverArrayToolStripMenuItem.Text = "Iterate Over Array";
+            this.iterateOverArrayToolStripMenuItem.Click += new System.EventHandler(this.iterateOverArrayToolStripMenuItem_Click);
+            // 
+            // structContainsElementToolStripMenuItem
+            // 
+            this.structContainsElementToolStripMenuItem.Name = "structContainsElementToolStripMenuItem";
+            this.structContainsElementToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.structContainsElementToolStripMenuItem.Text = "Struct Contains Element";
+            this.structContainsElementToolStripMenuItem.Click += new System.EventHandler(this.structContainsElementToolStripMenuItem_Click);
             // 
             // qBCToolStripMenuItem
             // 
@@ -447,6 +502,7 @@
             this.ScriptFileExtension.Size = new System.Drawing.Size(71, 21);
             this.ScriptFileExtension.TabIndex = 8;
             this.ScriptFileExtension.Text = ".txt";
+            this.ScriptFileExtension.SelectedIndexChanged += new System.EventHandler(this.ScriptFileExtension_SelectedIndexChanged);
             // 
             // InfoHeaderLabel
             // 
@@ -498,7 +554,7 @@
             // 
             this.QBScriptEditorArea.AcceptsTab = true;
             this.QBScriptEditorArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.QBScriptEditorArea.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QBScriptEditorArea.Font = new System.Drawing.Font("Consolas", 9.75F);
             this.QBScriptEditorArea.Location = new System.Drawing.Point(268, 118);
             this.QBScriptEditorArea.Name = "QBScriptEditorArea";
             this.QBScriptEditorArea.Size = new System.Drawing.Size(950, 704);
@@ -539,7 +595,7 @@
             this.EnableSyntaxHighlighting.AutoSize = true;
             this.EnableSyntaxHighlighting.Checked = true;
             this.EnableSyntaxHighlighting.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.EnableSyntaxHighlighting.Location = new System.Drawing.Point(1102, 93);
+            this.EnableSyntaxHighlighting.Location = new System.Drawing.Point(1106, 93);
             this.EnableSyntaxHighlighting.Name = "EnableSyntaxHighlighting";
             this.EnableSyntaxHighlighting.Size = new System.Drawing.Size(116, 17);
             this.EnableSyntaxHighlighting.TabIndex = 13;
@@ -553,7 +609,7 @@
             this.QuickActionsMenu});
             this.QuickActionsMenuStrip.Location = new System.Drawing.Point(891, 90);
             this.QuickActionsMenuStrip.Name = "QuickActionsMenuStrip";
-            this.QuickActionsMenuStrip.Size = new System.Drawing.Size(221, 24);
+            this.QuickActionsMenuStrip.Size = new System.Drawing.Size(101, 24);
             this.QuickActionsMenuStrip.TabIndex = 14;
             this.QuickActionsMenuStrip.Text = "Quick Actions";
             // 
@@ -573,26 +629,26 @@
             // 
             this.compileScriptToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
             this.compileScriptToolStripMenuItem.Name = "compileScriptToolStripMenuItem";
-            this.compileScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.compileScriptToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.compileScriptToolStripMenuItem.Text = "Compile Script...";
             this.compileScriptToolStripMenuItem.Click += new System.EventHandler(this.compileScriptToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(158, 6);
             // 
             // clearScriptToolStripMenuItem
             // 
             this.clearScriptToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
             this.clearScriptToolStripMenuItem.Name = "clearScriptToolStripMenuItem";
-            this.clearScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearScriptToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.clearScriptToolStripMenuItem.Text = "Clear Script";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(158, 6);
             // 
             // convertToToolStripMenuItem
             // 
@@ -601,14 +657,14 @@
             this.rOQToolStripMenuItem1});
             this.convertToToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
             this.convertToToolStripMenuItem.Name = "convertToToolStripMenuItem";
-            this.convertToToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.convertToToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.convertToToolStripMenuItem.Text = "Convert To";
             // 
             // qBCToolStripMenuItem1
             // 
             this.qBCToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.node_qbc;
             this.qBCToolStripMenuItem1.Name = "qBCToolStripMenuItem1";
-            this.qBCToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.qBCToolStripMenuItem1.Size = new System.Drawing.Size(99, 22);
             this.qBCToolStripMenuItem1.Text = "QBC";
             this.qBCToolStripMenuItem1.Click += new System.EventHandler(this.qBCToolStripMenuItem1_Click);
             // 
@@ -616,7 +672,7 @@
             // 
             this.rOQToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.node_roq;
             this.rOQToolStripMenuItem1.Name = "rOQToolStripMenuItem1";
-            this.rOQToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.rOQToolStripMenuItem1.Size = new System.Drawing.Size(99, 22);
             this.rOQToolStripMenuItem1.Text = "ROQ";
             this.rOQToolStripMenuItem1.Click += new System.EventHandler(this.rOQToolStripMenuItem1_Click);
             // 
@@ -749,5 +805,11 @@
         private System.Windows.Forms.ToolStripMenuItem convertToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem qBCToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem rOQToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem codeSnippetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parameterCheckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iterateOverArrayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem structContainsElementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontStyleToolStripMenuItem;
     }
 }

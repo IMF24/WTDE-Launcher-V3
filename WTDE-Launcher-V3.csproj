@@ -211,6 +211,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\ModManagerPluginManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\ModManagerPluginManager.Designer.cs">
+      <DependentUpon>ModManagerPluginManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\ModTypes\CharacterModEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +363,9 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\ModManagerPluginManager.resx">
+      <DependentUpon>ModManagerPluginManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModTypes\CharacterModEditor.resx">
       <DependentUpon>CharacterModEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -442,6 +451,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\social\github_dark.png" />
+    <None Include="res\img\icon\plugin.png" />
     <None Include="res\img\menuicons\add_black.png" />
     <None Include="Resources\github_logo.png" />
     <None Include="Resources\discord_logo.png" />
