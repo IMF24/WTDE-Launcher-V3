@@ -37,6 +37,21 @@ namespace WTDE_Launcher_V3.Managers {
             // Set our theme!
             // EXTREMELY WIP, CHECK BACK LATER
             //~ UpdateTheme(Themes.Dark);
+
+            // Font tester; if Cascadia Code is installed, we'll preferably use that.
+            // Otherwise, try Consolas.
+            // If that doesn't work, use Courier New.
+            Font fontTester1 = new Font("Cascadia Code", 10);
+            Font fontTester2 = new Font("Consolas", 10);
+            Font fontDefault = new Font("Courier New", 10);
+
+            if (fontTester1.Name == "Cascadia Code") {
+                QBScriptEditorArea.Font = fontTester1;
+            } else if (fontTester2.Name == "Consolas") {
+                QBScriptEditorArea.Font = fontTester2;
+            } else {
+                QBScriptEditorArea.Font = fontDefault;
+            }
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -235,8 +250,7 @@ namespace WTDE_Launcher_V3.Managers {
 
             switch (syntax) {
                 // ROQ syntax. We will assume this is default.
-                case QBFileSyntax.ROQ:
-                default:
+                case QBFileSyntax.ROQ: default:
 
                     // -------------------------
                     // HEADER STUFF HIGHLIGHTING

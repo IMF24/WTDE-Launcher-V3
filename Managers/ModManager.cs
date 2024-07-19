@@ -60,8 +60,10 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Enables various other stuff in the Mod Manager if the dev settings file is present.
         /// </summary>
         public void EnableDevSettingsItems() {
-            // Are the dev settings failed?
+            // Are the dev settings enabled?
             bool isEnabled = V3LauncherCore.EnableDeveloperSettings;
+
+            // - - - - - - - - - - - - -
 
             // -- FILE MENU
             analyzeDebugLogToolStripMenuItem.Visible = isEnabled;
@@ -72,6 +74,8 @@ namespace WTDE_Launcher_V3.Managers {
             // -----------------------------
             managePluginsToolStripMenuItem.Visible = isEnabled;
             managePluginsToolStripMenuItem.Enabled = isEnabled;
+
+            // - - - - - - - - - - - - -
 
             // -- SCRIPT MOD EDITORS MENU
             modifyAndCreateBandLineupsToolStripMenuItem.Visible = isEnabled;
@@ -163,6 +167,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // --------------------
 
+                // Menu command name, text, and click event.
                 menuCommands[i].Name = objectName;
                 menuCommands[i].Text = commandName;
                 menuCommands[i].Click += new EventHandler(UserManagerMenuCommandHandler);
@@ -204,7 +209,7 @@ namespace WTDE_Launcher_V3.Managers {
         public List<string> BinaryExecutables = new List<string>();
 
         /// <summary>
-        ///  Event handler method for the User Custom Editors menu commands. The starting file for the V3 launcher's execution. We start here!
+        ///  Event handler method for the User Custom Editors menu commands.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -322,6 +327,8 @@ namespace WTDE_Launcher_V3.Managers {
         }
 
         public void OpenSelectedModConfig() {
+            if (UserContentModsTree.SelectedItems.Count <= 0) return;
+
             string modType = UserContentModsTree.SelectedItems[0].SubItems[2].Text;
             string iniPath = this.SelectedModConfig;
 

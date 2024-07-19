@@ -265,6 +265,8 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
         /// <summary>
         ///  What type of MOTD box would we like to use?
         ///  <br/>
@@ -289,6 +291,8 @@ namespace WTDE_Launcher_V3.Core {
         /// </summary>
         public static bool IsNetworkConnected = V3LauncherCore.IsConnectedToInternet();
 
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
         /// <summary>
         ///  Array of difficulty icon images.
         /// </summary>
@@ -309,6 +313,8 @@ namespace WTDE_Launcher_V3.Core {
             Properties.Resources.mixer_icon_drums,
             Properties.Resources.mixer_icon_vocals
         };
+        
+        // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
         ///  Change the text tooltip of a control.
@@ -320,11 +326,15 @@ namespace WTDE_Launcher_V3.Core {
                 this.ToolTipMain.SetToolTip(control, text);
             }
         }
+        
+        // - - - - - - - - - - - - - - - - - - - - - - -
 
         private void OpenDevOnlySettings_Click(object sender, EventArgs e) {
             WTDEDevSettingsDialog dlg = new WTDEDevSettingsDialog();
             dlg.ShowDialog();
         }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
         ///  Makes a default GHWTDE.ini file for the user if they don't have one.
@@ -571,7 +581,10 @@ namespace WTDE_Launcher_V3.Core {
             PreferredFemaleSinger.Text = INIFunctions.GetINIValue("Band", "PreferredFemaleSinger", "");
             PreferredStage.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "PreferredStage", ""),
                 V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
+            PreferredTrainingStage.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Band", "PreferredTrainingStage", ""),
+                V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
             ReplaceSpecialBands.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Band", "ReplaceSpecialBands"));
+            SongSpecificInstruments.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "SongSpecificInstruments"));
 
             PreferredGuitaristHighway.Text = INIFunctions.GetINIValue("Band", "PreferredGuitaristHighway", "");
             PreferredBassistHighway.Text = INIFunctions.GetINIValue("Band", "PreferredBassistHighway", "");
@@ -670,10 +683,7 @@ namespace WTDE_Launcher_V3.Core {
             ImmediateVectorHandlers.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "ImmediateVectorHandlers", "1"));
         }
 
-        /// <summary>
-        ///  What is the currently active tab?
-        /// </summary>
-        public int ActiveTab = 0;
+        // - - - - - - - - - - - - - - - - - - - - - - -
 
         // Add in double buffering.
         protected override CreateParams CreateParams {
@@ -684,6 +694,13 @@ namespace WTDE_Launcher_V3.Core {
                 return cp;
             }
         }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  What is the currently active tab?
+        /// </summary>
+        public int ActiveTab = 0;
 
         /// <summary>
         ///  List of the launcher's different tabs.
@@ -728,9 +745,48 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         /// <summary>
+        ///  Moves all tabs to the correct location and other various tab setup functionality.
+        /// </summary>
+        public void DoTabSetup() {
+            // Set up the main editing containers' locations and the credits tab panel.
+            TabButtonGroup.Location = new Point(321, 0);
+            TabParentContainer.Location = new Point(321, 60);
+            TabCreditsGroup.Location = new Point(321, 0);
+            TabCreditsGroup.Parent = this;
+            CreditsVersionLabel.Text = $"GHWT: Definitive Edition Launcher - Version {V3LauncherConstants.VERSION}";
+
+            // Hide title text on the group boxes.
+            TabGeneralGroup.Text = "";
+            TabInputGroup.Text = "";
+            TabGraphicsGroup.Text = "";
+            TabBandGroup.Text = "";
+            TabAutoLaunchGroup.Text = "";
+            TabDebugGroup.Text = "";
+
+            // Parent all tabs to the parent container.
+            TabGeneralGroup.Parent = TabParentContainer;
+            TabInputGroup.Parent = TabParentContainer;
+            TabGraphicsGroup.Parent = TabParentContainer;
+            TabBandGroup.Parent = TabParentContainer;
+            TabAutoLaunchGroup.Parent = TabParentContainer;
+            TabDebugGroup.Parent = TabParentContainer;
+
+            // Move all of the tabs to their correct locations.
+            Point location = new Point(12, 8);
+            TabGeneralGroup.Location = location;
+            TabInputGroup.Location = location;
+            TabGraphicsGroup.Location = location;
+            TabBandGroup.Location = location;
+            TabAutoLaunchGroup.Location = location;
+            TabDebugGroup.Location = location;
+        }
+
+        /// <summary>
         ///  Update the currently selected tab to a different one.
         /// </summary>
-        /// <param name="tab"></param>
+        /// <param name="tab">
+        ///  Tab ID to swap to.
+        /// </param>
         public void UpdateActiveTab(int tab) {
             ActiveTab = tab;
             switch (tab) {
@@ -1051,6 +1107,8 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
         /// <summary>
         ///  Actions to be carried out when the program closes.
         /// </summary>
@@ -1068,42 +1126,7 @@ namespace WTDE_Launcher_V3.Core {
             ExitActions();
         }
 
-        /// <summary>
-        ///  Moves all tabs to the correct location and other various tab setup functionality.
-        /// </summary>
-        public void DoTabSetup() {
-            // Set up the main editing containers' locations and the credits tab panel.
-            TabButtonGroup.Location = new Point(321, 0);
-            TabParentContainer.Location = new Point(321, 60);
-            TabCreditsGroup.Location = new Point(321, 0);
-            TabCreditsGroup.Parent = this;
-            CreditsVersionLabel.Text = $"GHWT: Definitive Edition Launcher - Version {V3LauncherConstants.VERSION}";
-
-            // Hide title text on the group boxes.
-            TabGeneralGroup.Text = "";
-            TabInputGroup.Text = "";
-            TabGraphicsGroup.Text = "";
-            TabBandGroup.Text = "";
-            TabAutoLaunchGroup.Text = "";
-            TabDebugGroup.Text = "";
-
-            // Parent all tabs to the parent container.
-            TabGeneralGroup.Parent = TabParentContainer;
-            TabInputGroup.Parent = TabParentContainer;
-            TabGraphicsGroup.Parent = TabParentContainer;
-            TabBandGroup.Parent = TabParentContainer;
-            TabAutoLaunchGroup.Parent = TabParentContainer;
-            TabDebugGroup.Parent = TabParentContainer;
-
-            // Move all of the tabs to their correct locations.
-            Point location = new Point(12, 8);
-            TabGeneralGroup.Location = location;
-            TabInputGroup.Location = location;
-            TabGraphicsGroup.Location = location;
-            TabBandGroup.Location = location;
-            TabAutoLaunchGroup.Location = location;
-            TabDebugGroup.Location = location;
-        }
+        // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
         ///  Get the list of supported microphone devices. Uses NAudio to get devices.
@@ -1114,6 +1137,8 @@ namespace WTDE_Launcher_V3.Core {
                 MicrophoneSelect.Items.Add(endpoint.FriendlyName);
             }
         }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
         ///  Verifies if the settings for auto launch are valid.
@@ -2516,7 +2541,8 @@ namespace WTDE_Launcher_V3.Core {
                             $"Drummer={PreferredDrummer.Text}\n" +
                             $"MaleVocalist={PreferredSinger.Text}\n" +
                             $"FemaleVocalist={PreferredFemaleSinger.Text}\n" +
-                            $"Stage={PreferredStage.Text}\n\n");
+                            $"Stage={PreferredStage.Text}\n" +
+                            $"TrainingStage={PreferredTrainingStage.Text}\n");
 
                     sw.WriteLine("; ------------------------------\n");
 
@@ -2528,7 +2554,10 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         // - - - - - - - - - - - - - - - - - - -
-
+        
+        /// <summary>
+        ///  Loads a band profile from a *.deband file!
+        /// </summary>
         public void LoadBandProfile() {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Import Band Profile Layout";
@@ -2537,21 +2566,21 @@ namespace WTDE_Launcher_V3.Core {
 
             if (ofd.FileName != "") {
                 try {
-                    IniFile file = new IniFile();
-                    file.Load(ofd.FileName);
+                    INI file = new INI(ofd.FileName);
 
-                    PreferredGuitarist.Text = file.Sections["BandProfile"].Keys["Guitarist"].Value;
-                    PreferredBassist.Text = file.Sections["BandProfile"].Keys["Bassist"].Value;
-                    PreferredDrummer.Text = file.Sections["BandProfile"].Keys["Drummer"].Value;
-                    PreferredSinger.Text = file.Sections["BandProfile"].Keys["MaleVocalist"].Value;
-                    PreferredFemaleSinger.Text = file.Sections["BandProfile"].Keys["FemaleVocalist"].Value;
-                    PreferredStage.Text = file.Sections["BandProfile"].Keys["Stage"].Value;
+                    PreferredGuitarist.Text = file.GetString("BandProfile", "Guitarist");
+                    PreferredBassist.Text = file.GetString("BandProfile", "Bassist");
+                    PreferredDrummer.Text = file.GetString("BandProfile", "Drummer");
+                    PreferredSinger.Text = file.GetString("BandProfile", "MaleVocalist");
+                    PreferredFemaleSinger.Text = file.GetString("BandProfile", "FemaleVocalist");
+                    PreferredStage.Text = file.GetString("BandProfile", "Stage");
+                    PreferredTrainingStage.Text = file.GetString("BandProfile", "TrainingStage");
 
                     // - - - - - - -
 
-                    PreferredGuitaristHighway.Text = file.Sections["BandProfile"].Keys["HighwayG"].Value;
-                    PreferredBassistHighway.Text = file.Sections["BandProfile"].Keys["HighwayB"].Value;
-                    PreferredDrummerHighway.Text = file.Sections["BandProfile"].Keys["HighwayD"].Value;
+                    PreferredGuitaristHighway.Text = file.GetString("BandProfile", "HighwayG");
+                    PreferredBassistHighway.Text = file.GetString("BandProfile", "HighwayB");
+                    PreferredDrummerHighway.Text = file.GetString("BandProfile", "HighwayD");
 
                 } catch (Exception exc) {
                     V3LauncherCore.AddDebugEntry($"Error importing band profile: {exc.Message}", "Band Profile Import");
@@ -2561,6 +2590,8 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
+        // - - - - - - - - - - - - - - - - - - -
+        //  P R E F E R R E D     B A N D
         // - - - - - - - - - - - - - - - - - - -
 
         private void PreferredGuitarist_TextChanged(object sender, EventArgs e) {
@@ -2628,9 +2659,22 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.VenueIDs[0].ToArray(), V3LauncherConstants.VenueIDs[1].ToArray()));
         }
 
+        private void PreferredTrainingStage_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Band", "PreferredTrainingStage", INIFunctions.InterpretINISetting(PreferredTrainingStage.Text,
+                V3LauncherConstants.VenueIDs[0], V3LauncherConstants.VenueIDs[1]));
+        }
+
         private void ReplaceSpecialBands_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Band", "ReplaceSpecialBands", INIFunctions.BoolToString(ReplaceSpecialBands.Checked));
         }
+
+        private void SongSpecificInstruments_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "SongSpecificInstruments", INIFunctions.BoolToString(SongSpecificInstruments.Checked));
+        }
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  S T R U M     A N I M A T I O N S
+        // - - - - - - - - - - - - - - - - - - -
 
         private void GuitarStrumAnim_SelectedIndexChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Band", "GuitarStrumAnim", INIFunctions.InterpretINISetting(GuitarStrumAnim.Text,
@@ -2649,6 +2693,10 @@ namespace WTDE_Launcher_V3.Core {
         private void LoadBandProfButton_Click(object sender, EventArgs e) {
             LoadBandProfile();
         }
+
+        // - - - - - - - - - - - - - - - - - - -
+        //  C H A R A C T E R     S E L E C T S
+        // - - - - - - - - - - - - - - - - - - -
 
         private void PrefGtrSelectChar_Click(object sender, EventArgs e) {
             SelectCharacterMod scm = new SelectCharacterMod(PreferredGuitarist);
@@ -2675,6 +2723,10 @@ namespace WTDE_Launcher_V3.Core {
             scm.ShowDialog();
         }
 
+        // - - - - - - - - - - - - - - - - - - -
+        //  H I G H W A Y     S E L E C T S
+        // - - - - - - - - - - - - - - - - - - -
+
         private void PrefGtrHwySelectHwy_Click(object sender, EventArgs e) {
             SelectHighwayMod shm = new SelectHighwayMod(PreferredGuitaristHighway);
             shm.ShowDialog();
@@ -2691,35 +2743,30 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         // - - - - - - - - - - - - - - - - - - -
-        // CELEBRITY INTROS OPTIONS
+        //  C E L E B R I T Y     I N T R O S
         // - - - - - - - - - - - - - - - - - - -
 
-        private void SongSpecificIntros_CheckedChanged(object sender, EventArgs e)
-        {
+        private void SongSpecificIntros_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "SongSpecificIntros", INIFunctions.BoolToString(SongSpecificIntros.Checked));
         }
 
-        private void AlwaysSplashText_CheckedChanged(object sender, EventArgs e)
-        {
+        private void AlwaysSplashText_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "AlwaysSplashText", INIFunctions.BoolToString(AlwaysSplashText.Checked));
         }
 
-        private void AlwaysVOIntro_CheckedChanged(object sender, EventArgs e)
-        {
+        private void AlwaysVOIntro_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "AlwaysVOIntro", INIFunctions.BoolToString(AlwaysVOIntro.Checked));
         }
 
-        private void AlwaysCelebIntro_CheckedChanged(object sender, EventArgs e)
-        {
+        private void AlwaysCelebIntro_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "AlwaysCelebIntro", INIFunctions.BoolToString(AlwaysCelebIntro.Checked));
         }
-        private void CustomFirstName_TextChanged(object sender, EventArgs e)
-        {
+
+        private void CustomFirstName_TextChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "CustomFirstName", CustomFirstName.Text);
         }
 
-        private void CustomLastName_TextChanged(object sender, EventArgs e)
-        {
+        private void CustomLastName_TextChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "CustomLastName", CustomLastName.Text);
         } 
 
@@ -3236,9 +3283,6 @@ namespace WTDE_Launcher_V3.Core {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
 
-
-        #endregion
-
-        
+        #endregion        
     }
 }

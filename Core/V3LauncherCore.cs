@@ -58,11 +58,10 @@ namespace WTDE_Launcher_V3.Core {
         /// </param>
         public static void AddDebugEntry(string entry, string prefix = "V3 Launcher") {
             DebugLog.Add($"[{prefix}] {entry}");
-            string saveDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Logs/debug_launcher.txt";
-            using (StreamWriter sw = new StreamWriter(saveDir, true)) {
-                sw.WriteLine($"[{prefix}] {entry}");
-            }
-
+            //~ string saveDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}/My Games/Guitar Hero World Tour Definitive Edition/Logs/debug_launcher.txt";
+            //~ using (StreamWriter sw = new StreamWriter(saveDir, true)) {
+            //~     sw.WriteLine($"[{prefix}] {entry}");
+            //~ }
             Console.WriteLine($"[{prefix}] {entry}");
         }
 
