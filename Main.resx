@@ -570,18 +570,18 @@ features that are developer-exclusive.
 Note: Ensure that your dev_settings_enable file is NEVER, EVER
 shared with the eyes of the public.</value>
   </data>
-  <data name="PreferredTrainingStage.ToolTip" xml:space="preserve">
-    <value>What venue do you want the game to load into when in Practice Mode? This will override
-the random practice venues option, and the game will ALWAYS use this venue.
-
-Any compatible venue mods are listed at the bottom of the dropdown menu.</value>
-  </data>
   <data name="SongSpecificInstruments.ToolTip" xml:space="preserve">
     <value>When enabled, specific songs, if installed, will contain a pre-set instrument combo
 for that song. This is primarily used on Metallica and Van Halen songs.
 
 Turning this OFF will disable the behavior and just use the character's default
 instrument defined in their profile.</value>
+  </data>
+  <data name="PreferredTrainingStage.ToolTip" xml:space="preserve">
+    <value>What venue do you want the game to load into when in Practice Mode? This will override
+the random practice venues option, and the game will ALWAYS use this venue.
+
+Any compatible venue mods are listed at the bottom of the dropdown menu.</value>
   </data>
   <data name="CreditsMainInfo.Text" xml:space="preserve">
     <value>GHWT: Definitive Edition Made by Fretworks, EST. 2021

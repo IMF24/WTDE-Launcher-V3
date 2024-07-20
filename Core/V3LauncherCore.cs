@@ -218,6 +218,8 @@ namespace WTDE_Launcher_V3.Core {
                                                $"Do you want to download it now? This will close the launcher.";
 
                     if (MessageBox.Show(updateAlertString, "Update WTDE?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                        INI updaterIni = new INI("Updater.ini");
+                        updaterIni.SetString("Updater", "HashListURL", V3LauncherConstants.WTDEHashList);
                         Process.Start("WTDE-Updater-V2.exe");
                         Environment.Exit(0);
                     }

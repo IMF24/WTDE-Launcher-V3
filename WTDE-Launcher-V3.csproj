@@ -167,7 +167,14 @@
       <DependentUpon>IntroHelloScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="IO\Data\DataReader.cs" />
+    <Compile Include="IO\GHDEVersionChanger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IO\GHDEVersionChanger.Designer.cs">
+      <DependentUpon>GHDEVersionChanger.cs</DependentUpon>
+    </Compile>
     <Compile Include="IO\INI.cs" />
+    <Compile Include="IO\WTDEVersionHistory.cs" />
     <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +346,9 @@
     <Compile Include="IO\XMLFunctions.cs" />
     <EmbeddedResource Include="IntroHelloScreen.resx">
       <DependentUpon>IntroHelloScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IO\GHDEVersionChanger.resx">
+      <DependentUpon>GHDEVersionChanger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\CARManager.resx">
       <DependentUpon>CARManager.cs</DependentUpon>

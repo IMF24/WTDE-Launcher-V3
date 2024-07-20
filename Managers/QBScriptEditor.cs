@@ -1174,6 +1174,8 @@ namespace WTDE_Launcher_V3.Managers {
 
                 InsertSnippetInCode("while", ROQScriptTemplates.WhileLoopToStatement);
                 InsertSnippetInCode("loop", ROQScriptTemplates.WhileLoopToStatement);
+                InsertSnippetInCode("rwhile", ROQScriptTemplates.WhileLoopToInverseStatement);
+                InsertSnippetInCode("rloop", ROQScriptTemplates.WhileLoopToInverseStatement);
 
                 InsertSnippetInCode("switch", ROQScriptTemplates.SwitchStatement);
 
@@ -1402,6 +1404,11 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Template for a while / loop_to loop.
         /// </summary>
         public const string WhileLoopToStatement = ":i $i$ = %i(0)\n:i while\n\t// Loop body\n\n\t:i $i$ = (%GLOBAL%$i$ + %i(1))\n:i loop_to %i(5)";
+
+        /// <summary>
+        ///  Template for an inverse while / loop_to loop.
+        /// </summary>
+        public const string WhileLoopToInverseStatement = ":i $i$ = %i(5)\n:i while\n\t// Loop body\n\n\t:i $i$ = (%GLOBAL%$i$ - %i(1))\n:i loop_to %i(5)";
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 

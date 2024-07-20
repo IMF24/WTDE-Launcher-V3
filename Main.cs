@@ -3257,6 +3257,11 @@ namespace WTDE_Launcher_V3.Core {
         private void ImmediateVectorHandlers_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Logger", "ImmediateVectorHandlers", INIFunctions.BoolToString(ImmediateVectorHandlers.Checked));
         }
+
+        private void ChangeDEVersionButton_Click(object sender, EventArgs e) {
+            GHDEVersionChanger verChange = new GHDEVersionChanger();
+            verChange.ShowDialog();
+        }
         #endregion
 
         // ----------------------------------------------------------
@@ -3283,6 +3288,6 @@ namespace WTDE_Launcher_V3.Core {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
 
-        #endregion        
+        #endregion
     }
 }
