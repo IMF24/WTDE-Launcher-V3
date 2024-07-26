@@ -200,6 +200,12 @@
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
     </Compile>
     <Compile Include="IO\INIFunctions.cs" />
+    <Compile Include="Managers\GameUtils\BandClipStructMaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\GameUtils\BandClipStructMaker.Designer.cs">
+      <DependentUpon>BandClipStructMaker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\InputKeySelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\DupeChecksumManager.resx">
       <DependentUpon>DupeChecksumManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\GameUtils\BandClipStructMaker.resx">
+      <DependentUpon>BandClipStructMaker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\InputKeySelector.resx">
       <DependentUpon>InputKeySelector.cs</DependentUpon>

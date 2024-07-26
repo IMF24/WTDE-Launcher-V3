@@ -122,6 +122,16 @@
 To return to the most recent version, click "Revert to Current Version" above.
 This feature requires WTDE updater version 2.1.2 or later.</value>
   </data>
+  <data name="OutOfDateWarningLabel.Text" xml:space="preserve">
+    <value>IMPORTANT NOTE ABOUT INSTALLING OLDER VERSIONS:
+
+If you run into issues with these older versions of GHWT: Definitive Edition, asking for
+help in the WTDE help line, you will be asked to update your build to the latest
+version of the mod.
+
+WE DO NOT PROVIDE SUPPORT FOR OLD VERSIONS OF WTDE. RUN THESE
+VERSIONS AT YOUR OWN RISK.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

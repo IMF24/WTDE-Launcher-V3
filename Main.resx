@@ -583,6 +583,12 @@ the random practice venues option, and the game will ALWAYS use this venue.
 
 Any compatible venue mods are listed at the bottom of the dropdown menu.</value>
   </data>
+  <data name="FlawlessOnly.ToolTip" xml:space="preserve">
+    <value>FC or Bust Mode: If this is ON, missing any single note or overstrumming will
+force an instant fail. Disabled in multiplayer.
+
+If this is enabled, Fast Lose will always be enabled in tandem with it.</value>
+  </data>
   <data name="CreditsMainInfo.Text" xml:space="preserve">
     <value>GHWT: Definitive Edition Made by Fretworks, EST. 2021
 GHWT: Definitive Edition Launcher Made by IMF24 and Fox

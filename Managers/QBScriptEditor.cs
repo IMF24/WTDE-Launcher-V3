@@ -224,19 +224,24 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Object sender for this method. It is ASSUMED that this is a RichTextBox control.
         /// </param>
         public void SetSyntaxColoring(QBFileSyntax syntax, object sender) {
+            // Input text box.
+            RichTextBox fctb = (sender as RichTextBox);
+
             // No highlighting enabled? Then just leave!
-            if (!EnableSyntaxHighlighting.Checked) return;
+            if (!EnableSyntaxHighlighting.Checked) {
+                fctb.ForeColor = Color.Black;
+                return;
+            }
 
             // We're currently highlighting, make sure the program knows that!
             ScriptBeingHighlighted = true;
 
             // Set status bar text, print to console!
-            V3LauncherCore.AddDebugEntry($"Doing syntax highlighting for script, using {syntax} syntax", "QB Script Editor");
-            StatusTextMain.Text = "Doing syntax highlighting...";
+            //~ V3LauncherCore.AddDebugEntry($"Doing syntax highlighting for script, using {syntax} syntax", "QB Script Editor");
+            //~ StatusTextMain.Text = "Doing syntax highlighting...";
 
             // Input text. We want to scan over it!
             string inText = (sender as RichTextBox).Text;
-            RichTextBox fctb = (sender as RichTextBox);
 
             // Original caret positioning.
             int originalIndex = fctb.SelectionStart;
@@ -339,7 +344,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                     // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                    V3LauncherCore.AddDebugEntry("Adjusting text colors based on regex matches", "QB Script Editor");
+                    //~ V3LauncherCore.AddDebugEntry("Adjusting text colors based on regex matches", "QB Script Editor");
 
                     // We MUST focus on a label before highlighting anything!
                     // This helps avoid blinking.
@@ -513,7 +518,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                     // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-                    V3LauncherCore.AddDebugEntry("Adjusting text colors based on regex matches", "QB Script Editor");
+                    //~ V3LauncherCore.AddDebugEntry("Adjusting text colors based on regex matches", "QB Script Editor");
 
                     // We MUST focus on a label before highlighting anything!
                     // This helps avoid blinking.
@@ -590,8 +595,8 @@ namespace WTDE_Launcher_V3.Managers {
 
             // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-            V3LauncherCore.AddDebugEntry("Script highlighting finished", "QB Script Editor");
-            StatusTextMain.Text = "Script highlighting finished";
+            //~ V3LauncherCore.AddDebugEntry("Script highlighting finished", "QB Script Editor");
+            //~ StatusTextMain.Text = "Script highlighting finished";
 
             // Done highlighting, let the program know!
             ScriptBeingHighlighted = false;
@@ -772,6 +777,12 @@ namespace WTDE_Launcher_V3.Managers {
             // the contents from the selected index.
             QBScriptEditorArea.Text = ScriptContents[selectedIdx];
             QBScriptNameTextBox.Text = ScriptNames[selectedIdx];
+
+            // And update the syntax highlighting too!
+            CurrentSyntax = (ScriptExtensions[selectedIdx] == ".q") ? QBFileSyntax.QBC : QBFileSyntax.ROQ;
+            ScriptFileExtension.Text = ScriptExtensions[selectedIdx];
+            Console.WriteLine($"Script extension selected: {ScriptExtensions[selectedIdx]}");
+            SetSyntaxColoring(CurrentSyntax, QBScriptEditorArea);
 
             // And finally, set our global file index to the selected one,
             // and enable the files to be saved again!
@@ -1115,6 +1126,7 @@ namespace WTDE_Launcher_V3.Managers {
 
             QBFilesList.Items[QBFileIndex] = QBScriptNameTextBox.Text;
             ScriptNames[QBFileIndex] = QBScriptNameTextBox.Text;
+            ScriptFileExtension.SelectedIndex = (ScriptExtensions[QBFileIndex] == ".q") ? 1 : 0;
         }
 
         private void QBFilesList_SelectedIndexChanged(object sender, EventArgs e) {
@@ -1152,7 +1164,7 @@ namespace WTDE_Launcher_V3.Managers {
             if (ScriptBeingChanged || JustDeletedScript || ScriptContents.Count <= 0 || ScriptNames.Count <= 0 || ScriptExtensions.Count <= 0) return;
 
             InjectSnippetFromCode();
-            if (!ScriptBeingHighlighted) SetSyntaxColoring(QBFileSyntax.ROQ, sender);
+            if (!ScriptBeingHighlighted) SetSyntaxColoring(CurrentSyntax, sender);
 
             ScriptContents[QBFileIndex] = QBScriptEditorArea.Text.Replace("\t", "    ");
         }
@@ -1184,13 +1196,35 @@ namespace WTDE_Launcher_V3.Managers {
                 InsertSnippetInCode("noparam", ROQScriptTemplates.ParameterCheck);
                 InsertSnippetInCode("arrit", ROQScriptTemplates.IterateOverArray);
                 InsertSnippetInCode("strcont", ROQScriptTemplates.StructContainsElement);
+                InsertSnippetInCode("change", ROQScriptTemplates.ChangeGlobal);
 
                 InsertSnippetInCode("iniv", ROQScriptTemplates.DEGetINIValue);
                 InsertSnippetInCode("inis", ROQScriptTemplates.DEGetINIString);
 
             // -- QBC SNIPPETS
             } else if (CurrentSyntax == QBFileSyntax.QBC) {
+                InsertSnippetInCode("ifs", QBCScriptTemplates.IfStatement);
+                InsertSnippetInCode("ifes", QBCScriptTemplates.IfElseStatement);
+                InsertSnippetInCode("elif", QBCScriptTemplates.IfElseIfStatement);
 
+                InsertSnippetInCode("begin", QBCScriptTemplates.BeginRepeatStatement);
+                InsertSnippetInCode("loop", QBCScriptTemplates.BeginRepeatStatement);
+                InsertSnippetInCode("rbegin", QBCScriptTemplates.BeginRepeatInverseStatement);
+                InsertSnippetInCode("rloop", QBCScriptTemplates.BeginRepeatInverseStatement);
+
+                InsertSnippetInCode("switch", QBCScriptTemplates.SwitchStatement);
+
+                InsertSnippetInCode("script", QBCScriptTemplates.ScriptTemplate);
+
+                InsertSnippetInCode("noparam", QBCScriptTemplates.ParameterCheck);
+                InsertSnippetInCode("arrit", QBCScriptTemplates.IterateOverArray);
+                InsertSnippetInCode("strcont", QBCScriptTemplates.StructContainsElement);
+                InsertSnippetInCode("change", QBCScriptTemplates.ChangeGlobal);
+
+                InsertSnippetInCode("iniv", QBCScriptTemplates.DEGetINIValue);
+                InsertSnippetInCode("inis", QBCScriptTemplates.DEGetINIString);
+
+                InsertSnippetInCode("global", QBCScriptTemplates.GlobalDeclaration);
             }
         }
 
@@ -1213,6 +1247,8 @@ namespace WTDE_Launcher_V3.Managers {
 
         // -- SCRIPT EXTENSION
         private void ScriptFileExtension_SelectedIndexChanged(object sender, EventArgs e) {
+            ScriptExtensions[QBFileIndex] = ScriptFileExtension.Text;
+            Console.WriteLine($"Script file extension: {ScriptFileExtension.Text}");
             switch (ScriptFileExtension.SelectedIndex) {
                 // -- ROQ (default)
                 case 0: default:
@@ -1460,6 +1496,15 @@ namespace WTDE_Launcher_V3.Managers {
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
+        ///  Template for changing the value of a global variable.
+        /// </summary>
+        public const string ChangeGlobal = "// Set the value on the next line after the equal\n" +
+                                           "// sign to what your global requires.\n" +
+                                           ":i $Change$ $GLOBAL_NAME_HERE$ = %i(1)";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
         ///  Template for reading a value from GHWTDE.ini. This uses any non-string value.
         /// </summary>
         public const string DEGetINIValue = ":i $DE_GetINIValue$ $section$ = %s(\"SECTION_NAME_HERE\") $key$ = %s(\"KEY_NAME_HERE\") $default$ = %i(1)\n" +
@@ -1490,6 +1535,143 @@ namespace WTDE_Launcher_V3.Managers {
                                                "\t:i $printf$ %s(\"Hello World!\")\n" +
                                                "\t:i endfunction\n" +
                                                "]\n";
+    }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    //    R O Q       S C R I P T       T E M P L A T E S
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    /// <summary>
+    ///  Template class for QBC script templates. Cannot be created.
+    /// </summary>
+    abstract public class QBCScriptTemplates {
+        /// <summary>
+        ///  Template for a global variable declaration.
+        /// </summary>
+        public const string GlobalDeclaration = "my_global_variable = 0";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for an if statement. Only contains the if condition and endif.
+        /// </summary>
+        public const string IfStatement = "if true\n\t// If true\nendif";
+
+        /// <summary>
+        ///  Template for an if / else statement. Contains the if condition, else block, and endif.
+        /// </summary>
+        public const string IfElseStatement = "if true\n\t// If true\nelse\n\t// If false\nendif";
+
+        /// <summary>
+        ///  Template for an if / elseif / else statement. Contains the if condition, elseif condition, else block, and endif.
+        /// </summary>
+        public const string IfElseIfStatement = "if true\n\t// If 1st condition is true\nelseif false\n\t// If 2nd condition is true\nelse\n\t// If all above are false\nendif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a begin / repeat loop.
+        /// </summary>
+        public const string BeginRepeatStatement = "i = 0\nbegin\n\t// Loop body here\n\n\ti = (<i> + 1)\nrepeat 5";
+
+        /// <summary>
+        ///  Template for an inverse begin / repeat loop.
+        /// </summary>
+        public const string BeginRepeatInverseStatement = "i = 5\nbegin\n\t// Loop body here\n\n\ti = (<i> - 1)\nrepeat 5";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a switch statement.
+        /// </summary>
+        public const string SwitchStatement = "switch (<variable>)\n" +
+                                              "\tcase value1\n" +
+                                              "\t\t// Case 1\n\n" +
+                                              "\tcase value2\n" +
+                                              "\t\t// Case 2\n\n" +
+                                              "\tdefault\n" +
+                                              "\t\t// Default case\n\n" +
+                                              "endswitch";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a script declaration.
+        /// </summary>
+        public const string ScriptTemplate = "script script_name\n\nendscript";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for a parameter check using GotParam.
+        /// </summary>
+        public const string ParameterCheck = "if NOT GotParam PARAM_NAME\n\t// Parameter was not found\n\treturn\nendif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template to iterate over an array with a begin / repeat loop.
+        /// </summary>
+        public const string IterateOverArray = "array_name = INPUT_ARRAY_HERE\n" +
+                                               "GetArraySize <array_name>\n" +
+                                               "i = 0\n\n" +
+                                               "begin\n" +
+                                                   "\telement = (<array_name>[<i>])\n\n" +
+                                                   "\t// Loop body here\n\n" +
+                                                   "\ti = (<i> + 1)\n" +
+                                               "repeat <array_size>";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for checking if a given item exists in a struct.
+        /// </summary>
+        public const string StructContainsElement = "struct = INPUT_STRUCT_HERE\n" +
+                                                    "if StructureContains structure = <struct> STRUCT_ELEMENT_HERE\n" +
+                                                    "\t// Struct did contain the element\n" +
+                                                    "else\n" +
+                                                    "\t// Struct did NOT contain the element\n" +
+                                                    "endif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for changing the value of a global variable.
+        /// </summary>
+        public const string ChangeGlobal = "// Set the value on the next line after the equal\n" +
+                                           "// sign to what your global requires.\n" +
+                                           "Change \\{ GLOBAL_NAME_HERE = 1 }";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Template for reading a value from GHWTDE.ini. This uses any non-string value.
+        /// </summary>
+        public const string DEGetINIValue = "DE_GetINIValue \\{ section = 'SECTION_NAME_HERE' key = 'KEY_NAME_HERE' default = 1 } \n" +
+                                            "if (<value> = 1)\n" +
+                                            "\t// If value is 1\n" +
+                                            "endif";
+
+        /// <summary>
+        ///  Template for reading a value from GHWTDE.ini. This uses string values.
+        /// </summary>
+        public const string DEGetINIString = "DE_GetINIString \\{ section = 'SECTION_NAME_HERE' key = 'KEY_NAME_HERE' default = 'DEFAULT' } \n" +
+                                             "if NOT (<string_value> = 'DEFAULT')\n" +
+                                             "\t// If value is not DEFAULT\n" +
+                                             "endif";
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  The new script defaults that will be pasted in.
+        /// </summary>
+        public const string NewScriptDefault = "// For more help, visit the wiki for a brief guide on QB scripting:\n" +
+                                               "//  https://ghwt.de/wiki/#/sdk/\n" +
+                                               "// \n" +
+                                               "// Ask for help on our Discord server for more!\n" +
+                                               "//  https://discord.gg/HVECPzkV4u\n\n" +
+                                               "script NewQBScript_Load\n" +
+                                               "\t printf 'Hello World!'\n" +
+                                               "endscript\n";
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

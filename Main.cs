@@ -515,6 +515,13 @@ namespace WTDE_Launcher_V3.Core {
             OptionsCrowd.SelectedIndex = int.Parse(XMLFunctions.AspyrGetString("Options.Crowd", "2"));
             X360Zones.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "X360Zones", "0"));
             RandomTrainingVenues.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "RandomTrainingVenues", "0"));
+            FastWin.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "FastWin"));
+            FastStart.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "FastStart"));
+            FastLose.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "FastLose"));
+            FlawlessOnly.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "FlawlessOnly"));
+            FocusedHighway.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "FocusedHighway"));
+            BadTripMode.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "BadTripMode"));
+            DrunkMode.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Config", "DrunkMode"));
 
             // -- INTERFACE OPTIONS --------
             GemTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "GemTheme", "ghwt"),
@@ -2328,6 +2335,34 @@ namespace WTDE_Launcher_V3.Core {
         private void RandomTrainingVenues_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("Graphics", "RandomTrainingVenues", INIFunctions.BoolToString(RandomTrainingVenues.Checked));
         }
+
+        private void FastWin_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "FastWin", INIFunctions.BoolToString(FastWin.Checked));
+        }
+
+        private void FastStart_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "FastStart", INIFunctions.BoolToString(FastStart.Checked));
+        }
+
+        private void FastLose_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "FastLose", INIFunctions.BoolToString(FastLose.Checked));
+        }
+
+        private void FlawlessOnly_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "FlawlessOnly", INIFunctions.BoolToString(FlawlessOnly.Checked));
+        }
+
+        private void FocusedHighway_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "FocusedHighway", INIFunctions.BoolToString(FocusedHighway.Checked));
+        }
+
+        private void BadTripMode_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "BadTripMode", INIFunctions.BoolToString(BadTripMode.Checked));
+        }
+
+        private void DrunkMode_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "DrunkMode", INIFunctions.BoolToString(DrunkMode.Checked));
+        }
         #endregion
 
         // - - - - - - - - - - - - - - - - - - -
@@ -3288,6 +3323,13 @@ namespace WTDE_Launcher_V3.Core {
             V3LauncherCore.OpenSiteURL("https://discord.gg/HVECPzkV4u");
         }
 
+
+
+
+
+
         #endregion
+
+        
     }
 }

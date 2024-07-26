@@ -422,6 +422,7 @@
             this.PrefGtrSelectChar = new System.Windows.Forms.Button();
             this.SongSpecificInstruments = new System.Windows.Forms.CheckBox();
             this.PreferredTrainingStage = new System.Windows.Forms.ComboBox();
+            this.ChangeDEVersionButton = new System.Windows.Forms.Button();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabBandGroup = new System.Windows.Forms.GroupBox();
@@ -555,7 +556,13 @@
             this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.UpdateAvailableLabel = new System.Windows.Forms.Label();
-            this.ChangeDEVersionButton = new System.Windows.Forms.Button();
+            this.FastWin = new System.Windows.Forms.CheckBox();
+            this.FastStart = new System.Windows.Forms.CheckBox();
+            this.FastLose = new System.Windows.Forms.CheckBox();
+            this.FlawlessOnly = new System.Windows.Forms.CheckBox();
+            this.FocusedHighway = new System.Windows.Forms.CheckBox();
+            this.BadTripMode = new System.Windows.Forms.CheckBox();
+            this.DrunkMode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -6010,15 +6017,28 @@
             this.ToolTipMain.SetToolTip(this.PreferredTrainingStage, resources.GetString("PreferredTrainingStage.ToolTip"));
             this.PreferredTrainingStage.SelectedIndexChanged += new System.EventHandler(this.PreferredTrainingStage_SelectedIndexChanged);
             // 
+            // ChangeDEVersionButton
+            // 
+            this.ChangeDEVersionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ChangeDEVersionButton.Location = new System.Drawing.Point(407, 13);
+            this.ChangeDEVersionButton.Name = "ChangeDEVersionButton";
+            this.ChangeDEVersionButton.Size = new System.Drawing.Size(249, 23);
+            this.ChangeDEVersionButton.TabIndex = 19;
+            this.ChangeDEVersionButton.Text = "Change WTDE Version...";
+            this.ToolTipMain.SetToolTip(this.ChangeDEVersionButton, "Change your currently installed version of WTDE to a different one, older or newe" +
+        "r.\r\n\r\nNOTE: We do NOT provide support for builds other than the latest version.");
+            this.ChangeDEVersionButton.UseVisualStyleBackColor = true;
+            this.ChangeDEVersionButton.Click += new System.EventHandler(this.ChangeDEVersionButton_Click);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
-            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
@@ -6052,7 +6072,7 @@
             this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
             this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
             this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(10, 10);
+            this.TabDebugGroup.Location = new System.Drawing.Point(172, 443);
             this.TabDebugGroup.Name = "TabDebugGroup";
             this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
             this.TabDebugGroup.TabIndex = 3;
@@ -6531,7 +6551,7 @@
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(498, 293);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(10, 8);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -6591,6 +6611,13 @@
             // 
             // TGEditorGameplay
             // 
+            this.TGEditorGameplay.Controls.Add(this.DrunkMode);
+            this.TGEditorGameplay.Controls.Add(this.BadTripMode);
+            this.TGEditorGameplay.Controls.Add(this.FocusedHighway);
+            this.TGEditorGameplay.Controls.Add(this.FlawlessOnly);
+            this.TGEditorGameplay.Controls.Add(this.FastLose);
+            this.TGEditorGameplay.Controls.Add(this.FastStart);
+            this.TGEditorGameplay.Controls.Add(this.FastWin);
             this.TGEditorGameplay.Controls.Add(this.RandomTrainingVenues);
             this.TGEditorGameplay.Controls.Add(this.X360Zones);
             this.TGEditorGameplay.Controls.Add(this.CrowdDensityLabel);
@@ -7599,18 +7626,92 @@
             this.UpdateAvailableLabel.TabIndex = 19;
             this.UpdateAvailableLabel.Text = "A newer version of WTDE is available for download! The latest version is VXYZ.";
             // 
-            // ChangeDEVersionButton
+            // FastWin
             // 
-            this.ChangeDEVersionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ChangeDEVersionButton.Location = new System.Drawing.Point(407, 618);
-            this.ChangeDEVersionButton.Name = "ChangeDEVersionButton";
-            this.ChangeDEVersionButton.Size = new System.Drawing.Size(249, 23);
-            this.ChangeDEVersionButton.TabIndex = 19;
-            this.ChangeDEVersionButton.Text = "Change WTDE Version...";
-            this.ToolTipMain.SetToolTip(this.ChangeDEVersionButton, "Change your currently installed version of WTDE to a different one, older or newe" +
-        "r.\r\n\r\nNOTE: We do NOT provide support for builds other than the latest version.");
-            this.ChangeDEVersionButton.UseVisualStyleBackColor = true;
-            this.ChangeDEVersionButton.Click += new System.EventHandler(this.ChangeDEVersionButton_Click);
+            this.FastWin.AutoSize = true;
+            this.FastWin.Location = new System.Drawing.Point(19, 331);
+            this.FastWin.Name = "FastWin";
+            this.FastWin.Size = new System.Drawing.Size(117, 26);
+            this.FastWin.TabIndex = 22;
+            this.FastWin.Text = "Use Fast Win";
+            this.ToolTipMain.SetToolTip(this.FastWin, "Skips the win state/\"You Rock!\" animation sequence and goes straight\r\nto the resu" +
+        "lt screen menu.");
+            this.FastWin.UseVisualStyleBackColor = true;
+            this.FastWin.CheckedChanged += new System.EventHandler(this.FastWin_CheckedChanged);
+            // 
+            // FastStart
+            // 
+            this.FastStart.AutoSize = true;
+            this.FastStart.Location = new System.Drawing.Point(19, 357);
+            this.FastStart.Name = "FastStart";
+            this.FastStart.Size = new System.Drawing.Size(125, 26);
+            this.FastStart.TabIndex = 22;
+            this.FastStart.Text = "Use Fast Start";
+            this.ToolTipMain.SetToolTip(this.FastStart, "Skips the intro sequence and goes straight into the song, just like Practice Mode" +
+        ".");
+            this.FastStart.UseVisualStyleBackColor = true;
+            this.FastStart.CheckedChanged += new System.EventHandler(this.FastStart_CheckedChanged);
+            // 
+            // FastLose
+            // 
+            this.FastLose.AutoSize = true;
+            this.FastLose.Location = new System.Drawing.Point(19, 383);
+            this.FastLose.Name = "FastLose";
+            this.FastLose.Size = new System.Drawing.Size(123, 26);
+            this.FastLose.TabIndex = 22;
+            this.FastLose.Text = "Use Fast Lose";
+            this.ToolTipMain.SetToolTip(this.FastLose, "Skips the lose animations and goes straight to the fail dialog.");
+            this.FastLose.UseVisualStyleBackColor = true;
+            this.FastLose.CheckedChanged += new System.EventHandler(this.FastLose_CheckedChanged);
+            // 
+            // FlawlessOnly
+            // 
+            this.FlawlessOnly.AutoSize = true;
+            this.FlawlessOnly.Location = new System.Drawing.Point(19, 409);
+            this.FlawlessOnly.Name = "FlawlessOnly";
+            this.FlawlessOnly.Size = new System.Drawing.Size(207, 26);
+            this.FlawlessOnly.TabIndex = 22;
+            this.FlawlessOnly.Text = "FC or Bust (Flawless Only)";
+            this.ToolTipMain.SetToolTip(this.FlawlessOnly, resources.GetString("FlawlessOnly.ToolTip"));
+            this.FlawlessOnly.UseVisualStyleBackColor = true;
+            this.FlawlessOnly.CheckedChanged += new System.EventHandler(this.FlawlessOnly_CheckedChanged);
+            // 
+            // FocusedHighway
+            // 
+            this.FocusedHighway.AutoSize = true;
+            this.FocusedHighway.Location = new System.Drawing.Point(19, 435);
+            this.FocusedHighway.Name = "FocusedHighway";
+            this.FocusedHighway.Size = new System.Drawing.Size(149, 26);
+            this.FocusedHighway.TabIndex = 22;
+            this.FocusedHighway.Text = "Focused Highway";
+            this.ToolTipMain.SetToolTip(this.FocusedHighway, "Makes the highway more elongated.");
+            this.FocusedHighway.UseVisualStyleBackColor = true;
+            this.FocusedHighway.CheckedChanged += new System.EventHandler(this.FocusedHighway_CheckedChanged);
+            // 
+            // BadTripMode
+            // 
+            this.BadTripMode.AutoSize = true;
+            this.BadTripMode.Location = new System.Drawing.Point(19, 461);
+            this.BadTripMode.Name = "BadTripMode";
+            this.BadTripMode.Size = new System.Drawing.Size(129, 26);
+            this.BadTripMode.TabIndex = 22;
+            this.BadTripMode.Text = "Bad Trip Mode";
+            this.ToolTipMain.SetToolTip(this.BadTripMode, "Makes some modifications about the gem highway to throw you off.");
+            this.BadTripMode.UseVisualStyleBackColor = true;
+            this.BadTripMode.CheckedChanged += new System.EventHandler(this.BadTripMode_CheckedChanged);
+            // 
+            // DrunkMode
+            // 
+            this.DrunkMode.AutoSize = true;
+            this.DrunkMode.Location = new System.Drawing.Point(19, 487);
+            this.DrunkMode.Name = "DrunkMode";
+            this.DrunkMode.Size = new System.Drawing.Size(111, 26);
+            this.DrunkMode.TabIndex = 22;
+            this.DrunkMode.Text = "Drunk Mode";
+            this.ToolTipMain.SetToolTip(this.DrunkMode, "The gem visibility is lower when scrolling in, and the gems are\r\neasier to see wh" +
+        "en closer to the strike line.\r\n");
+            this.DrunkMode.UseVisualStyleBackColor = true;
+            this.DrunkMode.CheckedChanged += new System.EventHandler(this.DrunkMode_CheckedChanged);
             // 
             // Main
             // 
@@ -8253,6 +8354,13 @@
         private System.Windows.Forms.ComboBox PreferredTrainingStage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ChangeDEVersionButton;
+        private System.Windows.Forms.CheckBox FastLose;
+        private System.Windows.Forms.CheckBox FastStart;
+        private System.Windows.Forms.CheckBox FastWin;
+        private System.Windows.Forms.CheckBox FlawlessOnly;
+        private System.Windows.Forms.CheckBox FocusedHighway;
+        private System.Windows.Forms.CheckBox DrunkMode;
+        private System.Windows.Forms.CheckBox BadTripMode;
     }
 }
 
