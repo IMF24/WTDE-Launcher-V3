@@ -42,10 +42,10 @@ namespace WTDE_Launcher_V3.Core {
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 // Spawn debug console?
-                //~ if (INIFunctions.GetINIValue("Launcher", "Console") == "1") {
-                //~     InitializeConsole();
-                //~ }
-                ShowDebugConsole((INIFunctions.GetINIValue("Launcher", "Console") == "1"));
+                if (INIFunctions.GetINIValue("Launcher", "Console") == "1") {
+                    InitializeConsole();
+                }
+                //~ ShowDebugConsole((INIFunctions.GetINIValue("Launcher", "Console") == "1"));
 
                 // Intro stuff in the console!
                 Console.WriteLine("~=-=~=-=~      W T D E     L A U N C H E R     V 3      ~=-=~=-=~");
