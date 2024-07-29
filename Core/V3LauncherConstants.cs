@@ -182,7 +182,13 @@ namespace WTDE_Launcher_V3.Core {
             "\"What?! It's me!--I'm in Guitar Hero, guys\" -DanRock",
             "\"YOU DID NOT\" -Hex",
             "\"Uh, it's fine? It is fine; Absolutely nothing bad has happened\" -Derpytron84",
-            "Smooth jazz will be deployed in 3... 2--Well, maybe not so smooth, though; This is GUITAR HERO, after all"
+            "Smooth jazz will be deployed in 3... 2--Well, maybe not so smooth, though; This is GUITAR HERO, after all",
+            "Havok physics are a thing again!",
+            "Now with more quality of life fixes than we know what to do with!",
+            "Venues, more venues, and even more venues",
+            "Try and find the launcher's hidden secrets; there's quite a few!",
+            "The Mod Manager is your friend in this iteration",
+            "Hit the notes; Trust me, it's a good idea"
         };
 
         /// <summary>
