@@ -250,8 +250,9 @@ namespace WTDE_Launcher_V3.Core {
         ///  List of venue names and zone prefixes. | Index 0: Zone names | Index 1: Zone PAK names/zone prefixes
         /// </summary>
         public static List<List<string>> VenueIDs = new List<List<string>>() {
-            // Venue literal names
+            // Venue literal names.
             new List<string>() {
+                // -- GUITAR HERO: WORLD TOUR
                 "None",
                 "WT: Phi Psi Kappa",
                 "WT: Wilted Orchid",
@@ -271,6 +272,8 @@ namespace WTDE_Launcher_V3.Core {
                 "WT: Ozzfest",
                 "WT: Times Square",
                 "WT: Sunna's Chariot",
+
+                // -- GUITAR HERO: METALLICA
                 "GHM: The Forum",
                 "GHM: Tushino Air Field",
                 "GHM: Hammersmith Apollo",
@@ -280,6 +283,8 @@ namespace WTDE_Launcher_V3.Core {
                 "GHM: The Ice Cave",
                 "GHM: Metallica Recording Studio",
                 "GHM: Metallica Backstage",
+
+                // -- GUITAR HERO: SMASH HITS
                 "SH: Amazon Rain Forest",
                 "SH: The Grand Canyon",
                 "SH: Polar Ice Cap",
@@ -288,6 +293,9 @@ namespace WTDE_Launcher_V3.Core {
                 "SH: The Great Wall of China",
                 "SH: The Lost City of Atlantis",
                 "SH: Quebec City",
+                "SH: Recording Studio",
+
+                // -- GUITAR HERO: VAN HALEN
                 "VH: Los Angeles",
                 "VH: West Hollywood",
                 "VH: Rome",
@@ -296,26 +304,44 @@ namespace WTDE_Launcher_V3.Core {
                 "VH: Dallas",
                 "VH: London",
                 "VH: The Netherlands",
+                "VH: Van Halen Recording Studio",
+
+                // -- GUITAR HERO 5
                 "GH5: The 13th Rail",
                 "GH5: Club Boson",
                 "GH5: Sideshow",
+                "GH5: Angel's Crypt",
                 "GH5: O'Connell's Corner",
+                "GH5: The Aqueduct",
                 "GH5: Guitarhenge",
+                "GH5: Neon Oasis",
                 "GH5: Electric Honky Tonk",
                 "GH5: Calavera Square",
+                "GH5: Cairo Bazaar",
+                "GH5: The Golden Gate",
+                "GH5: Fjord of Swords",
                 "GH5: Hypersphere",
+
+                // -- BAND HERO
                 "BH: Mall of Fame Tour",
+                "BH: Smoke and Water Festival",
                 "BH: Club La Noza",
                 "BH: Summer Park Festival",
                 "BH: Harajuku",
+                "BH: La Luz de Madrid",
                 "BH: Everpop Awards",
+                "BH: Red River Canyon",
+                "BH: Paris",
                 "BH: AMP Orbiter",
+
+                // -- GUITAR HERO III
                 "III: Desert Rock Tour",
                 "III: Lou's Inferno"
             },
 
-            // Venue PAK names
+            // Venue PAK names.
             new List<string>() {
+                // -- GUITAR HERO: WORLD TOUR
                 "",
                 "z_frathouse",
                 "z_goth",
@@ -335,6 +361,8 @@ namespace WTDE_Launcher_V3.Core {
                 "z_metalfest",
                 "z_newyork",
                 "z_credits",
+
+                // -- GUITAR HERO: METALLICA
                 "z_forum",
                 "z_tushino",
                 "z_mop",
@@ -344,6 +372,8 @@ namespace WTDE_Launcher_V3.Core {
                 "z_icecave",
                 "z_soundcheckghm",
                 "z_studio2ghm",
+
+                // -- GUITAR HERO: SMASH HITS
                 "z_amazon",
                 "z_canyon",
                 "z_icecap",
@@ -352,6 +382,9 @@ namespace WTDE_Launcher_V3.Core {
                 "z_greatwall",
                 "z_atlantis",
                 "z_quebec",
+                "z_studioghsh",
+
+                // -- GUITAR HERO: VAN HALEN
                 "z_la_block_party",
                 "z_starwood",
                 "z_rome",
@@ -360,20 +393,37 @@ namespace WTDE_Launcher_V3.Core {
                 "z_drum_kit",
                 "z_londonghvh",
                 "z_frankenstrat",
+                "z_studioghvh",
+
+                // -- GUITAR HERO 5
                 "z_subway",
                 "z_lhc",
                 "z_freakshow",
+                "z_neworleans",
                 "z_dublin",
+                "z_dragrace",
                 "z_carhenge",
+                "z_vegas",
                 "z_nashville",
                 "z_mexicocity",
+                "z_cairo",
+                "z_sanfrancisco",
+                "z_norway",
                 "z_hyperspherewt",
+
+                // -- BAND HERO
                 "z_mall",
+                "z_montreux",
                 "z_cabo",
                 "z_centralpark",
                 "z_tokyo",
+                "z_easterisland",
                 "z_awardshow",
+                "z_gorge",
+                "z_parisbh",
                 "z_space",
+
+                // -- GUITAR HERO III
                 "z_wikker",
                 "z_hell"
             }

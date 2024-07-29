@@ -423,7 +423,49 @@
             this.SongSpecificInstruments = new System.Windows.Forms.CheckBox();
             this.PreferredTrainingStage = new System.Windows.Forms.ComboBox();
             this.ChangeDEVersionButton = new System.Windows.Forms.Button();
+            this.FastWin = new System.Windows.Forms.CheckBox();
+            this.FastStart = new System.Windows.Forms.CheckBox();
+            this.FastLose = new System.Windows.Forms.CheckBox();
+            this.FlawlessOnly = new System.Windows.Forms.CheckBox();
+            this.FocusedHighway = new System.Windows.Forms.CheckBox();
+            this.BadTripMode = new System.Windows.Forms.CheckBox();
+            this.DrunkMode = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabCreditsGroup = new System.Windows.Forms.Panel();
+            this.CreditsMainInfo = new System.Windows.Forms.Label();
+            this.CreditsVersionLabel = new System.Windows.Forms.Label();
+            this.BlackChalk = new System.Windows.Forms.PictureBox();
+            this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
+            this.IconLogoFox = new System.Windows.Forms.PictureBox();
+            this.IconLogoIMF = new System.Windows.Forms.PictureBox();
+            this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
+            this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
+            this.TGEditorBasic = new System.Windows.Forms.TabPage();
+            this.FPSLimitLabel = new System.Windows.Forms.Label();
+            this.ResolutionLabel = new System.Windows.Forms.Label();
+            this.TGEditorGameplay = new System.Windows.Forms.TabPage();
+            this.CrowdDensityLabel = new System.Windows.Forms.Label();
+            this.TGEditorInterface = new System.Windows.Forms.TabPage();
+            this.TrainingAccyLabel = new System.Windows.Forms.Label();
+            this.TrainSectStyleLabel = new System.Windows.Forms.Label();
+            this.BMIconThemeLabel = new System.Windows.Forms.Label();
+            this.HWVignetteLabel = new System.Windows.Forms.Label();
+            this.HWAlphaLabel = new System.Windows.Forms.Label();
+            this.PauseThemeLabel = new System.Windows.Forms.Label();
+            this.YouRockThemeLabel = new System.Windows.Forms.Label();
+            this.FlameStyleLabel = new System.Windows.Forms.Label();
+            this.TapTrailLabel = new System.Windows.Forms.Label();
+            this.HelperPillLabel = new System.Windows.Forms.Label();
+            this.HUDThemeLabel = new System.Windows.Forms.Label();
+            this.LoadThemeLabel = new System.Windows.Forms.Label();
+            this.TitleCardLabel = new System.Windows.Forms.Label();
+            this.NoteColorLabel = new System.Windows.Forms.Label();
+            this.NoteStyleLabel = new System.Windows.Forms.Label();
+            this.TGEditorAdvanced = new System.Windows.Forms.TabPage();
+            this.FlareStyleLabel = new System.Windows.Forms.Label();
+            this.DOFBlurLabel = new System.Windows.Forms.Label();
+            this.DOFQualityLabel = new System.Windows.Forms.Label();
+            this.TODProfileLabel = new System.Windows.Forms.Label();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabBandGroup = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -464,34 +506,6 @@
             this.TGSPClapTypeLabel = new System.Windows.Forms.Label();
             this.TGAudioSettings = new System.Windows.Forms.Label();
             this.TGAudioBLen = new System.Windows.Forms.Label();
-            this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
-            this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
-            this.TGEditorBasic = new System.Windows.Forms.TabPage();
-            this.FPSLimitLabel = new System.Windows.Forms.Label();
-            this.ResolutionLabel = new System.Windows.Forms.Label();
-            this.TGEditorGameplay = new System.Windows.Forms.TabPage();
-            this.CrowdDensityLabel = new System.Windows.Forms.Label();
-            this.TGEditorInterface = new System.Windows.Forms.TabPage();
-            this.TrainingAccyLabel = new System.Windows.Forms.Label();
-            this.TrainSectStyleLabel = new System.Windows.Forms.Label();
-            this.BMIconThemeLabel = new System.Windows.Forms.Label();
-            this.HWVignetteLabel = new System.Windows.Forms.Label();
-            this.HWAlphaLabel = new System.Windows.Forms.Label();
-            this.PauseThemeLabel = new System.Windows.Forms.Label();
-            this.YouRockThemeLabel = new System.Windows.Forms.Label();
-            this.FlameStyleLabel = new System.Windows.Forms.Label();
-            this.TapTrailLabel = new System.Windows.Forms.Label();
-            this.HelperPillLabel = new System.Windows.Forms.Label();
-            this.HUDThemeLabel = new System.Windows.Forms.Label();
-            this.LoadThemeLabel = new System.Windows.Forms.Label();
-            this.TitleCardLabel = new System.Windows.Forms.Label();
-            this.NoteColorLabel = new System.Windows.Forms.Label();
-            this.NoteStyleLabel = new System.Windows.Forms.Label();
-            this.TGEditorAdvanced = new System.Windows.Forms.TabPage();
-            this.FlareStyleLabel = new System.Windows.Forms.Label();
-            this.DOFBlurLabel = new System.Windows.Forms.Label();
-            this.DOFQualityLabel = new System.Windows.Forms.Label();
-            this.TODProfileLabel = new System.Windows.Forms.Label();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
             this.TabALMainEditor = new System.Windows.Forms.Panel();
@@ -529,12 +543,6 @@
             this.TALP1ILabel = new System.Windows.Forms.Label();
             this.TALPDSettings = new System.Windows.Forms.Label();
             this.TALP1DLabel = new System.Windows.Forms.Label();
-            this.TabCreditsGroup = new System.Windows.Forms.Panel();
-            this.CreditsMainInfo = new System.Windows.Forms.Label();
-            this.CreditsVersionLabel = new System.Windows.Forms.Label();
-            this.BlackChalk = new System.Windows.Forms.PictureBox();
-            this.IconLogoDELauncher = new System.Windows.Forms.PictureBox();
-            this.IconLogoIMF = new System.Windows.Forms.PictureBox();
             this.TabInputGroup = new System.Windows.Forms.GroupBox();
             this.KeyBindsHeaderIcon = new System.Windows.Forms.PictureBox();
             this.MicSettingsHeaderIcon = new System.Windows.Forms.PictureBox();
@@ -556,13 +564,6 @@
             this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.UpdateAvailableLabel = new System.Windows.Forms.Label();
-            this.FastWin = new System.Windows.Forms.CheckBox();
-            this.FastStart = new System.Windows.Forms.CheckBox();
-            this.FastLose = new System.Windows.Forms.CheckBox();
-            this.FlawlessOnly = new System.Windows.Forms.CheckBox();
-            this.FocusedHighway = new System.Windows.Forms.CheckBox();
-            this.BadTripMode = new System.Windows.Forms.CheckBox();
-            this.DrunkMode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -582,6 +583,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabCreditsGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoFox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
+            this.TabGraphicsGroup.SuspendLayout();
+            this.TabGraphicsMainEditor.SuspendLayout();
+            this.TGEditorBasic.SuspendLayout();
+            this.TGEditorGameplay.SuspendLayout();
+            this.TGEditorInterface.SuspendLayout();
+            this.TGEditorAdvanced.SuspendLayout();
             this.TabDebugGroup.SuspendLayout();
             this.TabBandGroup.SuspendLayout();
             this.TabGeneralGroup.SuspendLayout();
@@ -589,12 +601,6 @@
             this.TabGeneralTabsBasic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).BeginInit();
             this.TabGeneralTabsAudio.SuspendLayout();
-            this.TabGraphicsGroup.SuspendLayout();
-            this.TabGraphicsMainEditor.SuspendLayout();
-            this.TGEditorBasic.SuspendLayout();
-            this.TGEditorGameplay.SuspendLayout();
-            this.TGEditorInterface.SuspendLayout();
-            this.TGEditorAdvanced.SuspendLayout();
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP4)).BeginInit();
@@ -605,10 +611,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP1)).BeginInit();
-            this.TabCreditsGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).BeginInit();
             this.TabInputGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicSettingsHeaderIcon)).BeginInit();
@@ -6030,22 +6032,539 @@
             this.ChangeDEVersionButton.UseVisualStyleBackColor = true;
             this.ChangeDEVersionButton.Click += new System.EventHandler(this.ChangeDEVersionButton_Click);
             // 
+            // FastWin
+            // 
+            this.FastWin.AutoSize = true;
+            this.FastWin.Location = new System.Drawing.Point(19, 331);
+            this.FastWin.Name = "FastWin";
+            this.FastWin.Size = new System.Drawing.Size(117, 26);
+            this.FastWin.TabIndex = 22;
+            this.FastWin.Text = "Use Fast Win";
+            this.ToolTipMain.SetToolTip(this.FastWin, "Skips the win state/\"You Rock!\" animation sequence and goes straight\r\nto the resu" +
+        "lt screen menu.");
+            this.FastWin.UseVisualStyleBackColor = true;
+            this.FastWin.CheckedChanged += new System.EventHandler(this.FastWin_CheckedChanged);
+            // 
+            // FastStart
+            // 
+            this.FastStart.AutoSize = true;
+            this.FastStart.Location = new System.Drawing.Point(19, 357);
+            this.FastStart.Name = "FastStart";
+            this.FastStart.Size = new System.Drawing.Size(125, 26);
+            this.FastStart.TabIndex = 22;
+            this.FastStart.Text = "Use Fast Start";
+            this.ToolTipMain.SetToolTip(this.FastStart, "Skips the intro sequence and goes straight into the song, just like Practice Mode" +
+        ".");
+            this.FastStart.UseVisualStyleBackColor = true;
+            this.FastStart.CheckedChanged += new System.EventHandler(this.FastStart_CheckedChanged);
+            // 
+            // FastLose
+            // 
+            this.FastLose.AutoSize = true;
+            this.FastLose.Location = new System.Drawing.Point(19, 383);
+            this.FastLose.Name = "FastLose";
+            this.FastLose.Size = new System.Drawing.Size(123, 26);
+            this.FastLose.TabIndex = 22;
+            this.FastLose.Text = "Use Fast Lose";
+            this.ToolTipMain.SetToolTip(this.FastLose, "Skips the lose animations and goes straight to the fail dialog.");
+            this.FastLose.UseVisualStyleBackColor = true;
+            this.FastLose.CheckedChanged += new System.EventHandler(this.FastLose_CheckedChanged);
+            // 
+            // FlawlessOnly
+            // 
+            this.FlawlessOnly.AutoSize = true;
+            this.FlawlessOnly.Location = new System.Drawing.Point(19, 409);
+            this.FlawlessOnly.Name = "FlawlessOnly";
+            this.FlawlessOnly.Size = new System.Drawing.Size(207, 26);
+            this.FlawlessOnly.TabIndex = 22;
+            this.FlawlessOnly.Text = "FC or Bust (Flawless Only)";
+            this.ToolTipMain.SetToolTip(this.FlawlessOnly, resources.GetString("FlawlessOnly.ToolTip"));
+            this.FlawlessOnly.UseVisualStyleBackColor = true;
+            this.FlawlessOnly.CheckedChanged += new System.EventHandler(this.FlawlessOnly_CheckedChanged);
+            // 
+            // FocusedHighway
+            // 
+            this.FocusedHighway.AutoSize = true;
+            this.FocusedHighway.Location = new System.Drawing.Point(19, 435);
+            this.FocusedHighway.Name = "FocusedHighway";
+            this.FocusedHighway.Size = new System.Drawing.Size(149, 26);
+            this.FocusedHighway.TabIndex = 22;
+            this.FocusedHighway.Text = "Focused Highway";
+            this.ToolTipMain.SetToolTip(this.FocusedHighway, "Makes the highway more elongated.");
+            this.FocusedHighway.UseVisualStyleBackColor = true;
+            this.FocusedHighway.CheckedChanged += new System.EventHandler(this.FocusedHighway_CheckedChanged);
+            // 
+            // BadTripMode
+            // 
+            this.BadTripMode.AutoSize = true;
+            this.BadTripMode.Location = new System.Drawing.Point(19, 461);
+            this.BadTripMode.Name = "BadTripMode";
+            this.BadTripMode.Size = new System.Drawing.Size(129, 26);
+            this.BadTripMode.TabIndex = 22;
+            this.BadTripMode.Text = "Bad Trip Mode";
+            this.ToolTipMain.SetToolTip(this.BadTripMode, "Makes some modifications about the gem highway to throw you off.");
+            this.BadTripMode.UseVisualStyleBackColor = true;
+            this.BadTripMode.CheckedChanged += new System.EventHandler(this.BadTripMode_CheckedChanged);
+            // 
+            // DrunkMode
+            // 
+            this.DrunkMode.AutoSize = true;
+            this.DrunkMode.Location = new System.Drawing.Point(19, 487);
+            this.DrunkMode.Name = "DrunkMode";
+            this.DrunkMode.Size = new System.Drawing.Size(111, 26);
+            this.DrunkMode.TabIndex = 22;
+            this.DrunkMode.Text = "Drunk Mode";
+            this.ToolTipMain.SetToolTip(this.DrunkMode, "The gem visibility is lower when scrolling in, and the gems are\r\neasier to see wh" +
+        "en closer to the strike line.\r\n");
+            this.DrunkMode.UseVisualStyleBackColor = true;
+            this.DrunkMode.CheckedChanged += new System.EventHandler(this.DrunkMode_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
-            this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
             this.TabParentContainer.Location = new System.Drawing.Point(321, 63);
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabCreditsGroup
+            // 
+            this.TabCreditsGroup.BackColor = System.Drawing.Color.Transparent;
+            this.TabCreditsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d_l;
+            this.TabCreditsGroup.Controls.Add(this.ButtonFretworks);
+            this.TabCreditsGroup.Controls.Add(this.CreditsMainInfo);
+            this.TabCreditsGroup.Controls.Add(this.ButtonDiscord);
+            this.TabCreditsGroup.Controls.Add(this.ButtonWTDESite);
+            this.TabCreditsGroup.Controls.Add(this.ButtonGitHub);
+            this.TabCreditsGroup.Controls.Add(this.ButtonYouTube);
+            this.TabCreditsGroup.Controls.Add(this.CreditsVersionLabel);
+            this.TabCreditsGroup.Controls.Add(this.BlackChalk);
+            this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
+            this.TabCreditsGroup.Controls.Add(this.IconLogoFox);
+            this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
+            this.TabCreditsGroup.Location = new System.Drawing.Point(626, 162);
+            this.TabCreditsGroup.Name = "TabCreditsGroup";
+            this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
+            this.TabCreditsGroup.TabIndex = 14;
+            // 
+            // CreditsMainInfo
+            // 
+            this.CreditsMainInfo.Font = new System.Drawing.Font("Lexend", 11F);
+            this.CreditsMainInfo.Location = new System.Drawing.Point(42, 259);
+            this.CreditsMainInfo.Name = "CreditsMainInfo";
+            this.CreditsMainInfo.Size = new System.Drawing.Size(604, 386);
+            this.CreditsMainInfo.TabIndex = 30;
+            this.CreditsMainInfo.Text = resources.GetString("CreditsMainInfo.Text");
+            // 
+            // CreditsVersionLabel
+            // 
+            this.CreditsVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 16F);
+            this.CreditsVersionLabel.Location = new System.Drawing.Point(95, 219);
+            this.CreditsVersionLabel.Name = "CreditsVersionLabel";
+            this.CreditsVersionLabel.Size = new System.Drawing.Size(500, 23);
+            this.CreditsVersionLabel.TabIndex = 25;
+            this.CreditsVersionLabel.Text = "GHWT: Definitive Edition Launcher - Version 3.0";
+            this.CreditsVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BlackChalk
+            // 
+            this.BlackChalk.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.black_chalk;
+            this.BlackChalk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BlackChalk.Location = new System.Drawing.Point(15, 206);
+            this.BlackChalk.Name = "BlackChalk";
+            this.BlackChalk.Size = new System.Drawing.Size(658, 50);
+            this.BlackChalk.TabIndex = 24;
+            this.BlackChalk.TabStop = false;
+            // 
+            // IconLogoDELauncher
+            // 
+            this.IconLogoDELauncher.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon;
+            this.IconLogoDELauncher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconLogoDELauncher.Location = new System.Drawing.Point(264, 24);
+            this.IconLogoDELauncher.Name = "IconLogoDELauncher";
+            this.IconLogoDELauncher.Size = new System.Drawing.Size(162, 162);
+            this.IconLogoDELauncher.TabIndex = 23;
+            this.IconLogoDELauncher.TabStop = false;
+            // 
+            // IconLogoFox
+            // 
+            this.IconLogoFox.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.fox;
+            this.IconLogoFox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconLogoFox.Location = new System.Drawing.Point(452, 24);
+            this.IconLogoFox.Name = "IconLogoFox";
+            this.IconLogoFox.Size = new System.Drawing.Size(162, 162);
+            this.IconLogoFox.TabIndex = 22;
+            this.IconLogoFox.TabStop = false;
+            // 
+            // IconLogoIMF
+            // 
+            this.IconLogoIMF.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
+            this.IconLogoIMF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconLogoIMF.Location = new System.Drawing.Point(76, 24);
+            this.IconLogoIMF.Name = "IconLogoIMF";
+            this.IconLogoIMF.Size = new System.Drawing.Size(162, 162);
+            this.IconLogoIMF.TabIndex = 22;
+            this.IconLogoIMF.TabStop = false;
+            // 
+            // TabGraphicsGroup
+            // 
+            this.TabGraphicsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
+            this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(522, 286);
+            this.TabGraphicsGroup.Name = "TabGraphicsGroup";
+            this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabGraphicsGroup.TabIndex = 16;
+            this.TabGraphicsGroup.TabStop = false;
+            this.TabGraphicsGroup.Text = "DEBUG: Graphics Tab";
+            // 
+            // TabGraphicsMainEditor
+            // 
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorBasic);
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorGameplay);
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorInterface);
+            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorAdvanced);
+            this.TabGraphicsMainEditor.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGraphicsMainEditor.Location = new System.Drawing.Point(6, 12);
+            this.TabGraphicsMainEditor.Name = "TabGraphicsMainEditor";
+            this.TabGraphicsMainEditor.SelectedIndex = 0;
+            this.TabGraphicsMainEditor.Size = new System.Drawing.Size(648, 630);
+            this.TabGraphicsMainEditor.TabIndex = 1;
+            // 
+            // TGEditorBasic
+            // 
+            this.TGEditorBasic.Controls.Add(this.HighDetail);
+            this.TGEditorBasic.Controls.Add(this.Borderless);
+            this.TGEditorBasic.Controls.Add(this.WindowedMode);
+            this.TGEditorBasic.Controls.Add(this.DisableVSync);
+            this.TGEditorBasic.Controls.Add(this.FPSLimit);
+            this.TGEditorBasic.Controls.Add(this.FPSLimitLabel);
+            this.TGEditorBasic.Controls.Add(this.UseNativeRes);
+            this.TGEditorBasic.Controls.Add(this.VideoHeight);
+            this.TGEditorBasic.Controls.Add(this.VideoWidth);
+            this.TGEditorBasic.Controls.Add(this.ResolutionLabel);
+            this.TGEditorBasic.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorBasic.Name = "TGEditorBasic";
+            this.TGEditorBasic.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorBasic.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorBasic.TabIndex = 0;
+            this.TGEditorBasic.Text = "Basic Options";
+            this.TGEditorBasic.UseVisualStyleBackColor = true;
+            // 
+            // FPSLimitLabel
+            // 
+            this.FPSLimitLabel.AutoSize = true;
+            this.FPSLimitLabel.Location = new System.Drawing.Point(15, 58);
+            this.FPSLimitLabel.Name = "FPSLimitLabel";
+            this.FPSLimitLabel.Size = new System.Drawing.Size(77, 22);
+            this.FPSLimitLabel.TabIndex = 5;
+            this.FPSLimitLabel.Text = "FPS Limit:";
+            // 
+            // ResolutionLabel
+            // 
+            this.ResolutionLabel.AutoSize = true;
+            this.ResolutionLabel.Location = new System.Drawing.Point(15, 6);
+            this.ResolutionLabel.Name = "ResolutionLabel";
+            this.ResolutionLabel.Size = new System.Drawing.Size(183, 22);
+            this.ResolutionLabel.TabIndex = 1;
+            this.ResolutionLabel.Text = "Resolution:                      X";
+            // 
+            // TGEditorGameplay
+            // 
+            this.TGEditorGameplay.Controls.Add(this.DrunkMode);
+            this.TGEditorGameplay.Controls.Add(this.BadTripMode);
+            this.TGEditorGameplay.Controls.Add(this.FocusedHighway);
+            this.TGEditorGameplay.Controls.Add(this.FlawlessOnly);
+            this.TGEditorGameplay.Controls.Add(this.FastLose);
+            this.TGEditorGameplay.Controls.Add(this.FastStart);
+            this.TGEditorGameplay.Controls.Add(this.FastWin);
+            this.TGEditorGameplay.Controls.Add(this.RandomTrainingVenues);
+            this.TGEditorGameplay.Controls.Add(this.X360Zones);
+            this.TGEditorGameplay.Controls.Add(this.CrowdDensityLabel);
+            this.TGEditorGameplay.Controls.Add(this.OptionsCrowd);
+            this.TGEditorGameplay.Controls.Add(this.OptionsFrontRowCamera);
+            this.TGEditorGameplay.Controls.Add(this.OptionsPhysics);
+            this.TGEditorGameplay.Controls.Add(this.SoloMarkers);
+            this.TGEditorGameplay.Controls.Add(this.TeslaFX);
+            this.TGEditorGameplay.Controls.Add(this.SpecialStarPowerFX);
+            this.TGEditorGameplay.Controls.Add(this.HandFlames);
+            this.TGEditorGameplay.Controls.Add(this.HideInstruments);
+            this.TGEditorGameplay.Controls.Add(this.HideBand);
+            this.TGEditorGameplay.Controls.Add(this.BlackStage);
+            this.TGEditorGameplay.Controls.Add(this.HitSparks);
+            this.TGEditorGameplay.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorGameplay.Name = "TGEditorGameplay";
+            this.TGEditorGameplay.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorGameplay.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorGameplay.TabIndex = 1;
+            this.TGEditorGameplay.Text = "Gameplay Options";
+            this.TGEditorGameplay.UseVisualStyleBackColor = true;
+            // 
+            // CrowdDensityLabel
+            // 
+            this.CrowdDensityLabel.AutoSize = true;
+            this.CrowdDensityLabel.Location = new System.Drawing.Point(16, 256);
+            this.CrowdDensityLabel.Name = "CrowdDensityLabel";
+            this.CrowdDensityLabel.Size = new System.Drawing.Size(112, 22);
+            this.CrowdDensityLabel.TabIndex = 19;
+            this.CrowdDensityLabel.Text = "Crowd Density:";
+            // 
+            // TGEditorInterface
+            // 
+            this.TGEditorInterface.Controls.Add(this.TrainingAccyLabel);
+            this.TGEditorInterface.Controls.Add(this.TrainingAccuracy);
+            this.TGEditorInterface.Controls.Add(this.ShowAllSPBulbs);
+            this.TGEditorInterface.Controls.Add(this.TrainSectStyleLabel);
+            this.TGEditorInterface.Controls.Add(this.TrainingSectionFont);
+            this.TGEditorInterface.Controls.Add(this.BMIconThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.AttackIconTheme);
+            this.TGEditorInterface.Controls.Add(this.TrainingScore);
+            this.TGEditorInterface.Controls.Add(this.BlackHighway);
+            this.TGEditorInterface.Controls.Add(this.HighwayVignetteOpacity);
+            this.TGEditorInterface.Controls.Add(this.HWVignetteLabel);
+            this.TGEditorInterface.Controls.Add(this.HighwayOpacity);
+            this.TGEditorInterface.Controls.Add(this.HWAlphaLabel);
+            this.TGEditorInterface.Controls.Add(this.PauseThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.PauseTheme);
+            this.TGEditorInterface.Controls.Add(this.YouRockThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.YouRockTheme);
+            this.TGEditorInterface.Controls.Add(this.SustainFX);
+            this.TGEditorInterface.Controls.Add(this.FlameStyleLabel);
+            this.TGEditorInterface.Controls.Add(this.HitFlameTheme);
+            this.TGEditorInterface.Controls.Add(this.TapTrailLabel);
+            this.TGEditorInterface.Controls.Add(this.TapTrailTheme);
+            this.TGEditorInterface.Controls.Add(this.HelperPillLabel);
+            this.TGEditorInterface.Controls.Add(this.HelperPillTheme);
+            this.TGEditorInterface.Controls.Add(this.HUDThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.HUDTheme);
+            this.TGEditorInterface.Controls.Add(this.LoadThemeLabel);
+            this.TGEditorInterface.Controls.Add(this.LoadingTheme);
+            this.TGEditorInterface.Controls.Add(this.TitleCardLabel);
+            this.TGEditorInterface.Controls.Add(this.SongIntroStyle);
+            this.TGEditorInterface.Controls.Add(this.GemColors);
+            this.TGEditorInterface.Controls.Add(this.NoteColorLabel);
+            this.TGEditorInterface.Controls.Add(this.GemTheme);
+            this.TGEditorInterface.Controls.Add(this.NoteStyleLabel);
+            this.TGEditorInterface.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorInterface.Name = "TGEditorInterface";
+            this.TGEditorInterface.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorInterface.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorInterface.TabIndex = 2;
+            this.TGEditorInterface.Text = "Interface Options";
+            this.TGEditorInterface.UseVisualStyleBackColor = true;
+            // 
+            // TrainingAccyLabel
+            // 
+            this.TrainingAccyLabel.AutoSize = true;
+            this.TrainingAccyLabel.Location = new System.Drawing.Point(15, 306);
+            this.TrainingAccyLabel.Name = "TrainingAccyLabel";
+            this.TrainingAccyLabel.Size = new System.Drawing.Size(177, 22);
+            this.TrainingAccyLabel.TabIndex = 37;
+            this.TrainingAccyLabel.Text = "Practice Accuracy Meter:";
+            // 
+            // TrainSectStyleLabel
+            // 
+            this.TrainSectStyleLabel.AutoSize = true;
+            this.TrainSectStyleLabel.Location = new System.Drawing.Point(15, 206);
+            this.TrainSectStyleLabel.Name = "TrainSectStyleLabel";
+            this.TrainSectStyleLabel.Size = new System.Drawing.Size(160, 22);
+            this.TrainSectStyleLabel.TabIndex = 32;
+            this.TrainSectStyleLabel.Text = "Practice Section Style:";
+            // 
+            // BMIconThemeLabel
+            // 
+            this.BMIconThemeLabel.AutoSize = true;
+            this.BMIconThemeLabel.Location = new System.Drawing.Point(15, 131);
+            this.BMIconThemeLabel.Name = "BMIconThemeLabel";
+            this.BMIconThemeLabel.Size = new System.Drawing.Size(143, 22);
+            this.BMIconThemeLabel.TabIndex = 30;
+            this.BMIconThemeLabel.Text = "Battle Power Icons:";
+            // 
+            // HWVignetteLabel
+            // 
+            this.HWVignetteLabel.AutoSize = true;
+            this.HWVignetteLabel.Location = new System.Drawing.Point(15, 357);
+            this.HWVignetteLabel.Name = "HWVignetteLabel";
+            this.HWVignetteLabel.Size = new System.Drawing.Size(369, 22);
+            this.HWVignetteLabel.TabIndex = 25;
+            this.HWVignetteLabel.Text = "Highway Vignette Alpha (Opacity):                            %";
+            // 
+            // HWAlphaLabel
+            // 
+            this.HWAlphaLabel.AutoSize = true;
+            this.HWAlphaLabel.Location = new System.Drawing.Point(15, 332);
+            this.HWAlphaLabel.Name = "HWAlphaLabel";
+            this.HWAlphaLabel.Size = new System.Drawing.Size(368, 22);
+            this.HWAlphaLabel.TabIndex = 23;
+            this.HWAlphaLabel.Text = "Highway Alpha (Opacity):                                           %";
+            // 
+            // PauseThemeLabel
+            // 
+            this.PauseThemeLabel.AutoSize = true;
+            this.PauseThemeLabel.Location = new System.Drawing.Point(15, 181);
+            this.PauseThemeLabel.Name = "PauseThemeLabel";
+            this.PauseThemeLabel.Size = new System.Drawing.Size(143, 22);
+            this.PauseThemeLabel.TabIndex = 22;
+            this.PauseThemeLabel.Text = "Pause Menu Theme:";
+            // 
+            // YouRockThemeLabel
+            // 
+            this.YouRockThemeLabel.AutoSize = true;
+            this.YouRockThemeLabel.Location = new System.Drawing.Point(15, 156);
+            this.YouRockThemeLabel.Name = "YouRockThemeLabel";
+            this.YouRockThemeLabel.Size = new System.Drawing.Size(128, 22);
+            this.YouRockThemeLabel.TabIndex = 20;
+            this.YouRockThemeLabel.Text = "You Rock! Theme:";
+            // 
+            // FlameStyleLabel
+            // 
+            this.FlameStyleLabel.AutoSize = true;
+            this.FlameStyleLabel.Location = new System.Drawing.Point(15, 281);
+            this.FlameStyleLabel.Name = "FlameStyleLabel";
+            this.FlameStyleLabel.Size = new System.Drawing.Size(117, 22);
+            this.FlameStyleLabel.TabIndex = 17;
+            this.FlameStyleLabel.Text = "Hit Flame Style:";
+            // 
+            // TapTrailLabel
+            // 
+            this.TapTrailLabel.AutoSize = true;
+            this.TapTrailLabel.Location = new System.Drawing.Point(15, 256);
+            this.TapTrailLabel.Name = "TapTrailLabel";
+            this.TapTrailLabel.Size = new System.Drawing.Size(110, 22);
+            this.TapTrailLabel.TabIndex = 15;
+            this.TapTrailLabel.Text = "Tap Trail Style:";
+            // 
+            // HelperPillLabel
+            // 
+            this.HelperPillLabel.AutoSize = true;
+            this.HelperPillLabel.Location = new System.Drawing.Point(15, 231);
+            this.HelperPillLabel.Name = "HelperPillLabel";
+            this.HelperPillLabel.Size = new System.Drawing.Size(143, 22);
+            this.HelperPillLabel.TabIndex = 13;
+            this.HelperPillLabel.Text = "User Helper Theme:";
+            // 
+            // HUDThemeLabel
+            // 
+            this.HUDThemeLabel.AutoSize = true;
+            this.HUDThemeLabel.Location = new System.Drawing.Point(15, 106);
+            this.HUDThemeLabel.Name = "HUDThemeLabel";
+            this.HUDThemeLabel.Size = new System.Drawing.Size(93, 22);
+            this.HUDThemeLabel.TabIndex = 11;
+            this.HUDThemeLabel.Text = "HUD Theme:";
+            // 
+            // LoadThemeLabel
+            // 
+            this.LoadThemeLabel.AutoSize = true;
+            this.LoadThemeLabel.Location = new System.Drawing.Point(15, 81);
+            this.LoadThemeLabel.Name = "LoadThemeLabel";
+            this.LoadThemeLabel.Size = new System.Drawing.Size(147, 22);
+            this.LoadThemeLabel.TabIndex = 9;
+            this.LoadThemeLabel.Text = "Load Screen Theme:";
+            // 
+            // TitleCardLabel
+            // 
+            this.TitleCardLabel.AutoSize = true;
+            this.TitleCardLabel.Location = new System.Drawing.Point(15, 56);
+            this.TitleCardLabel.Name = "TitleCardLabel";
+            this.TitleCardLabel.Size = new System.Drawing.Size(118, 22);
+            this.TitleCardLabel.TabIndex = 7;
+            this.TitleCardLabel.Text = "Title Card Style:";
+            // 
+            // NoteColorLabel
+            // 
+            this.NoteColorLabel.AutoSize = true;
+            this.NoteColorLabel.Location = new System.Drawing.Point(15, 31);
+            this.NoteColorLabel.Name = "NoteColorLabel";
+            this.NoteColorLabel.Size = new System.Drawing.Size(134, 22);
+            this.NoteColorLabel.TabIndex = 4;
+            this.NoteColorLabel.Text = "Note/Gem Theme:";
+            // 
+            // NoteStyleLabel
+            // 
+            this.NoteStyleLabel.AutoSize = true;
+            this.NoteStyleLabel.Location = new System.Drawing.Point(15, 6);
+            this.NoteStyleLabel.Name = "NoteStyleLabel";
+            this.NoteStyleLabel.Size = new System.Drawing.Size(123, 22);
+            this.NoteStyleLabel.TabIndex = 2;
+            this.NoteStyleLabel.Text = "Note/Gem Style:";
+            // 
+            // TGEditorAdvanced
+            // 
+            this.TGEditorAdvanced.Controls.Add(this.RenderFog);
+            this.TGEditorAdvanced.Controls.Add(this.FlareStyle);
+            this.TGEditorAdvanced.Controls.Add(this.FlareStyleLabel);
+            this.TGEditorAdvanced.Controls.Add(this.DOFBlur);
+            this.TGEditorAdvanced.Controls.Add(this.DOFBlurLabel);
+            this.TGEditorAdvanced.Controls.Add(this.DOFQuality);
+            this.TGEditorAdvanced.Controls.Add(this.DOFQualityLabel);
+            this.TGEditorAdvanced.Controls.Add(this.DefaultTODProfile);
+            this.TGEditorAdvanced.Controls.Add(this.TODProfileLabel);
+            this.TGEditorAdvanced.Controls.Add(this.EnableCamPulse);
+            this.TGEditorAdvanced.Controls.Add(this.ApplyBandLogo);
+            this.TGEditorAdvanced.Controls.Add(this.ApplyBandName);
+            this.TGEditorAdvanced.Controls.Add(this.RenderScreenFX);
+            this.TGEditorAdvanced.Controls.Add(this.Render2D);
+            this.TGEditorAdvanced.Controls.Add(this.DrawProjectors);
+            this.TGEditorAdvanced.Controls.Add(this.RenderInstances);
+            this.TGEditorAdvanced.Controls.Add(this.RenderGeoms);
+            this.TGEditorAdvanced.Controls.Add(this.RenderParticles);
+            this.TGEditorAdvanced.Controls.Add(this.ColorFilters);
+            this.TGEditorAdvanced.Controls.Add(this.DisableBloom);
+            this.TGEditorAdvanced.Controls.Add(this.DisableDOF);
+            this.TGEditorAdvanced.Location = new System.Drawing.Point(4, 30);
+            this.TGEditorAdvanced.Name = "TGEditorAdvanced";
+            this.TGEditorAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.TGEditorAdvanced.Size = new System.Drawing.Size(640, 596);
+            this.TGEditorAdvanced.TabIndex = 3;
+            this.TGEditorAdvanced.Text = "Advanced Graphics";
+            this.TGEditorAdvanced.UseVisualStyleBackColor = true;
+            // 
+            // FlareStyleLabel
+            // 
+            this.FlareStyleLabel.AutoSize = true;
+            this.FlareStyleLabel.Location = new System.Drawing.Point(16, 408);
+            this.FlareStyleLabel.Name = "FlareStyleLabel";
+            this.FlareStyleLabel.Size = new System.Drawing.Size(86, 22);
+            this.FlareStyleLabel.TabIndex = 30;
+            this.FlareStyleLabel.Text = "Flare Style:";
+            // 
+            // DOFBlurLabel
+            // 
+            this.DOFBlurLabel.AutoSize = true;
+            this.DOFBlurLabel.Location = new System.Drawing.Point(17, 382);
+            this.DOFBlurLabel.Name = "DOFBlurLabel";
+            this.DOFBlurLabel.Size = new System.Drawing.Size(141, 22);
+            this.DOFBlurLabel.TabIndex = 28;
+            this.DOFBlurLabel.Text = "Depth of Field Blur:";
+            // 
+            // DOFQualityLabel
+            // 
+            this.DOFQualityLabel.AutoSize = true;
+            this.DOFQualityLabel.Location = new System.Drawing.Point(16, 356);
+            this.DOFQualityLabel.Name = "DOFQualityLabel";
+            this.DOFQualityLabel.Size = new System.Drawing.Size(162, 22);
+            this.DOFQualityLabel.TabIndex = 26;
+            this.DOFQualityLabel.Text = "Depth of Field Quality:";
+            // 
+            // TODProfileLabel
+            // 
+            this.TODProfileLabel.AutoSize = true;
+            this.TODProfileLabel.Location = new System.Drawing.Point(16, 331);
+            this.TODProfileLabel.Name = "TODProfileLabel";
+            this.TODProfileLabel.Size = new System.Drawing.Size(145, 22);
+            this.TODProfileLabel.TabIndex = 24;
+            this.TODProfileLabel.Text = "Time of Day Profile:";
             // 
             // TabDebugGroup
             // 
@@ -6545,356 +7064,6 @@
             this.TGAudioBLen.TabIndex = 10;
             this.TGAudioBLen.Text = "Audio Buffer Length:";
             // 
-            // TabGraphicsGroup
-            // 
-            this.TabGraphicsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
-            this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(10, 8);
-            this.TabGraphicsGroup.Name = "TabGraphicsGroup";
-            this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabGraphicsGroup.TabIndex = 16;
-            this.TabGraphicsGroup.TabStop = false;
-            this.TabGraphicsGroup.Text = "DEBUG: Graphics Tab";
-            // 
-            // TabGraphicsMainEditor
-            // 
-            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorBasic);
-            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorGameplay);
-            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorInterface);
-            this.TabGraphicsMainEditor.Controls.Add(this.TGEditorAdvanced);
-            this.TabGraphicsMainEditor.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsMainEditor.Location = new System.Drawing.Point(6, 12);
-            this.TabGraphicsMainEditor.Name = "TabGraphicsMainEditor";
-            this.TabGraphicsMainEditor.SelectedIndex = 0;
-            this.TabGraphicsMainEditor.Size = new System.Drawing.Size(648, 630);
-            this.TabGraphicsMainEditor.TabIndex = 1;
-            // 
-            // TGEditorBasic
-            // 
-            this.TGEditorBasic.Controls.Add(this.HighDetail);
-            this.TGEditorBasic.Controls.Add(this.Borderless);
-            this.TGEditorBasic.Controls.Add(this.WindowedMode);
-            this.TGEditorBasic.Controls.Add(this.DisableVSync);
-            this.TGEditorBasic.Controls.Add(this.FPSLimit);
-            this.TGEditorBasic.Controls.Add(this.FPSLimitLabel);
-            this.TGEditorBasic.Controls.Add(this.UseNativeRes);
-            this.TGEditorBasic.Controls.Add(this.VideoHeight);
-            this.TGEditorBasic.Controls.Add(this.VideoWidth);
-            this.TGEditorBasic.Controls.Add(this.ResolutionLabel);
-            this.TGEditorBasic.Location = new System.Drawing.Point(4, 30);
-            this.TGEditorBasic.Name = "TGEditorBasic";
-            this.TGEditorBasic.Padding = new System.Windows.Forms.Padding(3);
-            this.TGEditorBasic.Size = new System.Drawing.Size(640, 596);
-            this.TGEditorBasic.TabIndex = 0;
-            this.TGEditorBasic.Text = "Basic Options";
-            this.TGEditorBasic.UseVisualStyleBackColor = true;
-            // 
-            // FPSLimitLabel
-            // 
-            this.FPSLimitLabel.AutoSize = true;
-            this.FPSLimitLabel.Location = new System.Drawing.Point(15, 58);
-            this.FPSLimitLabel.Name = "FPSLimitLabel";
-            this.FPSLimitLabel.Size = new System.Drawing.Size(77, 22);
-            this.FPSLimitLabel.TabIndex = 5;
-            this.FPSLimitLabel.Text = "FPS Limit:";
-            // 
-            // ResolutionLabel
-            // 
-            this.ResolutionLabel.AutoSize = true;
-            this.ResolutionLabel.Location = new System.Drawing.Point(15, 6);
-            this.ResolutionLabel.Name = "ResolutionLabel";
-            this.ResolutionLabel.Size = new System.Drawing.Size(183, 22);
-            this.ResolutionLabel.TabIndex = 1;
-            this.ResolutionLabel.Text = "Resolution:                      X";
-            // 
-            // TGEditorGameplay
-            // 
-            this.TGEditorGameplay.Controls.Add(this.DrunkMode);
-            this.TGEditorGameplay.Controls.Add(this.BadTripMode);
-            this.TGEditorGameplay.Controls.Add(this.FocusedHighway);
-            this.TGEditorGameplay.Controls.Add(this.FlawlessOnly);
-            this.TGEditorGameplay.Controls.Add(this.FastLose);
-            this.TGEditorGameplay.Controls.Add(this.FastStart);
-            this.TGEditorGameplay.Controls.Add(this.FastWin);
-            this.TGEditorGameplay.Controls.Add(this.RandomTrainingVenues);
-            this.TGEditorGameplay.Controls.Add(this.X360Zones);
-            this.TGEditorGameplay.Controls.Add(this.CrowdDensityLabel);
-            this.TGEditorGameplay.Controls.Add(this.OptionsCrowd);
-            this.TGEditorGameplay.Controls.Add(this.OptionsFrontRowCamera);
-            this.TGEditorGameplay.Controls.Add(this.OptionsPhysics);
-            this.TGEditorGameplay.Controls.Add(this.SoloMarkers);
-            this.TGEditorGameplay.Controls.Add(this.TeslaFX);
-            this.TGEditorGameplay.Controls.Add(this.SpecialStarPowerFX);
-            this.TGEditorGameplay.Controls.Add(this.HandFlames);
-            this.TGEditorGameplay.Controls.Add(this.HideInstruments);
-            this.TGEditorGameplay.Controls.Add(this.HideBand);
-            this.TGEditorGameplay.Controls.Add(this.BlackStage);
-            this.TGEditorGameplay.Controls.Add(this.HitSparks);
-            this.TGEditorGameplay.Location = new System.Drawing.Point(4, 30);
-            this.TGEditorGameplay.Name = "TGEditorGameplay";
-            this.TGEditorGameplay.Padding = new System.Windows.Forms.Padding(3);
-            this.TGEditorGameplay.Size = new System.Drawing.Size(640, 596);
-            this.TGEditorGameplay.TabIndex = 1;
-            this.TGEditorGameplay.Text = "Gameplay Options";
-            this.TGEditorGameplay.UseVisualStyleBackColor = true;
-            // 
-            // CrowdDensityLabel
-            // 
-            this.CrowdDensityLabel.AutoSize = true;
-            this.CrowdDensityLabel.Location = new System.Drawing.Point(16, 256);
-            this.CrowdDensityLabel.Name = "CrowdDensityLabel";
-            this.CrowdDensityLabel.Size = new System.Drawing.Size(112, 22);
-            this.CrowdDensityLabel.TabIndex = 19;
-            this.CrowdDensityLabel.Text = "Crowd Density:";
-            // 
-            // TGEditorInterface
-            // 
-            this.TGEditorInterface.Controls.Add(this.TrainingAccyLabel);
-            this.TGEditorInterface.Controls.Add(this.TrainingAccuracy);
-            this.TGEditorInterface.Controls.Add(this.ShowAllSPBulbs);
-            this.TGEditorInterface.Controls.Add(this.TrainSectStyleLabel);
-            this.TGEditorInterface.Controls.Add(this.TrainingSectionFont);
-            this.TGEditorInterface.Controls.Add(this.BMIconThemeLabel);
-            this.TGEditorInterface.Controls.Add(this.AttackIconTheme);
-            this.TGEditorInterface.Controls.Add(this.TrainingScore);
-            this.TGEditorInterface.Controls.Add(this.BlackHighway);
-            this.TGEditorInterface.Controls.Add(this.HighwayVignetteOpacity);
-            this.TGEditorInterface.Controls.Add(this.HWVignetteLabel);
-            this.TGEditorInterface.Controls.Add(this.HighwayOpacity);
-            this.TGEditorInterface.Controls.Add(this.HWAlphaLabel);
-            this.TGEditorInterface.Controls.Add(this.PauseThemeLabel);
-            this.TGEditorInterface.Controls.Add(this.PauseTheme);
-            this.TGEditorInterface.Controls.Add(this.YouRockThemeLabel);
-            this.TGEditorInterface.Controls.Add(this.YouRockTheme);
-            this.TGEditorInterface.Controls.Add(this.SustainFX);
-            this.TGEditorInterface.Controls.Add(this.FlameStyleLabel);
-            this.TGEditorInterface.Controls.Add(this.HitFlameTheme);
-            this.TGEditorInterface.Controls.Add(this.TapTrailLabel);
-            this.TGEditorInterface.Controls.Add(this.TapTrailTheme);
-            this.TGEditorInterface.Controls.Add(this.HelperPillLabel);
-            this.TGEditorInterface.Controls.Add(this.HelperPillTheme);
-            this.TGEditorInterface.Controls.Add(this.HUDThemeLabel);
-            this.TGEditorInterface.Controls.Add(this.HUDTheme);
-            this.TGEditorInterface.Controls.Add(this.LoadThemeLabel);
-            this.TGEditorInterface.Controls.Add(this.LoadingTheme);
-            this.TGEditorInterface.Controls.Add(this.TitleCardLabel);
-            this.TGEditorInterface.Controls.Add(this.SongIntroStyle);
-            this.TGEditorInterface.Controls.Add(this.GemColors);
-            this.TGEditorInterface.Controls.Add(this.NoteColorLabel);
-            this.TGEditorInterface.Controls.Add(this.GemTheme);
-            this.TGEditorInterface.Controls.Add(this.NoteStyleLabel);
-            this.TGEditorInterface.Location = new System.Drawing.Point(4, 30);
-            this.TGEditorInterface.Name = "TGEditorInterface";
-            this.TGEditorInterface.Padding = new System.Windows.Forms.Padding(3);
-            this.TGEditorInterface.Size = new System.Drawing.Size(640, 596);
-            this.TGEditorInterface.TabIndex = 2;
-            this.TGEditorInterface.Text = "Interface Options";
-            this.TGEditorInterface.UseVisualStyleBackColor = true;
-            // 
-            // TrainingAccyLabel
-            // 
-            this.TrainingAccyLabel.AutoSize = true;
-            this.TrainingAccyLabel.Location = new System.Drawing.Point(15, 306);
-            this.TrainingAccyLabel.Name = "TrainingAccyLabel";
-            this.TrainingAccyLabel.Size = new System.Drawing.Size(177, 22);
-            this.TrainingAccyLabel.TabIndex = 37;
-            this.TrainingAccyLabel.Text = "Practice Accuracy Meter:";
-            // 
-            // TrainSectStyleLabel
-            // 
-            this.TrainSectStyleLabel.AutoSize = true;
-            this.TrainSectStyleLabel.Location = new System.Drawing.Point(15, 206);
-            this.TrainSectStyleLabel.Name = "TrainSectStyleLabel";
-            this.TrainSectStyleLabel.Size = new System.Drawing.Size(160, 22);
-            this.TrainSectStyleLabel.TabIndex = 32;
-            this.TrainSectStyleLabel.Text = "Practice Section Style:";
-            // 
-            // BMIconThemeLabel
-            // 
-            this.BMIconThemeLabel.AutoSize = true;
-            this.BMIconThemeLabel.Location = new System.Drawing.Point(15, 131);
-            this.BMIconThemeLabel.Name = "BMIconThemeLabel";
-            this.BMIconThemeLabel.Size = new System.Drawing.Size(143, 22);
-            this.BMIconThemeLabel.TabIndex = 30;
-            this.BMIconThemeLabel.Text = "Battle Power Icons:";
-            // 
-            // HWVignetteLabel
-            // 
-            this.HWVignetteLabel.AutoSize = true;
-            this.HWVignetteLabel.Location = new System.Drawing.Point(15, 357);
-            this.HWVignetteLabel.Name = "HWVignetteLabel";
-            this.HWVignetteLabel.Size = new System.Drawing.Size(369, 22);
-            this.HWVignetteLabel.TabIndex = 25;
-            this.HWVignetteLabel.Text = "Highway Vignette Alpha (Opacity):                            %";
-            // 
-            // HWAlphaLabel
-            // 
-            this.HWAlphaLabel.AutoSize = true;
-            this.HWAlphaLabel.Location = new System.Drawing.Point(15, 332);
-            this.HWAlphaLabel.Name = "HWAlphaLabel";
-            this.HWAlphaLabel.Size = new System.Drawing.Size(368, 22);
-            this.HWAlphaLabel.TabIndex = 23;
-            this.HWAlphaLabel.Text = "Highway Alpha (Opacity):                                           %";
-            // 
-            // PauseThemeLabel
-            // 
-            this.PauseThemeLabel.AutoSize = true;
-            this.PauseThemeLabel.Location = new System.Drawing.Point(15, 181);
-            this.PauseThemeLabel.Name = "PauseThemeLabel";
-            this.PauseThemeLabel.Size = new System.Drawing.Size(143, 22);
-            this.PauseThemeLabel.TabIndex = 22;
-            this.PauseThemeLabel.Text = "Pause Menu Theme:";
-            // 
-            // YouRockThemeLabel
-            // 
-            this.YouRockThemeLabel.AutoSize = true;
-            this.YouRockThemeLabel.Location = new System.Drawing.Point(15, 156);
-            this.YouRockThemeLabel.Name = "YouRockThemeLabel";
-            this.YouRockThemeLabel.Size = new System.Drawing.Size(128, 22);
-            this.YouRockThemeLabel.TabIndex = 20;
-            this.YouRockThemeLabel.Text = "You Rock! Theme:";
-            // 
-            // FlameStyleLabel
-            // 
-            this.FlameStyleLabel.AutoSize = true;
-            this.FlameStyleLabel.Location = new System.Drawing.Point(15, 281);
-            this.FlameStyleLabel.Name = "FlameStyleLabel";
-            this.FlameStyleLabel.Size = new System.Drawing.Size(117, 22);
-            this.FlameStyleLabel.TabIndex = 17;
-            this.FlameStyleLabel.Text = "Hit Flame Style:";
-            // 
-            // TapTrailLabel
-            // 
-            this.TapTrailLabel.AutoSize = true;
-            this.TapTrailLabel.Location = new System.Drawing.Point(15, 256);
-            this.TapTrailLabel.Name = "TapTrailLabel";
-            this.TapTrailLabel.Size = new System.Drawing.Size(110, 22);
-            this.TapTrailLabel.TabIndex = 15;
-            this.TapTrailLabel.Text = "Tap Trail Style:";
-            // 
-            // HelperPillLabel
-            // 
-            this.HelperPillLabel.AutoSize = true;
-            this.HelperPillLabel.Location = new System.Drawing.Point(15, 231);
-            this.HelperPillLabel.Name = "HelperPillLabel";
-            this.HelperPillLabel.Size = new System.Drawing.Size(143, 22);
-            this.HelperPillLabel.TabIndex = 13;
-            this.HelperPillLabel.Text = "User Helper Theme:";
-            // 
-            // HUDThemeLabel
-            // 
-            this.HUDThemeLabel.AutoSize = true;
-            this.HUDThemeLabel.Location = new System.Drawing.Point(15, 106);
-            this.HUDThemeLabel.Name = "HUDThemeLabel";
-            this.HUDThemeLabel.Size = new System.Drawing.Size(93, 22);
-            this.HUDThemeLabel.TabIndex = 11;
-            this.HUDThemeLabel.Text = "HUD Theme:";
-            // 
-            // LoadThemeLabel
-            // 
-            this.LoadThemeLabel.AutoSize = true;
-            this.LoadThemeLabel.Location = new System.Drawing.Point(15, 81);
-            this.LoadThemeLabel.Name = "LoadThemeLabel";
-            this.LoadThemeLabel.Size = new System.Drawing.Size(147, 22);
-            this.LoadThemeLabel.TabIndex = 9;
-            this.LoadThemeLabel.Text = "Load Screen Theme:";
-            // 
-            // TitleCardLabel
-            // 
-            this.TitleCardLabel.AutoSize = true;
-            this.TitleCardLabel.Location = new System.Drawing.Point(15, 56);
-            this.TitleCardLabel.Name = "TitleCardLabel";
-            this.TitleCardLabel.Size = new System.Drawing.Size(118, 22);
-            this.TitleCardLabel.TabIndex = 7;
-            this.TitleCardLabel.Text = "Title Card Style:";
-            // 
-            // NoteColorLabel
-            // 
-            this.NoteColorLabel.AutoSize = true;
-            this.NoteColorLabel.Location = new System.Drawing.Point(15, 31);
-            this.NoteColorLabel.Name = "NoteColorLabel";
-            this.NoteColorLabel.Size = new System.Drawing.Size(134, 22);
-            this.NoteColorLabel.TabIndex = 4;
-            this.NoteColorLabel.Text = "Note/Gem Theme:";
-            // 
-            // NoteStyleLabel
-            // 
-            this.NoteStyleLabel.AutoSize = true;
-            this.NoteStyleLabel.Location = new System.Drawing.Point(15, 6);
-            this.NoteStyleLabel.Name = "NoteStyleLabel";
-            this.NoteStyleLabel.Size = new System.Drawing.Size(123, 22);
-            this.NoteStyleLabel.TabIndex = 2;
-            this.NoteStyleLabel.Text = "Note/Gem Style:";
-            // 
-            // TGEditorAdvanced
-            // 
-            this.TGEditorAdvanced.Controls.Add(this.RenderFog);
-            this.TGEditorAdvanced.Controls.Add(this.FlareStyle);
-            this.TGEditorAdvanced.Controls.Add(this.FlareStyleLabel);
-            this.TGEditorAdvanced.Controls.Add(this.DOFBlur);
-            this.TGEditorAdvanced.Controls.Add(this.DOFBlurLabel);
-            this.TGEditorAdvanced.Controls.Add(this.DOFQuality);
-            this.TGEditorAdvanced.Controls.Add(this.DOFQualityLabel);
-            this.TGEditorAdvanced.Controls.Add(this.DefaultTODProfile);
-            this.TGEditorAdvanced.Controls.Add(this.TODProfileLabel);
-            this.TGEditorAdvanced.Controls.Add(this.EnableCamPulse);
-            this.TGEditorAdvanced.Controls.Add(this.ApplyBandLogo);
-            this.TGEditorAdvanced.Controls.Add(this.ApplyBandName);
-            this.TGEditorAdvanced.Controls.Add(this.RenderScreenFX);
-            this.TGEditorAdvanced.Controls.Add(this.Render2D);
-            this.TGEditorAdvanced.Controls.Add(this.DrawProjectors);
-            this.TGEditorAdvanced.Controls.Add(this.RenderInstances);
-            this.TGEditorAdvanced.Controls.Add(this.RenderGeoms);
-            this.TGEditorAdvanced.Controls.Add(this.RenderParticles);
-            this.TGEditorAdvanced.Controls.Add(this.ColorFilters);
-            this.TGEditorAdvanced.Controls.Add(this.DisableBloom);
-            this.TGEditorAdvanced.Controls.Add(this.DisableDOF);
-            this.TGEditorAdvanced.Location = new System.Drawing.Point(4, 30);
-            this.TGEditorAdvanced.Name = "TGEditorAdvanced";
-            this.TGEditorAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.TGEditorAdvanced.Size = new System.Drawing.Size(640, 596);
-            this.TGEditorAdvanced.TabIndex = 3;
-            this.TGEditorAdvanced.Text = "Advanced Graphics";
-            this.TGEditorAdvanced.UseVisualStyleBackColor = true;
-            // 
-            // FlareStyleLabel
-            // 
-            this.FlareStyleLabel.AutoSize = true;
-            this.FlareStyleLabel.Location = new System.Drawing.Point(16, 408);
-            this.FlareStyleLabel.Name = "FlareStyleLabel";
-            this.FlareStyleLabel.Size = new System.Drawing.Size(86, 22);
-            this.FlareStyleLabel.TabIndex = 30;
-            this.FlareStyleLabel.Text = "Flare Style:";
-            // 
-            // DOFBlurLabel
-            // 
-            this.DOFBlurLabel.AutoSize = true;
-            this.DOFBlurLabel.Location = new System.Drawing.Point(17, 382);
-            this.DOFBlurLabel.Name = "DOFBlurLabel";
-            this.DOFBlurLabel.Size = new System.Drawing.Size(141, 22);
-            this.DOFBlurLabel.TabIndex = 28;
-            this.DOFBlurLabel.Text = "Depth of Field Blur:";
-            // 
-            // DOFQualityLabel
-            // 
-            this.DOFQualityLabel.AutoSize = true;
-            this.DOFQualityLabel.Location = new System.Drawing.Point(16, 356);
-            this.DOFQualityLabel.Name = "DOFQualityLabel";
-            this.DOFQualityLabel.Size = new System.Drawing.Size(162, 22);
-            this.DOFQualityLabel.TabIndex = 26;
-            this.DOFQualityLabel.Text = "Depth of Field Quality:";
-            // 
-            // TODProfileLabel
-            // 
-            this.TODProfileLabel.AutoSize = true;
-            this.TODProfileLabel.Location = new System.Drawing.Point(16, 331);
-            this.TODProfileLabel.Name = "TODProfileLabel";
-            this.TODProfileLabel.Size = new System.Drawing.Size(145, 22);
-            this.TODProfileLabel.TabIndex = 24;
-            this.TODProfileLabel.Text = "Time of Day Profile:";
-            // 
             // TabAutoLaunchGroup
             // 
             this.TabAutoLaunchGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -7301,75 +7470,6 @@
             this.TALP1DLabel.TabIndex = 39;
             this.TALP1DLabel.Text = "Difficulty:";
             // 
-            // TabCreditsGroup
-            // 
-            this.TabCreditsGroup.BackColor = System.Drawing.Color.Transparent;
-            this.TabCreditsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d_l;
-            this.TabCreditsGroup.Controls.Add(this.ButtonFretworks);
-            this.TabCreditsGroup.Controls.Add(this.CreditsMainInfo);
-            this.TabCreditsGroup.Controls.Add(this.ButtonDiscord);
-            this.TabCreditsGroup.Controls.Add(this.ButtonWTDESite);
-            this.TabCreditsGroup.Controls.Add(this.ButtonGitHub);
-            this.TabCreditsGroup.Controls.Add(this.ButtonYouTube);
-            this.TabCreditsGroup.Controls.Add(this.CreditsVersionLabel);
-            this.TabCreditsGroup.Controls.Add(this.BlackChalk);
-            this.TabCreditsGroup.Controls.Add(this.IconLogoDELauncher);
-            this.TabCreditsGroup.Controls.Add(this.IconLogoIMF);
-            this.TabCreditsGroup.Location = new System.Drawing.Point(626, 109);
-            this.TabCreditsGroup.Name = "TabCreditsGroup";
-            this.TabCreditsGroup.Size = new System.Drawing.Size(689, 732);
-            this.TabCreditsGroup.TabIndex = 14;
-            // 
-            // CreditsMainInfo
-            // 
-            this.CreditsMainInfo.Font = new System.Drawing.Font("Lexend", 11F);
-            this.CreditsMainInfo.Location = new System.Drawing.Point(42, 259);
-            this.CreditsMainInfo.Name = "CreditsMainInfo";
-            this.CreditsMainInfo.Size = new System.Drawing.Size(604, 386);
-            this.CreditsMainInfo.TabIndex = 30;
-            this.CreditsMainInfo.Text = resources.GetString("CreditsMainInfo.Text");
-            // 
-            // CreditsVersionLabel
-            // 
-            this.CreditsVersionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CreditsVersionLabel.Font = new System.Drawing.Font("Felt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreditsVersionLabel.Location = new System.Drawing.Point(95, 219);
-            this.CreditsVersionLabel.Name = "CreditsVersionLabel";
-            this.CreditsVersionLabel.Size = new System.Drawing.Size(500, 23);
-            this.CreditsVersionLabel.TabIndex = 25;
-            this.CreditsVersionLabel.Text = "GHWT: Definitive Edition Launcher - Version 3.0";
-            this.CreditsVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BlackChalk
-            // 
-            this.BlackChalk.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.black_chalk;
-            this.BlackChalk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BlackChalk.Location = new System.Drawing.Point(15, 206);
-            this.BlackChalk.Name = "BlackChalk";
-            this.BlackChalk.Size = new System.Drawing.Size(658, 50);
-            this.BlackChalk.TabIndex = 24;
-            this.BlackChalk.TabStop = false;
-            // 
-            // IconLogoDELauncher
-            // 
-            this.IconLogoDELauncher.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon;
-            this.IconLogoDELauncher.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.IconLogoDELauncher.Location = new System.Drawing.Point(381, 12);
-            this.IconLogoDELauncher.Name = "IconLogoDELauncher";
-            this.IconLogoDELauncher.Size = new System.Drawing.Size(192, 192);
-            this.IconLogoDELauncher.TabIndex = 23;
-            this.IconLogoDELauncher.TabStop = false;
-            // 
-            // IconLogoIMF
-            // 
-            this.IconLogoIMF.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.logo_imf24;
-            this.IconLogoIMF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.IconLogoIMF.Location = new System.Drawing.Point(135, 12);
-            this.IconLogoIMF.Name = "IconLogoIMF";
-            this.IconLogoIMF.Size = new System.Drawing.Size(192, 192);
-            this.IconLogoIMF.TabIndex = 22;
-            this.IconLogoIMF.TabStop = false;
-            // 
             // TabInputGroup
             // 
             this.TabInputGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
@@ -7626,93 +7726,6 @@
             this.UpdateAvailableLabel.TabIndex = 19;
             this.UpdateAvailableLabel.Text = "A newer version of WTDE is available for download! The latest version is VXYZ.";
             // 
-            // FastWin
-            // 
-            this.FastWin.AutoSize = true;
-            this.FastWin.Location = new System.Drawing.Point(19, 331);
-            this.FastWin.Name = "FastWin";
-            this.FastWin.Size = new System.Drawing.Size(117, 26);
-            this.FastWin.TabIndex = 22;
-            this.FastWin.Text = "Use Fast Win";
-            this.ToolTipMain.SetToolTip(this.FastWin, "Skips the win state/\"You Rock!\" animation sequence and goes straight\r\nto the resu" +
-        "lt screen menu.");
-            this.FastWin.UseVisualStyleBackColor = true;
-            this.FastWin.CheckedChanged += new System.EventHandler(this.FastWin_CheckedChanged);
-            // 
-            // FastStart
-            // 
-            this.FastStart.AutoSize = true;
-            this.FastStart.Location = new System.Drawing.Point(19, 357);
-            this.FastStart.Name = "FastStart";
-            this.FastStart.Size = new System.Drawing.Size(125, 26);
-            this.FastStart.TabIndex = 22;
-            this.FastStart.Text = "Use Fast Start";
-            this.ToolTipMain.SetToolTip(this.FastStart, "Skips the intro sequence and goes straight into the song, just like Practice Mode" +
-        ".");
-            this.FastStart.UseVisualStyleBackColor = true;
-            this.FastStart.CheckedChanged += new System.EventHandler(this.FastStart_CheckedChanged);
-            // 
-            // FastLose
-            // 
-            this.FastLose.AutoSize = true;
-            this.FastLose.Location = new System.Drawing.Point(19, 383);
-            this.FastLose.Name = "FastLose";
-            this.FastLose.Size = new System.Drawing.Size(123, 26);
-            this.FastLose.TabIndex = 22;
-            this.FastLose.Text = "Use Fast Lose";
-            this.ToolTipMain.SetToolTip(this.FastLose, "Skips the lose animations and goes straight to the fail dialog.");
-            this.FastLose.UseVisualStyleBackColor = true;
-            this.FastLose.CheckedChanged += new System.EventHandler(this.FastLose_CheckedChanged);
-            // 
-            // FlawlessOnly
-            // 
-            this.FlawlessOnly.AutoSize = true;
-            this.FlawlessOnly.Location = new System.Drawing.Point(19, 409);
-            this.FlawlessOnly.Name = "FlawlessOnly";
-            this.FlawlessOnly.Size = new System.Drawing.Size(207, 26);
-            this.FlawlessOnly.TabIndex = 22;
-            this.FlawlessOnly.Text = "FC or Bust (Flawless Only)";
-            this.ToolTipMain.SetToolTip(this.FlawlessOnly, resources.GetString("FlawlessOnly.ToolTip"));
-            this.FlawlessOnly.UseVisualStyleBackColor = true;
-            this.FlawlessOnly.CheckedChanged += new System.EventHandler(this.FlawlessOnly_CheckedChanged);
-            // 
-            // FocusedHighway
-            // 
-            this.FocusedHighway.AutoSize = true;
-            this.FocusedHighway.Location = new System.Drawing.Point(19, 435);
-            this.FocusedHighway.Name = "FocusedHighway";
-            this.FocusedHighway.Size = new System.Drawing.Size(149, 26);
-            this.FocusedHighway.TabIndex = 22;
-            this.FocusedHighway.Text = "Focused Highway";
-            this.ToolTipMain.SetToolTip(this.FocusedHighway, "Makes the highway more elongated.");
-            this.FocusedHighway.UseVisualStyleBackColor = true;
-            this.FocusedHighway.CheckedChanged += new System.EventHandler(this.FocusedHighway_CheckedChanged);
-            // 
-            // BadTripMode
-            // 
-            this.BadTripMode.AutoSize = true;
-            this.BadTripMode.Location = new System.Drawing.Point(19, 461);
-            this.BadTripMode.Name = "BadTripMode";
-            this.BadTripMode.Size = new System.Drawing.Size(129, 26);
-            this.BadTripMode.TabIndex = 22;
-            this.BadTripMode.Text = "Bad Trip Mode";
-            this.ToolTipMain.SetToolTip(this.BadTripMode, "Makes some modifications about the gem highway to throw you off.");
-            this.BadTripMode.UseVisualStyleBackColor = true;
-            this.BadTripMode.CheckedChanged += new System.EventHandler(this.BadTripMode_CheckedChanged);
-            // 
-            // DrunkMode
-            // 
-            this.DrunkMode.AutoSize = true;
-            this.DrunkMode.Location = new System.Drawing.Point(19, 487);
-            this.DrunkMode.Name = "DrunkMode";
-            this.DrunkMode.Size = new System.Drawing.Size(111, 26);
-            this.DrunkMode.TabIndex = 22;
-            this.DrunkMode.Text = "Drunk Mode";
-            this.ToolTipMain.SetToolTip(this.DrunkMode, "The gem visibility is lower when scrolling in, and the gems are\r\neasier to see wh" +
-        "en closer to the strike line.\r\n");
-            this.DrunkMode.UseVisualStyleBackColor = true;
-            this.DrunkMode.CheckedChanged += new System.EventHandler(this.DrunkMode_CheckedChanged);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -7767,6 +7780,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconGuitar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabCreditsGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoFox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
+            this.TabGraphicsGroup.ResumeLayout(false);
+            this.TabGraphicsMainEditor.ResumeLayout(false);
+            this.TGEditorBasic.ResumeLayout(false);
+            this.TGEditorBasic.PerformLayout();
+            this.TGEditorGameplay.ResumeLayout(false);
+            this.TGEditorGameplay.PerformLayout();
+            this.TGEditorInterface.ResumeLayout(false);
+            this.TGEditorInterface.PerformLayout();
+            this.TGEditorAdvanced.ResumeLayout(false);
+            this.TGEditorAdvanced.PerformLayout();
             this.TabDebugGroup.ResumeLayout(false);
             this.TabDebugGroup.PerformLayout();
             this.TabBandGroup.ResumeLayout(false);
@@ -7778,16 +7806,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).EndInit();
             this.TabGeneralTabsAudio.ResumeLayout(false);
             this.TabGeneralTabsAudio.PerformLayout();
-            this.TabGraphicsGroup.ResumeLayout(false);
-            this.TabGraphicsMainEditor.ResumeLayout(false);
-            this.TGEditorBasic.ResumeLayout(false);
-            this.TGEditorBasic.PerformLayout();
-            this.TGEditorGameplay.ResumeLayout(false);
-            this.TGEditorGameplay.PerformLayout();
-            this.TGEditorInterface.ResumeLayout(false);
-            this.TGEditorInterface.PerformLayout();
-            this.TGEditorAdvanced.ResumeLayout(false);
-            this.TGEditorAdvanced.PerformLayout();
             this.TabAutoLaunchGroup.ResumeLayout(false);
             this.TabAutoLaunchGroup.PerformLayout();
             this.TabALMainEditor.ResumeLayout(false);
@@ -7800,10 +7818,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP1)).EndInit();
-            this.TabCreditsGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoDELauncher)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IconLogoIMF)).EndInit();
             this.TabInputGroup.ResumeLayout(false);
             this.TabInputGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeyBindsHeaderIcon)).EndInit();
@@ -8361,6 +8375,7 @@
         private System.Windows.Forms.CheckBox FocusedHighway;
         private System.Windows.Forms.CheckBox DrunkMode;
         private System.Windows.Forms.CheckBox BadTripMode;
+        private System.Windows.Forms.PictureBox IconLogoFox;
     }
 }
 

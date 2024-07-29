@@ -65,6 +65,18 @@ namespace WTDE_Launcher_V3.Core {
                 // Initialize Windows Forms. We need this. DO NOT EDIT OR DELETE IT!
                 InitializeComponent();
 
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
+                // Set the venue listings correctly.
+                PreferredStage.Items.Clear();
+                AutoLaunchVenue.Items.Clear();
+
+                string[] itemsToAdd = V3LauncherConstants.VenueIDs[0].ToArray();
+                PreferredStage.Items.AddRange(itemsToAdd);
+                AutoLaunchVenue.Items.AddRange(itemsToAdd);
+
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
                 // Set our background image correctly and get the MOTD from the website.
                 this.BackgroundImage = Properties.Resources.bg_1;
 
@@ -536,8 +548,8 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.HUDThemes[1], V3LauncherConstants.HUDThemes[0]);
             TrainingScore.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Graphics", "TrainingScore", "0"));
             AttackIconTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "AttackIconTheme", "ghwt"),
-                new string[] { "ghwt", "gh3", "ghm" },
-                new string[] { "GH: World Tour (Default)", "Guitar Hero III", "Guitar Hero: Metallica" });
+                new string[] { "ghwt", "gh3", "gh3_demo", "ghm" },
+                new string[] { "GH: World Tour (Default)", "Guitar Hero III", "Guitar Hero III (Demo)", "Guitar Hero: Metallica" });
             YouRockTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "YouRockTheme", "ghwt"),
                 V3LauncherConstants.YouRockThemes[1], V3LauncherConstants.YouRockThemes[0]);
             PauseTheme.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Graphics", "PauseTheme", "ghwt"),

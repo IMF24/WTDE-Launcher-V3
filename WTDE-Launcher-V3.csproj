@@ -471,6 +471,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="Resources\fox.png" />
     <None Include="res\img\social\github_dark.png" />
     <None Include="res\img\icon\plugin.png" />
     <None Include="res\img\menuicons\add_black.png" />
