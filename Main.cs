@@ -69,10 +69,12 @@ namespace WTDE_Launcher_V3.Core {
 
                 // Set the venue listings correctly.
                 PreferredStage.Items.Clear();
+                PreferredTrainingStage.Items.Clear();
                 AutoLaunchVenue.Items.Clear();
 
                 string[] itemsToAdd = V3LauncherConstants.VenueIDs[0].ToArray();
                 PreferredStage.Items.AddRange(itemsToAdd);
+                PreferredTrainingStage.Items.AddRange(itemsToAdd);
                 AutoLaunchVenue.Items.AddRange(itemsToAdd);
 
                 // - - - - - - - - - - - - - - - - - - - - - - -
@@ -87,7 +89,7 @@ namespace WTDE_Launcher_V3.Core {
 
                 // Set up tabs, the window title, and the background.
                 // Also play boot VOs if we have them on, fun stuff!
-                ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage });
+                ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage, PreferredTrainingStage });
                 ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
                 LoadINISettings();
                 DoTabSetup();

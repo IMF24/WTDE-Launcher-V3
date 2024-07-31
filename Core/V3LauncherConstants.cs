@@ -342,7 +342,10 @@ namespace WTDE_Launcher_V3.Core {
 
                 // -- GUITAR HERO III
                 "III: Desert Rock Tour",
-                "III: Lou's Inferno"
+                "III: Lou's Inferno",
+
+                // -- GHWT: DEFINITIVE EDITION
+                "WTDE: Club GH"
             },
 
             // Venue PAK names.
@@ -431,7 +434,10 @@ namespace WTDE_Launcher_V3.Core {
 
                 // -- GUITAR HERO III
                 "z_wikker",
-                "z_hell"
+                "z_hell",
+                
+                // -- GHWT: DEFINITIVE EDITION
+                "z_clubgh"
             }
         };
 

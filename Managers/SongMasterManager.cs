@@ -111,43 +111,39 @@ namespace WTDE_Launcher_V3.Managers {
             // Refresh the mod list just in case.
             ModHandler.ReadMods();
 
-            // Use IniFile for this to get the title, artist, and checksum.
-            IniFile file = new IniFile();
-
             // Now let's do some populating!
             // Loop through our installed mods and get all song
             // and song category mods.
+            int unkIdx = 0;
             foreach (string[] mod in ModHandler.UserContentMods) {
                 // Read this INI file.
-                file.Load(mod[5]);
+                INI file = new INI(mod[5]);
 
                 // Is this a song mod?
                 if (mod[2] == "Song") {
                     // Get its title, artist, and checksum, then add all of
                     // that info to the lists.
-                    string songName = file.Sections["SongInfo"].Keys["Title"].Value;
-                    string songArtist = file.Sections["SongInfo"].Keys["Artist"].Value;
+                    string songName = file.GetString("SongInfo", "Title", "Unknown Title");
+                    string songArtist = file.GetString("SongInfo", "Artist", "Unknown Artist");
 
-                    string songChecksum = file.Sections["SongInfo"].Keys["Checksum"].Value;
+                    string songChecksum = file.GetString("SongInfo", "Checksum", $"unk{unkIdx}");
 
                     SongTitles.Add($"{songArtist} - {songName}");
                     SongChecksums.Add(songChecksum);
                     SongModPaths.Add(mod[5]);
-                }
-
+                
                 // Is this a category mod?
-                if (mod[2] == "Song Category") {
+                } else if (mod[2] == "Song Category") {
                     // Get the name and category checksum.
-                    string cateName = file.Sections["CategoryInfo"].Keys["Name"].Value;
-                    string cateChecksum = file.Sections["CategoryInfo"].Keys["Checksum"].Value;
+                    string cateName = file.GetString("CategoryInfo", "Name", "Unknown Category Title");
+                    string cateChecksum = file.GetString("CategoryInfo", "Checksum", $"unknownCat{unkIdx}");
 
                     SongCategoryNames.Add(cateName);
                     SongCategoryChecksums.Add(cateChecksum);
                     SongCategoryPaths.Add(mod[5]);
                 }
 
-                // Clear the sections list for the INI file so we can go again.
-                file.Sections.Clear();
+                unkIdx++;
             }
 
             // - - - - - - - - - - - - - - - - - - - - - - -
@@ -183,6 +179,8 @@ namespace WTDE_Launcher_V3.Managers {
         public void ReadAttachedSongs() {
             if (SongCategoriesList.SelectedItems.Count <= 0) return;
 
+            //~ Console.WriteLine("Reading songs...");
+
             int finalIndex;
             string categoryToSearch;
             List<string> setList = (showCategoryChecksumsToolStripMenuItem.Checked) ? SongCategoryChecksums : SongCategoryNames;
@@ -192,6 +190,8 @@ namespace WTDE_Launcher_V3.Managers {
             finalIndex = modPathIndexes[SongCategoriesList.SelectedIndex];
 
             CurrentLoadedCategoryChecksum = SongCategoryChecksums[modPathIndexes[SongCategoriesList.SelectedIndex]];
+
+            //~ Console.WriteLine($"-- CURRENT DATA --\nmod path indexes: {modPathIndexes}\nfinal index: {finalIndex}\ncurrent loaded category checksum: {CurrentLoadedCategoryChecksum}");
 
             // First, let's clear out anything we need to clear.
             AttachedCategorySongs.Items.Clear();
@@ -219,6 +219,8 @@ namespace WTDE_Launcher_V3.Managers {
 
             // Now let's look for song.ini OR folder.ini files.
             foreach (string file in files) {
+                //~ Console.WriteLine($"current file: {file}");
+
                 string linkedCat, songName, songArtist, songChecksum;
 
                 // New INI file object.
@@ -232,6 +234,21 @@ namespace WTDE_Launcher_V3.Managers {
                     switch (Path.GetFileName(file)) {
                         // Regular song config.
                         case "song.ini":
+
+                            // Is this a Melody song?
+                            // If so, we do not want to parse it.
+                            if (Directory.GetFiles(Path.GetDirectoryName(file), "*.mp3").Length > 0 ||
+                                Directory.GetFiles(Path.GetDirectoryName(file), "*.ogg").Length > 0 ||
+                                Directory.GetFiles(Path.GetDirectoryName(file), "*.wav").Length > 0 ||
+                                Directory.GetFiles(Path.GetDirectoryName(file), "*.opus").Length > 0 ||
+                                File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.mid")) ||
+                                File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.chart"))) {
+
+                                V3LauncherCore.AddDebugEntry("Detected a Melody song, skipping...", "Song & Song Category Manager");
+                                continue;
+
+                            }
+
                             if (!iFile.Sections["SongInfo"].Keys.Contains("GameCategory")) linkedCat = "";
                             else linkedCat = iFile.Sections["SongInfo"].Keys["GameCategory"].Value;
 
@@ -538,9 +555,16 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void SongCategoriesList_SelectedIndexChanged(object sender, EventArgs e) {
             try {
+                //~ Console.WriteLine("Reading attached songs...");
                 ReadAttachedSongs();
+
+                //~ Console.WriteLine("Opening category image...");
                 OpenNXImageFile();
+
+                //~ Console.WriteLine("Updating active controls...");
                 UpdateActiveSongControls();
+
+                //~ Console.WriteLine("Updating menu commands...");
                 UpdateMenuCommands();
             } catch (Exception exc) {
                 V3LauncherCore.AddDebugEntry($"Category list update error, don't worry about it // {exc.Message}", "Song & Song Category Manager");

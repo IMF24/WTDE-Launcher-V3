@@ -109,6 +109,16 @@ namespace WTDE_Launcher_V3.IO {
 				string modName, modAuthor, modType, modVersion, modDescription;
 				switch (currentINIFile) {
 					case "song.ini":
+						// If this folder contains a MIDI or CHART file, this is a Melody song.
+						// Therefore, it is not a valid song mod.
+						if (File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.mid")) ||
+							File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.chart"))) {
+
+							V3LauncherCore.AddDebugEntry("Folder was likely a Melody song, skipping...", "Mod Handler: ReadMods");
+							continue;
+
+						}
+
 						V3LauncherCore.AddDebugEntry("We found a song mod!", "Mod Handler: ReadMods");
 
 						try {
