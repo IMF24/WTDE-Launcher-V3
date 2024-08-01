@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using Microsoft.Win32.SafeHandles;
 using System.Drawing.Imaging;
 using System.Threading;
+using System.Globalization;
 
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
@@ -40,6 +41,10 @@ namespace WTDE_Launcher_V3.Core {
                 // Whatever this does, just more fun
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+
+                // We MUST set culture type to EN-US.
+                // This will parse strings and decimals in the correct way.
+                Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
                 // Spawn debug console?
                 if (INIFunctions.GetINIValue("Launcher", "Console") == "1") {
