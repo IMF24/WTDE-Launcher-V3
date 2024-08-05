@@ -25,11 +25,27 @@ namespace WTDE_Launcher_V3.NX {
     /// </summary>
     public class NXImage {
         /// <summary>
-        ///  Construct a new Neversoft image file from a given Bitmap.
+        ///  Construct a new Neversoft image file from a given file path.
         /// </summary>
-        /// <param name="imagePath"></param>
+        /// <param name="imagePath">
+        ///  
+        /// </param>
         public NXImage(string imagePath) {
-            this.Image = ConstructImageFromFile(imagePath);
+            string ext = Path.GetExtension(imagePath);
+            if (ext == ".xen") {
+                this.Image = ConstructImageFromFile(imagePath);
+            } else {
+                Image newImg = new Bitmap(imagePath);
+                this.Image = newImg;
+            }
+        }
+
+        /// <summary>
+        ///  Construct a new Neversoft image file from a given Image.
+        /// </summary>
+        /// <param name="image"></param>
+        public NXImage(Image image) {
+            this.Image = image;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - -
@@ -38,10 +54,6 @@ namespace WTDE_Launcher_V3.NX {
         ///  The bitmap image itself.
         /// </summary>
         public Image Image { get; set; }
-
-        // - - - - - - - - - - - - - - - - - - - - - - -
-
-
 
         // - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -92,15 +104,15 @@ namespace WTDE_Launcher_V3.NX {
             // Let's figure out what type of image this is.
             V3LauncherCore.AddDebugEntry("Reading image format", "NXImage");
             byte[][] magics = new byte[4][] {
-                    // DDS
-                    new byte[4] { 0x44, 0x44, 0x53, 0x20 },
-                    // PNG
-                    new byte[4] { 0x89, 0x50, 0x4E, 0x47 },
-                    // JPG
-                    new byte[4] { 0xFF, 0xD8, 0xFF, 0xE1 },
-                    // BMP
-                    new byte[4] { 0x42, 0x4D, 0x36, 0x16 },
-                };
+                // DDS
+                new byte[4] { 0x44, 0x44, 0x53, 0x20 },
+                // PNG
+                new byte[4] { 0x89, 0x50, 0x4E, 0x47 },
+                // JPG
+                new byte[4] { 0xFF, 0xD8, 0xFF, 0xE1 },
+                // BMP
+                new byte[4] { 0x42, 0x4D, 0x36, 0x16 },
+            };
             string[] exts = { ".dds", ".png", ".jpg", ".bmp" };
             for (var i = 0; i < magics.Length; i++) {
                 if (magic[0] == magics[i][0] && magic[1] == magics[i][1] && magic[2] == magics[i][2]) {
@@ -115,14 +127,16 @@ namespace WTDE_Launcher_V3.NX {
             // Image has been decompiled, let's go!
             Image extractedImage;
             using (var ms = new MemoryStream(outData)) {
+                // PNG, JPG, or BMP image? Turn it into an image from the
+                // memory stream, and we're good to go!
                 if (ext == ".png" || ext == ".jpg" || ext == ".bmp") {
                     extractedImage = Image.FromStream(ms);
 
-                    // This is a DDS image, oh boy
-                    // This requires a bit of work to convert it to a supported bitmap format.
-                    // Using Pfim, we'll take it from DDS and convert it to PNG.
+                // This is a DDS image, oh boy
+                // This requires a bit of work to convert it to a supported bitmap format.
+                // Using Pfim, we'll take it from DDS and convert it to PNG.
                 } else {
-                    using (var image = Pfimage.FromStream(ms)) {
+                    using (IImage image = Pfimage.FromStream(ms)) {
                         PixelFormat format;
 
                         // Go from Pfim image format to GDI+.
@@ -261,6 +275,12 @@ namespace WTDE_Launcher_V3.NX {
 
         // - - - - - - - - - - - - - - - - - - - - - - -
 
+        /// <summary>
+        ///  Compile the current image of this object into a PC formatted Neversoft image.
+        /// </summary>
+        /// <param name="path">
+        ///  File path to write the image to.
+        /// </param>
         public void CompileImage(string path) {
             WriteNXImage(path);
         }

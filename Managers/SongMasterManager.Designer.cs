@@ -26,6 +26,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SongMasterManager));
             this.SCMToolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.SongModsList = new System.Windows.Forms.ListBox();
+            this.SongCategoriesList = new System.Windows.Forms.ListBox();
+            this.LogoImageBox = new System.Windows.Forms.PictureBox();
+            this.AttachedCategorySongs = new System.Windows.Forms.ListView();
+            this.SongTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SongChecksum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SongPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.EditCategoryDataButton = new System.Windows.Forms.Button();
+            this.SongModFilter = new System.Windows.Forms.TextBox();
+            this.ApplySongModSearch = new System.Windows.Forms.Button();
+            this.ResetSongModFilter = new System.Windows.Forms.Button();
+            this.ResetSongCategoryFilter = new System.Windows.Forms.Button();
+            this.ApplySongCategorySearch = new System.Windows.Forms.Button();
+            this.SongCategoryFilter = new System.Windows.Forms.TextBox();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,34 +62,169 @@
             this.deleteCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCategoryDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.openModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.showCategoryChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoHeaderLabel = new System.Windows.Forms.Label();
-            this.SongModsList = new System.Windows.Forms.ListBox();
             this.SongModsHeader = new System.Windows.Forms.Label();
-            this.SongCategoriesList = new System.Windows.Forms.ListBox();
             this.SongCategoriesHeader = new System.Windows.Forms.Label();
             this.CategoryPreviewHeader = new System.Windows.Forms.Label();
-            this.LogoImageBox = new System.Windows.Forms.PictureBox();
-            this.AttachedCategorySongs = new System.Windows.Forms.ListView();
-            this.SongTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SongChecksum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SongPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
-            this.CloseButton = new System.Windows.Forms.Button();
-            this.EditCategoryDataButton = new System.Windows.Forms.Button();
-            this.SongModFilter = new System.Windows.Forms.TextBox();
-            this.ApplySongModSearch = new System.Windows.Forms.Button();
-            this.ResetSongModFilter = new System.Windows.Forms.Button();
-            this.ResetSongCategoryFilter = new System.Windows.Forms.Button();
-            this.ApplySongCategorySearch = new System.Windows.Forms.Button();
-            this.SongCategoryFilter = new System.Windows.Forms.TextBox();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.openModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.TopMenuStrip.SuspendLayout();
+            this.MakeSetlistZIPButton = new System.Windows.Forms.Button();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
+            this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // SongModsList
+            // 
+            this.SongModsList.FormattingEnabled = true;
+            this.SongModsList.Location = new System.Drawing.Point(12, 63);
+            this.SongModsList.Name = "SongModsList";
+            this.SongModsList.Size = new System.Drawing.Size(268, 355);
+            this.SongModsList.TabIndex = 7;
+            this.SCMToolTipMain.SetToolTip(this.SongModsList, "List of all your song mods.");
+            this.SongModsList.SelectedIndexChanged += new System.EventHandler(this.SongModsList_SelectedIndexChanged);
+            // 
+            // SongCategoriesList
+            // 
+            this.SongCategoriesList.FormattingEnabled = true;
+            this.SongCategoriesList.Location = new System.Drawing.Point(12, 446);
+            this.SongCategoriesList.Name = "SongCategoriesList";
+            this.SongCategoriesList.Size = new System.Drawing.Size(268, 355);
+            this.SongCategoriesList.TabIndex = 9;
+            this.SCMToolTipMain.SetToolTip(this.SongCategoriesList, "List of all your song category mods.");
+            this.SongCategoriesList.SelectedIndexChanged += new System.EventHandler(this.SongCategoriesList_SelectedIndexChanged);
+            // 
+            // LogoImageBox
+            // 
+            this.LogoImageBox.Location = new System.Drawing.Point(585, 65);
+            this.LogoImageBox.Name = "LogoImageBox";
+            this.LogoImageBox.Size = new System.Drawing.Size(192, 192);
+            this.LogoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoImageBox.TabIndex = 11;
+            this.LogoImageBox.TabStop = false;
+            this.SCMToolTipMain.SetToolTip(this.LogoImageBox, "The category\'s logo image.");
+            // 
+            // AttachedCategorySongs
+            // 
+            this.AttachedCategorySongs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.SongTitle,
+            this.SongChecksum,
+            this.SongPath});
+            this.AttachedCategorySongs.HideSelection = false;
+            this.AttachedCategorySongs.Location = new System.Drawing.Point(306, 356);
+            this.AttachedCategorySongs.Name = "AttachedCategorySongs";
+            this.AttachedCategorySongs.Size = new System.Drawing.Size(738, 436);
+            this.AttachedCategorySongs.TabIndex = 12;
+            this.SCMToolTipMain.SetToolTip(this.AttachedCategorySongs, "List of all songs attached to the selected category.");
+            this.AttachedCategorySongs.UseCompatibleStateImageBehavior = false;
+            this.AttachedCategorySongs.View = System.Windows.Forms.View.Details;
+            this.AttachedCategorySongs.SelectedIndexChanged += new System.EventHandler(this.AttachedCategorySongs_SelectedIndexChanged);
+            // 
+            // SongTitle
+            // 
+            this.SongTitle.Text = "Song: Artist - Title";
+            this.SongTitle.Width = 244;
+            // 
+            // SongChecksum
+            // 
+            this.SongChecksum.Text = "Checksum";
+            this.SongChecksum.Width = 120;
+            // 
+            // SongPath
+            // 
+            this.SongPath.Text = "Path";
+            this.SongPath.Width = 344;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Location = new System.Drawing.Point(976, 798);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 29;
+            this.CloseButton.Text = "Close";
+            this.SCMToolTipMain.SetToolTip(this.CloseButton, "Closes this window.");
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // EditCategoryDataButton
+            // 
+            this.EditCategoryDataButton.Location = new System.Drawing.Point(820, 41);
+            this.EditCategoryDataButton.Name = "EditCategoryDataButton";
+            this.EditCategoryDataButton.Size = new System.Drawing.Size(224, 23);
+            this.EditCategoryDataButton.TabIndex = 30;
+            this.EditCategoryDataButton.Text = "Edit Category Data...";
+            this.SCMToolTipMain.SetToolTip(this.EditCategoryDataButton, "Edit the properties of this category.");
+            this.EditCategoryDataButton.UseVisualStyleBackColor = true;
+            this.EditCategoryDataButton.Click += new System.EventHandler(this.EditCategoryDataButton_Click);
+            // 
+            // SongModFilter
+            // 
+            this.SongModFilter.Location = new System.Drawing.Point(140, 41);
+            this.SongModFilter.Name = "SongModFilter";
+            this.SongModFilter.Size = new System.Drawing.Size(100, 20);
+            this.SongModFilter.TabIndex = 31;
+            this.SCMToolTipMain.SetToolTip(this.SongModFilter, "Filter your song mods by this string.");
+            // 
+            // ApplySongModSearch
+            // 
+            this.ApplySongModSearch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
+            this.ApplySongModSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ApplySongModSearch.Location = new System.Drawing.Point(241, 40);
+            this.ApplySongModSearch.Name = "ApplySongModSearch";
+            this.ApplySongModSearch.Size = new System.Drawing.Size(23, 23);
+            this.ApplySongModSearch.TabIndex = 32;
+            this.SCMToolTipMain.SetToolTip(this.ApplySongModSearch, "Apply the given search filter.");
+            this.ApplySongModSearch.UseVisualStyleBackColor = true;
+            this.ApplySongModSearch.Click += new System.EventHandler(this.ApplySongModSearch_Click);
+            // 
+            // ResetSongModFilter
+            // 
+            this.ResetSongModFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
+            this.ResetSongModFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResetSongModFilter.Location = new System.Drawing.Point(264, 40);
+            this.ResetSongModFilter.Name = "ResetSongModFilter";
+            this.ResetSongModFilter.Size = new System.Drawing.Size(23, 23);
+            this.ResetSongModFilter.TabIndex = 33;
+            this.SCMToolTipMain.SetToolTip(this.ResetSongModFilter, "Remove the filter off of the list.");
+            this.ResetSongModFilter.UseVisualStyleBackColor = true;
+            this.ResetSongModFilter.Click += new System.EventHandler(this.ResetSongModFilter_Click);
+            // 
+            // ResetSongCategoryFilter
+            // 
+            this.ResetSongCategoryFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
+            this.ResetSongCategoryFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResetSongCategoryFilter.Location = new System.Drawing.Point(264, 423);
+            this.ResetSongCategoryFilter.Name = "ResetSongCategoryFilter";
+            this.ResetSongCategoryFilter.Size = new System.Drawing.Size(23, 23);
+            this.ResetSongCategoryFilter.TabIndex = 36;
+            this.SCMToolTipMain.SetToolTip(this.ResetSongCategoryFilter, "Remove the filter off of the list.");
+            this.ResetSongCategoryFilter.UseVisualStyleBackColor = true;
+            this.ResetSongCategoryFilter.Click += new System.EventHandler(this.ResetSongCategoryFilter_Click);
+            // 
+            // ApplySongCategorySearch
+            // 
+            this.ApplySongCategorySearch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
+            this.ApplySongCategorySearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ApplySongCategorySearch.Location = new System.Drawing.Point(241, 423);
+            this.ApplySongCategorySearch.Name = "ApplySongCategorySearch";
+            this.ApplySongCategorySearch.Size = new System.Drawing.Size(23, 23);
+            this.ApplySongCategorySearch.TabIndex = 35;
+            this.SCMToolTipMain.SetToolTip(this.ApplySongCategorySearch, "Apply the given search filter.");
+            this.ApplySongCategorySearch.UseVisualStyleBackColor = true;
+            this.ApplySongCategorySearch.Click += new System.EventHandler(this.ApplySongCategorySearch_Click);
+            // 
+            // SongCategoryFilter
+            // 
+            this.SongCategoryFilter.Location = new System.Drawing.Point(140, 424);
+            this.SongCategoryFilter.Name = "SongCategoryFilter";
+            this.SongCategoryFilter.Size = new System.Drawing.Size(100, 20);
+            this.SongCategoryFilter.TabIndex = 34;
+            this.SCMToolTipMain.SetToolTip(this.SongCategoryFilter, "Filter your category mods by this string.");
             // 
             // TopMenuStrip
             // 
@@ -103,7 +253,7 @@
             // 
             this.openModsFolderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
             this.openModsFolderToolStripMenuItem.Name = "openModsFolderToolStripMenuItem";
-            this.openModsFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openModsFolderToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.openModsFolderToolStripMenuItem.Text = "Open Mods Folder";
             this.openModsFolderToolStripMenuItem.Click += new System.EventHandler(this.openModsFolderToolStripMenuItem_Click);
             // 
@@ -111,20 +261,20 @@
             // 
             this.refreshAllModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
             this.refreshAllModsToolStripMenuItem.Name = "refreshAllModsToolStripMenuItem";
-            this.refreshAllModsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshAllModsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.refreshAllModsToolStripMenuItem.Text = "Refresh All Mods";
             this.refreshAllModsToolStripMenuItem.Click += new System.EventHandler(this.refreshAllModsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // closeManagerToolStripMenuItem
             // 
             this.closeManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.exit_program;
             this.closeManagerToolStripMenuItem.Name = "closeManagerToolStripMenuItem";
-            this.closeManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeManagerToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.closeManagerToolStripMenuItem.Text = "Close Manager";
             this.closeManagerToolStripMenuItem.Click += new System.EventHandler(this.closeManagerToolStripMenuItem_Click);
             // 
@@ -214,6 +364,8 @@
             this.addCategoryToolStripMenuItem,
             this.deleteCategoryToolStripMenuItem,
             this.editCategoryDataToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.makeSetlistZIPToolStripMenuItem,
             this.toolStripSeparator5,
             this.openModConfigToolStripMenuItem1,
             this.openModFolderToolStripMenuItem1,
@@ -253,6 +405,27 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(215, 6);
             // 
+            // openModConfigToolStripMenuItem1
+            // 
+            this.openModConfigToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.edit_meta_data;
+            this.openModConfigToolStripMenuItem1.Name = "openModConfigToolStripMenuItem1";
+            this.openModConfigToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
+            this.openModConfigToolStripMenuItem1.Text = "Open Mod Config";
+            this.openModConfigToolStripMenuItem1.Click += new System.EventHandler(this.openModConfigToolStripMenuItem1_Click);
+            // 
+            // openModFolderToolStripMenuItem1
+            // 
+            this.openModFolderToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
+            this.openModFolderToolStripMenuItem1.Name = "openModFolderToolStripMenuItem1";
+            this.openModFolderToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
+            this.openModFolderToolStripMenuItem1.Text = "Open Mod Folder";
+            this.openModFolderToolStripMenuItem1.Click += new System.EventHandler(this.openModFolderToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(215, 6);
+            // 
             // showCategoryChecksumsToolStripMenuItem
             // 
             this.showCategoryChecksumsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.folder;
@@ -272,16 +445,6 @@
             this.InfoHeaderLabel.Text = "Song and Song Category Manager: Manage your songs and categories, and also help c" +
     "ategorize your songs better.";
             // 
-            // SongModsList
-            // 
-            this.SongModsList.FormattingEnabled = true;
-            this.SongModsList.Location = new System.Drawing.Point(12, 63);
-            this.SongModsList.Name = "SongModsList";
-            this.SongModsList.Size = new System.Drawing.Size(268, 355);
-            this.SongModsList.TabIndex = 7;
-            this.SCMToolTipMain.SetToolTip(this.SongModsList, "List of all your song mods.");
-            this.SongModsList.SelectedIndexChanged += new System.EventHandler(this.SongModsList_SelectedIndexChanged);
-            // 
             // SongModsHeader
             // 
             this.SongModsHeader.AutoSize = true;
@@ -291,16 +454,6 @@
             this.SongModsHeader.Size = new System.Drawing.Size(74, 13);
             this.SongModsHeader.TabIndex = 6;
             this.SongModsHeader.Text = "Song Mods:";
-            // 
-            // SongCategoriesList
-            // 
-            this.SongCategoriesList.FormattingEnabled = true;
-            this.SongCategoriesList.Location = new System.Drawing.Point(12, 446);
-            this.SongCategoriesList.Name = "SongCategoriesList";
-            this.SongCategoriesList.Size = new System.Drawing.Size(268, 355);
-            this.SongCategoriesList.TabIndex = 9;
-            this.SCMToolTipMain.SetToolTip(this.SongCategoriesList, "List of all your song category mods.");
-            this.SongCategoriesList.SelectedIndexChanged += new System.EventHandler(this.SongCategoriesList_SelectedIndexChanged);
             // 
             // SongCategoriesHeader
             // 
@@ -322,47 +475,6 @@
             this.CategoryPreviewHeader.TabIndex = 10;
             this.CategoryPreviewHeader.Text = "Song Category Preview:";
             // 
-            // LogoImageBox
-            // 
-            this.LogoImageBox.Location = new System.Drawing.Point(585, 65);
-            this.LogoImageBox.Name = "LogoImageBox";
-            this.LogoImageBox.Size = new System.Drawing.Size(192, 192);
-            this.LogoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoImageBox.TabIndex = 11;
-            this.LogoImageBox.TabStop = false;
-            this.SCMToolTipMain.SetToolTip(this.LogoImageBox, "The category\'s logo image.");
-            // 
-            // AttachedCategorySongs
-            // 
-            this.AttachedCategorySongs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.SongTitle,
-            this.SongChecksum,
-            this.SongPath});
-            this.AttachedCategorySongs.HideSelection = false;
-            this.AttachedCategorySongs.Location = new System.Drawing.Point(306, 356);
-            this.AttachedCategorySongs.Name = "AttachedCategorySongs";
-            this.AttachedCategorySongs.Size = new System.Drawing.Size(738, 436);
-            this.AttachedCategorySongs.TabIndex = 12;
-            this.SCMToolTipMain.SetToolTip(this.AttachedCategorySongs, "List of all songs attached to the selected category.");
-            this.AttachedCategorySongs.UseCompatibleStateImageBehavior = false;
-            this.AttachedCategorySongs.View = System.Windows.Forms.View.Details;
-            this.AttachedCategorySongs.SelectedIndexChanged += new System.EventHandler(this.AttachedCategorySongs_SelectedIndexChanged);
-            // 
-            // SongTitle
-            // 
-            this.SongTitle.Text = "Song: Artist - Title";
-            this.SongTitle.Width = 244;
-            // 
-            // SongChecksum
-            // 
-            this.SongChecksum.Text = "Checksum";
-            this.SongChecksum.Width = 120;
-            // 
-            // SongPath
-            // 
-            this.SongPath.Text = "Path";
-            this.SongPath.Width = 344;
-            // 
             // ActiveCategoryInfo
             // 
             this.ActiveCategoryInfo.AutoSize = true;
@@ -383,112 +495,26 @@
             this.SongCatSongListHeader.TabIndex = 14;
             this.SongCatSongListHeader.Text = "Song Category Preview:";
             // 
-            // CloseButton
+            // MakeSetlistZIPButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(976, 798);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(75, 23);
-            this.CloseButton.TabIndex = 29;
-            this.CloseButton.Text = "Close";
-            this.SCMToolTipMain.SetToolTip(this.CloseButton, "Closes this window.");
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            this.MakeSetlistZIPButton.Location = new System.Drawing.Point(820, 70);
+            this.MakeSetlistZIPButton.Name = "MakeSetlistZIPButton";
+            this.MakeSetlistZIPButton.Size = new System.Drawing.Size(224, 23);
+            this.MakeSetlistZIPButton.TabIndex = 30;
+            this.MakeSetlistZIPButton.Text = "Make Setlist ZIP...";
+            this.MakeSetlistZIPButton.UseVisualStyleBackColor = true;
+            this.MakeSetlistZIPButton.Click += new System.EventHandler(this.MakeSetlistZIPButton_Click);
             // 
-            // EditCategoryDataButton
+            // toolStripSeparator7
             // 
-            this.EditCategoryDataButton.Location = new System.Drawing.Point(820, 41);
-            this.EditCategoryDataButton.Name = "EditCategoryDataButton";
-            this.EditCategoryDataButton.Size = new System.Drawing.Size(224, 23);
-            this.EditCategoryDataButton.TabIndex = 30;
-            this.EditCategoryDataButton.Text = "Edit Category Data...";
-            this.SCMToolTipMain.SetToolTip(this.EditCategoryDataButton, "Edit the properties of this category.");
-            this.EditCategoryDataButton.UseVisualStyleBackColor = true;
-            this.EditCategoryDataButton.Click += new System.EventHandler(this.EditCategoryDataButton_Click);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
             // 
-            // SongModFilter
+            // makeSetlistZIPToolStripMenuItem
             // 
-            this.SongModFilter.Location = new System.Drawing.Point(140, 41);
-            this.SongModFilter.Name = "SongModFilter";
-            this.SongModFilter.Size = new System.Drawing.Size(100, 20);
-            this.SongModFilter.TabIndex = 31;
-            this.SCMToolTipMain.SetToolTip(this.SongModFilter, "Filter your song mods by this string.");
-            // 
-            // ApplySongModSearch
-            // 
-            this.ApplySongModSearch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
-            this.ApplySongModSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ApplySongModSearch.Location = new System.Drawing.Point(241, 40);
-            this.ApplySongModSearch.Name = "ApplySongModSearch";
-            this.ApplySongModSearch.Size = new System.Drawing.Size(23, 23);
-            this.ApplySongModSearch.TabIndex = 32;
-            this.SCMToolTipMain.SetToolTip(this.ApplySongModSearch, "Apply the given search filter.");
-            this.ApplySongModSearch.UseVisualStyleBackColor = true;
-            this.ApplySongModSearch.Click += new System.EventHandler(this.ApplySongModSearch_Click);
-            // 
-            // ResetSongModFilter
-            // 
-            this.ResetSongModFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
-            this.ResetSongModFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ResetSongModFilter.Location = new System.Drawing.Point(264, 40);
-            this.ResetSongModFilter.Name = "ResetSongModFilter";
-            this.ResetSongModFilter.Size = new System.Drawing.Size(23, 23);
-            this.ResetSongModFilter.TabIndex = 33;
-            this.SCMToolTipMain.SetToolTip(this.ResetSongModFilter, "Remove the filter off of the list.");
-            this.ResetSongModFilter.UseVisualStyleBackColor = true;
-            this.ResetSongModFilter.Click += new System.EventHandler(this.ResetSongModFilter_Click);
-            // 
-            // ResetSongCategoryFilter
-            // 
-            this.ResetSongCategoryFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
-            this.ResetSongCategoryFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ResetSongCategoryFilter.Location = new System.Drawing.Point(264, 423);
-            this.ResetSongCategoryFilter.Name = "ResetSongCategoryFilter";
-            this.ResetSongCategoryFilter.Size = new System.Drawing.Size(23, 23);
-            this.ResetSongCategoryFilter.TabIndex = 36;
-            this.SCMToolTipMain.SetToolTip(this.ResetSongCategoryFilter, "Remove the filter off of the list.");
-            this.ResetSongCategoryFilter.UseVisualStyleBackColor = true;
-            this.ResetSongCategoryFilter.Click += new System.EventHandler(this.ResetSongCategoryFilter_Click);
-            // 
-            // ApplySongCategorySearch
-            // 
-            this.ApplySongCategorySearch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
-            this.ApplySongCategorySearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ApplySongCategorySearch.Location = new System.Drawing.Point(241, 423);
-            this.ApplySongCategorySearch.Name = "ApplySongCategorySearch";
-            this.ApplySongCategorySearch.Size = new System.Drawing.Size(23, 23);
-            this.ApplySongCategorySearch.TabIndex = 35;
-            this.SCMToolTipMain.SetToolTip(this.ApplySongCategorySearch, "Apply the given search filter.");
-            this.ApplySongCategorySearch.UseVisualStyleBackColor = true;
-            this.ApplySongCategorySearch.Click += new System.EventHandler(this.ApplySongCategorySearch_Click);
-            // 
-            // SongCategoryFilter
-            // 
-            this.SongCategoryFilter.Location = new System.Drawing.Point(140, 424);
-            this.SongCategoryFilter.Name = "SongCategoryFilter";
-            this.SongCategoryFilter.Size = new System.Drawing.Size(100, 20);
-            this.SongCategoryFilter.TabIndex = 34;
-            this.SCMToolTipMain.SetToolTip(this.SongCategoryFilter, "Filter your category mods by this string.");
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(215, 6);
-            // 
-            // openModFolderToolStripMenuItem1
-            // 
-            this.openModFolderToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
-            this.openModFolderToolStripMenuItem1.Name = "openModFolderToolStripMenuItem1";
-            this.openModFolderToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
-            this.openModFolderToolStripMenuItem1.Text = "Open Mod Folder";
-            this.openModFolderToolStripMenuItem1.Click += new System.EventHandler(this.openModFolderToolStripMenuItem1_Click);
-            // 
-            // openModConfigToolStripMenuItem1
-            // 
-            this.openModConfigToolStripMenuItem1.Image = global::WTDE_Launcher_V3.Properties.Resources.edit_meta_data;
-            this.openModConfigToolStripMenuItem1.Name = "openModConfigToolStripMenuItem1";
-            this.openModConfigToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
-            this.openModConfigToolStripMenuItem1.Text = "Open Mod Config";
-            this.openModConfigToolStripMenuItem1.Click += new System.EventHandler(this.openModConfigToolStripMenuItem1_Click);
+            this.makeSetlistZIPToolStripMenuItem.Name = "makeSetlistZIPToolStripMenuItem";
+            this.makeSetlistZIPToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.makeSetlistZIPToolStripMenuItem.Text = "Make Setlist ZIP...";
             // 
             // SongMasterManager
             // 
@@ -501,6 +527,7 @@
             this.Controls.Add(this.ResetSongModFilter);
             this.Controls.Add(this.ApplySongModSearch);
             this.Controls.Add(this.SongModFilter);
+            this.Controls.Add(this.MakeSetlistZIPButton);
             this.Controls.Add(this.EditCategoryDataButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.SongCatSongListHeader);
@@ -523,9 +550,9 @@
             this.Name = "SongMasterManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mod Manager: Song and Song Category Manager";
+            ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).EndInit();
             this.TopMenuStrip.ResumeLayout(false);
             this.TopMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,5 +607,8 @@
         private System.Windows.Forms.ToolStripMenuItem openModConfigToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openModFolderToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem makeSetlistZIPToolStripMenuItem;
+        private System.Windows.Forms.Button MakeSetlistZIPButton;
     }
 }

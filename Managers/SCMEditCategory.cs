@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------------------
 // V3 launcher imports.
 using WTDE_Launcher_V3.IO;
+using WTDE_Launcher_V3.NX;
 
 using System;
 using System.IO;
@@ -148,7 +149,17 @@ namespace WTDE_Launcher_V3.Managers {
 
             if (currentPNGData != PNGDataArray) {
                 Console.WriteLine("Image PNG data changed, updating...");
-                WriteNXImage();
+                NXImage nxImg = new NXImage(LogoImageBox.Image);
+
+                // Let's also get the path we need.
+                IniFile file = new IniFile();
+                file.Load(Path.Combine(ActiveCategoryPath, "category.ini"));
+
+                string imageName = file.Sections["CategoryInfo"].Keys["Logo"].Value;
+
+                string imageFileName = Path.Combine(ActiveCategoryPath, $"{imageName}.img.xen");
+
+                nxImg.CompileImage(imageFileName);
             }
 
             // 3rd task: Mass rename category checksums to the new one if the

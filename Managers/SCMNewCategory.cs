@@ -21,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WTDE_Launcher_V3.NX;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
@@ -72,16 +73,21 @@ namespace WTDE_Launcher_V3.Managers {
 
             // 3 tasks: Make a new folder, make a category.ini file,
             // and create an NX image file.
-            
+
             // First up: Make a new folder and make sure it exists.
-            if (!Directory.Exists(NewCategoryPath.Text)) {
-                Directory.CreateDirectory(NewCategoryPath.Text);
+            // For convention sake, let's make the folder name be "Category_<CHECKSUM>".
+            // This will take effect EVEN IF there was a path specified.
+            string cateFolderName = $"Category_{NewChecksum.Text}";
+            string newCatePath = Path.Combine(NewCategoryPath.Text, cateFolderName);
+
+            if (!Directory.Exists(newCatePath)) {
+                Directory.CreateDirectory(newCatePath);
             }
 
             var owd = Directory.GetCurrentDirectory();
 
             // Now let's go into this folder.
-            Directory.SetCurrentDirectory(NewCategoryPath.Text);
+            Directory.SetCurrentDirectory(newCatePath);
 
             // Next up: Let's make a category.ini file.
             string authorName = (XMLFunctions.AspyrGetString("Username", "") != "") ? XMLFunctions.AspyrGetString("Username") : "WTDE Launcher V3";
@@ -100,7 +106,13 @@ namespace WTDE_Launcher_V3.Managers {
             }
 
             // Final task: Write an NX image.
-            WriteNXImage();
+            NXImage nxImg = new NXImage(ImagePreviewBox.Image);
+
+            // Let's also get the path we need.
+            string imageFileName = $"{Path.GetFileNameWithoutExtension(ImagePathLabel.Text)}.img.xen";
+
+            // Write the image!
+            nxImg.CompileImage(imageFileName);
 
             // - - - - - - - - - - - - - - - - - - - - - - -
 

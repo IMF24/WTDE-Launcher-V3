@@ -24,6 +24,8 @@ using Pfim;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using WTDE_Launcher_V3.NX;
+using System.IO.Compression;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
@@ -75,6 +77,10 @@ namespace WTDE_Launcher_V3.Managers {
             GetSongsAndCategories();
             UpdateActiveSongControls();
             UpdateMenuCommands();
+
+            // For now, until ready, disable the Make Setlist ZIP command.
+            MakeSetlistZIPButton.Visible = false;
+            makeSetlistZIPToolStripMenuItem.Visible = false;
         }
 
         public void GetSongsAndCategories() {
@@ -386,7 +392,7 @@ namespace WTDE_Launcher_V3.Managers {
         /// <param name="label"></param>
         public void OpenNXImageFile() {
             // Get image name from selected category config.
-            IniFile iFile = new IniFile();
+            //~ IniFile iFile = new IniFile();
             string path;
             int findIndex;
 
@@ -400,116 +406,21 @@ namespace WTDE_Launcher_V3.Managers {
             }
             path = SongCategoryPaths[findIndex];
 
-            iFile.Load(path);
+            INI iFile = new INI(path);
+
+            //~ iFile.Load(path);
 
             // Image name?
-            if (!iFile.Sections["CategoryInfo"].Keys.Contains("Logo")) return;
+            string imageName = iFile.GetString("CategoryInfo", "Logo", "");
+            if (imageName == null || imageName == "") return;
 
-            string imageName = iFile.Sections["CategoryInfo"].Keys["Logo"].Value;
-
+            // Does the image exist? If not, leave!
             string imageDir = Path.Combine(Path.GetDirectoryName(path), $"{imageName}.img.xen");
+            if (!File.Exists(imageDir)) return;
 
-            try {
-                // Interpret the image file into something we can display in the picture box.
-                // Credit: Wesley / donnaken15
-                V3LauncherCore.AddDebugEntry("Decompiling image...", "Song & Song Category Manager");
-
-                // Read all of the file's bytes.
-                byte[] img = File.ReadAllBytes(imageDir);
-
-                // Is this even an image file?
-                if ((img[0] != 0x0A || img[1] != 0x28 || img[2] != 0x13 || img[3] != 0x00) &&
-                    (img[0] != 0x0A || img[1] != 0x28 || img[2] != 0x11 || img[3] != 0x00)) {
-                    V3LauncherCore.AddDebugEntry("Invalid Neversoft image", "Song & Song Category Manager");
-                    return;
-                }
-
-                // A bunch of complicated stuff... Wes didn't document this.
-                // But whatever, let's just roll with it.
-                // Dody seems to tell me this is endian swapping, which makes sense.
-                uint off = BitConverter.ToUInt32(img, 0x1C);
-                uint len = BitConverter.ToUInt32(img, 0x20);
-                if (BitConverter.IsLittleEndian) {
-                    V3LauncherCore.AddDebugEntry("Is little endian, swapping stuff", "Song & Song Category Manager");
-                    off = ESwap(off);
-                    len = ESwap(len);
-                }
-
-                byte[] outData = new byte[len];
-                Array.Copy(img, off, outData, 0, len);
-
-                // Assuming DDS texture by default?
-                string ext = ".dds";
-                byte[] magic = new byte[4];
-
-                Array.Copy(outData, magic, 4);
-
-                // Let's figure out what type of image this is.
-                V3LauncherCore.AddDebugEntry("Reading image format", "Song & Song Category Manager");
-                byte[][] magics = new byte[4][] {
-                    // DDS
-                    new byte[4] { 0x44, 0x44, 0x53, 0x20 },
-                    // PNG
-                    new byte[4] { 0x89, 0x50, 0x4E, 0x47 },
-                    // JPG
-                    new byte[4] { 0xFF, 0xD8, 0xFF, 0xE1 },
-                    // BMP
-                    new byte[4] { 0x42, 0x4D, 0x36, 0x16 },
-                };
-                string[] exts = { ".dds", ".png", ".jpg", ".bmp" };
-                for (var i = 0; i < magics.Length; i++) {
-                    if (magic[0] == magics[i][0] && magic[1] == magics[i][1] && magic[2] == magics[i][2]) {
-                        ext = exts[i];
-                        V3LauncherCore.AddDebugEntry($"image format is type {ext}", "Song & Song Category Manager");
-                        break;
-                    }
-                }
-
-                V3LauncherCore.AddDebugEntry($"Image data length: {outData.Length}", "Song & Song Category Manager");
-
-                // Image has been decompiled, let's go!
-                Image extractedImage;
-                using (var ms = new MemoryStream(outData)) {
-                    if (ext == ".png" || ext == ".jpg" || ext == ".bmp") {
-                        extractedImage = Image.FromStream(ms);
-
-                    // This is a DDS image, oh boy
-                    // This requires a bit of work to convert it to a supported bitmap format.
-                    // Using Pfim, we'll take it from DDS and convert it to PNG.
-                    } else {
-                        using (var image = Pfimage.FromStream(ms)) {
-                            PixelFormat format;
-
-                            // Go from Pfim image format to GDI+.
-                            switch (image.Format) {
-                                case Pfim.ImageFormat.Rgba32:
-                                    format = PixelFormat.Format32bppArgb;
-                                    break;
-
-                                default:
-                                    throw new NotImplementedException();
-                                    break;
-                            }
-
-                            // This is specifically for DDS images.
-                            var handle = GCHandle.Alloc(image.Data, GCHandleType.Pinned);
-                            var data = Marshal.UnsafeAddrOfPinnedArrayElement(image.Data, 0);
-
-                            // Now turn this new data into something we can display!
-                            extractedImage = new Bitmap(image.Width, image.Height, image.Stride, format, data);
-
-                            handle.Free();
-                        }
-                    }
-                }
-
-                LogoImageBox.Image = extractedImage;
-
-                V3LauncherCore.AddDebugEntry("NX image decompiled!", "Song & Song Category Manager");
-            } catch (Exception exc) {
-                V3LauncherCore.AddDebugEntry($"Uh oh, something went wrong! - {exc}", "Song & Song Category Manager");
-                //~ MessageBox.Show($"An error occurred reading the category's image: {exc}", "Error Opening File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Decompile the image and display it!
+            NXImage nxImg = new NXImage(imageDir);
+            LogoImageBox.Image = nxImg.Image;
         }
 
         /// <summary>
@@ -606,6 +517,25 @@ namespace WTDE_Launcher_V3.Managers {
         }
 
         private void deleteCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
+            // VERY CRITICAL CHECK:
+            // WE CAN NOT DELETE A CATEGORY IF THE INI FILE IS IN THE MODS FOLDER DIRECTLY.
+            // IF WE DO, A CATASTROPHE WILL ENSUE AND THE ENTIRE MODS DIRECTORY WILL BE
+            // RECURSIVELY DELETED. We found this out the hard way... I'm sorry, Derpy...
+
+            // So... To account for it, we'll need to verify that this category is not
+            // in our MODS folder DIRECTLY. If there's a "category.ini" file in the MODS
+            // folder directly, IT IS AN INVALID CATEGORY MOD.
+
+            // Is that file in existence?
+            string testModsPath = Path.Combine(V3LauncherCore.GetUpdaterINIDirectory(), "DATA/MODS/category.ini");
+            if (File.Exists(testModsPath)) {
+                MessageBox.Show(
+                    $"Can not delete category because its category config file is located directly" +
+                    $"inside the MODS directory.\n\nMove the config file, re-scan the categories, and try again.",
+                    "Error Deleting Category", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return;
+            }
+
             if (SongCategoriesList.SelectedItems.Count > 0) {
                 string categoryDeleteWarning = "Warning: Are you sure you want to delete this category? Songs that have been " +
                                                "tied to it will NOT show up in it, and will instead be moved to the WTDE " +
@@ -1032,6 +962,29 @@ namespace WTDE_Launcher_V3.Managers {
             int[] modPathIndexes = GetItemIndexesInList(setList, SongCategoryFilter.Text);
 
             Process.Start("explorer.exe", Path.GetDirectoryName(SongCategoryPaths[modPathIndexes[SongCategoriesList.SelectedIndex]]));
+        }
+
+        private void MakeSetlistZIPButton_Click(object sender, EventArgs e) {
+            if (AttachedCategorySongs.Items.Count <= 0) return;
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "Select Output ZIP Path";
+            sfd.Filter = "ZIP Files|*.zip";
+
+            sfd.ShowDialog();
+
+            if (sfd.FileName == "") return;
+
+            List<string> songModPaths = new List<string>();
+            foreach (string[] item in AttachedCategorySongs.Items) {
+                songModPaths.Add(Path.GetDirectoryName(item[2].ToString()));
+            }
+
+            // Make a temporary directory that will hold all of our song mods
+            // that we will need.
+            foreach (string path in songModPaths) {
+            
+            }
         }
     }
 }

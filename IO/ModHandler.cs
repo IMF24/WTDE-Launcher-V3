@@ -511,10 +511,63 @@ namespace WTDE_Launcher_V3.IO {
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        /// <summary>
-        ///  Insert venue mods into the global array of zone names and prefixes.
+		/// <summary>
+		///  Insert venue mods into the global array of zone names and prefixes.
         /// </summary>
-        public static void AppendVenueMods(ComboBox[] cBoxList) {
+		public static void AppendVenueMods(ComboBox[] cBoxList) {
+			// Get our venue mods!
+			List<string[]> venueMods = GetModsByType(ModTypes.Venue);
+
+			// Combo box data used later on.
+			List<string[]> venueModCBoxData = new List<string[]>();
+
+			// Loop through each one; we want to read its INI file.
+			for (var i = 0; i < venueMods.Count; i++) {
+
+				// Open our current venue mod's config file!
+				// First, make sure the file exists.
+				string configPath = venueMods[i][5];
+				if (!File.Exists(configPath)) {
+					V3LauncherCore.AddDebugEntry($"Venue mod config {configPath} was not found, skipping...", "Mod Handler: AppendVenueMods");
+					continue;
+				}
+
+				// We did find it, great! Let's load it!
+				INI file = new INI(configPath);
+
+				// Next, get the venue's name and PAK prefix!
+				// This will be safer than using IniFile since our INI class
+				// has fallback measures in place if the strings are not
+				// found. We can't assume the user has everything.
+
+				string venueName = file.GetString("VenueInfo", "Name", $"Unknown Venue {i + 1}");
+				string venuePrefix = file.GetString("VenueInfo", "PakPrefix", $"z_unknownvenue{i}");
+
+				// Next up, add our venue's name and PAK prefix into the global lists.
+				V3LauncherConstants.VenueIDs[0].Add($"Mod: {venueName}");
+				V3LauncherConstants.VenueIDs[1].Add(venuePrefix);
+
+				// And finally, add our new data so we can insert it
+				// into the combo boxes here shortly!
+				venueModCBoxData.Add(new string[] { venueName, venuePrefix });
+			}
+
+			// Last task: Add these to the combo boxes we specified!
+			if (venueMods.Count > 0) {
+				foreach (var cBox in cBoxList) {
+					foreach (string[] dataArr in venueModCBoxData) {
+						cBox.Items.Add(dataArr[0]);
+					}
+				}
+			}
+		}
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+		///  OLD VERSION: Insert venue mods into the global array of zone names and prefixes.
+        /// </summary>
+        public static void AppendVenueMods_OLD(ComboBox[] cBoxList) {
 			// This list will house our venue mods.
 			List<string[]> venueMods = new List<string[]>();
 
