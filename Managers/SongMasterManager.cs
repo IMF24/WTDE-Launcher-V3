@@ -70,6 +70,16 @@ namespace WTDE_Launcher_V3.Managers {
         /// </summary>
         public string CurrentLoadedCategoryChecksum = "";
 
+        /// <summary>
+        ///  The path of the currently loaded category.
+        /// </summary>
+        public string CurrentLoadedCategoryPath = "";
+
+        /// <summary>
+        ///  The name of the currently loaded category's image.
+        /// </summary>
+        public string CurrentLoadedCategoryImageName = "";
+
         // - - - - - - - - - - - - - - - - - - - - - - -
 
         public SongMasterManager() {
@@ -79,8 +89,8 @@ namespace WTDE_Launcher_V3.Managers {
             UpdateMenuCommands();
 
             // For now, until ready, disable the Make Setlist ZIP command.
-            MakeSetlistZIPButton.Visible = false;
-            makeSetlistZIPToolStripMenuItem.Visible = false;
+            //~ MakeSetlistZIPButton.Visible = false;
+            //~ makeSetlistZIPToolStripMenuItem.Visible = false;
         }
 
         public void GetSongsAndCategories() {
@@ -192,10 +202,11 @@ namespace WTDE_Launcher_V3.Managers {
             List<string> setList = (showCategoryChecksumsToolStripMenuItem.Checked) ? SongCategoryChecksums : SongCategoryNames;
             int[] modPathIndexes = GetItemIndexesInList(setList, SongCategoryFilter.Text);
 
-            categoryToSearch = SongCategoryChecksums[modPathIndexes[SongCategoriesList.SelectedIndex]];
             finalIndex = modPathIndexes[SongCategoriesList.SelectedIndex];
+            categoryToSearch = SongCategoryChecksums[finalIndex];
 
-            CurrentLoadedCategoryChecksum = SongCategoryChecksums[modPathIndexes[SongCategoriesList.SelectedIndex]];
+            CurrentLoadedCategoryChecksum = SongCategoryChecksums[finalIndex];
+            CurrentLoadedCategoryPath = Path.GetFullPath(Path.GetDirectoryName(SongCategoryPaths[finalIndex]));
 
             //~ Console.WriteLine($"-- CURRENT DATA --\nmod path indexes: {modPathIndexes}\nfinal index: {finalIndex}\ncurrent loaded category checksum: {CurrentLoadedCategoryChecksum}");
 
@@ -332,7 +343,6 @@ namespace WTDE_Launcher_V3.Managers {
 
             // Seems like only the last one gets duplicated?
 
-
             // Now, we're FINALLY DONE!
             // Let's populate our list view now!
             foreach (string[] outMod in outData) {
@@ -381,7 +391,7 @@ namespace WTDE_Launcher_V3.Managers {
 
         public void UpdateActiveSongControls() {
             EditCategoryDataButton.Enabled = (SongCategoriesList.SelectedItems.Count > 0);
-            
+            MakeSetlistZIPButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
         }
 
         /// <summary>
@@ -412,6 +422,7 @@ namespace WTDE_Launcher_V3.Managers {
 
             // Image name?
             string imageName = iFile.GetString("CategoryInfo", "Logo", "");
+            CurrentLoadedCategoryImageName = imageName;
             if (imageName == null || imageName == "") return;
 
             // Does the image exist? If not, leave!
@@ -964,27 +975,36 @@ namespace WTDE_Launcher_V3.Managers {
             Process.Start("explorer.exe", Path.GetDirectoryName(SongCategoryPaths[modPathIndexes[SongCategoriesList.SelectedIndex]]));
         }
 
-        private void MakeSetlistZIPButton_Click(object sender, EventArgs e) {
-            if (AttachedCategorySongs.Items.Count <= 0) return;
-
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Title = "Select Output ZIP Path";
-            sfd.Filter = "ZIP Files|*.zip";
-
-            sfd.ShowDialog();
-
-            if (sfd.FileName == "") return;
-
+        public List<string> GetSongsForZIP() {
             List<string> songModPaths = new List<string>();
-            foreach (string[] item in AttachedCategorySongs.Items) {
-                songModPaths.Add(Path.GetDirectoryName(item[2].ToString()));
+            foreach (ListViewItem item in AttachedCategorySongs.Items) {
+                string modDir = item.SubItems[2].Text;
+                modDir = Path.GetDirectoryName(Path.GetFullPath(modDir));
+                songModPaths.Add(modDir);
+                Console.WriteLine($"Added directory: {modDir}");
             }
 
-            // Make a temporary directory that will hold all of our song mods
-            // that we will need.
-            foreach (string path in songModPaths) {
-            
-            }
+            return songModPaths;
+        }
+
+        private void MakeSetlistZIPButton_Click(object sender, EventArgs e) {
+            List<string> songModPaths = GetSongsForZIP();
+
+            SCMMakeSetlistZIP makeZIP = new SCMMakeSetlistZIP(
+                songModPaths, CurrentLoadedCategoryChecksum,
+                CurrentLoadedCategoryPath, CurrentLoadedCategoryImageName);
+
+            makeZIP.ShowDialog();
+        }
+
+        private void makeSetlistZIPToolStripMenuItem_Click(object sender, EventArgs e) {
+            List<string> songModPaths = GetSongsForZIP();
+
+            SCMMakeSetlistZIP makeZIP = new SCMMakeSetlistZIP(
+                songModPaths, CurrentLoadedCategoryChecksum,
+                CurrentLoadedCategoryPath, CurrentLoadedCategoryImageName);
+
+            makeZIP.ShowDialog();
         }
     }
 }

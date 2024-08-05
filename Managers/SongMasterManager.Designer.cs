@@ -41,6 +41,7 @@
             this.ResetSongCategoryFilter = new System.Windows.Forms.Button();
             this.ApplySongCategorySearch = new System.Windows.Forms.Button();
             this.SongCategoryFilter = new System.Windows.Forms.TextBox();
+            this.MakeSetlistZIPButton = new System.Windows.Forms.Button();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,8 @@
             this.addCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCategoryDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.openModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,9 +75,6 @@
             this.CategoryPreviewHeader = new System.Windows.Forms.Label();
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
-            this.MakeSetlistZIPButton = new System.Windows.Forms.Button();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
             this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -225,6 +225,17 @@
             this.SongCategoryFilter.Size = new System.Drawing.Size(100, 20);
             this.SongCategoryFilter.TabIndex = 34;
             this.SCMToolTipMain.SetToolTip(this.SongCategoryFilter, "Filter your category mods by this string.");
+            // 
+            // MakeSetlistZIPButton
+            // 
+            this.MakeSetlistZIPButton.Location = new System.Drawing.Point(820, 70);
+            this.MakeSetlistZIPButton.Name = "MakeSetlistZIPButton";
+            this.MakeSetlistZIPButton.Size = new System.Drawing.Size(224, 23);
+            this.MakeSetlistZIPButton.TabIndex = 30;
+            this.MakeSetlistZIPButton.Text = "Make Setlist ZIP...";
+            this.SCMToolTipMain.SetToolTip(this.MakeSetlistZIPButton, resources.GetString("MakeSetlistZIPButton.ToolTip"));
+            this.MakeSetlistZIPButton.UseVisualStyleBackColor = true;
+            this.MakeSetlistZIPButton.Click += new System.EventHandler(this.MakeSetlistZIPButton_Click);
             // 
             // TopMenuStrip
             // 
@@ -400,6 +411,19 @@
             this.editCategoryDataToolStripMenuItem.Text = "Edit Category Data...";
             this.editCategoryDataToolStripMenuItem.Click += new System.EventHandler(this.editCategoryDataToolStripMenuItem_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
+            // 
+            // makeSetlistZIPToolStripMenuItem
+            // 
+            this.makeSetlistZIPToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.folder;
+            this.makeSetlistZIPToolStripMenuItem.Name = "makeSetlistZIPToolStripMenuItem";
+            this.makeSetlistZIPToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.makeSetlistZIPToolStripMenuItem.Text = "Make Setlist ZIP...";
+            this.makeSetlistZIPToolStripMenuItem.Click += new System.EventHandler(this.makeSetlistZIPToolStripMenuItem_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -494,27 +518,6 @@
             this.SongCatSongListHeader.Size = new System.Drawing.Size(143, 13);
             this.SongCatSongListHeader.TabIndex = 14;
             this.SongCatSongListHeader.Text = "Song Category Preview:";
-            // 
-            // MakeSetlistZIPButton
-            // 
-            this.MakeSetlistZIPButton.Location = new System.Drawing.Point(820, 70);
-            this.MakeSetlistZIPButton.Name = "MakeSetlistZIPButton";
-            this.MakeSetlistZIPButton.Size = new System.Drawing.Size(224, 23);
-            this.MakeSetlistZIPButton.TabIndex = 30;
-            this.MakeSetlistZIPButton.Text = "Make Setlist ZIP...";
-            this.MakeSetlistZIPButton.UseVisualStyleBackColor = true;
-            this.MakeSetlistZIPButton.Click += new System.EventHandler(this.MakeSetlistZIPButton_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
-            // 
-            // makeSetlistZIPToolStripMenuItem
-            // 
-            this.makeSetlistZIPToolStripMenuItem.Name = "makeSetlistZIPToolStripMenuItem";
-            this.makeSetlistZIPToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.makeSetlistZIPToolStripMenuItem.Text = "Make Setlist ZIP...";
             // 
             // SongMasterManager
             // 

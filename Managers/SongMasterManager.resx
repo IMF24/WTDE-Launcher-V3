@@ -120,6 +120,14 @@
   <metadata name="SCMToolTipMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="MakeSetlistZIPButton.ToolTip" xml:space="preserve">
+    <value>Export this category as a setlist ZIP file that can be shared with others.
+
+This will create a ZIP file which contains this category's mod, along
+with a folder that contains all songs attached to this category.
+
+Note that this will take a while depending on the size of the category!</value>
+  </data>
   <metadata name="TopMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>161, 17</value>
   </metadata>

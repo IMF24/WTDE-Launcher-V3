@@ -266,6 +266,12 @@
     <Compile Include="Managers\QSECompileScriptMod.Designer.cs">
       <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SCMMakeSetlistZIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SCMMakeSetlistZIP.Designer.cs">
+      <DependentUpon>SCMMakeSetlistZIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\ScriptMods\AddGH3StarPowerFX.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\QSECompileScriptMod.resx">
       <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SCMMakeSetlistZIP.resx">
+      <DependentUpon>SCMMakeSetlistZIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ScriptMods\AddGH3StarPowerFX.resx">
       <DependentUpon>AddGH3StarPowerFX.cs</DependentUpon>
