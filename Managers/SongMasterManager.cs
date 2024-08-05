@@ -941,9 +941,12 @@ namespace WTDE_Launcher_V3.Managers {
 
             // -- SONG CATEGORY MENU ------------------------
             bool enableVariousCommandsC = (SongCategoriesList.SelectedItems.Count > 0);
-
+            bool enableMakeSetlistZIP = (AttachedCategorySongs.Items.Count > 0);
+            
             deleteCategoryToolStripMenuItem.Enabled = enableVariousCommandsC;
             editCategoryDataToolStripMenuItem.Enabled = enableVariousCommandsC;
+            // ----------------------
+            makeSetlistZIPToolStripMenuItem.Enabled = enableMakeSetlistZIP;
             // ----------------------
             openModConfigToolStripMenuItem1.Enabled = enableVariousCommandsC;
             openModFolderToolStripMenuItem1.Enabled = enableVariousCommandsC;
