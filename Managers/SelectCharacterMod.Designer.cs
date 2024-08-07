@@ -35,6 +35,7 @@
             this.SortByCateLabel = new System.Windows.Forms.Label();
             this.GameSortFilter = new System.Windows.Forms.ComboBox();
             this.ExportCharListButton = new System.Windows.Forms.Button();
+            this.OpenCASManagerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InfoHeaderLabel
@@ -161,6 +162,16 @@
             this.ExportCharListButton.UseVisualStyleBackColor = true;
             this.ExportCharListButton.Click += new System.EventHandler(this.ExportCharListButton_Click);
             // 
+            // OpenCASManagerButton
+            // 
+            this.OpenCASManagerButton.Location = new System.Drawing.Point(19, 386);
+            this.OpenCASManagerButton.Name = "OpenCASManagerButton";
+            this.OpenCASManagerButton.Size = new System.Drawing.Size(345, 23);
+            this.OpenCASManagerButton.TabIndex = 3;
+            this.OpenCASManagerButton.Text = "Rock Star Creator Character Manager...";
+            this.OpenCASManagerButton.UseVisualStyleBackColor = true;
+            this.OpenCASManagerButton.Click += new System.EventHandler(this.OpenCASManagerButton_Click);
+            // 
             // SelectCharacterMod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -173,6 +184,7 @@
             this.Controls.Add(this.StockCharactersList);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.OpenCASManagerButton);
             this.Controls.Add(this.RefreshCharModsButton);
             this.Controls.Add(this.CharacterModsList);
             this.Controls.Add(this.CharModsHeader);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.Label SortByCateLabel;
         private System.Windows.Forms.ComboBox GameSortFilter;
         private System.Windows.Forms.Button ExportCharListButton;
+        private System.Windows.Forms.Button OpenCASManagerButton;
     }
 }

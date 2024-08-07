@@ -87,14 +87,16 @@ namespace WTDE_Launcher_V3.Managers {
         public void DoZIPExport() {
             // Are we going to export?
             string exportWarningMessage = "Are you ready to compile this category and any companion mods into a ZIP file?\n\n" +
-                                          "NOTE: After the compile has started, you will NO LONGER be able to change any data!" +
+                                          "NOTE: After the compile has started, you will NO LONGER be able to change any data! " +
                                           "In order to change anything, you will need to open this dialog and start anew.\n\n" +
                                           "Are you ready to compile?";
             bool confirmExport = (MessageBox.Show(exportWarningMessage, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
             
             // Actually begin exporting!
             if (confirmExport) {
-                try { 
+                try {
+                    var watch = new Stopwatch();
+                    watch.Start();
 
                     Console.WriteLine("Compiling setlist ZIP from current category...");
 
@@ -218,16 +220,16 @@ namespace WTDE_Launcher_V3.Managers {
 
                         AddOutputLine("Writing folder.ini file...");
 
-                        string folderINIText = "[SongInfo]";
+                        string folderINIText = "[SongInfo]\n";
 
                         // -- INSERT CUSTOM CHECKSUM
                         if (UseCustomChecksum.Checked) {
-                            folderINIText += ((FolderConfigChecksum.Text.Trim() == "") ? OriginalCategoryChecksum : FolderConfigChecksum.Text) + "\n";
+                            folderINIText += "GameCategory = " + ((FolderConfigChecksum.Text.Trim() == "") ? OriginalCategoryChecksum : FolderConfigChecksum.Text) + "\n";
                         }
 
                         // -- INSERT GAME ICON
                         if (UseGameIcon.Checked) {
-                            folderINIText += ((FolderConfigIcon.Text.Trim() == "") ? OriginalCategoryImage : FolderConfigIcon.Text) + "\n";
+                            folderINIText += "GameIcon = " + ((FolderConfigIcon.Text.Trim() == "") ? OriginalCategoryImage : FolderConfigIcon.Text) + "\n";
                         }
 
                         // Write the folder.ini file!
@@ -241,7 +243,6 @@ namespace WTDE_Launcher_V3.Managers {
                     }
 
                     // - - - - - - - - - - - - - - - - - - - - - - -
-
 
                     // Zip the directory up, and save it to where we designated!
                     string finalOutPath = ZIPFileName.Text;
@@ -261,8 +262,10 @@ namespace WTDE_Launcher_V3.Managers {
                     tasksDone++;
                     UpdateProgressBar(tasksDone, totalTasks);
 
-                    Console.WriteLine("Compile complete!");
-                    AddOutputLine("Compile complete!");
+                    watch.Stop();
+
+                    Console.WriteLine($"Compile complete! ZIP package compile took {watch.Elapsed.TotalSeconds:0.00} sec");
+                    AddOutputLine($"Compile complete! ZIP package compile took {watch.Elapsed.TotalSeconds:0.00} sec");
 
                     OpenFinishedZIPButton.Visible = true;
 
@@ -318,7 +321,11 @@ namespace WTDE_Launcher_V3.Managers {
         public void AddOutputLine(string outputLine) {
             List<string> originalLines = OutputTextLog.Lines.ToList();
             originalLines.Add(outputLine);
+            OutputTextLog.ReadOnly = false;
             OutputTextLog.Lines = originalLines.ToArray();
+            OutputTextLog.Select(OutputTextLog.Text.Length - 1, 0);
+            OutputTextLog.ScrollToCaret();
+            OutputTextLog.ReadOnly = true;
 
             SetStatus(outputLine);
 

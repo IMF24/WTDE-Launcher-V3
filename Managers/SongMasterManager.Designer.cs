@@ -418,7 +418,7 @@
             // 
             // makeSetlistZIPToolStripMenuItem
             // 
-            this.makeSetlistZIPToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.folder;
+            this.makeSetlistZIPToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
             this.makeSetlistZIPToolStripMenuItem.Name = "makeSetlistZIPToolStripMenuItem";
             this.makeSetlistZIPToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.makeSetlistZIPToolStripMenuItem.Text = "Make Setlist ZIP...";

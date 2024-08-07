@@ -570,6 +570,9 @@ features that are developer-exclusive.
 Note: Ensure that your dev_settings_enable file is NEVER, EVER
 shared with the eyes of the public.</value>
   </data>
+  <metadata name="BandMemberChangeMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>136, 17</value>
+  </metadata>
   <data name="SongSpecificInstruments.ToolTip" xml:space="preserve">
     <value>When enabled, specific songs, if installed, will contain a pre-set instrument combo
 for that song. This is primarily used on Metallica and Van Halen songs.

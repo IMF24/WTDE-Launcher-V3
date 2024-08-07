@@ -1026,5 +1026,10 @@ namespace WTDE_Launcher_V3.Managers {
         private void ExportCharListButton_Click(object sender, EventArgs e) {
             WriteCharacterListFile();
         }
+
+        private void OpenCASManagerButton_Click(object sender, EventArgs e) {
+            CARManager car = new CARManager();
+            car.ShowDialog();
+        }
     }
 }

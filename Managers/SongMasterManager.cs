@@ -135,6 +135,11 @@ namespace WTDE_Launcher_V3.Managers {
                 // Read this INI file.
                 INI file = new INI(mod[5]);
 
+                // Invalid category mod if the file is directly inside of DATA/MODS.
+                // If that's the case, then skip it!
+                string testModsPath = Path.Combine(V3LauncherCore.GetUpdaterINIDirectory(), "DATA/MODS/category.ini");
+                if (mod[5].ToLower() == testModsPath.ToLower()) continue;
+
                 // Is this a song mod?
                 if (mod[2] == "Song") {
                     // Get its title, artist, and checksum, then add all of
@@ -235,104 +240,130 @@ namespace WTDE_Launcher_V3.Managers {
             List<string[]> outData = new List<string[]>();
 
             // Now let's look for song.ini OR folder.ini files.
-            foreach (string file in files) {
+            for (var i = 0; i < files.Length; i++) {
+
+                // For compatibility with the old foreach loop we had,
+                // we'll repurpose the `file` variable so we can reuse
+                // it from the system we had before.
+                string file = files[i];
+
                 //~ Console.WriteLine($"current file: {file}");
 
+                // Invalid category mod if the file is directly inside of DATA/MODS.
+                // If that's the case, then skip it!
+                string testModsPath = Path.Combine(V3LauncherCore.GetUpdaterINIDirectory(), "DATA/MODS/category.ini");
+                if (Path.GetFullPath(file).ToLower() == testModsPath.ToLower()) {
+                    continue;
+                }
+
+                // These 4 strings will hold:
+                // - The linked category.
+                // - The song's name, if it's linked.
+                // - The song's artist's name.
+                // - The song's checksum.
                 string linkedCat, songName, songArtist, songChecksum;
 
-                // New INI file object.
-                IniFile iFile = new IniFile();
+                // Read the current INI file!
+                INI iFile = new INI(file);
 
-                // Is this an INI file? If so, read it!
-                if (file.Contains(".ini")) {
-                    iFile.Load(file);
+                // Now, we want either song.ini or folder.ini files.
+                switch (Path.GetFileName(file)) {
 
-                    // Now, we want either song.ini or folder.ini files.
-                    switch (Path.GetFileName(file)) {
-                        // Regular song config.
-                        case "song.ini":
+                    // Regular song config.
+                    case "song.ini":
 
-                            // Is this a Melody song?
-                            // If so, we do not want to parse it.
-                            if (Directory.GetFiles(Path.GetDirectoryName(file), "*.mp3").Length > 0 ||
-                                Directory.GetFiles(Path.GetDirectoryName(file), "*.ogg").Length > 0 ||
-                                Directory.GetFiles(Path.GetDirectoryName(file), "*.wav").Length > 0 ||
-                                Directory.GetFiles(Path.GetDirectoryName(file), "*.opus").Length > 0 ||
-                                File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.mid")) ||
-                                File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.chart"))) {
+                        // Is this a Melody song?
+                        // If so, we do not want to parse it.
+                        if (Directory.GetFiles(Path.GetDirectoryName(file), "*.mp3").Length > 0 ||
+                            Directory.GetFiles(Path.GetDirectoryName(file), "*.ogg").Length > 0 ||
+                            Directory.GetFiles(Path.GetDirectoryName(file), "*.wav").Length > 0 ||
+                            Directory.GetFiles(Path.GetDirectoryName(file), "*.opus").Length > 0 ||
+                            File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.mid")) ||
+                            File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.chart"))) {
 
-                                V3LauncherCore.AddDebugEntry("Detected a Melody song, skipping...", "Song & Song Category Manager");
-                                continue;
+                            V3LauncherCore.AddDebugEntry("Detected a Melody song, skipping...", "Song & Song Category Manager");
+                            continue;
 
+                        }
+
+                        // Is this song tied to a category?
+                        if (!iFile.HasKey("SongInfo", "GameCategory")) linkedCat = "";
+                        else linkedCat = iFile.GetString("SongInfo", "GameCategory");
+
+                        // If we actually had a tied category, is it the category we're trying to find?
+                        if (linkedCat != "" && linkedCat.ToUpper() == categoryToSearch.ToUpper()) {
+
+                            // It is! Let's get its details.
+                            // Our INI file class contains fallbacks, thankfully, so this
+                            // is extremely easy to do with our INI class.
+                            songName = iFile.GetString("SongInfo", "Title", "Unknown Title");
+                            songArtist = iFile.GetString("SongInfo", "Artist", "Unknown Artist");
+                            songChecksum = iFile.GetString("SongInfo", "Checksum", $"unkChecksum{i}");
+
+                            // Add the song's name, path, and checksum to the list.
+                            string[] addArray = new string[] { $"{songArtist} - {songName}", songChecksum, Path.GetFullPath(file) };
+
+                            // IS THIS SONG IN THE LIST ALREADY?
+                            bool dupeFound = false;
+                            foreach (string[] arr in outData) {
+                                dupeFound = (arr[0] == addArray[0]);
+                                if (dupeFound) break;
                             }
 
-                            if (!iFile.Sections["SongInfo"].Keys.Contains("GameCategory")) linkedCat = "";
-                            else linkedCat = iFile.Sections["SongInfo"].Keys["GameCategory"].Value;
+                            // This wasn't a duplicate, cool! Let's add it!
+                            if (!dupeFound) outData.Add(addArray);
+                        }
 
-                            if (linkedCat != "" && linkedCat.ToUpper() == categoryToSearch.ToUpper()) {
-                                songName = iFile.Sections["SongInfo"].Keys["Title"].Value;
-                                songArtist = iFile.Sections["SongInfo"].Keys["Artist"].Value;
-                                songChecksum = iFile.Sections["SongInfo"].Keys["Checksum"].Value;
+                        break;
 
-                                // Add the song's name, path, and checksum to the list.
-                                string[] addArray = new string[] { $"{songArtist} - {songName}", songChecksum, Path.GetFullPath(file) };
+                    // - - - - - - - - - - - - - - - - - - - - - - -
 
-                                // IS THIS SONG IN THE LIST ALREADY?
-                                bool dupeFound = false;
-                                foreach (var arr in outData) {
-                                    dupeFound = (arr[0] == addArray[0]);
-                                    if (dupeFound) break;
-                                }
+                    // Folder configs.
+                    case "folder.ini":
 
-                                if (!dupeFound) outData.Add(addArray);
-                            }
+                        // Is this even a validly formatted folder config file?
+                        if (iFile.HasKey("SongInfo", "GameCategory")) {
 
-                            iFile.Sections.Clear();
-
-                            break;
-
-                        // Folder configs.
-                        case "folder.ini":
                             // Is this the checksum we want?
                             // Remember that song category checksums are case INsensitive.
-                            if (iFile.Sections["SongInfo"].Keys.Contains("GameCategory")) {
-                                if (iFile.Sections["SongInfo"].Keys["GameCategory"].Value.ToUpper() == categoryToSearch.ToUpper()) {
-                                    // This is the one we want, now we have to do another iteration
-                                    // nested in here for this folder.
-                                    string[] nestedFiles = Directory.GetFiles(Path.GetDirectoryName(file), "*.ini", SearchOption.AllDirectories);
+                            if (iFile.GetString("SongInfo", "GameCategory").ToUpper() == categoryToSearch.ToUpper()) {
 
-                                    // Now go through the nested files and get the song names.
-                                    foreach (string nestedFile in nestedFiles) {
-                                        if (nestedFile.Contains("song.ini")) {
-                                            // Need a new instance of IniFile to read this stuff.
-                                            IniFile iFile2 = new IniFile();
+                                // This is the one we want, now we have to do another iteration
+                                // nested in here for this folder.
+                                string[] nestedFiles = Directory.GetFiles(Path.GetDirectoryName(file), "*.ini", SearchOption.AllDirectories);
 
-                                            iFile2.Load(nestedFile);
+                                // Now go through the nested files and get the song names.
+                                foreach (string nestedFile in nestedFiles) {
 
-                                            // Let's get the name, artist, and checksum for each song.
-                                            songName = iFile2.Sections["SongInfo"].Keys["Title"].Value;
-                                            songArtist = iFile2.Sections["SongInfo"].Keys["Artist"].Value;
-                                            songChecksum = iFile2.Sections["SongInfo"].Keys["Checksum"].Value;
+                                    // Just be doubly sure that this is a song.ini file!
+                                    if (nestedFile.Contains("song.ini")) {
 
-                                            // Add the song's name, path, and checksum to the list.
-                                            string[] addArray = new string[] { $"{songArtist} - {songName}", songChecksum, Path.GetFullPath(nestedFile) };
+                                        // Very nice, it was!
+                                        // We'll need a new instance of our INI class to read this stuff.
+                                        INI iFile2 = new INI(nestedFile);
 
-                                            // IS THIS SONG IN THE LIST ALREADY?
-                                            bool dupeFound = false;
-                                            foreach (var arr in outData) {
-                                                dupeFound = (arr[0] == addArray[0]);
-                                                if (dupeFound) break;
-                                            }
+                                        // Let's get the name, artist, and checksum for each song.
+                                        songName = iFile2.GetString("SongInfo", "Title", "Unknown Title");
+                                        songArtist = iFile2.GetString("SongInfo", "Artist", "Unknown Artist");
+                                        songChecksum = iFile2.GetString("SongInfo", "Checksum", $"unkChecksum{i}");
 
-                                            if (!dupeFound) outData.Add(addArray);
+                                        // Add the song's name, path, and checksum to the list.
+                                        string[] addArray = new string[] { $"{songArtist} - {songName}", songChecksum, Path.GetFullPath(nestedFile) };
 
-                                            iFile2.Sections.Clear();
+                                        // IS THIS SONG IN THE LIST ALREADY?
+                                        bool dupeFound = false;
+                                        foreach (string[] arr in outData) {
+                                            dupeFound = (arr[0] == addArray[0]);
+                                            if (dupeFound) break;
                                         }
+
+                                        // This wasn't a duplicate, cool! Let's add it!
+                                        if (!dupeFound) outData.Add(addArray);
                                     }
                                 }
                             }
-                            break;
-                    }
+                        }
+                        break;
                 }
             }
 
@@ -340,8 +371,6 @@ namespace WTDE_Launcher_V3.Managers {
 
             // Remove any duplicates, leave only distinct ones.
             outData = outData.Distinct().ToList();
-
-            // Seems like only the last one gets duplicated?
 
             // Now, we're FINALLY DONE!
             // Let's populate our list view now!
@@ -541,9 +570,9 @@ namespace WTDE_Launcher_V3.Managers {
             string testModsPath = Path.Combine(V3LauncherCore.GetUpdaterINIDirectory(), "DATA/MODS/category.ini");
             if (File.Exists(testModsPath)) {
                 MessageBox.Show(
-                    $"Can not delete category because its category config file is located directly" +
+                    $"Can not delete category because its category config file is located directly " +
                     $"inside the MODS directory.\n\nMove the config file, re-scan the categories, and try again.",
-                    "Error Deleting Category", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    "Error Deleting Category", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

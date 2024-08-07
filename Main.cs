@@ -305,6 +305,11 @@ namespace WTDE_Launcher_V3.Core {
         /// </summary>
         public static bool IsNetworkConnected = V3LauncherCore.IsConnectedToInternet();
 
+        /// <summary>
+        ///  The last button's name for the band member to change that was activated.
+        /// </summary>
+        public string BandMemberChangeLastButton = "";
+
         // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
@@ -2747,29 +2752,125 @@ namespace WTDE_Launcher_V3.Core {
         //  C H A R A C T E R     S E L E C T S
         // - - - - - - - - - - - - - - - - - - -
 
-        private void PrefGtrSelectChar_Click(object sender, EventArgs e) {
-            SelectCharacterMod scm = new SelectCharacterMod(PreferredGuitarist);
+        /// <summary>
+        ///  An enumeration of band member names.
+        /// </summary>
+        public enum BandMembers {
+            /// <summary>
+            ///  The guitarist.
+            /// </summary>
+            Guitarist = 0,
+            /// <summary>
+            ///  The bassist.
+            /// </summary>
+            Bassist = 1,
+            /// <summary>
+            ///  The drummer.   
+            /// </summary>
+            Drummer = 2,
+            /// <summary>
+            ///  The male vocalist.
+            /// </summary>
+            MaleVocalist = 3,
+            /// <summary>
+            ///  The female vocalist.
+            /// </summary>
+            FemaleVocalist = 4
+        }
+
+        /// <summary>
+        ///  Handles changing a band member!
+        /// </summary>
+        /// <param name="sender">
+        ///  The object that sent the event.
+        /// </param>
+        /// <param name="e">
+        ///  The event arguments.
+        /// </param>
+        /// <param name="member">
+        ///  The band member to take effect on.
+        /// </param>
+        public void HandleChangeBandMember(object sender, EventArgs e, BandMembers member) {
+            // Make sure our event arguments are MouseEvent arguments!
+            MouseEventArgs me = e as MouseEventArgs;
+
+            Button btnSender = sender as Button;
+
+            BandMemberChangeLastButton = btnSender.Name;
+
+            // If we right clicked, show the context menu!
+            if (me.Button == MouseButtons.Right) {
+                Point belowButton = new Point(0, btnSender.Height);
+                belowButton = btnSender.PointToScreen(belowButton);
+                BandMemberChangeMenu.Show(belowButton);
+
+            // Otherwise, we're just handling it regularly!
+            } else {
+                SpawnChangeBandMember(member);
+            }
+        }
+
+        /// <summary>
+        ///  Actually handles changing band members!
+        /// </summary>
+        /// <param name="member">
+        ///  The band member to change.
+        /// </param>
+        public void SpawnChangeBandMember(BandMembers member) {
+            // Based on our band member selection, we will modify a different text box.
+            TextBox inTextBox;
+            switch (member) {
+                // -- GUITARIST
+                // -- Also default case
+                case BandMembers.Guitarist:
+                default:
+                    inTextBox = PreferredGuitarist;
+                    break;
+
+                // -- BASSIST
+                case BandMembers.Bassist:
+                    inTextBox = PreferredBassist;
+                    break;
+
+                // -- DRUMMER
+                case BandMembers.Drummer:
+                    inTextBox = PreferredDrummer;
+                    break;
+
+                // -- MALE VOCALIST
+                case BandMembers.MaleVocalist:
+                    inTextBox = PreferredSinger;
+                    break;
+
+                // -- FEMALE VOCALIST
+                case BandMembers.FemaleVocalist:
+                    inTextBox = PreferredFemaleSinger;
+                    break;
+            }
+
+            // Show the dialog box!
+            SelectCharacterMod scm = new SelectCharacterMod(inTextBox);
             scm.ShowDialog();
         }
 
-        private void PrefBasSelectChar_Click(object sender, EventArgs e) {
-            SelectCharacterMod scm = new SelectCharacterMod(PreferredBassist);
-            scm.ShowDialog();
+        private void PrefGtrSelectChar_Click(object sender, MouseEventArgs e) {
+            HandleChangeBandMember(sender, e, BandMembers.Guitarist);
         }
 
-        private void PrefDrmSelectChar_Click(object sender, EventArgs e) {
-            SelectCharacterMod scm = new SelectCharacterMod(PreferredDrummer);
-            scm.ShowDialog();
+        private void PrefBasSelectChar_Click(object sender, MouseEventArgs e) {
+            HandleChangeBandMember(sender, e, BandMembers.Bassist);
+        }
+
+        private void PrefDrmSelectChar_Click(object sender, MouseEventArgs e) {
+            HandleChangeBandMember(sender, e, BandMembers.Drummer);
         }
 
         private void PrefVoxSelectChar_Click(object sender, EventArgs e) {
-            SelectCharacterMod scm = new SelectCharacterMod(PreferredSinger);
-            scm.ShowDialog();
+            HandleChangeBandMember(sender, e, BandMembers.MaleVocalist);
         }
 
         private void PrefFVoxSelectChar_Click(object sender, EventArgs e) {
-            SelectCharacterMod scm = new SelectCharacterMod(PreferredFemaleSinger);
-            scm.ShowDialog();
+            HandleChangeBandMember(sender, e, BandMembers.FemaleVocalist);
         }
 
         // - - - - - - - - - - - - - - - - - - -
@@ -3342,8 +3443,61 @@ namespace WTDE_Launcher_V3.Core {
 
 
 
+
         #endregion
 
-        
+        // ----------------------------------------------------------
+        // RIGHT CLICK CONTENT MENU STRIP LOGIC
+        // ----------------------------------------------------------
+        #region Right Click Context Menu Strip Logic
+        // - - - - - - - - - - - - - - - - - - -
+        //  B A N D     M E M B E R     C H A N G E
+        // - - - - - - - - - - - - - - - - - - -
+        #region Band Member Change Menu
+
+        private void SetMemberMenuItem_Click(object sender, EventArgs e) {
+
+            // Now, which button called this function?
+            BandMembers member;
+
+            switch (BandMemberChangeLastButton) {
+                // -- GUITARIST
+                // -- Also the default if invalid
+                case "PrefGtrSelectChar": default:
+                    member = BandMembers.Guitarist;
+                    break;
+
+                // -- BASSIST
+                case "PrefBasSelectChar":
+                    member = BandMembers.Bassist;
+                    break;
+
+                // -- DRUMMER
+                case "PrefDrmSelectChar":
+                    member = BandMembers.Drummer;
+                    break;
+
+                // -- MALE VOCALIST
+                case "PrefVoxSelectChar":
+                    member = BandMembers.MaleVocalist;
+                    break;
+
+                // -- FEMALE VOCALIST
+                case "PrefFVoxSelectChar":
+                    member = BandMembers.FemaleVocalist;
+                    break;
+            }
+
+            // Actually spawn the dialog now!
+            SpawnChangeBandMember(member);
+        }
+
+        private void PreferredCharacterHoverChange(object sender, EventArgs e) {
+            BandMemberChangeLastButton = (sender as Button).Name;
+        }
+        #endregion
+
+        #endregion
+    
     }
 }

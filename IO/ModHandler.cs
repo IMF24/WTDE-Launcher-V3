@@ -93,307 +93,322 @@ namespace WTDE_Launcher_V3.IO {
 
 			// Iterate through these files.
 			foreach (string file in files) {
-				V3LauncherCore.AddDebugEntry($"in dir, reading config file: {file}", "Mod Handler: ReadMods");
+				try { 
+					V3LauncherCore.AddDebugEntry($"in dir, reading config file: {file}", "Mod Handler: ReadMods");
 
-				IniFile iFile = new IniFile();
+					IniFile iFile = new IniFile();
 
-				if (file.ToLower().Contains(".ini") && !file.ToLower().Contains("folder.ini")) iFile.Load(file.ToLower());
-				else continue;
+					if (file.ToLower().Contains(".ini") && !file.ToLower().Contains("folder.ini")) iFile.Load(file.ToLower());
+					else continue;
 
-				// Normalize slashes, split path, also figure out
-				// what type of INI file this is.
-				string currentINIFile = file.Replace("\\", "/").Split('/').Last().Replace("/", "").ToLower();
-				V3LauncherCore.AddDebugEntry($"current INI file is {currentINIFile}", "Mod Handler: ReadMods");
-
-				// What type of INI file is this?
-				string modName, modAuthor, modType, modVersion, modDescription;
-				switch (currentINIFile) {
-					case "song.ini":
-						// If this folder contains a MIDI or CHART file, this is a Melody song.
-						// Therefore, it is not a valid song mod.
-						if (File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.mid")) ||
-							File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.chart"))) {
-
-							V3LauncherCore.AddDebugEntry("Folder was likely a Melody song, skipping...", "Mod Handler: ReadMods");
-							continue;
-
-						}
-
-						V3LauncherCore.AddDebugEntry("We found a song mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["SongInfo"].Keys["Title"].Value;
-						} catch {
-							modName = "Unknown Song";
-						}
-
-						try {
-							modAuthor = (iFile.Sections["ModInfo"].Keys.Contains("Author")) ? iFile.Sections["ModInfo"].Keys["Author"].Value : iFile.Sections["SongInfo"].Keys["Artist"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Song";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "character.ini":
-						V3LauncherCore.AddDebugEntry("We found a character mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["CharacterInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Character";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Character";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "instrument.ini":
-						V3LauncherCore.AddDebugEntry("We found an instrument mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["InstrumentInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Instrument";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Instrument";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "highway.ini":
-						V3LauncherCore.AddDebugEntry("We found a highway mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["HighwayInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Highway";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Highway";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "category.ini":
-						V3LauncherCore.AddDebugEntry("We found a song category mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["CategoryInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Category";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Song Category";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "menumusic.ini":
-						V3LauncherCore.AddDebugEntry("We found a main menu music mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["MenuMusicInfo"].Keys["FSBName"].Value;
-						} catch {
-							modName = "Unknown Menu Music";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Menu Music";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "venue.ini":
-						V3LauncherCore.AddDebugEntry("We found a venue mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["VenueInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Venue";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Venue";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "gems.ini":
-						V3LauncherCore.AddDebugEntry("We found a gem theme mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["GemInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Gem Theme";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Gem Theme";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					case "Mod.ini":
-					case "mod.ini":
-						V3LauncherCore.AddDebugEntry("We found a script mod!", "Mod Handler: ReadMods");
-
-						try {
-							modName = iFile.Sections["ModInfo"].Keys["Name"].Value;
-						} catch {
-							modName = "Unknown Script";
-						}
-
-						try {
-							modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
-						} catch {
-							modAuthor = "Unknown Author";
-						}
-
-						modType = "Script";
-
-						try {
-							modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
-						} catch {
-							modVersion = "N/A";
-						}
-
-						try {
-							modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
-						} catch {
-							modDescription = "Unknown Information";
-						}
-						break;
-
-					default:
+					// Invalid category mod if the file is directly inside of DATA/MODS.
+					// If that's the case, then skip it!
+					string testModsPath = Path.Combine(V3LauncherCore.GetUpdaterINIDirectory(), "DATA/MODS/category.ini");
+					if (Path.GetFullPath(file).ToLower() == testModsPath.ToLower()) {
 						continue;
-						break;
+					}
+
+					// Normalize slashes, split path, also figure out
+					// what type of INI file this is.
+					string currentINIFile = file.Replace("\\", "/").Split('/').Last().Replace("/", "").ToLower();
+					V3LauncherCore.AddDebugEntry($"current INI file is {currentINIFile}", "Mod Handler: ReadMods");
+
+					// What type of INI file is this?
+					string modName, modAuthor, modType, modVersion, modDescription;
+					switch (currentINIFile) {
+						case "song.ini":
+							// If this folder contains a MIDI or CHART file, this is a Melody song.
+							// Therefore, it is not a valid song mod.
+							if (File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.mid")) ||
+								File.Exists(Path.Combine(Path.GetDirectoryName(file), "notes.chart"))) {
+
+								V3LauncherCore.AddDebugEntry("Folder was likely a Melody song, skipping...", "Mod Handler: ReadMods");
+								continue;
+
+							}
+
+							V3LauncherCore.AddDebugEntry("We found a song mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["SongInfo"].Keys["Title"].Value;
+							} catch {
+								modName = "Unknown Song";
+							}
+
+							try {
+								modAuthor = (iFile.Sections["ModInfo"].Keys.Contains("Author")) ? iFile.Sections["ModInfo"].Keys["Author"].Value : iFile.Sections["SongInfo"].Keys["Artist"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Song";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "character.ini":
+							V3LauncherCore.AddDebugEntry("We found a character mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["CharacterInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Character";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Character";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "instrument.ini":
+							V3LauncherCore.AddDebugEntry("We found an instrument mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["InstrumentInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Instrument";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Instrument";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "highway.ini":
+							V3LauncherCore.AddDebugEntry("We found a highway mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["HighwayInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Highway";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Highway";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "category.ini":
+							V3LauncherCore.AddDebugEntry("We found a song category mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["CategoryInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Category";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Song Category";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "menumusic.ini":
+							V3LauncherCore.AddDebugEntry("We found a main menu music mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["MenuMusicInfo"].Keys["FSBName"].Value;
+							} catch {
+								modName = "Unknown Menu Music";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Menu Music";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "venue.ini":
+							V3LauncherCore.AddDebugEntry("We found a venue mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["VenueInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Venue";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Venue";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "gems.ini":
+							V3LauncherCore.AddDebugEntry("We found a gem theme mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = (iFile.Sections["ModInfo"].Keys.Contains("Name")) ? iFile.Sections["ModInfo"].Keys["Name"].Value : iFile.Sections["GemInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Gem Theme";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Gem Theme";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						case "Mod.ini":
+						case "mod.ini":
+							V3LauncherCore.AddDebugEntry("We found a script mod!", "Mod Handler: ReadMods");
+
+							try {
+								modName = iFile.Sections["ModInfo"].Keys["Name"].Value;
+							} catch {
+								modName = "Unknown Script";
+							}
+
+							try {
+								modAuthor = iFile.Sections["ModInfo"].Keys["Author"].Value;
+							} catch {
+								modAuthor = "Unknown Author";
+							}
+
+							modType = "Script";
+
+							try {
+								modVersion = iFile.Sections["ModInfo"].Keys["Version"].Value;
+							} catch {
+								modVersion = "N/A";
+							}
+
+							try {
+								modDescription = iFile.Sections["ModInfo"].Keys["Description"].Value;
+							} catch {
+								modDescription = "Unknown Information";
+							}
+							break;
+
+						default:
+							continue;
+							break;
+					}
+					outArray.Add(new string[] { modName, modAuthor, modType, modVersion, modDescription, Path.Combine(Directory.GetCurrentDirectory(), file), Path.GetDirectoryName(file) });
+				
+				// Uh oh, we ran into an error parsing this mod.
+				// Just log it in the debug log.
+				} catch (Exception exc) {
+					V3LauncherCore.AddDebugEntry($"Error parsing mod: {exc.Message}");
+					continue;
 				}
-				outArray.Add(new string[] { modName, modAuthor, modType, modVersion, modDescription, Path.Combine(Directory.GetCurrentDirectory(), file), Path.GetDirectoryName(file) });
 			}
 
 			// And the timer stops here!

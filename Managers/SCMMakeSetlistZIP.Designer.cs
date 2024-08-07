@@ -461,7 +461,7 @@
             this.RedFieldsReminderLabel.AutoSize = true;
             this.RedFieldsReminderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.RedFieldsReminderLabel.ForeColor = System.Drawing.Color.Red;
-            this.RedFieldsReminderLabel.Location = new System.Drawing.Point(10, 21);
+            this.RedFieldsReminderLabel.Location = new System.Drawing.Point(10, 22);
             this.RedFieldsReminderLabel.Name = "RedFieldsReminderLabel";
             this.RedFieldsReminderLabel.Size = new System.Drawing.Size(236, 13);
             this.RedFieldsReminderLabel.TabIndex = 5;
