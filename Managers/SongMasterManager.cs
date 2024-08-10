@@ -556,6 +556,12 @@ namespace WTDE_Launcher_V3.Managers {
             UnloadAllData();
         }
 
+        public void RefreshAllData() {
+            UnloadAllData();
+            GetSongsAndCategories();
+            UpdateActiveSongControls();
+        }
+
         private void deleteCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
             // VERY CRITICAL CHECK:
             // WE CAN NOT DELETE A CATEGORY IF THE INI FILE IS IN THE MODS FOLDER DIRECTLY.
@@ -786,7 +792,80 @@ namespace WTDE_Launcher_V3.Managers {
             }
         }
 
+        /// <summary>
+        ///  Add all of the selected songs to the currently selected category!
+        /// </summary>
+        public void AddSongsToCurrentCategory() {
+            // Is a category loaded and do we have song mods to add?
+            if (SongModsList.SelectedItems.Count > 0 && CurrentLoadedCategoryChecksum != "") {
+
+                // Are we certain we want to add all of the selected songs? Ask!
+                string addAllMessage = $"You've selected a total of {SongModsList.SelectedItems.Count} song mod(s) " +
+                                        "to add to the current category.\n\n" +
+                                        "Note: This will OVERWRITE any pre-existing categories these songs may or " +
+                                        "may not have been tied to previously!\n\n" +
+                                        "Are you sure you want to add all of these songs?";
+                bool shouldAddAll = (MessageBox.Show(addAllMessage, "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes);
+
+                if (!shouldAddAll) return;
+
+                // - - - - - - - - - - - - - - - - - - -
+
+                // Get the song list indices.
+                List<string> setList = (showSongChecksumsToolStripMenuItem.Checked) ? SongChecksums : SongTitles;
+                int[] modPathIndexes = GetItemIndexesInList(setList, SongModFilter.Text);
+
+                // - - - - - - - - - - - - - - - - - - -
+
+                // Required song path indices.
+                List<int> requiredIndices = new List<int>();
+
+                // Get the selected indices of the items.
+                var selectedIdxs = SongModsList.SelectedIndices;
+                foreach (int idx in selectedIdxs) {
+                    int locatedIdx = modPathIndexes[idx];
+                    Console.WriteLine($"located index: {locatedIdx}");
+                    requiredIndices.Add(locatedIdx);
+                }
+
+                // - - - - - - - - - - - - - - - - - - -
+
+                // Next task, get all the paths:
+                List<string> songConfigPaths = new List<string>();
+                foreach (int idx in requiredIndices) {
+                    string songConfigPath = SongModPaths[idx];
+                    Console.WriteLine($"detected path: {songConfigPath}");
+                    songConfigPaths.Add(songConfigPath);
+                }
+
+                // - - - - - - - - - - - - - - - - - - -
+
+                // Now, we've finally done all the required setup!
+                // We can FINALLY start adding songs to the category of our choosing!
+
+                // Set up our INI file object.
+                INI file;
+
+                // Go through every song path!
+                foreach (string path in songConfigPaths) {
+                    
+                    // Initialize INI with this file.
+                    file = new INI(path);
+
+                    // Write our category checksum!
+                    file.SetString("SongInfo", "GameCategory", CurrentLoadedCategoryChecksum);
+
+                }
+
+                ReadAttachedSongs();
+            }
+        }
+
         private void addToCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
+
+            AddSongsToCurrentCategory();
+
+            /*
             if (SongModsList.SelectedItems.Count > 0 && CurrentLoadedCategoryChecksum != "") {
                 // What index do we need?
                 string pathToCheck;
@@ -796,16 +875,16 @@ namespace WTDE_Launcher_V3.Managers {
 
                 pathToCheck = SongModPaths[modPathIndexes[SongModsList.SelectedIndex]];
 
-                IniFile file = new IniFile();
+                INI file;
 
                 string folderINIPath = Path.Combine(Path.GetDirectoryName(pathToCheck), "../folder.ini");
 
                 if (File.Exists(folderINIPath)) {
-                    file.Load(folderINIPath);
-                } else file.Load(pathToCheck);
+                    file = new INI(folderINIPath);
+                } else file = new INI(pathToCheck);
 
-                if (file.Sections["SongInfo"].Keys.Contains("GameCategory")) {
-                    if (file.Sections["SongInfo"].Keys["GameCategory"].Value == CurrentLoadedCategoryChecksum) {
+                if (file.HasKey("SongInfo", "GameCategory")) {
+                    if (file.GetString("SongInfo", "GameCategory") == CurrentLoadedCategoryChecksum) {
                         string alreadyTiedMessage = "This song is already tied to this category!";
 
                         MessageBox.Show(alreadyTiedMessage, "Already Tied", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -813,7 +892,7 @@ namespace WTDE_Launcher_V3.Managers {
                     }
                 }
 
-                if (!file.Sections["SongInfo"].Keys.Contains("GameCategory")) {
+                if (!file.HasKey("SongInfo", "GameCategory")) {
                     // Do we want to add this song to the category?
                     string addToCateMessage = "You've chosen to add the following song to the currently selected category:\n\n" +
                                              $"{SongModsList.SelectedItems[0]}\n\n" +
@@ -836,17 +915,11 @@ namespace WTDE_Launcher_V3.Managers {
 
                 V3LauncherCore.DebugLog.Add($"path to check: {pathToCheck}");
 
-                if (!file.Sections["SongInfo"].Keys.Contains("GameCategory")) {
-                    file.Sections["SongInfo"].Keys.Add("GameCategory");
-                }
-                file.Sections["SongInfo"].Keys["GameCategory"].Value = CurrentLoadedCategoryChecksum;
-
-                if (File.Exists(folderINIPath)) {
-                    file.Save(folderINIPath);
-                } else file.Save(pathToCheck);
+                file.SetString("SongInfo", "GameCategory", CurrentLoadedCategoryChecksum);
 
                 ReadAttachedSongs();
             }
+            */
         }
 
         private void removeFromCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -966,6 +1039,7 @@ namespace WTDE_Launcher_V3.Managers {
             openModFolderToolStripMenuItem.Enabled = enableVariousCommandsS;
             // ----------------------
             addToCategoryToolStripMenuItem.Enabled = enableVariousCommandsS;
+            AddSongsToCategoryButton.Enabled = enableVariousCommandsS;
             removeFromCategoryToolStripMenuItem.Enabled = enableVariousCommandsS;
 
             // -- SONG CATEGORY MENU ------------------------
@@ -1037,6 +1111,10 @@ namespace WTDE_Launcher_V3.Managers {
                 CurrentLoadedCategoryPath, CurrentLoadedCategoryImageName);
 
             makeZIP.ShowDialog();
+        }
+
+        private void AddSongsToCategoryButton_Click(object sender, EventArgs e) {
+            AddSongsToCurrentCategory();
         }
     }
 }

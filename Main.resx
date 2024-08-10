@@ -592,6 +592,16 @@ force an instant fail. Disabled in multiplayer.
 
 If this is enabled, Fast Lose will always be enabled in tandem with it.</value>
   </data>
+  <data name="ExceptionHandler.ToolTip" xml:space="preserve">
+    <value>If enabled, this will use WTDE's custom exception handler to handle any
+sort of critical errors and crashes.
+
+This has, however, caused issues for some Windows 11 users on later
+Windows updates. If, in the event, this renders the game not able to
+boot or play at all, disable this, and attempt to run the game again.
+
+If the issue persists, please contact support in the WTDE Discord server.</value>
+  </data>
   <data name="CreditsMainInfo.Text" xml:space="preserve">
     <value>GHWT: Definitive Edition Made by Fretworks, EST. 2021
 GHWT: Definitive Edition Launcher Made by IMF24 and Fox

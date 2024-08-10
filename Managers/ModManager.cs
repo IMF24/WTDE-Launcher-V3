@@ -93,44 +93,41 @@ namespace WTDE_Launcher_V3.Managers {
 
             // We want to inject our user editors here!
             // First off, does the directory we need exist?
-            string managersDir = "./launcher_managers";
+            string managersDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/WTDE-Launcher-V3/Plugins";
 
-            // If not, just hide the menu and return.
-            if (!Directory.Exists(managersDir)) {
+            // If not, let's go ahead and just make it, for future use.
+            if (!Directory.Exists(managersDir)) Directory.CreateDirectory(managersDir);
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+            V3LauncherCore.AddDebugEntry("Checking for editor config files...", "Mod Manager");
+
+            // The first thing we want to do is get all INI files in the
+            // directory with the launcher managers in it.
+            string[] iniFiles = Directory.GetFiles(managersDir, "*manager.ini", SearchOption.AllDirectories);
+
+            // If this array was empty, just hide the menu and return.
+            if (iniFiles.Length <= 0) {
                 V3LauncherCore.AddDebugEntry("No editors to register", "Mod Manager");
                 UserEditorsMenu.Enabled = false;
                 UserEditorsMenu.Visible = false;
                 return;
             }
 
-            // - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            V3LauncherCore.AddDebugEntry("Checking for editor config files...", "Mod Manager");
-
-            // All right, the directory existed, cool!
-
-            // The first thing we want to do is get all INI files in the
-            // directory with the launcher managers in it.
-            string[] iniFiles = Directory.GetFiles(managersDir, "*manager.ini", SearchOption.AllDirectories);
-
-            // If this array was empty, just return.
-            if (iniFiles.Length <= 0) {
-                V3LauncherCore.AddDebugEntry("No INI files were found in the managers directory", "Mod Manager");
-                UserEditorsMenu.Enabled = false;
-                UserEditorsMenu.Visible = false;
-                return;
-            }
-
-            // OK, safe! Now go through each one!
+            // OK, we're safe! Now we'll go through each one!
             // We want to read their data and create our menu items based
             // on the content within them.
 
             V3LauncherCore.AddDebugEntry("Parsing configs and creating menu commands...", "Mod Manager");
 
+            // Take a stopwatch time of this!
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
+            // This array will house our new menu commands!
             ToolStripMenuItem[] menuCommands = new ToolStripMenuItem[iniFiles.Length];
+
+            // Clear out the binary executables list and the User Custom Editors menu.
             BinaryExecutables.Clear();
             UserEditorsMenu.DropDownItems.Clear();
 
@@ -191,6 +188,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // --------------------
 
+                // Little bitty debug print for our sanity
                 string newManagerInfo = $"ID {i}: New custom editor added:\nName: {commandName}\nObject reference: {objectName}\nEXE file: {executableName}\nImage file: {imagePath}";
                 V3LauncherCore.AddDebugEntry(newManagerInfo, "Mod Manager");
 
@@ -199,6 +197,7 @@ namespace WTDE_Launcher_V3.Managers {
             // At the end of the loop, set our commands for the menu!
             UserEditorsMenu.DropDownItems.AddRange(menuCommands);
 
+            // Stop the timer and print it out
             stopwatch.Stop();
             V3LauncherCore.AddDebugEntry($"All custom managers configured! Took {stopwatch.Elapsed.TotalSeconds:0.00} seconds");
         }
@@ -270,35 +269,48 @@ namespace WTDE_Launcher_V3.Managers {
         ///  The mod type string to filter by.
         /// </param>
         public void RefreshModsList(bool filterMods = false, string filterType = "Any") {
+            // Clear the Mod Manager listing, update the status bar.
             UserContentModsTree.Items.Clear();
             StatusLabelMain.Text = "Refreshing mods list...";
 
+            // Update idle tasks, just in case.
             Application.DoEvents();
 
-            ModHandler.ReadMods();
+            // Are we able to populate the Mod Manager?
+            INI deConfig = new INI(V3LauncherConstants.WTDEConfigDir);
+            bool shouldPopulate = deConfig.GetInt("Launcher", "PopulateModManager", 1) == 1;
 
-            // Just list the items!
-            if (!filterMods) {
-                foreach (string[] mod in ModHandler.UserContentMods) {
+            // Yes we can, so let's do it!
+            if (shouldPopulate) { 
+                ModHandler.ReadMods();
 
-                    var listViewItem = new ListViewItem(mod);
-                    UserContentModsTree.Items.Add(listViewItem);
-                }
-
-            // If we made it here, DO NOT just normally list them!
-            // We want to filter them first, so let's do that!
-            } else {
-                foreach (string[] mod in ModHandler.UserContentMods) { 
-                    if (mod[2].ToLower() == filterType.ToLower()) {
+                // Just list the items!
+                if (!filterMods) {
+                    foreach (string[] mod in ModHandler.UserContentMods) {
                         var listViewItem = new ListViewItem(mod);
                         UserContentModsTree.Items.Add(listViewItem);
                     }
+
+                // If we made it here, DO NOT just normally list them!
+                // We want to filter them first, so let's do that!
+                } else {
+                    foreach (string[] mod in ModHandler.UserContentMods) { 
+                        if (mod[2].ToLower() == filterType.ToLower()) {
+                            var listViewItem = new ListViewItem(mod);
+                            UserContentModsTree.Items.Add(listViewItem);
+                        }
+                    }
                 }
             }
-
+            
+            // Re-register script mod menu items and user editors!
             PopulateScriptModMenu();
             RegisterUserEditors();
 
+            // Update idle tasks again, once again, just in case.
+            Application.DoEvents();
+
+            // Update status bar text.
             StatusLabelMain.Text = $"All done; scanned {ModHandler.UserContentMods.Count} valid mods, {UserContentModsTree.Items.Count} matching current filter(s)";
         }
 

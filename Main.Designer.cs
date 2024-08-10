@@ -434,6 +434,7 @@
             this.BadTripMode = new System.Windows.Forms.CheckBox();
             this.DrunkMode = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabBandGroup = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PrefCustomNameLabel = new System.Windows.Forms.Label();
@@ -487,7 +488,6 @@
             this.DOFBlurLabel = new System.Windows.Forms.Label();
             this.DOFQualityLabel = new System.Windows.Forms.Label();
             this.TODProfileLabel = new System.Windows.Forms.Label();
-            this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
             this.TabGeneralSettingsTabs = new System.Windows.Forms.TabControl();
             this.TabGeneralTabsBasic = new System.Windows.Forms.TabPage();
@@ -567,6 +567,7 @@
             this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.UpdateAvailableLabel = new System.Windows.Forms.Label();
+            this.ExceptionHandler = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -587,6 +588,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).BeginInit();
             this.BandMemberChangeMenu.SuspendLayout();
             this.TabParentContainer.SuspendLayout();
+            this.TabDebugGroup.SuspendLayout();
             this.TabBandGroup.SuspendLayout();
             this.TabCreditsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BlackChalk)).BeginInit();
@@ -599,7 +601,6 @@
             this.TGEditorGameplay.SuspendLayout();
             this.TGEditorInterface.SuspendLayout();
             this.TGEditorAdvanced.SuspendLayout();
-            this.TabDebugGroup.SuspendLayout();
             this.TabGeneralGroup.SuspendLayout();
             this.TabGeneralSettingsTabs.SuspendLayout();
             this.TabGeneralTabsBasic.SuspendLayout();
@@ -5260,7 +5261,7 @@
             // ImmediateVectorHandlers
             // 
             this.ImmediateVectorHandlers.AutoSize = true;
-            this.ImmediateVectorHandlers.Location = new System.Drawing.Point(24, 562);
+            this.ImmediateVectorHandlers.Location = new System.Drawing.Point(335, 22);
             this.ImmediateVectorHandlers.Margin = new System.Windows.Forms.Padding(2);
             this.ImmediateVectorHandlers.Name = "ImmediateVectorHandlers";
             this.ImmediateVectorHandlers.Size = new System.Drawing.Size(290, 26);
@@ -5862,7 +5863,7 @@
             this.SetMemberMenuItem,
             this.ChangeInstMenuItem});
             this.BandMemberChangeMenu.Name = "BandMemberChangeMenu";
-            this.BandMemberChangeMenu.Size = new System.Drawing.Size(237, 70);
+            this.BandMemberChangeMenu.Size = new System.Drawing.Size(237, 48);
             // 
             // SetMemberMenuItem
             // 
@@ -6064,7 +6065,7 @@
             // ChangeDEVersionButton
             // 
             this.ChangeDEVersionButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ChangeDEVersionButton.Location = new System.Drawing.Point(407, 13);
+            this.ChangeDEVersionButton.Location = new System.Drawing.Point(23, 563);
             this.ChangeDEVersionButton.Name = "ChangeDEVersionButton";
             this.ChangeDEVersionButton.Size = new System.Drawing.Size(249, 23);
             this.ChangeDEVersionButton.TabIndex = 19;
@@ -6166,10 +6167,10 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
             this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
-            this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
@@ -6177,6 +6178,39 @@
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabDebugGroup
+            // 
+            this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabDebugGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabDebugGroup.Controls.Add(this.ChangeDEVersionButton);
+            this.TabDebugGroup.Controls.Add(this.FixGuitarInputLogic);
+            this.TabDebugGroup.Controls.Add(this.ExceptionHandler);
+            this.TabDebugGroup.Controls.Add(this.ImmediateVectorHandlers);
+            this.TabDebugGroup.Controls.Add(this.DisableInitialMovies);
+            this.TabDebugGroup.Controls.Add(this.CASNoticeShown);
+            this.TabDebugGroup.Controls.Add(this.PrintCreateFile);
+            this.TabDebugGroup.Controls.Add(this.PrintLoadedAssets);
+            this.TabDebugGroup.Controls.Add(this.QuickDebug);
+            this.TabDebugGroup.Controls.Add(this.BindWarningShown);
+            this.TabDebugGroup.Controls.Add(this.FixFastTextures);
+            this.TabDebugGroup.Controls.Add(this.ShowWarnings);
+            this.TabDebugGroup.Controls.Add(this.DebugSaves);
+            this.TabDebugGroup.Controls.Add(this.ExtraOptimizedSaves);
+            this.TabDebugGroup.Controls.Add(this.FixFSBObjects);
+            this.TabDebugGroup.Controls.Add(this.DebugDLCSync);
+            this.TabDebugGroup.Controls.Add(this.DisableSongLogging);
+            this.TabDebugGroup.Controls.Add(this.WriteFile);
+            this.TabDebugGroup.Controls.Add(this.DebugConsole);
+            this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
+            this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
+            this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabDebugGroup.Location = new System.Drawing.Point(13, 16);
+            this.TabDebugGroup.Name = "TabDebugGroup";
+            this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabDebugGroup.TabIndex = 3;
+            this.TabDebugGroup.TabStop = false;
+            this.TabDebugGroup.Text = "DEBUG: Debug Tab";
             // 
             // TabBandGroup
             // 
@@ -6230,7 +6264,7 @@
             this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
             this.TabBandGroup.Controls.Add(this.TBBandLineup);
             this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(10, 4);
+            this.TabBandGroup.Location = new System.Drawing.Point(32, 543);
             this.TabBandGroup.Name = "TabBandGroup";
             this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
             this.TabBandGroup.TabIndex = 1;
@@ -6824,38 +6858,6 @@
             this.TODProfileLabel.Size = new System.Drawing.Size(145, 22);
             this.TODProfileLabel.TabIndex = 24;
             this.TODProfileLabel.Text = "Time of Day Profile:";
-            // 
-            // TabDebugGroup
-            // 
-            this.TabDebugGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabDebugGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabDebugGroup.Controls.Add(this.ChangeDEVersionButton);
-            this.TabDebugGroup.Controls.Add(this.FixGuitarInputLogic);
-            this.TabDebugGroup.Controls.Add(this.ImmediateVectorHandlers);
-            this.TabDebugGroup.Controls.Add(this.DisableInitialMovies);
-            this.TabDebugGroup.Controls.Add(this.CASNoticeShown);
-            this.TabDebugGroup.Controls.Add(this.PrintCreateFile);
-            this.TabDebugGroup.Controls.Add(this.PrintLoadedAssets);
-            this.TabDebugGroup.Controls.Add(this.QuickDebug);
-            this.TabDebugGroup.Controls.Add(this.BindWarningShown);
-            this.TabDebugGroup.Controls.Add(this.FixFastTextures);
-            this.TabDebugGroup.Controls.Add(this.ShowWarnings);
-            this.TabDebugGroup.Controls.Add(this.DebugSaves);
-            this.TabDebugGroup.Controls.Add(this.ExtraOptimizedSaves);
-            this.TabDebugGroup.Controls.Add(this.FixFSBObjects);
-            this.TabDebugGroup.Controls.Add(this.DebugDLCSync);
-            this.TabDebugGroup.Controls.Add(this.DisableSongLogging);
-            this.TabDebugGroup.Controls.Add(this.WriteFile);
-            this.TabDebugGroup.Controls.Add(this.DebugConsole);
-            this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
-            this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
-            this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(172, 443);
-            this.TabDebugGroup.Name = "TabDebugGroup";
-            this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabDebugGroup.TabIndex = 3;
-            this.TabDebugGroup.TabStop = false;
-            this.TabDebugGroup.Text = "DEBUG: Debug Tab";
             // 
             // TabGeneralGroup
             // 
@@ -7768,6 +7770,19 @@
             this.UpdateAvailableLabel.TabIndex = 19;
             this.UpdateAvailableLabel.Text = "A newer version of WTDE is available for download! The latest version is VXYZ.";
             // 
+            // ExceptionHandler
+            // 
+            this.ExceptionHandler.AutoSize = true;
+            this.ExceptionHandler.Location = new System.Drawing.Point(335, 52);
+            this.ExceptionHandler.Margin = new System.Windows.Forms.Padding(2);
+            this.ExceptionHandler.Name = "ExceptionHandler";
+            this.ExceptionHandler.Size = new System.Drawing.Size(229, 26);
+            this.ExceptionHandler.TabIndex = 17;
+            this.ExceptionHandler.Text = "Use WTDE Exception Handler";
+            this.ToolTipMain.SetToolTip(this.ExceptionHandler, resources.GetString("ExceptionHandler.ToolTip"));
+            this.ExceptionHandler.UseVisualStyleBackColor = true;
+            this.ExceptionHandler.CheckedChanged += new System.EventHandler(this.ExceptionHandler_CheckedChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -7823,6 +7838,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputIconBass)).EndInit();
             this.BandMemberChangeMenu.ResumeLayout(false);
             this.TabParentContainer.ResumeLayout(false);
+            this.TabDebugGroup.ResumeLayout(false);
+            this.TabDebugGroup.PerformLayout();
             this.TabBandGroup.ResumeLayout(false);
             this.TabBandGroup.PerformLayout();
             this.TabCreditsGroup.ResumeLayout(false);
@@ -7840,8 +7857,6 @@
             this.TGEditorInterface.PerformLayout();
             this.TGEditorAdvanced.ResumeLayout(false);
             this.TGEditorAdvanced.PerformLayout();
-            this.TabDebugGroup.ResumeLayout(false);
-            this.TabDebugGroup.PerformLayout();
             this.TabGeneralGroup.ResumeLayout(false);
             this.TabGeneralSettingsTabs.ResumeLayout(false);
             this.TabGeneralTabsBasic.ResumeLayout(false);
@@ -8422,6 +8437,7 @@
         private System.Windows.Forms.ContextMenuStrip BandMemberChangeMenu;
         private System.Windows.Forms.ToolStripMenuItem SetMemberMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChangeInstMenuItem;
+        private System.Windows.Forms.CheckBox ExceptionHandler;
     }
 }
 

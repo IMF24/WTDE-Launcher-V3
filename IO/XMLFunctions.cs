@@ -61,9 +61,6 @@ namespace WTDE_Launcher_V3.IO {
                         if (textReader.GetAttribute("id") == sIDKey) {
                             returnString = textReader.ReadString();
                             V3LauncherCore.AddDebugEntry($"String for {sIDKey} was found! Read value was {returnString}", "XML Functions: AspyrGetString");
-
-                            return returnString;
-
                             break;
                         }
                     }
@@ -76,7 +73,14 @@ namespace WTDE_Launcher_V3.IO {
                 textReader.Close();
                 V3LauncherCore.AddDebugEntry($"Value of return string: {returnString}");
 
-                if (returnString != "") return returnString;
+                // Attempt to trim this string, and see if it's even valid.
+                // If not, we'll give the fallback value.
+                returnString = returnString.Trim();
+
+                // If the string was not empty, return it!
+                if (returnString != "") {
+                    return returnString;
+                }
 
                 V3LauncherCore.AddDebugEntry("String not found, adding as fallback...", "XML Functions: AspyrGetString");
 

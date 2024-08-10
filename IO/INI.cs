@@ -162,7 +162,6 @@ namespace WTDE_Launcher_V3.IO {
 
             // Set the value, write the changes!
             if (IsVerbose) V3LauncherCore.AddDebugEntry($"Writing value {value} to section {sect}, key {key}", "INI Class");
-
             INIInternalFile.Sections[sect].Keys[key].Value = value.ToString();
             INIInternalFile.Save(FilePath);
         }
@@ -216,7 +215,7 @@ namespace WTDE_Launcher_V3.IO {
         ///  A string from the given section and key if it exists. The fallback string is returned if the key or section was not found.
         /// </returns>
         public string GetString(string sect, string key, string def = "") {
-            return ReadValue(sect, key, def).ToString();
+            return ReadValue(sect, key, def);
         }
 
         /// <summary>

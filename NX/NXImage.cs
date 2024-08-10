@@ -162,6 +162,8 @@ namespace WTDE_Launcher_V3.NX {
                 }
             }
 
+            V3LauncherCore.AddDebugEntry("Image decompiled!", "NXImage");
+
             return extractedImage;
         }
 

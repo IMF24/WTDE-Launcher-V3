@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
@@ -99,6 +100,28 @@ namespace WTDE_Launcher_V3.Core {
                     string newDestinationDir = Path.Combine(destinationDir, subDir.Name);
                     CopyDirectory(subDir.FullName, newDestinationDir, true);
                 }
+            }
+        }
+
+        /// <summary>
+        ///  Return the MD5 hash of a hile.
+        /// </summary>
+        /// <param name="file">
+        ///  The file to get the hash of.
+        /// </param>
+        /// <returns>
+        ///  The MD5 message-digest algorithm hash for the given file path.
+        /// </returns>
+        public static string GetMD5Hash(string file) {
+            if (File.Exists(file)) {
+                using (var md5 = MD5.Create()) {
+                    using (var fl = File.OpenRead(file)) {
+                        var hash = md5.ComputeHash(fl);
+                        return BitConverter.ToString(hash).Replace("-", "").ToUpperInvariant();
+                    }
+                }
+            } else {
+                return "00000000000000000000000000000000";
             }
         }
     }

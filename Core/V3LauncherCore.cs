@@ -88,15 +88,7 @@ namespace WTDE_Launcher_V3.Core {
         /// </returns>
         public static bool AllowDevSettings(bool disableAnyway = true) {
             if (!disableAnyway) {
-                if (File.Exists("dev_settings_enable")) {
-                    using (var md5 = MD5.Create()) {
-                        using (var file = File.OpenRead("dev_settings_enable")) {
-                            // THIS HASH MUST MATCH.
-                            var hash = md5.ComputeHash(file);
-                            return (BitConverter.ToString(hash).Replace("-", "").ToUpperInvariant() == "3D663C297E547366D7429491D7EE7BBC");
-                        }
-                    }
-                } else return false;
+                return Helpers.GetMD5Hash("dev_settings_enable") == "3D663C297E547366D7429491D7EE7BBC";
             }
             return false;
         }

@@ -84,6 +84,9 @@ namespace WTDE_Launcher_V3.Core {
 
                 UpdateActiveTab((int)LauncherTabs.MOTD);
 
+                // Remove any auto strum workarounds.
+                RemoveAutoStrumKeys();
+
                 // Get our list of microphone devices.
                 GetMicDevices();
 
@@ -707,6 +710,210 @@ namespace WTDE_Launcher_V3.Core {
             PrintCreateFile.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "PrintCreateFile", "0"));
             CASNoticeShown.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "CASNoticeShown", "0"));
             ImmediateVectorHandlers.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "ImmediateVectorHandlers", "1"));
+            ExceptionHandler.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Logger", "ExceptionHandler", "1"));
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Remove up and down strum key binds from the fret inputs on the guitar input mapping string.
+        ///  Also removes fret binds from the up and down strum inputs.
+        ///  <br/>
+        ///  This is to prevent any sort of auto strum workaround; this will re-write the input mapping
+        ///  string once all workarounds are removed.
+        /// </summary>
+        public void RemoveAutoStrumKeys() {
+
+            V3LauncherCore.AddDebugEntry("Removing auto strum workarounds, if detected...");
+
+            // - - - - - - - - - - - -
+            
+            // First up, get the up, down, green, red, yellow, blue,
+            // and orange input keys. We will match these against
+            // each other when we filter everything out.
+
+            // Get the up and down strum key binds.
+            List<string> upKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "UP").Split(' ').ToList();
+            List<string> downKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "DOWN").Split(' ').ToList();
+
+            // Get the inputs on guitar for the various fret keys.
+            List<string> greenKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "GREEN").Split(' ').ToList();
+            List<string> redKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "RED").Split(' ').ToList();
+            List<string> yellowKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "YELLOW").Split(' ').ToList();
+            List<string> blueKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "BLUE").Split(' ').ToList();
+            List<string> orangeKeys = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "ORANGE").Split(' ').ToList();
+
+            // The sets of fret keys we'll look through.
+            List<List<string>> fretKeySets = new List<List<string>>() { greenKeys, redKeys, yellowKeys, blueKeys, orangeKeys };
+            List<List<string>> strumKeySets = new List<List<string>>() { upKeys, downKeys };
+
+            // Remove the whitespaces from the strings in the inputs.
+            foreach (List<string> keySet in fretKeySets) {
+                for (var i = 0; i < keySet.Count; i++) {
+                    string key = keySet[i].Replace(" ", "");
+                    keySet[i] = key;
+                }
+            }
+
+            foreach (List<string> keySet in strumKeySets) {
+                for (var i = 0; i < keySet.Count; i++) {
+                    string key = keySet[i].Replace(" ", "");
+                    keySet[i] = key;
+                }
+            }
+
+            // - - - - - - - - - - - -
+
+            // -- TASK 1: FILTER STRUM KEYS FROM FRET INPUTS
+            // Go through every strum key set.
+            foreach (List<string> keySet in strumKeySets) {
+
+                // Now go through every key in the set.
+                for (var i = 0; i < keySet.Count; i++) {
+
+                    // If this key is tied to a fret button input, let's remove it.
+                    string key = keySet[i];
+
+                    if (greenKeys.Contains(key) ||
+                        redKeys.Contains(key) ||
+                        yellowKeys.Contains(key) ||
+                        blueKeys.Contains(key) ||
+                        orangeKeys.Contains(key)) {
+
+                        keySet.Remove(key);
+                    }
+                }
+            }
+
+            // - - - - - - - - - - - -
+
+            // -- TASK 2: FILTER FRET KEYS FROM STRUM INPUTS
+            // Go through each fret key set.
+            foreach (List<string> keySet in fretKeySets) {
+
+                // Now go through every key in the set.
+                for (var i = 0; i < keySet.Count; i++) {
+
+                    // If the up or down strum keys contain this key, we need to
+                    // remove the binding.
+                    string key = keySet[i];
+
+                    if (upKeys.Contains(key) || downKeys.Contains(key)) {
+                        keySet.Remove(key);
+                    }
+                }
+            }
+
+            // - - - - - - - - - - - -
+
+            // -- TASK 3: RECONSTRUCT THE INPUT STRINGS
+            // Once the filtering is complete, we want to re-construct our
+            // input mapping strings so that we can write the inputs
+            // into AspyrConfig.xml.
+
+            // -- GREEN INPUT STRING
+            string newGreenString = "";
+            foreach (string key in greenKeys) {
+                newGreenString += key + " ";
+            }
+            newGreenString = newGreenString.Trim();
+
+            // -- RED INPUT STRING
+            string newRedString = "";
+            foreach (string key in redKeys) {
+                newRedString += key + " ";
+            }
+            newRedString = newRedString.Trim();
+
+            // -- YELLOW INPUT STRING
+            string newYellowString = "";
+            foreach (string key in yellowKeys) {
+                newYellowString += key + " ";
+            }
+            newYellowString = newYellowString.Trim();
+
+            // -- BLUE INPUT STRING
+            string newBlueString = "";
+            foreach (string key in blueKeys) {
+                newBlueString += key + " ";
+            }
+            newBlueString = newBlueString.Trim();
+
+            // -- ORANGE INPUT STRING
+            string newOrangeString = "";
+            foreach (string key in orangeKeys) {
+                newOrangeString += key + " ";
+            }
+            newOrangeString = newOrangeString.Trim();
+
+            // -- UP INPUT STRING
+            string newUpString = "";
+            foreach (string key in upKeys) {
+                newUpString += key + " ";
+            }
+            newUpString = newUpString.Trim();
+
+            // -- DOWN INPUT STRING
+            string newDownString = "";
+            foreach (string key in downKeys) {
+                newDownString += key + " ";
+            }
+            newDownString = newDownString.Trim();
+
+            // - - - - - - - - - - - -
+
+            // -- TASK 4: GET THE REMAINING INPUTS
+            // If we want a complete mapping string, we need the other inputs too.
+            string startInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "START");
+            string selectInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "BACK");
+            string whammyInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "WHAMMY");
+            string starInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "STAR");
+            string cancelInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "CANCEL");
+            string leftInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "LEFT");
+            string rightInputs = V3LauncherCore.AspyrKeyDecode("Keyboard_Guitar", "RIGHT");
+
+            // - - - - - - - - - - - -
+
+            // -- TASK 5: RE-ENCODE THE INPUT MAPPING STRING
+            // Now with all that complete, we can re-write our input mapping string.
+
+            // Listen, if you're using the launcher, expect your auto strum workaround(s) to
+            // be removed. This is Guitar Hero; there NEVER was any sort of auto strum.
+
+            // If you insist on using auto strum, then Clone Hero and/or Fortnite Festival have
+            // corrupted your vision on the core gameplay of Guitar Hero or Rock Band.
+            // My advice to you: Get an actual guitar controller and learn the REAL way of
+            // playing these games; don't cheap your way out. I'm sorry, but not really.
+
+            V3LauncherCore.AspyrKeyEncode(
+                new List<string>() {
+                    newGreenString,
+                    newRedString,
+                    newYellowString,
+                    newBlueString,
+                    newOrangeString,
+                    startInputs,
+                    selectInputs,
+                    whammyInputs,
+                    starInputs,
+                    cancelInputs,
+                    newUpString,
+                    newDownString,
+                    leftInputs,
+                    rightInputs
+                },
+
+                new List<string> {
+                    "GREEN", "RED", "YELLOW", "BLUE", "ORANGE", "START", "BACK",
+                    "WHAMMY", "STAR", "CANCEL", "UP", "DOWN", "LEFT", "RIGHT"
+                },
+
+                "Keyboard_Guitar"
+            );
+
+            // - - - - - - - - - - - -
+
+            V3LauncherCore.AddDebugEntry("Auto strum workarounds deleted");
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - -
@@ -1384,8 +1591,14 @@ namespace WTDE_Launcher_V3.Core {
 
             // Go to the user's WTDE install folder and start the game up!
             ModHandler.UseUpdaterINIDirectory();
-            this.Close();
             Process.Start("GHWT_Definitive.exe");
+
+            // If we want to exit on save, it will close the launcher.
+            // Otherwise, don't close it!
+            if (ExitOnSave.Checked) {
+                this.Close();
+                Environment.Exit(0);
+            }
         }
 
         private void AdjustSettingsButton_Click(object sender, EventArgs e) {
@@ -1698,7 +1911,12 @@ namespace WTDE_Launcher_V3.Core {
             return true;
         }
 
-        private void SaveKeybindsButton_Click(object sender, EventArgs e) {
+        /// <summary>
+        ///  Saves the user's defined key binds as Aspyr formatted key bindings!
+        ///  <br/>
+        ///  Has measures in place to prevent auto strum workarounds.
+        /// </summary>
+        public void SaveKeyBinds() {
             // No more auto strum workarounds. Cry about it; I don't care.
             if (!(VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarUpInputs.Text) &&
                   VerifyNoAutoStrum(GuitarGreenInputs.Text, GuitarDownInputs.Text) &&
@@ -1818,8 +2036,10 @@ namespace WTDE_Launcher_V3.Core {
 
                 "Keyboard_Menu"
             );
+        }
 
-
+        private void SaveKeybindsButton_Click(object sender, EventArgs e) {
+            SaveKeyBinds();
         }
 
         private void ResetKeybindsButton_Click(object sender, EventArgs e) {
@@ -3408,6 +3628,10 @@ namespace WTDE_Launcher_V3.Core {
             INIFunctions.SaveINIValue("Logger", "ImmediateVectorHandlers", INIFunctions.BoolToString(ImmediateVectorHandlers.Checked));
         }
 
+        private void ExceptionHandler_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Logger", "ExceptionHandler", INIFunctions.BoolToString(ExceptionHandler.Checked));
+        }
+
         private void ChangeDEVersionButton_Click(object sender, EventArgs e) {
             GHDEVersionChanger verChange = new GHDEVersionChanger();
             verChange.ShowDialog();
@@ -3498,6 +3722,7 @@ namespace WTDE_Launcher_V3.Core {
         #endregion
 
         #endregion
-    
+
+        
     }
 }
