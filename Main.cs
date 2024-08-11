@@ -445,7 +445,7 @@ namespace WTDE_Launcher_V3.Core {
             // ---------------------------------
             // INPUT TAB
             // ---------------------------------
-            MicrophoneSelect.Text = INIFunctions.GetINIValue("Audio", "MicDevice", "");
+            MicrophoneSelect.Text = INIFunctions.GetINIValue("Audio", "MicDevice", "None");
             DisableInputHack.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Debug", "DisableInputHack", "0"));
 
             MicAudioDelay.Value = decimal.Parse(INIFunctions.GetINIValue("Audio", "VocalAdjustment", "-80"));
@@ -1549,55 +1549,61 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         private void RunWTDEButton_Click(object sender, EventArgs e) {
-            // Is WTDE already running? If so, let's ask if the user wants
-            // to kill the already running process and start a new one.
-            Process[] pname = Process.GetProcessesByName("GHWT_Definitive");
-            V3LauncherCore.AddDebugEntry($"Running processes of WTDE (should be 1 if game is running): {pname.Length}");
-            if (pname.Length == 0) {
-                V3LauncherCore.AddDebugEntry("WTDE is NOT running");
-            } else {
-                V3LauncherCore.AddDebugEntry("WTDE IS RUNNING");
-
-                string wtdeAlreadyRunning = "It seems that GHWT: DE is already running. Do you want to close the currently running " +
-                                            "instance of the game and start a new one?";
-
-                if (MessageBox.Show(wtdeAlreadyRunning, "WTDE Already Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes) {
-                    pname[0].Kill();
+            try {
+                // Is WTDE already running? If so, let's ask if the user wants
+                // to kill the already running process and start a new one.
+                Process[] pname = Process.GetProcessesByName("GHWT_Definitive");
+                V3LauncherCore.AddDebugEntry($"Running processes of WTDE (should be 1 if game is running): {pname.Length}");
+                if (pname.Length == 0) {
+                    V3LauncherCore.AddDebugEntry("WTDE is NOT running");
                 } else {
-                    return;
+                    V3LauncherCore.AddDebugEntry("WTDE IS RUNNING");
+
+                    string wtdeAlreadyRunning = "It seems that GHWT: DE is already running. Do you want to close the currently running " +
+                                                "instance of the game and start a new one?";
+
+                    if (MessageBox.Show(wtdeAlreadyRunning, "WTDE Already Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes) {
+                        pname[0].Kill();
+                    } else {
+                        return;
+                    }
                 }
-            }
 
-            // Do we have auto launch enabled?
-            if (AutoLaunchEnabled.Checked) {
-                // If our auto launch configuration isn't valid, do not proceed!
-                if (!AutoLaunchVerifyOK()) return;
+                // Do we have auto launch enabled?
+                if (AutoLaunchEnabled.Checked) {
+                    // If our auto launch configuration isn't valid, do not proceed!
+                    if (!AutoLaunchVerifyOK()) return;
 
-                // If Auto Launch is enabled, warn the user!
-                // Back up their save data if we're instructed to do so.
-                string autoLaunchEnabledWarning = "You have Auto Launch functionality enabled. Running the game may cause your save data " +
-                                                  "to be lost.\n\nIn the event something goes wrong, do you want to create a backup copy " +
-                                                  "of your save data?";
+                    // If Auto Launch is enabled, warn the user!
+                    // Back up their save data if we're instructed to do so.
+                    string autoLaunchEnabledWarning = "You have Auto Launch functionality enabled. Running the game may cause your save data " +
+                                                      "to be lost.\n\nIn the event something goes wrong, do you want to create a backup copy " +
+                                                      "of your save data?";
 
-                if (MessageBox.Show(autoLaunchEnabledWarning, "Auto Launch Enabled", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                    File.Copy(V3LauncherConstants.WTDESaveDir, $"{V3LauncherConstants.WTDESaveBackupsDir}/GHWTDE_{DateTime.Now.ToString().Replace(":", "_").Replace("/", "-")}.sav", true);
+                    if (MessageBox.Show(autoLaunchEnabledWarning, "Auto Launch Enabled", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        File.Copy(V3LauncherConstants.WTDESaveDir, $"{V3LauncherConstants.WTDESaveBackupsDir}/GHWTDE_{DateTime.Now.ToString().Replace(":", "_").Replace("/", "-")}.sav", true);
 
-                    string saveBackedUp = "Your save file has been backed up!\n\nYou can load the backup save from the Save File Manager if something goes wrong. " +
-                                          "Access the manager by going to the Mod Manager, then go to File > Manage Save Files.";
+                        string saveBackedUp = "Your save file has been backed up!\n\nYou can load the backup save from the Save File Manager if something goes wrong. " +
+                                              "Access the manager by going to the Mod Manager, then go to File > Manage Save Files.";
 
-                    MessageBox.Show(saveBackedUp, "Save Backed Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(saveBackedUp, "Save Backed Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-            }
 
-            // Go to the user's WTDE install folder and start the game up!
-            ModHandler.UseUpdaterINIDirectory();
-            Process.Start("GHWT_Definitive.exe");
+                // Go to the user's WTDE install folder and start the game up!
+                ModHandler.UseUpdaterINIDirectory();
+                Process.Start("GHWT_Definitive.exe");
 
-            // If we want to exit on save, it will close the launcher.
-            // Otherwise, don't close it!
-            if (ExitOnSave.Checked) {
-                this.Close();
-                Environment.Exit(0);
+                // If we want to exit on save, it will close the launcher.
+                // Otherwise, don't close it!
+                if (ExitOnSave.Checked) {
+                    this.Close();
+                    Environment.Exit(0);
+                }
+
+            } catch (Exception exc) {
+                V3LauncherCore.AddDebugEntry($"Error during game launch: {exc.Message}");
+                return;
             }
         }
 
