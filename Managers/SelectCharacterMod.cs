@@ -52,6 +52,11 @@ namespace WTDE_Launcher_V3.Managers {
         public List<string> CharacterModPaths = new List<string>();
 
         /// <summary>
+        ///  List of indices of character mods in the mods list.
+        /// </summary>
+        public List<int> CharacterModIndices = new List<int>();
+
+        /// <summary>
         ///  List of all stock characters, sorted by category. In every sub-array, the arrays contained within are 2 items in length.
         ///  The first index is the literal name; the second index is the internal referent ID.
         ///  <br/>

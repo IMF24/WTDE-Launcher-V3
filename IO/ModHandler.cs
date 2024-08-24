@@ -40,6 +40,8 @@ namespace WTDE_Launcher_V3.IO {
         ///  - Index 5 is the path to the mod's config (INI) file.
         ///  <br/>
         ///  - Index 6 is the path to the mod's folder.
+        ///  <br/>
+        ///  - Index 7 is the index of the mod in the master list.
         /// </summary>
         public static List<string[]> UserContentMods = ReadMods();
 
@@ -92,8 +94,11 @@ namespace WTDE_Launcher_V3.IO {
             }
 
             // Iterate through these files.
-            foreach (string file in files) {
-                try { 
+            for (var i = 0; i < files.Length; i++) {
+                try {
+                    // Set file to be the current file.
+                    string file = files[i];
+
                     V3LauncherCore.AddDebugEntry($"in dir, reading config file: {file}", "Mod Handler: ReadMods");
 
                     IniFile iFile = new IniFile();
@@ -400,7 +405,7 @@ namespace WTDE_Launcher_V3.IO {
                         default:
                             continue;
                     }
-                    outArray.Add(new string[] { modName, modAuthor, modType, modVersion, modDescription, Path.Combine(Directory.GetCurrentDirectory(), file), Path.GetDirectoryName(file) });
+                    outArray.Add(new string[] { modName, modAuthor, modType, modVersion, modDescription, Path.Combine(Directory.GetCurrentDirectory(), file), Path.GetDirectoryName(file), i.ToString() });
                 
                 // Uh oh, we ran into an error parsing this mod.
                 // Just log it in the debug log.
@@ -428,6 +433,10 @@ namespace WTDE_Launcher_V3.IO {
         ///  List of various mod types used by GHWT: DE.
         /// </summary>
         public enum ModTypes {
+            /// <summary>
+            ///  Any type of mod.
+            /// </summary>
+            Any = -1,
             /// <summary>
             ///  Song mods.
             /// </summary>
@@ -464,6 +473,46 @@ namespace WTDE_Launcher_V3.IO {
             ///  QB script mods.
             /// </summary>
             Script = 8
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Various defining properties of a specific mod.
+        /// </summary>
+        public enum ModProperty { 
+            /// <summary>
+            ///  Name of the mod.
+            /// </summary>
+            Name = 0,
+            /// <summary>
+            ///  Author of the mod.
+            /// </summary>
+            Author = 1,
+            /// <summary>
+            ///  Type of the mod.
+            /// </summary>
+            Type = 2,
+            /// <summary>
+            ///  Version of the mod.
+            /// </summary>
+            Version = 3,
+            /// <summary>
+            ///  Description about the mod.
+            /// </summary>
+            Description = 4,
+            /// <summary>
+            ///  Location of the mod's INI file.
+            /// </summary>
+            INIPath = 5,
+            /// <summary>
+            ///  Location of the mod's folder.
+            /// </summary>
+            FolderPath = 6,
+            /// <summary>
+            ///  The numerical index of the mod folder in the master list.
+            /// </summary>
+            Index = 7,
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -521,6 +570,85 @@ namespace WTDE_Launcher_V3.IO {
 
             // And let's give the list back when we're done!
             return outMods.ToList();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Get a specific property of a certain type of mod.
+        /// </summary>
+        /// <param name="modType">
+        ///  The type of mod to filter by.
+        /// </param>
+        /// <param name="property">
+        ///  The property of focus to get back for all mods of the given type.
+        /// </param>
+        /// <returns>
+        ///  A <see cref="List{T}"/> of strings that contains all of the data from the given
+        ///  property. If nothing was found, an empty List is returned.
+        /// </returns>
+        public static List<string> GetPropertyFromModType(ModTypes modType, ModProperty property) {
+            // Cast the property argument to an integer.
+            int propIndex = (int) property;
+
+            // Next up, get all mods by the given type!
+            List<string[]> mods = GetModsByType(modType);
+
+            // Now get all of the values of the given property.
+            IEnumerable<string> valueQuery =
+                from mod in mods
+                select mod[propIndex];
+
+            // Turn the LINQ query into a List and return it.
+            return valueQuery.ToList();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Scans if any mod(s) with a specific property exists.
+        /// </summary>
+        /// <param name="value">
+        ///  The string value to search for in all mods.
+        /// </param>
+        /// <param name="property">
+        ///  The specific property to look for.
+        /// </param>
+        /// <param name="type">
+        ///  Optional: The type of mod to scan over. Defaults to all mods.
+        /// </param>
+        /// <returns>
+        ///  True if at least 1 mod matching the given filter(s) was found. If no mods were found, returns false.
+        /// </returns>
+        public static bool ModExists(string value, ModProperty property, ModTypes type = ModTypes.Any) {
+            // Cast property to an integer.
+            int propIndex = (int) property;
+
+            // Used in the LINQ queries below.
+            IEnumerable<string[]> modScanQuery;
+
+            // We're filtering by a specific type of mod!
+            if (type != ModTypes.Any) {
+                // Read all mods by the given type.
+                List<string[]> readMods = GetModsByType(type);
+
+                // Now we want to scan for the given property and its value.
+                modScanQuery =
+                    from mod in readMods
+                    where mod[propIndex].Contains(value)
+                    select mod;
+
+            // Any mods will do!
+            } else {
+                // Scan all mods, find the given info.
+                modScanQuery =
+                    from mod in UserContentMods
+                    where mod[propIndex].Contains(value)
+                    select mod;
+            }
+
+            // If this query has more than 0 items, return true.
+            return modScanQuery.Count() > 0;
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

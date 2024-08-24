@@ -8,6 +8,7 @@
 // V3 launcher imports.
 using WTDE_Launcher_V3.Core;
 using WTDE_Launcher_V3.IO;
+using WTDE_Launcher_V3.NX;
 
 using System;
 using System.IO;
@@ -24,7 +25,6 @@ using Pfim;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
-using WTDE_Launcher_V3.NX;
 using System.IO.Compression;
 
 namespace WTDE_Launcher_V3.Managers {

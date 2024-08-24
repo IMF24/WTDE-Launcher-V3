@@ -2783,12 +2783,9 @@ namespace WTDE_Launcher_V3.Core {
                 V3LauncherConstants.FlareStyles[0].ToArray(), V3LauncherConstants.FlareStyles[1].ToArray()));
         }
 
-
-
-
-
-
-
+        private void HavokFPS_ValueChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Graphics", "HavokFPS", HavokFPS.Value.ToString());
+        }
         #endregion
         #endregion
 
@@ -2796,7 +2793,7 @@ namespace WTDE_Launcher_V3.Core {
         // BAND TAB AUTO UPDATE
         // ----------------------------------------------------------
         #region Band Tab Auto Update
-        
+
         /// <summary>
         ///  Save a band profile layout to a text file (*.deband).
         /// </summary>
@@ -3034,15 +3031,25 @@ namespace WTDE_Launcher_V3.Core {
             } else {
                 SpawnChangeBandMember(member);
             }
-        }
 
+            // This is only temporary, but we'll disable change instruments
+            // if we are using a built-in character.
+            // This will be usable in the future, but disabled for now.
+            //~ string nameOfMod = GetBandMemberTextBox(member).Text;
+            //~ Console.WriteLine($"Name of mod: {nameOfMod}");
+            //~ ChangeInstMenuItem.Enabled = ModHandler.ModExists(nameOfMod, ModHandler.ModProperty.Name);
+        }
+        
         /// <summary>
-        ///  Actually handles changing band members!
+        ///  Get the text box ID of the given band member.
         /// </summary>
         /// <param name="member">
-        ///  The band member to change.
+        ///  The band member type.
         /// </param>
-        public void SpawnChangeBandMember(BandMembers member) {
+        /// <returns>
+        ///  The text box for the given band member.
+        /// </returns>
+        public TextBox GetBandMemberTextBox(BandMembers member) {
             // Based on our band member selection, we will modify a different text box.
             TextBox inTextBox;
             switch (member) {
@@ -3074,20 +3081,33 @@ namespace WTDE_Launcher_V3.Core {
                     break;
             }
 
+            return inTextBox;
+        }
+
+        /// <summary>
+        ///  Actually handles changing band members!
+        /// </summary>
+        /// <param name="member">
+        ///  The band member to change.
+        /// </param>
+        public void SpawnChangeBandMember(BandMembers member) {
+            // Get the text box we want to change.
+            TextBox inTextBox = GetBandMemberTextBox(member);
+
             // Show the dialog box!
             SelectCharacterMod scm = new SelectCharacterMod(inTextBox);
             scm.ShowDialog();
         }
 
-        private void PrefGtrSelectChar_Click(object sender, MouseEventArgs e) {
+        private void PrefGtrSelectChar_Click(object sender, EventArgs e) {
             HandleChangeBandMember(sender, e, BandMembers.Guitarist);
         }
 
-        private void PrefBasSelectChar_Click(object sender, MouseEventArgs e) {
+        private void PrefBasSelectChar_Click(object sender, EventArgs e) {
             HandleChangeBandMember(sender, e, BandMembers.Bassist);
         }
 
-        private void PrefDrmSelectChar_Click(object sender, MouseEventArgs e) {
+        private void PrefDrmSelectChar_Click(object sender, EventArgs e) {
             HandleChangeBandMember(sender, e, BandMembers.Drummer);
         }
 
@@ -3684,12 +3704,19 @@ namespace WTDE_Launcher_V3.Core {
         //  B A N D     M E M B E R     C H A N G E
         // - - - - - - - - - - - - - - - - - - -
         #region Band Member Change Menu
+        private void PreferredCharacterHoverChange(object sender, EventArgs e) {
+            // Update the active character changer button every
+            // time we hover over one.
+            BandMemberChangeLastButton = (sender as Button).Name;
+        }
 
         private void SetMemberMenuItem_Click(object sender, EventArgs e) {
-
             // Now, which button called this function?
             BandMembers member;
 
+            // This is really weird, since the control's name is a string here.
+            // This is odd. We don't usually refer to them this way.
+            // But it's necessary here! Otherwise we won't spawn a dialog at all.
             switch (BandMemberChangeLastButton) {
                 // -- GUITARIST
                 // -- Also the default if invalid
@@ -3722,8 +3749,79 @@ namespace WTDE_Launcher_V3.Core {
             SpawnChangeBandMember(member);
         }
 
-        private void PreferredCharacterHoverChange(object sender, EventArgs e) {
-            BandMemberChangeLastButton = (sender as Button).Name;
+        private void ChangeInstMenuItem_Click(object sender, EventArgs e) {
+            // Now, which button called this function?
+            BandMembers member;
+
+            // This is really weird, since the control's name is a string here.
+            // This is odd. We don't usually refer to them this way.
+            // But it's necessary here! Otherwise we won't spawn a dialog at all.
+            switch (BandMemberChangeLastButton) {
+                // -- GUITARIST
+                // -- Also the default if invalid
+                case "PrefGtrSelectChar": default:
+                    member = BandMembers.Guitarist;
+                    break;
+
+                // -- BASSIST
+                case "PrefBasSelectChar":
+                    member = BandMembers.Bassist;
+                    break;
+
+                // -- DRUMMER
+                case "PrefDrmSelectChar":
+                    member = BandMembers.Drummer;
+                    break;
+
+                // -- MALE VOCALIST
+                case "PrefVoxSelectChar":
+                    member = BandMembers.MaleVocalist;
+                    break;
+
+                // -- FEMALE VOCALIST
+                case "PrefFVoxSelectChar":
+                    member = BandMembers.FemaleVocalist;
+                    break;
+            }
+
+            // Now get the text box of the current member type.
+            TextBox tb;
+            switch (member) {
+                case BandMembers.Guitarist: default:
+                    tb = PreferredGuitarist;
+                    break;
+
+                case BandMembers.Bassist:
+                    tb = PreferredBassist;
+                    break;
+
+                case BandMembers.Drummer:
+                    tb = PreferredDrummer;
+                    break;
+
+                case BandMembers.MaleVocalist:
+                    tb = PreferredSinger;
+                    break;
+
+                case BandMembers.FemaleVocalist:
+                    tb = PreferredFemaleSinger;
+                    break;
+            }
+
+            // Find the IMPLIED mod, we'll ASSUME this is the only mod with this name.
+            string[] impliedMod = (
+                from mod in ModHandler.UserContentMods
+                where mod[0].Contains(tb.Text.Trim())
+                select mod
+            ).ToList()[0];
+
+            // Get its name and INI file path.
+            string selectedCharacterName = tb.Text.Trim();
+            string selectedCharacterPath = impliedMod[5];
+
+            // Show the dialog!
+            AdjustCharacterInstruments aci = new AdjustCharacterInstruments(selectedCharacterName, selectedCharacterPath);
+            aci.ShowDialog();
         }
         #endregion
 

@@ -433,10 +433,11 @@
             this.FocusedHighway = new System.Windows.Forms.CheckBox();
             this.BadTripMode = new System.Windows.Forms.CheckBox();
             this.DrunkMode = new System.Windows.Forms.CheckBox();
+            this.ExceptionHandler = new System.Windows.Forms.CheckBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
             this.TabDebugGroup = new System.Windows.Forms.GroupBox();
             this.TabBandGroup = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TBPrefTrainingStageLabel = new System.Windows.Forms.Label();
             this.PrefCustomNameLabel = new System.Windows.Forms.Label();
             this.TBPrefFVoxLabel = new System.Windows.Forms.Label();
             this.TBCelebIntrosHeader = new System.Windows.Forms.Label();
@@ -567,7 +568,8 @@
             this.MOTDLabelImage = new System.Windows.Forms.Label();
             this.MOTDImage = new System.Windows.Forms.PictureBox();
             this.UpdateAvailableLabel = new System.Windows.Forms.Label();
-            this.ExceptionHandler = new System.Windows.Forms.CheckBox();
+            this.HavokFPS = new System.Windows.Forms.NumericUpDown();
+            this.HavokFPSLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MicVideoDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MicAudioDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HighwayOpacity)).BeginInit();
@@ -627,6 +629,7 @@
             this.MOTDWithImagePanel.SuspendLayout();
             this.ImageLabelScrollView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HavokFPS)).BeginInit();
             this.SuspendLayout();
             // 
             // OpenDevOnlySettings
@@ -5863,7 +5866,7 @@
             this.SetMemberMenuItem,
             this.ChangeInstMenuItem});
             this.BandMemberChangeMenu.Name = "BandMemberChangeMenu";
-            this.BandMemberChangeMenu.Size = new System.Drawing.Size(237, 48);
+            this.BandMemberChangeMenu.Size = new System.Drawing.Size(360, 48);
             // 
             // SetMemberMenuItem
             // 
@@ -5875,10 +5878,12 @@
             // 
             // ChangeInstMenuItem
             // 
+            this.ChangeInstMenuItem.Enabled = false;
             this.ChangeInstMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.instruments;
             this.ChangeInstMenuItem.Name = "ChangeInstMenuItem";
-            this.ChangeInstMenuItem.Size = new System.Drawing.Size(236, 22);
-            this.ChangeInstMenuItem.Text = "Change Preferred Instrument...";
+            this.ChangeInstMenuItem.Size = new System.Drawing.Size(359, 22);
+            this.ChangeInstMenuItem.Text = "Change Preferred Instrument... (WIP, check back later)";
+            this.ChangeInstMenuItem.Click += new System.EventHandler(this.ChangeInstMenuItem_Click);
             // 
             // PrefVoxSelectChar
             // 
@@ -5919,7 +5924,7 @@
             this.ToolTipMain.SetToolTip(this.PrefDrmSelectChar, "Select a character to assign to the drummer slot.\r\n\r\nTip: Right click this button" +
         " for more options!");
             this.PrefDrmSelectChar.UseVisualStyleBackColor = true;
-            this.PrefDrmSelectChar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PrefDrmSelectChar_Click);
+            this.PrefDrmSelectChar.Click += new System.EventHandler(this.PrefDrmSelectChar_Click);
             this.PrefDrmSelectChar.MouseHover += new System.EventHandler(this.PreferredCharacterHoverChange);
             // 
             // PrefBasHwySelectHwy
@@ -5946,7 +5951,7 @@
             this.ToolTipMain.SetToolTip(this.PrefBasSelectChar, "Select a character to assign to the bassist slot.\r\n\r\nTip: Right click this button" +
         " for more options!");
             this.PrefBasSelectChar.UseVisualStyleBackColor = true;
-            this.PrefBasSelectChar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PrefBasSelectChar_Click);
+            this.PrefBasSelectChar.Click += new System.EventHandler(this.PrefBasSelectChar_Click);
             this.PrefBasSelectChar.MouseHover += new System.EventHandler(this.PreferredCharacterHoverChange);
             // 
             // PrefGtrHwySelectHwy
@@ -5973,7 +5978,7 @@
             this.ToolTipMain.SetToolTip(this.PrefGtrSelectChar, "Select a character to assign to the guitarist slot.\r\n\r\nTip: Right click this butt" +
         "on for more options!");
             this.PrefGtrSelectChar.UseVisualStyleBackColor = true;
-            this.PrefGtrSelectChar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PrefGtrSelectChar_Click);
+            this.PrefGtrSelectChar.Click += new System.EventHandler(this.PrefGtrSelectChar_Click);
             this.PrefGtrSelectChar.MouseHover += new System.EventHandler(this.PreferredCharacterHoverChange);
             // 
             // SongSpecificInstruments
@@ -6162,15 +6167,28 @@
             this.DrunkMode.UseVisualStyleBackColor = true;
             this.DrunkMode.CheckedChanged += new System.EventHandler(this.DrunkMode_CheckedChanged);
             // 
+            // ExceptionHandler
+            // 
+            this.ExceptionHandler.AutoSize = true;
+            this.ExceptionHandler.Location = new System.Drawing.Point(335, 52);
+            this.ExceptionHandler.Margin = new System.Windows.Forms.Padding(2);
+            this.ExceptionHandler.Name = "ExceptionHandler";
+            this.ExceptionHandler.Size = new System.Drawing.Size(229, 26);
+            this.ExceptionHandler.TabIndex = 17;
+            this.ExceptionHandler.Text = "Use WTDE Exception Handler";
+            this.ToolTipMain.SetToolTip(this.ExceptionHandler, resources.GetString("ExceptionHandler.ToolTip"));
+            this.ExceptionHandler.UseVisualStyleBackColor = true;
+            this.ExceptionHandler.CheckedChanged += new System.EventHandler(this.ExceptionHandler_CheckedChanged);
+            // 
             // TabParentContainer
             // 
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
-            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
             this.TabParentContainer.Controls.Add(this.TabInputGroup);
@@ -6205,7 +6223,7 @@
             this.TabDebugGroup.Controls.Add(this.FixMemoryHandler);
             this.TabDebugGroup.Controls.Add(this.FixNoteLimit);
             this.TabDebugGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabDebugGroup.Location = new System.Drawing.Point(13, 16);
+            this.TabDebugGroup.Location = new System.Drawing.Point(226, 443);
             this.TabDebugGroup.Name = "TabDebugGroup";
             this.TabDebugGroup.Size = new System.Drawing.Size(662, 648);
             this.TabDebugGroup.TabIndex = 3;
@@ -6217,7 +6235,7 @@
             this.TabBandGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
             this.TabBandGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabBandGroup.Controls.Add(this.PreferredTrainingStage);
-            this.TabBandGroup.Controls.Add(this.label1);
+            this.TabBandGroup.Controls.Add(this.TBPrefTrainingStageLabel);
             this.TabBandGroup.Controls.Add(this.SongSpecificInstruments);
             this.TabBandGroup.Controls.Add(this.CustomLastName);
             this.TabBandGroup.Controls.Add(this.CustomFirstName);
@@ -6264,21 +6282,21 @@
             this.TabBandGroup.Controls.Add(this.TBPrefGtrLabel);
             this.TabBandGroup.Controls.Add(this.TBBandLineup);
             this.TabBandGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabBandGroup.Location = new System.Drawing.Point(32, 543);
+            this.TabBandGroup.Location = new System.Drawing.Point(36, 543);
             this.TabBandGroup.Name = "TabBandGroup";
             this.TabBandGroup.Size = new System.Drawing.Size(662, 648);
             this.TabBandGroup.TabIndex = 1;
             this.TabBandGroup.TabStop = false;
             this.TabBandGroup.Text = "DEBUG: Band Tab";
             // 
-            // label1
+            // TBPrefTrainingStageLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 221);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 22);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Pref. Training Venue:";
+            this.TBPrefTrainingStageLabel.AutoSize = true;
+            this.TBPrefTrainingStageLabel.Location = new System.Drawing.Point(24, 221);
+            this.TBPrefTrainingStageLabel.Name = "TBPrefTrainingStageLabel";
+            this.TBPrefTrainingStageLabel.Size = new System.Drawing.Size(149, 22);
+            this.TBPrefTrainingStageLabel.TabIndex = 50;
+            this.TBPrefTrainingStageLabel.Text = "Pref. Training Venue:";
             // 
             // PrefCustomNameLabel
             // 
@@ -6515,7 +6533,7 @@
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(522, 286);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(516, 257);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -6794,6 +6812,8 @@
             // 
             // TGEditorAdvanced
             // 
+            this.TGEditorAdvanced.Controls.Add(this.HavokFPS);
+            this.TGEditorAdvanced.Controls.Add(this.HavokFPSLabel);
             this.TGEditorAdvanced.Controls.Add(this.RenderFog);
             this.TGEditorAdvanced.Controls.Add(this.FlareStyle);
             this.TGEditorAdvanced.Controls.Add(this.FlareStyleLabel);
@@ -7770,18 +7790,35 @@
             this.UpdateAvailableLabel.TabIndex = 19;
             this.UpdateAvailableLabel.Text = "A newer version of WTDE is available for download! The latest version is VXYZ.";
             // 
-            // ExceptionHandler
+            // HavokFPS
             // 
-            this.ExceptionHandler.AutoSize = true;
-            this.ExceptionHandler.Location = new System.Drawing.Point(335, 52);
-            this.ExceptionHandler.Margin = new System.Windows.Forms.Padding(2);
-            this.ExceptionHandler.Name = "ExceptionHandler";
-            this.ExceptionHandler.Size = new System.Drawing.Size(229, 26);
-            this.ExceptionHandler.TabIndex = 17;
-            this.ExceptionHandler.Text = "Use WTDE Exception Handler";
-            this.ToolTipMain.SetToolTip(this.ExceptionHandler, resources.GetString("ExceptionHandler.ToolTip"));
-            this.ExceptionHandler.UseVisualStyleBackColor = true;
-            this.ExceptionHandler.CheckedChanged += new System.EventHandler(this.ExceptionHandler_CheckedChanged);
+            this.HavokFPS.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.HavokFPS.Location = new System.Drawing.Point(198, 435);
+            this.HavokFPS.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.HavokFPS.Name = "HavokFPS";
+            this.HavokFPS.Size = new System.Drawing.Size(64, 23);
+            this.HavokFPS.TabIndex = 34;
+            this.ToolTipMain.SetToolTip(this.HavokFPS, "The frame rate that Havok logic will be computed at. Set to 0\r\nto uncap the frame" +
+        " rate.");
+            this.HavokFPS.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.HavokFPS.ValueChanged += new System.EventHandler(this.HavokFPS_ValueChanged);
+            // 
+            // HavokFPSLabel
+            // 
+            this.HavokFPSLabel.AutoSize = true;
+            this.HavokFPSLabel.Location = new System.Drawing.Point(17, 434);
+            this.HavokFPSLabel.Name = "HavokFPSLabel";
+            this.HavokFPSLabel.Size = new System.Drawing.Size(88, 22);
+            this.HavokFPSLabel.TabIndex = 33;
+            this.HavokFPSLabel.Text = "Havok FPS:";
             // 
             // Main
             // 
@@ -7888,6 +7925,7 @@
             this.MOTDWithImagePanel.ResumeLayout(false);
             this.ImageLabelScrollView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MOTDImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HavokFPS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8424,7 +8462,7 @@
         private System.Windows.Forms.PictureBox ALDiffIconP1;
         private System.Windows.Forms.CheckBox SongSpecificInstruments;
         private System.Windows.Forms.ComboBox PreferredTrainingStage;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label TBPrefTrainingStageLabel;
         private System.Windows.Forms.Button ChangeDEVersionButton;
         private System.Windows.Forms.CheckBox FastLose;
         private System.Windows.Forms.CheckBox FastStart;
@@ -8438,6 +8476,8 @@
         private System.Windows.Forms.ToolStripMenuItem SetMemberMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChangeInstMenuItem;
         private System.Windows.Forms.CheckBox ExceptionHandler;
+        private System.Windows.Forms.NumericUpDown HavokFPS;
+        private System.Windows.Forms.Label HavokFPSLabel;
     }
 }
 
