@@ -260,6 +260,8 @@ namespace WTDE_Launcher_V3.Core {
 
                 // - - - - - - - - - - - - - - - - - - - - - - -
 
+                RPCHandler.SetRPCDetails("Changing some settings");
+
             } catch (Exception exc) {
                 var st = new StackTrace(exc, true);
                 var frame = st.GetFrame(0);

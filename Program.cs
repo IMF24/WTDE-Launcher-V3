@@ -52,6 +52,21 @@ namespace WTDE_Launcher_V3.Core {
                 }
                 //~ ShowDebugConsole((INIFunctions.GetINIValue("Launcher", "Console") == "1"));
 
+                // Spawn Discord RPC?
+                if (INIFunctions.GetINIValue("Launcher", "RichPresence") == "1") {
+                    RPCHandler.InitializeRPC();
+                    var newPresence = RPCHandler.MakeRPCStatusFromBasicData(
+                        "Getting things ready",
+                        $"Version {V3LauncherConstants.VERSION}",
+                        "https://raw.githubusercontent.com/IMF24/WTDE-Launcher-V3/master/res/img/icon/icon.png",
+                        $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION}",
+                        //~ "https://raw.githubusercontent.com/IMF24/WTDE-Launcher-V3/master/res/img/icon/instruments.png",
+                        "",
+                        "Main Editor"
+                    );
+                    RPCHandler.UpdateRPCStatus(newPresence);
+                }
+
                 // Intro stuff in the console!
                 Console.WriteLine("~=-=~=-=~      W T D E     L A U N C H E R     V 3      ~=-=~=-=~");
                 Console.WriteLine($"  WTDE Launcher Execution Debug Console - WTDE Launcher Version {V3LauncherConstants.VERSION}");
