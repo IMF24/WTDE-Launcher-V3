@@ -1043,7 +1043,7 @@ namespace WTDE_Launcher_V3.Managers {
             deleteCategoryToolStripMenuItem.Enabled = enableVariousCommandsC;
             editCategoryDataToolStripMenuItem.Enabled = enableVariousCommandsC;
             // ----------------------
-            editSortByCareerOrderToolStripMenuItem.Enabled = enableVariousCommandsC;
+            editSortByCareerOrderToolStripMenuItem.Enabled = enableMakeSetlistZIP;
             makeSetlistZIPToolStripMenuItem.Enabled = enableMakeSetlistZIP;
             // ----------------------
             openModConfigToolStripMenuItem1.Enabled = enableVariousCommandsC;

@@ -181,12 +181,13 @@
             // 
             // ResetSortOrderButton
             // 
-            this.ResetSortOrderButton.Location = new System.Drawing.Point(465, 182);
+            this.ResetSortOrderButton.Location = new System.Drawing.Point(465, 144);
             this.ResetSortOrderButton.Name = "ResetSortOrderButton";
             this.ResetSortOrderButton.Size = new System.Drawing.Size(156, 23);
             this.ResetSortOrderButton.TabIndex = 10;
             this.ResetSortOrderButton.Text = "Reset Sort Order";
-            this.ToolTipMain.SetToolTip(this.ResetSortOrderButton, "Reset the sort order. This writes the sort index to -1.");
+            this.ToolTipMain.SetToolTip(this.ResetSortOrderButton, "Reset the sort order. This reverts the sort filter back to being alphabetical,\r\ni" +
+        "n GHWT\'s default A-Z by title sorting method.");
             this.ResetSortOrderButton.UseVisualStyleBackColor = true;
             this.ResetSortOrderButton.Click += new System.EventHandler(this.ResetSortOrderButton_Click);
             // 
@@ -197,6 +198,7 @@
             this.CancelButton.Size = new System.Drawing.Size(89, 23);
             this.CancelButton.TabIndex = 9;
             this.CancelButton.Text = "Cancel";
+            this.ToolTipMain.SetToolTip(this.CancelButton, "Close this window without saving any changes.");
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -207,6 +209,7 @@
             this.OKButton.Size = new System.Drawing.Size(89, 23);
             this.OKButton.TabIndex = 10;
             this.OKButton.Text = "OK";
+            this.ToolTipMain.SetToolTip(this.OKButton, "Write the changes you\'ve made to the songs in this category.");
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
@@ -217,6 +220,7 @@
             this.MoveItemUpGButton.Size = new System.Drawing.Size(156, 23);
             this.MoveItemUpGButton.TabIndex = 10;
             this.MoveItemUpGButton.Text = "Move Up";
+            this.ToolTipMain.SetToolTip(this.MoveItemUpGButton, "Move the selected item up 1 spot.");
             this.MoveItemUpGButton.UseVisualStyleBackColor = true;
             this.MoveItemUpGButton.Click += new System.EventHandler(this.MoveItemUpGButton_Click);
             // 
@@ -227,6 +231,7 @@
             this.MoveItemDownGButton.Size = new System.Drawing.Size(156, 23);
             this.MoveItemDownGButton.TabIndex = 10;
             this.MoveItemDownGButton.Text = "Move Down";
+            this.ToolTipMain.SetToolTip(this.MoveItemDownGButton, "Move the selected item down 1 spot.");
             this.MoveItemDownGButton.UseVisualStyleBackColor = true;
             this.MoveItemDownGButton.Click += new System.EventHandler(this.MoveItemDownGButton_Click);
             // 
@@ -242,11 +247,13 @@
             // 
             // ResetSortAllOrdersButton
             // 
-            this.ResetSortAllOrdersButton.Location = new System.Drawing.Point(465, 211);
+            this.ResetSortAllOrdersButton.Location = new System.Drawing.Point(465, 173);
             this.ResetSortAllOrdersButton.Name = "ResetSortAllOrdersButton";
             this.ResetSortAllOrdersButton.Size = new System.Drawing.Size(156, 23);
             this.ResetSortAllOrdersButton.TabIndex = 10;
             this.ResetSortAllOrdersButton.Text = "Reset All Sort Orders";
+            this.ToolTipMain.SetToolTip(this.ResetSortAllOrdersButton, "Reset the sort order for ALL instrument parts for this category for Sort by Caree" +
+        "r.");
             this.ResetSortAllOrdersButton.UseVisualStyleBackColor = true;
             this.ResetSortAllOrdersButton.Click += new System.EventHandler(this.ResetSortAllOrdersButton_Click);
             // 
@@ -257,6 +264,7 @@
             this.MoveToIndexButton.Size = new System.Drawing.Size(49, 23);
             this.MoveToIndexButton.TabIndex = 10;
             this.MoveToIndexButton.Text = "Move";
+            this.ToolTipMain.SetToolTip(this.MoveToIndexButton, "Move the selected item to the designated index in the spin box.");
             this.MoveToIndexButton.UseVisualStyleBackColor = true;
             this.MoveToIndexButton.Click += new System.EventHandler(this.MoveToIndexButton_Click);
             // 
@@ -276,6 +284,8 @@
             this.IndexMoverSpinBox.Name = "IndexMoverSpinBox";
             this.IndexMoverSpinBox.Size = new System.Drawing.Size(52, 20);
             this.IndexMoverSpinBox.TabIndex = 11;
+            this.ToolTipMain.SetToolTip(this.IndexMoverSpinBox, "Move the selected item to this index position. Press the Move button to the left\r" +
+        "\nof this spin box to move the selected item to the index you\'ve defined.");
             // 
             // SCMEditCareerSort
             // 

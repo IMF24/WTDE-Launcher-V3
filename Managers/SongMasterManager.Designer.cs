@@ -551,6 +551,8 @@
             this.EditSortOrderButton.Size = new System.Drawing.Size(224, 23);
             this.EditSortOrderButton.TabIndex = 30;
             this.EditSortOrderButton.Text = "Edit Sort by Career Order...";
+            this.SCMToolTipMain.SetToolTip(this.EditSortOrderButton, "Edit the sort order for when the setlist is filtered through the Sort by Career\r\n" +
+        "option in the setlist menu in-game.");
             this.EditSortOrderButton.UseVisualStyleBackColor = true;
             this.EditSortOrderButton.Click += new System.EventHandler(this.EditSortOrderButton_Click);
             // 
