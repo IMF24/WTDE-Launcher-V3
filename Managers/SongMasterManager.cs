@@ -121,6 +121,8 @@ namespace WTDE_Launcher_V3.Managers {
             SongModsHeader.Text = "Refreshing...";
             SongCategoriesHeader.Text = "Refreshing...";
             EditCategoryDataButton.Enabled = false;
+            MakeSetlistZIPButton.Enabled = false;
+            EditSortOrderButton.Enabled = false;
 
             Application.DoEvents();
 
@@ -152,8 +154,8 @@ namespace WTDE_Launcher_V3.Managers {
                     SongTitles.Add($"{songArtist} - {songName}");
                     SongChecksums.Add(songChecksum);
                     SongModPaths.Add(mod[5]);
-                
-                // Is this a category mod?
+
+                    // Is this a category mod?
                 } else if (mod[2] == "Song Category") {
                     // Get the name and category checksum.
                     string cateName = file.GetString("CategoryInfo", "Name", "Unknown Category Title");
@@ -421,6 +423,7 @@ namespace WTDE_Launcher_V3.Managers {
         public void UpdateActiveSongControls() {
             EditCategoryDataButton.Enabled = (SongCategoriesList.SelectedItems.Count > 0);
             MakeSetlistZIPButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
+            EditSortOrderButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
         }
 
         /// <summary>
@@ -463,31 +466,22 @@ namespace WTDE_Launcher_V3.Managers {
             LogoImageBox.Image = nxImg.Image;
         }
 
-        /// <summary>
-        ///  Does some magic to convert a UInt32 to big endian... I think.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static uint ESwap(uint value) {
-            return ((value & 0xFF) << 24) |
-                   ((value & 0xFF00) << 8) |
-                   ((value & 0xFF0000) >> 8) |
-                   ((value & 0xFF000000) >> 24);
-        }
-
         // - - - - - - - - - - - - - - - - - - - - - - -
 
+        /// <summary>
+        ///  Returns the indices in a list where a given string value occurs.
+        /// </summary>
+        /// <param name="list">
+        ///  The input list.
+        /// </param>
+        /// <param name="match">
+        ///  The string filter.
+        /// </param>
+        /// <returns>
+        ///  Array of indices for where the match filter was found.
+        /// </returns>
         public static int[] GetItemIndexesInList(List<string> list, string match) {
-            List<int> outIndexes = new List<int>();
-
-            for (var i = 0; i < list.Count; i++) {
-                if (list[i].ToLower() == match.ToLower() ||
-                    list[i].ToLower().Contains(match.ToLower())) {
-                    outIndexes.Add(i);
-                }
-            }
-
-            return outIndexes.ToArray();
+            return Helpers.GetStringListMatchIndices(list, match);
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - -
@@ -848,7 +842,7 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // Go through every song path!
                 foreach (string path in songConfigPaths) {
-                    
+
                     // Initialize INI with this file.
                     file = new INI(path);
 
@@ -949,7 +943,7 @@ namespace WTDE_Launcher_V3.Managers {
                     file.Sections["SongInfo"].Keys["GameCategory"].Value = "none";
                     file.Save(pathToConfig);
 
-                // Folder INI file?
+                    // Folder INI file?
                 } else {
                     string wtdeDir = V3LauncherCore.GetUpdaterINIDirectory();
                     var splitPath = pathToConfig.Replace('\\', '/').Split('/');
@@ -1045,10 +1039,11 @@ namespace WTDE_Launcher_V3.Managers {
             // -- SONG CATEGORY MENU ------------------------
             bool enableVariousCommandsC = (SongCategoriesList.SelectedItems.Count > 0);
             bool enableMakeSetlistZIP = (AttachedCategorySongs.Items.Count > 0);
-            
+
             deleteCategoryToolStripMenuItem.Enabled = enableVariousCommandsC;
             editCategoryDataToolStripMenuItem.Enabled = enableVariousCommandsC;
             // ----------------------
+            editSortByCareerOrderToolStripMenuItem.Enabled = enableVariousCommandsC;
             makeSetlistZIPToolStripMenuItem.Enabled = enableMakeSetlistZIP;
             // ----------------------
             openModConfigToolStripMenuItem1.Enabled = enableVariousCommandsC;
@@ -1115,6 +1110,44 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void AddSongsToCategoryButton_Click(object sender, EventArgs e) {
             AddSongsToCurrentCategory();
+        }
+
+        public void OpenEditSortByCareerDialog() {
+            List<string> songNames = new List<string>();
+            List<string> songChecksums = new List<string>();
+            List<string> songINIPaths = new List<string>();
+
+            for (var i = 0; i < AttachedCategorySongs.Items.Count; i++) {
+                // Get the current list view item.
+                ListViewItem lvi = AttachedCategorySongs.Items[i];
+
+                // 1st is the song title (we'll skip it and just get the
+                // actual name from its INI file.
+                // 2nd is the checksum.
+                // 3rd is the INI path.
+                string songTitle;
+                string songChecksum = lvi.SubItems[1].Text;
+                string iniPath = lvi.SubItems[2].Text;
+
+                // Read the INI file to figure out the title of the song.
+                INI file = new INI(iniPath);
+                songTitle = file.GetString("SongInfo", "Title", $"Unknown Title {i + 1}");
+
+                songNames.Add(songTitle);
+                songChecksums.Add(songChecksum);
+                songINIPaths.Add(iniPath);
+            }
+
+            SCMEditCareerSort secs = new SCMEditCareerSort(songNames, songChecksums, songINIPaths);
+            secs.ShowDialog();
+        }
+
+        private void editSortByCareerOrderToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenEditSortByCareerDialog();
+        }
+
+        private void EditSortOrderButton_Click(object sender, EventArgs e) {
+            OpenEditSortByCareerDialog();
         }
     }
 }

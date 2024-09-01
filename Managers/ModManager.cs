@@ -31,6 +31,12 @@ namespace WTDE_Launcher_V3.Managers {
         public ModManager() {
             InitializeComponent();
 
+            RPCHandler.SetRPCLargeImage(
+                "https://raw.githubusercontent.com/IMF24/WTDE-Launcher-V3/master/res/img/icon/mod_manager.png",
+                $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - Mod Manager"
+            );
+            RPCHandler.SetRPCDetails("Managing some mods");
+
             this.Text = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION} - Mod Manager";
             if (V3LauncherCore.EnableDeveloperSettings) this.Text += " | Dev. Settings Enabled";
 

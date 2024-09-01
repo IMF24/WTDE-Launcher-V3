@@ -285,6 +285,12 @@
     <Compile Include="Managers\QSECompileScriptMod.Designer.cs">
       <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SCMEditCareerSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SCMEditCareerSort.Designer.cs">
+      <DependentUpon>SCMEditCareerSort.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\SCMMakeSetlistZIP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,6 +442,9 @@
     <EmbeddedResource Include="Managers\QSECompileScriptMod.resx">
       <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SCMEditCareerSort.resx">
+      <DependentUpon>SCMEditCareerSort.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\SCMMakeSetlistZIP.resx">
       <DependentUpon>SCMMakeSetlistZIP.cs</DependentUpon>
     </EmbeddedResource>
@@ -506,6 +515,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\menuicons\sort_by_career.png" />
     <None Include="res\img\instruments\mixer_icon_mic_stand.png" />
     <None Include="Resources\fox.png" />
     <None Include="res\img\social\github_dark.png" />

@@ -29,6 +29,9 @@ namespace WTDE_Launcher_V3.Core {
         /// </summary>
         public static void InitializeRPC() {
             try {
+                // ID here is the application ID on the Discord Developers' Portal.
+                // This is needed here, since this shows the name of our
+                // application when Discord listens to the RPC client.
                 RPCClient = new DiscordRpcClient("1278492826870616114", autoEvents: false);
                 RPCClient.Initialize();
 
@@ -124,6 +127,9 @@ namespace WTDE_Launcher_V3.Core {
         ///  Text to display when hovered over.
         /// </param>
         public static void SetRPCLargeImage(string url, string hoverText = "") {
+            if (hoverText == "") {
+                hoverText = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION}";
+            }
             RPCClient.UpdateLargeAsset(url, hoverText);
         }
 

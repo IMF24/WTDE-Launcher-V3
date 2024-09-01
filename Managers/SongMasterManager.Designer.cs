@@ -42,6 +42,7 @@
             this.ApplySongCategorySearch = new System.Windows.Forms.Button();
             this.SongCategoryFilter = new System.Windows.Forms.TextBox();
             this.MakeSetlistZIPButton = new System.Windows.Forms.Button();
+            this.AddSongsToCategoryButton = new System.Windows.Forms.Button();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,7 @@
             this.deleteCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCategoryDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.editSortByCareerOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.openModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +77,7 @@
             this.CategoryPreviewHeader = new System.Windows.Forms.Label();
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
-            this.AddSongsToCategoryButton = new System.Windows.Forms.Button();
+            this.EditSortOrderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
             this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -239,6 +241,18 @@
             this.MakeSetlistZIPButton.UseVisualStyleBackColor = true;
             this.MakeSetlistZIPButton.Click += new System.EventHandler(this.MakeSetlistZIPButton_Click);
             // 
+            // AddSongsToCategoryButton
+            // 
+            this.AddSongsToCategoryButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.add_black;
+            this.AddSongsToCategoryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddSongsToCategoryButton.Location = new System.Drawing.Point(302, 39);
+            this.AddSongsToCategoryButton.Name = "AddSongsToCategoryButton";
+            this.AddSongsToCategoryButton.Size = new System.Drawing.Size(23, 23);
+            this.AddSongsToCategoryButton.TabIndex = 33;
+            this.SCMToolTipMain.SetToolTip(this.AddSongsToCategoryButton, "Add the selected songs to the current category.");
+            this.AddSongsToCategoryButton.UseVisualStyleBackColor = true;
+            this.AddSongsToCategoryButton.Click += new System.EventHandler(this.AddSongsToCategoryButton_Click);
+            // 
             // TopMenuStrip
             // 
             this.TopMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -378,6 +392,7 @@
             this.deleteCategoryToolStripMenuItem,
             this.editCategoryDataToolStripMenuItem,
             this.toolStripSeparator7,
+            this.editSortByCareerOrderToolStripMenuItem,
             this.makeSetlistZIPToolStripMenuItem,
             this.toolStripSeparator5,
             this.openModConfigToolStripMenuItem1,
@@ -417,6 +432,14 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
+            // 
+            // editSortByCareerOrderToolStripMenuItem
+            // 
+            this.editSortByCareerOrderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.sort_by_career;
+            this.editSortByCareerOrderToolStripMenuItem.Name = "editSortByCareerOrderToolStripMenuItem";
+            this.editSortByCareerOrderToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.editSortByCareerOrderToolStripMenuItem.Text = "Edit Sort by Career Order...";
+            this.editSortByCareerOrderToolStripMenuItem.Click += new System.EventHandler(this.editSortByCareerOrderToolStripMenuItem_Click);
             // 
             // makeSetlistZIPToolStripMenuItem
             // 
@@ -521,17 +544,15 @@
             this.SongCatSongListHeader.TabIndex = 14;
             this.SongCatSongListHeader.Text = "Song Category Preview:";
             // 
-            // AddSongsToCategoryButton
+            // EditSortOrderButton
             // 
-            this.AddSongsToCategoryButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.add_black;
-            this.AddSongsToCategoryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AddSongsToCategoryButton.Location = new System.Drawing.Point(302, 39);
-            this.AddSongsToCategoryButton.Name = "AddSongsToCategoryButton";
-            this.AddSongsToCategoryButton.Size = new System.Drawing.Size(23, 23);
-            this.AddSongsToCategoryButton.TabIndex = 33;
-            this.SCMToolTipMain.SetToolTip(this.AddSongsToCategoryButton, "Add the selected songs to the current category.");
-            this.AddSongsToCategoryButton.UseVisualStyleBackColor = true;
-            this.AddSongsToCategoryButton.Click += new System.EventHandler(this.AddSongsToCategoryButton_Click);
+            this.EditSortOrderButton.Location = new System.Drawing.Point(820, 99);
+            this.EditSortOrderButton.Name = "EditSortOrderButton";
+            this.EditSortOrderButton.Size = new System.Drawing.Size(224, 23);
+            this.EditSortOrderButton.TabIndex = 30;
+            this.EditSortOrderButton.Text = "Edit Sort by Career Order...";
+            this.EditSortOrderButton.UseVisualStyleBackColor = true;
+            this.EditSortOrderButton.Click += new System.EventHandler(this.EditSortOrderButton_Click);
             // 
             // SongMasterManager
             // 
@@ -545,6 +566,7 @@
             this.Controls.Add(this.ResetSongModFilter);
             this.Controls.Add(this.ApplySongModSearch);
             this.Controls.Add(this.SongModFilter);
+            this.Controls.Add(this.EditSortOrderButton);
             this.Controls.Add(this.MakeSetlistZIPButton);
             this.Controls.Add(this.EditCategoryDataButton);
             this.Controls.Add(this.CloseButton);
@@ -629,5 +651,7 @@
         private System.Windows.Forms.ToolStripMenuItem makeSetlistZIPToolStripMenuItem;
         private System.Windows.Forms.Button MakeSetlistZIPButton;
         private System.Windows.Forms.Button AddSongsToCategoryButton;
+        private System.Windows.Forms.ToolStripMenuItem editSortByCareerOrderToolStripMenuItem;
+        private System.Windows.Forms.Button EditSortOrderButton;
     }
 }

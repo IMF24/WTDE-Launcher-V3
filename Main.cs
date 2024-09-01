@@ -1610,8 +1610,8 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         private void AdjustSettingsButton_Click(object sender, EventArgs e) {
-            if (ActiveTab == 0 || ActiveTab == 7) UpdateActiveTab((int)LauncherTabs.PreTab);
-            else UpdateActiveTab((int)LauncherTabs.MOTD);
+            if (ActiveTab == 0 || ActiveTab == 7) UpdateActiveTab((int) LauncherTabs.PreTab);
+            else UpdateActiveTab((int) LauncherTabs.MOTD);
         }
 
         private void OpenModsButton_Click(object sender, EventArgs e) {
@@ -1634,11 +1634,17 @@ namespace WTDE_Launcher_V3.Core {
             // Is this a bug? I don't know, I think Fox had an issue with this...
             // Reload INI/XML settings again just in case.
             LoadINISettings();
+
+            // Reset RPC status.
+            RPCHandler.SetRPCLargeImage(
+                "https://raw.githubusercontent.com/IMF24/WTDE-Launcher-V3/master/res/img/icon/icon.png"
+            );
+            RPCHandler.SetRPCDetails("Changing some settings");
         }
 
         private void FretworksLogo_Click(object sender, EventArgs e) {
-            if (ActiveTab == 7) UpdateActiveTab((int)LauncherTabs.MOTD);
-            else UpdateActiveTab((int)LauncherTabs.Credits);
+            if (ActiveTab == 7) UpdateActiveTab((int) LauncherTabs.MOTD);
+            else UpdateActiveTab((int) LauncherTabs.Credits);
         }
 
         private void VersionInfoLabel_Click(object sender, EventArgs e) {

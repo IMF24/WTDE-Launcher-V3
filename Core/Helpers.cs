@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
@@ -184,6 +186,38 @@ namespace WTDE_Launcher_V3.Core {
             finalString += "]";
             if (print) Console.WriteLine(finalString);
             return finalString;
+        }
+
+        /// <summary>
+        ///  Gets the indices of a certain filter in a collection of strings.
+        /// </summary>
+        /// <param name="values">
+        ///  The collection of strings.
+        /// </param>
+        /// <param name="item">
+        ///  The filter you want to find all occurrences of.
+        /// </param>
+        /// <returns>
+        ///  An array of integer values that contains all of the indices where the filtered string was found.
+        /// </returns>
+        public static int[] GetStringListMatchIndices(IEnumerable<string> values, string filter) {
+            // The final index locations!
+            List<int> finalIndices = new List<int>();
+
+            // Turn the input items into a List.
+            List<string> actualStrings = values.ToList();
+
+            // Scan the list by the filter!
+            for (var i = 0; i < actualStrings.Count; i++) {
+                // We'll do it case INsensitively. 
+                if (actualStrings[i].ToLower() == filter.ToLower() ||
+                    actualStrings[i].ToLower().Contains(filter.ToLower())) { 
+                    finalIndices.Add(i);
+                }
+            }
+
+            // Return the final indices as an array of integers!
+            return finalIndices.ToArray();
         }
     }
 }

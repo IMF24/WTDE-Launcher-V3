@@ -32,35 +32,35 @@
             this.SelectSavePathButton = new System.Windows.Forms.Button();
             this.UseGameIcon = new System.Windows.Forms.CheckBox();
             this.ExportOptionsPanel = new System.Windows.Forms.Panel();
+            this.AddFolderOfSongsButton = new System.Windows.Forms.Button();
+            this.AddFolderOfCatsButton = new System.Windows.Forms.Button();
+            this.ClearExtraSongListButton = new System.Windows.Forms.Button();
+            this.ClearExtraCateListButton = new System.Windows.Forms.Button();
+            this.DeleteSingleExtraSongButton = new System.Windows.Forms.Button();
+            this.DeleteSingleExtraCateButton = new System.Windows.Forms.Button();
+            this.AddSingleExSongButton = new System.Windows.Forms.Button();
+            this.AddSingleCateButton = new System.Windows.Forms.Button();
+            this.ExtraSongsList = new System.Windows.Forms.ListBox();
+            this.ExtraCategoriesList = new System.Windows.Forms.ListBox();
             this.UseCustomChecksum = new System.Windows.Forms.CheckBox();
             this.UseCategoryChecksumNameButton = new System.Windows.Forms.Button();
             this.FolderConfigChecksum = new System.Windows.Forms.TextBox();
             this.WriteFolderINIFile = new System.Windows.Forms.CheckBox();
             this.UseCategoryImageNameButton = new System.Windows.Forms.Button();
+            this.ExtraSongsHeader = new System.Windows.Forms.Label();
             this.ExtraCategoriesHeader = new System.Windows.Forms.Label();
             this.FolderConfigIcon = new System.Windows.Forms.TextBox();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
-            this.ExtraSongsHeader = new System.Windows.Forms.Label();
-            this.ExtraCategoriesList = new System.Windows.Forms.ListBox();
-            this.ExtraSongsList = new System.Windows.Forms.ListBox();
-            this.AddSingleCateButton = new System.Windows.Forms.Button();
-            this.AddFolderOfCatsButton = new System.Windows.Forms.Button();
-            this.DeleteSingleExtraCateButton = new System.Windows.Forms.Button();
-            this.ClearExtraCateListButton = new System.Windows.Forms.Button();
-            this.AddSingleExSongButton = new System.Windows.Forms.Button();
-            this.DeleteSingleExtraSongButton = new System.Windows.Forms.Button();
-            this.ClearExtraSongListButton = new System.Windows.Forms.Button();
-            this.AddFolderOfSongsButton = new System.Windows.Forms.Button();
             this.CompileSetlistZIPButton = new System.Windows.Forms.Button();
-            this.ExportStatusPanel = new System.Windows.Forms.Panel();
-            this.OutputLogHeader = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.ExportStatusSideLabel = new System.Windows.Forms.Label();
-            this.ExportStatusLabel = new System.Windows.Forms.Label();
-            this.ExportPercentLabel = new System.Windows.Forms.Label();
-            this.ExportProgressBar = new System.Windows.Forms.ProgressBar();
             this.OutputTextLog = new System.Windows.Forms.RichTextBox();
             this.OpenFinishedZIPButton = new System.Windows.Forms.Button();
+            this.ExportStatusPanel = new System.Windows.Forms.Panel();
+            this.ExportProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ExportStatusLabel = new System.Windows.Forms.Label();
+            this.ExportPercentLabel = new System.Windows.Forms.Label();
+            this.ExportStatusSideLabel = new System.Windows.Forms.Label();
+            this.OutputLogHeader = new System.Windows.Forms.Label();
             this.RedFieldsReminderLabel = new System.Windows.Forms.Label();
             this.ExportOptionsPanel.SuspendLayout();
             this.ExportStatusPanel.SuspendLayout();
@@ -158,6 +158,114 @@
             this.ExportOptionsPanel.Size = new System.Drawing.Size(737, 338);
             this.ExportOptionsPanel.TabIndex = 14;
             // 
+            // AddFolderOfSongsButton
+            // 
+            this.AddFolderOfSongsButton.Location = new System.Drawing.Point(453, 303);
+            this.AddFolderOfSongsButton.Name = "AddFolderOfSongsButton";
+            this.AddFolderOfSongsButton.Size = new System.Drawing.Size(126, 23);
+            this.AddFolderOfSongsButton.TabIndex = 18;
+            this.AddFolderOfSongsButton.Text = "Add Folder of Mods...";
+            this.ToolTipMain.SetToolTip(this.AddFolderOfSongsButton, "Add a folder of song mods into the list.");
+            this.AddFolderOfSongsButton.UseVisualStyleBackColor = true;
+            this.AddFolderOfSongsButton.Click += new System.EventHandler(this.AddFolderOfSongsButton_Click);
+            // 
+            // AddFolderOfCatsButton
+            // 
+            this.AddFolderOfCatsButton.Location = new System.Drawing.Point(88, 303);
+            this.AddFolderOfCatsButton.Name = "AddFolderOfCatsButton";
+            this.AddFolderOfCatsButton.Size = new System.Drawing.Size(126, 23);
+            this.AddFolderOfCatsButton.TabIndex = 18;
+            this.AddFolderOfCatsButton.Text = "Add Folder of Mods...";
+            this.ToolTipMain.SetToolTip(this.AddFolderOfCatsButton, "Add a folder of category mods into the list.");
+            this.AddFolderOfCatsButton.UseVisualStyleBackColor = true;
+            this.AddFolderOfCatsButton.Click += new System.EventHandler(this.AddFolderOfCatsButton_Click);
+            // 
+            // ClearExtraSongListButton
+            // 
+            this.ClearExtraSongListButton.Location = new System.Drawing.Point(658, 303);
+            this.ClearExtraSongListButton.Name = "ClearExtraSongListButton";
+            this.ClearExtraSongListButton.Size = new System.Drawing.Size(67, 23);
+            this.ClearExtraSongListButton.TabIndex = 18;
+            this.ClearExtraSongListButton.Text = "Clear";
+            this.ToolTipMain.SetToolTip(this.ClearExtraSongListButton, "Clear the entire list of extra songs to include.");
+            this.ClearExtraSongListButton.UseVisualStyleBackColor = true;
+            this.ClearExtraSongListButton.Click += new System.EventHandler(this.ClearExtraSongListButton_Click);
+            // 
+            // ClearExtraCateListButton
+            // 
+            this.ClearExtraCateListButton.Location = new System.Drawing.Point(293, 303);
+            this.ClearExtraCateListButton.Name = "ClearExtraCateListButton";
+            this.ClearExtraCateListButton.Size = new System.Drawing.Size(67, 23);
+            this.ClearExtraCateListButton.TabIndex = 18;
+            this.ClearExtraCateListButton.Text = "Clear";
+            this.ToolTipMain.SetToolTip(this.ClearExtraCateListButton, "Clear the entire list of extra categories to include.");
+            this.ClearExtraCateListButton.UseVisualStyleBackColor = true;
+            this.ClearExtraCateListButton.Click += new System.EventHandler(this.ClearExtraCateListButton_Click);
+            // 
+            // DeleteSingleExtraSongButton
+            // 
+            this.DeleteSingleExtraSongButton.Location = new System.Drawing.Point(585, 303);
+            this.DeleteSingleExtraSongButton.Name = "DeleteSingleExtraSongButton";
+            this.DeleteSingleExtraSongButton.Size = new System.Drawing.Size(67, 23);
+            this.DeleteSingleExtraSongButton.TabIndex = 18;
+            this.DeleteSingleExtraSongButton.Text = "Delete";
+            this.ToolTipMain.SetToolTip(this.DeleteSingleExtraSongButton, "Delete the currently selected extra songs.");
+            this.DeleteSingleExtraSongButton.UseVisualStyleBackColor = true;
+            this.DeleteSingleExtraSongButton.Click += new System.EventHandler(this.DeleteSingleExtraSongButton_Click);
+            // 
+            // DeleteSingleExtraCateButton
+            // 
+            this.DeleteSingleExtraCateButton.Location = new System.Drawing.Point(220, 303);
+            this.DeleteSingleExtraCateButton.Name = "DeleteSingleExtraCateButton";
+            this.DeleteSingleExtraCateButton.Size = new System.Drawing.Size(67, 23);
+            this.DeleteSingleExtraCateButton.TabIndex = 18;
+            this.DeleteSingleExtraCateButton.Text = "Delete";
+            this.ToolTipMain.SetToolTip(this.DeleteSingleExtraCateButton, "Delete the currently selected extra categories.");
+            this.DeleteSingleExtraCateButton.UseVisualStyleBackColor = true;
+            this.DeleteSingleExtraCateButton.Click += new System.EventHandler(this.DeleteSingleExtraCateButton_Click);
+            // 
+            // AddSingleExSongButton
+            // 
+            this.AddSingleExSongButton.Location = new System.Drawing.Point(379, 303);
+            this.AddSingleExSongButton.Name = "AddSingleExSongButton";
+            this.AddSingleExSongButton.Size = new System.Drawing.Size(68, 23);
+            this.AddSingleExSongButton.TabIndex = 18;
+            this.AddSingleExSongButton.Text = "Add...";
+            this.ToolTipMain.SetToolTip(this.AddSingleExSongButton, "Add a single song mod to the list.");
+            this.AddSingleExSongButton.UseVisualStyleBackColor = true;
+            this.AddSingleExSongButton.Click += new System.EventHandler(this.AddSingleExSongButton_Click);
+            // 
+            // AddSingleCateButton
+            // 
+            this.AddSingleCateButton.Location = new System.Drawing.Point(14, 303);
+            this.AddSingleCateButton.Name = "AddSingleCateButton";
+            this.AddSingleCateButton.Size = new System.Drawing.Size(68, 23);
+            this.AddSingleCateButton.TabIndex = 18;
+            this.AddSingleCateButton.Text = "Add...";
+            this.ToolTipMain.SetToolTip(this.AddSingleCateButton, "Add a single category mod to the list.");
+            this.AddSingleCateButton.UseVisualStyleBackColor = true;
+            this.AddSingleCateButton.Click += new System.EventHandler(this.AddSingleCateButton_Click);
+            // 
+            // ExtraSongsList
+            // 
+            this.ExtraSongsList.FormattingEnabled = true;
+            this.ExtraSongsList.Location = new System.Drawing.Point(379, 150);
+            this.ExtraSongsList.Name = "ExtraSongsList";
+            this.ExtraSongsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.ExtraSongsList.Size = new System.Drawing.Size(346, 147);
+            this.ExtraSongsList.TabIndex = 17;
+            this.ToolTipMain.SetToolTip(this.ExtraSongsList, "This list is for EXTRA songs you want to include in the final compile.");
+            // 
+            // ExtraCategoriesList
+            // 
+            this.ExtraCategoriesList.FormattingEnabled = true;
+            this.ExtraCategoriesList.Location = new System.Drawing.Point(16, 150);
+            this.ExtraCategoriesList.Name = "ExtraCategoriesList";
+            this.ExtraCategoriesList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.ExtraCategoriesList.Size = new System.Drawing.Size(346, 147);
+            this.ExtraCategoriesList.TabIndex = 17;
+            this.ToolTipMain.SetToolTip(this.ExtraCategoriesList, "This list is for EXTRA categories you want to include in the final compile.");
+            // 
             // UseCustomChecksum
             // 
             this.UseCustomChecksum.AutoSize = true;
@@ -195,9 +303,9 @@
             this.WriteFolderINIFile.AutoSize = true;
             this.WriteFolderINIFile.Location = new System.Drawing.Point(18, 52);
             this.WriteFolderINIFile.Name = "WriteFolderINIFile";
-            this.WriteFolderINIFile.Size = new System.Drawing.Size(113, 17);
+            this.WriteFolderINIFile.Size = new System.Drawing.Size(112, 17);
             this.WriteFolderINIFile.TabIndex = 13;
-            this.WriteFolderINIFile.Text = "Write folder.ini FIle";
+            this.WriteFolderINIFile.Text = "Write folder.ini File";
             this.ToolTipMain.SetToolTip(this.WriteFolderINIFile, "Writes a folder.ini file to the Songs folder in the file compile that will\r\nmake " +
         "every song in this category auto-tied to it.");
             this.WriteFolderINIFile.UseVisualStyleBackColor = true;
@@ -213,6 +321,16 @@
             this.ToolTipMain.SetToolTip(this.UseCategoryImageNameButton, "Set the image checksum in the folder.ini file as the category\'s default image.");
             this.UseCategoryImageNameButton.UseVisualStyleBackColor = true;
             this.UseCategoryImageNameButton.Click += new System.EventHandler(this.UseCategoryImageNameButton_Click);
+            // 
+            // ExtraSongsHeader
+            // 
+            this.ExtraSongsHeader.AutoSize = true;
+            this.ExtraSongsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExtraSongsHeader.Location = new System.Drawing.Point(372, 133);
+            this.ExtraSongsHeader.Name = "ExtraSongsHeader";
+            this.ExtraSongsHeader.Size = new System.Drawing.Size(125, 13);
+            this.ExtraSongsHeader.TabIndex = 6;
+            this.ExtraSongsHeader.Text = "Include Extra Songs:";
             // 
             // ExtraCategoriesHeader
             // 
@@ -233,124 +351,6 @@
             this.ToolTipMain.SetToolTip(this.FolderConfigIcon, "The category image checksum that will be written to the folder.ini file created o" +
         "n compile.");
             // 
-            // ExtraSongsHeader
-            // 
-            this.ExtraSongsHeader.AutoSize = true;
-            this.ExtraSongsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExtraSongsHeader.Location = new System.Drawing.Point(372, 133);
-            this.ExtraSongsHeader.Name = "ExtraSongsHeader";
-            this.ExtraSongsHeader.Size = new System.Drawing.Size(125, 13);
-            this.ExtraSongsHeader.TabIndex = 6;
-            this.ExtraSongsHeader.Text = "Include Extra Songs:";
-            // 
-            // ExtraCategoriesList
-            // 
-            this.ExtraCategoriesList.FormattingEnabled = true;
-            this.ExtraCategoriesList.Location = new System.Drawing.Point(16, 150);
-            this.ExtraCategoriesList.Name = "ExtraCategoriesList";
-            this.ExtraCategoriesList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ExtraCategoriesList.Size = new System.Drawing.Size(346, 147);
-            this.ExtraCategoriesList.TabIndex = 17;
-            this.ToolTipMain.SetToolTip(this.ExtraCategoriesList, "This list is for EXTRA categories you want to include in the final compile.");
-            // 
-            // ExtraSongsList
-            // 
-            this.ExtraSongsList.FormattingEnabled = true;
-            this.ExtraSongsList.Location = new System.Drawing.Point(379, 150);
-            this.ExtraSongsList.Name = "ExtraSongsList";
-            this.ExtraSongsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.ExtraSongsList.Size = new System.Drawing.Size(346, 147);
-            this.ExtraSongsList.TabIndex = 17;
-            this.ToolTipMain.SetToolTip(this.ExtraSongsList, "This list is for EXTRA songs you want to include in the final compile.");
-            // 
-            // AddSingleCateButton
-            // 
-            this.AddSingleCateButton.Location = new System.Drawing.Point(14, 303);
-            this.AddSingleCateButton.Name = "AddSingleCateButton";
-            this.AddSingleCateButton.Size = new System.Drawing.Size(68, 23);
-            this.AddSingleCateButton.TabIndex = 18;
-            this.AddSingleCateButton.Text = "Add...";
-            this.ToolTipMain.SetToolTip(this.AddSingleCateButton, "Add a single category mod to the list.");
-            this.AddSingleCateButton.UseVisualStyleBackColor = true;
-            this.AddSingleCateButton.Click += new System.EventHandler(this.AddSingleCateButton_Click);
-            // 
-            // AddFolderOfCatsButton
-            // 
-            this.AddFolderOfCatsButton.Location = new System.Drawing.Point(88, 303);
-            this.AddFolderOfCatsButton.Name = "AddFolderOfCatsButton";
-            this.AddFolderOfCatsButton.Size = new System.Drawing.Size(126, 23);
-            this.AddFolderOfCatsButton.TabIndex = 18;
-            this.AddFolderOfCatsButton.Text = "Add Folder of Mods...";
-            this.ToolTipMain.SetToolTip(this.AddFolderOfCatsButton, "Add a folder of category mods into the list.");
-            this.AddFolderOfCatsButton.UseVisualStyleBackColor = true;
-            this.AddFolderOfCatsButton.Click += new System.EventHandler(this.AddFolderOfCatsButton_Click);
-            // 
-            // DeleteSingleExtraCateButton
-            // 
-            this.DeleteSingleExtraCateButton.Location = new System.Drawing.Point(220, 303);
-            this.DeleteSingleExtraCateButton.Name = "DeleteSingleExtraCateButton";
-            this.DeleteSingleExtraCateButton.Size = new System.Drawing.Size(67, 23);
-            this.DeleteSingleExtraCateButton.TabIndex = 18;
-            this.DeleteSingleExtraCateButton.Text = "Delete";
-            this.ToolTipMain.SetToolTip(this.DeleteSingleExtraCateButton, "Delete the currently selected extra categories.");
-            this.DeleteSingleExtraCateButton.UseVisualStyleBackColor = true;
-            this.DeleteSingleExtraCateButton.Click += new System.EventHandler(this.DeleteSingleExtraCateButton_Click);
-            // 
-            // ClearExtraCateListButton
-            // 
-            this.ClearExtraCateListButton.Location = new System.Drawing.Point(293, 303);
-            this.ClearExtraCateListButton.Name = "ClearExtraCateListButton";
-            this.ClearExtraCateListButton.Size = new System.Drawing.Size(67, 23);
-            this.ClearExtraCateListButton.TabIndex = 18;
-            this.ClearExtraCateListButton.Text = "Clear";
-            this.ToolTipMain.SetToolTip(this.ClearExtraCateListButton, "Clear the entire list of extra categories to include.");
-            this.ClearExtraCateListButton.UseVisualStyleBackColor = true;
-            this.ClearExtraCateListButton.Click += new System.EventHandler(this.ClearExtraCateListButton_Click);
-            // 
-            // AddSingleExSongButton
-            // 
-            this.AddSingleExSongButton.Location = new System.Drawing.Point(379, 303);
-            this.AddSingleExSongButton.Name = "AddSingleExSongButton";
-            this.AddSingleExSongButton.Size = new System.Drawing.Size(68, 23);
-            this.AddSingleExSongButton.TabIndex = 18;
-            this.AddSingleExSongButton.Text = "Add...";
-            this.ToolTipMain.SetToolTip(this.AddSingleExSongButton, "Add a single song mod to the list.");
-            this.AddSingleExSongButton.UseVisualStyleBackColor = true;
-            this.AddSingleExSongButton.Click += new System.EventHandler(this.AddSingleExSongButton_Click);
-            // 
-            // DeleteSingleExtraSongButton
-            // 
-            this.DeleteSingleExtraSongButton.Location = new System.Drawing.Point(585, 303);
-            this.DeleteSingleExtraSongButton.Name = "DeleteSingleExtraSongButton";
-            this.DeleteSingleExtraSongButton.Size = new System.Drawing.Size(67, 23);
-            this.DeleteSingleExtraSongButton.TabIndex = 18;
-            this.DeleteSingleExtraSongButton.Text = "Delete";
-            this.ToolTipMain.SetToolTip(this.DeleteSingleExtraSongButton, "Delete the currently selected extra songs.");
-            this.DeleteSingleExtraSongButton.UseVisualStyleBackColor = true;
-            this.DeleteSingleExtraSongButton.Click += new System.EventHandler(this.DeleteSingleExtraSongButton_Click);
-            // 
-            // ClearExtraSongListButton
-            // 
-            this.ClearExtraSongListButton.Location = new System.Drawing.Point(658, 303);
-            this.ClearExtraSongListButton.Name = "ClearExtraSongListButton";
-            this.ClearExtraSongListButton.Size = new System.Drawing.Size(67, 23);
-            this.ClearExtraSongListButton.TabIndex = 18;
-            this.ClearExtraSongListButton.Text = "Clear";
-            this.ToolTipMain.SetToolTip(this.ClearExtraSongListButton, "Clear the entire list of extra songs to include.");
-            this.ClearExtraSongListButton.UseVisualStyleBackColor = true;
-            this.ClearExtraSongListButton.Click += new System.EventHandler(this.ClearExtraSongListButton_Click);
-            // 
-            // AddFolderOfSongsButton
-            // 
-            this.AddFolderOfSongsButton.Location = new System.Drawing.Point(453, 303);
-            this.AddFolderOfSongsButton.Name = "AddFolderOfSongsButton";
-            this.AddFolderOfSongsButton.Size = new System.Drawing.Size(126, 23);
-            this.AddFolderOfSongsButton.TabIndex = 18;
-            this.AddFolderOfSongsButton.Text = "Add Folder of Mods...";
-            this.ToolTipMain.SetToolTip(this.AddFolderOfSongsButton, "Add a folder of song mods into the list.");
-            this.AddFolderOfSongsButton.UseVisualStyleBackColor = true;
-            this.AddFolderOfSongsButton.Click += new System.EventHandler(this.AddFolderOfSongsButton_Click);
-            // 
             // CompileSetlistZIPButton
             // 
             this.CompileSetlistZIPButton.Location = new System.Drawing.Point(22, 384);
@@ -361,6 +361,38 @@
             this.ToolTipMain.SetToolTip(this.CompileSetlistZIPButton, resources.GetString("CompileSetlistZIPButton.ToolTip"));
             this.CompileSetlistZIPButton.UseVisualStyleBackColor = true;
             this.CompileSetlistZIPButton.Click += new System.EventHandler(this.CompileSetlistZIPButton_Click);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Location = new System.Drawing.Point(660, 705);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(83, 23);
+            this.CloseButton.TabIndex = 9;
+            this.CloseButton.Text = "Close";
+            this.ToolTipMain.SetToolTip(this.CloseButton, "Closes this dialog.");
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // OutputTextLog
+            // 
+            this.OutputTextLog.Location = new System.Drawing.Point(18, 20);
+            this.OutputTextLog.Name = "OutputTextLog";
+            this.OutputTextLog.Size = new System.Drawing.Size(707, 171);
+            this.OutputTextLog.TabIndex = 8;
+            this.OutputTextLog.Text = "";
+            this.ToolTipMain.SetToolTip(this.OutputTextLog, "Log of output data.\r\n\r\nIf anything important arises, it will show here!");
+            // 
+            // OpenFinishedZIPButton
+            // 
+            this.OpenFinishedZIPButton.Location = new System.Drawing.Point(459, 705);
+            this.OpenFinishedZIPButton.Name = "OpenFinishedZIPButton";
+            this.OpenFinishedZIPButton.Size = new System.Drawing.Size(189, 23);
+            this.OpenFinishedZIPButton.TabIndex = 9;
+            this.OpenFinishedZIPButton.Text = "Open Compiled ZIP Location";
+            this.ToolTipMain.SetToolTip(this.OpenFinishedZIPButton, "Open the folder that contains the newly compiled ZIP inside it.");
+            this.OpenFinishedZIPButton.UseVisualStyleBackColor = true;
+            this.OpenFinishedZIPButton.Visible = false;
+            this.OpenFinishedZIPButton.Click += new System.EventHandler(this.OpenFinishedZIPButton_Click);
             // 
             // ExportStatusPanel
             // 
@@ -376,36 +408,12 @@
             this.ExportStatusPanel.Size = new System.Drawing.Size(737, 256);
             this.ExportStatusPanel.TabIndex = 14;
             // 
-            // OutputLogHeader
+            // ExportProgressBar
             // 
-            this.OutputLogHeader.AutoSize = true;
-            this.OutputLogHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OutputLogHeader.Location = new System.Drawing.Point(9, 4);
-            this.OutputLogHeader.Name = "OutputLogHeader";
-            this.OutputLogHeader.Size = new System.Drawing.Size(70, 13);
-            this.OutputLogHeader.TabIndex = 6;
-            this.OutputLogHeader.Text = "Output Log";
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Location = new System.Drawing.Point(660, 705);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(83, 23);
-            this.CloseButton.TabIndex = 9;
-            this.CloseButton.Text = "Close";
-            this.ToolTipMain.SetToolTip(this.CloseButton, "Closes this dialog.");
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // ExportStatusSideLabel
-            // 
-            this.ExportStatusSideLabel.AutoSize = true;
-            this.ExportStatusSideLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportStatusSideLabel.Location = new System.Drawing.Point(13, 202);
-            this.ExportStatusSideLabel.Name = "ExportStatusSideLabel";
-            this.ExportStatusSideLabel.Size = new System.Drawing.Size(87, 13);
-            this.ExportStatusSideLabel.TabIndex = 6;
-            this.ExportStatusSideLabel.Text = "Export Status:";
+            this.ExportProgressBar.Location = new System.Drawing.Point(109, 197);
+            this.ExportProgressBar.Name = "ExportProgressBar";
+            this.ExportProgressBar.Size = new System.Drawing.Size(550, 23);
+            this.ExportProgressBar.TabIndex = 7;
             // 
             // ExportStatusLabel
             // 
@@ -428,33 +436,25 @@
             this.ExportPercentLabel.Text = "0%";
             this.ExportPercentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ExportProgressBar
+            // ExportStatusSideLabel
             // 
-            this.ExportProgressBar.Location = new System.Drawing.Point(109, 197);
-            this.ExportProgressBar.Name = "ExportProgressBar";
-            this.ExportProgressBar.Size = new System.Drawing.Size(550, 23);
-            this.ExportProgressBar.TabIndex = 7;
+            this.ExportStatusSideLabel.AutoSize = true;
+            this.ExportStatusSideLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportStatusSideLabel.Location = new System.Drawing.Point(13, 202);
+            this.ExportStatusSideLabel.Name = "ExportStatusSideLabel";
+            this.ExportStatusSideLabel.Size = new System.Drawing.Size(87, 13);
+            this.ExportStatusSideLabel.TabIndex = 6;
+            this.ExportStatusSideLabel.Text = "Export Status:";
             // 
-            // OutputTextLog
+            // OutputLogHeader
             // 
-            this.OutputTextLog.Location = new System.Drawing.Point(18, 20);
-            this.OutputTextLog.Name = "OutputTextLog";
-            this.OutputTextLog.Size = new System.Drawing.Size(707, 171);
-            this.OutputTextLog.TabIndex = 8;
-            this.OutputTextLog.Text = "";
-            this.ToolTipMain.SetToolTip(this.OutputTextLog, "Log of output data.\r\n\r\nIf anything important arises, it will show here!");
-            // 
-            // OpenFinishedZIPButton
-            // 
-            this.OpenFinishedZIPButton.Location = new System.Drawing.Point(459, 705);
-            this.OpenFinishedZIPButton.Name = "OpenFinishedZIPButton";
-            this.OpenFinishedZIPButton.Size = new System.Drawing.Size(189, 23);
-            this.OpenFinishedZIPButton.TabIndex = 9;
-            this.OpenFinishedZIPButton.Text = "Open Compiled ZIP Location";
-            this.ToolTipMain.SetToolTip(this.OpenFinishedZIPButton, "Open the folder that contains the newly compiled ZIP inside it.");
-            this.OpenFinishedZIPButton.UseVisualStyleBackColor = true;
-            this.OpenFinishedZIPButton.Visible = false;
-            this.OpenFinishedZIPButton.Click += new System.EventHandler(this.OpenFinishedZIPButton_Click);
+            this.OutputLogHeader.AutoSize = true;
+            this.OutputLogHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutputLogHeader.Location = new System.Drawing.Point(9, 4);
+            this.OutputLogHeader.Name = "OutputLogHeader";
+            this.OutputLogHeader.Size = new System.Drawing.Size(70, 13);
+            this.OutputLogHeader.TabIndex = 6;
+            this.OutputLogHeader.Text = "Output Log";
             // 
             // RedFieldsReminderLabel
             // 
