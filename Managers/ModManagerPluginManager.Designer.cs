@@ -83,6 +83,7 @@
             this.DescriptionHeader,
             this.PathHeader,
             this.StatusHeader});
+            this.PluginsList.GridLines = true;
             this.PluginsList.HideSelection = false;
             this.PluginsList.Location = new System.Drawing.Point(15, 41);
             this.PluginsList.Name = "PluginsList";
@@ -171,6 +172,7 @@
             this.PluginParametersList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ParamHeader,
             this.ValueHeader});
+            this.PluginParametersList.GridLines = true;
             this.PluginParametersList.HideSelection = false;
             this.PluginParametersList.Location = new System.Drawing.Point(950, 41);
             this.PluginParametersList.Name = "PluginParametersList";

@@ -46,10 +46,12 @@ namespace WTDE_Launcher_V3.Managers {
             PluginVersion.Text = "";
             PluginHelp.Text = "";
             PluginHelp.ReadOnly = true;
+
             PluginData.Clear();
             PluginParameters.Clear();
+
             PluginsList.Items.Clear();
-            PluginParametersList.Clear();
+            PluginParametersList.Items.Clear();
 
             // ----------------
 
@@ -57,7 +59,8 @@ namespace WTDE_Launcher_V3.Managers {
             // to the ListView control.
 
             // Get our manager INI files!
-            string[] iniFiles = Directory.GetFiles("./launcher_managers", "*manager.ini", SearchOption.AllDirectories);
+            string managersDir = V3LauncherConstants.UserEditorsFolderDir;
+            string[] iniFiles = Directory.GetFiles(managersDir, "*manager.ini", SearchOption.AllDirectories);
             foreach (string file in iniFiles) {
                 // Make an INI file reader/writer class!
                 // Our own INI file class will be pretty handy for this.
@@ -129,12 +132,11 @@ namespace WTDE_Launcher_V3.Managers {
         ///  Load the selected plugin's data into view!
         /// </summary>
         public void LoadPluginData() {
+            PluginParametersList.Items.Clear();
             try {
                 // -- GET SELECTED INDEX
                 int idx = PluginsList.SelectedItems[0].Index;
                 if (idx < 0 || idx >= PluginsList.Items.Count) return;
-
-                PluginParametersList.Items.Clear();
 
                 // -- SET PLUGIN DATA
                 PluginName.Text = PluginData[idx][0];
@@ -149,16 +151,15 @@ namespace WTDE_Launcher_V3.Managers {
                 // Load parameters.
                 foreach (string[] param in PluginParameters[idx]) {
                     V3LauncherCore.AddDebugEntry($"Number of items in param: {param.Length}", "Mod Manager: Plugin Manager");
-                    var newItem = new ListViewItem(new string[] { param[0], param[1] });
-                    PluginParametersList.Items.Add(newItem);
+                    string[] newParamData = new string[] { param[0], param[1] };
+                    PluginParametersList.Items.Add(new ListViewItem(newParamData));
                 }
-
-                Application.DoEvents();
 
                 V3LauncherCore.AddDebugEntry($"Plugin parameters count: {PluginParametersList.Items.Count}", "Mod Manager: Plugin Manager");
             } catch (Exception exc) {
                 V3LauncherCore.AddDebugEntry($"Error loading plugin data: {exc.Message}", "Mod Manager: Plugin Manager");
             }
+            Application.DoEvents();
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -

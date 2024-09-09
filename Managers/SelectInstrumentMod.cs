@@ -5,6 +5,7 @@
 //    Dialog for selecting instruments.
 // ----------------------------------------------------------------------------
 // V3 launcher imports.
+using WTDE_Launcher_V3.Core;
 using WTDE_Launcher_V3.IO;
 
 using System;
@@ -17,7 +18,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WTDE_Launcher_V3.Core;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>

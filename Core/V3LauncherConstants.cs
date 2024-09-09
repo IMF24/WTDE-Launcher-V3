@@ -30,7 +30,7 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Version number of the program.
         /// </summary>
-        public const string VERSION = "3.0.5";
+        public const string VERSION = "3.0.6";
 
         /// <summary>
         ///  Where is GHWTDE.ini located?
@@ -61,6 +61,11 @@ namespace WTDE_Launcher_V3.Core {
         ///  Where is AspyrConfig.xml located?
         /// </summary>
         public static string AspyrConfigDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/Aspyr/Guitar Hero World Tour/AspyrConfig.xml";
+
+        /// <summary>
+        ///  The location of the user custom editors folder used by the launcher.
+        /// </summary>
+        public static string UserEditorsFolderDir = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}/WTDE-Launcher-V3/Plugins";
 
         /// <summary>
         ///  The MD5 hash list for all WTDE related files. File hashes on the disk get matched against these before being updated.

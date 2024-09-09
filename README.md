@@ -5,12 +5,20 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- TOP ICON GROUP -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<div align="center">
+
 ![](readme_assets/icon_logo_group.png)
+
+</div>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- TOP BANNER -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<div align="center">
+
 ![](readme_assets/readme_banner_title.png)
+
+</div>
 
 Whoa, dude, this thing is VERY snazzy!
 
@@ -29,7 +37,12 @@ Hopefully that covers most of the bases. There'll be more details to come in the
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- NEW AND RETURNING FEATURES BANNER -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<div align="center">
+
 ![](readme_assets/readme_banner_features.png)
+
+</div>
+
 This launcher program is designed to retain every facet of the 2.X launcher seen in GHWT: DE up until release 1.3.0.7 with launcher update 2.2.2, along with some much needed overhauls!
 
 Here's a run-down of some of the **NEW** features of the 3.X launcher:
@@ -48,7 +61,12 @@ Here's a run-down of some of the **NEW** features of the 3.X launcher:
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <!-- CREDITS BANNER -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<div align="center">
+
 ![](readme_assets/readme_banner_credits.png)
+
+</div>
+
 ### Main Credits
 - Made by [IMF24](https://youtube.com/@IMF24), [Fox](https://youtube.com/@Fox-Judy), [Fretworks](https://gitgud.io/fretworks)
 - Original 1.0 WTDE Launcher by [Uzis](https://youtube.com/@ImUzis)

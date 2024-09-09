@@ -6,9 +6,9 @@
 //    abstract and cannot be created.
 // ----------------------------------------------------------------------------
 // V3 launcher imports.
-// We don't need any for now...
+using WTDE_Launcher_V3.IO;
 
-// Required imports.
+// Required imports. 
 using System;
 using DiscordRPC;
 
@@ -23,6 +23,11 @@ namespace WTDE_Launcher_V3.Core {
         public static DiscordRpcClient RPCClient;
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Is Discord rich presence enabled?
+        /// </summary>
+        public static bool IsRPCEnabled = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "RichPresence", "0"));
 
         /// <summary>
         ///  Initializes the RPC client.
@@ -46,6 +51,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Shut down the RPC client. The RPC client gets marked as <see cref="null"/>.
         /// </summary>
         public static void ShutdownRPC() {
+            if (!IsRPCEnabled) return;
             RPCClient.Dispose();
             RPCClient = null;
         }
@@ -54,6 +60,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Update the status of the RPC client.
         /// </summary>
         public static void UpdateRPCStatus(RichPresence richPres) {
+            if (!IsRPCEnabled) return;
             RPCClient.SetPresence(richPres);
             RPCClient.Invoke();
         }
@@ -104,6 +111,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Text to display.
         /// </param>
         public static void SetRPCDetails(string text) {
+            if (!IsRPCEnabled) return;
             RPCClient.UpdateDetails(text);
         }
 
@@ -114,6 +122,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Text to display.
         /// </param>
         public static void SetRPCState(string text) {
+            if (!IsRPCEnabled) return;
             RPCClient.UpdateState(text);
         }
 
@@ -127,6 +136,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Text to display when hovered over.
         /// </param>
         public static void SetRPCLargeImage(string url, string hoverText = "") {
+            if (!IsRPCEnabled) return;
             if (hoverText == "") {
                 hoverText = $"GHWT: Definitive Edition Launcher - V{V3LauncherConstants.VERSION}";
             }
@@ -143,6 +153,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  Text to display when hovered over.
         /// </param>
         public static void SetRPCSmallImage(string url, string hoverText = "") {
+            if (!IsRPCEnabled) return;
             RPCClient.UpdateSmallAsset(url, hoverText);
         }
     }

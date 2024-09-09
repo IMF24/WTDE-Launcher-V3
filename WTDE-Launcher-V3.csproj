@@ -167,6 +167,7 @@
     <Compile Include="Core\Helpers.cs" />
     <Compile Include="Core\NXFunctions.cs" />
     <Compile Include="Core\RPCHandler.cs" />
+    <Compile Include="Core\UserCustomEditor.cs" />
     <Compile Include="IntroHelloScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +340,12 @@
     <Compile Include="Managers\SelectCharacterMod.Designer.cs">
       <DependentUpon>SelectCharacterMod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SelectInstrumentMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SelectInstrumentMod.Designer.cs">
+      <DependentUpon>SelectInstrumentMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\WTDEContentIDLists.cs" />
     <Compile Include="NX\NXImage.cs" />
     <Compile Include="Program.cs" />
@@ -468,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\SelectCharacterMod.resx">
       <DependentUpon>SelectCharacterMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SelectInstrumentMod.resx">
+      <DependentUpon>SelectInstrumentMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
