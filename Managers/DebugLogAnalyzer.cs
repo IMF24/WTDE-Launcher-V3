@@ -21,7 +21,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WTDE_Launcher_V3.Managers {
+    /// <summary>
+    ///  The Mod Manager's Debug Log Manager, a tool to analyze debug logs and
+    ///  tell the end user what might be wrong.
+    /// </summary>
     public partial class DebugLogAnalyzer : Form {
+        /// <summary>
+        ///  The Mod Manager's Debug Log Manager, a tool to analyze debug logs and
+        ///  tell the end user what might be wrong.
+        /// </summary>
         public DebugLogAnalyzer() {
             InitializeComponent();
         }
@@ -39,13 +47,13 @@ namespace WTDE_Launcher_V3.Managers {
                 new string[] { "Mesh Error: An error reading sMeshes from a .skin.xen file. The model might have too much geometry!", "0060D45C" },
                 new string[] { "Engine or Texture Error: Might be an issue that is related to a texture dictionary. May be caused from messing with CAR items. Contact a developer.", "0065BF4A" },
                 new string[] { "Engine Error: Failure to load a standalone image, probably a screen image. Contact a developer.", "0065A9FC" },
-                new string[] { "Mesh Error: Bad geometry in mesh file or the model has too many vertices or faces in one single mesh. Your model is probably too complex!", "00666FCB" },
+                new string[] { "Mesh Error: Bad geometry in mesh file OR the model has too many vertices or faces in one single mesh, and it is blowing out the CPU skinning buffer. Your model is too complex!", "00666FCB", "006623BF", "006623F9" },
                 new string[] { "WTDE or Mesh Error: An installed mod's folder path exceeds the limit of 255 characters OR a mesh file has over 21,845 vertices inside of it, and it needs to be split or decimated.", "01B70808", "01B76291" },
                 new string[] { "Engine or Texture Error: One (if not all) of your textures have incorrectly uncompressed mipmaps.", "0065BB38" },
                 new string[] { "Engine or Texture Error: Attempted to load a texture dictionary that is over 28 MB in size, and the game crashed upon loading it. You probably have too many high resolution textures; downscale them, or remove materials!", "0066975F" },
                 new string[] { "Song Error: A section inside of song_guitar_markers is missing a Marker parameter and the game can't compare its section against _ENDOFSONG. Update your song mod!", "004E5954" },
                 new string[] { "Microsoft Windows Error: Game failed to write controls or online credentials to AspyrConfig.xml. Remove read-only properties from the XML file to fix it!", "76320592" },
-                new string[] { "WTDE Error: Your save file is corrupt, delete it!", "004D7022" },
+                new string[] { "WTDE Error: Your save file is corrupt; delete it or load a non-corrupt back up save!", "004D7022", "00443FF1" },
                 new string[] { "Song or Venue Error: The PAK file of said mod type is corrupt. Delete the mod and get in contact with the author of that mod to fix it!", "004A224B" },
                 new string[] { "Texture Error: Missing highway texture, re-install or update WTDE!", "005EA5C3" },
                 new string[] { "Song Error: Animations are corrupt, re-install the song mod and contact the author to fix it.", "0076876E" },
@@ -59,13 +67,14 @@ namespace WTDE_Launcher_V3.Managers {
                 new string[] { "WTDE and Engine Error: You (most likely) have too many songs tied to a single category. Remove some out of them!", "006B7897" },
                 new string[] { "Engine or Texture Error: An error has occurred with a texture dictionary in some aspect. Contact a developer.", "0065A7DE" },
 
-                new string[] { "Melody Error: Internal chart parser detected a Guitar Hero Live guitar track. This is not supported; delete ANY AND ALL GHL tracks to fix it!", "GHLGuitar" }
             },
 
-            // -- COMPACT POOL ISSUES
+            // -- WTDE ERRORS
             new string[][] {
                 new string[] { "WTDE and Engine Error: You have too many songs tied to a single category. Remove some of them!", "Out of CSpriteElements (3000 max) in their Compact Pool (Exceeded pool bounds!)" },
                 new string[] { "WTDE and Engine Error: Out of arrays in memory; you proba0bly have too many songs!", "Out of CArrays (500000 max) in their Compact Pool (Exceeded pool bounds!)" },
+                
+                new string[] { "Melody Error: Internal chart parser detected a Guitar Hero Live guitar track. This is not supported; delete ANY AND ALL GHL tracks to fix it!", "GHLGuitar" }
             }
         };
 
@@ -105,7 +114,9 @@ namespace WTDE_Launcher_V3.Managers {
 
                     // Read each line and parse it!
                     int linesDone = 0;
-                    foreach (string line in content) {
+                    foreach (string currentLine in content) {
+
+                        string line = currentLine.Replace("\n", "");
 
                         // We want to scan over our various mod exception types.
                         for (var i = 0; i < ModExceptionTypes.Count; i++) {
@@ -117,23 +128,40 @@ namespace WTDE_Launcher_V3.Managers {
                                 // Rather, we should check like this:
                                 // CRITICAL: !! -- FATAL ERROR AT {address[j]} -- !!
                                 // Make sure we call ToLower() on this!
-                                Console.WriteLine($"line text: {line.ToLower()}");
+                                //~ Console.WriteLine($"line text: {line.ToLower()}");
 
                                 foreach (string[] errorInfo in ModExceptionTypes[0]) {
                                     for (var j = 1; j < errorInfo.Length; j++) {
-                                        string toCheck = $"CRITICAL: !! -- FATAL ERROR AT {errorInfo[j]} -- !!";
+                                        string toCheck = $"FATAL ERROR AT 0x{errorInfo[j]}";
 
-                                        Console.WriteLine($"string to check: {toCheck.ToLower()}");
+                                        //~ Console.WriteLine($"string to check: {toCheck.ToLower()}");
+                                        //~ Console.WriteLine($"line being scanned over: {line.ToLower().Contains(toCheck.ToLower())}");
 
                                         if (line.ToLower().Contains(toCheck.ToLower())) {
-                                            Console.WriteLine($"Error found: {errorInfo[j]} // On line: {line}");
-                                            textOutList.Add(errorInfo[0]);
+                                            //~ Console.WriteLine($"Error found: {errorInfo[j]} // On line: {line}");
+                                            textOutList.Add($"{errorInfo[j]}: {errorInfo[0]}");
                                         }
                                     }
                                 }
 
+                            // WTDE specific errors.
                             } else {
 
+                                //~ Console.WriteLine($"Scanning WTDE specific errors...");
+
+                                foreach (string[] errorInfo in ModExceptionTypes[i]) {
+                                    for (var j = 1; j < errorInfo.Length; j++) {
+                                        string toCheck = $"{errorInfo[j]}";
+
+                                        //~ Console.WriteLine($"string to check: {toCheck.ToLower()}");
+                                        //~ Console.WriteLine($"line being scanned over: {line.ToLower().Contains(toCheck.ToLower())}");
+
+                                        if (line.ToLower().Contains(toCheck.ToLower())) {
+                                            //~ Console.WriteLine($"Error found: {errorInfo[j]} // On line: {line}");
+                                            textOutList.Add($"{errorInfo[j]}: {errorInfo[0]}");
+                                        }
+                                    }
+                                }
 
                             }
                         }
@@ -153,6 +181,9 @@ namespace WTDE_Launcher_V3.Managers {
                     // - - - - - - - - - - - - - - - - - - -
 
                     // Now let's show the results!
+                    if (textOutList.Count <= 0) {
+                        textOutList.Add("No errors were recognized as common.");
+                    }
                     AnalyzeOutputText.Lines = textOutList.ToArray();
                 }
 
@@ -182,6 +213,10 @@ namespace WTDE_Launcher_V3.Managers {
         private void SelectDebugLogButton_Click(object sender, EventArgs e) {
             string outPath = GetDebugLogFromFileDialog();
             DebugLogPath.Text = (outPath != "") ? outPath : DebugLogPath.Text;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

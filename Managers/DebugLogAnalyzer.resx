@@ -309,6 +309,21 @@
   <data name="&gt;&gt;ScanProgressPercent.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="AnalyzeOutputText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 19</value>
+  </data>
+  <data name="AnalyzeOutputText.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AnalyzeOutputText.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="AnalyzeOutputText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>485, 123</value>
+  </data>
+  <data name="AnalyzeOutputText.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;AnalyzeOutputText.Name" xml:space="preserve">
     <value>AnalyzeOutputText</value>
   </data>
@@ -394,33 +409,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;CloseButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="AnalyzeOutputText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 19</value>
-  </data>
-  <data name="AnalyzeOutputText.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="AnalyzeOutputText.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="AnalyzeOutputText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>485, 123</value>
-  </data>
-  <data name="AnalyzeOutputText.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;AnalyzeOutputText.Name" xml:space="preserve">
-    <value>AnalyzeOutputText</value>
-  </data>
-  <data name="&gt;&gt;AnalyzeOutputText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AnalyzeOutputText.Parent" xml:space="preserve">
-    <value>IssuesFoundGroup</value>
-  </data>
-  <data name="&gt;&gt;AnalyzeOutputText.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

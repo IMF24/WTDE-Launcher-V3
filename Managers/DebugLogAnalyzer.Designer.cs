@@ -32,9 +32,9 @@
             this.ScanProgressBar = new System.Windows.Forms.ProgressBar();
             this.ScanProgressPercent = new System.Windows.Forms.Label();
             this.IssuesFoundGroup = new System.Windows.Forms.GroupBox();
+            this.AnalyzeOutputText = new System.Windows.Forms.TextBox();
             this.ScanLogButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.AnalyzeOutputText = new System.Windows.Forms.TextBox();
             this.IssuesFoundGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +82,12 @@
             this.IssuesFoundGroup.Name = "IssuesFoundGroup";
             this.IssuesFoundGroup.TabStop = false;
             // 
+            // AnalyzeOutputText
+            // 
+            resources.ApplyResources(this.AnalyzeOutputText, "AnalyzeOutputText");
+            this.AnalyzeOutputText.Name = "AnalyzeOutputText";
+            this.AnalyzeOutputText.ReadOnly = true;
+            // 
             // ScanLogButton
             // 
             resources.ApplyResources(this.ScanLogButton, "ScanLogButton");
@@ -94,12 +100,7 @@
             resources.ApplyResources(this.CloseButton, "CloseButton");
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.UseVisualStyleBackColor = true;
-            // 
-            // AnalyzeOutputText
-            // 
-            resources.ApplyResources(this.AnalyzeOutputText, "AnalyzeOutputText");
-            this.AnalyzeOutputText.Name = "AnalyzeOutputText";
-            this.AnalyzeOutputText.ReadOnly = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // DebugLogAnalyzer
             // 
