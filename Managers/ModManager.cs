@@ -72,8 +72,8 @@ namespace WTDE_Launcher_V3.Managers {
             // - - - - - - - - - - - - -
 
             // -- FILE MENU
-            analyzeDebugLogToolStripMenuItem.Visible = isEnabled;
-            analyzeDebugLogToolStripMenuItem.Enabled = isEnabled;
+            //~ analyzeDebugLogToolStripMenuItem.Visible = isEnabled;
+            //~ analyzeDebugLogToolStripMenuItem.Enabled = isEnabled;
             // -----------------------------
             qBScriptEditorToolStripMenuItem.Visible = isEnabled;
             qBScriptEditorToolStripMenuItem.Enabled = isEnabled;

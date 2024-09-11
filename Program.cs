@@ -10,11 +10,8 @@ using WTDE_Launcher_V3.NX;
 
 using System;
 using System.IO;
-using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
+using System.Drawing; 
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32.SafeHandles;
 using System.Drawing.Imaging;

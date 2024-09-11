@@ -88,7 +88,6 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.starPowerColorModifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extendedHyperspeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserEditorsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutModManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
@@ -96,6 +95,7 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.wTDEDiscordServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iMFsGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserEditorsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.ModTreeContext.SuspendLayout();
@@ -257,12 +257,10 @@
             // 
             // analyzeDebugLogToolStripMenuItem
             // 
-            this.analyzeDebugLogToolStripMenuItem.Enabled = false;
             this.analyzeDebugLogToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.icon_dbg_analyze;
             this.analyzeDebugLogToolStripMenuItem.Name = "analyzeDebugLogToolStripMenuItem";
             this.analyzeDebugLogToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.analyzeDebugLogToolStripMenuItem.Text = "Analyze WTDE Debug Logs...";
-            this.analyzeDebugLogToolStripMenuItem.Visible = false;
             this.analyzeDebugLogToolStripMenuItem.Click += new System.EventHandler(this.analyzeDebugLogToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
@@ -451,7 +449,7 @@
             this.noFilterToolStripMenuItem});
             this.viewByModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
             this.viewByModToolStripMenuItem.Name = "viewByModToolStripMenuItem";
-            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.viewByModToolStripMenuItem.Text = "View By Mod Type";
             // 
             // songModsToolStripMenuItem
@@ -624,12 +622,6 @@
             this.extendedHyperspeedToolStripMenuItem.Text = "Extended Hyperspeed...";
             this.extendedHyperspeedToolStripMenuItem.Click += new System.EventHandler(this.extendedHyperspeedToolStripMenuItem_Click);
             // 
-            // UserEditorsMenu
-            // 
-            this.UserEditorsMenu.Name = "UserEditorsMenu";
-            this.UserEditorsMenu.Size = new System.Drawing.Size(126, 20);
-            this.UserEditorsMenu.Text = "User Custom Editors";
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -683,6 +675,12 @@
             this.iMFsGitHubToolStripMenuItem.Text = "IMF\'s GitHub";
             this.iMFsGitHubToolStripMenuItem.Click += new System.EventHandler(this.iMFsGitHubToolStripMenuItem_Click);
             // 
+            // UserEditorsMenu
+            // 
+            this.UserEditorsMenu.Name = "UserEditorsMenu";
+            this.UserEditorsMenu.Size = new System.Drawing.Size(126, 20);
+            this.UserEditorsMenu.Text = "User Custom Editors";
+            // 
             // StatusBarMain
             // 
             this.StatusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -704,6 +702,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.StatusBarMain);
             this.Controls.Add(this.UserContentModsTree);

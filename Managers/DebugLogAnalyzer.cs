@@ -54,27 +54,55 @@ namespace WTDE_Launcher_V3.Managers {
                 new string[] { "Song Error: A section inside of song_guitar_markers is missing a Marker parameter and the game can't compare its section against _ENDOFSONG. Update your song mod!", "004E5954" },
                 new string[] { "Microsoft Windows Error: Game failed to write controls or online credentials to AspyrConfig.xml. Remove read-only properties from the XML file to fix it!", "76320592" },
                 new string[] { "WTDE Error: Your save file is corrupt; delete it or load a non-corrupt back up save!", "004D7022", "00443FF1" },
-                new string[] { "Song or Venue Error: The PAK file of said mod type is corrupt. Delete the mod and get in contact with the author of that mod to fix it!", "004A224B" },
+                new string[] { "Song or Venue Error: Error trying to unload an asset from the asset manager; the PAK file of said mod type is corrupt. Delete the mod and get in contact with the author of that mod to fix it!", "004A224B" },
                 new string[] { "Texture Error: Missing highway texture, re-install or update WTDE!", "005EA5C3" },
                 new string[] { "Song Error: Animations are corrupt, re-install the song mod and contact the author to fix it.", "0076876E" },
-                new string[] { "Venue Error: A light housing in a venue is missing the following QBKey:\n\nStructQBKey volumeshadow = false\n\nAdd it to the venue's LFX file!", "006829B7" },
+                new string[] { "Venue Error: A light housing in a venue is missing the following QBKey: { StructQBKey volumeshadow = false } // Add it to the venue's LFX file!", "006829B7" },
                 new string[] { "Engine Error: An action was carried out that caused the game to lose focus of the Direct3D device, and attempted to write to non-existent memory. Usually happens from ALT-TABing, or from changing monitor refresh rate.", "00500FAB", "00500B0E" },
-                new string[] { "Havok Error: An error with a Havok ragdoll. Contact a developer.", "006BFCC0" },
+                new string[] { "Havok Error: An error with a Havok ragdoll OR a character mod has an invalid ragdoll. Either contact the mod author or contact a developer.", "006BFCC0" },
                 new string[] { "Havok Error: The game is expecting bones and rigid bodies to appear in the order they are parented in, but the data is not written properly. Contact the developer of your mod, or if it is with a built-in character, contact a WTDE developer.", "00543D8F" },
-                new string[] { "QB Error: An error occurred in trying to populate a script with a QB element through C++ functionality. Contact a developer.", "005F1827" },
+                new string[] { "QB Error: An error occurred in trying to read or write in a QB script via C++ functionality. Contact a developer.", "005F1827" },
                 new string[] { "QB or Engine Error: An error in creating a frontend menu. Contact a developer.", "005A02CE" },
                 new string[] { "Engine Error: Hook to strcmp used by Havok is failing, usually a missing piece of text. Contact a developer.", "007C9D58" },
                 new string[] { "WTDE and Engine Error: You (most likely) have too many songs tied to a single category. Remove some out of them!", "006B7897" },
                 new string[] { "Engine or Texture Error: An error has occurred with a texture dictionary in some aspect. Contact a developer.", "0065A7DE" },
+                new string[] { "Texture (Direct3D) Error: An error occurred while pre-loading an image from a buffer. Contact a developer.", "00741951" },
+                new string[] { "Engine Error: Error while trying to flip the endian of the next chunk in a PAK file. Contact a developer.", "0052209C" },
+                new string[] { "QB Error: Ran into a problem trying to add an element to an array through the AddArrayElement CFunc. Contact a developer.", "00619DB3" },
+                new string[] { "Mesh Error: Attempting to set a property on a material to a model or object, and failing. Either contact the mod author or contact a developer.", "005EA5C3" },
+                new string[] { "QB or Engine Error: Error reading a float from an array. Contact a developer.", "004F2780" },
+                new string[] { "Animation Error: Error getting the SKA header of an animation; unload related. Contact a developer.", "0053134A" },
+                new string[] { "Texture or Engine Error: Error attempting to set the RGBA color value on a screen element. Contact a developer.", "005A1AF8" },
+                new string[] { "Song Error: The song lacks Star Power phrases, and the game cannot parse the note array. Get in contact with the song author to fix this!", "00454AC8" },
+                new string[] { "Engine Error: Attempting to copy a string and failing. Contact a developer.", "004E5714" },
+                new string[] { "Texture Error: Error attempting to flip the endianness of a GHWT material. Either contact the mod author or contact a developer.", "005EB26C" },
+                new string[] { "Texture Error: Error reading the magic of a texture's buffer in a texture dictionary. Either contact the mod author or contact a developer.", "0065BFA4" },
+                new string[] { "Engine Error: Attempting to get the length of a string. Contact a developer.", "004E58D6" },
+                new string[] { "QB or Engine Error: Error attempting to read a struct for a checksum and/or QBKey. Contact a developer.", "004D7803", "004D7820" },
+                new string[] { "QB or Engine Error: Might be an error related to a script. Contact a developer.", "0064749E", "00647473" },
+                new string[] { "Animation Error: An error was encountered while fixing up the header data of a SKA file. Either contact the song author or contact a developer.", "006BF392" },
+                new string[] { "QB or Engine Error: Error getting the player information. Contact a developer.", "004440B0" },
+                new string[] { "Texture Error: Error in the destructor of a texture asset. Either contact the mod author or contact a developer.", "0065B4B6" },
+                new string[] { "Animation Error: Most likely a problem with an animation in a song or something else. Contact a developer.", "0052AFE9" },
+                new string[] { "Texture Error: Ambiguous texture error. Contact a developer.", "0065A7A9" },
+                new string[] { "Engine Error: Error occurred handling a wide string. Contact a developer.", "004E6077" },
 
             },
 
             // -- WTDE ERRORS
             new string[][] {
-                new string[] { "WTDE and Engine Error: You have too many songs tied to a single category. Remove some of them!", "Out of CSpriteElements (3000 max) in their Compact Pool (Exceeded pool bounds!)" },
-                new string[] { "WTDE and Engine Error: Out of arrays in memory; you proba0bly have too many songs!", "Out of CArrays (500000 max) in their Compact Pool (Exceeded pool bounds!)" },
-                
-                new string[] { "Melody Error: Internal chart parser detected a Guitar Hero Live guitar track. This is not supported; delete ANY AND ALL GHL tracks to fix it!", "GHLGuitar" }
+                new string[] { "WTDE and Engine Error: You have too many songs tied to a single category. Raise the sprite pool limit or remove some of them!", "Out of CSpriteElements (3000 max) in their Compact Pool (Exceeded pool bounds!)" },
+                new string[] { "WTDE and Engine Error: Out of arrays in memory; you probably have too many songs installed and/or inside of a category. Raise the array pool limit or remove some songs!", "Out of CArrays (500000 max) in their Compact Pool (Exceeded pool bounds!)" },
+                new string[] { "WTDE and Engine Error: The game could not parse the first header in a certain PAK file. Check debug.txt deeper and contact a developer.", "Failed to load the first header in the .pak file" },
+
+                new string[] { "Melody Error: Internal chart parser detected a Guitar Hero Live guitar track. This is not supported; delete ANY AND ALL GHL tracks to fix it!", "GHLGuitar" },
+
+                new string[] { "Song Error: The song attempting to be played has NO practice sections. Add sections to the song to fix this!", "Song sections for instrument guitar were empty" },
+                new string[] { "Song Error: The game is attempting to play a malformed animation OR an animation that was never called to be loaded in the asset manager. Contact the song author to fix it!", "Anm::CAnimInstance seemed to have a missing or bad animation", "This asset was NOT in the asset manager", "We cannot play it!" },
+
+                new string[] { "WTDE and Engine Error: The game was hung attempting to load a PAK file. Contact a developer.", "LoadPak is taking quite a long time" },
+
+                new string[] { "WTDE Error: The game was caught in a vector exception loop. Contact a developer.", "VECTOR EXCEPTION", "EHR_TERMINATE" },
             }
         };
 
@@ -91,6 +119,7 @@ namespace WTDE_Launcher_V3.Managers {
             // Clear out the output logs!
             AnalyzeOutputText.ReadOnly = false;
             AnalyzeOutputText.Text = "";
+            AnalyzeOutputText.ReadOnly = true;
 
             ScanProgressBar.Value = 0;
             ScanProgressPercent.Text = "0%";
@@ -184,6 +213,7 @@ namespace WTDE_Launcher_V3.Managers {
                     if (textOutList.Count <= 0) {
                         textOutList.Add("No errors were recognized as common.");
                     }
+                    AnalyzeOutputText.ReadOnly = false;
                     AnalyzeOutputText.Lines = textOutList.ToArray();
                 }
 

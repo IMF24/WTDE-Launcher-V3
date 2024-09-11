@@ -141,43 +141,20 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         /// <summary>
-        ///  Dump the contents of a list.
+        ///  Dump the contents of a collection.
         /// </summary>
         /// <param name="list">
-        ///  The list object.
+        ///  The enumerable object.
         /// </param>
         /// <returns>
-        ///  String with all the contents in the provided List.
+        ///  String with all the contents in the provided <see cref="IEnumerable{T}"/>.
         /// </returns>
-        public static string DumpListContents<T>(List<T> list, bool print = true) {
-            string finalString = $"Items in given list: [";
-            for (var i = 0; i < list.Count; i++) {
-                var item = list[i];
-                if (i == list.Count - 1) {
-                    finalString += $"{item}";
-                } else {
-                    finalString += $"{item}, ";
-                }
-            }
-            finalString += "]";
-            if (print) Console.WriteLine(finalString);
-            return finalString;
-        }
-
-        /// <summary>
-        ///  Dump the contents of an array.
-        /// </summary>
-        /// <param name="list">
-        ///  The list object.
-        /// </param>
-        /// <returns>
-        ///  String with all the contents in the provided List.
-        /// </returns>
-        public static string DumpListContents<T>(T[] list, bool print = true) {
-            string finalString = $"Items in given list: [";
-            for (var i = 0; i < list.Length; i++) {
-                var item = list[i];
-                if (i == list.Length - 1) {
+        public static string DumpListContents<T>(IEnumerable<T> list, bool print = true) {
+            string finalString = $"Items in given {list.GetType().Name}: [";
+            List<T> iterableList = list.ToList();
+            for (var i = 0; i < iterableList.Count; i++) {
+                var item = iterableList[i];
+                if (i == iterableList.Count - 1) {
                     finalString += $"{item}";
                 } else {
                     finalString += $"{item}, ";
