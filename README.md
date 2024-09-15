@@ -68,10 +68,10 @@ Here's a run-down of some of the **NEW** features of the 3.X launcher:
 </div>
 
 ### Main Credits
-- Made by [IMF24](https://youtube.com/@IMF24), [Fox](https://youtube.com/@Fox-Judy), [Fretworks](https://gitgud.io/fretworks)
+- Made by [IMF24](https://youtube.com/@IMF24), [Fox](https://youtube.com/@Fox-Inari), [Fretworks](https://gitgud.io/fretworks)
 - Original 1.0 WTDE Launcher by [Uzis](https://youtube.com/@ImUzis)
 - Built in C# 7.3 in [Visual Studio](https://visualstudio.microsoft.com) on [.NET 4.6.2](https://dot.net)
-- Background Image Art by [Fox / FoxInari](https://youtube.com/@Fox-Judy)
+- Background Image Art by [Fox / FoxInari](https://youtube.com/@Fox-Inari)
 
 ### Translation Credits
 - English Original Text: IMF24, [Raccoon_333](https://youtube.com/@Raccoon_333)

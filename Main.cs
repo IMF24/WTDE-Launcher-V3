@@ -151,7 +151,7 @@ namespace WTDE_Launcher_V3.Core {
 
                 // April Fools Day stuff!               
                 if (EnableAFDTheme && !IsFirstBoot) {
-                    this.BackgroundImage = Properties.Resources.bg_1_af;
+                    BackgroundImage = Properties.Resources.bg_1_af;
                     WTDELogo.Image = Properties.Resources.logo_af;
                     IconLogoIMF.BackgroundImage = Properties.Resources.logo_imf24_af;
                     IconLogoDELauncher.BackgroundImage = Properties.Resources.icon_af;
@@ -903,7 +903,8 @@ namespace WTDE_Launcher_V3.Core {
             // If you insist on using auto strum, then Clone Hero and/or Fortnite Festival have
             // corrupted your vision on the core gameplay of Guitar Hero or Rock Band.
             // My advice to you: Get an actual guitar controller and learn the REAL way of
-            // playing these games; don't cheap your way out. I'm sorry, but not really.
+            // playing these games. That or learn the real way of playing it on the keyboard;
+            // don't cheap your way out. I'm sorry, but not really.
 
             V3LauncherCore.AspyrKeyEncode(
                 new List<string>() {
@@ -960,7 +961,7 @@ namespace WTDE_Launcher_V3.Core {
         /// </summary>
         public enum LauncherTabs {
             /// <summary>
-            ///  Message of the day tab. This isn't really a tab, but it displays the MOTD.
+            ///  Message of the day page. This isn't really a tab, but it displays the MOTD.
             /// </summary>
             MOTD = 0,
             /// <summary>
@@ -988,7 +989,7 @@ namespace WTDE_Launcher_V3.Core {
             /// </summary>
             Debug = 6,
             /// <summary>
-            ///  Credits page. This isn't a tab, but it shows the credits information.
+            ///  Credits page. This isn't really a tab, but it shows the credits information.
             /// </summary>
             Credits = 7,
             /// <summary>

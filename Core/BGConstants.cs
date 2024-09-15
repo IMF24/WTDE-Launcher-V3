@@ -9,14 +9,10 @@
 // V3 launcher imports.
 using WTDE_Launcher_V3.IO;
 
+// Other required imports.
 using System;
 using System.IO;
 using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3.Core {
     /// <summary>
@@ -38,7 +34,7 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  List of backgrounds. This is handled in the background swapper. THESE MUST BE INDEXED PROPERLY!
         /// </summary>
-        public static System.Drawing.Bitmap[] V3LauncherBackgrounds = {
+        public static Bitmap[] V3LauncherBackgrounds = {
             Properties.Resources.bg_1,
             Properties.Resources.bg_2,
             Properties.Resources.bg_3,
@@ -75,24 +71,24 @@ namespace WTDE_Launcher_V3.Core {
         ///  List of social links tied to each person's backgrounds. THESE MUST BE INDEXED PROPERLY!
         /// </summary>
         public static string[] V3LauncherSocials = {
-            "https://youtube.com/@Fox-Judy",
+            "https://youtube.com/@Fox-Inari",
             "https://youtube.com/@IMF24",
             "https://youtube.com/@DerpyTheShreddingProto",
             "https://github.com/Bludude2",
             "https://youtube.com/@DanRockProductions",
             "https://twitter.com/samual130",
-            "https://youtube.com/@Cobalt179",
-            "https://www.youtube.com/@hex21510",
+            "https://youtube.com/@ForTheMisery",
+            "https://youtube.com/@hex21510",
             "https://youtube.com/@DanRockProductions",
             "https://youtube.com/@strangerxo1591",
             "https://youtube.com/@DerpyTheShreddingProto",
-            "https://youtube.com/@Fox-Judy"
+            "https://youtube.com/@Fox-Inari"
         };
 
         /// <summary>
         ///  List of WTDE logo images. These changed based on the time of year.
         /// </summary>
-        public static System.Drawing.Bitmap[] LogoImages = {
+        public static Bitmap[] LogoImages = {
             Properties.Resources.logo_wtde,
             Properties.Resources.logo_vd,
             Properties.Resources.logo_af,
@@ -118,14 +114,18 @@ namespace WTDE_Launcher_V3.Core {
 
             // Imports a custom background image from the defined path in GHWTDE.ini.
             // Read GHWTDE.ini; do we have a custom background path defined?
-            IniFile file = new IniFile();
-            file.Load(V3LauncherConstants.WTDEConfigDir);
+            INI file = new INI(V3LauncherConstants.WTDEConfigDir, writeFallback: false);
 
             V3LauncherCore.AddDebugEntry($"Is dev settings enabled? {V3LauncherCore.EnableDeveloperSettings}", "BG Constants: AutoDateBackground");
 
-            if (V3LauncherCore.EnableDeveloperSettings && file.Sections.Contains("Launcher")) {
-                if (file.Sections["Launcher"].Keys.Contains("CustomBGPath")) {
-                    string pathToCheck = file.Sections["Launcher"].Keys["CustomBGPath"].Value;
+            // This is a safe guard measure to make sure we don't accidentally
+            // leak in the ability to do this, not that anyone would anyway.
+            if (V3LauncherCore.EnableDeveloperSettings && file.HasSection("Launcher")) {
+                // Is the "CustomBGPath" key under the [Launcher] section?
+                if (file.HasKey("Launcher", "CustomBGPath")) {
+                    // Get the path to check if it exists.
+                    string pathToCheck = file.GetString("Launcher", "CustomBGPath");
+                    
                     // Does this file even exist?
                     if (pathToCheck != null && File.Exists(pathToCheck)) {
                         // Yes it does, let's make a new bitmap and assign the background to it!
@@ -136,13 +136,14 @@ namespace WTDE_Launcher_V3.Core {
                         form.BackgroundImage = scaledImage;
 
                         // Custom author text?
-                        if (file.Sections["Launcher"].Keys.Contains("CustomBGAuthor")) {
-                            string newBGAuthor = file.Sections["Launcher"].Keys["CustomBGAuthor"].Value;
+                        if (file.HasKey("Launcher", "CustomBGAuthor")) {
+                            string newBGAuthor = file.GetString("Launcher", "CustomBGAuthor");
 
                             // If so, use it!
                             if (newBGAuthor != null) {
                                 label.Text = label.Text.Replace("BG_AUTHOR", newBGAuthor);
-                                // Otherwise, we'll just say the author is N/A.
+                            
+                            // Otherwise, we'll just say the author is N/A.
                             } else {
                                 label.Text = label.Text.Replace("BG_AUTHOR", "N/A");
                             }
@@ -152,8 +153,13 @@ namespace WTDE_Launcher_V3.Core {
                             label.Text = label.Text.Replace("LATEST_VERSION", V3LauncherCore.GetLatestVersion());
                         }
 
+                        // Mark the below field as true to say we DO have a custom BG set.
                         IsCustomBG = true;
+
+                        // Break out; we're finished!
                         return;
+
+                    // The file didn't exist, do some debug prints or something
                     } else {
                         V3LauncherCore.AddDebugEntry("I/O: The path for the defined custom background does not exist.", "BG Constants: AutoDateBackground");
                         V3LauncherCore.AddDebugEntry("Falling back to auto-date background...", "BG Constants: AutoDateBackground");
@@ -194,7 +200,7 @@ namespace WTDE_Launcher_V3.Core {
                         form.BackgroundImage = Properties.Resources.bg_1_xm;
                         V3LauncherBackgrounds[0] = Properties.Resources.bg_1_xm;
                         pictureBox.Image = LogoImages[4];
-                    } 
+                    }
                     break;
             }
 
@@ -270,9 +276,9 @@ namespace WTDE_Launcher_V3.Core {
             }
             
             // Is there a preferred background set?
-            if (file.Sections.Contains("Launcher")) {
-                if (file.Sections["Launcher"].Keys.Contains("PreferredBackground")) {
-                    BGIndex = int.Parse(file.Sections["Launcher"].Keys["PreferredBackground"].Value);
+            if (file.HasSection("Launcher")) {
+                if (file.HasKey("Launcher", "PreferredBackground")) {
+                    BGIndex = file.GetInt("Launcher", "PreferredBackground");
                     if (BGIndex >= V3LauncherBackgrounds.Length) BGIndex = 0;
                 }
             }
