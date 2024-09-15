@@ -30,7 +30,7 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Version number of the program.
         /// </summary>
-        public const string VERSION = "3.0.6";
+        public const string VERSION = "3.0.7";
 
         /// <summary>
         ///  Where is GHWTDE.ini located?
@@ -193,7 +193,7 @@ namespace WTDE_Launcher_V3.Core {
             "Venues, more venues, and even more venues",
             "Try and find the launcher's hidden secrets; there's quite a few!",
             "The Mod Manager is your friend in this iteration",
-            "Hit the notes; Trust me, it's a good idea"
+            "Hit the notes; Trust me, it's a good idea",
         };
 
         /// <summary>

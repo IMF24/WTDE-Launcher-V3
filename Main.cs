@@ -53,9 +53,11 @@ namespace WTDE_Launcher_V3.Core {
             try {
                 // Show the intro splash.
                 V3LauncherCore.AddDebugEntry("Showing intro form! Auto killing when launcher is ready...");
-
                 IntroSplash ish = new IntroSplash();
                 ish.Show();
+
+                // Update idle tasks; causes the form to not even render!
+                Application.DoEvents();
 
                 // Do some directory and file verification.
                 V3LauncherCore.MakeUpdaterINI();
@@ -63,6 +65,7 @@ namespace WTDE_Launcher_V3.Core {
                 // - - - - - - - - - - - - - - - - - - - - - - -
 
                 // Initialize Windows Forms. We need this. DO NOT EDIT OR DELETE IT!
+                // This contains the Designer support; you see why we need it?
                 InitializeComponent();
 
                 // - - - - - - - - - - - - - - - - - - - - - - -
@@ -80,9 +83,12 @@ namespace WTDE_Launcher_V3.Core {
                 // - - - - - - - - - - - - - - - - - - - - - - -
 
                 // Set our background image correctly and get the MOTD from the website.
-                this.BackgroundImage = Properties.Resources.bg_1;
+                BackgroundImage = Properties.Resources.bg_1;
 
-                UpdateActiveTab((int)LauncherTabs.MOTD);
+                // Initially boot into the MOTD section.
+                // We should make an INI setting to control the first tab on boot, hm...
+                int defaultTab = int.Parse(INIFunctions.GetINIValue("Launcher", "DefaultTab", "0"));
+                UpdateActiveTab(defaultTab);
 
                 // Remove any auto strum workarounds.
                 RemoveAutoStrumKeys();
@@ -90,14 +96,18 @@ namespace WTDE_Launcher_V3.Core {
                 // Get our list of microphone devices.
                 GetMicDevices();
 
-                // Set up tabs, the window title, and the background.
-                // Also play boot VOs if we have them on, fun stuff!
+                // Set the window title and the background.
+                V3LauncherCore.SetWindowTitle(this);
+
+                // Append gem and venue mods from the user's mods!
                 ModHandler.AppendVenueMods(new ComboBox[] { AutoLaunchVenue, PreferredStage, PreferredTrainingStage });
                 ModHandler.AppendGemMods(new ComboBox[] { GemTheme });
+
+                // Load our INI and XML settings and set up the tabs for use.
                 LoadINISettings();
                 DoTabSetup();
 
-                V3LauncherCore.SetWindowTitle(this);
+                // Also play boot VOs if we have them on, fun stuff!
                 V3LauncherCore.AudioBootVO();
 
                 // DEV ONLY SETTINGS: THIS FILE SHOULD **NEVER** BE PRESENT IN PUBLIC BUILDS.
@@ -263,17 +273,25 @@ namespace WTDE_Launcher_V3.Core {
                 RPCHandler.SetRPCDetails("Changing some settings");
 
             } catch (Exception exc) {
+                // Get information about the crash.
+                // Apparently Costura.Fody causes this to be messed up or thrown
+                // out of whack... Not sure why; probably unavoidable.
                 var st = new StackTrace(exc, true);
                 var frame = st.GetFrame(0);
                 var line = frame.GetFileLineNumber();
 
+                // Print the error the end user.
                 V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
                 
+                // Along with showing the error, ask if we want to restart the launcher.
                 bool restartExecution = MessageBox.Show($"Uh oh, something went wrong!\n\n----------------\n\nError information: {exc.Message}\n\n----------------\n\nLine: line {line}\nFrame: {frame}\n\n----------------\n\nDo you want to restart the launcher and try again?", "Boot Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes;
 
+                // We DO want to restart!
                 if (restartExecution) {
                     this.Close();
                     Application.Restart();
+
+                // We do NOT want to restart; just close the program down!
                 } else {
                     V3LauncherCore.WriteDebugLog();
 

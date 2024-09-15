@@ -2,7 +2,7 @@
 //    W T D E       L A U N C H E R       V 3
 //       D E B U G       L O G       A N A L Y Z E R
 //
-//    The Mod Manager's Debug Log Manager, a tool to analyze debug logs and
+//    The Mod Manager's Debug Log Analyzer, a tool to analyze debug logs and
 //    tell the end user what might be wrong.
 // ----------------------------------------------------------------------------
 // V3 launcher imports.
@@ -22,12 +22,12 @@ using System.Windows.Forms;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
-    ///  The Mod Manager's Debug Log Manager, a tool to analyze debug logs and
+    ///  The Mod Manager's Debug Log Analyzer, a tool to analyze debug logs and
     ///  tell the end user what might be wrong.
     /// </summary>
     public partial class DebugLogAnalyzer : Form {
         /// <summary>
-        ///  The Mod Manager's Debug Log Manager, a tool to analyze debug logs and
+        ///  The Mod Manager's Debug Log Analyzer, a tool to analyze debug logs and
         ///  tell the end user what might be wrong.
         /// </summary>
         public DebugLogAnalyzer() {
@@ -47,7 +47,7 @@ namespace WTDE_Launcher_V3.Managers {
                 new string[] { "Mesh Error: An error reading sMeshes from a .skin.xen file. The model might have too much geometry!", "0060D45C" },
                 new string[] { "Engine or Texture Error: Might be an issue that is related to a texture dictionary. May be caused from messing with CAR items. Contact a developer.", "0065BF4A" },
                 new string[] { "Engine Error: Failure to load a standalone image, probably a screen image. Contact a developer.", "0065A9FC" },
-                new string[] { "Mesh Error: Bad geometry in mesh file OR the model has too many vertices or faces in one single mesh, and it is blowing out the CPU skinning buffer. Your model is too complex!", "00666FCB", "006623BF", "006623F9" },
+                new string[] { "Mesh Error: Bad geometry in mesh file OR the model has too many vertices or faces in one single mesh, and it is blowing out the CPU skinning buffer. Your model is too complex!", "00666FCB", "006623BF", "006623F9", "0066241D" },
                 new string[] { "WTDE or Mesh Error: An installed mod's folder path exceeds the limit of 255 characters OR a mesh file has over 21,845 vertices inside of it, and it needs to be split or decimated.", "01B70808", "01B76291" },
                 new string[] { "Engine or Texture Error: One (if not all) of your textures have incorrectly uncompressed mipmaps.", "0065BB38" },
                 new string[] { "Engine or Texture Error: Attempted to load a texture dictionary that is over 28 MB in size, and the game crashed upon loading it. You probably have too many high resolution textures; downscale them, or remove materials!", "0066975F" },
@@ -86,7 +86,7 @@ namespace WTDE_Launcher_V3.Managers {
                 new string[] { "Animation Error: Most likely a problem with an animation in a song or something else. Contact a developer.", "0052AFE9" },
                 new string[] { "Texture Error: Ambiguous texture error. Contact a developer.", "0065A7A9" },
                 new string[] { "Engine Error: Error occurred handling a wide string. Contact a developer.", "004E6077" },
-
+                new string[] { "QB Error: Error trying to create a string in QB. Contact a developer.", "005ECDB4" },
             },
 
             // -- WTDE ERRORS
@@ -212,6 +212,8 @@ namespace WTDE_Launcher_V3.Managers {
                     // Now let's show the results!
                     if (textOutList.Count <= 0) {
                         textOutList.Add("No errors were recognized as common.");
+                        textOutList.Add("");
+                        textOutList.Add("Upload your debug log to the WTDE Discord server for further assistance!");
                     }
                     AnalyzeOutputText.ReadOnly = false;
                     AnalyzeOutputText.Lines = textOutList.ToArray();
