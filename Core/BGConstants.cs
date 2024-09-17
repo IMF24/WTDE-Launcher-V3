@@ -20,7 +20,7 @@ namespace WTDE_Launcher_V3.Core {
     ///  activating various backgrounds when commanded, and also loading specific
     ///  backgrounds for the artists and developers for this launcher!
     /// </summary>
-    internal class BGConstants {
+    public class BGConstants {
         /// <summary>
         ///  What is the current background?
         /// </summary>

@@ -429,6 +429,8 @@ namespace WTDE_Launcher_V3.Core {
             CheckForUpdates.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "CheckForUpdates", "1"));
             ExitOnSave.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "ExitOnSave", "1"));
             DebugConsoleLauncher.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "Console"));
+            LauncherRichPresence.Checked = INIFunctions.GetBoolean(INIFunctions.GetINIValue("Launcher", "RichPresence"));
+            DefaultTab.SelectedIndex = int.Parse(INIFunctions.GetINIValue("Launcher", "DefaultTab"));
 
             // User Names
             PreferredGamerTagText1.Text = INIFunctions.GetINIValue("Config", "PreferredGamerTagText1", "");
@@ -1814,6 +1816,14 @@ namespace WTDE_Launcher_V3.Core {
             INIFunctions.SaveINIValue("Launcher", "Console", INIFunctions.BoolToString(DebugConsoleLauncher.Checked));
         }
 
+        private void LauncherRichPresence_CheckedChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Launcher", "RichPresence", INIFunctions.BoolToString(LauncherRichPresence.Checked));
+        }
+
+        private void DefaultTab_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Launcher", "DefaultTab", DefaultTab.SelectedIndex.ToString());
+        }
+
         // -- AUDIO OPTIONS -----------------------------
 
         private void StarPowerReverb_CheckedChanged(object sender, EventArgs e) {
@@ -1838,7 +1848,8 @@ namespace WTDE_Launcher_V3.Core {
                     "medium_ext",
                     "large_ext",
                     "none"
-                }));
+                })
+            );
         }
 
         private void SPActivationSFX_SelectedIndexChanged(object sender, EventArgs e) {
@@ -3850,6 +3861,8 @@ namespace WTDE_Launcher_V3.Core {
             AdjustCharacterInstruments aci = new AdjustCharacterInstruments(selectedCharacterName, selectedCharacterPath);
             aci.ShowDialog();
         }
+
+
         #endregion
 
         #endregion

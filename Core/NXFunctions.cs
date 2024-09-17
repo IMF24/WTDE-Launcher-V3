@@ -16,7 +16,7 @@ namespace WTDE_Launcher_V3.Core {
     ///  Currently only has functionality for QBKey generation, but this will
     ///  be expanded in the future.
     /// </summary>
-    internal class NXFunctions {
+    public class NXFunctions {
         /// <summary>
         ///  The CRC32 table used for generating Neversoft QBKeys.
         /// </summary>

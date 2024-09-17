@@ -1,9 +1,14 @@
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <!--
     GHWT: Definitive Edition Launcher V3 Readme
     Written by IMF24
 -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- TOP ICON GROUP -->
+<!--
+
+-->
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- -- TOP ICON GROUP - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <div align="center">
 
@@ -12,7 +17,7 @@
 </div>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- TOP BANNER -->
+<!-- -- TOP BANNER - - - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <div align="center">
 
@@ -35,7 +40,7 @@ The goal of the V3 launcher is to have all of the functionality and capability o
 Hopefully that covers most of the bases. There'll be more details to come in the future, so stay tuned!
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- NEW AND RETURNING FEATURES BANNER -->
+<!-- -- NEW AND RETURNING FEATURES BANNER -- - - -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <div align="center">
 
@@ -59,7 +64,7 @@ Here's a run-down of some of the **NEW** features of the 3.X launcher:
   - You can also **create your own gem themes** straight in the launcher via the Mod Manager! As long as you have Node.js and the Guitar Hero SDK installed on your machine, you can utilize this feature. Get creative with your own gem theme colors, and the launcher will automatically write an ROQ script mod and compile it for you through the SDK so that you don't have to do any heavy lifting. Just make the gem theme, compile it, and go!
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- CREDITS BANNER -->
+<!-- -- CREDITS BANNER - - - - - - - - - - - - - -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 <div align="center">
 

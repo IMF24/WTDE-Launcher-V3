@@ -192,6 +192,12 @@
     <Compile Include="Managers\AdjustCharacterInstruments.Designer.cs">
       <DependentUpon>AdjustCharacterInstruments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\AutoLaunchSongChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\AutoLaunchSongChooser.Designer.cs">
+      <DependentUpon>AutoLaunchSongChooser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\CARManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\AdjustCharacterInstruments.resx">
       <DependentUpon>AdjustCharacterInstruments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\AutoLaunchSongChooser.resx">
+      <DependentUpon>AutoLaunchSongChooser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\CARManager.resx">
       <DependentUpon>CARManager.cs</DependentUpon>

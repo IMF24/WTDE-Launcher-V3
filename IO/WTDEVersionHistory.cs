@@ -21,6 +21,13 @@ namespace WTDE_Launcher_V3.IO {
         ///  List of arrays of strings that have all previous hash list versions of WTDE. Goes as far back as 1.0.3.
         /// </summary>
         public static List<string[]> WTDEVersionInfo = new List<string[]> { 
+            // -- 1.4: HAVOK UPDATE
+            new string[] { "1.4.0.4", "September 1, 2024", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/5942e50d6f9d560a3c5b337c32d4cbd654d311d3/GHWTDE/hashlist.dat" },
+            new string[] { "1.4.0.3", "August 28, 2024", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/ce3ce47ff92ea76146835f2f2af5173f9b1d0ad3/GHWTDE/hashlist.dat" },
+            new string[] { "1.4.0.2", "August 26, 2024", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/d8b12175c6e56c48e659bb037ebbd0646277aed8/GHWTDE/hashlist.dat" },
+            new string[] { "1.4.0.1", "August 25, 2024", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/b8c3ef00b13c40f213a0c4646e5b01ab1ddaab4b/GHWTDE/hashlist.dat" },
+            new string[] { "1.4.0.0 - Havok Update", "July 31, 2024", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/4ef4b076b9c1b2462d8b805e3c6922215eae3b95/GHWTDE/hashlist.dat" },
+
             // -- 1.3: NOTES UPDATE
             new string[] { "1.3.0.7", "November 15, 2023", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/38e9ccc08ff5d754302e8408b16f8a52de496def/GHWTDE/hashlist.dat" },
             new string[] { "1.3.0.6", "November 5, 2023", "https://gitgud.io/fretworks/ghwt-de-volatile/-/blob/a36a19179268c09871f3dc088eb3a2543323e691/GHWTDE/hashlist.dat" },

@@ -26,7 +26,7 @@ namespace WTDE_Launcher_V3.Core {
     ///  We primarily won't be changing these. If we do, we'll change anything at
     ///  start up, then leave them be from there on.
     /// </summary>
-    internal class V3LauncherConstants {
+    public class V3LauncherConstants {
         /// <summary>
         ///  Version number of the program.
         /// </summary>

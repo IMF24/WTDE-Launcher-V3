@@ -21,7 +21,7 @@ namespace WTDE_Launcher_V3.IO {
     /// <summary>
     ///  Various functions for dealing with XML files. Allows for easy manipulation of AspyrConfig.xml.
     /// </summary>
-    internal class XMLFunctions {
+    public class XMLFunctions {
         /// <summary>
         ///  Are we returning from a dialog? If so, DO NOT get anything new!
         /// </summary>

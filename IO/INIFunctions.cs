@@ -19,7 +19,7 @@ namespace WTDE_Launcher_V3.IO {
     /// <summary>
     ///  Various functions for dealing with GHWT: DE's INI file(s).
     /// </summary>
-    internal class INIFunctions {
+    public class INIFunctions {
         /// <summary>
         ///  Checks if a boolean value (0/1) is present in GHWTDE.ini. Returns true if 1, false if 0.
         /// </summary>
