@@ -272,6 +272,13 @@ namespace WTDE_Launcher_V3.Core {
 
                 RPCHandler.SetRPCDetails("Changing some settings");
 
+                // - - - - - - - - - - - - - - - - - - - - - - -
+
+                // Disable some settings objects that are unfinished.
+                TGDefaultCategory.Visible = false;
+                InitialSetlistCategory.Enabled = false;
+                InitialSetlistCategory.Visible = false;
+
             } catch (Exception exc) {
                 // Get information about the crash.
                 // Apparently Costura.Fody causes this to be messed up or thrown
