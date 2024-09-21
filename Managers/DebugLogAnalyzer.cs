@@ -121,6 +121,10 @@ namespace WTDE_Launcher_V3.Managers {
             AnalyzeOutputText.Text = "";
             AnalyzeOutputText.ReadOnly = true;
 
+            // Disable button just to avoid extra scans
+            ScanLogButton.Enabled = false;
+
+            // Reset the progress bar
             ScanProgressBar.Value = 0;
             ScanProgressPercent.Text = "0%";
 
@@ -225,6 +229,8 @@ namespace WTDE_Launcher_V3.Managers {
                 MessageBox.Show(errorMsg, "No File Given", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            // Update control usability
+            ScanLogButton.Enabled = true;
             AnalyzeOutputText.ReadOnly = true;
         }
 

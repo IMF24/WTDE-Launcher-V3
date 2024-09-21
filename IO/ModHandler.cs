@@ -659,6 +659,7 @@ namespace WTDE_Launcher_V3.IO {
         public static void AppendVenueMods(ComboBox[] cBoxList) {
             // Get our venue mods!
             List<string[]> venueMods = GetModsByType(ModTypes.Venue);
+            if (venueMods.Count <= 0) return;
 
             // Combo box data used later on.
             List<string[]> venueModCBoxData = new List<string[]>();
@@ -718,6 +719,7 @@ namespace WTDE_Launcher_V3.IO {
         public static void AppendGemMods(ComboBox[] cBoxList) {
             // Get our gem mods!
             List<string[]> gemMods = GetModsByType(ModTypes.Gems);
+            if (gemMods.Count <= 0) return;
 
             // Combo box data used later on.
             List<string[]> gemModCBoxData = new List<string[]>();
@@ -767,6 +769,43 @@ namespace WTDE_Launcher_V3.IO {
                     }
                 }
             }
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Get the names and checksums of all valid song mods.
+        /// </summary>
+        /// <returns>
+        ///  List of string arrays that are each 2 entries large. Index 0 contains the song's name in Artist - Title format.
+        ///  Index 1 contains the song's checksum.
+        /// </returns>
+        public static List<string[]> GetSongModNamesAndChecksums() {
+            // Get our song mods.
+            List<string[]> songMods = ModHandler.GetModsByType(ModHandler.ModTypes.Song);
+
+            // Get the artist/title and checksum of each song!
+            List<string[]> songModData = new List<string[]>();
+            for (var i = 0; i < songMods.Count; i++) {
+                // Read our INI file.
+                INI file = new INI(songMods[i][5]);
+
+                // Make sure we have a VALID checksum!
+                string songChecksum = file.GetString("SongInfo", "Checksum", "NO VALID CHECKSUM");
+                if (songChecksum == "NO VALID CHECKSUM") continue;
+
+                // Create a Artist - Title string
+                string songTitle = file.GetString("SongInfo", "Title", $"Unknown Song {i + 1}");
+                string songArtist = file.GetString("SongInfo", "Artist", "Unknown Artist");
+
+                string artistTitleString = $"{songArtist} - {songTitle}";
+
+                // Add it to the list.
+                songModData.Add(new string[] { artistTitleString, songChecksum });
+            }
+
+            // And return the list!
+            return songModData;
         }
     }
 }

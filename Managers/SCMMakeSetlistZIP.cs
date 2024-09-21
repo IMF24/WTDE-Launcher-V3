@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Aspose.Zip.Rar;
+using Aspose.Zip.SevenZip;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
@@ -219,6 +221,8 @@ namespace WTDE_Launcher_V3.Managers {
                         // -- INSERT CUSTOM CHECKSUM
                         if (UseCustomChecksum.Checked) {
                             folderINIText += "GameCategory = " + ((FolderConfigChecksum.Text.Trim() == "") ? OriginalCategoryChecksum : FolderConfigChecksum.Text) + "\n";
+                        } else {
+                            folderINIText += $"GameCategory = {OriginalCategoryChecksum}\n";
                         }
 
                         // -- INSERT GAME ICON

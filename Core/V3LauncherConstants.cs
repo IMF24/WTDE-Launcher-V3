@@ -632,6 +632,133 @@ namespace WTDE_Launcher_V3.Core {
         };
 
         /// <summary>
+        ///  List of stock Guitar Hero: World Tour songs. Index 0 is the name; index 1 is the checksum.
+        /// </summary>
+        public static List<string[]> StockSongList = new List<string[]>() { 
+            // -- 1. PHI PSI KAPPA
+            new string[] { "Bon Jovi - Livin' On a Prayer", "LivingOnAPrayer" },
+            new string[] { "Nirvana - About A Girl (Unplugged)", "AboutAGirl" },
+            new string[] { "Jane's Addiction - Mountain Song", "MountainSong" },
+
+            // -- 2. WILTED ORCHID
+            new string[] { "311 - Beautiful Disaster", "BeautifulDisaster" },
+            new string[] { "Interpol - Obstacle 1", "Obstacle1" },
+            new string[] { "R.E.M. - The One I Love", "TheOneILove" },
+
+            // -- 3. BONE CHURCH
+            new string[] { "Oasis - Some Might Say", "SomeMightSay" },
+            new string[] { "The Smashing Pumpkins - Today", "Today" },
+            new string[] { "Linkin Park - What I've Done", "WhatIveDone" },
+
+            // -- 4. PANG TANG BAY
+            new string[] { "Paul McCartney & Wings - Band On the Run", "BandOnTheRun" },
+            new string[] { "HushPuppies - You're Gonna Say Yeah!", "YoureGonnaSayYeah" },
+            new string[] { "Creedence Clearwater Revival - Up Around the Bend", "UpAroundTheBend" },
+            new string[] { "Beastie Boys (ft. Kerry King) - No Sleep 'Til Brooklyn", "NoSleepTillBrooklyn" },
+
+            // -- 5. AMOEBA RECORDS
+            new string[] { "The Steve Miller Band - The Joker", "TheJoker" },
+            new string[] { "Korn - Freak On a Leash", "FreakOnALeash" },
+            new string[] { "Paramore - Misery Business", "MiseryBusiness" },
+            new string[] { "The Eagles - Hotel California", "HotelCalifornia" },
+
+            // -- 6. TOOL
+            new string[] { "Tool - Parabola", "Parabola" },
+            new string[] { "Tool - Schism", "Schism" },
+            new string[] { "Tool - Vicarious", "Vicarious" },
+
+            // -- 7. SWAMP SHACK
+            new string[] { "Survivor - Eye of the Tiger", "EyeOfTheTiger" },
+            new string[] { "No Doubt - Spiderwebs", "Spiderwebs" },
+            new string[] { "Blondie - One Way or Another", "OneWayOrAnother" },
+            new string[] { "Steely Dan - Do It Again", "DoItAgain" },
+            new string[] { "Zakk Wylde - Zakk Wylde Guitar Duel", "DLC1" },
+            new string[] { "Black Label Society - Stillborn", "Stillborn" },
+
+            // -- 8. ROCK BRIGADE
+            new string[] { "Jimmy Eat World - The Middle", "TheMiddle" },
+            new string[] { "Filter - Hey Man, Nice Shot", "HeyManNiceShot" },
+            new string[] { "Dinosaur Jr. - Feel the Pain", "FeelThePain" },
+            new string[] { "blink-182 - Dammit (Growing Up)", "Dammit" },
+            new string[] { "Foo Fighters - Everlong", "Everlong" },
+
+            // -- 9. STRUTTER'S FARM
+            new string[] { "Pat Benatar - Heartbreaker", "Heartbreaker" },
+            new string[] { "The Guess Who - American Woman", "AmericanWoman" },
+            new string[] { "The Allman Brothers Band - Ramblin' Man", "RamblinMan" },
+            new string[] { "Fleetwood Mac - Go Your Own Way", "GoYourOwnWay" },
+            new string[] { "Ted Nugent - Ted Nugent Guitar Duel", "DLC2" },
+            new string[] { "Ted Nugent - Stranglehold", "Stranglehold" },
+
+            // -- 10. HOUSE OF BLUES
+            new string[] { "The Mars Volta - L'Via L'Viaquez", "LviaLviaquez" },
+            new string[] { "The MC5 - Kick Out the Jams", "KickOutTheJams" },
+            new string[] { "Sublime - Santeria", "Santeria" },
+            new string[] { "Willie Nelson - On the Road Again (Live)", "OnTheRoadAgain" },
+            new string[] { "The Doors - Love Me Two Times", "LoveMeTwoTimes" },
+
+            // -- 11. TED'S TIKI HUT
+            new string[] { "Tokio Hotel - Monsoon", "Monsoon" },
+            new string[] { "The Enemy - Aggro", "Aggro" },
+            new string[] { "Lostprophets - Rooftops (A Liberation Broadcast)", "Rooftops" },
+            new string[] { "Anouk - Good God", "GoodGod" },
+            new string[] { "At the Drive-In - One Armed Scissor", "OneArmedScissor" },
+
+            // -- 12. WILL HEILM'S KEEP
+            new string[] { "30 Seconds to Mars - The Kill (Bury Me)", "TheKill" },
+            new string[] { "Coldplay - Shiver", "Shiver" },
+            new string[] { "Billy Idol - Rebel Yell", "RebelYell" },
+            new string[] { "Sting - Demolition Man (Live)", "DemolitionMan" },
+            new string[] { "Michael Jackson (ft. Eddie Van Halen) - Beat It", "BeatIt" },
+
+            // -- 13. RECORDING STUDIO
+            new string[] { "Silversun Pickups - Lazy Eye", "LazyEye" },
+            new string[] { "Airbourne - Too Much, Too Young, Too Fast", "TooMuchTooYoung" },
+            new string[] { "Modest Mouse - Float On", "FloatOn" },
+            new string[] { "Negramaro - Nuvole E Lenzuola", "Nuvole" },
+            new string[] { "The Sex Pistols - Pretty Vacant (Re-Issue)", "PrettyVacant" },
+            
+            // -- 14. AT&T BALLPARK
+            new string[] { "Lenny Kravitz - Are You Gonna Go My Way", "AreYouGonnaGoMyWay" },
+            new string[] { "Lynyrd Skynyrd - Sweet Home Alabama (Live)", "SweetHomeAlabama" },
+            new string[] { "Muse - Assassin", "Assassin" },
+            new string[] { "Radio Futura - Escuela de Calor", "EscuelaDeCalor" },
+            new string[] { "The Jimi Hendrix Experience - The Wind Cries Mary", "WindCriesMary" },
+            new string[] { "The Jimi Hendrix Experience - Purple Haze (Live)", "PurpleHaze" },
+
+            // -- 15. TESLA'S COIL
+            new string[] { "Stuck in the Sound - Toy Boy", "ToyBoy" },
+            new string[] { "Beatsteaks - Hail to the Freaks", "HailToTheFreaks" },
+            new string[] { "Kent - VinterNoll2", "Vinternoll2" },
+            new string[] { "Bob Seger & The Silver Bullet Band - Hollywood Nights", "HollywoodNights" },
+            new string[] { "NOFX - Soul Doubt", "SoulDoubt" },
+
+            // -- 16. OZZFEST
+            new string[] { "The Cult - Love Removal Machine", "LoveRemovalMachine" },
+            new string[] { "Lacuna Coil - Our Truth", "OurTruth" },
+            new string[] { "Trust - Antisocial", "Antisocial" },
+            new string[] { "The Living End - Prisoner of Society", "PrisonerOfSociety" },
+            new string[] { "Ozzy Osbourne - Mr. Crowley", "MrCrowley" },
+            new string[] { "Ozzy Osbourne - Crazy Train", "CrazyTrain" },
+
+            // -- 17. TIMES SQUARE
+            new string[] { "Rise Against - Re-Education (Through Labor)", "ReEdThroughLabor" },
+            new string[] { "Los Lobos - La Bamba", "LaBamba" },
+            new string[] { "Bullet For My Valentine - Scream Aim Fire", "ScreamAimFire" },
+            new string[] { "Motorhead - Overkill", "Overkill" },
+            new string[] { "Metallica - Trapped Under Ice", "TrappedUnderIce" },
+            new string[] { "System of a Down - B.Y.O.B.", "BYOB" },
+            new string[] { "Van Halen - Hot For Teacher", "HotForTeacher" },
+
+            // -- 18. SUNNA'S CHARIOT
+            new string[] { "The Stone Roses - Love Spreads", "LoveSpreads" },
+            new string[] { "The Answer - Never Too Late", "NeverTooLate" },
+            new string[] { "Black Rebel Motorcycle Club - Weapon of Choice", "WeaponOfChoice" },
+            new string[] { "Dream Theater - Pull Me Under", "PullMeUnder" },
+            new string[] { "Joe Satriani - Satch Boogie", "SatchBoogie" }
+        };
+
+        /// <summary>
         ///  The default mapping string for `Keyboard_Guitar` in AspyrConfig.xml. 
         /// </summary>
         public const string ASPYR_INPUT_GUITAR_DEFAULT = "GREEN 328 308 RED 221 YELLOW 340 BLUE 343 ORANGE 267 STAR 402 318 CANCEL 999 START 219 BACK 999 DOWN 231 400 UP 327 401 WHAMMY 310 LEFT 265 RIGHT 309 ";
@@ -774,7 +901,8 @@ namespace WTDE_Launcher_V3.Core {
                 "Guitar Hero: World Tour",
                 "Guitar Hero: Metallica",
                 "Guitar Hero: Smash Hits",
-                "Guitar Hero: Van Halen"
+                "Guitar Hero: Van Halen",
+                "Random Screen"
             },
 
             // Load screen IDs.
@@ -787,7 +915,8 @@ namespace WTDE_Launcher_V3.Core {
                 "ghwt",
                 "ghm",
                 "ghshits",
-                "ghvh"
+                "ghvh",
+                "random_theme"
             }
         };
 

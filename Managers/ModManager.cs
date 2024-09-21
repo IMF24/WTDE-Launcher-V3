@@ -104,7 +104,10 @@ namespace WTDE_Launcher_V3.Managers {
             watch.Start();
 
             // Make sure the user editors folder exists!
+            // If it doesn't, then create it!
             if (!Directory.Exists(V3LauncherConstants.UserEditorsFolderDir)) {
+                Directory.CreateDirectory(V3LauncherConstants.UserEditorsFolderDir);
+
                 V3LauncherCore.AddDebugEntry("No editors to register", "Mod Manager");
                 return;
             }

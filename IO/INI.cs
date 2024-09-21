@@ -74,7 +74,7 @@ namespace WTDE_Launcher_V3.IO {
         // - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
-        ///  Read any value from an INI file. Parsed as a dynamic; the type will be resolved through the public functions.
+        ///  Read any value from an INI file. Parsed as a generic type T; the type will be resolved through the public functions.
         /// </summary>
         /// <param name="sect">
         ///  The section to read from.
@@ -88,7 +88,7 @@ namespace WTDE_Launcher_V3.IO {
         /// <returns>
         ///  The required value, interpreted into various other types by the public methods.
         /// </returns>
-        private string ReadValue(string sect, string key, dynamic def) {
+        private string ReadValue<T>(string sect, string key, T def) {
             if (IsVerbose) V3LauncherCore.AddDebugEntry($"Amount of sections in INI file: {INIInternalFile.Sections.Count}", "INI Class");
 
             // Make sure we have sections to count over!
@@ -136,7 +136,7 @@ namespace WTDE_Launcher_V3.IO {
         }
 
         /// <summary>
-        ///  Write any value to an INI file. Parsed as a dynamic; the type will be resolved through the public functions.
+        ///  Write any value to an INI file. Parsed as a generic type T; the type will be resolved through the public functions.
         /// </summary>
         /// <param name="sect">
         ///  The section to write to.
@@ -147,7 +147,7 @@ namespace WTDE_Launcher_V3.IO {
         /// <param name="value">
         ///  The value to write to the given key.
         /// </param>
-        private void WriteValue(string sect, string key, dynamic value) {
+        private void WriteValue<T>(string sect, string key, T value) {
             // Make sure the section exists!
             if (!INIInternalFile.Sections.Contains(sect)) {
                 if (IsVerbose) V3LauncherCore.AddDebugEntry($"Section {sect} not found, adding it", "INI Class");
@@ -252,7 +252,15 @@ namespace WTDE_Launcher_V3.IO {
         ///  A true or false value from the given section and key if it exists. The fallback boolean is returned if the key or section was not found.
         /// </returns>
         public bool GetBool(string sect, string key, bool def = false) {
-            return bool.Parse(ReadValue(sect, key, def));
+            bool returnValue;
+            try {
+                double value = double.Parse(ReadValue(sect, key, def));
+                returnValue = (value > 0.0D);
+            } catch (Exception exc) {
+                Console.WriteLine($"Error parsing bool: {exc} // Returning default as {def}");
+                returnValue = def;
+            }
+            return returnValue;
         }
 
         /// <summary>
@@ -268,7 +276,8 @@ namespace WTDE_Launcher_V3.IO {
         ///  The boolean to write to the given key.
         /// </param>
         public void SetBool(string sect, string key, bool value) {
-            WriteValue(sect, key, value);
+            int writableValue = (value) ? 1 : 0;
+            WriteValue(sect, key, writableValue);
         }
 
         // - - - - - - - - - - - - - - - - - - - - -

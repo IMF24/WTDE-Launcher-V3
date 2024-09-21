@@ -10,22 +10,14 @@ using WTDE_Launcher_V3.Core;
 using WTDE_Launcher_V3.IO;
 using WTDE_Launcher_V3.NX;
 
+// Other required imports.
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MadMilkman.Ini;
-using Pfim;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.IO.Compression;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
@@ -401,6 +393,19 @@ namespace WTDE_Launcher_V3.Managers {
             Directory.SetCurrentDirectory(owd);
 
             UpdateActiveSongControls();
+
+            // - - - - - - - - - - - - - - - - - - - - - - -
+
+            // Show a warning if we have over 200 songs.
+            if (AttachedCategorySongs.Items.Count > 200) {
+                string over200Warning = "This category contains over 200 songs!\n\n" +
+                                        "You can continue to add songs to this category, but once it " +
+                                        "reaches a certain arbitrary size, the game will run out of " +
+                                        "text and/or sprite elements, and the game will crash.\n\n" +
+                                        "For your own convenience, try and keep the category size low!";
+
+                MessageBox.Show(over200Warning, "Warning: Over 200 Songs", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         public void UnloadAllData() {

@@ -355,7 +355,14 @@ namespace WTDE_Launcher_V3.Core {
             Properties.Resources.mixer_icon_drums,
             Properties.Resources.mixer_icon_vocals
         };
-        
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  The list of songs that will be loaded into when in Auto Launch mode.
+        /// </summary>
+        public List<string> AutoLaunchSongs = new List<string>();
+
         // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
@@ -463,6 +470,9 @@ namespace WTDE_Launcher_V3.Core {
                 });
             SPActivationSFX.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("Audio", "SPActivationSFX", "default"),
                 V3LauncherConstants.StarPowerActivationSounds[1], V3LauncherConstants.StarPowerActivationSounds[0]);
+
+            // -- EXTRA SETTINGS --------
+            DefaultSetlistSortIndex.SelectedIndex = int.Parse(INIFunctions.GetINIValue("Config", "DefaultSetlistSortIndex"));
 
             // ---------------------------------
             // INPUT TAB
@@ -662,7 +672,7 @@ namespace WTDE_Launcher_V3.Core {
             TabALMainEditor.Enabled = AutoLaunchEnabled.Checked;
 
             AutoLaunchPlayers.Text = INIFunctions.GetINIValue("AutoLaunch", "Players", "1");
-            AutoLaunchSong.Text = INIFunctions.GetINIValue("AutoLaunch", "Song", "random");
+            GetAutoLaunchSongs();
             AutoLaunchVenue.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "Venue"),
                 V3LauncherConstants.VenueIDs[1], V3LauncherConstants.VenueIDs[0]);
             AutoLaunchGameMode.Text = INIFunctions.InterpretINISetting(INIFunctions.GetINIValue("AutoLaunch", "GameMode", ""),
@@ -1406,11 +1416,11 @@ namespace WTDE_Launcher_V3.Core {
             bool okStatus = true;
             List<string> autoLaunchErrors = new List<string> { };
 
-            // Do we have a song to boot into?
-            if (AutoLaunchSong.Text.Trim() == "") {
-                okStatus = false;
-                autoLaunchErrors.Add("No song checksum specified.");
-            }
+            // Do we have any songs to boot into?
+            //~ if (AutoLaunchSong.Text.Trim() == "") {
+            //~     okStatus = false;
+            //~     autoLaunchErrors.Add("No song checksum specified.");
+            //~ }
 
             // Do we have a venue specified?
             // We should never be false here.
@@ -1859,6 +1869,12 @@ namespace WTDE_Launcher_V3.Core {
 
         private void AudioBuffLen_SelectedIndexChanged(object sender, EventArgs e) {
             XMLFunctions.AspyrWriteString("Audio.BuffLen", AudioBuffLen.Text);
+        }
+
+        // -- EXTRA OPTIONS -----------------------------
+
+        private void DefaultSetlistSortIndex_SelectedIndexChanged(object sender, EventArgs e) {
+            INIFunctions.SaveINIValue("Config", "DefaultSetlistSortIndex", DefaultSetlistSortIndex.SelectedIndex.ToString());
         }
 
         // -- MAIN MENU TOGGLES -----------------------------
@@ -3202,7 +3218,7 @@ namespace WTDE_Launcher_V3.Core {
 
         private void CustomLastName_TextChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("CelebritiesIntros", "CustomLastName", CustomLastName.Text);
-        } 
+        }
 
         #endregion
 
@@ -3210,6 +3226,50 @@ namespace WTDE_Launcher_V3.Core {
         // AUTO LAUNCH TAB AUTO UPDATE
         // ----------------------------------------------------------
         #region Auto Launch Tab Auto Update
+        
+        /// <summary>
+        ///  Read the songs that are in the current auto launch rotation.
+        /// </summary>
+        public void GetAutoLaunchSongs() {
+            // Clear the song list queue.
+            AutoLaunchSongs.Clear();
+
+            // Max of 20 songs! This is related to the in-game song limit.
+            for (var i = 1; i <= 20; i++) {
+                // The key to look for.
+                string songKey = (i > 1) ? $"Song{i}" : "Song";
+
+                // Add the string from the given song key.
+                AutoLaunchSongs.Add(INIFunctions.GetINIValue("AutoLaunch", songKey, ""));
+            }
+        }
+
+        /// <summary>
+        ///  Save the songs in the auto launch rotation to GHWTDE.ini.
+        /// </summary>
+        public void SaveAutoLaunchSongs() {
+            // Clean the list out of empty entries.
+            string[] writableSongs = (
+                from song in AutoLaunchSongs
+                where song.Trim() != ""
+                select song
+            ).ToArray();
+
+            // Write the songs!
+            for (var i = 0; i < writableSongs.Length; i++) {
+                // If over 20, break out, we can't write any more songs!
+                if (i >= 20) break;
+
+                // The key that will be written to.
+                string songKey = (i > 0) ? $"Song{i + 1}" : "Song";
+
+                // Write the value!
+                INIFunctions.SaveINIValue("AutoLaunch", songKey, writableSongs[i]);
+            }
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
         private void AutoLaunchEnabled_CheckedChanged(object sender, EventArgs e) {
             INIFunctions.SaveINIValue("AutoLaunch", "Enabled", INIFunctions.BoolToString(AutoLaunchEnabled.Checked));
             TabALMainEditor.Enabled = AutoLaunchEnabled.Checked;
@@ -3481,23 +3541,18 @@ namespace WTDE_Launcher_V3.Core {
             }
         }
 
-        private void AutoLaunchSong_TextChanged(object sender, EventArgs e) {
-            try {
-                INIFunctions.SaveINIValue("AutoLaunch", "Song", AutoLaunchSong.Text);
-            } catch (Exception exc) {
-                V3LauncherCore.AddDebugEntry(exc.ToString(), "Internal Error");
-            }
-        }
+        private void ALSongMakeQueueButton_Click(object sender, EventArgs e) {
+            AutoLaunchSongChooser alsc = new AutoLaunchSongChooser(AutoLaunchSongs);
+            alsc.ShowDialog();
 
-        private void ALSongSelectINI_Click(object sender, EventArgs e) {
-            try {
-                V3LauncherCore.TextBoxReadFromDialog(0, AutoLaunchSong, "Select song.ini File", false, "song.ini Files|*song.ini");
-                IniFile file = new IniFile();
-                file.Load(AutoLaunchSong.Text);
-                AutoLaunchSong.Text = file.Sections["SongInfo"].Keys["Checksum"].Value;
-            } catch (Exception exc) {
-                V3LauncherCore.AddDebugEntry($"Auto launch: Error reading INI, don't worry about it // {exc.Message}");
-            }
+            AutoLaunchSongs = (
+                from song in alsc.RotationSongInfo
+                select song[1]
+            ).ToList();
+
+            alsc.Dispose();
+
+            SaveAutoLaunchSongs();
         }
 
         private void AutoLaunchVenue_SelectedIndexChanged(object sender, EventArgs e) {
@@ -3861,6 +3916,8 @@ namespace WTDE_Launcher_V3.Core {
             AdjustCharacterInstruments aci = new AdjustCharacterInstruments(selectedCharacterName, selectedCharacterPath);
             aci.ShowDialog();
         }
+
+
 
 
         #endregion

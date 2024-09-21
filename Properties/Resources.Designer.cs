@@ -908,6 +908,16 @@ namespace WTDE_Launcher_V3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus_black {
+            get {
+                object obj = ResourceManager.GetObject("minus_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mixer_icon_bass {
             get {
                 object obj = ResourceManager.GetObject("mixer_icon_bass", resourceCulture);
