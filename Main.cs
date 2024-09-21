@@ -1424,10 +1424,10 @@ namespace WTDE_Launcher_V3.Core {
             List<string> autoLaunchErrors = new List<string> { };
 
             // Do we have any songs to boot into?
-            //~ if (AutoLaunchSong.Text.Trim() == "") {
-            //~     okStatus = false;
-            //~     autoLaunchErrors.Add("No song checksum specified.");
-            //~ }
+            if (AutoLaunchSongs.Count <= 0) {
+                okStatus = false;
+                autoLaunchErrors.Add("No songs were given. At least 1 song is required.");
+            }
 
             // Do we have a venue specified?
             // We should never be false here.
@@ -3247,7 +3247,8 @@ namespace WTDE_Launcher_V3.Core {
                 string songKey = (i > 1) ? $"Song{i}" : "Song";
 
                 // Add the string from the given song key.
-                AutoLaunchSongs.Add(INIFunctions.GetINIValue("AutoLaunch", songKey, ""));
+                string valueFromKey = INIFunctions.GetINIValue("AutoLaunch", songKey, "").Trim();
+                if (valueFromKey != "") AutoLaunchSongs.Add(valueFromKey);
             }
         }
 
@@ -3262,16 +3263,28 @@ namespace WTDE_Launcher_V3.Core {
                 select song
             ).ToArray();
 
-            // Write the songs!
-            for (var i = 0; i < writableSongs.Length; i++) {
-                // If over 20, break out, we can't write any more songs!
-                if (i >= 20) break;
+            // If there were no entries, then just populate the song keys with nothing.
+            if (AutoLaunchSongs.Count <= 0) {
+                for (var i = 0; i < 20; i++) {
+                    // The key that will be written to.
+                    string songKey = (i > 0) ? $"Song{i + 1}" : "Song";
 
-                // The key that will be written to.
-                string songKey = (i > 0) ? $"Song{i + 1}" : "Song";
+                    // Write the value!
+                    INIFunctions.SaveINIValue("AutoLaunch", songKey, "");
+                }
 
-                // Write the value!
-                INIFunctions.SaveINIValue("AutoLaunch", songKey, writableSongs[i]);
+            // We had 1+ song(s), write it/them!
+            } else {
+                for (var i = 0; i < writableSongs.Length; i++) {
+                    // If over 20, break out; we can't write any more songs!
+                    if (i >= 20) break;
+
+                    // The key that will be written to.
+                    string songKey = (i > 0) ? $"Song{i + 1}" : "Song";
+
+                    // Write the value!
+                    INIFunctions.SaveINIValue("AutoLaunch", songKey, writableSongs[i]);
+                }
             }
         }
 
@@ -3556,10 +3569,13 @@ namespace WTDE_Launcher_V3.Core {
                 from song in alsc.RotationSongInfo
                 select song[1]
             ).ToList();
+            bool canSave = alsc.CanSave;
 
             alsc.Dispose();
 
-            SaveAutoLaunchSongs();
+            Console.WriteLine($"Number of Auto Launch songs: {AutoLaunchSongs.Count}");
+
+            if (canSave) SaveAutoLaunchSongs();
         }
 
         private void AutoLaunchVenue_SelectedIndexChanged(object sender, EventArgs e) {

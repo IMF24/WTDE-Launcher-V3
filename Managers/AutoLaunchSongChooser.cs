@@ -49,11 +49,20 @@ namespace WTDE_Launcher_V3.Managers {
             RemoveSelectedSongsFromQueue.Enabled = false;
             AddStockSongToQueueButton.Enabled = false;
             AddSongModsToQueueButton.Enabled = false;
+            MoveUpInQueueButton.Enabled = false;
+            MoveDownInQueueButton.Enabled = false;
 
             //~ foreach (var item in RotationSongInfo) {
             //~     Helpers.DumpListContents(item);
             //~ }
         }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Can the values be saved? Used in Main.cs when the songs get written.
+        /// </summary>
+        public bool CanSave = false;
 
         // - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -384,10 +393,12 @@ namespace WTDE_Launcher_V3.Managers {
         // - - - - - - - - - - - - - - - - - - - - - - -
 
         private void OKButton_Click(object sender, EventArgs e) {
+            CanSave = true;
             Close();
         }
 
         private void CloseButton_Click(object sender, EventArgs e) {
+            CanSave = false;
             Close();
         }
 
