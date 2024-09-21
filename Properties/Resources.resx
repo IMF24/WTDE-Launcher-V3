@@ -307,9 +307,6 @@
   <data name="white_overlay_d_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\white_overlay_d_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\backgrounds\bg_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -483,5 +480,8 @@
   </data>
   <data name="minus_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\minus_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
