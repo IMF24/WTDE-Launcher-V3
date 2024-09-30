@@ -11,6 +11,7 @@ using WTDE_Launcher_V3.IO;
 using WTDE_Launcher_V3.Managers.ModTypes;
 using WTDE_Launcher_V3.Managers.ScriptMods;
 
+// Various other imports.
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -507,6 +508,16 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void iMFsGitHubToolStripMenuItem_Click(object sender, EventArgs e) {
             V3LauncherCore.OpenSiteURL("https://github.com/IMF24");
+        }
+
+        private void modManagerHelpToolStripMenuItem_Click(object sender, EventArgs e) {
+            V3LauncherCore.OpenSiteURL("https://sites.google.com/view/imf-gh-docs/mod-manager");
+        }
+
+        private void aboutModManagerToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show($"GHWT: Definitive Edition Launcher V{V3LauncherConstants.VERSION} - Mod Manager\n\n" +
+                            $"Tool for managing mods for GHWT: DE in a simplistic, user-friendly way.\n\n" +
+                            $"Tool Coded by IMF24", "About Mod Manager");
         }
     }
 }

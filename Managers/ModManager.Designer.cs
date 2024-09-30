@@ -449,7 +449,7 @@
             this.noFilterToolStripMenuItem});
             this.viewByModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
             this.viewByModToolStripMenuItem.Name = "viewByModToolStripMenuItem";
-            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewByModToolStripMenuItem.Text = "View By Mod Type";
             // 
             // songModsToolStripMenuItem
@@ -641,6 +641,7 @@
             this.aboutModManagerToolStripMenuItem.Name = "aboutModManagerToolStripMenuItem";
             this.aboutModManagerToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.aboutModManagerToolStripMenuItem.Text = "About Mod Manager";
+            this.aboutModManagerToolStripMenuItem.Click += new System.EventHandler(this.aboutModManagerToolStripMenuItem_Click);
             // 
             // toolStripSeparator11
             // 
@@ -653,6 +654,7 @@
             this.modManagerHelpToolStripMenuItem.Name = "modManagerHelpToolStripMenuItem";
             this.modManagerHelpToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.modManagerHelpToolStripMenuItem.Text = "Mod Manager Help";
+            this.modManagerHelpToolStripMenuItem.Click += new System.EventHandler(this.modManagerHelpToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
             // 

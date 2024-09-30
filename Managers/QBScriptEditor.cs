@@ -1536,8 +1536,9 @@ namespace WTDE_Launcher_V3.Managers {
                                                "\t:i endfunction\n" +
                                                "]\n";
     }
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    //    R O Q       S C R I P T       T E M P L A T E S
+    //    Q B C       S C R I P T       T E M P L A T E S
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     /// <summary>
@@ -1670,7 +1671,7 @@ namespace WTDE_Launcher_V3.Managers {
                                                "// Ask for help on our Discord server for more!\n" +
                                                "//  https://discord.gg/HVECPzkV4u\n\n" +
                                                "script NewQBScript_Load\n" +
-                                               "\t printf 'Hello World!'\n" +
+                                               "\tprintf 'Hello World!'\n" +
                                                "endscript\n";
     }
 

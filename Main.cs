@@ -552,9 +552,8 @@ namespace WTDE_Launcher_V3.Core {
             // ---------------------------------
 
             // -- BASIC OPTIONS --------
-            VideoWidth.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "ResolutionX", Screen.PrimaryScreen.Bounds.Width.ToString()));
-            VideoHeight.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "ResolutionY", Screen.PrimaryScreen.Bounds.Height.ToString()));
-            UseNativeRes.Text = $"Native Resolution ({Screen.FromControl(this).Bounds.Width} X {Screen.FromControl(this).Bounds.Height})";
+            VideoWidth.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "ResolutionX", "1280"));
+            VideoHeight.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "ResolutionY", "720"));
             FPSLimit.Value = decimal.Parse(INIFunctions.GetINIValue("Graphics", "FPSLimit"));
 
             DisableVSync.Checked = INIFunctions.GetBooleanInverse(INIFunctions.GetINIValue("Graphics", "DisableVSync", "1"));
@@ -2545,14 +2544,6 @@ namespace WTDE_Launcher_V3.Core {
         }
 
         private void VideoHeight_ValueChanged(object sender, EventArgs e) {
-            INIFunctions.SaveINIValue("Graphics", "ResolutionY", VideoHeight.Value.ToString());
-        }
-
-        private void UseNativeRes_Click(object sender, EventArgs e) {
-            VideoWidth.Value = Screen.FromControl(this).Bounds.Width;
-            VideoHeight.Value = Screen.FromControl(this).Bounds.Height;
-
-            INIFunctions.SaveINIValue("Graphics", "ResolutionX", VideoWidth.Value.ToString());
             INIFunctions.SaveINIValue("Graphics", "ResolutionY", VideoHeight.Value.ToString());
         }
 

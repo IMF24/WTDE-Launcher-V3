@@ -73,7 +73,6 @@
             this.WindowedMode = new System.Windows.Forms.CheckBox();
             this.DisableVSync = new System.Windows.Forms.CheckBox();
             this.FPSLimit = new System.Windows.Forms.NumericUpDown();
-            this.UseNativeRes = new System.Windows.Forms.Button();
             this.VideoHeight = new System.Windows.Forms.NumericUpDown();
             this.VideoWidth = new System.Windows.Forms.NumericUpDown();
             this.SpecialStarPowerFX = new System.Windows.Forms.CheckBox();
@@ -438,6 +437,33 @@
             this.DefaultTab = new System.Windows.Forms.ComboBox();
             this.DefaultSetlistSortIndex = new System.Windows.Forms.ComboBox();
             this.TabParentContainer = new System.Windows.Forms.Panel();
+            this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
+            this.TabGeneralSettingsTabs = new System.Windows.Forms.TabControl();
+            this.TabGeneralTabsBasic = new System.Windows.Forms.TabPage();
+            this.QPODifficultyIconImage = new System.Windows.Forms.PictureBox();
+            this.TGPrefGamerTag4 = new System.Windows.Forms.Label();
+            this.TGPrefGamerTag3 = new System.Windows.Forms.Label();
+            this.TGPrefGamerTag2 = new System.Windows.Forms.Label();
+            this.TGPrefGamerTag1 = new System.Windows.Forms.Label();
+            this.TGGamerTags = new System.Windows.Forms.Label();
+            this.TGBasicSettings = new System.Windows.Forms.Label();
+            this.TGForceHolidayLabel = new System.Windows.Forms.Label();
+            this.TGDefaultTabLabel = new System.Windows.Forms.Label();
+            this.TGAutoLoginLabel = new System.Windows.Forms.Label();
+            this.TGDefaultQPODiff = new System.Windows.Forms.Label();
+            this.TGLanguageLabel = new System.Windows.Forms.Label();
+            this.TGLauncherOptions = new System.Windows.Forms.Label();
+            this.TGMMOHeader = new System.Windows.Forms.Label();
+            this.TabGeneralTabsAudio = new System.Windows.Forms.TabPage();
+            this.TGStarActivateLabel = new System.Windows.Forms.Label();
+            this.TGSPClapTypeLabel = new System.Windows.Forms.Label();
+            this.TGAudioSettings = new System.Windows.Forms.Label();
+            this.TGAudioBLen = new System.Windows.Forms.Label();
+            this.TabGeneralTabsExtra = new System.Windows.Forms.TabPage();
+            this.TGDefaultCategory = new System.Windows.Forms.Label();
+            this.TGSetlistSort = new System.Windows.Forms.Label();
+            this.InitialSetlistCategory = new System.Windows.Forms.ComboBox();
+            this.TGExtraSettings = new System.Windows.Forms.Label();
             this.TabAutoLaunchGroup = new System.Windows.Forms.GroupBox();
             this.TALSaveWarningLabel = new System.Windows.Forms.Label();
             this.TabALMainEditor = new System.Windows.Forms.Panel();
@@ -475,33 +501,6 @@
             this.TALP1ILabel = new System.Windows.Forms.Label();
             this.TALPDSettings = new System.Windows.Forms.Label();
             this.TALP1DLabel = new System.Windows.Forms.Label();
-            this.TabGeneralGroup = new System.Windows.Forms.GroupBox();
-            this.TabGeneralSettingsTabs = new System.Windows.Forms.TabControl();
-            this.TabGeneralTabsBasic = new System.Windows.Forms.TabPage();
-            this.QPODifficultyIconImage = new System.Windows.Forms.PictureBox();
-            this.TGPrefGamerTag4 = new System.Windows.Forms.Label();
-            this.TGPrefGamerTag3 = new System.Windows.Forms.Label();
-            this.TGPrefGamerTag2 = new System.Windows.Forms.Label();
-            this.TGPrefGamerTag1 = new System.Windows.Forms.Label();
-            this.TGGamerTags = new System.Windows.Forms.Label();
-            this.TGBasicSettings = new System.Windows.Forms.Label();
-            this.TGForceHolidayLabel = new System.Windows.Forms.Label();
-            this.TGDefaultTabLabel = new System.Windows.Forms.Label();
-            this.TGAutoLoginLabel = new System.Windows.Forms.Label();
-            this.TGDefaultQPODiff = new System.Windows.Forms.Label();
-            this.TGLanguageLabel = new System.Windows.Forms.Label();
-            this.TGLauncherOptions = new System.Windows.Forms.Label();
-            this.TGMMOHeader = new System.Windows.Forms.Label();
-            this.TabGeneralTabsAudio = new System.Windows.Forms.TabPage();
-            this.TGStarActivateLabel = new System.Windows.Forms.Label();
-            this.TGSPClapTypeLabel = new System.Windows.Forms.Label();
-            this.TGAudioSettings = new System.Windows.Forms.Label();
-            this.TGAudioBLen = new System.Windows.Forms.Label();
-            this.TabGeneralTabsExtra = new System.Windows.Forms.TabPage();
-            this.TGDefaultCategory = new System.Windows.Forms.Label();
-            this.TGSetlistSort = new System.Windows.Forms.Label();
-            this.InitialSetlistCategory = new System.Windows.Forms.ComboBox();
-            this.TGExtraSettings = new System.Windows.Forms.Label();
             this.TabGraphicsGroup = new System.Windows.Forms.GroupBox();
             this.TabGraphicsMainEditor = new System.Windows.Forms.TabControl();
             this.TGEditorBasic = new System.Windows.Forms.TabPage();
@@ -599,6 +598,12 @@
             this.BandMemberChangeMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HavokFPS)).BeginInit();
             this.TabParentContainer.SuspendLayout();
+            this.TabGeneralGroup.SuspendLayout();
+            this.TabGeneralSettingsTabs.SuspendLayout();
+            this.TabGeneralTabsBasic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).BeginInit();
+            this.TabGeneralTabsAudio.SuspendLayout();
+            this.TabGeneralTabsExtra.SuspendLayout();
             this.TabAutoLaunchGroup.SuspendLayout();
             this.TabALMainEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ALInstIconP4)).BeginInit();
@@ -609,12 +614,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP1)).BeginInit();
-            this.TabGeneralGroup.SuspendLayout();
-            this.TabGeneralSettingsTabs.SuspendLayout();
-            this.TabGeneralTabsBasic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).BeginInit();
-            this.TabGeneralTabsAudio.SuspendLayout();
-            this.TabGeneralTabsExtra.SuspendLayout();
             this.TabGraphicsGroup.SuspendLayout();
             this.TabGraphicsMainEditor.SuspendLayout();
             this.TGEditorBasic.SuspendLayout();
@@ -1431,7 +1430,7 @@
             // HighDetail
             // 
             this.HighDetail.AutoSize = true;
-            this.HighDetail.Location = new System.Drawing.Point(19, 161);
+            this.HighDetail.Location = new System.Drawing.Point(19, 137);
             this.HighDetail.Name = "HighDetail";
             this.HighDetail.Size = new System.Drawing.Size(147, 26);
             this.HighDetail.TabIndex = 10;
@@ -1444,7 +1443,7 @@
             // Borderless
             // 
             this.Borderless.AutoSize = true;
-            this.Borderless.Location = new System.Drawing.Point(19, 135);
+            this.Borderless.Location = new System.Drawing.Point(19, 111);
             this.Borderless.Name = "Borderless";
             this.Borderless.Size = new System.Drawing.Size(179, 26);
             this.Borderless.TabIndex = 9;
@@ -1456,7 +1455,7 @@
             // WindowedMode
             // 
             this.WindowedMode.AutoSize = true;
-            this.WindowedMode.Location = new System.Drawing.Point(19, 109);
+            this.WindowedMode.Location = new System.Drawing.Point(19, 85);
             this.WindowedMode.Name = "WindowedMode";
             this.WindowedMode.Size = new System.Drawing.Size(143, 26);
             this.WindowedMode.TabIndex = 8;
@@ -1468,7 +1467,7 @@
             // DisableVSync
             // 
             this.DisableVSync.AutoSize = true;
-            this.DisableVSync.Location = new System.Drawing.Point(19, 83);
+            this.DisableVSync.Location = new System.Drawing.Point(19, 59);
             this.DisableVSync.Name = "DisableVSync";
             this.DisableVSync.Size = new System.Drawing.Size(146, 26);
             this.DisableVSync.TabIndex = 7;
@@ -1481,7 +1480,7 @@
             // FPSLimit
             // 
             this.FPSLimit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FPSLimit.Location = new System.Drawing.Point(107, 58);
+            this.FPSLimit.Location = new System.Drawing.Point(107, 34);
             this.FPSLimit.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1498,18 +1497,6 @@
             0,
             0});
             this.FPSLimit.ValueChanged += new System.EventHandler(this.FPSLimit_ValueChanged);
-            // 
-            // UseNativeRes
-            // 
-            this.UseNativeRes.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.UseNativeRes.Location = new System.Drawing.Point(19, 32);
-            this.UseNativeRes.Name = "UseNativeRes";
-            this.UseNativeRes.Size = new System.Drawing.Size(249, 23);
-            this.UseNativeRes.TabIndex = 4;
-            this.UseNativeRes.Text = "Native Resolution (X BY Y)";
-            this.ToolTipMain.SetToolTip(this.UseNativeRes, "Set the resolution to your primary monitor\'s resolution.");
-            this.UseNativeRes.UseVisualStyleBackColor = true;
-            this.UseNativeRes.Click += new System.EventHandler(this.UseNativeRes_Click);
             // 
             // VideoHeight
             // 
@@ -6259,9 +6246,9 @@
             this.TabParentContainer.BackColor = System.Drawing.Color.Transparent;
             this.TabParentContainer.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.light_overlay;
             this.TabParentContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabGeneralGroup);
             this.TabParentContainer.Controls.Add(this.TabAutoLaunchGroup);
-            this.TabParentContainer.Controls.Add(this.TabGraphicsGroup);
             this.TabParentContainer.Controls.Add(this.TabDebugGroup);
             this.TabParentContainer.Controls.Add(this.TabBandGroup);
             this.TabParentContainer.Controls.Add(this.TabCreditsGroup);
@@ -6270,6 +6257,321 @@
             this.TabParentContainer.Name = "TabParentContainer";
             this.TabParentContainer.Size = new System.Drawing.Size(689, 678);
             this.TabParentContainer.TabIndex = 11;
+            // 
+            // TabGeneralGroup
+            // 
+            this.TabGeneralGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
+            this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
+            this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGeneralGroup.Location = new System.Drawing.Point(300, 379);
+            this.TabGeneralGroup.Name = "TabGeneralGroup";
+            this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
+            this.TabGeneralGroup.TabIndex = 0;
+            this.TabGeneralGroup.TabStop = false;
+            this.TabGeneralGroup.Text = "DEBUG: General Tab";
+            // 
+            // TabGeneralSettingsTabs
+            // 
+            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsBasic);
+            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsAudio);
+            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsExtra);
+            this.TabGeneralSettingsTabs.Font = new System.Drawing.Font("Lexend", 10F);
+            this.TabGeneralSettingsTabs.Location = new System.Drawing.Point(6, 12);
+            this.TabGeneralSettingsTabs.Name = "TabGeneralSettingsTabs";
+            this.TabGeneralSettingsTabs.SelectedIndex = 0;
+            this.TabGeneralSettingsTabs.Size = new System.Drawing.Size(648, 630);
+            this.TabGeneralSettingsTabs.TabIndex = 27;
+            // 
+            // TabGeneralTabsBasic
+            // 
+            this.TabGeneralTabsBasic.Controls.Add(this.QPODifficultyIconImage);
+            this.TabGeneralTabsBasic.Controls.Add(this.LauncherRichPresence);
+            this.TabGeneralTabsBasic.Controls.Add(this.DebugConsoleLauncher);
+            this.TabGeneralTabsBasic.Controls.Add(this.ExitOnSave);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag4);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText4);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag3);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText3);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag2);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText2);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag1);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGGamerTags);
+            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText1);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGBasicSettings);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGForceHolidayLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.RichPresence);
+            this.TabGeneralTabsBasic.Controls.Add(this.Holiday);
+            this.TabGeneralTabsBasic.Controls.Add(this.AllowHolidays);
+            this.TabGeneralTabsBasic.Controls.Add(this.StatusHandler);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGDefaultTabLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGAutoLoginLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.DefaultTab);
+            this.TabGeneralTabsBasic.Controls.Add(this.AutoLogin);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGDefaultQPODiff);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGLanguageLabel);
+            this.TabGeneralTabsBasic.Controls.Add(this.DefaultQPODifficulty);
+            this.TabGeneralTabsBasic.Controls.Add(this.Language);
+            this.TabGeneralTabsBasic.Controls.Add(this.CheckForUpdates);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGLauncherOptions);
+            this.TabGeneralTabsBasic.Controls.Add(this.TGMMOHeader);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseQuitOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseCareerOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseOptionsOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseQuickplayOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseCAROption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseHeadToHeadOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseMusicStudioOption);
+            this.TabGeneralTabsBasic.Controls.Add(this.UseOnlineOption);
+            this.TabGeneralTabsBasic.Location = new System.Drawing.Point(4, 30);
+            this.TabGeneralTabsBasic.Name = "TabGeneralTabsBasic";
+            this.TabGeneralTabsBasic.Padding = new System.Windows.Forms.Padding(3);
+            this.TabGeneralTabsBasic.Size = new System.Drawing.Size(640, 596);
+            this.TabGeneralTabsBasic.TabIndex = 4;
+            this.TabGeneralTabsBasic.Text = "Basic Options";
+            this.TabGeneralTabsBasic.UseVisualStyleBackColor = true;
+            // 
+            // QPODifficultyIconImage
+            // 
+            this.QPODifficultyIconImage.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon_difficulty_beginner;
+            this.QPODifficultyIconImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.QPODifficultyIconImage.Location = new System.Drawing.Point(228, 93);
+            this.QPODifficultyIconImage.Name = "QPODifficultyIconImage";
+            this.QPODifficultyIconImage.Size = new System.Drawing.Size(24, 24);
+            this.QPODifficultyIconImage.TabIndex = 38;
+            this.QPODifficultyIconImage.TabStop = false;
+            // 
+            // TGPrefGamerTag4
+            // 
+            this.TGPrefGamerTag4.AutoSize = true;
+            this.TGPrefGamerTag4.Location = new System.Drawing.Point(327, 418);
+            this.TGPrefGamerTag4.Name = "TGPrefGamerTag4";
+            this.TGPrefGamerTag4.Size = new System.Drawing.Size(57, 22);
+            this.TGPrefGamerTag4.TabIndex = 35;
+            this.TGPrefGamerTag4.Text = "User 4:";
+            // 
+            // TGPrefGamerTag3
+            // 
+            this.TGPrefGamerTag3.AutoSize = true;
+            this.TGPrefGamerTag3.Location = new System.Drawing.Point(328, 389);
+            this.TGPrefGamerTag3.Name = "TGPrefGamerTag3";
+            this.TGPrefGamerTag3.Size = new System.Drawing.Size(55, 22);
+            this.TGPrefGamerTag3.TabIndex = 33;
+            this.TGPrefGamerTag3.Text = "User 3:";
+            // 
+            // TGPrefGamerTag2
+            // 
+            this.TGPrefGamerTag2.AutoSize = true;
+            this.TGPrefGamerTag2.Location = new System.Drawing.Point(327, 360);
+            this.TGPrefGamerTag2.Name = "TGPrefGamerTag2";
+            this.TGPrefGamerTag2.Size = new System.Drawing.Size(56, 22);
+            this.TGPrefGamerTag2.TabIndex = 31;
+            this.TGPrefGamerTag2.Text = "User 2:";
+            // 
+            // TGPrefGamerTag1
+            // 
+            this.TGPrefGamerTag1.AutoSize = true;
+            this.TGPrefGamerTag1.Location = new System.Drawing.Point(328, 332);
+            this.TGPrefGamerTag1.Name = "TGPrefGamerTag1";
+            this.TGPrefGamerTag1.Size = new System.Drawing.Size(55, 22);
+            this.TGPrefGamerTag1.TabIndex = 29;
+            this.TGPrefGamerTag1.Text = "User 1:";
+            // 
+            // TGGamerTags
+            // 
+            this.TGGamerTags.AutoSize = true;
+            this.TGGamerTags.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGGamerTags.Location = new System.Drawing.Point(314, 302);
+            this.TGGamerTags.Name = "TGGamerTags";
+            this.TGGamerTags.Size = new System.Drawing.Size(121, 25);
+            this.TGGamerTags.TabIndex = 28;
+            this.TGGamerTags.Text = "User Names:";
+            // 
+            // TGBasicSettings
+            // 
+            this.TGBasicSettings.AutoSize = true;
+            this.TGBasicSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGBasicSettings.Location = new System.Drawing.Point(3, 0);
+            this.TGBasicSettings.Name = "TGBasicSettings";
+            this.TGBasicSettings.Size = new System.Drawing.Size(140, 25);
+            this.TGBasicSettings.TabIndex = 1;
+            this.TGBasicSettings.Text = "Basic Settings:";
+            // 
+            // TGForceHolidayLabel
+            // 
+            this.TGForceHolidayLabel.AutoSize = true;
+            this.TGForceHolidayLabel.Location = new System.Drawing.Point(15, 196);
+            this.TGForceHolidayLabel.Name = "TGForceHolidayLabel";
+            this.TGForceHolidayLabel.Size = new System.Drawing.Size(158, 22);
+            this.TGForceHolidayLabel.TabIndex = 26;
+            this.TGForceHolidayLabel.Text = "Force Holiday Theme:";
+            // 
+            // TGDefaultTabLabel
+            // 
+            this.TGDefaultTabLabel.AutoSize = true;
+            this.TGDefaultTabLabel.Location = new System.Drawing.Point(15, 458);
+            this.TGDefaultTabLabel.Name = "TGDefaultTabLabel";
+            this.TGDefaultTabLabel.Size = new System.Drawing.Size(150, 22);
+            this.TGDefaultTabLabel.TabIndex = 23;
+            this.TGDefaultTabLabel.Text = "Default Tab on Boot:";
+            // 
+            // TGAutoLoginLabel
+            // 
+            this.TGAutoLoginLabel.AutoSize = true;
+            this.TGAutoLoginLabel.Location = new System.Drawing.Point(15, 162);
+            this.TGAutoLoginLabel.Name = "TGAutoLoginLabel";
+            this.TGAutoLoginLabel.Size = new System.Drawing.Size(87, 22);
+            this.TGAutoLoginLabel.TabIndex = 23;
+            this.TGAutoLoginLabel.Text = "Auto Login:";
+            // 
+            // TGDefaultQPODiff
+            // 
+            this.TGDefaultQPODiff.AutoSize = true;
+            this.TGDefaultQPODiff.Location = new System.Drawing.Point(15, 94);
+            this.TGDefaultQPODiff.Name = "TGDefaultQPODiff";
+            this.TGDefaultQPODiff.Size = new System.Drawing.Size(200, 22);
+            this.TGDefaultQPODiff.TabIndex = 5;
+            this.TGDefaultQPODiff.Text = "Default Quickplay Difficulty:";
+            // 
+            // TGLanguageLabel
+            // 
+            this.TGLanguageLabel.AutoSize = true;
+            this.TGLanguageLabel.Location = new System.Drawing.Point(15, 128);
+            this.TGLanguageLabel.Name = "TGLanguageLabel";
+            this.TGLanguageLabel.Size = new System.Drawing.Size(81, 22);
+            this.TGLanguageLabel.TabIndex = 21;
+            this.TGLanguageLabel.Text = "Language:";
+            // 
+            // TGLauncherOptions
+            // 
+            this.TGLauncherOptions.AutoSize = true;
+            this.TGLauncherOptions.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGLauncherOptions.Location = new System.Drawing.Point(3, 301);
+            this.TGLauncherOptions.Name = "TGLauncherOptions";
+            this.TGLauncherOptions.Size = new System.Drawing.Size(172, 25);
+            this.TGLauncherOptions.TabIndex = 18;
+            this.TGLauncherOptions.Text = "Launcher Options:";
+            // 
+            // TGMMOHeader
+            // 
+            this.TGMMOHeader.AutoSize = true;
+            this.TGMMOHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGMMOHeader.Location = new System.Drawing.Point(370, 0);
+            this.TGMMOHeader.Name = "TGMMOHeader";
+            this.TGMMOHeader.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TGMMOHeader.Size = new System.Drawing.Size(184, 25);
+            this.TGMMOHeader.TabIndex = 9;
+            this.TGMMOHeader.Text = "Main Menu Options:";
+            // 
+            // TabGeneralTabsAudio
+            // 
+            this.TabGeneralTabsAudio.Controls.Add(this.TGStarActivateLabel);
+            this.TabGeneralTabsAudio.Controls.Add(this.SPActivationSFX);
+            this.TabGeneralTabsAudio.Controls.Add(this.StarPowerReverb);
+            this.TabGeneralTabsAudio.Controls.Add(this.SPClapType);
+            this.TabGeneralTabsAudio.Controls.Add(this.TGSPClapTypeLabel);
+            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioSettings);
+            this.TabGeneralTabsAudio.Controls.Add(this.AudioBuffLen);
+            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioBLen);
+            this.TabGeneralTabsAudio.Controls.Add(this.WhammyPitchShift);
+            this.TabGeneralTabsAudio.Controls.Add(this.MuteStreams);
+            this.TabGeneralTabsAudio.Location = new System.Drawing.Point(4, 30);
+            this.TabGeneralTabsAudio.Name = "TabGeneralTabsAudio";
+            this.TabGeneralTabsAudio.Padding = new System.Windows.Forms.Padding(3);
+            this.TabGeneralTabsAudio.Size = new System.Drawing.Size(640, 596);
+            this.TabGeneralTabsAudio.TabIndex = 5;
+            this.TabGeneralTabsAudio.Text = "Audio Settings";
+            this.TabGeneralTabsAudio.UseVisualStyleBackColor = true;
+            // 
+            // TGStarActivateLabel
+            // 
+            this.TGStarActivateLabel.AutoSize = true;
+            this.TGStarActivateLabel.Location = new System.Drawing.Point(15, 197);
+            this.TGStarActivateLabel.Name = "TGStarActivateLabel";
+            this.TGStarActivateLabel.Size = new System.Drawing.Size(135, 22);
+            this.TGStarActivateLabel.TabIndex = 25;
+            this.TGStarActivateLabel.Text = "SP Activation SFX:";
+            // 
+            // TGSPClapTypeLabel
+            // 
+            this.TGSPClapTypeLabel.AutoSize = true;
+            this.TGSPClapTypeLabel.Location = new System.Drawing.Point(15, 162);
+            this.TGSPClapTypeLabel.Name = "TGSPClapTypeLabel";
+            this.TGSPClapTypeLabel.Size = new System.Drawing.Size(161, 22);
+            this.TGSPClapTypeLabel.TabIndex = 13;
+            this.TGSPClapTypeLabel.Text = "Star Power Clap Type:";
+            // 
+            // TGAudioSettings
+            // 
+            this.TGAudioSettings.AutoSize = true;
+            this.TGAudioSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGAudioSettings.Location = new System.Drawing.Point(3, 0);
+            this.TGAudioSettings.Name = "TGAudioSettings";
+            this.TGAudioSettings.Size = new System.Drawing.Size(143, 25);
+            this.TGAudioSettings.TabIndex = 11;
+            this.TGAudioSettings.Text = "Audio Settings:";
+            // 
+            // TGAudioBLen
+            // 
+            this.TGAudioBLen.AutoSize = true;
+            this.TGAudioBLen.Location = new System.Drawing.Point(15, 128);
+            this.TGAudioBLen.Name = "TGAudioBLen";
+            this.TGAudioBLen.Size = new System.Drawing.Size(150, 22);
+            this.TGAudioBLen.TabIndex = 10;
+            this.TGAudioBLen.Text = "Audio Buffer Length:";
+            // 
+            // TabGeneralTabsExtra
+            // 
+            this.TabGeneralTabsExtra.Controls.Add(this.TGDefaultCategory);
+            this.TabGeneralTabsExtra.Controls.Add(this.TGSetlistSort);
+            this.TabGeneralTabsExtra.Controls.Add(this.InitialSetlistCategory);
+            this.TabGeneralTabsExtra.Controls.Add(this.DefaultSetlistSortIndex);
+            this.TabGeneralTabsExtra.Controls.Add(this.TGExtraSettings);
+            this.TabGeneralTabsExtra.Location = new System.Drawing.Point(4, 30);
+            this.TabGeneralTabsExtra.Name = "TabGeneralTabsExtra";
+            this.TabGeneralTabsExtra.Size = new System.Drawing.Size(640, 596);
+            this.TabGeneralTabsExtra.TabIndex = 6;
+            this.TabGeneralTabsExtra.Text = "Extra Settings";
+            this.TabGeneralTabsExtra.UseVisualStyleBackColor = true;
+            // 
+            // TGDefaultCategory
+            // 
+            this.TGDefaultCategory.AutoSize = true;
+            this.TGDefaultCategory.Location = new System.Drawing.Point(19, 61);
+            this.TGDefaultCategory.Name = "TGDefaultCategory";
+            this.TGDefaultCategory.Size = new System.Drawing.Size(168, 22);
+            this.TGDefaultCategory.TabIndex = 23;
+            this.TGDefaultCategory.Text = "Initial Setlist Category:";
+            // 
+            // TGSetlistSort
+            // 
+            this.TGSetlistSort.AutoSize = true;
+            this.TGSetlistSort.Location = new System.Drawing.Point(19, 29);
+            this.TGSetlistSort.Name = "TGSetlistSort";
+            this.TGSetlistSort.Size = new System.Drawing.Size(181, 22);
+            this.TGSetlistSort.TabIndex = 23;
+            this.TGSetlistSort.Text = "Default Setlist Sort Filter:";
+            // 
+            // InitialSetlistCategory
+            // 
+            this.InitialSetlistCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InitialSetlistCategory.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InitialSetlistCategory.FormattingEnabled = true;
+            this.InitialSetlistCategory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.InitialSetlistCategory.Location = new System.Drawing.Point(209, 62);
+            this.InitialSetlistCategory.Name = "InitialSetlistCategory";
+            this.InitialSetlistCategory.Size = new System.Drawing.Size(145, 23);
+            this.InitialSetlistCategory.TabIndex = 22;
+            // 
+            // TGExtraSettings
+            // 
+            this.TGExtraSettings.AutoSize = true;
+            this.TGExtraSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
+            this.TGExtraSettings.Location = new System.Drawing.Point(3, 0);
+            this.TGExtraSettings.Name = "TGExtraSettings";
+            this.TGExtraSettings.Size = new System.Drawing.Size(139, 25);
+            this.TGExtraSettings.TabIndex = 12;
+            this.TGExtraSettings.Text = "Extra Settings:";
             // 
             // TabAutoLaunchGroup
             // 
@@ -6676,328 +6978,13 @@
             this.TALP1DLabel.TabIndex = 39;
             this.TALP1DLabel.Text = "Difficulty:";
             // 
-            // TabGeneralGroup
-            // 
-            this.TabGeneralGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
-            this.TabGeneralGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TabGeneralGroup.Controls.Add(this.TabGeneralSettingsTabs);
-            this.TabGeneralGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralGroup.Location = new System.Drawing.Point(13, 8);
-            this.TabGeneralGroup.Name = "TabGeneralGroup";
-            this.TabGeneralGroup.Size = new System.Drawing.Size(662, 648);
-            this.TabGeneralGroup.TabIndex = 0;
-            this.TabGeneralGroup.TabStop = false;
-            this.TabGeneralGroup.Text = "DEBUG: General Tab";
-            // 
-            // TabGeneralSettingsTabs
-            // 
-            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsBasic);
-            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsAudio);
-            this.TabGeneralSettingsTabs.Controls.Add(this.TabGeneralTabsExtra);
-            this.TabGeneralSettingsTabs.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGeneralSettingsTabs.Location = new System.Drawing.Point(6, 12);
-            this.TabGeneralSettingsTabs.Name = "TabGeneralSettingsTabs";
-            this.TabGeneralSettingsTabs.SelectedIndex = 0;
-            this.TabGeneralSettingsTabs.Size = new System.Drawing.Size(648, 630);
-            this.TabGeneralSettingsTabs.TabIndex = 27;
-            // 
-            // TabGeneralTabsBasic
-            // 
-            this.TabGeneralTabsBasic.Controls.Add(this.QPODifficultyIconImage);
-            this.TabGeneralTabsBasic.Controls.Add(this.LauncherRichPresence);
-            this.TabGeneralTabsBasic.Controls.Add(this.DebugConsoleLauncher);
-            this.TabGeneralTabsBasic.Controls.Add(this.ExitOnSave);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag4);
-            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText4);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag3);
-            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText3);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag2);
-            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText2);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGPrefGamerTag1);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGGamerTags);
-            this.TabGeneralTabsBasic.Controls.Add(this.PreferredGamerTagText1);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGBasicSettings);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGForceHolidayLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.RichPresence);
-            this.TabGeneralTabsBasic.Controls.Add(this.Holiday);
-            this.TabGeneralTabsBasic.Controls.Add(this.AllowHolidays);
-            this.TabGeneralTabsBasic.Controls.Add(this.StatusHandler);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGDefaultTabLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGAutoLoginLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.DefaultTab);
-            this.TabGeneralTabsBasic.Controls.Add(this.AutoLogin);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGDefaultQPODiff);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGLanguageLabel);
-            this.TabGeneralTabsBasic.Controls.Add(this.DefaultQPODifficulty);
-            this.TabGeneralTabsBasic.Controls.Add(this.Language);
-            this.TabGeneralTabsBasic.Controls.Add(this.CheckForUpdates);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGLauncherOptions);
-            this.TabGeneralTabsBasic.Controls.Add(this.TGMMOHeader);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseQuitOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseCareerOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseOptionsOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseQuickplayOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseCAROption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseHeadToHeadOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseMusicStudioOption);
-            this.TabGeneralTabsBasic.Controls.Add(this.UseOnlineOption);
-            this.TabGeneralTabsBasic.Location = new System.Drawing.Point(4, 30);
-            this.TabGeneralTabsBasic.Name = "TabGeneralTabsBasic";
-            this.TabGeneralTabsBasic.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGeneralTabsBasic.Size = new System.Drawing.Size(640, 596);
-            this.TabGeneralTabsBasic.TabIndex = 4;
-            this.TabGeneralTabsBasic.Text = "Basic Options";
-            this.TabGeneralTabsBasic.UseVisualStyleBackColor = true;
-            // 
-            // QPODifficultyIconImage
-            // 
-            this.QPODifficultyIconImage.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.icon_difficulty_beginner;
-            this.QPODifficultyIconImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.QPODifficultyIconImage.Location = new System.Drawing.Point(228, 93);
-            this.QPODifficultyIconImage.Name = "QPODifficultyIconImage";
-            this.QPODifficultyIconImage.Size = new System.Drawing.Size(24, 24);
-            this.QPODifficultyIconImage.TabIndex = 38;
-            this.QPODifficultyIconImage.TabStop = false;
-            // 
-            // TGPrefGamerTag4
-            // 
-            this.TGPrefGamerTag4.AutoSize = true;
-            this.TGPrefGamerTag4.Location = new System.Drawing.Point(327, 418);
-            this.TGPrefGamerTag4.Name = "TGPrefGamerTag4";
-            this.TGPrefGamerTag4.Size = new System.Drawing.Size(57, 22);
-            this.TGPrefGamerTag4.TabIndex = 35;
-            this.TGPrefGamerTag4.Text = "User 4:";
-            // 
-            // TGPrefGamerTag3
-            // 
-            this.TGPrefGamerTag3.AutoSize = true;
-            this.TGPrefGamerTag3.Location = new System.Drawing.Point(328, 389);
-            this.TGPrefGamerTag3.Name = "TGPrefGamerTag3";
-            this.TGPrefGamerTag3.Size = new System.Drawing.Size(55, 22);
-            this.TGPrefGamerTag3.TabIndex = 33;
-            this.TGPrefGamerTag3.Text = "User 3:";
-            // 
-            // TGPrefGamerTag2
-            // 
-            this.TGPrefGamerTag2.AutoSize = true;
-            this.TGPrefGamerTag2.Location = new System.Drawing.Point(327, 360);
-            this.TGPrefGamerTag2.Name = "TGPrefGamerTag2";
-            this.TGPrefGamerTag2.Size = new System.Drawing.Size(56, 22);
-            this.TGPrefGamerTag2.TabIndex = 31;
-            this.TGPrefGamerTag2.Text = "User 2:";
-            // 
-            // TGPrefGamerTag1
-            // 
-            this.TGPrefGamerTag1.AutoSize = true;
-            this.TGPrefGamerTag1.Location = new System.Drawing.Point(328, 332);
-            this.TGPrefGamerTag1.Name = "TGPrefGamerTag1";
-            this.TGPrefGamerTag1.Size = new System.Drawing.Size(55, 22);
-            this.TGPrefGamerTag1.TabIndex = 29;
-            this.TGPrefGamerTag1.Text = "User 1:";
-            // 
-            // TGGamerTags
-            // 
-            this.TGGamerTags.AutoSize = true;
-            this.TGGamerTags.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGGamerTags.Location = new System.Drawing.Point(314, 302);
-            this.TGGamerTags.Name = "TGGamerTags";
-            this.TGGamerTags.Size = new System.Drawing.Size(121, 25);
-            this.TGGamerTags.TabIndex = 28;
-            this.TGGamerTags.Text = "User Names:";
-            // 
-            // TGBasicSettings
-            // 
-            this.TGBasicSettings.AutoSize = true;
-            this.TGBasicSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGBasicSettings.Location = new System.Drawing.Point(3, 0);
-            this.TGBasicSettings.Name = "TGBasicSettings";
-            this.TGBasicSettings.Size = new System.Drawing.Size(140, 25);
-            this.TGBasicSettings.TabIndex = 1;
-            this.TGBasicSettings.Text = "Basic Settings:";
-            // 
-            // TGForceHolidayLabel
-            // 
-            this.TGForceHolidayLabel.AutoSize = true;
-            this.TGForceHolidayLabel.Location = new System.Drawing.Point(15, 196);
-            this.TGForceHolidayLabel.Name = "TGForceHolidayLabel";
-            this.TGForceHolidayLabel.Size = new System.Drawing.Size(158, 22);
-            this.TGForceHolidayLabel.TabIndex = 26;
-            this.TGForceHolidayLabel.Text = "Force Holiday Theme:";
-            // 
-            // TGDefaultTabLabel
-            // 
-            this.TGDefaultTabLabel.AutoSize = true;
-            this.TGDefaultTabLabel.Location = new System.Drawing.Point(15, 458);
-            this.TGDefaultTabLabel.Name = "TGDefaultTabLabel";
-            this.TGDefaultTabLabel.Size = new System.Drawing.Size(150, 22);
-            this.TGDefaultTabLabel.TabIndex = 23;
-            this.TGDefaultTabLabel.Text = "Default Tab on Boot:";
-            // 
-            // TGAutoLoginLabel
-            // 
-            this.TGAutoLoginLabel.AutoSize = true;
-            this.TGAutoLoginLabel.Location = new System.Drawing.Point(15, 162);
-            this.TGAutoLoginLabel.Name = "TGAutoLoginLabel";
-            this.TGAutoLoginLabel.Size = new System.Drawing.Size(87, 22);
-            this.TGAutoLoginLabel.TabIndex = 23;
-            this.TGAutoLoginLabel.Text = "Auto Login:";
-            // 
-            // TGDefaultQPODiff
-            // 
-            this.TGDefaultQPODiff.AutoSize = true;
-            this.TGDefaultQPODiff.Location = new System.Drawing.Point(15, 94);
-            this.TGDefaultQPODiff.Name = "TGDefaultQPODiff";
-            this.TGDefaultQPODiff.Size = new System.Drawing.Size(200, 22);
-            this.TGDefaultQPODiff.TabIndex = 5;
-            this.TGDefaultQPODiff.Text = "Default Quickplay Difficulty:";
-            // 
-            // TGLanguageLabel
-            // 
-            this.TGLanguageLabel.AutoSize = true;
-            this.TGLanguageLabel.Location = new System.Drawing.Point(15, 128);
-            this.TGLanguageLabel.Name = "TGLanguageLabel";
-            this.TGLanguageLabel.Size = new System.Drawing.Size(81, 22);
-            this.TGLanguageLabel.TabIndex = 21;
-            this.TGLanguageLabel.Text = "Language:";
-            // 
-            // TGLauncherOptions
-            // 
-            this.TGLauncherOptions.AutoSize = true;
-            this.TGLauncherOptions.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGLauncherOptions.Location = new System.Drawing.Point(3, 301);
-            this.TGLauncherOptions.Name = "TGLauncherOptions";
-            this.TGLauncherOptions.Size = new System.Drawing.Size(172, 25);
-            this.TGLauncherOptions.TabIndex = 18;
-            this.TGLauncherOptions.Text = "Launcher Options:";
-            // 
-            // TGMMOHeader
-            // 
-            this.TGMMOHeader.AutoSize = true;
-            this.TGMMOHeader.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGMMOHeader.Location = new System.Drawing.Point(370, 0);
-            this.TGMMOHeader.Name = "TGMMOHeader";
-            this.TGMMOHeader.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TGMMOHeader.Size = new System.Drawing.Size(184, 25);
-            this.TGMMOHeader.TabIndex = 9;
-            this.TGMMOHeader.Text = "Main Menu Options:";
-            // 
-            // TabGeneralTabsAudio
-            // 
-            this.TabGeneralTabsAudio.Controls.Add(this.TGStarActivateLabel);
-            this.TabGeneralTabsAudio.Controls.Add(this.SPActivationSFX);
-            this.TabGeneralTabsAudio.Controls.Add(this.StarPowerReverb);
-            this.TabGeneralTabsAudio.Controls.Add(this.SPClapType);
-            this.TabGeneralTabsAudio.Controls.Add(this.TGSPClapTypeLabel);
-            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioSettings);
-            this.TabGeneralTabsAudio.Controls.Add(this.AudioBuffLen);
-            this.TabGeneralTabsAudio.Controls.Add(this.TGAudioBLen);
-            this.TabGeneralTabsAudio.Controls.Add(this.WhammyPitchShift);
-            this.TabGeneralTabsAudio.Controls.Add(this.MuteStreams);
-            this.TabGeneralTabsAudio.Location = new System.Drawing.Point(4, 30);
-            this.TabGeneralTabsAudio.Name = "TabGeneralTabsAudio";
-            this.TabGeneralTabsAudio.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGeneralTabsAudio.Size = new System.Drawing.Size(640, 596);
-            this.TabGeneralTabsAudio.TabIndex = 5;
-            this.TabGeneralTabsAudio.Text = "Audio Settings";
-            this.TabGeneralTabsAudio.UseVisualStyleBackColor = true;
-            // 
-            // TGStarActivateLabel
-            // 
-            this.TGStarActivateLabel.AutoSize = true;
-            this.TGStarActivateLabel.Location = new System.Drawing.Point(15, 197);
-            this.TGStarActivateLabel.Name = "TGStarActivateLabel";
-            this.TGStarActivateLabel.Size = new System.Drawing.Size(135, 22);
-            this.TGStarActivateLabel.TabIndex = 25;
-            this.TGStarActivateLabel.Text = "SP Activation SFX:";
-            // 
-            // TGSPClapTypeLabel
-            // 
-            this.TGSPClapTypeLabel.AutoSize = true;
-            this.TGSPClapTypeLabel.Location = new System.Drawing.Point(15, 162);
-            this.TGSPClapTypeLabel.Name = "TGSPClapTypeLabel";
-            this.TGSPClapTypeLabel.Size = new System.Drawing.Size(161, 22);
-            this.TGSPClapTypeLabel.TabIndex = 13;
-            this.TGSPClapTypeLabel.Text = "Star Power Clap Type:";
-            // 
-            // TGAudioSettings
-            // 
-            this.TGAudioSettings.AutoSize = true;
-            this.TGAudioSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGAudioSettings.Location = new System.Drawing.Point(3, 0);
-            this.TGAudioSettings.Name = "TGAudioSettings";
-            this.TGAudioSettings.Size = new System.Drawing.Size(143, 25);
-            this.TGAudioSettings.TabIndex = 11;
-            this.TGAudioSettings.Text = "Audio Settings:";
-            // 
-            // TGAudioBLen
-            // 
-            this.TGAudioBLen.AutoSize = true;
-            this.TGAudioBLen.Location = new System.Drawing.Point(15, 128);
-            this.TGAudioBLen.Name = "TGAudioBLen";
-            this.TGAudioBLen.Size = new System.Drawing.Size(150, 22);
-            this.TGAudioBLen.TabIndex = 10;
-            this.TGAudioBLen.Text = "Audio Buffer Length:";
-            // 
-            // TabGeneralTabsExtra
-            // 
-            this.TabGeneralTabsExtra.Controls.Add(this.TGDefaultCategory);
-            this.TabGeneralTabsExtra.Controls.Add(this.TGSetlistSort);
-            this.TabGeneralTabsExtra.Controls.Add(this.InitialSetlistCategory);
-            this.TabGeneralTabsExtra.Controls.Add(this.DefaultSetlistSortIndex);
-            this.TabGeneralTabsExtra.Controls.Add(this.TGExtraSettings);
-            this.TabGeneralTabsExtra.Location = new System.Drawing.Point(4, 30);
-            this.TabGeneralTabsExtra.Name = "TabGeneralTabsExtra";
-            this.TabGeneralTabsExtra.Size = new System.Drawing.Size(640, 596);
-            this.TabGeneralTabsExtra.TabIndex = 6;
-            this.TabGeneralTabsExtra.Text = "Extra Settings";
-            this.TabGeneralTabsExtra.UseVisualStyleBackColor = true;
-            // 
-            // TGDefaultCategory
-            // 
-            this.TGDefaultCategory.AutoSize = true;
-            this.TGDefaultCategory.Location = new System.Drawing.Point(19, 61);
-            this.TGDefaultCategory.Name = "TGDefaultCategory";
-            this.TGDefaultCategory.Size = new System.Drawing.Size(168, 22);
-            this.TGDefaultCategory.TabIndex = 23;
-            this.TGDefaultCategory.Text = "Initial Setlist Category:";
-            // 
-            // TGSetlistSort
-            // 
-            this.TGSetlistSort.AutoSize = true;
-            this.TGSetlistSort.Location = new System.Drawing.Point(19, 29);
-            this.TGSetlistSort.Name = "TGSetlistSort";
-            this.TGSetlistSort.Size = new System.Drawing.Size(181, 22);
-            this.TGSetlistSort.TabIndex = 23;
-            this.TGSetlistSort.Text = "Default Setlist Sort Filter:";
-            // 
-            // InitialSetlistCategory
-            // 
-            this.InitialSetlistCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InitialSetlistCategory.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InitialSetlistCategory.FormattingEnabled = true;
-            this.InitialSetlistCategory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.InitialSetlistCategory.Location = new System.Drawing.Point(209, 62);
-            this.InitialSetlistCategory.Name = "InitialSetlistCategory";
-            this.InitialSetlistCategory.Size = new System.Drawing.Size(145, 23);
-            this.InitialSetlistCategory.TabIndex = 22;
-            // 
-            // TGExtraSettings
-            // 
-            this.TGExtraSettings.AutoSize = true;
-            this.TGExtraSettings.Font = new System.Drawing.Font("Lexend", 12F, System.Drawing.FontStyle.Bold);
-            this.TGExtraSettings.Location = new System.Drawing.Point(3, 0);
-            this.TGExtraSettings.Name = "TGExtraSettings";
-            this.TGExtraSettings.Size = new System.Drawing.Size(139, 25);
-            this.TGExtraSettings.TabIndex = 12;
-            this.TGExtraSettings.Text = "Extra Settings:";
-            // 
             // TabGraphicsGroup
             // 
             this.TabGraphicsGroup.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.white_overlay_d;
             this.TabGraphicsGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TabGraphicsGroup.Controls.Add(this.TabGraphicsMainEditor);
             this.TabGraphicsGroup.Font = new System.Drawing.Font("Lexend", 10F);
-            this.TabGraphicsGroup.Location = new System.Drawing.Point(516, 257);
+            this.TabGraphicsGroup.Location = new System.Drawing.Point(498, 263);
             this.TabGraphicsGroup.Name = "TabGraphicsGroup";
             this.TabGraphicsGroup.Size = new System.Drawing.Size(662, 648);
             this.TabGraphicsGroup.TabIndex = 16;
@@ -7025,7 +7012,6 @@
             this.TGEditorBasic.Controls.Add(this.DisableVSync);
             this.TGEditorBasic.Controls.Add(this.FPSLimit);
             this.TGEditorBasic.Controls.Add(this.FPSLimitLabel);
-            this.TGEditorBasic.Controls.Add(this.UseNativeRes);
             this.TGEditorBasic.Controls.Add(this.VideoHeight);
             this.TGEditorBasic.Controls.Add(this.VideoWidth);
             this.TGEditorBasic.Controls.Add(this.ResolutionLabel);
@@ -7040,7 +7026,7 @@
             // FPSLimitLabel
             // 
             this.FPSLimitLabel.AutoSize = true;
-            this.FPSLimitLabel.Location = new System.Drawing.Point(15, 58);
+            this.FPSLimitLabel.Location = new System.Drawing.Point(15, 34);
             this.FPSLimitLabel.Name = "FPSLimitLabel";
             this.FPSLimitLabel.Size = new System.Drawing.Size(77, 22);
             this.FPSLimitLabel.TabIndex = 5;
@@ -7994,6 +7980,15 @@
             this.BandMemberChangeMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HavokFPS)).EndInit();
             this.TabParentContainer.ResumeLayout(false);
+            this.TabGeneralGroup.ResumeLayout(false);
+            this.TabGeneralSettingsTabs.ResumeLayout(false);
+            this.TabGeneralTabsBasic.ResumeLayout(false);
+            this.TabGeneralTabsBasic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).EndInit();
+            this.TabGeneralTabsAudio.ResumeLayout(false);
+            this.TabGeneralTabsAudio.PerformLayout();
+            this.TabGeneralTabsExtra.ResumeLayout(false);
+            this.TabGeneralTabsExtra.PerformLayout();
             this.TabAutoLaunchGroup.ResumeLayout(false);
             this.TabAutoLaunchGroup.PerformLayout();
             this.TabALMainEditor.ResumeLayout(false);
@@ -8006,15 +8001,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ALDiffIconP1)).EndInit();
-            this.TabGeneralGroup.ResumeLayout(false);
-            this.TabGeneralSettingsTabs.ResumeLayout(false);
-            this.TabGeneralTabsBasic.ResumeLayout(false);
-            this.TabGeneralTabsBasic.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QPODifficultyIconImage)).EndInit();
-            this.TabGeneralTabsAudio.ResumeLayout(false);
-            this.TabGeneralTabsAudio.PerformLayout();
-            this.TabGeneralTabsExtra.ResumeLayout(false);
-            this.TabGeneralTabsExtra.PerformLayout();
             this.TabGraphicsGroup.ResumeLayout(false);
             this.TabGraphicsMainEditor.ResumeLayout(false);
             this.TGEditorBasic.ResumeLayout(false);
@@ -8407,7 +8393,6 @@
         private System.Windows.Forms.Label ResolutionLabel;
         private System.Windows.Forms.NumericUpDown VideoHeight;
         private System.Windows.Forms.NumericUpDown VideoWidth;
-        private System.Windows.Forms.Button UseNativeRes;
         private System.Windows.Forms.NumericUpDown FPSLimit;
         private System.Windows.Forms.Label FPSLimitLabel;
         private System.Windows.Forms.CheckBox Borderless;
