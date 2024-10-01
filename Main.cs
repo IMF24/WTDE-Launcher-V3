@@ -3090,6 +3090,9 @@ namespace WTDE_Launcher_V3.Core {
             //~ string nameOfMod = GetBandMemberTextBox(member).Text;
             //~ Console.WriteLine($"Name of mod: {nameOfMod}");
             //~ ChangeInstMenuItem.Enabled = ModHandler.ModExists(nameOfMod, ModHandler.ModProperty.Name);
+
+            // Reload INI settings (in case we used the CAS manager).
+            LoadINISettings();
         }
         
         /// <summary>

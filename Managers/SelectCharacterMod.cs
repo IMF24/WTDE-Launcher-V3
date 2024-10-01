@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
@@ -1033,6 +1034,8 @@ namespace WTDE_Launcher_V3.Managers {
         }
 
         private void OpenCASManagerButton_Click(object sender, EventArgs e) {
+            this.Close();
+            Thread.Sleep(1);
             CARManager car = new CARManager();
             car.ShowDialog();
         }
