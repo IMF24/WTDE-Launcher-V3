@@ -62,6 +62,11 @@ namespace WTDE_Launcher_V3.IO {
         }
 
         /// <summary>
+        ///  Where is the user's MODS folder located?
+        /// </summary>
+        public static string UserContentModsDir = "";
+
+        /// <summary>
         ///  Iterate through the entire MODS directory and return a list of information about all file
         ///  paths in that folder, including its mod name, author, version, type, description,
         ///  INI file path, and folder path.
@@ -82,8 +87,15 @@ namespace WTDE_Launcher_V3.IO {
             var stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            string modsDir = Path.Combine(Directory.GetCurrentDirectory(), "DATA/MODS");
+            if (!Directory.Exists(modsDir)) { 
+                return new List<string[]>();
+            }
+
+            UserContentModsDir = modsDir;
+
             // Read the user's MODS directory for ALL INI FILES.
-            string[] files = Directory.GetFiles("DATA/MODS", "*.ini", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(modsDir, "*.ini", SearchOption.AllDirectories);
 
             // This is the output list we'll give back:
             List<string[]> outArray = new List<string[]>();
@@ -99,7 +111,7 @@ namespace WTDE_Launcher_V3.IO {
                     // Set file to be the current file.
                     string file = files[i];
 
-                    V3LauncherCore.AddDebugEntry($"in dir, reading config file: {file}", "Mod Handler: ReadMods");
+                    V3LauncherCore.AddDebugEntry($"In dir, reading config file: {file}", "Mod Handler: ReadMods");
 
                     IniFile iFile = new IniFile();
 

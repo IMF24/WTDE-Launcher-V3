@@ -43,6 +43,7 @@
             this.SongCategoryFilter = new System.Windows.Forms.TextBox();
             this.MakeSetlistZIPButton = new System.Windows.Forms.Button();
             this.AddSongsToCategoryButton = new System.Windows.Forms.Button();
+            this.EditSortOrderButton = new System.Windows.Forms.Button();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,9 +65,15 @@
             this.deleteCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCategoryDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.editSortByCareerOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.editSortByCareerOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectionActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.removeSongsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllSongsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.openModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -77,7 +84,6 @@
             this.CategoryPreviewHeader = new System.Windows.Forms.Label();
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
-            this.EditSortOrderButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
             this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -253,6 +259,18 @@
             this.AddSongsToCategoryButton.UseVisualStyleBackColor = true;
             this.AddSongsToCategoryButton.Click += new System.EventHandler(this.AddSongsToCategoryButton_Click);
             // 
+            // EditSortOrderButton
+            // 
+            this.EditSortOrderButton.Location = new System.Drawing.Point(820, 99);
+            this.EditSortOrderButton.Name = "EditSortOrderButton";
+            this.EditSortOrderButton.Size = new System.Drawing.Size(224, 23);
+            this.EditSortOrderButton.TabIndex = 30;
+            this.EditSortOrderButton.Text = "Edit Sort by Career Order...";
+            this.SCMToolTipMain.SetToolTip(this.EditSortOrderButton, "Edit the sort order for when the setlist is filtered through the Sort by Career\r\n" +
+        "option in the setlist menu in-game.");
+            this.EditSortOrderButton.UseVisualStyleBackColor = true;
+            this.EditSortOrderButton.Click += new System.EventHandler(this.EditSortOrderButton_Click);
+            // 
             // TopMenuStrip
             // 
             this.TopMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -395,6 +413,8 @@
             this.editSortByCareerOrderToolStripMenuItem,
             this.makeSetlistZIPToolStripMenuItem,
             this.toolStripSeparator5,
+            this.selectionActionsToolStripMenuItem,
+            this.toolStripSeparator8,
             this.openModConfigToolStripMenuItem1,
             this.openModFolderToolStripMenuItem1,
             this.toolStripSeparator4,
@@ -433,14 +453,6 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
             // 
-            // editSortByCareerOrderToolStripMenuItem
-            // 
-            this.editSortByCareerOrderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.sort_by_career;
-            this.editSortByCareerOrderToolStripMenuItem.Name = "editSortByCareerOrderToolStripMenuItem";
-            this.editSortByCareerOrderToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.editSortByCareerOrderToolStripMenuItem.Text = "Edit Sort by Career Order...";
-            this.editSortByCareerOrderToolStripMenuItem.Click += new System.EventHandler(this.editSortByCareerOrderToolStripMenuItem_Click);
-            // 
             // makeSetlistZIPToolStripMenuItem
             // 
             this.makeSetlistZIPToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
@@ -453,6 +465,60 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(215, 6);
+            // 
+            // editSortByCareerOrderToolStripMenuItem
+            // 
+            this.editSortByCareerOrderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.sort_by_career;
+            this.editSortByCareerOrderToolStripMenuItem.Name = "editSortByCareerOrderToolStripMenuItem";
+            this.editSortByCareerOrderToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.editSortByCareerOrderToolStripMenuItem.Text = "Edit Sort by Career Order...";
+            this.editSortByCareerOrderToolStripMenuItem.Click += new System.EventHandler(this.editSortByCareerOrderToolStripMenuItem_Click);
+            // 
+            // selectionActionsToolStripMenuItem
+            // 
+            this.selectionActionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeCategoryToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.removeSongsToolStripMenuItem,
+            this.clearAllSongsToolStripMenuItem});
+            this.selectionActionsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.music_note;
+            this.selectionActionsToolStripMenuItem.Name = "selectionActionsToolStripMenuItem";
+            this.selectionActionsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.selectionActionsToolStripMenuItem.Text = "Song Actions";
+            // 
+            // changeCategoryToolStripMenuItem
+            // 
+            this.changeCategoryToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
+            this.changeCategoryToolStripMenuItem.Name = "changeCategoryToolStripMenuItem";
+            this.changeCategoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeCategoryToolStripMenuItem.Text = "Change Category...";
+            this.changeCategoryToolStripMenuItem.Click += new System.EventHandler(this.changeCategoryToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
+            // 
+            // removeSongsToolStripMenuItem
+            // 
+            this.removeSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
+            this.removeSongsToolStripMenuItem.Name = "removeSongsToolStripMenuItem";
+            this.removeSongsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeSongsToolStripMenuItem.Text = "Remove Song(s)";
+            this.removeSongsToolStripMenuItem.Click += new System.EventHandler(this.removeSongsToolStripMenuItem_Click);
+            // 
+            // clearAllSongsToolStripMenuItem
+            // 
+            this.clearAllSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.close_file;
+            this.clearAllSongsToolStripMenuItem.Name = "clearAllSongsToolStripMenuItem";
+            this.clearAllSongsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearAllSongsToolStripMenuItem.Text = "Clear All Songs";
+            this.clearAllSongsToolStripMenuItem.Click += new System.EventHandler(this.clearAllSongsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(215, 6);
             // 
             // openModConfigToolStripMenuItem1
             // 
@@ -543,18 +609,6 @@
             this.SongCatSongListHeader.Size = new System.Drawing.Size(143, 13);
             this.SongCatSongListHeader.TabIndex = 14;
             this.SongCatSongListHeader.Text = "Song Category Preview:";
-            // 
-            // EditSortOrderButton
-            // 
-            this.EditSortOrderButton.Location = new System.Drawing.Point(820, 99);
-            this.EditSortOrderButton.Name = "EditSortOrderButton";
-            this.EditSortOrderButton.Size = new System.Drawing.Size(224, 23);
-            this.EditSortOrderButton.TabIndex = 30;
-            this.EditSortOrderButton.Text = "Edit Sort by Career Order...";
-            this.SCMToolTipMain.SetToolTip(this.EditSortOrderButton, "Edit the sort order for when the setlist is filtered through the Sort by Career\r\n" +
-        "option in the setlist menu in-game.");
-            this.EditSortOrderButton.UseVisualStyleBackColor = true;
-            this.EditSortOrderButton.Click += new System.EventHandler(this.EditSortOrderButton_Click);
             // 
             // SongMasterManager
             // 
@@ -655,5 +709,11 @@
         private System.Windows.Forms.Button AddSongsToCategoryButton;
         private System.Windows.Forms.ToolStripMenuItem editSortByCareerOrderToolStripMenuItem;
         private System.Windows.Forms.Button EditSortOrderButton;
+        private System.Windows.Forms.ToolStripMenuItem selectionActionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeCategoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem removeSongsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearAllSongsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }

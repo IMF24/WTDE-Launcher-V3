@@ -191,6 +191,9 @@ namespace WTDE_Launcher_V3.Managers {
             SongCategoriesHeader.Text = $"Song Categories ({SongCategoriesList.Items.Count}):";
         }
 
+        /// <summary>
+        ///  Read a category's attached songs!
+        /// </summary>
         public void ReadAttachedSongs() {
             if (SongCategoriesList.SelectedItems.Count <= 0) return;
 
@@ -425,18 +428,27 @@ namespace WTDE_Launcher_V3.Managers {
             SongCategoryFilter.Text = "";
         }
 
+        /// <summary>
+        ///  Update the various controls on the dialog box based on selected values.
+        /// </summary>
         public void UpdateActiveSongControls() {
             EditCategoryDataButton.Enabled = (SongCategoriesList.SelectedItems.Count > 0);
             MakeSetlistZIPButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
             EditSortOrderButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
+
+            // Menu commands!
+            // We must have songs in our category and we must
+            // have made a selection!
+            bool useSongUtils = (AttachedCategorySongs.Items.Count > 0 && AttachedCategorySongs.SelectedItems.Count > 0);
+            bool canClearAll = (AttachedCategorySongs.Items.Count > 0);
+            changeCategoryToolStripMenuItem.Enabled = useSongUtils;     // Change Category
+            removeSongsToolStripMenuItem.Enabled = useSongUtils;        // Remove Song(s)
+            clearAllSongsToolStripMenuItem.Enabled = canClearAll;       // Clear All Songs
         }
 
         /// <summary>
-        ///  Read a Neversoft image file and display it in the given PictureBox. Also updates the given Label with information
-        ///  about this image.
+        ///  Read a Neversoft image file and display it in the category image box.
         /// </summary>
-        /// <param name="picBox"></param>
-        /// <param name="label"></param>
         public void OpenNXImageFile() {
             // Get image name from selected category config.
             //~ IniFile iFile = new IniFile();
@@ -1153,6 +1165,161 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void EditSortOrderButton_Click(object sender, EventArgs e) {
             OpenEditSortByCareerDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Erase songs out of a category.
+        /// </summary>
+        /// <param name="allSongs">
+        ///  Optional: Erase all songs out of the current category? False by default; if set to true, this will be applied to all songs.
+        /// </param>
+        public void EraseSongs(bool allSongs = false) {
+            // If we do not have any songs, break away!
+            if (AttachedCategorySongs.Items.Count <= 0) return;
+
+            // -- SELECTION ONLY
+            if (!allSongs) {
+                // No selection? Break out!
+                if (AttachedCategorySongs.SelectedItems.Count <= 0) return;
+
+                // Can we erase?
+                bool canErase = MessageBox.Show($"Are you sure you want to remove {AttachedCategorySongs.Items.Count} selected song(s) from this category? This cannot be undone!", "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+                if (!canErase) return;
+
+                // Get our selected indices!
+                var selectedIndices = AttachedCategorySongs.SelectedIndices;
+
+                // Loop over each item and get its song path.
+                foreach (int idx in selectedIndices) {
+
+                    // Song INI path.
+                    string songModPath = AttachedCategorySongs.Items[idx].SubItems[2].Text;
+
+                    // Change category!
+                    INI iFile = new INI(songModPath);
+                    iFile.SetString("SongInfo", "GameCategory", "wtde");
+
+                    // Move the folder to the MODS directory.
+                    // If we cannot, it's fine! We probably didn't tie it with a folder.ini file.
+                    try {
+                        string sourceDir = Path.GetDirectoryName(songModPath);
+                        string lastFolderName = Helpers.LastFolderNameOnly(sourceDir);
+                        string moveDir = Path.Combine(ModHandler.UserContentModsDir, lastFolderName);
+                        if (!Directory.Exists(moveDir)) Directory.CreateDirectory(moveDir);
+                        if (Directory.Exists(sourceDir)) {
+                            Directory.Move(sourceDir, ModHandler.UserContentModsDir);
+                        }
+                    } catch (Exception exc) {
+                        V3LauncherCore.AddDebugEntry($"Error moving path (probably fine): {exc.Message}", "Song & Song Category Manager");
+                    }
+                }
+
+            // -- ALL SONGS
+            } else {
+
+                // Can we erase?
+                bool canErase = MessageBox.Show($"Are you sure you want to remove all {AttachedCategorySongs.Items.Count} song(s) from this category? This cannot be undone!", "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+                if (!canErase) return;
+
+                // Iterate through EVERY song in the category!
+                for (var i = 0; i < AttachedCategorySongs.Items.Count; i++) {
+
+                    // Song INI path.
+                    string songModPath = AttachedCategorySongs.Items[i].SubItems[2].Text;
+
+                    // Change its category!
+                    INI iFile = new INI(songModPath);
+                    iFile.SetString("SongInfo", "GameCategory", "wtde");
+
+                    // Move the folder to the MODS directory.
+                    // If we cannot, it's fine! We probably didn't tie it with a folder.ini file.
+                    try {
+                        string sourceDir = Path.GetDirectoryName(songModPath);
+                        string lastFolderName = Helpers.LastFolderNameOnly(sourceDir);
+                        string moveDir = Path.Combine(ModHandler.UserContentModsDir, lastFolderName);
+                        if (!Directory.Exists(moveDir)) Directory.CreateDirectory(moveDir);
+                        if (Directory.Exists(sourceDir)) {
+                            Directory.Move(sourceDir, ModHandler.UserContentModsDir);
+                        }
+                    } catch (Exception exc) {
+                        V3LauncherCore.AddDebugEntry($"Error moving path (probably fine): {exc.Message}", "Song & Song Category Manager");
+                    }
+                }
+            }
+
+            // Re-read the attached songs after all deletion!
+            ReadAttachedSongs();
+        }
+
+        private void removeSongsToolStripMenuItem_Click(object sender, EventArgs e) {
+            EraseSongs();
+        }
+
+        private void clearAllSongsToolStripMenuItem_Click(object sender, EventArgs e) {
+            EraseSongs(true);
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Move the selected songs to a different category.
+        /// </summary>
+        public void MoveSongsToCategory() { 
+            // Do we have a selection? No? Bail out!
+            if (AttachedCategorySongs.Items.Count <= 0 || AttachedCategorySongs.SelectedItems.Count <= 0) return;
+
+            // Spawn our changer dialog!
+            SCMChangeCategory cateChanger = new SCMChangeCategory(SongCategoryChecksums, CurrentLoadedCategoryChecksum);
+            cateChanger.ShowDialog();
+
+            // Did we have a destination category?
+            // Also make sure it does NOT match our original one!
+            if (cateChanger.DestinationCategory != "" && cateChanger.DestinationCategory != CurrentLoadedCategoryChecksum) {
+
+                // Can we move our folders?
+                bool doMove = MessageBox.Show($"You have chosen to move {AttachedCategorySongs.SelectedItems.Count} song(s) to the category with the checksum {cateChanger.DestinationCategory}." +
+                                              $"\n\nIs this correct? This cannot be undone!", "Are You Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
+                if (!doMove) return;
+
+                // Get our selection!
+                var selectedIndices = AttachedCategorySongs.SelectedIndices;
+
+                // Create a new folder in our MODS directory to
+                // house the moved songs.
+                string moveFolder = Path.Combine(ModHandler.UserContentModsDir, $"Moved_{cateChanger.DestinationCategory}_Songs");
+                if (!Directory.Exists(moveFolder)) Directory.CreateDirectory(moveFolder);
+
+                // For each one, move it into this new folder!
+                foreach (int idx in selectedIndices) {
+
+                    // Get the directory!
+                    string songDirectory = AttachedCategorySongs.Items[idx].SubItems[2].Text;
+                    string songFolderName = Helpers.LastFolderNameOnly(Path.GetDirectoryName(songDirectory));
+
+                    // Change checksum to the moved one!
+                    INI iFile = new INI(songDirectory);
+                    iFile.SetString("SongInfo", "GameCategory", cateChanger.DestinationCategory);
+
+                    // Move our folder to the destination folder!
+                    //  (Or at least, try to)
+                    try {
+                        Console.WriteLine($"Source: {Path.GetDirectoryName(songDirectory)}\nDestination: {Path.Combine(moveFolder, songFolderName)}");
+                        Directory.Move(Path.GetDirectoryName(songDirectory), Path.Combine(moveFolder, songFolderName));
+                    } catch (Exception exc) {
+                        Console.WriteLine($"Move issue (is this bad?): {exc.Message}");
+                        continue;
+                    }
+                }
+            }
+
+            // Re-read attached songs!
+            ReadAttachedSongs();
+        }
+
+        private void changeCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
+            MoveSongsToCategory();
         }
     }
 }

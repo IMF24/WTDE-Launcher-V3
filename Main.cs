@@ -287,7 +287,7 @@ namespace WTDE_Launcher_V3.Core {
                 var frame = st.GetFrame(0);
                 var line = frame.GetFileLineNumber();
 
-                // Print the error the end user.
+                // Print the error to the end user.
                 V3LauncherCore.AddDebugEntry($"Uh oh, we hit an error upon startup! // Exception: {exc.Message}");
                 
                 // Along with showing the error, ask if we want to restart the launcher.

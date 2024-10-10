@@ -295,6 +295,12 @@
     <Compile Include="Managers\QSECompileScriptMod.Designer.cs">
       <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SCMChangeCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SCMChangeCategory.Designer.cs">
+      <DependentUpon>SCMChangeCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\SCMEditCareerSort.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\QSECompileScriptMod.resx">
       <DependentUpon>QSECompileScriptMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SCMChangeCategory.resx">
+      <DependentUpon>SCMChangeCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\SCMEditCareerSort.resx">
       <DependentUpon>SCMEditCareerSort.cs</DependentUpon>

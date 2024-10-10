@@ -1,0 +1,113 @@
+﻿namespace WTDE_Launcher_V3.Managers {
+    partial class SCMChangeCategory {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SCMChangeCategory));
+            this.InfoHeaderLabel = new System.Windows.Forms.Label();
+            this.SongCategoriesList = new System.Windows.Forms.ListBox();
+            this.SelectCateHeader = new System.Windows.Forms.Label();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.OKButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // InfoHeaderLabel
+            // 
+            this.InfoHeaderLabel.AutoSize = true;
+            this.InfoHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.InfoHeaderLabel.Location = new System.Drawing.Point(3, 2);
+            this.InfoHeaderLabel.Name = "InfoHeaderLabel";
+            this.InfoHeaderLabel.Size = new System.Drawing.Size(373, 13);
+            this.InfoHeaderLabel.TabIndex = 3;
+            this.InfoHeaderLabel.Text = "Change Category: Move the selected songs to another category.";
+            // 
+            // SongCategoriesList
+            // 
+            this.SongCategoriesList.FormattingEnabled = true;
+            this.SongCategoriesList.Location = new System.Drawing.Point(35, 35);
+            this.SongCategoriesList.Name = "SongCategoriesList";
+            this.SongCategoriesList.Size = new System.Drawing.Size(312, 355);
+            this.SongCategoriesList.TabIndex = 10;
+            this.SongCategoriesList.SelectedIndexChanged += new System.EventHandler(this.SongCategoriesList_SelectedIndexChanged);
+            // 
+            // SelectCateHeader
+            // 
+            this.SelectCateHeader.AutoSize = true;
+            this.SelectCateHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.SelectCateHeader.Location = new System.Drawing.Point(20, 19);
+            this.SelectCateHeader.Name = "SelectCateHeader";
+            this.SelectCateHeader.Size = new System.Drawing.Size(129, 13);
+            this.SelectCateHeader.TabIndex = 3;
+            this.SelectCateHeader.Text = "Destination Category:";
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(306, 395);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 11;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // OKButton
+            // 
+            this.OKButton.Location = new System.Drawing.Point(225, 395);
+            this.OKButton.Name = "OKButton";
+            this.OKButton.Size = new System.Drawing.Size(75, 23);
+            this.OKButton.TabIndex = 11;
+            this.OKButton.Text = "OK";
+            this.OKButton.UseVisualStyleBackColor = true;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
+            // 
+            // SCMChangeCategory
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(384, 421);
+            this.Controls.Add(this.OKButton);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.SongCategoriesList);
+            this.Controls.Add(this.SelectCateHeader);
+            this.Controls.Add(this.InfoHeaderLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "SCMChangeCategory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Change Category";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label InfoHeaderLabel;
+        private System.Windows.Forms.ListBox SongCategoriesList;
+        private System.Windows.Forms.Label SelectCateHeader;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button OKButton;
+    }
+}
