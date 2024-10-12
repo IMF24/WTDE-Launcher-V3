@@ -163,10 +163,10 @@ namespace WTDE_Launcher_V3.Core {
                                     "We're sorry for the inconvenience! D:";
 
                     MOTDLabelImage.Text = "Well, this is embarrassing.\n\n" +
-                                    "We regret to inform you, but Guitar Hero World Tour: Definitive Edition is no more.\n" +
-                                    "It's now Guitar Hero World Tour Deluxe. In order to play, you require a Premium Rocker subscription in order to play the game.\n\n" +
-                                    "If you feel as if you've received this message in error, please contact our hotline. Our unpaid interns will get back to you as soon as possible.\n\n" +
-                                    "We're sorry for the inconvenience! D:";
+                                          "We regret to inform you, but Guitar Hero World Tour: Definitive Edition is no more.\n" +
+                                          "It's now Guitar Hero World Tour Deluxe. In order to play, you require a Premium Rocker subscription in order to play the game.\n\n" +
+                                          "If you feel as if you've received this message in error, please contact our hotline. Our unpaid interns will get back to you as soon as possible.\n\n" +
+                                          "We're sorry for the inconvenience! D:";
 
                     // Auto launch warning header.
                     TALSaveWarningLabel.Enabled = true;
@@ -200,6 +200,7 @@ namespace WTDE_Launcher_V3.Core {
                                            "You really shouldn't be here... I'm leaving now. You'll be GLaD you did.\n\n" +
                                            "GHWT: DX and Fretworkers are not associated with AlwaysSoft, Inactive Vision Wizard, RedOctave, Beeswax, or Above Ground Deployment in any way, shape, or form.\n" +
                                            "Thank you! GHWT: DX is a project. Yes. A project. That's what it is.";
+
 
                     VersionInfoLabel.Text = $"WTDX Destroyer V{V3LauncherConstants.VERSION} by I.M. Fund 24\nBG Image: Someone Based\nWTDE Latest Version: WTDE is no more";
 

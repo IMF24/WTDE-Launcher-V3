@@ -36,6 +36,12 @@
             this.GameSortFilter = new System.Windows.Forms.ComboBox();
             this.ExportCharListButton = new System.Windows.Forms.Button();
             this.OpenCASManagerButton = new System.Windows.Forms.Button();
+            this.ResetStockSearchFilter = new System.Windows.Forms.Button();
+            this.ApplyStockSearchButton = new System.Windows.Forms.Button();
+            this.StockCharacterFilter = new System.Windows.Forms.TextBox();
+            this.ModCharacterFilter = new System.Windows.Forms.TextBox();
+            this.ApplyModSearchButton = new System.Windows.Forms.Button();
+            this.ResetModSearchFilter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InfoHeaderLabel
@@ -69,7 +75,7 @@
             // 
             // RefreshCharModsButton
             // 
-            this.RefreshCharModsButton.Location = new System.Drawing.Point(397, 386);
+            this.RefreshCharModsButton.Location = new System.Drawing.Point(397, 409);
             this.RefreshCharModsButton.Name = "RefreshCharModsButton";
             this.RefreshCharModsButton.Size = new System.Drawing.Size(157, 23);
             this.RefreshCharModsButton.TabIndex = 3;
@@ -79,7 +85,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(667, 415);
+            this.CancelButton.Location = new System.Drawing.Point(667, 436);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 4;
@@ -89,7 +95,7 @@
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(586, 415);
+            this.OKButton.Location = new System.Drawing.Point(586, 436);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 5;
@@ -154,7 +160,7 @@
             // 
             // ExportCharListButton
             // 
-            this.ExportCharListButton.Location = new System.Drawing.Point(582, 386);
+            this.ExportCharListButton.Location = new System.Drawing.Point(585, 409);
             this.ExportCharListButton.Name = "ExportCharListButton";
             this.ExportCharListButton.Size = new System.Drawing.Size(157, 23);
             this.ExportCharListButton.TabIndex = 10;
@@ -164,7 +170,7 @@
             // 
             // OpenCASManagerButton
             // 
-            this.OpenCASManagerButton.Location = new System.Drawing.Point(19, 386);
+            this.OpenCASManagerButton.Location = new System.Drawing.Point(19, 409);
             this.OpenCASManagerButton.Name = "OpenCASManagerButton";
             this.OpenCASManagerButton.Size = new System.Drawing.Size(345, 23);
             this.OpenCASManagerButton.TabIndex = 3;
@@ -172,11 +178,75 @@
             this.OpenCASManagerButton.UseVisualStyleBackColor = true;
             this.OpenCASManagerButton.Click += new System.EventHandler(this.OpenCASManagerButton_Click);
             // 
+            // ResetStockSearchFilter
+            // 
+            this.ResetStockSearchFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
+            this.ResetStockSearchFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResetStockSearchFilter.Location = new System.Drawing.Point(341, 383);
+            this.ResetStockSearchFilter.Name = "ResetStockSearchFilter";
+            this.ResetStockSearchFilter.Size = new System.Drawing.Size(23, 23);
+            this.ResetStockSearchFilter.TabIndex = 37;
+            this.ResetStockSearchFilter.UseVisualStyleBackColor = true;
+            this.ResetStockSearchFilter.Click += new System.EventHandler(this.ResetStockSearchFilter_Click);
+            // 
+            // ApplyStockSearchButton
+            // 
+            this.ApplyStockSearchButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
+            this.ApplyStockSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ApplyStockSearchButton.Location = new System.Drawing.Point(318, 383);
+            this.ApplyStockSearchButton.Name = "ApplyStockSearchButton";
+            this.ApplyStockSearchButton.Size = new System.Drawing.Size(23, 23);
+            this.ApplyStockSearchButton.TabIndex = 35;
+            this.ApplyStockSearchButton.UseVisualStyleBackColor = true;
+            this.ApplyStockSearchButton.Click += new System.EventHandler(this.ApplyStockSearchButton_Click);
+            // 
+            // StockCharacterFilter
+            // 
+            this.StockCharacterFilter.Location = new System.Drawing.Point(19, 385);
+            this.StockCharacterFilter.Name = "StockCharacterFilter";
+            this.StockCharacterFilter.Size = new System.Drawing.Size(293, 20);
+            this.StockCharacterFilter.TabIndex = 34;
+            // 
+            // ModCharacterFilter
+            // 
+            this.ModCharacterFilter.Location = new System.Drawing.Point(397, 385);
+            this.ModCharacterFilter.Name = "ModCharacterFilter";
+            this.ModCharacterFilter.Size = new System.Drawing.Size(293, 20);
+            this.ModCharacterFilter.TabIndex = 34;
+            // 
+            // ApplyModSearchButton
+            // 
+            this.ApplyModSearchButton.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
+            this.ApplyModSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ApplyModSearchButton.Location = new System.Drawing.Point(696, 383);
+            this.ApplyModSearchButton.Name = "ApplyModSearchButton";
+            this.ApplyModSearchButton.Size = new System.Drawing.Size(23, 23);
+            this.ApplyModSearchButton.TabIndex = 35;
+            this.ApplyModSearchButton.UseVisualStyleBackColor = true;
+            this.ApplyModSearchButton.Click += new System.EventHandler(this.ApplyModSearchButton_Click);
+            // 
+            // ResetModSearchFilter
+            // 
+            this.ResetModSearchFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
+            this.ResetModSearchFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResetModSearchFilter.Location = new System.Drawing.Point(719, 383);
+            this.ResetModSearchFilter.Name = "ResetModSearchFilter";
+            this.ResetModSearchFilter.Size = new System.Drawing.Size(23, 23);
+            this.ResetModSearchFilter.TabIndex = 37;
+            this.ResetModSearchFilter.UseVisualStyleBackColor = true;
+            this.ResetModSearchFilter.Click += new System.EventHandler(this.ResetModSearchFilter_Click);
+            // 
             // SelectCharacterMod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(751, 444);
+            this.ClientSize = new System.Drawing.Size(751, 465);
+            this.Controls.Add(this.ResetModSearchFilter);
+            this.Controls.Add(this.ResetStockSearchFilter);
+            this.Controls.Add(this.ApplyModSearchButton);
+            this.Controls.Add(this.ApplyStockSearchButton);
+            this.Controls.Add(this.ModCharacterFilter);
+            this.Controls.Add(this.StockCharacterFilter);
             this.Controls.Add(this.ExportCharListButton);
             this.Controls.Add(this.GameSortFilter);
             this.Controls.Add(this.SortByCateLabel);
@@ -215,5 +285,11 @@
         private System.Windows.Forms.ComboBox GameSortFilter;
         private System.Windows.Forms.Button ExportCharListButton;
         private System.Windows.Forms.Button OpenCASManagerButton;
+        private System.Windows.Forms.Button ResetStockSearchFilter;
+        private System.Windows.Forms.Button ApplyStockSearchButton;
+        private System.Windows.Forms.TextBox StockCharacterFilter;
+        private System.Windows.Forms.TextBox ModCharacterFilter;
+        private System.Windows.Forms.Button ApplyModSearchButton;
+        private System.Windows.Forms.Button ResetModSearchFilter;
     }
 }

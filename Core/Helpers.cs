@@ -190,6 +190,10 @@ namespace WTDE_Launcher_V3.Core {
                 if (actualStrings[i].ToLower() == filter.ToLower() ||
                     actualStrings[i].ToLower().Contains(filter.ToLower())) { 
                     finalIndices.Add(i);
+
+                // No filter defined? If so, just add the index!
+                } else if (filter.Trim() == "") {
+                    finalIndices.Add(i);
                 }
             }
 
