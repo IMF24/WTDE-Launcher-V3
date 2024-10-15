@@ -54,11 +54,11 @@ namespace WTDE_Launcher_V3.Managers {
                     string songChecksum = file.GetString("SongInfo", "Checksum", $"unkChecksum{i + 1}");
 
                     // Now read our visibilities.
-                    bool canViewG = file.GetBool("SongInfo", "HideInSetlistG", true);
-                    bool canViewB = file.GetBool("SongInfo", "HideInSetlistB", true);
-                    bool canViewD = file.GetBool("SongInfo", "HideInSetlistD", true);
-                    bool canViewV = file.GetBool("SongInfo", "HideInSetlistV", true);
-                    bool canViewA = file.GetBool("SongInfo", "HideInSetlistA", true);
+                    bool canViewG = file.GetBool("SongInfo", "HideInSetlistG", false);
+                    bool canViewB = file.GetBool("SongInfo", "HideInSetlistB", false);
+                    bool canViewD = file.GetBool("SongInfo", "HideInSetlistD", false);
+                    bool canViewV = file.GetBool("SongInfo", "HideInSetlistV", false);
+                    bool canViewA = file.GetBool("SongInfo", "HideInSetlistA", false);
 
                     // Make a boolean array and add it to the visibility map!
                     bool[] canViewArray = new bool[] { canViewG, canViewB, canViewD, canViewV, canViewA };
@@ -66,11 +66,11 @@ namespace WTDE_Launcher_V3.Managers {
 
                     // Now we want to add a list view item to the list view!
                     // First, get the status strings based on our boolean values.
-                    string viewStringG = (canViewG) ? "ON" : "OFF";
-                    string viewStringB = (canViewB) ? "ON" : "OFF";
-                    string viewStringD = (canViewD) ? "ON" : "OFF";
-                    string viewStringV = (canViewV) ? "ON" : "OFF";
-                    string viewStringA = (canViewA) ? "ON" : "OFF";
+                    string viewStringG = (!canViewG) ? "ON" : "OFF";
+                    string viewStringB = (!canViewB) ? "ON" : "OFF";
+                    string viewStringD = (!canViewD) ? "ON" : "OFF";
+                    string viewStringV = (!canViewV) ? "ON" : "OFF";
+                    string viewStringA = (!canViewA) ? "ON" : "OFF";
 
                     // String array to add as a list view item!
                     string[] viewItemData = new string[] { songTitle, songChecksum, viewStringG, viewStringB, viewStringD, viewStringV, viewStringA };
