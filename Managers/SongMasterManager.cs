@@ -1042,6 +1042,18 @@ namespace WTDE_Launcher_V3.Managers {
             this.Close();
         }
 
+        private void setAsDefaultCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
+            bool canSetDefault = (MessageBox.Show(
+                "Are you sure you want to set this category as the default category?",
+                "Are You Sure?",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.Yes);
+
+            if (!canSetDefault) return;
+
+            INIFunctions.SaveINIValue("Config", "InitialSetlistCategory", CurrentLoadedCategoryChecksum);
+        }
+
         public void UpdateMenuCommands() {
             // -- SONG MENU ------------------------
             bool enableVariousCommandsS = (SongModsList.SelectedItems.Count > 0);
@@ -1061,6 +1073,7 @@ namespace WTDE_Launcher_V3.Managers {
 
             deleteCategoryToolStripMenuItem.Enabled = enableVariousCommandsC;
             editCategoryDataToolStripMenuItem.Enabled = enableVariousCommandsC;
+            setAsDefaultCategoryToolStripMenuItem.Enabled = enableVariousCommandsC;
             // ----------------------
             editSortByCareerOrderToolStripMenuItem.Enabled = enableMakeSetlistZIP;
             manageHiddenSongsToolStripMenuItem.Enabled = enableMakeSetlistZIP;

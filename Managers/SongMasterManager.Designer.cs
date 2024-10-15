@@ -44,6 +44,7 @@
             this.MakeSetlistZIPButton = new System.Windows.Forms.Button();
             this.AddSongsToCategoryButton = new System.Windows.Forms.Button();
             this.EditSortOrderButton = new System.Windows.Forms.Button();
+            this.EditSongVisibilityButton = new System.Windows.Forms.Button();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,7 @@
             this.CategoryPreviewHeader = new System.Windows.Forms.Label();
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
-            this.EditSongVisibilityButton = new System.Windows.Forms.Button();
+            this.setAsDefaultCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
             this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -241,7 +242,7 @@
             // 
             // MakeSetlistZIPButton
             // 
-            this.MakeSetlistZIPButton.Location = new System.Drawing.Point(820, 70);
+            this.MakeSetlistZIPButton.Location = new System.Drawing.Point(820, 128);
             this.MakeSetlistZIPButton.Name = "MakeSetlistZIPButton";
             this.MakeSetlistZIPButton.Size = new System.Drawing.Size(224, 23);
             this.MakeSetlistZIPButton.TabIndex = 30;
@@ -264,7 +265,7 @@
             // 
             // EditSortOrderButton
             // 
-            this.EditSortOrderButton.Location = new System.Drawing.Point(820, 99);
+            this.EditSortOrderButton.Location = new System.Drawing.Point(820, 70);
             this.EditSortOrderButton.Name = "EditSortOrderButton";
             this.EditSortOrderButton.Size = new System.Drawing.Size(224, 23);
             this.EditSortOrderButton.TabIndex = 30;
@@ -273,6 +274,17 @@
         "option in the setlist menu in-game.");
             this.EditSortOrderButton.UseVisualStyleBackColor = true;
             this.EditSortOrderButton.Click += new System.EventHandler(this.EditSortOrderButton_Click);
+            // 
+            // EditSongVisibilityButton
+            // 
+            this.EditSongVisibilityButton.Location = new System.Drawing.Point(820, 99);
+            this.EditSongVisibilityButton.Name = "EditSongVisibilityButton";
+            this.EditSongVisibilityButton.Size = new System.Drawing.Size(224, 23);
+            this.EditSongVisibilityButton.TabIndex = 30;
+            this.EditSongVisibilityButton.Text = "Manage Song Visibility...";
+            this.SCMToolTipMain.SetToolTip(this.EditSongVisibilityButton, "Manage what songs will and will not show on certain instruments.");
+            this.EditSongVisibilityButton.UseVisualStyleBackColor = true;
+            this.EditSongVisibilityButton.Click += new System.EventHandler(this.EditSongVisibilityButton_Click);
             // 
             // TopMenuStrip
             // 
@@ -301,7 +313,7 @@
             // 
             this.openModsFolderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.open_file;
             this.openModsFolderToolStripMenuItem.Name = "openModsFolderToolStripMenuItem";
-            this.openModsFolderToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.openModsFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openModsFolderToolStripMenuItem.Text = "Open Mods Folder";
             this.openModsFolderToolStripMenuItem.Click += new System.EventHandler(this.openModsFolderToolStripMenuItem_Click);
             // 
@@ -309,20 +321,20 @@
             // 
             this.refreshAllModsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
             this.refreshAllModsToolStripMenuItem.Name = "refreshAllModsToolStripMenuItem";
-            this.refreshAllModsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.refreshAllModsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.refreshAllModsToolStripMenuItem.Text = "Refresh All Mods";
             this.refreshAllModsToolStripMenuItem.Click += new System.EventHandler(this.refreshAllModsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // closeManagerToolStripMenuItem
             // 
             this.closeManagerToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.exit_program;
             this.closeManagerToolStripMenuItem.Name = "closeManagerToolStripMenuItem";
-            this.closeManagerToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.closeManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeManagerToolStripMenuItem.Text = "Close Manager";
             this.closeManagerToolStripMenuItem.Click += new System.EventHandler(this.closeManagerToolStripMenuItem_Click);
             // 
@@ -412,6 +424,7 @@
             this.addCategoryToolStripMenuItem,
             this.deleteCategoryToolStripMenuItem,
             this.editCategoryDataToolStripMenuItem,
+            this.setAsDefaultCategoryToolStripMenuItem,
             this.toolStripSeparator7,
             this.editSortByCareerOrderToolStripMenuItem,
             this.manageHiddenSongsToolStripMenuItem,
@@ -471,7 +484,7 @@
             this.manageHiddenSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.show;
             this.manageHiddenSongsToolStripMenuItem.Name = "manageHiddenSongsToolStripMenuItem";
             this.manageHiddenSongsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.manageHiddenSongsToolStripMenuItem.Text = "Manage Hidden Songs...";
+            this.manageHiddenSongsToolStripMenuItem.Text = "Manage Song Visibility...";
             this.manageHiddenSongsToolStripMenuItem.Click += new System.EventHandler(this.manageHiddenSongsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
@@ -495,20 +508,20 @@
             // 
             this.changeCategoryToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
             this.changeCategoryToolStripMenuItem.Name = "changeCategoryToolStripMenuItem";
-            this.changeCategoryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.changeCategoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changeCategoryToolStripMenuItem.Text = "Change Category...";
             this.changeCategoryToolStripMenuItem.Click += new System.EventHandler(this.changeCategoryToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
             // removeSongsToolStripMenuItem
             // 
             this.removeSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
             this.removeSongsToolStripMenuItem.Name = "removeSongsToolStripMenuItem";
-            this.removeSongsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.removeSongsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeSongsToolStripMenuItem.Text = "Remove Song(s)";
             this.removeSongsToolStripMenuItem.Click += new System.EventHandler(this.removeSongsToolStripMenuItem_Click);
             // 
@@ -516,7 +529,7 @@
             // 
             this.clearAllSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.close_file;
             this.clearAllSongsToolStripMenuItem.Name = "clearAllSongsToolStripMenuItem";
-            this.clearAllSongsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.clearAllSongsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearAllSongsToolStripMenuItem.Text = "Clear All Songs";
             this.clearAllSongsToolStripMenuItem.Click += new System.EventHandler(this.clearAllSongsToolStripMenuItem_Click);
             // 
@@ -628,16 +641,13 @@
             this.SongCatSongListHeader.TabIndex = 14;
             this.SongCatSongListHeader.Text = "Song Category Preview:";
             // 
-            // EditSongVisibilityButton
+            // setAsDefaultCategoryToolStripMenuItem
             // 
-            this.EditSongVisibilityButton.Location = new System.Drawing.Point(820, 128);
-            this.EditSongVisibilityButton.Name = "EditSongVisibilityButton";
-            this.EditSongVisibilityButton.Size = new System.Drawing.Size(224, 23);
-            this.EditSongVisibilityButton.TabIndex = 30;
-            this.EditSongVisibilityButton.Text = "Manage Hidden Songs...";
-            this.SCMToolTipMain.SetToolTip(this.EditSongVisibilityButton, "Manage what songs will and will not show on certain instruments.");
-            this.EditSongVisibilityButton.UseVisualStyleBackColor = true;
-            this.EditSongVisibilityButton.Click += new System.EventHandler(this.EditSongVisibilityButton_Click);
+            this.setAsDefaultCategoryToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.save_manager;
+            this.setAsDefaultCategoryToolStripMenuItem.Name = "setAsDefaultCategoryToolStripMenuItem";
+            this.setAsDefaultCategoryToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.setAsDefaultCategoryToolStripMenuItem.Text = "Set as Default Category";
+            this.setAsDefaultCategoryToolStripMenuItem.Click += new System.EventHandler(this.setAsDefaultCategoryToolStripMenuItem_Click);
             // 
             // SongMasterManager
             // 
@@ -748,5 +758,6 @@
         private System.Windows.Forms.ToolStripMenuItem manageHiddenSongsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.Button EditSongVisibilityButton;
+        private System.Windows.Forms.ToolStripMenuItem setAsDefaultCategoryToolStripMenuItem;
     }
 }
