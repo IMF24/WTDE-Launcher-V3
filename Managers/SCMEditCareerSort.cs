@@ -41,6 +41,7 @@ namespace WTDE_Launcher_V3.Managers {
             ActiveListBox = GuitarSortList;
 
             IndexMoverSpinBox.Maximum = SongNames.Count - 1;
+            TabCopyDestination.SelectedIndex = 0;
 
             // Next, create our sorted list items!
             CreateSortedListBoxItems();
@@ -897,6 +898,198 @@ namespace WTDE_Launcher_V3.Managers {
             ResetSortOrder(true);
         }
 
+        private void ManageVisibilitiesButton_Click(object sender, EventArgs e) {
+            SCMEditHiddenSongs sehs = new SCMEditHiddenSongs(SongINIPaths);
+            sehs.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Copy the sort order of the current tab to the destination tab!
+        /// </summary>
+        public void CopySortOrder() {
+            bool doCopy = (MessageBox.Show(
+                "Are you sure you want to copy the current sort order to the given instrument? This cannot be undone!",
+                "Are You Sure?",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.Yes);
+
+            if (!doCopy) return;
+
+            // -----------------------
+
+            // What tab are we currently looking at?
+            int currentTabIdx = MainEditorTabs.SelectedIndex;
+            int destTabIdx = TabCopyDestination.SelectedIndex;
+
+            // Our ACTIVE list box is the source order.
+            // The destination order will be the one based on
+            // our destination index!
+            ListBox destListBox;
+            switch (destTabIdx) {
+                case 0: default: destListBox = GuitarSortList; break;
+                case 1: destListBox = BassSortList; break;
+                case 2: destListBox = DrumsSortList; break;
+                case 3: destListBox = VocalsSortList; break;
+                case 4: destListBox = BandSortList; break;
+            }
+
+            // -----------------------
+
+            // Clear the destination's list box items.
+            destListBox.Items.Clear();
+
+            // Copy our sort order over on the frontend!
+            foreach (string item in ActiveListBox.Items) {
+                destListBox.Items.Add(item);
+            }
+
+            // -----------------------
+
+            // Now copy our writable order based on our source and destination!
+            switch (destTabIdx) {
+                // -- DESTINATION IS GUITAR
+                case 0: default:
+
+                    // -- GET SOURCE INDEX
+                    switch (currentTabIdx) {
+                        case 0: default:
+                            break;
+
+                        case 1:
+                            GuitarSortWritableData = BassSortWritableData;
+                            break;
+
+                        case 2:
+                            GuitarSortWritableData = DrumsSortWritableData;
+                            break;
+
+                        case 3:
+                            GuitarSortWritableData = VocalsSortWritableData;
+                            break;
+
+                        case 4:
+                            GuitarSortWritableData = BandSortWritableData;
+                            break;
+                    }
+
+                    break;
+
+                // -- DESTINATION IS BASS
+                case 1:
+
+                    // -- GET SOURCE INDEX
+                    switch (currentTabIdx) {
+                        case 0: default:
+                            BassSortWritableData = GuitarSortWritableData;
+                            break;
+
+                        case 1:
+                            break;
+
+                        case 2:
+                            BassSortWritableData = DrumsSortWritableData;
+                            break;
+
+                        case 3:
+                            BassSortWritableData = VocalsSortWritableData;
+                            break;
+
+                        case 4:
+                            BassSortWritableData = BandSortWritableData;
+                            break;
+                    }
+
+                    break;
+
+                // -- DESTINATION IS DRUMS
+                case 2:
+
+                    // -- GET SOURCE INDEX
+                    switch (currentTabIdx) {
+                        case 0: default:
+                            DrumsSortWritableData = GuitarSortWritableData;
+                            break;
+
+                        case 1:
+                            DrumsSortWritableData = BassSortWritableData;
+                            break;
+
+                        case 2:
+                            break;
+
+                        case 3:
+                            DrumsSortWritableData = VocalsSortWritableData;
+                            break;
+
+                        case 4:
+                            DrumsSortWritableData = BandSortWritableData;
+                            break;
+                    }
+
+                    break;
+
+                // -- DESTINATION IS VOCALS
+                case 3:
+
+                    // -- GET SOURCE INDEX
+                    switch (currentTabIdx) {
+                        case 0: default:
+                            VocalsSortWritableData = GuitarSortWritableData;
+                            break;
+
+                        case 1:
+                            VocalsSortWritableData = BassSortWritableData;
+                            break;
+
+                        case 2:
+                            VocalsSortWritableData = DrumsSortWritableData;
+                            break;
+
+                        case 3:
+                            break;
+
+                        case 4:
+                            VocalsSortWritableData = BandSortWritableData;
+                            break;
+                    }
+
+                    break;
+
+                // -- DESTINATION IS BAND
+                case 4:
+
+                    // -- GET SOURCE INDEX
+                    switch (currentTabIdx) {
+                        case 0: default:
+                            BandSortWritableData = GuitarSortWritableData;
+                            break;
+
+                        case 1:
+                            BandSortWritableData = BassSortWritableData;
+                            break;
+
+                        case 2:
+                            BandSortWritableData = DrumsSortWritableData;
+                            break;
+
+                        case 3:
+                            BandSortWritableData = VocalsSortWritableData;
+                            break;
+
+                        case 4:
+                            break;
+                    }
+
+                    break;
+            }
+        }
+
+        private void DoCopyOrderButton_Click(object sender, EventArgs e) {
+            CopySortOrder();
+        }
+
         // - - - - - - - - - - - - - - - - - - - - - - -
 
         private void OKButton_Click(object sender, EventArgs e) {
@@ -912,5 +1105,7 @@ namespace WTDE_Launcher_V3.Managers {
 
             if (confirmClose) this.Close();
         }
+
+        
     }
 }

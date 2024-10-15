@@ -43,11 +43,15 @@
             this.OKButton = new System.Windows.Forms.Button();
             this.MoveItemUpGButton = new System.Windows.Forms.Button();
             this.MoveItemDownGButton = new System.Windows.Forms.Button();
-            this.ActionsHeaderLabel = new System.Windows.Forms.Label();
             this.ResetSortAllOrdersButton = new System.Windows.Forms.Button();
             this.MoveToIndexButton = new System.Windows.Forms.Button();
-            this.AtIndexLabel = new System.Windows.Forms.Label();
             this.IndexMoverSpinBox = new System.Windows.Forms.NumericUpDown();
+            this.ActionsHeaderLabel = new System.Windows.Forms.Label();
+            this.AtIndexLabel = new System.Windows.Forms.Label();
+            this.ManageVisibilitiesButton = new System.Windows.Forms.Button();
+            this.DoCopyOrderButton = new System.Windows.Forms.Button();
+            this.SortOrderToLabel = new System.Windows.Forms.Label();
+            this.TabCopyDestination = new System.Windows.Forms.ComboBox();
             this.MainEditorTabs.SuspendLayout();
             this.TabCareerSortG.SuspendLayout();
             this.TabCareerSortB.SuspendLayout();
@@ -183,7 +187,7 @@
             // 
             this.ResetSortOrderButton.Location = new System.Drawing.Point(465, 144);
             this.ResetSortOrderButton.Name = "ResetSortOrderButton";
-            this.ResetSortOrderButton.Size = new System.Drawing.Size(156, 23);
+            this.ResetSortOrderButton.Size = new System.Drawing.Size(227, 23);
             this.ResetSortOrderButton.TabIndex = 10;
             this.ResetSortOrderButton.Text = "Reset Sort Order";
             this.ToolTipMain.SetToolTip(this.ResetSortOrderButton, "Reset the sort order. This reverts the sort filter back to being alphabetical,\r\ni" +
@@ -193,7 +197,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(539, 489);
+            this.CancelButton.Location = new System.Drawing.Point(609, 489);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(89, 23);
             this.CancelButton.TabIndex = 9;
@@ -204,7 +208,7 @@
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(444, 489);
+            this.OKButton.Location = new System.Drawing.Point(514, 489);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(89, 23);
             this.OKButton.TabIndex = 10;
@@ -217,7 +221,7 @@
             // 
             this.MoveItemUpGButton.Location = new System.Drawing.Point(465, 57);
             this.MoveItemUpGButton.Name = "MoveItemUpGButton";
-            this.MoveItemUpGButton.Size = new System.Drawing.Size(156, 23);
+            this.MoveItemUpGButton.Size = new System.Drawing.Size(227, 23);
             this.MoveItemUpGButton.TabIndex = 10;
             this.MoveItemUpGButton.Text = "Move Up";
             this.ToolTipMain.SetToolTip(this.MoveItemUpGButton, "Move the selected item up 1 spot.");
@@ -228,28 +232,18 @@
             // 
             this.MoveItemDownGButton.Location = new System.Drawing.Point(465, 86);
             this.MoveItemDownGButton.Name = "MoveItemDownGButton";
-            this.MoveItemDownGButton.Size = new System.Drawing.Size(156, 23);
+            this.MoveItemDownGButton.Size = new System.Drawing.Size(227, 23);
             this.MoveItemDownGButton.TabIndex = 10;
             this.MoveItemDownGButton.Text = "Move Down";
             this.ToolTipMain.SetToolTip(this.MoveItemDownGButton, "Move the selected item down 1 spot.");
             this.MoveItemDownGButton.UseVisualStyleBackColor = true;
             this.MoveItemDownGButton.Click += new System.EventHandler(this.MoveItemDownGButton_Click);
             // 
-            // ActionsHeaderLabel
-            // 
-            this.ActionsHeaderLabel.AutoSize = true;
-            this.ActionsHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.ActionsHeaderLabel.Location = new System.Drawing.Point(461, 41);
-            this.ActionsHeaderLabel.Name = "ActionsHeaderLabel";
-            this.ActionsHeaderLabel.Size = new System.Drawing.Size(53, 13);
-            this.ActionsHeaderLabel.TabIndex = 6;
-            this.ActionsHeaderLabel.Text = "Actions:";
-            // 
             // ResetSortAllOrdersButton
             // 
             this.ResetSortAllOrdersButton.Location = new System.Drawing.Point(465, 173);
             this.ResetSortAllOrdersButton.Name = "ResetSortAllOrdersButton";
-            this.ResetSortAllOrdersButton.Size = new System.Drawing.Size(156, 23);
+            this.ResetSortAllOrdersButton.Size = new System.Drawing.Size(227, 23);
             this.ResetSortAllOrdersButton.TabIndex = 10;
             this.ResetSortAllOrdersButton.Text = "Reset All Sort Orders";
             this.ToolTipMain.SetToolTip(this.ResetSortAllOrdersButton, "Reset the sort order for ALL instrument parts for this category for Sort by Caree" +
@@ -268,6 +262,25 @@
             this.MoveToIndexButton.UseVisualStyleBackColor = true;
             this.MoveToIndexButton.Click += new System.EventHandler(this.MoveToIndexButton_Click);
             // 
+            // IndexMoverSpinBox
+            // 
+            this.IndexMoverSpinBox.Location = new System.Drawing.Point(569, 117);
+            this.IndexMoverSpinBox.Name = "IndexMoverSpinBox";
+            this.IndexMoverSpinBox.Size = new System.Drawing.Size(123, 20);
+            this.IndexMoverSpinBox.TabIndex = 11;
+            this.ToolTipMain.SetToolTip(this.IndexMoverSpinBox, "Move the selected item to this index position. Press the Move button to the left\r" +
+        "\nof this spin box to move the selected item to the index you\'ve defined.");
+            // 
+            // ActionsHeaderLabel
+            // 
+            this.ActionsHeaderLabel.AutoSize = true;
+            this.ActionsHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ActionsHeaderLabel.Location = new System.Drawing.Point(461, 41);
+            this.ActionsHeaderLabel.Name = "ActionsHeaderLabel";
+            this.ActionsHeaderLabel.Size = new System.Drawing.Size(53, 13);
+            this.ActionsHeaderLabel.TabIndex = 6;
+            this.ActionsHeaderLabel.Text = "Actions:";
+            // 
             // AtIndexLabel
             // 
             this.AtIndexLabel.AutoSize = true;
@@ -278,25 +291,67 @@
             this.AtIndexLabel.TabIndex = 6;
             this.AtIndexLabel.Text = "To Index:";
             // 
-            // IndexMoverSpinBox
+            // ManageVisibilitiesButton
             // 
-            this.IndexMoverSpinBox.Location = new System.Drawing.Point(569, 117);
-            this.IndexMoverSpinBox.Name = "IndexMoverSpinBox";
-            this.IndexMoverSpinBox.Size = new System.Drawing.Size(52, 20);
-            this.IndexMoverSpinBox.TabIndex = 11;
-            this.ToolTipMain.SetToolTip(this.IndexMoverSpinBox, "Move the selected item to this index position. Press the Move button to the left\r" +
-        "\nof this spin box to move the selected item to the index you\'ve defined.");
+            this.ManageVisibilitiesButton.Location = new System.Drawing.Point(465, 202);
+            this.ManageVisibilitiesButton.Name = "ManageVisibilitiesButton";
+            this.ManageVisibilitiesButton.Size = new System.Drawing.Size(227, 23);
+            this.ManageVisibilitiesButton.TabIndex = 10;
+            this.ManageVisibilitiesButton.Text = "Manage Visibilities...";
+            this.ToolTipMain.SetToolTip(this.ManageVisibilitiesButton, "Manage the visibility of the songs in the category.");
+            this.ManageVisibilitiesButton.UseVisualStyleBackColor = true;
+            this.ManageVisibilitiesButton.Click += new System.EventHandler(this.ManageVisibilitiesButton_Click);
+            // 
+            // DoCopyOrderButton
+            // 
+            this.DoCopyOrderButton.Location = new System.Drawing.Point(465, 231);
+            this.DoCopyOrderButton.Name = "DoCopyOrderButton";
+            this.DoCopyOrderButton.Size = new System.Drawing.Size(49, 23);
+            this.DoCopyOrderButton.TabIndex = 10;
+            this.DoCopyOrderButton.Text = "Copy";
+            this.ToolTipMain.SetToolTip(this.DoCopyOrderButton, "Copy the current instrument\'s career sort to the given destination instrument.");
+            this.DoCopyOrderButton.UseVisualStyleBackColor = true;
+            this.DoCopyOrderButton.Click += new System.EventHandler(this.DoCopyOrderButton_Click);
+            // 
+            // SortOrderToLabel
+            // 
+            this.SortOrderToLabel.AutoSize = true;
+            this.SortOrderToLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.SortOrderToLabel.Location = new System.Drawing.Point(517, 236);
+            this.SortOrderToLabel.Name = "SortOrderToLabel";
+            this.SortOrderToLabel.Size = new System.Drawing.Size(74, 13);
+            this.SortOrderToLabel.TabIndex = 6;
+            this.SortOrderToLabel.Text = "Sort Order To:";
+            // 
+            // TabCopyDestination
+            // 
+            this.TabCopyDestination.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TabCopyDestination.FormattingEnabled = true;
+            this.TabCopyDestination.Items.AddRange(new object[] {
+            "Guitar",
+            "Bass",
+            "Drums",
+            "Vocals",
+            "Band"});
+            this.TabCopyDestination.Location = new System.Drawing.Point(596, 232);
+            this.TabCopyDestination.Name = "TabCopyDestination";
+            this.TabCopyDestination.Size = new System.Drawing.Size(94, 21);
+            this.TabCopyDestination.TabIndex = 12;
             // 
             // SCMEditCareerSort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(633, 517);
+            this.ClientSize = new System.Drawing.Size(704, 517);
+            this.Controls.Add(this.TabCopyDestination);
             this.Controls.Add(this.IndexMoverSpinBox);
             this.Controls.Add(this.MoveToIndexButton);
             this.Controls.Add(this.MoveItemDownGButton);
+            this.Controls.Add(this.SortOrderToLabel);
             this.Controls.Add(this.AtIndexLabel);
             this.Controls.Add(this.ActionsHeaderLabel);
+            this.Controls.Add(this.DoCopyOrderButton);
+            this.Controls.Add(this.ManageVisibilitiesButton);
             this.Controls.Add(this.ResetSortAllOrdersButton);
             this.Controls.Add(this.ResetSortOrderButton);
             this.Controls.Add(this.MoveItemUpGButton);
@@ -348,5 +403,9 @@
         private System.Windows.Forms.Button MoveToIndexButton;
         private System.Windows.Forms.Label AtIndexLabel;
         private System.Windows.Forms.NumericUpDown IndexMoverSpinBox;
+        private System.Windows.Forms.Button ManageVisibilitiesButton;
+        private System.Windows.Forms.Button DoCopyOrderButton;
+        private System.Windows.Forms.Label SortOrderToLabel;
+        private System.Windows.Forms.ComboBox TabCopyDestination;
     }
 }
