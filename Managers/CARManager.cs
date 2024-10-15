@@ -37,6 +37,15 @@ namespace WTDE_Launcher_V3.Managers {
     ///  manager allows the user to easily install and manage them.
     /// </summary>
     public partial class CARManager : Form {
+        /// <summary>
+        ///  The Mod Manager's Rock Star Creator character manager, which allows the
+        ///  user to more easily control their CAR characters through the 1.2+ system
+        ///  for custom, in-game rockers.
+        ///  <br/><br/>
+        ///  WTDE changed its system for Rock Star Creator characters in update 1.2,
+        ///  which allowed user-shareable CARs through the use of *.car files. This
+        ///  manager allows the user to easily install and manage them.
+        /// </summary>
         public CARManager() {
             InitializeComponent();
             GetCARProfiles();

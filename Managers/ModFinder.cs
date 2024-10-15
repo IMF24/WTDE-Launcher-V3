@@ -23,7 +23,15 @@ using System.Windows.Forms;
 using MadMilkman.Ini;
 
 namespace WTDE_Launcher_V3.Managers {
+    /// <summary>
+    ///  The Mod Manager's mod finder, which searches through the user's MODS
+    ///  folder for specific mods based on specific filters.
+    /// </summary>
     public partial class ModFinder : Form {
+        /// <summary>
+        ///  The Mod Manager's mod finder, which searches through the user's MODS
+        ///  folder for specific mods based on specific filters.
+        /// </summary>
         public ModFinder() {
             InitializeComponent();
             UpdateActionButtons();

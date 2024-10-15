@@ -127,9 +127,6 @@
   <data name="redo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,14 +136,11 @@
   <data name="bg_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="plugin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\plugin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\add_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StarChanger" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StarChanger.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="boot_msg_riki" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\audio\boot_msg_riki.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -157,14 +151,14 @@
   <data name="dark_overlay_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\dark_overlay_m.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="note_target_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\libre\note_target_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="mixer_icon_bass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\instruments\mixer_icon_bass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="default_config" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\default_config.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="fretworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\social\fretworks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gh3_sp_fx" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\gh3_sp_fx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,9 +199,6 @@
   <data name="note_target_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\libre\note_target_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\backgrounds\bg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bg_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,32 +226,26 @@
   <data name="music_note" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\music_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minus_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\minus_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="new_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="find" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rsc_manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\rsc_manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dark_overlay_d_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\dark_overlay_d_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="StarChanger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StarChanger.zip;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="open_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\open_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_intro_splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\backgrounds\bg_intro_splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="wtde_launcher_splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\logos\wtde_launcher_splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="discord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\discord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,17 +262,11 @@
   <data name="highway" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\highway.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mixer_icon_guitar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\instruments\mixer_icon_guitar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="github" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\github.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dark_overlay_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\dark_overlay_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="wtde_launcher_splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\logos\wtde_launcher_splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sort_by_career" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\sort_by_career.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,8 +292,11 @@
   <data name="icon_difficulty_easy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\icon\icon_difficulty_easy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_difficulty_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\icon\icon_difficulty_medium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boot_msg_marcus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\audio\boot_msg_marcus.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -325,14 +307,20 @@
   <data name="black_chalk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\black_chalk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dark_overlay_d" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\dark_overlay_d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_intro_splash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_intro_splash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minus_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\minus_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="discord_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\af\discord_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -340,8 +328,11 @@
   <data name="Marker_Felt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MARKER FELT.TTF;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mixer_icon_guitar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\instruments\mixer_icon_guitar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="note_kick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_kick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="save_file_as" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_file_as.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,29 +349,32 @@
   <data name="bg_1_xm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_1_xm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\icon\icon_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note_target_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_target_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lexend_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lexend-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="bg_1_vd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\backgrounds\bg_1_vd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="boot_msg_matty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\audio\boot_msg_matty.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="node_roq" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\node_roq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="note_target_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\libre\note_target_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dark_overlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\dark_overlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="note_kick" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\libre\note_kick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dark_overlay_m_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_m_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dark_overlay_d_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_d_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -397,6 +391,9 @@
   <data name="nexus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\menuicons\nexus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v1_logo_aprilfools_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -406,20 +403,23 @@
   <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_difficulty_expert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\icon\icon_difficulty_expert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logo_xm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v2_logo_christmas_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="instruments" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\icon\instruments.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plugin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\icon\plugin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chalk_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\chalk_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_zedek" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logo_zedek.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star_power" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star_power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -433,14 +433,14 @@
   <data name="logo_wtde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v2_logo_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\backgrounds\bg_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bg_1_vd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\backgrounds\bg_1_vd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chalk_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\chalk_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="find" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\find.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dark_overlay_m_l" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\dark_overlay_m_l.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\icon_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="theme_colors" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\icon\theme_colors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -448,23 +448,26 @@
   <data name="youtube_af" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\af\youtube_af.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_difficulty_medium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\icon_difficulty_medium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_difficulty_expert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\icon_difficulty_expert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\icon\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fretworks" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\social\fretworks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wtde_site" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\wtde_site.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="star_power" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\star_power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="note_target_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\libre\note_target_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_hw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\logos\wtde\wtde_v2_logo_halloween_s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\menuicons\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dark_overlay_d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\dark_overlay_d.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\backgrounds\bg_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -481,10 +484,10 @@
   <data name="youtube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\img\social\youtube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\menuicons\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\img\icon\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mod_manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\img\icon\mod_manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

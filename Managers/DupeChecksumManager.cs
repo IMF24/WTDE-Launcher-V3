@@ -28,6 +28,10 @@ namespace WTDE_Launcher_V3.Managers {
     ///  conflicting song mods that have the same checksum as others.
     /// </summary>
     public partial class DupeChecksumManager : Form {
+        /// <summary>
+        ///  The Mod Manager's duplicate checksum manager, allowing a way to resolve
+        ///  conflicting song mods that have the same checksum as others.
+        /// </summary>
         public DupeChecksumManager() {
             InitializeComponent();
 

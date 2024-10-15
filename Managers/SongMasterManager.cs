@@ -74,6 +74,10 @@ namespace WTDE_Launcher_V3.Managers {
 
         // - - - - - - - - - - - - - - - - - - - - - - -
 
+        /// <summary>
+        ///  The Mod Manager's song and song category mod manager, which lets the user
+        ///  more easily sort and categorize their songs.
+        /// </summary>
         public SongMasterManager() {
             InitializeComponent();
             GetSongsAndCategories();

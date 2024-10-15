@@ -18,6 +18,10 @@ namespace WTDE_Launcher_V3.Managers {
     ///  GHWTDE.ini and AspyrConfig.xml as raw text.
     /// </summary>
     public partial class DEConfigFilesEditor : Form {
+        /// <summary>
+        ///  The Mod Manager's INI and XML file editor, allowing the user to edit both
+        ///  GHWTDE.ini and AspyrConfig.xml as raw text.
+        /// </summary>
         public DEConfigFilesEditor() {
             InitializeComponent();
 

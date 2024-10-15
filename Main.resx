@@ -240,6 +240,9 @@ fonts to compliment their original appearances in their respective games.</value
   •  Guitar Hero: Metallica: Tap notes are connected by a gray line.
   •  No Tap Trail: The tap trail will not be displayed.</value>
   </data>
+  <metadata name="ModManagerSelectMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>334, 17</value>
+  </metadata>
   <data name="RichPresence.ToolTip" xml:space="preserve">
     <value>Uses Discord's rich presence feature.
 

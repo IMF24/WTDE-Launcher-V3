@@ -555,6 +555,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\icon\mod_manager.png" />
     <None Include="res\img\icon\show.png" />
     <None Include="res\img\menuicons\minus_black.png" />
     <None Include="res\img\menuicons\sort_by_career.png" />

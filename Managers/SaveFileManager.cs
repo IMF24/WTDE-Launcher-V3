@@ -27,6 +27,10 @@ namespace WTDE_Launcher_V3.Managers {
     ///  WTDE specific save files.
     /// </summary>
     public partial class SaveFileManager : Form {
+        /// <summary>
+        ///  The Mod Manager's save file manager, which lets the user manage their
+        ///  WTDE specific save files.
+        /// </summary>
         public SaveFileManager() {
             InitializeComponent();
             if (!Directory.Exists(V3LauncherConstants.WTDESaveBackupsDir)) {

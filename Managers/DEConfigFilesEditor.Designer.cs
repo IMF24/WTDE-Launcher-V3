@@ -27,11 +27,11 @@
             this.InfoHeaderLabel = new System.Windows.Forms.Label();
             this.EditorTabsMain = new System.Windows.Forms.TabControl();
             this.WTDEConfigEditorTab = new System.Windows.Forms.TabPage();
-            this.AspyrConfigEditorTab = new System.Windows.Forms.TabPage();
             this.WTDEEditorTextArea = new System.Windows.Forms.TextBox();
+            this.AspyrConfigEditorTab = new System.Windows.Forms.TabPage();
+            this.AspyrEditorTextArea = new System.Windows.Forms.TextBox();
             this.CloseButtonNoSave = new System.Windows.Forms.Button();
             this.SaveAndExitButton = new System.Windows.Forms.Button();
-            this.AspyrEditorTextArea = new System.Windows.Forms.TextBox();
             this.EditorTabsMain.SuspendLayout();
             this.WTDEConfigEditorTab.SuspendLayout();
             this.AspyrConfigEditorTab.SuspendLayout();
@@ -68,6 +68,17 @@
             this.WTDEConfigEditorTab.Text = "GHWTDE.ini";
             this.WTDEConfigEditorTab.UseVisualStyleBackColor = true;
             // 
+            // WTDEEditorTextArea
+            // 
+            this.WTDEEditorTextArea.Font = new System.Drawing.Font("Consolas", 10F);
+            this.WTDEEditorTextArea.Location = new System.Drawing.Point(6, 6);
+            this.WTDEEditorTextArea.Multiline = true;
+            this.WTDEEditorTextArea.Name = "WTDEEditorTextArea";
+            this.WTDEEditorTextArea.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.WTDEEditorTextArea.Size = new System.Drawing.Size(889, 576);
+            this.WTDEEditorTextArea.TabIndex = 0;
+            this.WTDEEditorTextArea.WordWrap = false;
+            // 
             // AspyrConfigEditorTab
             // 
             this.AspyrConfigEditorTab.Controls.Add(this.AspyrEditorTextArea);
@@ -79,16 +90,16 @@
             this.AspyrConfigEditorTab.Text = "AspyrConfig.xml";
             this.AspyrConfigEditorTab.UseVisualStyleBackColor = true;
             // 
-            // WTDEEditorTextArea
+            // AspyrEditorTextArea
             // 
-            this.WTDEEditorTextArea.Font = new System.Drawing.Font("Consolas", 10F);
-            this.WTDEEditorTextArea.Location = new System.Drawing.Point(6, 6);
-            this.WTDEEditorTextArea.Multiline = true;
-            this.WTDEEditorTextArea.Name = "WTDEEditorTextArea";
-            this.WTDEEditorTextArea.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.WTDEEditorTextArea.Size = new System.Drawing.Size(889, 576);
-            this.WTDEEditorTextArea.TabIndex = 0;
-            this.WTDEEditorTextArea.WordWrap = false;
+            this.AspyrEditorTextArea.Font = new System.Drawing.Font("Consolas", 10F);
+            this.AspyrEditorTextArea.Location = new System.Drawing.Point(6, 6);
+            this.AspyrEditorTextArea.Multiline = true;
+            this.AspyrEditorTextArea.Name = "AspyrEditorTextArea";
+            this.AspyrEditorTextArea.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.AspyrEditorTextArea.Size = new System.Drawing.Size(889, 576);
+            this.AspyrEditorTextArea.TabIndex = 1;
+            this.AspyrEditorTextArea.WordWrap = false;
             // 
             // CloseButtonNoSave
             // 
@@ -110,17 +121,6 @@
             this.SaveAndExitButton.UseVisualStyleBackColor = true;
             this.SaveAndExitButton.Click += new System.EventHandler(this.SaveAndExitButton_Click);
             // 
-            // AspyrEditorTextArea
-            // 
-            this.AspyrEditorTextArea.Font = new System.Drawing.Font("Consolas", 10F);
-            this.AspyrEditorTextArea.Location = new System.Drawing.Point(6, 6);
-            this.AspyrEditorTextArea.Multiline = true;
-            this.AspyrEditorTextArea.Name = "AspyrEditorTextArea";
-            this.AspyrEditorTextArea.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.AspyrEditorTextArea.Size = new System.Drawing.Size(889, 576);
-            this.AspyrEditorTextArea.TabIndex = 1;
-            this.AspyrEditorTextArea.WordWrap = false;
-            // 
             // DEConfigFilesEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -130,7 +130,10 @@
             this.Controls.Add(this.CloseButtonNoSave);
             this.Controls.Add(this.EditorTabsMain);
             this.Controls.Add(this.InfoHeaderLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DEConfigFilesEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "INI and XML File Editor";

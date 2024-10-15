@@ -16,7 +16,15 @@ using System.IO.Compression;
 using Aspose.Zip.Rar;
 
 namespace WTDE_Launcher_V3.Managers {
+    /// <summary>
+    ///  The Mod Manager's mod installer, allowing the user to very easily install
+    ///  new mods for their WTDE installation.
+    /// </summary>
     public partial class ModInstaller : Form {
+        /// <summary>
+        ///  The Mod Manager's mod installer, allowing the user to very easily install
+        ///  new mods for their WTDE installation.
+        /// </summary>
         public ModInstaller() {
             InitializeComponent();
 

@@ -22,6 +22,7 @@
 // V3 launcher imports.
 using WTDE_Launcher_V3.IO;
 using WTDE_Launcher_V3.Managers;
+using WTDE_Launcher_V3.Managers.ScriptMods;
 
 // Various required imports.
 using System;
@@ -3938,10 +3939,85 @@ namespace WTDE_Launcher_V3.Core {
 
 
 
-        #endregion
 
         #endregion
 
+        // - - - - - - - - - - - - - - - - - - -
+        //  M O D     M A N A G E R     C O N T E X T
+        // - - - - - - - - - - - - - - - - - - -
+        #region Mod Manager Context Menu
+        // -- OPEN MOD MANAGER
+        private void OpenModManagerMenuItem_Click(object sender, EventArgs e) {
+            ModManager modManager = new ModManager();
+            modManager.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - -
+
+        // -- INI & XML EDITOR
+        private void OpenINIEditorMenuItem_Click(object sender, EventArgs e) {
+            DEConfigFilesEditor iniEditor = new DEConfigFilesEditor();
+            iniEditor.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - -
+
+        // -- MANAGE SAVE FILES
+        private void OpenSaveManagerMenuItem_Click(object sender, EventArgs e) {
+            SaveFileManager saveManager = new SaveFileManager();
+            saveManager.ShowDialog();
+        }
+
+        // -- ROCK STAR CREATOR CHARACTER MANAGER
+        private void OpenCASManagerMenuItem_Click(object sender, EventArgs e) {
+            CARManager casManager = new CARManager();
+            casManager.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - -
+
+        // -- ANALYZE WTDE DEBUG LOGS
+        private void OpenDebugAnalyzerMenuItem_Click(object sender, EventArgs e) {
+            DebugLogAnalyzer logAnalyzer = new DebugLogAnalyzer();
+            logAnalyzer.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - -
+
+        // -- INSTALL MODS
+        private void OpenModInstallerMenuItem_Click(object sender, EventArgs e) {
+            ModInstaller modInstaller = new ModInstaller();
+            modInstaller.ShowDialog();
+        }
         
+        // -- FIND MODS
+        private void OpenModFinderMenuItem_Click(object sender, EventArgs e) {
+            ModFinder modFinder = new ModFinder();
+            modFinder.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - -
+
+        // -- SONG & SONG CATEGORY MANAGER
+        private void OpenSongManagerMenuItem_Click(object sender, EventArgs e) {
+            SongMasterManager songManager = new SongMasterManager();
+            songManager.ShowDialog();
+        }
+
+        // -- MANAGE DUPLICATE SONG CHECKSUMS
+        private void OpenDupesEditorMenuItem_Click(object sender, EventArgs e) {
+            DupeChecksumManager dupeManager = new DupeChecksumManager();
+            dupeManager.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - -
+
+        // -- GEM THEME DESIGNER
+        private void OpenGemDesignerMenuItem_Click(object sender, EventArgs e) {
+            GemThemeCreator gemDesigner = new GemThemeCreator();
+            gemDesigner.ShowDialog();
+        }
+        #endregion
+        #endregion
     }
 }

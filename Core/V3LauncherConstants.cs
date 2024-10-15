@@ -30,7 +30,7 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Version number of the program.
         /// </summary>
-        public const string VERSION = "3.0.9";
+        public const string VERSION = "3.0.10";
 
         /// <summary>
         ///  Where is GHWTDE.ini located?
@@ -292,6 +292,7 @@ namespace WTDE_Launcher_V3.Core {
                 "GHM: The Meadowlands",
                 "GHM: Donington Park",
                 "GHM: The Ice Cave",
+                "GHM: The Stone Nightclub",
                 "GHM: Metallica Recording Studio",
                 "GHM: Metallica Backstage",
 
@@ -384,6 +385,7 @@ namespace WTDE_Launcher_V3.Core {
                 "z_meadowlands",
                 "z_donnington",
                 "z_icecave",
+                "z_stone",
                 "z_soundcheckghm",
                 "z_studio2ghm",
 
