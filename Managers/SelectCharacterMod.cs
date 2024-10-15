@@ -8,15 +8,12 @@
 using WTDE_Launcher_V3.Core;
 using WTDE_Launcher_V3.IO;
 
+// Other required imports.
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 
@@ -28,7 +25,9 @@ namespace WTDE_Launcher_V3.Managers {
         /// <summary>
         ///  Dialog for selecting characters.
         /// </summary>
-        /// <param name="inLabel"></param>
+        /// <param name="inLabel">
+        ///  Input control to store the resulting character to.
+        /// </param>
         public SelectCharacterMod(Control inLabel) {
             InitializeComponent();
 
@@ -283,6 +282,15 @@ namespace WTDE_Launcher_V3.Managers {
         /// <param name="filter">
         ///  The search filter to read for.
         /// </param>
+        /// <param name="label">
+        ///  Label to change the text of.
+        /// </param>
+        /// <param name="labelText">
+        ///  Text to change the given label to.
+        /// </param>
+        /// <param name="showCount">
+        ///  Optional: Show a numeric count of all filtered results. Default is false (hidden).
+        /// </param>
         /// <returns>
         ///  Array of integers with the filtered indices.
         /// </returns>
@@ -307,7 +315,7 @@ namespace WTDE_Launcher_V3.Managers {
             // Update label text!
             label.Text = $"{labelText}{(showCount ? $" ({foundIndices.Length})" : "")}:";
 
-            // Update integer array.
+            // Return the resulting integer array.
             return foundIndices;
         }
 

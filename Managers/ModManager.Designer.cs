@@ -449,7 +449,7 @@
             this.noFilterToolStripMenuItem});
             this.viewByModToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.find;
             this.viewByModToolStripMenuItem.Name = "viewByModToolStripMenuItem";
-            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewByModToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.viewByModToolStripMenuItem.Text = "View By Mod Type";
             // 
             // songModsToolStripMenuItem

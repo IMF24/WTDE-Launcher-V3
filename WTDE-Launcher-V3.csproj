@@ -307,6 +307,12 @@
     <Compile Include="Managers\SCMEditCareerSort.Designer.cs">
       <DependentUpon>SCMEditCareerSort.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SCMEditHiddenSongs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\SCMEditHiddenSongs.Designer.cs">
+      <DependentUpon>SCMEditHiddenSongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\SCMMakeSetlistZIP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,6 +479,9 @@
     <EmbeddedResource Include="Managers\SCMEditCareerSort.resx">
       <DependentUpon>SCMEditCareerSort.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Managers\SCMEditHiddenSongs.resx">
+      <DependentUpon>SCMEditHiddenSongs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Managers\SCMMakeSetlistZIP.resx">
       <DependentUpon>SCMMakeSetlistZIP.cs</DependentUpon>
     </EmbeddedResource>
@@ -546,6 +555,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Compile Include="IO\ModHandler.cs" />
+    <None Include="res\img\icon\show.png" />
     <None Include="res\img\menuicons\minus_black.png" />
     <None Include="res\img\menuicons\sort_by_career.png" />
     <None Include="res\img\instruments\mixer_icon_mic_stand.png" />

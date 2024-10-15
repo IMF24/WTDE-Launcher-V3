@@ -19,7 +19,7 @@ namespace WTDE_Launcher_V3.Core {
     /// <summary>
     ///  Various functions and variables meant to make writing code easier!
     /// </summary>
-    public class Helpers {
+    public static class Helpers {
         /// <summary>
         ///  Normalize all path slashes!
         /// </summary>
@@ -199,6 +199,44 @@ namespace WTDE_Launcher_V3.Core {
 
             // Return the final indices as an array of integers!
             return finalIndices.ToArray();
+        }
+
+        /// <summary>
+        ///  Types of band members. Can be used by anything!
+        /// </summary>
+        public enum BandMembers { 
+            /// <summary>
+            ///  No particular band member.
+            /// </summary>
+            None = -1,
+            /// <summary>
+            ///  Lead guitarist.
+            /// </summary>
+            Guitarist = 0,
+            /// <summary>
+            ///  Bass guitarist.
+            /// </summary>
+            Bassist = 1,
+            /// <summary>
+            ///  The drummer.
+            /// </summary>
+            Drummer = 2,
+            /// <summary>
+            ///  The vocalist.
+            /// </summary>
+            Vocalist = 3,
+            /// <summary>
+            ///  Male vocalist.
+            /// </summary>
+            MaleVocalist = 3,
+            /// <summary>
+            ///  Female vocalist.
+            /// </summary>
+            FemaleVocalist = 3,
+            /// <summary>
+            ///  The entire band.
+            /// </summary>
+            Band = 4
         }
     }
 }

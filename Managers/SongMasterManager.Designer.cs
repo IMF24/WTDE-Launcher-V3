@@ -65,9 +65,9 @@
             this.deleteCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCategoryDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.editSortByCareerOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageHiddenSongsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.selectionActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
@@ -76,6 +76,8 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.openModConfigToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openModFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.makeSetlistZIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.showCategoryChecksumsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoHeaderLabel = new System.Windows.Forms.Label();
@@ -84,6 +86,7 @@
             this.CategoryPreviewHeader = new System.Windows.Forms.Label();
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
+            this.EditSongVisibilityButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
             this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -411,12 +414,14 @@
             this.editCategoryDataToolStripMenuItem,
             this.toolStripSeparator7,
             this.editSortByCareerOrderToolStripMenuItem,
-            this.makeSetlistZIPToolStripMenuItem,
+            this.manageHiddenSongsToolStripMenuItem,
             this.toolStripSeparator5,
             this.selectionActionsToolStripMenuItem,
             this.toolStripSeparator8,
             this.openModConfigToolStripMenuItem1,
             this.openModFolderToolStripMenuItem1,
+            this.toolStripSeparator10,
+            this.makeSetlistZIPToolStripMenuItem,
             this.toolStripSeparator4,
             this.showCategoryChecksumsToolStripMenuItem});
             this.songCategoryToolStripMenuItem.Name = "songCategoryToolStripMenuItem";
@@ -453,19 +458,6 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(215, 6);
             // 
-            // makeSetlistZIPToolStripMenuItem
-            // 
-            this.makeSetlistZIPToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
-            this.makeSetlistZIPToolStripMenuItem.Name = "makeSetlistZIPToolStripMenuItem";
-            this.makeSetlistZIPToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.makeSetlistZIPToolStripMenuItem.Text = "Make Setlist ZIP...";
-            this.makeSetlistZIPToolStripMenuItem.Click += new System.EventHandler(this.makeSetlistZIPToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(215, 6);
-            // 
             // editSortByCareerOrderToolStripMenuItem
             // 
             this.editSortByCareerOrderToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.sort_by_career;
@@ -473,6 +465,19 @@
             this.editSortByCareerOrderToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.editSortByCareerOrderToolStripMenuItem.Text = "Edit Sort by Career Order...";
             this.editSortByCareerOrderToolStripMenuItem.Click += new System.EventHandler(this.editSortByCareerOrderToolStripMenuItem_Click);
+            // 
+            // manageHiddenSongsToolStripMenuItem
+            // 
+            this.manageHiddenSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.show;
+            this.manageHiddenSongsToolStripMenuItem.Name = "manageHiddenSongsToolStripMenuItem";
+            this.manageHiddenSongsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.manageHiddenSongsToolStripMenuItem.Text = "Manage Hidden Songs...";
+            this.manageHiddenSongsToolStripMenuItem.Click += new System.EventHandler(this.manageHiddenSongsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(215, 6);
             // 
             // selectionActionsToolStripMenuItem
             // 
@@ -490,20 +495,20 @@
             // 
             this.changeCategoryToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.refresh;
             this.changeCategoryToolStripMenuItem.Name = "changeCategoryToolStripMenuItem";
-            this.changeCategoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeCategoryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.changeCategoryToolStripMenuItem.Text = "Change Category...";
             this.changeCategoryToolStripMenuItem.Click += new System.EventHandler(this.changeCategoryToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(172, 6);
             // 
             // removeSongsToolStripMenuItem
             // 
             this.removeSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.delete;
             this.removeSongsToolStripMenuItem.Name = "removeSongsToolStripMenuItem";
-            this.removeSongsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeSongsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.removeSongsToolStripMenuItem.Text = "Remove Song(s)";
             this.removeSongsToolStripMenuItem.Click += new System.EventHandler(this.removeSongsToolStripMenuItem_Click);
             // 
@@ -511,7 +516,7 @@
             // 
             this.clearAllSongsToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.close_file;
             this.clearAllSongsToolStripMenuItem.Name = "clearAllSongsToolStripMenuItem";
-            this.clearAllSongsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearAllSongsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.clearAllSongsToolStripMenuItem.Text = "Clear All Songs";
             this.clearAllSongsToolStripMenuItem.Click += new System.EventHandler(this.clearAllSongsToolStripMenuItem_Click);
             // 
@@ -535,6 +540,19 @@
             this.openModFolderToolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
             this.openModFolderToolStripMenuItem1.Text = "Open Mod Folder";
             this.openModFolderToolStripMenuItem1.Click += new System.EventHandler(this.openModFolderToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(215, 6);
+            // 
+            // makeSetlistZIPToolStripMenuItem
+            // 
+            this.makeSetlistZIPToolStripMenuItem.Image = global::WTDE_Launcher_V3.Properties.Resources.download;
+            this.makeSetlistZIPToolStripMenuItem.Name = "makeSetlistZIPToolStripMenuItem";
+            this.makeSetlistZIPToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.makeSetlistZIPToolStripMenuItem.Text = "Make Setlist ZIP...";
+            this.makeSetlistZIPToolStripMenuItem.Click += new System.EventHandler(this.makeSetlistZIPToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -610,6 +628,17 @@
             this.SongCatSongListHeader.TabIndex = 14;
             this.SongCatSongListHeader.Text = "Song Category Preview:";
             // 
+            // EditSongVisibilityButton
+            // 
+            this.EditSongVisibilityButton.Location = new System.Drawing.Point(820, 128);
+            this.EditSongVisibilityButton.Name = "EditSongVisibilityButton";
+            this.EditSongVisibilityButton.Size = new System.Drawing.Size(224, 23);
+            this.EditSongVisibilityButton.TabIndex = 30;
+            this.EditSongVisibilityButton.Text = "Manage Hidden Songs...";
+            this.SCMToolTipMain.SetToolTip(this.EditSongVisibilityButton, "Manage what songs will and will not show on certain instruments.");
+            this.EditSongVisibilityButton.UseVisualStyleBackColor = true;
+            this.EditSongVisibilityButton.Click += new System.EventHandler(this.EditSongVisibilityButton_Click);
+            // 
             // SongMasterManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -622,6 +651,7 @@
             this.Controls.Add(this.ResetSongModFilter);
             this.Controls.Add(this.ApplySongModSearch);
             this.Controls.Add(this.SongModFilter);
+            this.Controls.Add(this.EditSongVisibilityButton);
             this.Controls.Add(this.EditSortOrderButton);
             this.Controls.Add(this.MakeSetlistZIPButton);
             this.Controls.Add(this.EditCategoryDataButton);
@@ -715,5 +745,8 @@
         private System.Windows.Forms.ToolStripMenuItem removeSongsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearAllSongsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem manageHiddenSongsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.Button EditSongVisibilityButton;
     }
 }

@@ -115,6 +115,7 @@ namespace WTDE_Launcher_V3.Managers {
             EditCategoryDataButton.Enabled = false;
             MakeSetlistZIPButton.Enabled = false;
             EditSortOrderButton.Enabled = false;
+            EditSongVisibilityButton.Enabled = false;
 
             Application.DoEvents();
 
@@ -435,6 +436,7 @@ namespace WTDE_Launcher_V3.Managers {
             EditCategoryDataButton.Enabled = (SongCategoriesList.SelectedItems.Count > 0);
             MakeSetlistZIPButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
             EditSortOrderButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
+            EditSongVisibilityButton.Enabled = (AttachedCategorySongs.Items.Count > 0);
 
             // Menu commands!
             // We must have songs in our category and we must
@@ -960,7 +962,7 @@ namespace WTDE_Launcher_V3.Managers {
                     file.Sections["SongInfo"].Keys["GameCategory"].Value = "none";
                     file.Save(pathToConfig);
 
-                    // Folder INI file?
+                // Folder INI file?
                 } else {
                     string wtdeDir = V3LauncherCore.GetUpdaterINIDirectory();
                     var splitPath = pathToConfig.Replace('\\', '/').Split('/');
@@ -1129,6 +1131,8 @@ namespace WTDE_Launcher_V3.Managers {
             AddSongsToCurrentCategory();
         }
 
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
         public void OpenEditSortByCareerDialog() {
             List<string> songNames = new List<string>();
             List<string> songChecksums = new List<string>();
@@ -1165,6 +1169,29 @@ namespace WTDE_Launcher_V3.Managers {
 
         private void EditSortOrderButton_Click(object sender, EventArgs e) {
             OpenEditSortByCareerDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        public void OpenManageHiddenSongsDialog() {
+            // Get song mod INI paths.
+            if (AttachedCategorySongs.Items.Count > 0) { 
+                List<string> iniPaths = new List<string>();
+                foreach (ListViewItem item in AttachedCategorySongs.Items) {
+                    string iniPath = item.SubItems[2].Text.Trim();
+                    iniPaths.Add(iniPath);
+                }
+                SCMEditHiddenSongs sehs = new SCMEditHiddenSongs(iniPaths);
+                sehs.ShowDialog();
+            }
+        }
+
+        private void manageHiddenSongsToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenManageHiddenSongsDialog();
+        }
+
+        private void EditSongVisibilityButton_Click(object sender, EventArgs e) {
+            OpenManageHiddenSongsDialog();
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - -
@@ -1321,5 +1348,7 @@ namespace WTDE_Launcher_V3.Managers {
         private void changeCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
             MoveSongsToCategory();
         }
+
+        
     }
 }
