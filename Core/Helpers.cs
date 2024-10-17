@@ -153,7 +153,7 @@ namespace WTDE_Launcher_V3.Core {
             string finalString = $"Items in given {list.GetType().Name}: [";
             List<T> iterableList = list.ToList();
             for (var i = 0; i < iterableList.Count; i++) {
-                var item = iterableList[i];
+                T item = iterableList[i];
                 if (i == iterableList.Count - 1) {
                     finalString += $"{item}";
                 } else {

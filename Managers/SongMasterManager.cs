@@ -18,6 +18,7 @@ using System.Linq;
 using System.Windows.Forms;
 using MadMilkman.Ini;
 using System.Diagnostics;
+using NAudio.MediaFoundation;
 
 namespace WTDE_Launcher_V3.Managers {
     /// <summary>
@@ -72,6 +73,11 @@ namespace WTDE_Launcher_V3.Managers {
         /// </summary>
         public string CurrentLoadedCategoryImageName = "";
 
+        /// <summary>
+        ///  The paths to the current loaded category's song mod INIs.
+        /// </summary>
+        public string[] CurrentLoadedCategoryINIPaths = new string[] { };
+
         // - - - - - - - - - - - - - - - - - - - - - - -
 
         /// <summary>
@@ -79,10 +85,18 @@ namespace WTDE_Launcher_V3.Managers {
         ///  more easily sort and categorize their songs.
         /// </summary>
         public SongMasterManager() {
+            // Initialize Designer.
             InitializeComponent();
+
+            // Get songs and categories!
             GetSongsAndCategories();
+
+            // Update controls and menu commands.
             UpdateActiveSongControls();
             UpdateMenuCommands();
+
+            // Initialize sort filter.
+            SortByFilter.SelectedIndex = 0;
 
             // For now, until ready, disable the Make Setlist ZIP command.
             //~ MakeSetlistZIPButton.Visible = false;
@@ -201,6 +215,9 @@ namespace WTDE_Launcher_V3.Managers {
         /// </summary>
         public void ReadAttachedSongs() {
             if (SongCategoriesList.SelectedItems.Count <= 0) return;
+
+            // Update idle tasks.
+            Application.DoEvents();
 
             //~ Console.WriteLine("Reading songs...");
 
@@ -373,6 +390,179 @@ namespace WTDE_Launcher_V3.Managers {
 
             // Remove any duplicates, leave only distinct ones.
             outData = outData.Distinct().ToList();
+            CurrentLoadedCategoryINIPaths = (
+                from entry in outData
+                select entry[2]
+            ).ToArray();
+
+            // - - - - - - - - - - - - - - - - - - - - - - -
+
+            // Now we'll apply our sort filter!
+            // What sort filter are we doing?
+            int sortFilterType = SortByFilter.SelectedIndex;
+            bool invertSort = (sortFilterType != 2) && (InverseSortButton.Text == "Z-A");
+
+            // Get information about the songs!
+            List<string[]> songInfoList = new List<string[]>();
+            for (var i = 0; i < CurrentLoadedCategoryINIPaths.Length; i++) {
+                string iniPath = CurrentLoadedCategoryINIPaths[i];
+                INI file = new INI(iniPath);
+
+                // Title, artist, and checksum information!
+                string title = file.GetString("SongInfo", "Title", $"Unknown Title {i + 1}");
+                string artist = file.GetString("SongInfo", "Artist", $"Unknown Artist {i + 1}");
+                string checksum = file.GetString("SongInfo", "Checksum", $"unkChecksum{i + 1}");
+
+                // Make the array!
+                string[] nameInfo = { title, artist, checksum, iniPath };
+                songInfoList.Add(nameInfo);
+            }
+
+            // If NOT doing career order sort, do regular sort logic!
+            if (sortFilterType != 2) {
+
+                // Now, what are we sorting by?
+                // Use that in our logic below!
+                int finalSortIdx = 0;
+                switch (sortFilterType) {
+                    case 0: default: finalSortIdx = 0; break;   // By Title
+                    case 1: finalSortIdx = 1; break;            // By Artist
+                    case 2: finalSortIdx = 0; break;            // We should never hit this one!
+                    case 3: finalSortIdx = 2; break;            // By Checksum
+                }
+
+                // Order the list correctly!
+                songInfoList = (invertSort) ?
+                    // Inverse sort
+                    (
+                        from info in songInfoList
+                        orderby info[finalSortIdx] descending
+                        select info
+                    ).ToList() :
+
+                    // Normal sort
+                    (
+                        from info in songInfoList
+                        orderby info[finalSortIdx] ascending
+                        select info
+                    ).ToList();
+
+                // Construct an ACTUAL list to write!
+                List<string[]> actualFinalData = new List<string[]>();
+                for (var i = 0; i < songInfoList.Count; i++) {
+                    // Grab current info set.
+                    string[] data = songInfoList[i];
+
+                    // Artist - Title string.
+                    string artistTitleStr = $"{data[1]} - {data[0]}";
+
+                    // Add final data!
+                    actualFinalData.Add(new string[] { artistTitleStr, data[2], data[3] });
+                }
+
+                // Alter the final list with our real data!
+                outData = actualFinalData;
+            }
+
+            // We are doing career sort logic!
+            // We need to figure out what instrument we would like to sort by,
+            // and reconstruct our list based on that order.
+            //~ } else {
+            //~ 
+            //~     // For this logic, we'll ignore the inverse sort.
+            //~     // We'll handle sorting ourselves!
+            //~ 
+            //~     // So before we begin, figure out what instrument we're looking at!
+            //~     int toSwapIndex = 0;
+            //~     switch (InverseSortButton.Text) {
+            //~         // -- GUITAR SORT
+            //~         case "Guitar": default:
+            //~             toSwapIndex = 0;
+            //~             break;
+            //~ 
+            //~         // -- BASS SORT
+            //~         case "Bass":
+            //~             toSwapIndex = 1;
+            //~             break;
+            //~ 
+            //~         // -- DRUMS SORT
+            //~         case "Drums":
+            //~             toSwapIndex = 2;
+            //~             break;
+            //~ 
+            //~         // -- VOCALS SORT
+            //~         case "Vocals":
+            //~             toSwapIndex = 3;
+            //~             break;
+            //~ 
+            //~         // -- BAND SORT
+            //~         case "Band":
+            //~             toSwapIndex = 4;
+            //~             break;
+            //~     }
+            //~ 
+            //~     // What instrument sort index are we looking at?
+            //~     string[] instrumentShorthands = new string[] { "G", "B", "D", "V", "A" };
+            //~ 
+            //~     // First up, get our indices!
+            //~     List<int> sortedCareerIndices = new List<int>();
+            //~     List<int> unsortedCareerIndices = new List<int>();
+            //~     for (var i = 0; i < CurrentLoadedCategoryINIPaths.Length; i++) {
+            //~         // Current INI path.
+            //~         string iniPath = CurrentLoadedCategoryINIPaths[i];
+            //~ 
+            //~         // Make an INI object.
+            //~         INI file = new INI(iniPath);
+            //~ 
+            //~         // Get our sort indices!
+            //~         int careerSortIdx = file.GetInt("SongInfo", $"CareerSortIndex{instrumentShorthands[toSwapIndex]}", -1);
+            //~ 
+            //~         // Add our sort value. We'll filter these later.
+            //~         if (careerSortIdx != -1) sortedCareerIndices.Add(careerSortIdx + 1); else unsortedCareerIndices.Add(i);
+            //~     }
+            //~ 
+            //~     Helpers.DumpListContents(sortedCareerIndices);
+            //~     Helpers.DumpListContents(unsortedCareerIndices);
+            //~ 
+            //~     // Get sorted entries!
+            //~     List<string[]> sortedRecords = (
+            //~         from idx in sortedCareerIndices
+            //~         orderby idx ascending
+            //~         select songInfoList[idx]
+            //~     ).ToList();
+            //~ 
+            //~     // For our UNSORTED records, order them by title A-Z.
+            //~     List<string[]> unsortedRecords = (
+            //~         from idx in unsortedCareerIndices
+            //~         orderby songInfoList[idx][0] ascending
+            //~         select songInfoList[idx]
+            //~     ).ToList();
+            //~ 
+            //~     Console.WriteLine("## -- ## --  SORTED RECORDS  -- ## -- ##");
+            //~     foreach (var record in sortedRecords) {
+            //~         Helpers.DumpListContents(record);
+            //~     }
+            //~ 
+            //~     Console.WriteLine("## -- ## -- UNSORTED RECORDS -- ## -- ##");
+            //~     foreach (var record in unsortedRecords) {
+            //~         Helpers.DumpListContents(record);
+            //~     }
+            //~ 
+            //~     // Build our sorted records!
+            //~     List<string[]> finalSortedRecords = new List<string[]>();
+            //~     foreach (string[] record in sortedRecords) {
+            //~         finalSortedRecords.Add(new string[] { $"{record[1]} - {record[0]}", record[2], record[3] });
+            //~     }
+            //~     foreach (string[] record in unsortedRecords) {
+            //~         finalSortedRecords.Add(new string[] { $"{record[1]} - {record[0]}", record[2], record[3] });
+            //~     }
+            //~ 
+            //~     // Our records have been reordered, nice!
+            //~     // Alter the data and we're done!
+            //~     outData = finalSortedRecords;
+            //~ }
+
+            // - - - - - - - - - - - - - - - - - - - - - - -
 
             // Now, we're FINALLY DONE!
             // Let's populate our list view now!
@@ -428,6 +618,7 @@ namespace WTDE_Launcher_V3.Managers {
             EditCategoryDataButton.Enabled = false;
 
             CurrentLoadedCategoryChecksum = "";
+            CurrentLoadedCategoryINIPaths = new string[] { };
 
             SongModFilter.Text = "";
             SongCategoryFilter.Text = "";
@@ -441,6 +632,12 @@ namespace WTDE_Launcher_V3.Managers {
             MakeSetlistZIPButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
             EditSortOrderButton.Enabled = (AttachedCategorySongs.Items.Count > 0 && SongCategoriesList.SelectedItems.Count > 0);
             EditSongVisibilityButton.Enabled = (AttachedCategorySongs.Items.Count > 0);
+
+            // Sort controls!
+            bool canSort = (AttachedCategorySongs.Items.Count > 0);
+            CateSortLabel.Enabled = canSort;
+            SortByFilter.Enabled = canSort;
+            InverseSortButton.Enabled = canSort;
 
             // Menu commands!
             // We must have songs in our category and we must
@@ -874,14 +1071,16 @@ namespace WTDE_Launcher_V3.Managers {
 
                 }
 
+                // Re-read attached songs!
                 ReadAttachedSongs();
             }
         }
 
         private void addToCategoryToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            // Use our helper method!
             AddSongsToCurrentCategory();
 
+            // Not needed, we have a helper for this!
             /*
             if (SongModsList.SelectedItems.Count > 0 && CurrentLoadedCategoryChecksum != "") {
                 // What index do we need?
@@ -1127,7 +1326,8 @@ namespace WTDE_Launcher_V3.Managers {
         }
 
         private void MakeSetlistZIPButton_Click(object sender, EventArgs e) {
-            List<string> songModPaths = GetSongsForZIP();
+            //~ List<string> songModPaths = GetSongsForZIP();
+            List<string> songModPaths = CurrentLoadedCategoryINIPaths.ToList();
 
             SCMMakeSetlistZIP makeZIP = new SCMMakeSetlistZIP(
                 songModPaths, CurrentLoadedCategoryChecksum,
@@ -1137,7 +1337,8 @@ namespace WTDE_Launcher_V3.Managers {
         }
 
         private void makeSetlistZIPToolStripMenuItem_Click(object sender, EventArgs e) {
-            List<string> songModPaths = GetSongsForZIP();
+            //~ List<string> songModPaths = GetSongsForZIP();
+            List<string> songModPaths = CurrentLoadedCategoryINIPaths.ToList();
 
             SCMMakeSetlistZIP makeZIP = new SCMMakeSetlistZIP(
                 songModPaths, CurrentLoadedCategoryChecksum,
@@ -1152,6 +1353,9 @@ namespace WTDE_Launcher_V3.Managers {
 
         // - - - - - - - - - - - - - - - - - - - - - - -
 
+        /// <summary>
+        ///  Opens the Sort by Career Order editor.
+        /// </summary>
         public void OpenEditSortByCareerDialog() {
             List<string> songNames = new List<string>();
             List<string> songChecksums = new List<string>();
@@ -1368,6 +1572,49 @@ namespace WTDE_Launcher_V3.Managers {
             MoveSongsToCategory();
         }
 
-        
+        // - - - - - - - - - - - - - - - - - - - - - - -
+
+        // -- CHANGE BASED ON CURRENT SORT FILTER
+        private void InverseSortButton_Click(object sender, EventArgs e) {
+            // What is our current sort filter?
+            int currentCateSortFilter = SortByFilter.SelectedIndex;
+
+            // If not 2, just switch between A-Z and Z-A!
+            if (currentCateSortFilter != 2) {
+                InverseSortButton.Text = (InverseSortButton.Text == "Z-A") ? "A-Z" : "Z-A";
+
+            // It is 2, change instrument!
+            } else {
+                switch (InverseSortButton.Text) {
+                    case "Guitar": default:
+                        InverseSortButton.Text = "Bass";
+                        break;
+
+                    case "Bass":
+                        InverseSortButton.Text = "Drums";
+                        break;
+
+                    case "Drums":
+                        InverseSortButton.Text = "Vocals";
+                        break;
+
+                    case "Vocals":
+                        InverseSortButton.Text = "Band";
+                        break;
+
+                    case "Band":
+                        InverseSortButton.Text = "Guitar";
+                        break;
+                }
+            }
+
+            // Re-read attached songs.
+            ReadAttachedSongs();
+        }
+
+        private void SortByFilter_SelectedIndexChanged(object sender, EventArgs e) {
+            InverseSortButton.Text = (SortByFilter.SelectedIndex == 2) ? "Guitar" : "A-Z";
+            ReadAttachedSongs();
+        }
     }
 }

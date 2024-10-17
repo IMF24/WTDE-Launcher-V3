@@ -30,7 +30,7 @@ namespace WTDE_Launcher_V3.Core {
         /// <summary>
         ///  Version number of the program.
         /// </summary>
-        public const string VERSION = "3.0.10";
+        public const string VERSION = "3.0.11";
 
         /// <summary>
         ///  Where is GHWTDE.ini located?
