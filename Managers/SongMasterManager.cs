@@ -400,26 +400,27 @@ namespace WTDE_Launcher_V3.Managers {
             // Now we'll apply our sort filter!
             // What sort filter are we doing?
             int sortFilterType = SortByFilter.SelectedIndex;
-            bool invertSort = (sortFilterType != 2) && (InverseSortButton.Text == "Z-A");
-
-            // Get information about the songs!
-            List<string[]> songInfoList = new List<string[]>();
-            for (var i = 0; i < CurrentLoadedCategoryINIPaths.Length; i++) {
-                string iniPath = CurrentLoadedCategoryINIPaths[i];
-                INI file = new INI(iniPath);
-
-                // Title, artist, and checksum information!
-                string title = file.GetString("SongInfo", "Title", $"Unknown Title {i + 1}");
-                string artist = file.GetString("SongInfo", "Artist", $"Unknown Artist {i + 1}");
-                string checksum = file.GetString("SongInfo", "Checksum", $"unkChecksum{i + 1}");
-
-                // Make the array!
-                string[] nameInfo = { title, artist, checksum, iniPath };
-                songInfoList.Add(nameInfo);
-            }
 
             // If NOT doing career order sort, do regular sort logic!
             if (sortFilterType != 2) {
+                // Invert the sort?
+                bool invertSort = (sortFilterType != 2) && (InverseSortButton.Text == "Z-A");
+
+                // Get information about the songs!
+                List<string[]> songInfoList = new List<string[]>();
+                for (var i = 0; i < CurrentLoadedCategoryINIPaths.Length; i++) {
+                    string iniPath = CurrentLoadedCategoryINIPaths[i];
+                    INI file = new INI(iniPath);
+
+                    // Title, artist, and checksum information!
+                    string title = file.GetString("SongInfo", "Title", $"Unknown Title {i + 1}");
+                    string artist = file.GetString("SongInfo", "Artist", $"Unknown Artist {i + 1}");
+                    string checksum = file.GetString("SongInfo", "Checksum", $"unkChecksum{i + 1}");
+
+                    // Make the array!
+                    string[] nameInfo = { title, artist, checksum, iniPath };
+                    songInfoList.Add(nameInfo);
+                }
 
                 // Now, what are we sorting by?
                 // Use that in our logic below!
@@ -462,105 +463,86 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // Alter the final list with our real data!
                 outData = actualFinalData;
-            }
 
             // We are doing career sort logic!
             // We need to figure out what instrument we would like to sort by,
             // and reconstruct our list based on that order.
-            //~ } else {
-            //~ 
-            //~     // For this logic, we'll ignore the inverse sort.
-            //~     // We'll handle sorting ourselves!
-            //~ 
-            //~     // So before we begin, figure out what instrument we're looking at!
-            //~     int toSwapIndex = 0;
-            //~     switch (InverseSortButton.Text) {
-            //~         // -- GUITAR SORT
-            //~         case "Guitar": default:
-            //~             toSwapIndex = 0;
-            //~             break;
-            //~ 
-            //~         // -- BASS SORT
-            //~         case "Bass":
-            //~             toSwapIndex = 1;
-            //~             break;
-            //~ 
-            //~         // -- DRUMS SORT
-            //~         case "Drums":
-            //~             toSwapIndex = 2;
-            //~             break;
-            //~ 
-            //~         // -- VOCALS SORT
-            //~         case "Vocals":
-            //~             toSwapIndex = 3;
-            //~             break;
-            //~ 
-            //~         // -- BAND SORT
-            //~         case "Band":
-            //~             toSwapIndex = 4;
-            //~             break;
-            //~     }
-            //~ 
-            //~     // What instrument sort index are we looking at?
-            //~     string[] instrumentShorthands = new string[] { "G", "B", "D", "V", "A" };
-            //~ 
-            //~     // First up, get our indices!
-            //~     List<int> sortedCareerIndices = new List<int>();
-            //~     List<int> unsortedCareerIndices = new List<int>();
-            //~     for (var i = 0; i < CurrentLoadedCategoryINIPaths.Length; i++) {
-            //~         // Current INI path.
-            //~         string iniPath = CurrentLoadedCategoryINIPaths[i];
-            //~ 
-            //~         // Make an INI object.
-            //~         INI file = new INI(iniPath);
-            //~ 
-            //~         // Get our sort indices!
-            //~         int careerSortIdx = file.GetInt("SongInfo", $"CareerSortIndex{instrumentShorthands[toSwapIndex]}", -1);
-            //~ 
-            //~         // Add our sort value. We'll filter these later.
-            //~         if (careerSortIdx != -1) sortedCareerIndices.Add(careerSortIdx + 1); else unsortedCareerIndices.Add(i);
-            //~     }
-            //~ 
-            //~     Helpers.DumpListContents(sortedCareerIndices);
-            //~     Helpers.DumpListContents(unsortedCareerIndices);
-            //~ 
-            //~     // Get sorted entries!
-            //~     List<string[]> sortedRecords = (
-            //~         from idx in sortedCareerIndices
-            //~         orderby idx ascending
-            //~         select songInfoList[idx]
-            //~     ).ToList();
-            //~ 
-            //~     // For our UNSORTED records, order them by title A-Z.
-            //~     List<string[]> unsortedRecords = (
-            //~         from idx in unsortedCareerIndices
-            //~         orderby songInfoList[idx][0] ascending
-            //~         select songInfoList[idx]
-            //~     ).ToList();
-            //~ 
-            //~     Console.WriteLine("## -- ## --  SORTED RECORDS  -- ## -- ##");
-            //~     foreach (var record in sortedRecords) {
-            //~         Helpers.DumpListContents(record);
-            //~     }
-            //~ 
-            //~     Console.WriteLine("## -- ## -- UNSORTED RECORDS -- ## -- ##");
-            //~     foreach (var record in unsortedRecords) {
-            //~         Helpers.DumpListContents(record);
-            //~     }
-            //~ 
-            //~     // Build our sorted records!
-            //~     List<string[]> finalSortedRecords = new List<string[]>();
-            //~     foreach (string[] record in sortedRecords) {
-            //~         finalSortedRecords.Add(new string[] { $"{record[1]} - {record[0]}", record[2], record[3] });
-            //~     }
-            //~     foreach (string[] record in unsortedRecords) {
-            //~         finalSortedRecords.Add(new string[] { $"{record[1]} - {record[0]}", record[2], record[3] });
-            //~     }
-            //~ 
-            //~     // Our records have been reordered, nice!
-            //~     // Alter the data and we're done!
-            //~     outData = finalSortedRecords;
-            //~ }
+            } else {
+
+                // Instrument shorthands!
+                // Use this to determine what sort index we want to read.
+
+                // What shorthand index do we want?
+                int shortHandIdx = 0;
+                switch (InverseSortButton.Text) {
+                    case "Guitar": default: shortHandIdx = 0; break;
+                    case "Bass": shortHandIdx = 1; break;
+                    case "Drums": shortHandIdx = 2; break;
+                    case "Vocals": shortHandIdx = 3; break;
+                    case "Band": shortHandIdx = 4; break;
+                }
+
+                // Array of shorthands.
+                string[] instrumentShorthands = new string[] { "G", "B", "D", "V", "A" };
+
+                // INI key we'll read the index of.
+                string sortIdxKey = $"CareerSortIndex{instrumentShorthands[shortHandIdx]}";
+
+                // -------------------------
+
+                // First up, we'll need to remake our records for this sort filter.
+                List<string[]> sortedRecords = new List<string[]>();
+                List<string[]> unsortedRecords = new List<string[]>();
+
+                // Get our INI paths and iterate through them.
+                for (var i = 0; i < CurrentLoadedCategoryINIPaths.Length; i++) {
+                    // Current INI path.
+                    string iniPath = CurrentLoadedCategoryINIPaths[i];
+
+                    // Initialize INI object.
+                    INI file = new INI(iniPath);
+
+                    // Get its name, artist, checksum, sort index, and store its path.
+                    string name = file.GetString("SongInfo", "Title", $"Unknown Title {i + 1}");
+                    string artist = file.GetString("SongInfo", "Artist", $"Unknown Artist {i + 1}");
+                    string checksum = file.GetString("SongInfo", "Checksum", $"unkChecksum{i}");
+                    int sortIdx = file.GetInt("SongInfo", sortIdxKey, -1);
+
+                    // Make the record!
+                    string[] newRecord = new string[] { name, artist, checksum, sortIdx.ToString(), iniPath };
+
+                    // If the sort index is greater than or equal to 0, it's a sorted
+                    // record! If it's -1, it's not sorted!
+                    if (sortIdx >= 0) sortedRecords.Add(newRecord); else unsortedRecords.Add(newRecord);
+                }
+
+                // We have our sorted and unsorted records, cool!
+                // Now we need to order them numerically and handle the unsorted records.
+                sortedRecords = (
+                    from record in sortedRecords
+                    orderby int.Parse(record[3]) ascending
+                    select record
+                ).ToList();
+
+                // Order the unsorted records by title ascending A-Z.
+                unsortedRecords = (
+                    from record in unsortedRecords
+                    orderby record[0] ascending
+                    select record
+                ).ToList();
+
+                // Concatenate the results together!
+                List<string[]> finalAdjustedRecords = new List<string[]>();
+                foreach (string[] record in sortedRecords) {
+                    finalAdjustedRecords.Add(new string[] { $"{record[1]} - {record[0]}", record[2], record[4] });
+                }
+                foreach (string[] record in unsortedRecords) {
+                    finalAdjustedRecords.Add(new string[] { $"{record[1]} - {record[0]}", record[2], record[4] });
+                }
+
+                // Alter final data, we're finished!
+                outData = finalAdjustedRecords;
+            }
 
             // - - - - - - - - - - - - - - - - - - - - - - -
 
