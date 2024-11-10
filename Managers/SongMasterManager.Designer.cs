@@ -45,6 +45,8 @@
             this.AddSongsToCategoryButton = new System.Windows.Forms.Button();
             this.EditSortOrderButton = new System.Windows.Forms.Button();
             this.EditSongVisibilityButton = new System.Windows.Forms.Button();
+            this.SortByFilter = new System.Windows.Forms.ComboBox();
+            this.InverseSortButton = new System.Windows.Forms.Button();
             this.TopMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openModsFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +91,6 @@
             this.ActiveCategoryInfo = new System.Windows.Forms.Label();
             this.SongCatSongListHeader = new System.Windows.Forms.Label();
             this.CateSortLabel = new System.Windows.Forms.Label();
-            this.SortByFilter = new System.Windows.Forms.ComboBox();
-            this.InverseSortButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImageBox)).BeginInit();
             this.TopMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -288,6 +288,33 @@
             this.SCMToolTipMain.SetToolTip(this.EditSongVisibilityButton, "Manage what songs will and will not show on certain instruments.");
             this.EditSongVisibilityButton.UseVisualStyleBackColor = true;
             this.EditSongVisibilityButton.Click += new System.EventHandler(this.EditSongVisibilityButton_Click);
+            // 
+            // SortByFilter
+            // 
+            this.SortByFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SortByFilter.FormattingEnabled = true;
+            this.SortByFilter.Items.AddRange(new object[] {
+            "Sort by Title",
+            "Sort by Artist",
+            "Sort by Career",
+            "Sort by Checksum"});
+            this.SortByFilter.Location = new System.Drawing.Point(851, 333);
+            this.SortByFilter.Name = "SortByFilter";
+            this.SortByFilter.Size = new System.Drawing.Size(133, 21);
+            this.SortByFilter.TabIndex = 37;
+            this.SCMToolTipMain.SetToolTip(this.SortByFilter, "View the list of songs below with the defined sort filter.");
+            this.SortByFilter.SelectedIndexChanged += new System.EventHandler(this.SortByFilter_SelectedIndexChanged);
+            // 
+            // InverseSortButton
+            // 
+            this.InverseSortButton.Location = new System.Drawing.Point(990, 332);
+            this.InverseSortButton.Name = "InverseSortButton";
+            this.InverseSortButton.Size = new System.Drawing.Size(55, 23);
+            this.InverseSortButton.TabIndex = 38;
+            this.InverseSortButton.Text = "A-Z";
+            this.SCMToolTipMain.SetToolTip(this.InverseSortButton, "Click to change the sort mode for the current filter.");
+            this.InverseSortButton.UseVisualStyleBackColor = true;
+            this.InverseSortButton.Click += new System.EventHandler(this.InverseSortButton_Click);
             // 
             // TopMenuStrip
             // 
@@ -661,33 +688,6 @@
             this.CateSortLabel.Size = new System.Drawing.Size(66, 13);
             this.CateSortLabel.TabIndex = 6;
             this.CateSortLabel.Text = "Sort Filter:";
-            // 
-            // SortByFilter
-            // 
-            this.SortByFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SortByFilter.FormattingEnabled = true;
-            this.SortByFilter.Items.AddRange(new object[] {
-            "Sort by Title",
-            "Sort by Artist",
-            "Sort by Career",
-            "Sort by Checksum"});
-            this.SortByFilter.Location = new System.Drawing.Point(851, 334);
-            this.SortByFilter.Name = "SortByFilter";
-            this.SortByFilter.Size = new System.Drawing.Size(133, 21);
-            this.SortByFilter.TabIndex = 37;
-            this.SCMToolTipMain.SetToolTip(this.SortByFilter, "View the list of songs below with the defined sort filter.");
-            this.SortByFilter.SelectedIndexChanged += new System.EventHandler(this.SortByFilter_SelectedIndexChanged);
-            // 
-            // InverseSortButton
-            // 
-            this.InverseSortButton.Location = new System.Drawing.Point(990, 333);
-            this.InverseSortButton.Name = "InverseSortButton";
-            this.InverseSortButton.Size = new System.Drawing.Size(55, 23);
-            this.InverseSortButton.TabIndex = 38;
-            this.InverseSortButton.Text = "A-Z";
-            this.SCMToolTipMain.SetToolTip(this.InverseSortButton, "Click to change the sort mode for the current filter.");
-            this.InverseSortButton.UseVisualStyleBackColor = true;
-            this.InverseSortButton.Click += new System.EventHandler(this.InverseSortButton_Click);
             // 
             // SongMasterManager
             // 

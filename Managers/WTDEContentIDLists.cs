@@ -821,11 +821,15 @@ namespace WTDE_Launcher_V3.Managers {
             // RANDOM CHARACTERS
             // -----------------------
             new string[][] {
+                // -- RANDOM APPEARANCE
+                new string[] { "Random Appearance", "RandomAppearance" },
+
                 // -- RANDOM APPEARANCES 0-3
-                new string[] { "Random Appearance 0", "RandomAppearance0" },
-                new string[] { "Random Appearance 1", "RandomAppearance1" },
-                new string[] { "Random Appearance 2", "RandomAppearance2" },
-                new string[] { "Random Appearance 3", "RandomAppearance3" },
+                // -- (THESE CRASH THE GAME! Do not use them!)
+                //~ new string[] { "Random Appearance 0", "RandomAppearance0" },
+                //~ new string[] { "Random Appearance 1", "RandomAppearance1" },
+                //~ new string[] { "Random Appearance 2", "RandomAppearance2" },
+                //~ new string[] { "Random Appearance 3", "RandomAppearance3" },
 
                 // -- WORST MALE/FEMALE BAND MEMBERS
                 new string[] { "Worst Male Guitarist", "WorstMaleGuitarist" },
@@ -840,6 +844,119 @@ namespace WTDE_Launcher_V3.Managers {
 
                 // -- EMPTY GUY
                 new string[] { "Empty Guy", "EmptyGuy" },
+            }
+        };
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  List of all stock categories included with GHWT: DE.
+        ///  <br/><br/>
+        ///  Here's a list of all song categories seen in this list:
+        ///  <br/>
+        ///  - Index 0: Literal names of the categories.
+        ///  <br/>
+        ///  - Index 1: Actual category checksums.
+        /// </summary>
+        public static List<List<string>> StockCategoryList = new List<List<string>>() {
+            // -----------------------
+            // CATEGORY NAMES
+            // -----------------------
+            new List<string>() {
+                "None / GHWT: Definitive Edition",
+                "Guitar Hero: World Tour (DLC)",
+                "Guitar Hero I",
+                "Guitar Hero I (DLC)",
+                "Guitar Hero II",
+                "Guitar Hero II (DLC)",
+                "Guitar Hero Encore: Rocks the 80s",
+                "Guitar Hero Encore: Rocks the 80s (DLC)",
+                "Guitar Hero III: Legends of Rock",
+                "Guitar Hero III: Legends of Rock (DLC)",
+                "Guitar Hero: Aerosmith",
+                "Guitar Hero: Aerosmith (DLC)",
+                "Guitar Hero: On Tour",
+                "Guitar Hero: On Tour (DLC)",
+                "Guitar Hero: On Tour - Decades",
+                "Guitar Hero: On Tour - Decades (DLC)",
+                "Guitar Hero: On Tour - Modern Hits",
+                "Guitar Hero: On Tour - Modern Hits (DLC)",
+                "Guitar Hero: Metallica",
+                "Guitar Hero: Metallica (DLC)",
+                "Guitar Hero: Smash Hits",
+                "Guitar Hero: Smash Hits (DLC)",
+                "Guitar Hero: Van Halen",
+                "Guitar Hero: Van Halen (DLC)",
+                "Guitar Hero 5",
+                "Guitar Hero 5 (DLC)",
+                "Band Hero",
+                "Band Hero (DLC)",
+                "Guitar Hero: Warriors of Rock",
+                "Guitar Hero: Warriors of Rock (DLC)",
+                "DJ Hero",
+                "DJ Hero (DLC)",
+                "DJ Hero 2",
+                "DJ Hero 2 (DLC)",
+                "Spider-Man 2000",
+                "Tony Hawk's American Wasteland",
+                "Tony Hawk's Pro Skater",
+                "Tony Hawk's Pro Skater 2",
+                "Tony Hawk's Pro Skater 3",
+                "Tony Hawk's Pro Skater 4",
+                "Tony Hawk's Underground",
+                "Tony Hawk's Underground 2",
+                "Tony Hawk's Project 8",
+                "Tony Hawk's Proving Ground"
+            },
+
+            // -----------------------
+            // CATEGORY CHECKSUMS
+            // -----------------------
+            new List<string>() {
+                "none",
+                "ghwtdlc",
+                "gh1",
+                "gh1dlc",
+                "gh2",
+                "gh2dlc",
+                "gh80s",
+                "gh80sdlc",
+                "gh3",
+                "gh3dlc",
+                "gha",
+                "ghadlc",
+                "ghot",
+                "ghotdlc",
+                "ghotd",
+                "ghotddlc",
+                "ghotmh",
+                "ghotmhdlc",
+                "ghm",
+                "ghmdlc",
+                "ghshits",
+                "ghshitsdlc",
+                "ghvh",
+                "ghvhdlc",
+                "gh5",
+                "gh5dlc",
+                "bh",
+                "bhdlc",
+                "ghwor",
+                "ghwordlc",
+                "djh",
+                "djhdlc",
+                "djh2",
+                "djh2dlc",
+                "sm2000",
+                "thaw",
+                "thps",
+                "thps2",
+                "thps3",
+                "thps4",
+                "thug",
+                "thug2",
+                "thp8",
+                "thpg"
             }
         };
 

@@ -128,11 +128,17 @@ namespace WTDE_Launcher_V3.IO {
                     // Normalize slashes, split path, also figure out
                     // what type of INI file this is.
                     string currentINIFile = file.Replace("\\", "/").Split('/').Last().Replace("/", "").ToLower();
-                    V3LauncherCore.AddDebugEntry($"current INI file is {currentINIFile}", "Mod Handler: ReadMods");
+                    V3LauncherCore.AddDebugEntry($"Current INI file is {currentINIFile}", "Mod Handler: ReadMods");
 
                     // What type of INI file is this?
                     string modName, modAuthor, modType, modVersion, modDescription;
+
                     switch (currentINIFile) {
+
+                        // ----------------------
+                        // SONG MOD
+                        //  Playable song tracks!
+                        // ----------------------
                         case "song.ini":
                             // If this folder contains a MIDI or CHART file, this is a Melody song.
                             // Therefore, it is not a valid song mod.
@@ -173,6 +179,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // CHARACTER MOD
+                        //  Models of characters!
+                        // ----------------------
                         case "character.ini":
                             V3LauncherCore.AddDebugEntry("We found a character mod!", "Mod Handler: ReadMods");
 
@@ -203,6 +213,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // INSTRUMENT MOD
+                        //  Guitars and basses!
+                        // ----------------------
                         case "instrument.ini":
                             V3LauncherCore.AddDebugEntry("We found an instrument mod!", "Mod Handler: ReadMods");
 
@@ -233,6 +247,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // HIGHWAY MOD
+                        //  Images notes atop of!
+                        // ----------------------
                         case "highway.ini":
                             V3LauncherCore.AddDebugEntry("We found a highway mod!", "Mod Handler: ReadMods");
 
@@ -263,6 +281,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // SONG CATEGORY MOD
+                        //  Categories for songs!
+                        // ----------------------
                         case "category.ini":
                             V3LauncherCore.AddDebugEntry("We found a song category mod!", "Mod Handler: ReadMods");
 
@@ -293,6 +315,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // MENU MUSIC MOD
+                        //  Menu music banks!
+                        // ----------------------
                         case "menumusic.ini":
                             V3LauncherCore.AddDebugEntry("We found a main menu music mod!", "Mod Handler: ReadMods");
 
@@ -323,6 +349,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // VENUE MOD
+                        //  Custom stages!
+                        // ----------------------
                         case "venue.ini":
                             V3LauncherCore.AddDebugEntry("We found a venue mod!", "Mod Handler: ReadMods");
 
@@ -353,6 +383,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // GEM THEME MOD
+                        //  Visual note styles!
+                        // ----------------------
                         case "gems.ini":
                             V3LauncherCore.AddDebugEntry("We found a gem theme mod!", "Mod Handler: ReadMods");
 
@@ -383,6 +417,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // SCRIPT MOD
+                        //  Holds QB code!
+                        // ----------------------
                         case "Mod.ini":
                         case "mod.ini":
                             V3LauncherCore.AddDebugEntry("We found a script mod!", "Mod Handler: ReadMods");
@@ -414,6 +452,10 @@ namespace WTDE_Launcher_V3.IO {
                             }
                             break;
 
+                        // ----------------------
+                        // UNKNOWN MOD
+                        //  Just advance forward
+                        // ----------------------
                         default:
                             continue;
                     }
@@ -437,6 +479,53 @@ namespace WTDE_Launcher_V3.IO {
             // Reset our working directory if we changed it, then give the list back!
             Directory.SetCurrentDirectory(owd);
             return outArray;
+        }
+
+        /// <summary>
+        ///  Get a mod type from a string!
+        /// </summary>
+        /// <param name="typeString">
+        ///  String to get the mod type of.
+        /// </param>
+        /// <returns>
+        ///  Mod type constant based on the input string.
+        /// </returns>
+        public static ModTypes GetTypeFromString(string typeString) {
+            // Convert to lower case.
+            typeString = typeString.ToLower();
+
+            // What type of mod do we have?
+            switch (typeString) {
+                case "song":
+                    return ModTypes.Song;
+
+                case "category": case "song category":
+                    return ModTypes.Category;
+
+                case "character":
+                    return ModTypes.Character;
+
+                case "instrument":
+                    return ModTypes.Instrument;
+
+                case "highway":
+                    return ModTypes.Highway;
+
+                case "menu music":
+                    return ModTypes.MenuMusic;
+
+                case "venue":
+                    return ModTypes.Venue;
+
+                case "gem theme":
+                    return ModTypes.Gems;
+
+                case "script":
+                    return ModTypes.Script;
+
+                default:
+                    return ModTypes.Any;
+            }
         }
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -539,6 +628,11 @@ namespace WTDE_Launcher_V3.IO {
         ///  Returns a list of all of the mods matching the given type.
         /// </returns>
         public static List<string[]> GetModsByType(ModTypes modType) {
+            // No mods? Return an empty list!
+            if (UserContentMods.Count <= 0) {
+                return new List<string[]>();
+            }
+
             // What type of mod do we want to find?
             string[] modTypes = new string[] {
                 "Song", "Character", "Instrument", "Highway", "Venue",
@@ -566,6 +660,11 @@ namespace WTDE_Launcher_V3.IO {
         ///  Returns a list of all of the mods matching the given type.
         /// </returns>
         public static List<string[]> GetModsByType(int modType) {
+            // No mods? Return an empty list!
+            if (UserContentMods.Count <= 0) {
+                return new List<string[]>();
+            }
+
             // What type of mod do we want to find?
             if (modType > 8 || modType < 0) modType = 0;
             string[] modTypes = new string[] {
@@ -669,6 +768,9 @@ namespace WTDE_Launcher_V3.IO {
         ///  Insert venue mods into the global array of zone names and prefixes.
         /// </summary>
         public static void AppendVenueMods(ComboBox[] cBoxList) {
+            // No mods are installed, return!
+            if (UserContentMods.Count <= 0) return;
+
             // Get our venue mods!
             List<string[]> venueMods = GetModsByType(ModTypes.Venue);
             if (venueMods.Count <= 0) return;
@@ -729,6 +831,9 @@ namespace WTDE_Launcher_V3.IO {
         ///  Insert gem mods into the global array of gem mod names and filenames.
         /// </summary>
         public static void AppendGemMods(ComboBox[] cBoxList) {
+            // No mods are installed, return!
+            if (UserContentMods.Count <= 0) return;
+            
             // Get our gem mods!
             List<string[]> gemMods = GetModsByType(ModTypes.Gems);
             if (gemMods.Count <= 0) return;

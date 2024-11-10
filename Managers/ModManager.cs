@@ -8,7 +8,6 @@
 // V3 launcher imports.
 using WTDE_Launcher_V3.Core;
 using WTDE_Launcher_V3.IO;
-using WTDE_Launcher_V3.Managers.ModTypes;
 using WTDE_Launcher_V3.Managers.ScriptMods;
 
 // Various other imports.
@@ -49,7 +48,11 @@ namespace WTDE_Launcher_V3.Managers {
 
             PopulateScriptModMenu();
             RegisterUserEditors();
+            RefreshModsList();
             EnableDevSettingsItems();
+
+            ModSearchType.SelectedIndex = 0;
+            ModSearchPropertyType.SelectedIndex = 0;
 
             XMLFunctions.ReturningFromDialog = true;
         }
@@ -198,10 +201,25 @@ namespace WTDE_Launcher_V3.Managers {
         /// <param name="filterType">
         ///  The mod type string to filter by.
         /// </param>
-        public void RefreshModsList(bool filterMods = false, string filterType = "Any") {
+        /// <param name="filterText">
+        ///  Text to filter by.
+        /// </param>
+        /// <param name="filterPropertyIdx">
+        ///  Index of the property of the mod to search in.
+        /// </param>
+        public void RefreshModsList(bool filterMods = false, string filterType = "Any", string filterText = "", int filterPropertyIdx = 0) {
             // Clear the Mod Manager listing, update the status bar.
             UserContentModsTree.Items.Clear();
             StatusLabelMain.Text = "Refreshing mods list...";
+
+            // Clear selected mod info.
+            SelectedModName.Text = "";
+            SelectedModAuthor.Text = "";
+            SelectedModType.Text = "";
+            SelectedModVersion.Text = "";
+            SelectedModDescription.Text = "";
+
+            RawModINIText.Lines = new string[] { };
 
             // Update idle tasks, just in case.
             Application.DoEvents();
@@ -211,12 +229,19 @@ namespace WTDE_Launcher_V3.Managers {
             bool shouldPopulate = deConfig.GetInt("Launcher", "PopulateModManager", 1) == 1;
 
             // Yes we can, so let's do it!
-            if (shouldPopulate) { 
+            if (shouldPopulate) {
+
+                Console.WriteLine($"PARSING MODS WITH STATUSES:\nFilter mods? {filterMods}\nFilter type: {filterType}\nFilter text: {filterText.ToLower().Trim()}");
+
                 ModHandler.ReadMods();
 
                 // Just list the items!
                 if (!filterMods) {
                     foreach (string[] mod in ModHandler.UserContentMods) {
+                        var txt = filterText.ToLower().Trim();
+                        if (txt != "") {
+                            if (!mod[filterPropertyIdx].ToLower().Contains(txt)) continue;
+                        }
                         var listViewItem = new ListViewItem(mod);
                         UserContentModsTree.Items.Add(listViewItem);
                     }
@@ -224,7 +249,11 @@ namespace WTDE_Launcher_V3.Managers {
                 // If we made it here, DO NOT just normally list them!
                 // We want to filter them first, so let's do that!
                 } else {
-                    foreach (string[] mod in ModHandler.UserContentMods) { 
+                    foreach (string[] mod in ModHandler.UserContentMods) {
+                        var txt = filterText.ToLower().Trim();
+                        if (txt != "") {
+                            if (!mod[filterPropertyIdx].ToLower().Contains(txt)) continue;
+                        }
                         if (mod[2].ToLower() == filterType.ToLower()) {
                             var listViewItem = new ListViewItem(mod);
                             UserContentModsTree.Items.Add(listViewItem);
@@ -247,6 +276,27 @@ namespace WTDE_Launcher_V3.Managers {
         private void UserContentModsTree_SelectedIndexChanged(object sender, EventArgs e) {
             try {
                 this.SelectedModConfig = UserContentModsTree.SelectedItems[0].SubItems[5].Text;
+
+                // Load selected mod information into the view.
+                INI config = new INI(this.SelectedModConfig);
+
+                // Get its name and other info.
+                string modType = UserContentModsTree.SelectedItems[0].SubItems[2].Text;
+                string modName = config.GetString("ModInfo", "Name", "Unknown Title");
+                string modAuthor = config.GetString("ModInfo", "Author", "Unknown Author");
+                string modVersion = config.GetString("ModInfo", "Version", "N/A");
+                string modDesc = config.GetString("ModInfo", "Description", "No description provided.");
+
+                // Draw the info.
+                SelectedModName.Text = modName;
+                SelectedModAuthor.Text = modAuthor;
+                SelectedModType.Text = modType;
+                SelectedModVersion.Text = modVersion;
+                SelectedModDescription.Text = modDesc;
+
+                // Get INI text!
+                RawModINIText.Lines = File.ReadAllLines(this.SelectedModConfig);
+
             } catch (Exception exc) {
                 V3LauncherCore.DebugLog.Add($"Well, something bad happened: {exc}");
             }
@@ -274,20 +324,14 @@ namespace WTDE_Launcher_V3.Managers {
             string modType = UserContentModsTree.SelectedItems[0].SubItems[2].Text;
             string iniPath = this.SelectedModConfig;
 
-            // WIP, return to this later
-            /*
-            switch (modType) {
-                case "Character":
-                    CharacterModEditor cme = new CharacterModEditor(iniPath);
-                    cme.ShowDialog();
-                    break;
+            bool standardOpen = false;
 
-                default:
-                    Process.Start("notepad.exe", iniPath);
-                    break;
-            }
-            */
-            Process.Start("notepad.exe", iniPath);
+            if (!standardOpen) {
+
+                ModVisualEditor visualEdit = new ModVisualEditor(iniPath, ModHandler.GetTypeFromString(modType));
+                visualEdit.ShowDialog();
+            
+            } else Process.Start("notepad.exe", iniPath);
         }
 
         private void openSelectedModConfigToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -518,6 +562,62 @@ namespace WTDE_Launcher_V3.Managers {
             MessageBox.Show($"GHWT: Definitive Edition Launcher V{V3LauncherConstants.VERSION} - Mod Manager\n\n" +
                             $"Tool for managing mods for GHWT: DE in a simplistic, user-friendly way.\n\n" +
                             $"Tool Coded by IMF24", "About Mod Manager");
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+        // ADVANCED MOD FINDER
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+
+        /// <summary>
+        ///  Run an in-editor advanced find on the set of mods.
+        /// </summary>
+        public void RunAdvancedFilter() {
+            string modNameFilter = ModFilterString.Text;
+            bool anyModType = ModSearchType.Text.Trim() == "Any";
+
+            int searchableIdx = ModSearchPropertyType.SelectedIndex;
+            if (ModSearchPropertyType.SelectedIndex > 1) {
+                searchableIdx += 1;
+            }
+            RefreshModsList(!anyModType, ModSearchType.Text, modNameFilter, searchableIdx);
+        }
+
+        // -- APPLY FILTER
+        private void ApplyModSearch_Click(object sender, EventArgs e) {
+            RunAdvancedFilter();
+        }
+
+        // -- RESET FILTER
+        private void ResetModFilter_Click(object sender, EventArgs e) {
+            ModFilterString.Text = "";
+            ModSearchType.SelectedIndex = 0;
+            RefreshModsList();
+        }
+
+        // -- MOD FILTER TEXT BOX (REAL TIME INPUT)
+        private void ModFilterString_TextChanged(object sender, EventArgs e) {
+            if (RealTimeSearch.Checked) RunAdvancedFilter();
+        }
+
+        // -- OPEN MOD FINDER DIALOG
+        private void ModFinderShortcutButton_Click(object sender, EventArgs e) {
+            ModFinder modFinder = new ModFinder();
+            modFinder.ShowDialog();
+        }
+
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+        // RAW MOD INI FIELD
+        // - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // -- OPEN INI IN NOTEPAD
+        private void CurrentINIOpenInNotepadButton_Click(object sender, EventArgs e) {
+            Process.Start("notepad.exe", this.SelectedModConfig);
+        }
+
+        // -- SAVE INI AND REFRESH
+        private void CurrentINISaveButton_Click(object sender, EventArgs e) {
+            File.WriteAllLines(this.SelectedModConfig, RawModINIText.Lines);
+            RunAdvancedFilter();
         }
     }
 }

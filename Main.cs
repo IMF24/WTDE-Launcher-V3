@@ -86,11 +86,6 @@ namespace WTDE_Launcher_V3.Core {
                 // Set our background image correctly and get the MOTD from the website.
                 BackgroundImage = Properties.Resources.bg_1;
 
-                // Initially boot into the MOTD section.
-                // We should make an INI setting to control the first tab on boot, hm...
-                int defaultTab = int.Parse(INIFunctions.GetINIValue("Launcher", "DefaultTab", "0"));
-                UpdateActiveTab(defaultTab);
-
                 // Remove any auto strum workarounds.
                 RemoveAutoStrumKeys();
 
@@ -137,18 +132,21 @@ namespace WTDE_Launcher_V3.Core {
                     UseMOTDWithImage = false;
                     V3LauncherCore.GetMOTDText(MOTDText);
                 } else {
-                    // HACK: We can use MaximumSize and AutoSize together here
-                    // to trick Windows Forms. It works, though!
-                    // This gives us a scrollable label that looks really clean.
-
-                    // We pull this off by putting a normal label in a panel,
-                    // setting AutoScroll for the panel to be true, and then we
-                    // set the label's maximum size and make it auto resize too.
-                    MOTDLabelImage.MaximumSize = new Size(650, 0);
-                    MOTDLabelImage.AutoSize = true;
-                    
                     V3LauncherCore.GetMOTDText(MOTDLabelImage, UseMOTDWithImage, MOTDImage);
                 }
+
+                // HACK: We can use MaximumSize and AutoSize together here
+                // to trick Windows Forms. It works, though!
+                // This gives us a scrollable label that looks really clean.
+
+                // We pull this off by putting a normal label in a panel,
+                // setting AutoScroll for the panel to be true, and then we
+                // set the label's maximum size and make it auto resize too.
+                MOTDLabelImage.MaximumSize = new Size(650, 0);
+                MOTDLabelImage.AutoSize = true;
+
+                MOTDText.MaximumSize = new Size(650, 0);
+                MOTDText.AutoSize = true;
 
                 // April Fools Day stuff!               
                 if (EnableAFDTheme && !IsFirstBoot) {
@@ -202,7 +200,6 @@ namespace WTDE_Launcher_V3.Core {
                                            "GHWT: DX and Fretworkers are not associated with AlwaysSoft, Inactive Vision Wizard, RedOctave, Beeswax, or Above Ground Deployment in any way, shape, or form.\n" +
                                            "Thank you! GHWT: DX is a project. Yes. A project. That's what it is.";
 
-
                     VersionInfoLabel.Text = $"WTDX Destroyer V{V3LauncherConstants.VERSION} by I.M. Fund 24\nBG Image: Someone Based\nWTDE Latest Version: WTDE is no more";
 
                     // Update the social link button images. Thanks Derpy!
@@ -216,6 +213,12 @@ namespace WTDE_Launcher_V3.Core {
                 } else {
                     BGConstants.AutoDateBackground(this, VersionInfoLabel, WTDELogo);
                 }
+
+                // Initially boot into our preferred tab!
+                // Also ensures we draw the correct MOTD style based on if
+                // we are connected to the internet or not.
+                int defaultTab = int.Parse(INIFunctions.GetINIValue("Launcher", "DefaultTab", "0"));
+                UpdateActiveTab(defaultTab);
 
                 ish.Close();
 

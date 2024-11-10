@@ -259,12 +259,6 @@
     <Compile Include="Managers\ModManagerPluginManager.Designer.cs">
       <DependentUpon>ModManagerPluginManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\ModTypes\CharacterModEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Managers\ModTypes\CharacterModEditor.Designer.cs">
-      <DependentUpon>CharacterModEditor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Managers\ModFinder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +276,12 @@
     </Compile>
     <Compile Include="Managers\ModManager.Designer.cs">
       <DependentUpon>ModManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\ModVisualEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Managers\ModVisualEditor.Designer.cs">
+      <DependentUpon>ModVisualEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\QBScriptEditor.cs">
       <SubType>Form</SubType>
@@ -455,9 +455,6 @@
     <EmbeddedResource Include="Managers\ModManagerPluginManager.resx">
       <DependentUpon>ModManagerPluginManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Managers\ModTypes\CharacterModEditor.resx">
-      <DependentUpon>CharacterModEditor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModFinder.resx">
       <DependentUpon>ModFinder.cs</DependentUpon>
     </EmbeddedResource>
@@ -466,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\ModManager.resx">
       <DependentUpon>ModManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Managers\ModVisualEditor.resx">
+      <DependentUpon>ModVisualEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Managers\QBScriptEditor.resx">
       <DependentUpon>QBScriptEditor.cs</DependentUpon>

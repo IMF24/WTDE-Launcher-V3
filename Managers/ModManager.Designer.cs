@@ -98,6 +98,33 @@
             this.UserEditorsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBarMain = new System.Windows.Forms.StatusStrip();
             this.StatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ModsViewHeader = new System.Windows.Forms.Label();
+            this.InfoHeaderLabel = new System.Windows.Forms.Label();
+            this.ModPropsHeader = new System.Windows.Forms.Label();
+            this.SelModNameLabel = new System.Windows.Forms.Label();
+            this.SelectedModName = new System.Windows.Forms.Label();
+            this.SelModAuthorLabel = new System.Windows.Forms.Label();
+            this.SelectedModAuthor = new System.Windows.Forms.Label();
+            this.SelModVerLabel = new System.Windows.Forms.Label();
+            this.SelectedModVersion = new System.Windows.Forms.Label();
+            this.SelModDescLabel = new System.Windows.Forms.Label();
+            this.SelectedModDescription = new System.Windows.Forms.TextBox();
+            this.SelModTypeLabel = new System.Windows.Forms.Label();
+            this.ResetModFilter = new System.Windows.Forms.Button();
+            this.ApplyModSearch = new System.Windows.Forms.Button();
+            this.ModFilterString = new System.Windows.Forms.TextBox();
+            this.ModFinderShortcutButton = new System.Windows.Forms.Button();
+            this.ModSearchHeader = new System.Windows.Forms.Label();
+            this.ModFilterTypeLabel = new System.Windows.Forms.Label();
+            this.ModSearchType = new System.Windows.Forms.ComboBox();
+            this.RealTimeSearch = new System.Windows.Forms.CheckBox();
+            this.ModFilterPropLabel = new System.Windows.Forms.Label();
+            this.ModSearchPropertyType = new System.Windows.Forms.ComboBox();
+            this.SelectedModType = new System.Windows.Forms.Label();
+            this.ModConfigHeader = new System.Windows.Forms.Label();
+            this.RawModINIText = new System.Windows.Forms.TextBox();
+            this.CurrentINISaveButton = new System.Windows.Forms.Button();
+            this.CurrentINIOpenInNotepadButton = new System.Windows.Forms.Button();
             this.ModTreeContext.SuspendLayout();
             this.ModManagerMenuMain.SuspendLayout();
             this.StatusBarMain.SuspendLayout();
@@ -113,11 +140,11 @@
             this.ModDescription,
             this.ModPath});
             this.UserContentModsTree.ContextMenuStrip = this.ModTreeContext;
-            this.UserContentModsTree.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UserContentModsTree.GridLines = true;
             this.UserContentModsTree.HideSelection = false;
-            this.UserContentModsTree.Location = new System.Drawing.Point(0, 24);
+            this.UserContentModsTree.Location = new System.Drawing.Point(27, 56);
             this.UserContentModsTree.Name = "UserContentModsTree";
-            this.UserContentModsTree.Size = new System.Drawing.Size(1264, 636);
+            this.UserContentModsTree.Size = new System.Drawing.Size(945, 621);
             this.UserContentModsTree.TabIndex = 0;
             this.UserContentModsTree.UseCompatibleStateImageBehavior = false;
             this.UserContentModsTree.View = System.Windows.Forms.View.Details;
@@ -131,7 +158,7 @@
             // ModAuthor
             // 
             this.ModAuthor.Text = "Author";
-            this.ModAuthor.Width = 170;
+            this.ModAuthor.Width = 136;
             // 
             // ModType
             // 
@@ -141,11 +168,12 @@
             // ModVersion
             // 
             this.ModVersion.Text = "Version";
+            this.ModVersion.Width = 58;
             // 
             // ModDescription
             // 
             this.ModDescription.Text = "Description";
-            this.ModDescription.Width = 294;
+            this.ModDescription.Width = 237;
             // 
             // ModPath
             // 
@@ -218,7 +246,7 @@
             this.UserEditorsMenu});
             this.ModManagerMenuMain.Location = new System.Drawing.Point(0, 0);
             this.ModManagerMenuMain.Name = "ModManagerMenuMain";
-            this.ModManagerMenuMain.Size = new System.Drawing.Size(1264, 24);
+            this.ModManagerMenuMain.Size = new System.Drawing.Size(1401, 24);
             this.ModManagerMenuMain.TabIndex = 1;
             this.ModManagerMenuMain.Text = "ModManagerMenuMain";
             // 
@@ -687,9 +715,9 @@
             // 
             this.StatusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabelMain});
-            this.StatusBarMain.Location = new System.Drawing.Point(0, 659);
+            this.StatusBarMain.Location = new System.Drawing.Point(0, 708);
             this.StatusBarMain.Name = "StatusBarMain";
-            this.StatusBarMain.Size = new System.Drawing.Size(1264, 22);
+            this.StatusBarMain.Size = new System.Drawing.Size(1401, 22);
             this.StatusBarMain.TabIndex = 2;
             this.StatusBarMain.Text = "StatusBarMain";
             // 
@@ -700,12 +728,334 @@
             this.StatusLabelMain.Text = "Select a mod from the list or browse the menus to run various other actions or ma" +
     "nagers";
             // 
+            // ModsViewHeader
+            // 
+            this.ModsViewHeader.AutoSize = true;
+            this.ModsViewHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ModsViewHeader.Location = new System.Drawing.Point(14, 40);
+            this.ModsViewHeader.Name = "ModsViewHeader";
+            this.ModsViewHeader.Size = new System.Drawing.Size(93, 13);
+            this.ModsViewHeader.TabIndex = 3;
+            this.ModsViewHeader.Text = "Installed Mods:";
+            // 
+            // InfoHeaderLabel
+            // 
+            this.InfoHeaderLabel.AutoSize = true;
+            this.InfoHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.InfoHeaderLabel.Location = new System.Drawing.Point(6, 24);
+            this.InfoHeaderLabel.Name = "InfoHeaderLabel";
+            this.InfoHeaderLabel.Size = new System.Drawing.Size(520, 13);
+            this.InfoHeaderLabel.TabIndex = 4;
+            this.InfoHeaderLabel.Text = "Mod Manager: Manage your installed mods with ease and extensive customization opt" +
+    "ions.";
+            // 
+            // ModPropsHeader
+            // 
+            this.ModPropsHeader.AutoSize = true;
+            this.ModPropsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ModPropsHeader.Location = new System.Drawing.Point(976, 40);
+            this.ModPropsHeader.Name = "ModPropsHeader";
+            this.ModPropsHeader.Size = new System.Drawing.Size(96, 13);
+            this.ModPropsHeader.TabIndex = 3;
+            this.ModPropsHeader.Text = "Mod Properties:";
+            // 
+            // SelModNameLabel
+            // 
+            this.SelModNameLabel.AutoSize = true;
+            this.SelModNameLabel.Location = new System.Drawing.Point(1023, 61);
+            this.SelModNameLabel.Name = "SelModNameLabel";
+            this.SelModNameLabel.Size = new System.Drawing.Size(38, 13);
+            this.SelModNameLabel.TabIndex = 5;
+            this.SelModNameLabel.Text = "Name:";
+            this.SelModNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SelectedModName
+            // 
+            this.SelectedModName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedModName.ForeColor = System.Drawing.Color.Black;
+            this.SelectedModName.Location = new System.Drawing.Point(1068, 58);
+            this.SelectedModName.Name = "SelectedModName";
+            this.SelectedModName.Size = new System.Drawing.Size(321, 19);
+            this.SelectedModName.TabIndex = 5;
+            this.SelectedModName.Text = "MOD_NAME_HERE";
+            this.SelectedModName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SelModAuthorLabel
+            // 
+            this.SelModAuthorLabel.AutoSize = true;
+            this.SelModAuthorLabel.Location = new System.Drawing.Point(1020, 86);
+            this.SelModAuthorLabel.Name = "SelModAuthorLabel";
+            this.SelModAuthorLabel.Size = new System.Drawing.Size(41, 13);
+            this.SelModAuthorLabel.TabIndex = 5;
+            this.SelModAuthorLabel.Text = "Author:";
+            this.SelModAuthorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SelectedModAuthor
+            // 
+            this.SelectedModAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedModAuthor.ForeColor = System.Drawing.Color.Black;
+            this.SelectedModAuthor.Location = new System.Drawing.Point(1068, 83);
+            this.SelectedModAuthor.Name = "SelectedModAuthor";
+            this.SelectedModAuthor.Size = new System.Drawing.Size(321, 19);
+            this.SelectedModAuthor.TabIndex = 5;
+            this.SelectedModAuthor.Text = "MOD_AUTHOR_HERE";
+            this.SelectedModAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SelModVerLabel
+            // 
+            this.SelModVerLabel.AutoSize = true;
+            this.SelModVerLabel.Location = new System.Drawing.Point(1016, 138);
+            this.SelModVerLabel.Name = "SelModVerLabel";
+            this.SelModVerLabel.Size = new System.Drawing.Size(45, 13);
+            this.SelModVerLabel.TabIndex = 5;
+            this.SelModVerLabel.Text = "Version:";
+            this.SelModVerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SelectedModVersion
+            // 
+            this.SelectedModVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedModVersion.ForeColor = System.Drawing.Color.Black;
+            this.SelectedModVersion.Location = new System.Drawing.Point(1068, 135);
+            this.SelectedModVersion.Name = "SelectedModVersion";
+            this.SelectedModVersion.Size = new System.Drawing.Size(321, 19);
+            this.SelectedModVersion.TabIndex = 5;
+            this.SelectedModVersion.Text = "MOD_VERSION_HERE";
+            this.SelectedModVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SelModDescLabel
+            // 
+            this.SelModDescLabel.AutoSize = true;
+            this.SelModDescLabel.Location = new System.Drawing.Point(998, 163);
+            this.SelModDescLabel.Name = "SelModDescLabel";
+            this.SelModDescLabel.Size = new System.Drawing.Size(63, 13);
+            this.SelModDescLabel.TabIndex = 5;
+            this.SelModDescLabel.Text = "Description:";
+            this.SelModDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SelectedModDescription
+            // 
+            this.SelectedModDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedModDescription.Location = new System.Drawing.Point(1068, 161);
+            this.SelectedModDescription.Multiline = true;
+            this.SelectedModDescription.Name = "SelectedModDescription";
+            this.SelectedModDescription.ReadOnly = true;
+            this.SelectedModDescription.Size = new System.Drawing.Size(321, 148);
+            this.SelectedModDescription.TabIndex = 6;
+            // 
+            // SelModTypeLabel
+            // 
+            this.SelModTypeLabel.AutoSize = true;
+            this.SelModTypeLabel.Location = new System.Drawing.Point(1027, 112);
+            this.SelModTypeLabel.Name = "SelModTypeLabel";
+            this.SelModTypeLabel.Size = new System.Drawing.Size(34, 13);
+            this.SelModTypeLabel.TabIndex = 5;
+            this.SelModTypeLabel.Text = "Type:";
+            this.SelModTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ResetModFilter
+            // 
+            this.ResetModFilter.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.delete_black;
+            this.ResetModFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ResetModFilter.Location = new System.Drawing.Point(386, 681);
+            this.ResetModFilter.Name = "ResetModFilter";
+            this.ResetModFilter.Size = new System.Drawing.Size(23, 23);
+            this.ResetModFilter.TabIndex = 36;
+            this.ResetModFilter.UseVisualStyleBackColor = true;
+            this.ResetModFilter.Click += new System.EventHandler(this.ResetModFilter_Click);
+            // 
+            // ApplyModSearch
+            // 
+            this.ApplyModSearch.BackgroundImage = global::WTDE_Launcher_V3.Properties.Resources.find_tiny;
+            this.ApplyModSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ApplyModSearch.Location = new System.Drawing.Point(363, 681);
+            this.ApplyModSearch.Name = "ApplyModSearch";
+            this.ApplyModSearch.Size = new System.Drawing.Size(23, 23);
+            this.ApplyModSearch.TabIndex = 35;
+            this.ApplyModSearch.UseVisualStyleBackColor = true;
+            this.ApplyModSearch.Click += new System.EventHandler(this.ApplyModSearch_Click);
+            // 
+            // ModFilterString
+            // 
+            this.ModFilterString.Location = new System.Drawing.Point(109, 683);
+            this.ModFilterString.Name = "ModFilterString";
+            this.ModFilterString.Size = new System.Drawing.Size(248, 20);
+            this.ModFilterString.TabIndex = 34;
+            this.ModFilterString.TextChanged += new System.EventHandler(this.ModFilterString_TextChanged);
+            // 
+            // ModFinderShortcutButton
+            // 
+            this.ModFinderShortcutButton.Location = new System.Drawing.Point(831, 681);
+            this.ModFinderShortcutButton.Name = "ModFinderShortcutButton";
+            this.ModFinderShortcutButton.Size = new System.Drawing.Size(141, 23);
+            this.ModFinderShortcutButton.TabIndex = 37;
+            this.ModFinderShortcutButton.Text = "Advanced Find...";
+            this.ModFinderShortcutButton.UseVisualStyleBackColor = true;
+            this.ModFinderShortcutButton.Click += new System.EventHandler(this.ModFinderShortcutButton_Click);
+            // 
+            // ModSearchHeader
+            // 
+            this.ModSearchHeader.AutoSize = true;
+            this.ModSearchHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ModSearchHeader.Location = new System.Drawing.Point(24, 686);
+            this.ModSearchHeader.Name = "ModSearchHeader";
+            this.ModSearchHeader.Size = new System.Drawing.Size(79, 13);
+            this.ModSearchHeader.TabIndex = 3;
+            this.ModSearchHeader.Text = "Mod Search:";
+            // 
+            // ModFilterTypeLabel
+            // 
+            this.ModFilterTypeLabel.AutoSize = true;
+            this.ModFilterTypeLabel.Location = new System.Drawing.Point(415, 686);
+            this.ModFilterTypeLabel.Name = "ModFilterTypeLabel";
+            this.ModFilterTypeLabel.Size = new System.Drawing.Size(34, 13);
+            this.ModFilterTypeLabel.TabIndex = 5;
+            this.ModFilterTypeLabel.Text = "Type:";
+            this.ModFilterTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ModSearchType
+            // 
+            this.ModSearchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ModSearchType.FormattingEnabled = true;
+            this.ModSearchType.Items.AddRange(new object[] {
+            "Any",
+            "Song",
+            "Song Category",
+            "Character",
+            "Instrument",
+            "Highway",
+            "Menu Music",
+            "Venue",
+            "Gem Theme",
+            "Script"});
+            this.ModSearchType.Location = new System.Drawing.Point(453, 682);
+            this.ModSearchType.Name = "ModSearchType";
+            this.ModSearchType.Size = new System.Drawing.Size(91, 21);
+            this.ModSearchType.TabIndex = 38;
+            // 
+            // RealTimeSearch
+            // 
+            this.RealTimeSearch.AutoSize = true;
+            this.RealTimeSearch.Location = new System.Drawing.Point(714, 685);
+            this.RealTimeSearch.Name = "RealTimeSearch";
+            this.RealTimeSearch.Size = new System.Drawing.Size(111, 17);
+            this.RealTimeSearch.TabIndex = 39;
+            this.RealTimeSearch.Text = "Real Time Search";
+            this.RealTimeSearch.UseVisualStyleBackColor = true;
+            // 
+            // ModFilterPropLabel
+            // 
+            this.ModFilterPropLabel.AutoSize = true;
+            this.ModFilterPropLabel.Location = new System.Drawing.Point(554, 686);
+            this.ModFilterPropLabel.Name = "ModFilterPropLabel";
+            this.ModFilterPropLabel.Size = new System.Drawing.Size(49, 13);
+            this.ModFilterPropLabel.TabIndex = 5;
+            this.ModFilterPropLabel.Text = "Property:";
+            this.ModFilterPropLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ModSearchPropertyType
+            // 
+            this.ModSearchPropertyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ModSearchPropertyType.FormattingEnabled = true;
+            this.ModSearchPropertyType.Items.AddRange(new object[] {
+            "Mod Name",
+            "Author",
+            "Version",
+            "Description",
+            "Path"});
+            this.ModSearchPropertyType.Location = new System.Drawing.Point(609, 682);
+            this.ModSearchPropertyType.Name = "ModSearchPropertyType";
+            this.ModSearchPropertyType.Size = new System.Drawing.Size(91, 21);
+            this.ModSearchPropertyType.TabIndex = 38;
+            // 
+            // SelectedModType
+            // 
+            this.SelectedModType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedModType.ForeColor = System.Drawing.Color.Black;
+            this.SelectedModType.Location = new System.Drawing.Point(1068, 109);
+            this.SelectedModType.Name = "SelectedModType";
+            this.SelectedModType.Size = new System.Drawing.Size(321, 19);
+            this.SelectedModType.TabIndex = 40;
+            this.SelectedModType.Text = "MOD_TYPE_HERE";
+            this.SelectedModType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ModConfigHeader
+            // 
+            this.ModConfigHeader.AutoSize = true;
+            this.ModConfigHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.ModConfigHeader.Location = new System.Drawing.Point(976, 318);
+            this.ModConfigHeader.Name = "ModConfigHeader";
+            this.ModConfigHeader.Size = new System.Drawing.Size(77, 13);
+            this.ModConfigHeader.TabIndex = 3;
+            this.ModConfigHeader.Text = "Raw INI File";
+            // 
+            // RawModINIText
+            // 
+            this.RawModINIText.AcceptsReturn = true;
+            this.RawModINIText.AcceptsTab = true;
+            this.RawModINIText.BackColor = System.Drawing.Color.White;
+            this.RawModINIText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RawModINIText.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RawModINIText.Location = new System.Drawing.Point(989, 335);
+            this.RawModINIText.Multiline = true;
+            this.RawModINIText.Name = "RawModINIText";
+            this.RawModINIText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.RawModINIText.Size = new System.Drawing.Size(400, 340);
+            this.RawModINIText.TabIndex = 6;
+            this.RawModINIText.WordWrap = false;
+            // 
+            // CurrentINISaveButton
+            // 
+            this.CurrentINISaveButton.Location = new System.Drawing.Point(1204, 681);
+            this.CurrentINISaveButton.Name = "CurrentINISaveButton";
+            this.CurrentINISaveButton.Size = new System.Drawing.Size(185, 23);
+            this.CurrentINISaveButton.TabIndex = 37;
+            this.CurrentINISaveButton.Text = "Save and Refresh";
+            this.CurrentINISaveButton.UseVisualStyleBackColor = true;
+            this.CurrentINISaveButton.Click += new System.EventHandler(this.CurrentINISaveButton_Click);
+            // 
+            // CurrentINIOpenInNotepadButton
+            // 
+            this.CurrentINIOpenInNotepadButton.Location = new System.Drawing.Point(989, 681);
+            this.CurrentINIOpenInNotepadButton.Name = "CurrentINIOpenInNotepadButton";
+            this.CurrentINIOpenInNotepadButton.Size = new System.Drawing.Size(185, 23);
+            this.CurrentINIOpenInNotepadButton.TabIndex = 41;
+            this.CurrentINIOpenInNotepadButton.Text = "Open in Notepad";
+            this.CurrentINIOpenInNotepadButton.UseVisualStyleBackColor = true;
+            this.CurrentINIOpenInNotepadButton.Click += new System.EventHandler(this.CurrentINIOpenInNotepadButton_Click);
+            // 
             // ModManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1401, 730);
+            this.Controls.Add(this.CurrentINIOpenInNotepadButton);
+            this.Controls.Add(this.SelectedModType);
+            this.Controls.Add(this.RealTimeSearch);
+            this.Controls.Add(this.ModSearchPropertyType);
+            this.Controls.Add(this.ModSearchType);
+            this.Controls.Add(this.CurrentINISaveButton);
+            this.Controls.Add(this.ModFinderShortcutButton);
+            this.Controls.Add(this.ResetModFilter);
+            this.Controls.Add(this.ApplyModSearch);
+            this.Controls.Add(this.ModFilterString);
+            this.Controls.Add(this.RawModINIText);
+            this.Controls.Add(this.SelectedModDescription);
+            this.Controls.Add(this.SelectedModVersion);
+            this.Controls.Add(this.SelModDescLabel);
+            this.Controls.Add(this.ModFilterPropLabel);
+            this.Controls.Add(this.ModFilterTypeLabel);
+            this.Controls.Add(this.SelModTypeLabel);
+            this.Controls.Add(this.SelModVerLabel);
+            this.Controls.Add(this.SelectedModAuthor);
+            this.Controls.Add(this.SelModAuthorLabel);
+            this.Controls.Add(this.SelectedModName);
+            this.Controls.Add(this.SelModNameLabel);
+            this.Controls.Add(this.InfoHeaderLabel);
+            this.Controls.Add(this.ModConfigHeader);
+            this.Controls.Add(this.ModPropsHeader);
+            this.Controls.Add(this.ModSearchHeader);
+            this.Controls.Add(this.ModsViewHeader);
             this.Controls.Add(this.StatusBarMain);
             this.Controls.Add(this.UserContentModsTree);
             this.Controls.Add(this.ModManagerMenuMain);
@@ -801,5 +1151,32 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem wTDEDiscordServerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iMFsGitHubToolStripMenuItem;
+        private System.Windows.Forms.Label ModsViewHeader;
+        private System.Windows.Forms.Label InfoHeaderLabel;
+        private System.Windows.Forms.Label ModPropsHeader;
+        private System.Windows.Forms.Label SelModNameLabel;
+        private System.Windows.Forms.Label SelectedModName;
+        private System.Windows.Forms.Label SelModAuthorLabel;
+        private System.Windows.Forms.Label SelectedModAuthor;
+        private System.Windows.Forms.Label SelModVerLabel;
+        private System.Windows.Forms.Label SelectedModVersion;
+        private System.Windows.Forms.Label SelModDescLabel;
+        private System.Windows.Forms.TextBox SelectedModDescription;
+        private System.Windows.Forms.Label SelModTypeLabel;
+        private System.Windows.Forms.Button ResetModFilter;
+        private System.Windows.Forms.Button ApplyModSearch;
+        private System.Windows.Forms.TextBox ModFilterString;
+        private System.Windows.Forms.Button ModFinderShortcutButton;
+        private System.Windows.Forms.Label ModSearchHeader;
+        private System.Windows.Forms.Label ModFilterTypeLabel;
+        private System.Windows.Forms.ComboBox ModSearchType;
+        private System.Windows.Forms.CheckBox RealTimeSearch;
+        private System.Windows.Forms.Label ModFilterPropLabel;
+        private System.Windows.Forms.ComboBox ModSearchPropertyType;
+        private System.Windows.Forms.Label SelectedModType;
+        private System.Windows.Forms.Label ModConfigHeader;
+        private System.Windows.Forms.TextBox RawModINIText;
+        private System.Windows.Forms.Button CurrentINISaveButton;
+        private System.Windows.Forms.Button CurrentINIOpenInNotepadButton;
     }
 }

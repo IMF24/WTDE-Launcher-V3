@@ -117,7 +117,7 @@ namespace WTDE_Launcher_V3.NX {
             for (var i = 0; i < magics.Length; i++) {
                 if (magic[0] == magics[i][0] && magic[1] == magics[i][1] && magic[2] == magics[i][2]) {
                     ext = exts[i];
-                    V3LauncherCore.AddDebugEntry($"image format is type {ext}", "NXImage");
+                    V3LauncherCore.AddDebugEntry($"Image format is type {ext}", "NXImage");
                     break;
                 }
             }

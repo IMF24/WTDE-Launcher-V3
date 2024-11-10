@@ -175,7 +175,7 @@ namespace WTDE_Launcher_V3.Core {
         ///  The filter you want to find all occurrences of.
         /// </param>
         /// <returns>
-        ///  An array of integer values that contains all of the indices where the filtered string was found.
+        ///  Array of integer values that contains all of the indices where the filtered string was found.
         /// </returns>
         public static int[] GetStringListMatchIndices(IEnumerable<string> values, string filter) {
             // The final index locations!
@@ -199,6 +199,60 @@ namespace WTDE_Launcher_V3.Core {
 
             // Return the final indices as an array of integers!
             return finalIndices.ToArray();
+        }
+
+        /// <summary>
+        ///  Check if two strings are equal in characters. Acts as a mock version of Neversoft's ChecksumEquals CFunc.
+        /// </summary>
+        /// <param name="sumA">
+        ///  First string to compare with.
+        /// </param>
+        /// <param name="sumB">
+        ///  Second string to compare with.
+        /// </param>
+        /// <returns>
+        ///  True if the strings are mostly equivalent, false if not.
+        /// </returns>
+        public static bool ChecksumEquals(string sumA, string sumB) {
+            return sumA.ToLower() == sumB.ToLower();
+        }
+
+        /// <summary>
+        ///  Interpret a value from two collections of values. Raise <see cref="ArgumentException"/> upon mismatched collection sizes.
+        /// </summary>
+        /// <param name="sourceInValue">
+        ///  The input source value.
+        /// </param>
+        /// <param name="inValues">
+        ///  Input collection of values to test the source value against.
+        /// </param>
+        /// <param name="outValues">
+        ///  Output list of values. Value retrieved is whatever is at the same index as the located source value.
+        /// </param>
+        /// <returns>
+        ///  Any generic type T (or <see cref="object"/>) from the provided output value list. The source value (1st argument)
+        ///  is checked against the collection of input values. If the source value is found to be located within the input
+        ///  set of values, it returns the output value at the same index where the source value was found.
+        ///  <br/><br/>
+        ///  It should be noted, however, that if the inValues collection has more than one entry of the source value inside of
+        ///  it, only the first occurrence is used, and any subsequent entries of that value will be ignored entirely.
+        ///  <br/><br/>
+        ///  If the source input value is not found at all in the list of input values, the original source value is given back.
+        /// </returns>
+        /// <exception cref="ArgumentException"/>
+        public static T InterpretValue<T>(T sourceInValue, IEnumerable<T> inValues, IEnumerable<T> outValues) {
+            // Input lengths of inValues and outValues MUST MATCH!
+            // If they do not, throw an exception!
+            if (inValues.Count() != outValues.Count()) { 
+                throw new ArgumentException("Size of input and output value collections do not match.");
+            }           
+
+            // Get index of source input value!
+            int inValIdx = inValues.ToList().IndexOf(sourceInValue);
+
+            // Return its value if it was found!
+            // If not, just return the source input value again.
+            return (inValIdx >= 0) ? outValues.ElementAt(inValIdx) : sourceInValue;
         }
 
         /// <summary>
